@@ -156,7 +156,7 @@ export default function Schedule() {
                     </td>
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-3">
-                        <img src={match.flagUrl} alt="" className="w-6 h-4 object-cover rounded shadow" />
+                        <img src={match.flagUrl} alt="" loading="lazy" decoding="async" className="w-6 h-4 object-cover rounded shadow" />
                         <span className="text-xs font-bold uppercase tracking-tight">{match.opponent}</span>
                       </div>
                     </td>

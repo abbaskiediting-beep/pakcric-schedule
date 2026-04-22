@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pakcric-schedule.online/sitemap.xml

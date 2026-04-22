@@ -74,7 +74,7 @@ export default function Home() {
 
                   <div className="flex flex-col items-center gap-2">
                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 p-1">
-                        <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-full" />
+                        <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
                      </div>
                      <span className="text-xs font-bold uppercase tracking-tighter">{match.opponent.substring(0, 3)}</span>
                   </div>

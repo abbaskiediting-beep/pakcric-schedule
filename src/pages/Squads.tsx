@@ -319,7 +319,7 @@ export default function Squads() {
                     <div className="flex -space-x-4">
                       <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-10">
                         {selectedPlayer.imgUrl ? (
-                          <img src={selectedPlayer.imgUrl} alt={selectedPlayer.name} referrerPolicy="no-referrer" className="w-full h-full object-contain" />
+                          <img src={selectedPlayer.imgUrl} alt={selectedPlayer.name} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-contain" />
                         ) : (
                           <User className="w-8 h-8 text-white opacity-50" />
                         )}
@@ -331,7 +331,7 @@ export default function Squads() {
                           className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-0"
                         >
                           {comparisonPlayer.imgUrl ? (
-                            <img src={comparisonPlayer.imgUrl} alt={comparisonPlayer.name} referrerPolicy="no-referrer" className="w-full h-full object-contain opacity-60" />
+                            <img src={comparisonPlayer.imgUrl} alt={comparisonPlayer.name} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-contain opacity-60" />
                           ) : (
                             <User className="w-8 h-8 text-white opacity-50" />
                           )}
@@ -409,7 +409,7 @@ export default function Squads() {
                         >
                           <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
                              {player.imgUrl ? (
-                               <img src={player.imgUrl} alt={player.name} className="w-full h-full object-contain" />
+                               <img src={player.imgUrl} alt={player.name} loading="lazy" decoding="async" className="w-full h-full object-contain" />
                              ) : (
                                <User className="w-6 h-6 opacity-30" />
                              )}

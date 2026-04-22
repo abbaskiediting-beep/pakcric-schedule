@@ -40,6 +40,8 @@ export default function News() {
                   src={featuredNews.imageUrl || 'https://picsum.photos/seed/latest/1200/800'} 
                   alt={featuredNews.title}
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent lg:hidden" />
@@ -85,6 +87,8 @@ export default function News() {
                   src={item.imageUrl || `https://picsum.photos/seed/${item.id}/800/600`} 
                   alt={item.title}
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card-bg to-transparent" />

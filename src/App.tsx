@@ -33,6 +33,7 @@ const NewsDetail = lazy(() => import('./pages/NewsDetail'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
 
 // Loading component
 const PageLoader = () => (
@@ -87,6 +88,7 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/series/:slug" element={<SeriesDetail />} />
               <Route path="/match/:id" element={<MatchDetail />} />
               <Route path="/blogs" element={<Blogs />} />
@@ -108,6 +110,7 @@ export default function App() {
              <Link to="/about" className="hover:text-white transition-colors">About</Link>
              <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
              <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
              <Link to="/news" className="hover:text-white transition-colors">News</Link>
              <Link to="/blogs" className="hover:text-white transition-colors">Blogs</Link>
           </div>
