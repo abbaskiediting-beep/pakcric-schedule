@@ -20,21 +20,6 @@ export default function PakistanTourBangladeshTestBlog() {
           Red-Ball Revival: Pakistan’s Strategic <span className="text-pak-green">Return to Bangladesh</span> in 2026
         </h1>
 
-        {/* Featured Image Placeholder - User requested to add the image here */}
-        <div className="aspect-video w-full rounded-[40px] overflow-hidden border border-white/10 mb-12 bg-white/5 relative group">
-           <img 
-            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1200" 
-            alt="Pakistan vs Bangladesh Test Series 2026"
-            className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-            referrerPolicy="no-referrer"
-           />
-           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-             <div className="bg-black/60 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10">
-               <p className="text-[10px] font-bold uppercase tracking-widest text-white">Match Preview: 1st Test • May 8, 2026</p>
-             </div>
-           </div>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-white/5 p-6 rounded-3xl border border-white/5">
             <Calendar className="w-5 h-5 text-pak-green mb-3" />

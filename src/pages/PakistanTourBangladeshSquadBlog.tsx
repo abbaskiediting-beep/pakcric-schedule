@@ -20,23 +20,6 @@ export default function PakistanTourBangladeshSquadBlog() {
           Pakistan Tour of Bangladesh 2026: <span className="text-pak-green">Squads and Complete Schedule</span>
         </h1>
 
-        {/* Hero Section */}
-        <div className="aspect-video w-full rounded-[40px] overflow-hidden border border-white/10 mb-12 bg-white/5 relative group">
-           <img 
-            src="https://images.unsplash.com/photo-1540747913346-19e3adbb15c3?auto=format&fit=crop&q=80&w=1200" 
-            alt="Pakistan Cricket Team Squad"
-            className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-            referrerPolicy="no-referrer"
-           />
-           <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
-           <div className="absolute bottom-8 left-8 right-8">
-             <div className="inline-flex items-center gap-2 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-               <Shield className="w-3 h-3 text-pak-green" />
-               <span className="text-[10px] font-bold uppercase tracking-widest text-white">Full Tour Overview</span>
-             </div>
-           </div>
-        </div>
-
         <div className="prose prose-invert max-w-none">
           <p className="text-lg text-ink/80 leading-relaxed mb-8">
             As the cricketing world turns its attention to the red-ball format, Pakistan is set for a high-stakes two-Test series in Bangladesh this May. This series is a pivotal part of the 2025–2027 World Test Championship, with both teams eager to climb the standings in what is expected to be a classic subcontinental battle.

@@ -29,27 +29,18 @@ export default function PakistanNextTourDetails() {
       <motion.article 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl"
+        className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl p-8 md:p-12"
       >
-        <div className="h-64 md:h-96 w-full relative overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1540747913346-19e3adbb15c3?auto=format&fit=crop&q=80&w=1200" 
-            alt="Cricket Stadium" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block">
-              2026 Tour Forecast
-            </span>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none">
-              Pakistan Next Tour Details
-            </h1>
-          </div>
+        <div className="mb-12">
+          <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block">
+            2026 Tour Forecast
+          </span>
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none">
+            Pakistan Next Tour Details
+          </h1>
         </div>
 
-        <div className="p-8 md:p-12 space-y-12">
+        <div className="space-y-12">
           {/* Section 1: The Destination */}
           <section className="prose prose-invert max-w-none">
             <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight flex items-center gap-3">

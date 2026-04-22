@@ -11,7 +11,6 @@ const BLOG_POSTS = [
     path: '/pakistan-tour-bangladesh-test-2026',
     icon: Calendar,
     color: 'text-pak-green',
-    image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'pakistan-tour-bangladesh-squad-2026',
@@ -21,7 +20,6 @@ const BLOG_POSTS = [
     path: '/pakistan-tour-bangladesh-squad-2026',
     icon: Users,
     color: 'text-teal-500',
-    image: 'https://images.unsplash.com/photo-1540747913346-19e3adbb15c3?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'pakistan-vs-bangladesh-2026-schedule',
@@ -31,7 +29,6 @@ const BLOG_POSTS = [
     path: '/pakistan-vs-bangladesh-2026-schedule',
     icon: Calendar,
     color: 'text-pak-green',
-    image: 'https://picsum.photos/seed/pakban2026/800/600'
   },
   {
     id: 'pakistan-next-tour-details',
@@ -41,7 +38,6 @@ const BLOG_POSTS = [
     path: '/pakistan-next-tour-details',
     icon: Trophy,
     color: 'text-yellow-500',
-    image: 'https://images.unsplash.com/photo-1540747913346-19e3adbb15c3?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'pakistan-upcoming-series-full-schedule',
@@ -51,7 +47,6 @@ const BLOG_POSTS = [
     path: '/pakistan-upcoming-series-full-schedule',
     icon: BookOpen,
     color: 'text-blue-500',
-    image: 'https://picsum.photos/seed/upcoming/800/600'
   }
 ];
 
@@ -80,18 +75,6 @@ export default function Blogs() {
             transition={{ delay: idx * 0.1 }}
             className="group relative bg-card-bg border border-card-border rounded-[32px] overflow-hidden hover:border-white/20 transition-all flex flex-col h-full"
           >
-            <div className="h-48 overflow-hidden relative grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
-              <img 
-                src={post.image} 
-                alt={post.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-card-bg to-transparent" />
-            </div>
-            
             <div className="p-8 flex flex-col flex-grow">
               <div className="flex items-center gap-3 mb-4">
                 <div className={`p-2 rounded-lg bg-white/5 ${post.color}`}>

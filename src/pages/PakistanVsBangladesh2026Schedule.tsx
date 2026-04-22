@@ -21,28 +21,19 @@ export default function PakistanVsBangladesh2026Schedule() {
       <motion.article 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl"
+        className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl p-8 md:p-12"
       >
-        <div className="h-64 md:h-96 w-full relative overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1200" 
-            alt="Pakistan vs Bangladesh 1st Test 2026 Preview" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block shadow-lg shadow-pak-green/20">
-              Red-Ball Revival
-            </span>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-2">
-              Pakistan tour of Bangladesh 2026
-            </h1>
-            <p className="text-pak-green font-bold text-xs uppercase tracking-widest">1st Test: Dhaka • May 8 – May 12</p>
-          </div>
+        <div className="mb-12">
+          <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block shadow-lg shadow-pak-green/20">
+            Red-Ball Revival
+          </span>
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-2">
+            Pakistan tour of Bangladesh 2026
+          </h1>
+          <p className="text-pak-green font-bold text-xs uppercase tracking-widest">1st Test: Dhaka • May 8 – May 12</p>
         </div>
 
-        <div className="p-8 md:p-12 space-y-12">
+        <div className="space-y-12">
           {/* Intro */}
           <div className="prose prose-invert max-w-none">
             <p className="text-xl text-white font-medium leading-relaxed mb-8 italic border-l-4 border-pak-green pl-6">
