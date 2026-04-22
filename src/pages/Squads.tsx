@@ -76,13 +76,29 @@ export default function Squads() {
 
   const availableComparisonPlayers = useMemo(() => {
     if (!selectedPlayer) return [];
-    const allPlayers = ALL_SQUADS.flatMap(s => s.players);
-    // Remove duplicates and the current player
-    const uniquePlayers = Array.from(new Map(allPlayers.map(p => [p.name, p])).values());
-    return uniquePlayers.filter(p => 
-      p.name !== selectedPlayer.name && 
-      p.name.toLowerCase().includes(compSearchTerm.toLowerCase())
-    );
+    
+    // Get all player names present in any squad
+    const allSquadPlayerNames = Array.from(new Set(ALL_SQUADS.flatMap(s => s.players.map(p => p.name))));
+    
+    // Filter and map to detailed Player objects from PLAYER_STATS
+    return allSquadPlayerNames
+      .filter(name => name !== selectedPlayer.name && name.toLowerCase().includes(compSearchTerm.toLowerCase()))
+      .map(name => {
+        const stats = PLAYER_STATS[name];
+        if (stats) return stats;
+        
+        // Fallback for players without detailed stats yet
+        return {
+          name,
+          role: 'Stats Not Available',
+          stats: {
+            matches: 0,
+            avg: 0,
+            sr: 0,
+            recentForm: []
+          }
+        };
+      });
   }, [selectedPlayer, compSearchTerm]);
 
   const toggleSeries = (series: string) => {
@@ -243,7 +259,7 @@ export default function Squads() {
                          
                          {/* Form Dots */}
                         <div className="flex gap-1 ml-2">
-                          {PLAYER_STATS[player.name]?.stats.recentForm.slice(0, 5).map((result, i) => (
+                          {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
                             <div 
                               key={i} 
                               className={`w-1.5 h-1.5 rounded-full border border-black/20 shadow-sm ${getFormColor(result, PLAYER_STATS[player.name]?.role || 'Batter')}`}

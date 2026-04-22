@@ -4,9 +4,29 @@ import { BookOpen, Calendar, ArrowUpRight, Trophy, Users } from 'lucide-react';
 
 const BLOG_POSTS = [
   {
+    id: 'pakistan-tour-bangladesh-test-2026',
+    title: 'Red-Ball Revival: Pakistan’s Strategic Return to Bangladesh in 2026',
+    summary: 'A detailed look at the 1st Test in Dhaka, tactical battles, and the WTC significance.',
+    date: 'April 2026',
+    path: '/pakistan-tour-bangladesh-test-2026',
+    icon: Calendar,
+    color: 'text-pak-green',
+    image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: 'pakistan-tour-bangladesh-squad-2026',
+    title: 'Pakistan Tour of Bangladesh 2026: Squads & Schedule',
+    summary: 'The PCB announces a 16-member squad led by Shan Masood with 4 uncapped players.',
+    date: 'April 2026',
+    path: '/pakistan-tour-bangladesh-squad-2026',
+    icon: Users,
+    color: 'text-teal-500',
+    image: 'https://images.unsplash.com/photo-1540747913346-19e3adbb15c3?auto=format&fit=crop&q=80&w=800'
+  },
+  {
     id: 'pakistan-vs-bangladesh-2026-schedule',
-    title: 'Pakistan vs Bangladesh 2026 Schedule - Full Match List',
-    summary: 'Everything you need to know about the upcoming 2026 Test series in Bangladesh. Venues, dates, and match timings.',
+    title: 'Pakistan vs Bangladesh 2026 Schedule - Match Details',
+    summary: 'Full list of fixtures, venues, and timings for the upcoming Test series.',
     date: 'April 2026',
     path: '/pakistan-vs-bangladesh-2026-schedule',
     icon: Calendar,

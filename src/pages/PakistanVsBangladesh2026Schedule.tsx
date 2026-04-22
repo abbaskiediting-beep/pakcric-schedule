@@ -25,123 +25,113 @@ export default function PakistanVsBangladesh2026Schedule() {
       >
         <div className="h-64 md:h-96 w-full relative overflow-hidden">
           <img 
-            src="https://picsum.photos/seed/pakban2026/1200/600" 
-            alt="Pakistan vs Bangladesh 2026 match" 
+            src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1200" 
+            alt="Pakistan vs Bangladesh 1st Test 2026 Preview" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
           <div className="absolute bottom-8 left-8 right-8">
-            <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block">
-              Exclusive Tour Guide
+            <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block shadow-lg shadow-pak-green/20">
+              Red-Ball Revival
             </span>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none">
-              Pakistan vs Bangladesh 2026 Schedule
+            <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-2">
+              Pakistan tour of Bangladesh 2026
             </h1>
+            <p className="text-pak-green font-bold text-xs uppercase tracking-widest">1st Test: Dhaka • May 8 – May 12</p>
           </div>
         </div>
 
         <div className="p-8 md:p-12 space-y-12">
           {/* Intro */}
           <div className="prose prose-invert max-w-none">
-            <p className="text-lg text-ink/80 leading-relaxed">
-              Cricket enthusiasts are setting their sights on 2026, as the <strong>Pakistan vs Bangladesh 2026 test schedule details</strong> have been unveiled. This high-octane series is set to redefine the competitive landscape of the ICC World Test Championship, featuring a 2-match series that tests the grit and determination of both teams.
+            <p className="text-xl text-white font-medium leading-relaxed mb-8 italic border-l-4 border-pak-green pl-6">
+              The first Test match between Pakistan and Bangladesh in 2026 is scheduled to begin on 8 May 2026 at the Sher-e-Bangla National Cricket Stadium in Dhaka. This match is the opening fixture of a two-Test series, which forms part of the ICC World Test Championship (WTC) cycle.
             </p>
-            <p className="text-ink/60 leading-relaxed italic">
-              "Every session in a subcontinental Test is a story of survival and strategy. According to given data in past tours, Bangladesh becomes a fortress for spinners, making the <strong>Pakistan vs Bangladesh 2026 test schedule details</strong> a must-watch for traditional cricket lovers."
+            <p className="text-lg text-ink/80 leading-relaxed">
+              The cricketing calendar for 2026 is already delivering high-stakes drama, and few encounters carry as much weight for regional pride and World Test Championship (WTC) points as the upcoming clash between Pakistan and Bangladesh. Following a spirited white-ball leg in March, the two nations are set to transition into the rigorous demands of Test cricket this May.
             </p>
           </div>
 
-          {/* Full Schedule Table */}
-          <section>
-            <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight mb-6 flex items-center gap-3">
+          {/* Schedule Summary Card */}
+          <div className="bg-white/5 border border-white/10 rounded-[32px] p-8">
+            <h2 className="text-xl font-display font-bold text-white uppercase tracking-tight mb-6 flex items-center gap-3">
               <Calendar className="w-6 h-6 text-pak-green" />
-              Pakistan vs Bangladesh 2026 Test Schedule Details
+              The Venue and Dates
             </h2>
-            
-            <div className="overflow-x-auto rounded-3xl border border-white/10 bg-white/5">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="p-4 text-[10px] font-bold uppercase tracking-widest text-neutral-500">Match</th>
-                    <th className="p-4 text-[10px] font-bold uppercase tracking-widest text-neutral-500">Date</th>
-                    <th className="p-4 text-[10px] font-bold uppercase tracking-widest text-neutral-500">Time (PKT)</th>
-                    <th className="p-4 text-[10px] font-bold uppercase tracking-widest text-neutral-500">Venue</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {matches.map((match, idx) => (
-                    <tr key={match.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                      <td className="p-4">
-                        <div className="text-sm font-bold text-white">Test Match #{idx + 1}</div>
-                        <div className="text-[10px] text-ink/40 uppercase">PAK vs BAN</div>
-                      </td>
-                      <td className="p-4 text-xs text-white/80">{match.date}</td>
-                      <td className="p-4 text-xs text-white/80 font-mono tracking-tighter">{match.time}</td>
-                      <td className="p-4 text-xs text-white/80">{match.venue}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* Venue Insights */}
-          <section className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/5 border border-white/5 rounded-3xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-5 h-5 text-pak-green" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Dhaka Experience</h3>
+            <p className="text-ink/60 mb-8 leading-relaxed">
+              The first Test will be hosted at the iconic Sher-e-Bangla National Cricket Stadium in Mirpur, Dhaka. Often referred to as the "Home of Cricket" in Bangladesh, this venue is renowned for its spin-friendly tracks and passionate atmosphere, making it a formidable challenge for any visiting side.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Match</p>
+                <p className="text-sm font-bold text-white uppercase">1st Test, Pakistan tour of Bangladesh</p>
               </div>
-              <p className="text-xs text-ink/60 leading-relaxed">
-                The Sher-e-Bangla National Stadium is historically known for its low-bounce tracks. As part of the <strong>Pakistan vs Bangladesh 2026 test schedule details</strong>, the Dhaka Test will likely favor skilled spin play and patience from the top-order batters.
-              </p>
-            </div>
-            <div className="bg-white/5 border border-white/5 rounded-3xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-5 h-5 text-pak-green" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Chattogram Decider</h3>
+              <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Dates</p>
+                <p className="text-sm font-bold text-white uppercase">8 May – 12 May 2026</p>
               </div>
-              <p className="text-xs text-ink/60 leading-relaxed">
-                Zahur Ahmed Chowdhury Stadium often offers slightly more pace in the first few sessions but quickly breaks down. The <strong>Pakistan vs Bangladesh 2026 test schedule details</strong> place the series finale here, ensuring a dramatic conclusion.
-              </p>
+              <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Venue</p>
+                <p className="text-sm font-bold text-white uppercase">Mirpur, Dhaka</p>
+              </div>
+              <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Format</p>
+                <p className="text-sm font-bold text-white uppercase">2-match Test series (ICC WTC)</p>
+              </div>
             </div>
-          </section>
+          </div>
 
-          {/* Squad Overview */}
+          <div className="prose prose-invert max-w-none">
+            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6">A Two-Phase Tour</h2>
+            <p className="text-ink/70 leading-relaxed">
+              The 2026 tour was strategically split into two distinct phases to accommodate a packed international schedule. The first phase concluded in March with a three-match ODI series, where Bangladesh secured a 2–1 victory. The upcoming Test leg, beginning on 8 May, marks the second phase, following the conclusion of the Pakistan Super League (PSL).
+            </p>
+
+            <h2 className="text-3xl font-display font-bold text-pak-green uppercase tracking-tighter mt-12 mb-6">Strategic Significance: The WTC Factor</h2>
+            <p className="text-ink/70 leading-relaxed">
+              This series is more than just a bilateral contest; it is a critical juncture for both teams in the ICC World Test Championship standings. For Pakistan, winning away from home is essential to maintain a path toward the WTC final. For Bangladesh, securing points against a major Asian power at home would be a massive statement of their growing stature in the longest format of the game.
+            </p>
+          </div>
+
+          {/* Key Battles */}
           <section className="space-y-6">
             <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight flex items-center gap-3">
               <Users className="w-6 h-6 text-pak-green" />
-              Squad Overview
+              Key Battles to Watch
             </h2>
-            <div className="prose prose-invert max-w-none">
-              <p className="text-ink/60 leading-relaxed text-sm">
-                While official squads are locked in closer to the series, insiders suggest Pakistan will lean heavily on their experienced pace battery. Bangladesh, on the other hand, is expected to trial 3-4 young spinners to complement their veterans. The <strong>Pakistan vs Bangladesh 2026 test schedule details</strong> emphasize team depth as the series progresses.
-              </p>
-              <ul className="grid grid-cols-2 gap-4 text-xs text-ink/80 list-none p-0">
-                <li className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                  <span className="text-pak-green font-bold block mb-1">PAK Potential Lead</span>
-                  Shaheen Afridi, Babar Azam, Mohammad Rizwan
-                </li>
-                <li className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                  <span className="text-teal-500 font-bold block mb-1">BAN Potential Lead</span>
-                  Shakib Al Hasan, Litton Das, Mehidy Hasan Miraz
-                </li>
-              </ul>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.08] transition-all">
+                <h3 className="text-lg font-bold text-white uppercase mb-4 flex items-center gap-2">
+                  Spin vs. Technique
+                </h3>
+                <p className="text-xs text-ink/60 leading-relaxed">
+                  Bangladesh will likely deploy a heavy spin arsenal, led by the likes of Mehidy Hasan Miraz and Rishad Hossain. Pakistan’s batters will need to rely on their sweep shots and footwork to negotiate the low bounce and sharp turn of the Mirpur pitch.
+                </p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.08] transition-all">
+                <h3 className="text-lg font-bold text-white uppercase mb-4 flex items-center gap-2">
+                  Pace Battery
+                </h3>
+                <p className="text-xs text-ink/60 leading-relaxed">
+                  While Mirpur is known for spin, the early sessions often offer something for the quicks. Shaheen Afridi and Haris Rauf will be looking to exploit any early moisture, while Bangladesh’s Nahid Rana—the Player of the Match in the March ODI series—will aim to replicate his express pace success in red-ball whites.
+                </p>
+              </div>
             </div>
           </section>
 
-          {/* Strategy Section */}
           <div className="prose prose-invert max-w-none pt-4 border-t border-white/10">
-            <h3 className="text-xl font-display font-bold text-white uppercase mb-4 flex items-center gap-2">
-              <Info className="w-5 h-5 text-pak-green" />
-              Tactical Analysis
-            </h3>
-            <p className="text-ink/60 leading-relaxed">
-              Detailed analysis of the <strong>Pakistan vs Bangladesh 2026 test schedule details</strong> reveals a tight window between matches. For the visitors, recovery will be paramount. Pakistan's traditional strength in reverse swing could be the X-factor if the heat remains high in Dhaka during May.
+            <h2 className="text-2xl font-display font-bold text-white uppercase mb-4">Experienced Leadership</h2>
+            <p className="text-ink/70 leading-relaxed mb-8">
+              The series will test the tactical acumen of both captains. Navigating five days of shifting momentum in humid conditions requires mental fortitude and precise field placements.
             </p>
-            <p className="text-ink/60 leading-relaxed">
-              In conclusion, the <strong>Pakistan vs Bangladesh 2026 test schedule details</strong> confirm that fans should expect nothing less than clinical cricket. We will continue to update our database with toss results and session-by-session highlights once the series goes live.
+
+            <h2 className="text-2xl font-display font-bold text-white uppercase mb-4">Preparation and Momentum</h2>
+            <p className="text-ink/70 leading-relaxed">
+              Both teams enter this Test series with fresh data from their recent encounters. Although the ODIs went in favor of Bangladesh, Test cricket is a different beast entirely. The Pakistan national selection committee has already named a 16-member squad aimed at balancing youth and experience for these subcontinent conditions.
+            </p>
+            <p className="text-ink/60 leading-relaxed mt-8 italic">
+              As the teams prepare to take the field on 8 May, fans across the globe are bracing for five days of attrition, skill, and subcontinental flair. Whether the "Green Shirts" can dominate or the "Tigers" defend their turf remains the burning question of the season.
             </p>
           </div>
         </div>

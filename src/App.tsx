@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Nav from './components/Nav';
@@ -22,6 +22,8 @@ import SeriesDetail from './pages/SeriesDetail';
 import MatchDetail from './pages/MatchDetail';
 import Blogs from './pages/Blogs';
 import PakistanVsBangladesh2026Schedule from './pages/PakistanVsBangladesh2026Schedule';
+import PakistanTourBangladeshTestBlog from './pages/PakistanTourBangladeshTestBlog';
+import PakistanTourBangladeshSquadBlog from './pages/PakistanTourBangladeshSquadBlog';
 import UpcomingSeriesArticle from './pages/UpcomingSeriesArticle';
 import PakistanNextTourDetails from './pages/PakistanNextTourDetails';
 import News from './pages/News';
@@ -79,6 +81,8 @@ export default function App() {
             <Route path="/match/:id" element={<MatchDetail />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
+            <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />
+            <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
             <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
             <Route path="/pakistan-next-tour-details" element={<PakistanNextTourDetails />} />
           </Routes>
@@ -90,14 +94,14 @@ export default function App() {
              <span>© 2026 Official Fan Portal</span>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-             <a href="/about" className="hover:text-white transition-colors">About</a>
-             <a href="/contact" className="hover:text-white transition-colors">Contact</a>
-             <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
-             <a href="/news" className="hover:text-white transition-colors">News</a>
-             <a href="/blogs" className="hover:text-white transition-colors">Blogs</a>
-             <a href="/pakistan-vs-bangladesh-2026-schedule" className="hover:text-white transition-colors whitespace-nowrap">PAK vs BAN 2026 Schedule</a>
-             <a href="/pakistan-upcoming-series-full-schedule" className="hover:text-white transition-colors whitespace-nowrap">Upcoming Series Full Schedule</a>
-             <a href="/pakistan-next-tour-details" className="hover:text-white transition-colors whitespace-nowrap">Pakistan Next Tour Details</a>
+             <Link to="/about" className="hover:text-white transition-colors">About</Link>
+             <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
+             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+             <Link to="/news" className="hover:text-white transition-colors">News</Link>
+             <Link to="/blogs" className="hover:text-white transition-colors">Blogs</Link>
+             <Link to="/pakistan-vs-bangladesh-2026-schedule" className="hover:text-white transition-colors whitespace-nowrap">PAK vs BAN 2026 Schedule</Link>
+             <Link to="/pakistan-upcoming-series-full-schedule" className="hover:text-white transition-colors whitespace-nowrap">Upcoming Series Full Schedule</Link>
+             <Link to="/pakistan-next-tour-details" className="hover:text-white transition-colors whitespace-nowrap">Pakistan Next Tour Details</Link>
           </div>
           <div className="flex gap-6">
              <a href="#" className="hover:text-white transition-colors">Twitter</a>
