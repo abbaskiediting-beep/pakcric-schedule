@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -30,6 +31,4 @@
     @apply bg-bg text-ink antialiased transition-colors duration-300;
   }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
 

@@ -50,7 +50,7 @@ export default function Home() {
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex flex-col items-center gap-2">
                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 p-1">
-                        <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-full" />
+                        <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
                      </div>
                      <span className="text-xs font-bold uppercase tracking-tighter">PAK</span>
                   </div>
@@ -144,13 +144,13 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="flex items-center gap-8 order-2 md:order-1">
                  <div className="w-24 h-24 rounded-full border-4 border-white/10 p-2 overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm">
-                    <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-full" />
+                    <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" decoding="async" className="w-full h-full object-cover rounded-full" />
                  </div>
                  <div className="text-center">
                     <span className="text-5xl font-display font-bold text-white/20 italic">VS</span>
                  </div>
                  <div className="w-24 h-24 rounded-full border-4 border-white/10 p-2 overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm">
-                    <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-full" />
+                    <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" decoding="async" className="w-full h-full object-cover rounded-full" />
                  </div>
               </div>
 
