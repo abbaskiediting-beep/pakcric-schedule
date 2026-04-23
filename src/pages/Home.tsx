@@ -17,22 +17,22 @@ export default function Home() {
   return (
     <div className="container mx-auto px-6 py-8">
       <Helmet>
-        <title>Pakistan Cricket Schedule 2026 | Matches, Fixtures & Updates</title>
-        <meta name="description" content="Check Pakistan cricket schedule 2026, upcoming matches, series details, match timings, venues and latest updates. Stay updated with all Pakistan cricket fixtures." />
-        <meta name="keywords" content="Pakistan cricket schedule, Pakistan matches 2026, Pakistan fixtures, upcoming matches Pakistan" />
+        <title>Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates</title>
+        <meta name="description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates. Stay updated with Pakistan cricket." />
+        <meta name="keywords" content="Pakistan cricket schedule, Pakistan matches 2026, Pakistan fixtures, upcoming matches Pakistan, cricket schedule updates" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pakcric-schedule.online/" />
-        <meta property="og:title" content="Pakistan Cricket Schedule 2026 | Matches, Fixtures & Updates" />
-        <meta property="og:description" content="Get the full Pakistan cricket schedule for 2026. Lives scores, series details, and match timings for all upcoming fixtures." />
+        <meta property="og:title" content="Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates" />
+        <meta property="og:description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://pakcric-schedule.online/" />
-        <meta property="twitter:title" content="Pakistan Cricket Schedule 2026 | Matches, Fixtures & Updates" />
-        <meta property="twitter:description" content="Get the full Pakistan cricket schedule for 2026. Lives scores, series details, and match timings for all upcoming fixtures." />
+        <meta property="twitter:title" content="Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates" />
+        <meta property="twitter:description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates." />
         <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
 
         <script type="application/ld+json">

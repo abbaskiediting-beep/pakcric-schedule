@@ -1,5 +1,5 @@
-import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -15,7 +15,7 @@ export default function Schedule() {
   const [searchQuery, setSearchQuery] = useState('');
 
   // Extract all available formats
-  const formats = ['All', ...new Set(PAKISTAN_SCHEDULE.map(m => m.format))];
+  const formats = ['All', ...Array.from(new Set(PAKISTAN_SCHEDULE.map(m => m.format)))];
 
   const filteredAndSortedMatches = useMemo(() => {
     let result = [...PAKISTAN_SCHEDULE];
@@ -36,15 +36,15 @@ export default function Schedule() {
 
     // Sort
     result.sort((a, b) => {
-      let valA = a[sortKey];
-      let valB = b[sortKey];
-      
       if (sortKey === 'date') {
-        const dateA = new Date(a.date).getTime();
-        const dateB = new Date(b.date).getTime();
+        const dateA = new Date(a.date.includes('–') ? a.date.split('–')[0] + ' ' + a.date.split(' ').pop() : a.date).getTime();
+        const dateB = new Date(b.date.includes('–') ? b.date.split('–')[0] + ' ' + b.date.split(' ').pop() : b.date).getTime();
         return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
       }
 
+      const valA = a[sortKey].toLowerCase();
+      const valB = b[sortKey].toLowerCase();
+      
       if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
       if (valA > valB) return sortOrder === 'asc' ? 1 : -1;
       return 0;
@@ -65,177 +65,214 @@ export default function Schedule() {
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Pakistan Match Schedule 2026 | Full Fixtures & Timings</title>
-        <meta name="description" content="Explore Pakistan match schedule 2026 with full fixtures, match dates, timings and venues. Get complete Pakistan cricket schedule in one place." />
-        <meta name="keywords" content="Pakistan match schedule, Pakistan fixtures 2026, cricket schedule Pakistan, Pakistan upcoming matches" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pakcric-schedule.online/schedule" />
-        <meta property="og:title" content="Pakistan Match Schedule 2026 | Full Fixtures & Timings" />
-        <meta property="og:description" content="Explore the complete Pakistan match schedule for 2026. Dates, venues, and timings for all Test, ODI and T20 series." />
-        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://pakcric-schedule.online/schedule" />
-        <meta property="twitter:title" content="Pakistan Match Schedule 2026 | Full Fixtures & Timings" />
-        <meta property="twitter:description" content="Explore the complete Pakistan match schedule for 2026. Dates, venues, and timings for all Test, ODI and T20 series." />
-        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
-
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://pakcric-schedule.online/"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Schedule",
-                  "item": "https://pakcric-schedule.online/schedule"
-                }
-              ]
-            }
-          `}
-        </script>
+        <title>Pakistan Match Schedule 2026 | Full Fixtures & Match Timings</title>
+        <meta name="description" content="Official Pakistan cricket schedule 2026. View all upcoming fixtures, match dates, Pakistan time (PST), and international venues in one structured table." />
       </Helmet>
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+
+      {/* Header Section */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-4">
-            <ArrowLeft className="w-4 h-4" /> Home
+          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4">
+            <ArrowLeft className="w-4 h-4" /> Back to Dashboard
           </Link>
-          <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-2">
-            Match <span className="text-white">Schedule</span>
+          <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">
+            Tournament <span className="text-pak-green">Schedule</span>
           </h1>
-          <p className="text-ink/40 font-bold uppercase tracking-widest text-[10px]">International Fixtures Roadmap 2026</p>
+          <div className="flex items-center gap-4">
+            <div className="px-4 py-1.5 rounded-full bg-pak-green text-white text-[10px] font-bold uppercase tracking-[2px]">
+              Season 2026
+            </div>
+            <p className="text-ink/40 font-bold uppercase tracking-widest text-[10px] border-l border-card-border pl-4">
+              {filteredAndSortedMatches.length} Total Fixtures
+            </p>
+          </div>
         </motion.div>
 
-        {/* Filters and Search */}
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="relative group">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-ink/40 group-focus-within:text-white transition-colors" />
+        {/* Global Controls */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          <div className="relative group w-full md:w-80">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
             <input 
               type="text" 
-              placeholder="Search Opponent / Venue..."
+              placeholder="Filter by Team or Venue..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-card-bg border border-card-border rounded-2xl py-3 pl-10 pr-6 text-xs font-bold uppercase tracking-tight focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all w-full md:w-64"
+              className="bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-6 text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 focus:ring-1 focus:ring-pak-green/20 transition-all w-full text-ink shadow-sm"
             />
-          </div>
-
-          <div className="flex items-center gap-2 bg-card-bg border border-card-border rounded-2xl p-1">
-             {formats.map(f => (
-               <button
-                 key={f}
-                 onClick={() => setFilterFormat(f)}
-                 className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all ${
-                   filterFormat === f ? 'bg-white text-black shadow-lg' : 'text-ink/40 hover:text-white'
-                 }`}
-               >
-                 {f}
-               </button>
-             ))}
           </div>
         </div>
       </div>
 
-      {/* Schedule Table */}
-      <div className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+      {/* Format Filter Bar */}
+      <div className="flex flex-wrap items-center gap-2 mb-8 bg-card-bg/50 p-2 rounded-[24px] border border-card-border w-fit">
+        {formats.map(f => (
+          <button
+            key={f}
+            onClick={() => setFilterFormat(f)}
+            className={`px-8 py-2.5 rounded-2xl text-[10px] font-bold uppercase tracking-[2px] transition-all ${
+              filterFormat === f 
+                ? 'bg-pak-green text-white shadow-xl scale-105' 
+                : 'text-ink/40 hover:text-ink hover:bg-white/5'
+            }`}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+
+      {/* Structured Schedule Container */}
+      <div className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl relative">
+        <div className="overflow-x-auto custom-scrollbar">
+          <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
-              <tr className="bg-white/5 border-b border-white/5">
-                <th className="px-8 py-6 cursor-pointer group" onClick={() => handleSort('date')}>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[2px] text-white">
-                    Date <ArrowUpDown className="w-3 h-3 opacity-30 group-hover:opacity-100 transition-opacity" />
+              <tr className="bg-white/5 border-b border-card-border">
+                <th className="px-8 py-8 cursor-pointer group" onClick={() => handleSort('date')}>
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
+                    Full Date <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'date' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-6 cursor-pointer group" onClick={() => handleSort('series')}>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[2px] text-white">
-                    Series <ArrowUpDown className="w-3 h-3 opacity-30 group-hover:opacity-100 transition-opacity" />
+                <th className="px-8 py-8 cursor-pointer group" onClick={() => handleSort('opponent')}>
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
+                    Opposition <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'opponent' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-6 cursor-pointer group" onClick={() => handleSort('opponent')}>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[2px] text-white">
-                    Opponent <ArrowUpDown className="w-3 h-3 opacity-30 group-hover:opacity-100 transition-opacity" />
-                  </div>
+                <th className="px-8 py-8">
+                  <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Format & Series</div>
                 </th>
-                <th className="px-8 py-6">
-                  <div className="text-[10px] font-bold uppercase tracking-[2px] text-white">Format</div>
+                <th className="px-8 py-8">
+                  <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Pitch</div>
                 </th>
-                <th className="px-8 py-6">
-                  <div className="text-[10px] font-bold uppercase tracking-[2px] text-white">Venue</div>
-                </th>
-                <th className="px-8 py-6 text-right">
-                   <div className="text-[10px] font-bold uppercase tracking-[2px] text-white">Action</div>
+                <th className="px-8 py-8 text-right">
+                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Match Center</div>
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
-              {filteredAndSortedMatches.length > 0 ? (
-                filteredAndSortedMatches.map((match, idx) => (
-                  <motion.tr 
-                    key={match.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.03 }}
-                    className="hover:bg-white/5 transition-colors group"
-                  >
-                    <td className="px-8 py-6">
-                      <div className="flex flex-col">
-                        <span className="text-sm font-bold whitespace-nowrap">{match.date}</span>
-                        <span className="text-[9px] font-bold text-ink/40 uppercase tracking-widest">{match.time}</span>
+            <tbody className="divide-y divide-card-border">
+              <AnimatePresence mode="popLayout">
+                {filteredAndSortedMatches.length > 0 ? (
+                  filteredAndSortedMatches.map((match, idx) => (
+                    <motion.tr 
+                      key={match.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ delay: idx * 0.05 }}
+                      className="hover:bg-pak-green/[0.02] transition-colors group"
+                    >
+                      {/* Date Column */}
+                      <td className="px-8 py-8">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-2xl bg-pak-green/5 border border-pak-green/10 flex flex-col items-center justify-center shrink-0">
+                            <span className="text-xl font-bold text-ink leading-none">{match.date.match(/\d+/)}</span>
+                            <span className="text-[8px] font-bold text-pak-green uppercase tracking-widest">{match.date.split(' ')[0].substring(0,3)}</span>
+                          </div>
+                          <div>
+                            <span className="text-sm font-bold text-ink block whitespace-nowrap">{match.date}</span>
+                            <div className="flex items-center gap-1 mt-1 text-[9px] font-bold text-ink/30 uppercase tracking-widest">
+                              <Clock className="w-3 h-3" /> {match.time}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Opponent Column */}
+                      <td className="px-8 py-8">
+                        <div className="flex items-center gap-4">
+                          <div className="relative">
+                            <img src={match.flagUrl} alt="" className="w-10 h-7 object-cover rounded-lg shadow-sm border border-card-border" />
+                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-pak-green rounded-full border-2 border-card-bg flex items-center justify-center">
+                              <Globe className="w-2 h-2 text-white" />
+                            </div>
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-sm font-bold text-ink uppercase tracking-tight">Pakistan VS</span>
+                            <span className="text-lg font-display font-bold text-pak-green uppercase tracking-tighter leading-none">{match.opponent}</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Format/Series Column */}
+                      <td className="px-8 py-8">
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <span className={`px-3 py-1 rounded-lg text-[9px] font-bold uppercase tracking-widest border ${
+                              match.format === 'Test' ? 'border-orange-500/20 text-orange-600 bg-orange-500/5' :
+                              match.format === 'ODI' ? 'border-blue-500/20 text-blue-600 bg-blue-500/5' :
+                              'border-purple-500/20 text-purple-600 bg-purple-500/5'
+                            }`}>
+                              {match.format}
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-bold text-ink/50 uppercase tracking-wide leading-tight block truncate max-w-[200px]">
+                            {match.series}
+                          </span>
+                        </div>
+                      </td>
+
+                      {/* Venue Column */}
+                      <td className="px-8 py-8">
+                        <div className="flex items-start gap-2">
+                          <MapPin className="w-4 h-4 text-pak-green mt-0.5 shrink-0" />
+                          <div className="space-y-1">
+                            <span className="text-[11px] font-bold text-ink leading-relaxed line-clamp-2">{match.venue}</span>
+                            <span className="text-[9px] font-bold text-ink/30 uppercase tracking-[2px]">International Standard</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Action Column */}
+                      <td className="px-8 py-8 text-right">
+                         <Link 
+                          to={`/match/${match.id}`} 
+                          className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-card-bg border border-card-border hover:bg-pak-green hover:text-white hover:border-pak-green transition-all group/btn shadow-sm"
+                        >
+                            <span className="text-[10px] font-bold uppercase tracking-widest">Match Details</span>
+                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                         </Link>
+                      </td>
+                    </motion.tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={5} className="py-32 text-center">
+                      <div className="max-w-xs mx-auto space-y-6">
+                        <div className="w-20 h-20 bg-card-bg rounded-[32px] border border-card-border flex items-center justify-center mx-auto opacity-40">
+                          <Trophy className="w-10 h-10 text-pak-green" />
+                        </div>
+                        <div className="space-y-2">
+                          <h3 className="text-xl font-display font-bold uppercase text-ink">No Matches Found</h3>
+                          <p className="text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed">Try adjusting your filters or search query to find upcoming fixtures.</p>
+                        </div>
+                        <button 
+                          onClick={() => {setFilterFormat('All'); setSearchQuery('');}}
+                          className="px-8 py-3 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ink transition-all"
+                        >
+                          Clear All Filters
+                        </button>
                       </div>
                     </td>
-                    <td className="px-8 py-6">
-                      <span className="text-xs font-bold uppercase tracking-tight block max-w-[200px] truncate">{match.series}</span>
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="flex items-center gap-3">
-                        <img src={match.flagUrl} alt="" loading="lazy" decoding="async" className="w-6 h-4 object-cover rounded shadow" />
-                        <span className="text-xs font-bold uppercase tracking-tight">{match.opponent}</span>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <span className={`px-2 py-0.5 rounded text-[8px] font-bold uppercase border ${
-                        match.format === 'Test' ? 'border-orange-500/30 text-orange-400 bg-orange-500/5' :
-                        match.format === 'ODI' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
-                        'border-purple-500/30 text-purple-400 bg-purple-500/5'
-                      }`}>
-                        {match.format}
-                      </span>
-                    </td>
-                    <td className="px-8 py-6">
-                      <span className="text-[10px] font-bold text-ink/40 uppercase leading-relaxed max-w-[150px] inline-block">{match.venue}</span>
-                    </td>
-                    <td className="px-8 py-6 text-right">
-                       <Link to={`/match/${match.id}`} className="inline-flex items-center justify-center p-2 rounded-xl bg-white/5 border border-white/5 hover:bg-white hover:text-black transition-all group/btn">
-                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                       </Link>
-                    </td>
-                  </motion.tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={6} className="px-8 py-20 text-center">
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="p-4 bg-white/5 rounded-full">
-                        <Filter className="w-8 h-8 text-ink/20" />
-                      </div>
-                      <p className="text-sm font-bold text-ink/40 uppercase tracking-widest">No matches found for this filter</p>
-                    </div>
-                  </td>
-                </tr>
-              )}
+                  </tr>
+                )}
+              </AnimatePresence>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* Structured Helper Note */}
+      <div className="mt-12 p-8 bg-pak-green/5 border border-pak-green/10 rounded-[32px] flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shrink-0 shadow-sm">
+            <Info className="w-6 h-6 text-pak-green" />
+          </div>
+          <div>
+            <p className="text-xs font-bold text-ink uppercase tracking-tight">Need Offline Access?</p>
+            <p className="text-[10px] text-ink/50 uppercase tracking-widest mt-1">This schedule is automatically updated in real-time from our servers.</p>
+          </div>
+        </div>
+        <div className="flex gap-4">
+          <Link to="/contact" className="px-6 py-2.5 rounded-full border border-card-border text-[9px] font-bold uppercase tracking-widest hover:bg-card-bg transition-colors text-ink">Correction Request</Link>
+          <button className="px-6 py-2.5 rounded-full bg-pak-green text-white text-[9px] font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">Export PDF</button>
         </div>
       </div>
     </div>

@@ -31,6 +31,8 @@ const PakistanTourBangladeshSquadBlog = lazy(() => import('./pages/PakistanTourB
 const UpcomingSeriesArticle = lazy(() => import('./pages/UpcomingSeriesArticle'));
 const PakistanNextTourDetails = lazy(() => import('./pages/PakistanNextTourDetails'));
 const WTCStandings = lazy(() => import('./pages/rankings/WTCStandings'));
+const MatchPreviewBangladesh = lazy(() => import('./pages/MatchPreviewBangladesh'));
+const SquadIntelligence = lazy(() => import('./pages/SquadIntelligence'));
 const News = lazy(() => import('./pages/News'));
 const NewsDetail = lazy(() => import('./pages/NewsDetail'));
 const About = lazy(() => import('./pages/About'));
@@ -109,6 +111,8 @@ export default function App() {
               <Route path="/series/:slug" element={<SeriesDetail />} />
               <Route path="/match/:id" element={<MatchDetail />} />
               <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
+              <Route path="/blogs/squad-selection-intelligence" element={<SquadIntelligence />} />
               <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
               <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
               <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />

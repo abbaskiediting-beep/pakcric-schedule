@@ -4,10 +4,31 @@ import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target } from 
 
 const BLOG_POSTS = [
   {
+    id: 'match-preview-pakistan-vs-bangladesh-1st-test-2026',
+    title: 'The Dhaka Chess Match: Pakistan vs Bangladesh 1st Test Preview',
+    summary: 'A tactical deep dive into the first Test in Dhaka. Pitch reports, key player battles, and win probability analysis.',
+    date: 'April 22, 2026',
+    category: 'Match Preview',
+    path: '/blogs/match-preview-dhaka-test',
+    icon: Target,
+    color: 'text-orange-500',
+  },
+  {
+    id: 'squad-intelligence-bangladesh-tour-2026',
+    title: 'Beyond the Names: The Strategic Selection for Bangladesh 2026',
+    summary: 'Inside the selection room: Why domestic form was prioritized and the tactical roles of the new call-ups.',
+    date: 'April 22, 2026',
+    category: 'Squad News',
+    path: '/blogs/squad-selection-intelligence',
+    icon: Users,
+    color: 'text-teal-500',
+  },
+  {
     id: 'red-ball-resilience-overview-2026',
-    title: 'Red-Ball Resilience: An Overview of the Pakistan vs Bangladesh Test Series 2026',
+    title: 'Red-Ball Resilience: An Overview of the Test Series 2026',
     summary: 'A high-stakes battle for WTC points as Pakistan tours Bangladesh for a critical two-match Test series in May 2026.',
     date: 'April 2026',
+    category: 'Match Analysis',
     path: '/red-ball-resilience-overview-2026',
     icon: Shield,
     color: 'text-red-500',
@@ -15,75 +36,13 @@ const BLOG_POSTS = [
   {
     id: 'babar-azam-3rd-century-psl-history',
     title: 'Long Live the King: Babar Azam is Still the Undisputed Face of the PSL',
-    summary: 'In Match 29 of PSL 11, Babar conducted an orchestra, smashing 100* off 52 balls with only one dot ball in his entire innings.',
+    summary: 'In Match 29 of PSL 11, Babar conducted an orchestra, smashing 100* off 52 balls with unprecedented precision.',
     date: 'April 20, 2026',
+    category: 'Player Analysis',
     path: '/news/babar-azam-3rd-century-psl-history',
-    icon: Target,
-    color: 'text-yellow-500',
-  },
-  {
-    id: 'pakistan-test-squad-player-profiles-2026',
-    title: 'Pakistan Test Squad for Bangladesh Tour 2026: Player Profiles',
-    summary: 'A comprehensive look at the 16-man squad selected for the pivotal Bangladesh series, from uncapped prodigies to seasoned legends.',
-    date: 'April 20, 2026',
-    path: '/news/pakistan-test-squad-player-profiles-2026',
-    icon: Users,
-    color: 'text-pak-green',
-  },
-  {
-    id: 'sarfaraz-ahmed-coach',
-    title: 'Sarfaraz Ahmed: The Invincible Leader Now Shaping Pakistan’s Future',
-    summary: 'Sarfaraz Ahmed: The Invincible Leader Now Shaping Pakistan’s Future. An in-depth look at Saifi Bhai’s transition to the dugout.',
-    date: 'April 19, 2026',
-    path: '/news/sarfaraz-ahmed-coach',
-    icon: Shield,
-    color: 'text-pak-green',
-  },
-  {
-    id: 'pakistan-tour-bangladesh-test-2026',
-    title: 'Red-Ball Revival: Pakistan’s Strategic Return to Bangladesh in 2026',
-    summary: 'A detailed look at the 1st Test in Dhaka, tactical battles, and the WTC significance.',
-    date: 'April 2026',
-    path: '/pakistan-tour-bangladesh-test-2026',
-    icon: Calendar,
-    color: 'text-pak-green',
-  },
-  {
-    id: 'pakistan-tour-bangladesh-squad-2026',
-    title: 'Pakistan Tour of Bangladesh 2026: Squads & Schedule',
-    summary: 'The PCB announces a 16-member squad led by Shan Masood with 4 uncapped players.',
-    date: 'April 2026',
-    path: '/pakistan-tour-bangladesh-squad-2026',
-    icon: Users,
-    color: 'text-teal-500',
-  },
-  {
-    id: 'pakistan-vs-bangladesh-2026-schedule',
-    title: 'Pakistan vs Bangladesh 2026 Schedule - Match Details',
-    summary: 'Full list of fixtures, venues, and timings for the upcoming Test series.',
-    date: 'April 2026',
-    path: '/pakistan-vs-bangladesh-2026-schedule',
-    icon: Calendar,
-    color: 'text-pak-green',
-  },
-  {
-    id: 'pakistan-next-tour-details',
-    title: 'Pakistan Next Tour Details: 2026 Destination & Squads',
-    summary: 'A deep dive into the Green Team\'s upcoming travel schedule to Bangladesh and the West Indies.',
-    date: 'April 2026',
-    path: '/pakistan-next-tour-details',
     icon: Trophy,
     color: 'text-yellow-500',
   },
-  {
-    id: 'pakistan-upcoming-series-full-schedule',
-    title: 'Pakistan Upcoming Series: Full Schedule Article',
-    summary: 'A comprehensive look at the upcoming series for the Pakistan national cricket team through 2026.',
-    date: 'April 2026',
-    path: '/pakistan-upcoming-series-full-schedule',
-    icon: BookOpen,
-    color: 'text-blue-500',
-  }
 ];
 
 export default function Blogs() {
@@ -92,46 +51,55 @@ export default function Blogs() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
-        className="mb-16"
+        className="mb-16 border-b border-card-border pb-12"
       >
-        <h1 className="text-5xl md:text-8xl font-display font-bold uppercase tracking-tighter mb-4 leading-none">
-          Deep <span className="text-white">Analysis</span>
+        <span className="text-pak-green font-bold uppercase tracking-[6px] text-xs mb-6 block">Editorial Hub</span>
+        <h1 className="text-5xl md:text-8xl font-display font-bold uppercase tracking-tighter mb-6 leading-none text-ink">
+          Deep <span className="text-pak-green">Analysis</span>
         </h1>
-        <p className="text-ink/60 font-medium tracking-wide max-w-xl">
-          In-depth articles, strategic forecasts, and detailed breakdowns of Pakistan's international cricket journey.
+        <p className="text-ink/60 font-medium tracking-wide max-w-xl text-lg">
+          Match previews, tactical masterclasses, and squad intelligence from the world of Pakistan cricket.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
         {BLOG_POSTS.map((post, idx) => (
           <motion.div
             key={post.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            className="group relative bg-card-bg border border-card-border rounded-[32px] overflow-hidden hover:border-white/20 transition-all flex flex-col h-full"
+            className="group relative bg-card-bg border border-card-border rounded-[40px] overflow-hidden hover:border-pak-green/30 transition-all flex flex-col h-full shadow-sm hover:shadow-xl"
           >
-            <div className="p-8 flex flex-col flex-grow">
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2 rounded-lg bg-white/5 ${post.color}`}>
-                  <post.icon className="w-4 h-4" />
+            <div className="p-10 flex flex-col h-full">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                  <div className={`p-3 rounded-2xl bg-pak-green/5 ${post.color}`}>
+                    <post.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40 block leading-tight">{post.date}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-pak-green block mt-1">{post.category}</span>
+                  </div>
                 </div>
-                <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-500">{post.date}</span>
+                <div className="w-10 h-10 rounded-full border border-card-border flex items-center justify-center text-ink/20 group-hover:bg-pak-green group-hover:text-white group-hover:border-pak-green transition-all">
+                  <ArrowUpRight className="w-5 h-5" />
+                </div>
               </div>
               
-              <h2 className="text-xl font-display font-bold uppercase tracking-tight mb-4 group-hover:text-white transition-colors flex-grow">
+              <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight mb-6 group-hover:text-pak-green transition-colors text-ink leading-tight">
                 {post.title}
               </h2>
               
-              <p className="text-ink/60 text-xs font-medium leading-relaxed mb-8 line-clamp-3 italic">
+              <p className="text-ink/60 text-sm font-medium leading-relaxed mb-10 line-clamp-3 italic flex-grow">
                 "{post.summary}"
               </p>
               
               <Link 
                 to={post.path}
-                className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-white transition-all pt-4 border-t border-white/5"
+                className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 group-hover:text-ink transition-all"
               >
-                Read Article <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                Explore Full Analysis 
               </Link>
             </div>
           </motion.div>

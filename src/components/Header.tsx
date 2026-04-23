@@ -1,5 +1,6 @@
 import { Trophy, Sun, Moon } from 'lucide-react';
 import { motion } from 'motion/react';
+import Search from './Search';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -16,24 +17,38 @@ export default function Header({ theme, onToggleTheme }: HeaderProps) {
           className="flex items-center gap-3"
         >
           <div className="bg-pak-green p-2 rounded-lg">
-            <Trophy className="w-6 h-6 text-white" />
+            <Trophy className="w-6 h-6 text-[#F8FAF9]" aria-hidden="true" />
           </div>
-          <h1 className="font-display text-2xl tracking-tighter uppercase font-bold">
-            PAKISTAN <span className="text-white">CRICKET</span>
+          <h1 className="font-display text-2xl tracking-tighter uppercase font-bold text-ink">
+            PAKISTAN <span className="text-pak-green">CRICKET</span>
           </h1>
         </motion.div>
         
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={onToggleTheme}
-            className="p-2 rounded-full bg-card-bg border border-card-border hover:border-white/30 transition-all text-ink"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-          </button>
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="min-h-[44px] min-w-[44px] flex items-center justify-center">
+            <Search />
+          </div>
+          
+          <div className="min-h-[44px] min-w-[44px] flex items-center justify-center">
+            <button 
+              onClick={onToggleTheme}
+              className="p-3 rounded-full bg-card-bg border border-card-border hover:border-pak-green hover:text-pak-green transition-all text-ink focus:outline-none focus:ring-2 focus:ring-pak-green/50 active:scale-95 flex items-center justify-center"
+              aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
+              aria-pressed={theme === 'dark'}
+              title={theme === 'light' ? 'Enable dark mode' : 'Enable light mode'}
+            >
+              <div className="relative w-5 h-5">
+                {theme === 'light' ? (
+                  <Moon className="w-5 h-5 text-ink" aria-hidden="true" />
+                ) : (
+                  <Sun className="w-5 h-5 text-ink" aria-hidden="true" />
+                )}
+              </div>
+            </button>
+          </div>
 
           <div className="hidden md:flex items-center gap-6">
-            <div className="px-4 py-1.5 rounded-full bg-pak-green text-[10px] font-bold uppercase tracking-widest border border-white/20 text-white">
+            <div className="px-4 py-1.5 rounded-full bg-pak-green text-[10px] font-bold uppercase tracking-widest border border-white/20 text-[#F8FAF9] shadow-sm">
               Schedule 2026
             </div>
           </div>

@@ -58,20 +58,34 @@ export default function PakistanVsBangladesh2026Schedule() {
           <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block shadow-lg shadow-pak-green/20">
             Red-Ball Revival
           </span>
-          <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-2">
-            Pakistan tour of Bangladesh 2026
+          <h1 className="text-4xl md:text-6xl font-display font-bold text-white uppercase tracking-tighter leading-[0.9] mb-4">
+            Pakistan Tour of Bangladesh 2026: Full Test Schedule, Venues & Series Analysis
           </h1>
-          <p className="text-pak-green font-bold text-xs uppercase tracking-widest">1st Test: Dhaka • May 8 – May 12</p>
+          <p className="text-pak-green font-bold text-xs uppercase tracking-widest">1st Test: Dhaka • May 8 – May 12, 2026</p>
         </div>
 
         <div className="space-y-12">
           {/* Intro */}
           <div className="prose prose-invert max-w-none">
             <p className="text-xl text-white font-medium leading-relaxed mb-8 italic border-l-4 border-pak-green pl-6">
-              The first Test match between Pakistan and Bangladesh in 2026 is scheduled to begin on 8 May 2026 at the Sher-e-Bangla National Cricket Stadium in Dhaka. This match is the opening fixture of a two-Test series, which forms part of the ICC World Test Championship (WTC) cycle.
+              The cricketing world is buzzing as the first Test match between Pakistan and Bangladesh in 2026 approaches. Scheduled to ignite on 8 May 2026 at the Sher-e-Bangla National Cricket Stadium in Dhaka, this high-stakes encounter is the opening fixture of a crucial two-Test series. For fans looking for the complete roadmap, check out our <Link to="/schedule" className="text-pak-green underline font-bold">Pakistan Match Schedule 2026</Link> for full details.
             </p>
-            <p className="text-lg text-ink/80 leading-relaxed">
-              The cricketing calendar for 2026 is already delivering high-stakes drama, and few encounters carry as much weight for regional pride and World Test Championship (WTC) points as the upcoming clash between Pakistan and Bangladesh. Following a spirited white-ball leg in March, the two nations are set to transition into the rigorous demands of Test cricket this May.
+            <p className="text-lg text-ink/80 leading-relaxed mb-6">
+              The year 2026 is rapidly becoming one of the most significant chapters in modern cricket history for the subcontinental giants. Few encounters carry as much weight for regional pride, historical rivalry, and World Test Championship (WTC) points as the upcoming clash between Pakistan and Bangladesh. Following a spirited and highly contested white-ball leg in March, both nations are now preparing to transition into the rigorous, mentally draining, and technically demanding world of Test cricket this May.
+            </p>
+            <p className="text-lg text-ink/80 leading-relaxed mb-6">
+              This series isn't just about winning a trophy; it's about cementing a legacy in the longest format of the game. Pakistan, under new leadership and a revamped selection strategy, is looking to prove their dominance in away conditions, while Bangladesh aims to turn their "Home of Cricket" into an impenetrable fortress. The tactical battles between captains, the duel between world-class spinners and master technicians, and the humidity of Dhaka will all play their roles in this five-day epic.
+            </p>
+          </div>
+
+          {/* New Section: Historical Context */}
+          <div className="prose prose-invert max-w-none">
+            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6">Historical Rivalry: More Than Just Points</h2>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              The history between Pakistan and Bangladesh on the cricket field is rich with narrative. From the early matches in the late 90s to the intense battles of the modern era, every meeting has been a display of high-quality subcontinental cricket. In the Test arena, Pakistan has traditionally held the upper hand, but the gap has closed significantly in recent years. Bangladesh's ability to produce world-class spinners who can exploit home conditions has turned them into a nightmare for visiting teams.
+            </p>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              In 2026, this rivalry enters a new phase. Both teams are undergoing a "Red-Ball Revival." Pakistan is focusing on building a balanced squad that can adapt to different surfaces, while Bangladesh is investing heavily in their fast-bowling stocks to complement their spin-heavy strategy. The Sher-e-Bangla stadium has witnessed some of the most memorable moments in this rivalry, and May 2026 promises to add another legendary chapter to this saga.
             </p>
           </div>
 
@@ -79,40 +93,46 @@ export default function PakistanVsBangladesh2026Schedule() {
           <div className="bg-white/5 border border-white/10 rounded-[32px] p-8">
             <h2 className="text-xl font-display font-bold text-white uppercase tracking-tight mb-6 flex items-center gap-3">
               <Calendar className="w-6 h-6 text-pak-green" />
-              The Venue and Dates
+              Detailed Venue Information & Dates
             </h2>
             <p className="text-ink/60 mb-8 leading-relaxed">
-              The first Test will be hosted at the iconic Sher-e-Bangla National Cricket Stadium in Mirpur, Dhaka. Often referred to as the "Home of Cricket" in Bangladesh, this venue is renowned for its spin-friendly tracks and passionate atmosphere, making it a formidable challenge for any visiting side.
+              The first Test will be hosted at the iconic Sher-e-Bangla National Cricket Stadium in Mirpur, Dhaka. Often referred to as the "Home of Cricket" in Bangladesh, this venue is renowned for its spin-friendly tracks, low bounce, and atmosphere that can become claustrophobic for the visiting batting line-up. For a comprehensive look at all fixtures, visit our <Link to="/schedule" className="text-pak-green hover:text-white transition-colors">full schedule page</Link>.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
-                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Match</p>
-                <p className="text-sm font-bold text-white uppercase">1st Test, Pakistan tour of Bangladesh</p>
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Match Type</p>
+                <p className="text-sm font-bold text-white uppercase">1st Test Match (ICC WTC 2025-27)</p>
               </div>
               <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
-                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Dates</p>
-                <p className="text-sm font-bold text-white uppercase">8 May – 12 May 2026</p>
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Match Dates</p>
+                <p className="text-sm font-bold text-white uppercase">Friday, 8 May – Tuesday, 12 May 2026</p>
               </div>
               <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
-                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Venue</p>
-                <p className="text-sm font-bold text-white uppercase">Mirpur, Dhaka</p>
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Session Timing</p>
+                <p className="text-sm font-bold text-white uppercase">09:30 AM PST (Standard PST Timings)</p>
               </div>
               <div className="bg-bg/50 p-4 rounded-2xl border border-white/5">
-                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Format</p>
-                <p className="text-sm font-bold text-white uppercase">2-match Test series (ICC WTC)</p>
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-1">Broadcaster</p>
+                <p className="text-sm font-bold text-white uppercase">Live on PTV Sports & GTV</p>
               </div>
             </div>
           </div>
 
           <div className="prose prose-invert max-w-none">
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6">A Two-Phase Tour</h2>
-            <p className="text-ink/70 leading-relaxed">
-              The 2026 tour was strategically split into two distinct phases to accommodate a packed international schedule. The first phase concluded in March with a three-match ODI series, where Bangladesh secured a 2–1 victory. The upcoming Test leg, beginning on 8 May, marks the second phase, following the conclusion of the Pakistan Super League (PSL).
+            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6">A Strategic Two-Phase Tour Analysis</h2>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              The 2026 tour was strategically split into two distinct phases by the PCB and BCB to maximize player availability and accommodate a packed international schedule including various T20 leagues. The first phase concluded in March with a three-match ODI series. This phase saw the "Tigers" roar as Bangladesh secured a 2–1 series victory, showcasing their dominance in the 50-over format on home soil.
+            </p>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              However, the upcoming Test leg, beginning on 8 May, is a completely different challenge. This second phase follows the conclusion of a rigorous Pakistan Super League (PSL) season, meaning Pakistan’s players will enter the series with high match fitness but potentially some physical fatigue. The transition from the high-octane T20 environment of the PSL to the patient, tactical grind of red-ball cricket in Bangladesh will be the biggest test for the visitors.
             </p>
 
-            <h2 className="text-3xl font-display font-bold text-pak-green uppercase tracking-tighter mt-12 mb-6">Strategic Significance: The WTC Factor</h2>
-            <p className="text-ink/70 leading-relaxed">
-              This series is more than just a bilateral contest; it is a critical juncture for both teams in the ICC World Test Championship standings. For Pakistan, winning away from home is essential to maintain a path toward the WTC final. For Bangladesh, securing points against a major Asian power at home would be a massive statement of their growing stature in the longest format of the game.
+            <h2 className="text-3xl font-display font-bold text-pak-green uppercase tracking-tighter mt-12 mb-6">Strategic Significance: The ICC WTC Standings</h2>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              This series is far more than just a bilateral contest; it is a critical juncture for both teams in the ICC World Test Championship standings. In the current cycle, every percentage point counts, and a clean sweep can catapult a team into the top three or relegate them to the bottom half of the table. Pakistan’s ambition is clear: they need to secure away wins to keep their path to the WTC final at Lord's alive. 
+            </p>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              For Bangladesh, this is about respect and consistency. Securing points against a major Asian powerhouse like Pakistan at home would be a massive statement of their growing stature. It would prove that their recent away successes weren't flukes and that they are ready to compete with the world's best for a spot in the WTC finals. The "WTC Factor" adds a layer of intensity to every session, where even a single wicket or a missed catch could have world-championship-level consequences.
             </p>
           </div>
 
@@ -120,40 +140,50 @@ export default function PakistanVsBangladesh2026Schedule() {
           <section className="space-y-6">
             <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight flex items-center gap-3">
               <Users className="w-6 h-6 text-pak-green" />
-              Key Battles to Watch
+              Tactical Matchups: The Key Battles
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.08] transition-all">
                 <h3 className="text-lg font-bold text-white uppercase mb-4 flex items-center gap-2">
-                  Spin vs. Technique
+                  Spin Mastery vs. Technical Grit
                 </h3>
+                <p className="text-xs text-ink/60 leading-relaxed mb-4">
+                  Bangladesh will undoubtedly deploy a heavy spin arsenal, led by the experienced Mehidy Hasan Miraz and the rising star Rishad Hossain. The Dhaka pitch is expected to offer turn from day two, making life difficult for any batsman who isn't comfortable sweeping or using their feet.
+                </p>
                 <p className="text-xs text-ink/60 leading-relaxed">
-                  Bangladesh will likely deploy a heavy spin arsenal, led by the likes of Mehidy Hasan Miraz and Rishad Hossain. Pakistan’s batters will need to rely on their sweep shots and footwork to negotiate the low bounce and sharp turn of the Mirpur pitch.
+                  Pakistan’s batting lineup, featuring technically sound players, will need to show immense patience. Their ability to rotate strike and not get bogged down by the relentless spin pressure will determine if they can post competitive totals in both innings.
                 </p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/[0.08] transition-all">
                 <h3 className="text-lg font-bold text-white uppercase mb-4 flex items-center gap-2">
-                  Pace Battery
+                  The Pace Battery: Early Blows
                 </h3>
+                <p className="text-xs text-ink/60 leading-relaxed mb-4">
+                  While Mirpur is famous for its spin, the first sessions of the match often offer significant movement for the fast bowlers due to early morning moisture. Shaheen Afridi and Haris Rauf will be looking to unleash their pace and swing to dismantle the top order early.
+                </p>
                 <p className="text-xs text-ink/60 leading-relaxed">
-                  While Mirpur is known for spin, the early sessions often offer something for the quicks. Shaheen Afridi and Haris Rauf will be looking to exploit any early moisture, while Bangladesh’s Nahid Rana—the Player of the Match in the March ODI series—will aim to replicate his express pace success in red-ball whites.
+                  On the other hand, Bangladesh’s Nahid Rana—the breakout "Player of the Match" from the March ODI series—will aim to replicate his express pace success. His ability to deliver short, sharp bursts could be the x-factor Bangladesh needs to rattle the Pakistani middle order.
                 </p>
               </div>
             </div>
           </section>
 
+          {/* New Section: Weather and Playing Conditions */}
           <div className="prose prose-invert max-w-none pt-4 border-t border-white/10">
-            <h2 className="text-2xl font-display font-bold text-white uppercase mb-4">Experienced Leadership</h2>
+            <h2 className="text-2xl font-display font-bold text-white uppercase mb-4">Weather Forecast: The Humidity Factor</h2>
             <p className="text-ink/70 leading-relaxed mb-8">
-              The series will test the tactical acumen of both captains. Navigating five days of shifting momentum in humid conditions requires mental fortitude and precise field placements.
+              May in Dhaka is characterized by extreme humidity and the potential for late-afternoon showers. This will test the physical endurance of the players, especially the fast bowlers and those who are transitioning directly from the shorter PSL games. Hydration and mental focus during the final session of each day will be paramount. Teams that can manage their energy levels better across the five days will have a distinct advantage.
             </p>
 
-            <h2 className="text-2xl font-display font-bold text-white uppercase mb-4">Preparation and Momentum</h2>
-            <p className="text-ink/70 leading-relaxed">
-              Both teams enter this Test series with fresh data from their recent encounters. Although the ODIs went in favor of Bangladesh, Test cricket is a different beast entirely. The Pakistan national selection committee has already named a 16-member squad aimed at balancing youth and experience for these subcontinent conditions.
+            <h2 className="text-2xl font-display font-bold text-white uppercase mb-4">Final Verdict: Prediction and Expectations</h2>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              Both teams enter this Test series with fresh data from their recent high-intensity encounters. Although the ODIs in March went in favor of Bangladesh, Test cricket is a different beast entirely—a marathon rather than a sprint. Pakistan’s selection committee has already named a robust squad that blends youthful energy with veteran experience, specifically chosen for subcontinental conditions.
+            </p>
+            <p className="text-ink/70 leading-relaxed mb-6">
+              As the players prepare to take the field on 8 May, the cricketing world is watching. We expect a hard-fought series where technique, temperament, and tactical brilliance will override brute force. Whether the "Green Shirts" can dominate away from home or the "Tigers" can protect their territory remains the burning question that only 450 overs of Test cricket can answer.
             </p>
             <p className="text-ink/60 leading-relaxed mt-8 italic">
-              As the teams prepare to take the field on 8 May, fans across the globe are bracing for five days of attrition, skill, and subcontinental flair. Whether the "Green Shirts" can dominate or the "Tigers" defend their turf remains the burning question of the season.
+              Keep following PakCric Hub for exclusive insights, live updates, and post-match analysis. Don't forget to check the <Link to="/schedule" className="text-pak-green font-bold">full fixtures list</Link> for match timings in your local time zone.
             </p>
           </div>
         </div>

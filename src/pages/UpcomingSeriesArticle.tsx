@@ -46,7 +46,7 @@ export default function UpcomingSeriesArticle() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
-      <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
+      <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
 
@@ -59,16 +59,19 @@ export default function UpcomingSeriesArticle() {
           <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block">
             Cricket Guide
           </span>
-          <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none">
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-ink uppercase tracking-tighter leading-none">
             Pakistan Upcoming Series Full Schedule 2026
           </h1>
         </div>
 
         <div className="space-y-12">
           {/* Introduction */}
-          <section className="prose prose-invert max-w-none">
-            <p className="text-lg text-ink/80 leading-relaxed">
+          <section className="prose dark:prose-invert max-w-none">
+            <p className="text-lg text-ink/80 leading-relaxed mb-6">
               {linkKeywords("For every cricket enthusiast in Pakistan, the national team's calendar is more than just a list of dates; it is a journey of emotions, victories, and hard-fought battles. As we look ahead, the Pakistan upcoming series full schedule for 2026 promises an action-packed year filled with high-stakes Test matches, intense T20 encounters, and prestigious tours. From the tricky spinning tracks of Bangladesh to the lush green outfields of England, the Green Shirts are set to travel far and wide to assert their dominance in the cricketing world.")}
+            </p>
+            <p className="text-ink/60 leading-relaxed mb-6">
+              The year 2026 is rapidly becoming a landmark chapter for the <strong>Pakistan cricket team</strong>. The transition of the sport as a whole towards more specialized squads has meant that the <strong>Pakistan upcoming series full schedule</strong> is more diverse than ever before. Fans are no longer just looking at the main tour; they are looking at how different formats are prioritized to manage player workload and ensure that the elite athletes like Babar Azam and Shaheen Afridi remain at their peak for the most critical world championship events.
             </p>
             <p className="text-ink/60 leading-relaxed">
               {linkKeywords("In this comprehensive guide, we bring you the complete breakdown of the Pakistan upcoming series full schedule. Whether you are a fan of the traditional five-day format or the fast-paced nature of T20 Internationals, this article covers everything you need to know about where and when the Pakistan cricket team will be in action. We will highlight key match-ups, venues, and the players who are expected to shine during these crucial fixtures.")}
@@ -77,166 +80,169 @@ export default function UpcomingSeriesArticle() {
 
           {/* Section 1: The Road Ahead */}
           <section>
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight mb-6 flex items-center gap-3">
+            <h2 className="text-3xl font-display font-bold text-ink uppercase tracking-tight mb-6 flex items-center gap-3 border-b border-card-border pb-4">
               <Calendar className="w-8 h-8 text-pak-green" />
-              Complete Pakistan Cricket Schedule for 2026
+              Strategic Roadmap: Pakistan Cricket Schedule for 2026
             </h2>
             <p className="text-ink/60 leading-relaxed mb-8">
               {linkKeywords("The year 2026 is shaping up to be one of the most demanding years for the Pakistan cricket team. With a significant focus on the ICC World Test Championship (WTC) points and preparation for upcoming ICC events, the Pakistan upcoming series full schedule includes tours of Bangladesh, the West Indies, England, and Sri Lanka, along with home series that will keep local fans on the edge of their seats.")}
             </p>
 
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-bold text-pak-green uppercase tracking-wide mb-4">Pakistan Tour of Bangladesh (May 2026)</h3>
-                <p className="text-ink/60 leading-relaxed">
-                  The season kicks off with a challenging tour of Bangladesh. Known for their slow and low pitches, Bangladesh provides a unique challenge for visiting teams. This Test series will be vital for Pakistan to secure early points in the WTC table. Matches are scheduled at the iconic Sher-e-Bangla National Stadium in Dhaka and the Zahur Ahmed Chowdhury Stadium in Chattogram.
+            <div className="space-y-12">
+              <div className="border-l-2 border-pak-green/20 pl-8 pb-4">
+                <h3 className="text-2xl font-bold text-pak-green uppercase tracking-wide mb-4 italic">Phase 1: The Subcontinental Grind (May 2026)</h3>
+                <p className="text-ink/70 leading-relaxed mb-4">
+                  The season kicks off with a challenging tour of Bangladesh. Known for their slow and low pitches, Bangladesh provides a unique challenge for visiting teams that requires immense mental fortitude. This Test series will be vital for Pakistan to secure early points in the <strong>WTC table</strong>. Matches are scheduled at the iconic Sher-e-Bangla National Stadium in Dhaka—a venue that has witnessed many historic subcontinental duels.
+                </p>
+                <p className="text-ink/70 leading-relaxed italic">
+                  Key Insight: Pakistan’s history in Dhaka suggests that the games will be decided in the final sessions of Day 4 and Day 5, where the pitch usually begins to offer sharp turn and unpredictable bounce. Master technicians will be needed to survive this grind.
                 </p>
               </div>
 
-              <div>
-                 <h3 className="text-xl font-bold text-pak-green uppercase tracking-wide mb-4">Pakistan Tour of West Indies (July 2026)</h3>
-                 <p className="text-ink/60 leading-relaxed">
-                   After Bangladesh, the team travels to the Caribbean for a red-ball encounter against the West Indies. The historic Kensington Oval in Barbados will host this match, where the "Sultan of Swing" and Pakistan's batting lineup will look to overcome the bounce and pace of the Windies attack.
+              <div className="border-l-2 border-pak-green/20 pl-8 pb-4">
+                 <h3 className="text-2xl font-bold text-pak-green uppercase tracking-wide mb-4 italic">Phase 2: Caribbean Flair & Conditions (July 2026)</h3>
+                 <p className="text-ink/70 leading-relaxed mb-4">
+                   After Bangladesh, the team travels to the Caribbean for a red-ball encounter against the West Indies. The historic Kensington Oval in Barbados will host this match. While the West Indies are in a rebuilding phase, their home conditions remain some of the most specialized in the world. The bounce in the Caribbean is distinct from the low tracks of Asia, demanding a different technical approach from the <strong>Pakistan cricket team</strong>'s top order.
+                 </p>
+                 <p className="text-ink/70 leading-relaxed">
+                   This tour is strategically placed in July to allow the players to acclimatize to the heat and humidity of the Americas before heading to the cooler, swinging conditions of the United Kingdom. It is a true test of adaptability for the <strong>Pakistan upcoming series full schedule</strong>.
                  </p>
               </div>
 
-              <div>
-                 <h3 className="text-xl font-bold text-pak-green uppercase tracking-wide mb-4">Pakistan Tour of England (August – September 2026)</h3>
-                 <p className="text-ink/60 leading-relaxed">
-                   The height of the summer will see Pakistan in England for a prestigious 3-match Test series. Playing in England is often considered the ultimate test for subcontinental batters due to the swinging conditions. Matches at Headingley, Lord's, and The Oval are always high-profile events that draw massive crowds.
+              <div className="border-l-2 border-pak-green/20 pl-8 pb-4">
+                 <h3 className="text-2xl font-bold text-pak-green uppercase tracking-wide mb-4 italic">Phase 3: The Ultimate Test in England (August – September 2026)</h3>
+                 <p className="text-ink/70 leading-relaxed mb-6">
+                   The height of the summer will see Pakistan in England for a prestigious 3-match Test series. Playing in England is often considered the ultimate test for subcontinental batters due to the consistently swinging ball and the variable overhead conditions. <strong>Lord's</strong>, <strong>Headingley</strong>, and <strong>The Oval</strong> aren't just venues; they are cathedrals of the sport where performing successfully enters a player into the history books.
+                 </p>
+                 <p className="text-ink/70 leading-relaxed mb-6 font-medium text-ink/80">
+                   The tactical battle between the English swing bowlers and Pakistan's technical masters like Babar Azam and Saud Shakeel will be the highlight of the 2026 international summer. England's "Bazball" philosophy against Pakistan's traditional resilience will make for compelling viewing for fans across the globe.
                  </p>
               </div>
 
-              <div>
-                 <h3 className="text-xl font-bold text-pak-green uppercase tracking-wide mb-4">Pakistan Tour of Sri Lanka (October 2026)</h3>
-                 <p className="text-ink/60 leading-relaxed">
-                   October brings a shift in format as Pakistan heads to Sri Lanka for T20I action. With the next T20 World Cup on the horizon, these matches at the R. Premadasa Stadium will be essential for team composition and testing bench strength.
-                 </p>
-              </div>
-
-              <div>
-                 <h3 className="text-xl font-bold text-pak-green uppercase tracking-wide mb-4">Sri Lanka Tour of Pakistan (November 2026)</h3>
-                 <p className="text-ink/60 leading-relaxed">
-                   To wrap up the major fixtures of 2026, Pakistan will host Sri Lanka for a Test match at home. The Multan Cricket Stadium is expected to be the venue for this encounter, bringing world-class cricket back to the passionate local fans in Pakistan.
+              <div className="border-l-2 border-pak-green/20 pl-8 pb-4">
+                 <h3 className="text-2xl font-bold text-pak-green uppercase tracking-wide mb-4 italic">Phase 4: White-Ball Focus & Home Return (Oct – Nov 2026)</h3>
+                 <p className="text-ink/70 leading-relaxed mb-4">
+                   October brings a shift in format as Pakistan heads to Sri Lanka for T20I action. With a <strong>world championship</strong> cycle in mind, these matches at the R. Premadasa Stadium will be essential for identifying the next generation of power-hitters and death-bowling specialists. The <strong>Pakistan upcoming series full schedule</strong> wraps up with a high-profile home series against Sri Lanka in November, featuring a Test match at the Multan Cricket Stadium—a ground where fans create an atmosphere that is arguably the loudest in world cricket.
                  </p>
               </div>
             </div>
           </section>
 
           {/* Section 2: The Schedule Table */}
-          <section className="bg-white/5 rounded-[32px] p-8 border border-white/5">
-            <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight mb-8">
-              Pakistan Upcoming Series Full Schedule Table
+          <section className="bg-white/5 rounded-[40px] p-8 md:p-12 border border-card-border shadow-inner">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-ink uppercase tracking-tight mb-8 text-center md:text-left">
+              Official Pakistan Upcoming Series Full Schedule 2026 Table
             </h2>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto custom-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="py-4 px-4 text-[10px] font-bold uppercase tracking-widest text-pak-green">Format</th>
-                    <th className="py-4 px-4 text-[10px] font-bold uppercase tracking-widest text-pak-green">Opponent</th>
-                    <th className="py-4 px-4 text-[10px] font-bold uppercase tracking-widest text-pak-green">Date</th>
-                    <th className="py-4 px-4 text-[10px] font-bold uppercase tracking-widest text-pak-green">Venue</th>
+                  <tr className="border-b border-card-border bg-white/[0.02]">
+                    <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Format</th>
+                    <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Opposition Entity</th>
+                    <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Scheduled Date</th>
+                    <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Official Venue</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm text-ink/80">
                   {PAKISTAN_SCHEDULE.map((match) => (
-                    <tr key={match.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                      <td className="py-4 px-4 font-bold">{match.format}</td>
-                      <td className="py-4 px-4">{match.opponent}</td>
-                      <td className="py-4 px-4 whitespace-nowrap">{match.date}</td>
-                      <td className="py-4 px-4 text-xs text-ink/40">{match.venue}</td>
+                    <tr key={match.id} className="border-b border-card-border hover:bg-pak-green/5 transition-all group">
+                      <td className="py-6 px-6 font-bold text-ink group-hover:text-pak-green transition-colors">{match.format}</td>
+                      <td className="py-6 px-6 font-medium">{match.opponent}</td>
+                      <td className="py-6 px-6 whitespace-nowrap tabular-nums">{match.date}</td>
+                      <td className="py-6 px-6 text-xs text-ink/40 font-mono italic">{match.venue}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-6 text-[10px] text-ink/40 font-mono italic">
-              * Note: Times and venues are subject to change by the respective cricket boards.
+            <p className="mt-8 text-[11px] text-ink/40 font-bold uppercase tracking-widest text-center border-t border-card-border pt-8">
+              * Note: The Pakistan Upcoming Series Full Schedule is based on official releases and is subject to change.
             </p>
           </section>
 
           {/* Section 3: Key Players */}
           <section>
-            <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight mb-8 flex items-center gap-3">
+            <h2 className="text-3xl font-display font-bold text-ink uppercase tracking-tight mb-8 flex items-center gap-3">
               <Users className="w-8 h-8 text-pak-green" />
-              Key Players to Watch
+              Core Players: The Pillars of 2026 Results
             </h2>
             <div className="grid md:grid-cols-2 gap-8 text-ink/70">
-              <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
-                <h4 className="text-white font-bold mb-2">Babar Azam</h4>
-                <p className="text-sm">The linchpin of Pakistan's batting. With an average of over 48 in international cricket, Babar's performance in the upcoming Test series will be crucial for Pakistan’s success.</p>
+              <div className="p-10 bg-card-bg rounded-[32px] border border-card-border hover:border-pak-green/20 transition-all">
+                <h4 className="text-xl text-ink font-bold mb-4 uppercase italic">Babar Azam: The King's Journey</h4>
+                <p className="text-sm leading-relaxed">The cornerstone of Pakistan's batting order. With an average that puts him among the world's elite, Babar's performance in the upcoming Test series across four different countries will be the primary factor in Pakistan’s pursuit of the WTC final. His ability to anchor the innings allows the more aggressive players to express themselves freely.</p>
               </div>
-              <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
-                <h4 className="text-white font-bold mb-2">Shaheen Shah Afridi</h4>
-                <p className="text-sm">Leading the pace attack, Shaheen's ability to pick up early wickets makes him a threat in any condition, especially in England and the West Indies.</p>
+              <div className="p-10 bg-card-bg rounded-[32px] border border-card-border hover:border-pak-green/20 transition-all">
+                <h4 className="text-xl text-ink font-bold mb-4 uppercase italic">Shaheen Shah Afridi: The Speed Merchant</h4>
+                <p className="text-sm leading-relaxed">Leading the charge in the <strong>Pakistan upcoming series full schedule</strong> is Shaheen. His left-arm pace and lethal inswingers in the opening overs are a nightmare for any opening batsman. His fitness management throughout 2026 will be crucial as he carries the burden of being the spearhead across all formats of the game.</p>
               </div>
-              <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
-                <h4 className="text-white font-bold mb-2">Mohammad Rizwan</h4>
-                <p className="text-sm">The engine room behind the stumps and a reliable middle-order batter. Rizwan's consistency in T20Is and Tests is vital for stabilizing the innings.</p>
+              <div className="p-10 bg-card-bg rounded-[32px] border border-card-border hover:border-pak-green/20 transition-all">
+                <h4 className="text-xl text-ink font-bold mb-4 uppercase italic">Mohammad Rizwan: The Heartbeat</h4>
+                <p className="text-sm leading-relaxed">The most reliable engine room in the team. Whether he’s keeping wickets for long sessions or scoring crucial counter-attacking runs in the middle order, Rizwan's presence provides a tactical and emotional anchor for the younger players in the <strong>squad</strong>.</p>
               </div>
-              <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
-                <h4 className="text-white font-bold mb-2">Saud Shakeel</h4>
-                <p className="text-sm">A technician in the Test format. His ability to build long innings on slow tracks in Bangladesh will be a key factor for the Green Shirts.</p>
+              <div className="p-10 bg-card-bg rounded-[32px] border border-card-border hover:border-pak-green/20 transition-all">
+                <h4 className="text-xl text-ink font-bold mb-4 uppercase italic">Saud Shakeel: The Technician</h4>
+                <p className="text-sm leading-relaxed">Specifically prepared for the <strong>Pakistan upcoming series full schedule</strong> Test legs. Saud’s ability to build massive hundreds under pressure makes him the perfect foil for the aggressive top order. His focus on red-ball durability is a key reason for Pakistan’s rise in the <strong>WTC rankings</strong>.</p>
               </div>
             </div>
           </section>
 
           {/* Detailed Content to reach ~1000 words */}
-          <section className="prose prose-invert max-w-none space-y-6">
-            <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight">The Tactical Outlook for 2026</h2>
-            <p className="text-ink/60 leading-relaxed">
-              {linkKeywords("When analyzing the Pakistan upcoming series full schedule, one cannot overlook the strategic importance of the venues selected. Playing in Bangladesh requires a spin-centric approach. We expect the rise of spinners like Noman Ali and Sajid Khan to be a highlight of the May tour. These bowlers have recently shown that they can dismantle top-tier lineups on helpful tracks. The slow nature of the Dhaka pitch often demands patience and accuracy, two traits that Pakistan's current spin duo has mastered.")}
-            </p>
-            <p className="text-ink/60 leading-relaxed">
-              Moving to the West Indies and England later in the year, the focus will shift back to the fast bowlers. Pakistan's pace battery, led by Shaheen Afridi and Khurram Shahzad, will relish the extra bounce in Barbados and the lateral movement in Leeds and London. The <strong>Pakistan upcoming series full schedule</strong> is perfectly balanced to test both the spin and pace departments of the team. The historic conditions at Lord's, in particular, provide a unique stage where legends are born, and Pakistani seamers have a rich tradition of performing under the cloudy London skies.
-            </p>
-            <p className="text-ink/60 leading-relaxed">
-              Another interesting aspect of the <strong>Pakistan upcoming series full schedule</strong> is the inclusion of T20I matches in Sri Lanka. These matches serve as a bridge between the grueling red-ball season and the fast-paced white-ball tournaments. It allows the selectors to rotate players and give opportunities to rising stars like Azan Awais or Abdullah Fazal, ensuring the squad depth remains healthy. Sri Lanka's humid conditions and large outfields often test the fitness and running between the wickets, making it a perfect preparation ground for the T20 format.
-            </p>
-            
-            <h3 className="text-xl font-bold text-white">Fan Expectations and Global Coverage</h3>
-            <p className="text-ink/60 leading-relaxed">
-              The <strong>Pakistan upcoming series full schedule</strong> is also a treat for the fans. With most matches happening in time zones that are favorable for subcontintental viewers, the viewership is expected to break records. Fans are eager to see if Pakistan can improve their away record, which has been a point of discussion in recent years. The matches in England, in particular, always feel like home games due to the massive Pakistani diaspora residing there.
-            </p>
-            <p className="text-ink/60 leading-relaxed">
-              For those following the <strong>Pakistan upcoming series full schedule</strong>, it is worth noting that official broadcasting partners will be announced closer to the dates. However, most matches are expected to be available on major sports networks and digital streaming platforms, ensuring that not a single ball is missed by the passionate supporters. The coverage will include pre-match shows, detailed analysis, and expert commentary from legends of the game, providing a 360-degree view of the action.
-            </p>
+          <section className="prose dark:prose-invert max-w-none space-y-12">
+            <div>
+              <h2 className="text-3xl font-display font-bold text-ink uppercase tracking-tight mb-6">Tactical Outlook: Adapting to Global Conditions</h2>
+              <p className="text-lg text-ink/70 leading-relaxed mb-6">
+                {linkKeywords("When we analyze the Pakistan upcoming series full schedule for 2026, the complexity of the task becomes clear. To be successful, the team must exhibit a Chameleonic ability to adapt. For instance, the May tour of Bangladesh requires a spin-heavy strategic approach. We expect the rise of spinners like Noman Ali and Sajid Khan to be a highlight. Their recent successes have shown that they are no longer just 'home track' specialists; they are ready to carry the bowling on their shoulders on any turning surface in Asia.")}
+              </p>
+              <p className="text-lg text-ink/70 leading-relaxed mb-6">
+                In contrast, the later part of the year in the West Indies and England will require a return to Pakistan’s traditional 'Pace First' ideology. The <strong>Pakistan upcoming series full schedule</strong> is uniquely designed to test every facet of a modern cricketer's skill set—from playing the short ball in Barbados to surviving the lateral deviation in Leeds. Lord’s, in particular, will be a stadium where the world will see if the current pace battery is ready to match the heroics of the past legends of the 90s.
+              </p>
+            </div>
 
-            <h3 className="text-xl font-bold text-white">Impact on World Test Championship Standings</h3>
-            <p className="text-ink/60 leading-relaxed">
-              The primary driver for the <strong>Pakistan upcoming series full schedule</strong> in 2026 is the WTC. Pakistan has been a consistent performer but has often missed out on the final due to narrow margins. The away wins in Bangladesh and West Indies are non-negotiable if they want to secure a spot at Lord's for the final. The home match against Sri Lanka in November will provide a much-needed morale boost and essential points in familiar territory. Every session of these matches will carry the weight of national expectations, as the road to the WTC final gets narrower with each passing game.
-            </p>
+            <div className="bg-pak-green/5 p-12 rounded-[40px] border border-pak-green/20">
+               <h3 className="text-2xl font-bold text-ink uppercase mb-6 italic">The Global Fan Pulse</h3>
+               <p className="text-ink/70 leading-relaxed mb-6">
+                 The <strong>Pakistan upcoming series full schedule</strong> isn't just a list of games for the players; it's a social fabric for the global Pakistani community. Whether it's the domestic fans in Karachi and Multan or the passionate diaspora in London and Birmingham, the 2026 season will bring a sense of collective identity. The viewership figures for the 2026 England tour are expected to exceed traditional records, as fans are eager to witness a modern classic in the making.
+               </p>
+               <p className="text-ink/70 leading-relaxed">
+                 Experts and broadcasters are already preparing for this <strong>cricket schedule Pakistan 2026</strong> extravaganza. With massive digital integration and advanced data analytics being shared via official portals, fans will have more access to internal team dynamics and tactical data than ever before in the history of the sport.
+               </p>
+            </div>
 
-            <h3 className="text-xl font-bold text-white">Preparation and Training Camps</h3>
-            <p className="text-ink/60 leading-relaxed">
-              To prepare for the <strong>Pakistan upcoming series full schedule</strong>, the PCB has organized several high-performance training camps at the National Cricket Academy in Lahore. These camps focus on specific skill sets required for different conditions—playing against the moving ball for the England tour and mastering the sweep shot for the spin-friendly conditions in Asia. The <strong>Pakistan upcoming series full schedule</strong> is a rigorous test, and only the fittest and most prepared will survive the long season ahead. The fitness regimes have been modernized, with a high emphasis on longevity and injury prevention given the heavy workload of 2026.
-            </p>
+            <div>
+              <h3 className="text-2xl font-bold text-ink uppercase mb-6">The Road to the ICC WTC Final</h3>
+              <p className="text-ink/70 leading-relaxed mb-6">
+                The absolute core of the <strong>Pakistan upcoming series full schedule</strong> is the pursuit of <strong>WTC points</strong>. Pakistan has often been close to the top but has missed out on the grand finale due to inconsistency in away games. The 2026 roadmap provides a golden opportunity to correct this narrative. Winning in Bangladesh is essential, but securing a draw or a win in England and the Caribbean would be the absolute catalyst needed to book a flight to London for the <strong>WTC final</strong>. 
+              </p>
+              <p className="text-ink/70 leading-relaxed">
+                The series against Sri Lanka in November at home is the final piece of this puzzle. By then, the math for the finals will be clear, and every session at the Multan Cricket Stadium will be played with the intensity of a championship final itself. This is why following the <strong>Pakistan upcoming series full schedule</strong> step-by-step is vital for any serious cricket fan.
+              </p>
+            </div>
 
-            <h3 className="text-xl font-bold text-white">Domestic Structure and Talent Pipeline</h3>
-            <p className="text-ink/60 leading-relaxed">
-              A key component in navigating the <strong>Pakistan upcoming series full schedule</strong> is the strength of the domestic circuit. The Quaid-e-Azam Trophy continues to be the primary breeding ground for Test talent. Several young performers from the last season have been integrated into the national setup to provide backup for the tours of England and the Caribbean. This foresight is what allows Pakistan to remain competitive despite the demanding nature of the <strong>Pakistan upcoming series full schedule</strong>.
-            </p>
-
-            <h3 className="text-xl font-bold text-white">Conclusion</h3>
-            <p className="text-ink/60 leading-relaxed">
-              In summary, the <strong>Pakistan upcoming series full schedule</strong> for 2026 is a testament to the thriving cricket culture in the country. It is a schedule that balances challenge with opportunity, tradition with modernity. As the team prepares for a massive year, fans can rest assured that the Green Shirts will give their all on the field. From the spinning tracks of Dhaka to the historic slopes of Lord's, every match is a chapter in the storied history of Pakistan cricket. Stay tuned to our portal for the most accurate and up-to-date information regarding the <strong>Pakistan upcoming series full schedule</strong>.
-            </p>
+            <div className="pt-8 border-t border-card-border">
+              <h3 className="text-2xl font-bold text-ink uppercase mb-6">Conclusion: A Year of Destiny</h3>
+              <p className="text-lg text-ink/70 leading-relaxed mb-6">
+                As we finalize our look at the <strong>Pakistan upcoming series full schedule for 2026</strong>, the picture is one of challenge and incredible opportunity. This is a year where the 'Green Shirts' can truly re-establish themselves as the premier power in world cricket across all formats. From the spinning tracks of Dhaka to the historic slopes of Lord's and the festive atmosphere of the Caribbean, the stage is set for a season of destiny.
+              </p>
+              <p className="text-lg text-ink/70 leading-relaxed">
+                Stay tuned to PakCric Hub for every boundary, every wicket, and every tactical masterpiece as we track the <strong>Pakistan upcoming series full schedule</strong> together. We are your home for accurate, fast, and high-quality <strong>cricket schedule</strong> updates and analysis. 
+              </p>
+            </div>
           </section>
 
           {/* Quick FAQ summary */}
           <section className="bg-pak-green/5 rounded-3xl p-8 border border-pak-green/10">
-            <h2 className="text-xl font-bold text-white mb-4 uppercase">Frequently Asked Questions</h2>
+            <h2 className="text-xl font-bold text-ink mb-4 uppercase">Frequently Asked Questions</h2>
             <div className="space-y-4">
               <div>
-                <p className="text-white font-bold text-sm">When is the next Pakistan Test series?</p>
+                <p className="text-ink font-bold text-sm">When is the next Pakistan Test series?</p>
                 <p className="text-ink/60 text-xs">The next Test series starts on May 8, 2026, against Bangladesh.</p>
               </div>
               <div>
-                <p className="text-white font-bold text-sm">Will Pakistan play any T20Is in 2026?</p>
+                <p className="text-ink font-bold text-sm">Will Pakistan play any T20Is in 2026?</p>
                 <p className="text-ink/60 text-xs">Yes, Pakistan is scheduled to play T20Is in Sri Lanka in October 2026.</p>
               </div>
               <div>
-                <p className="text-white font-bold text-sm">Where can I see the full Pakistan upcoming series schedule?</p>
+                <p className="text-ink font-bold text-sm">Where can I see the full Pakistan upcoming series schedule?</p>
                 <p className="text-ink/60 text-xs">You can find the full table of dates, venues, and formats right here on our website.</p>
               </div>
             </div>
