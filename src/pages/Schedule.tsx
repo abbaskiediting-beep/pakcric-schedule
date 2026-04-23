@@ -12,10 +12,12 @@ export default function Schedule() {
   const [sortKey, setSortKey] = useState<SortKey>('date');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [filterFormat, setFilterFormat] = useState<string>('All');
+  const [filterVenue, setFilterVenue] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Extract all available formats
+  // Extract all available formats and venues
   const formats = ['All', ...Array.from(new Set(PAKISTAN_SCHEDULE.map(m => m.format)))];
+  const venues = ['All', ...Array.from(new Set(PAKISTAN_SCHEDULE.map(m => m.venue)))];
 
   const filteredAndSortedMatches = useMemo(() => {
     let result = [...PAKISTAN_SCHEDULE];
@@ -29,9 +31,14 @@ export default function Schedule() {
       );
     }
 
-    // Filter
+    // Filter Format
     if (filterFormat !== 'All') {
       result = result.filter(m => m.format === filterFormat);
+    }
+
+    // Filter Venue
+    if (filterVenue !== 'All') {
+      result = result.filter(m => m.venue === filterVenue);
     }
 
     // Sort
@@ -64,7 +71,7 @@ export default function Schedule() {
     });
 
     return result;
-  }, [sortKey, sortOrder, filterFormat, searchQuery]);
+  }, [sortKey, sortOrder, filterFormat, filterVenue, searchQuery]);
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -78,14 +85,14 @@ export default function Schedule() {
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Pakistan Cricket Schedule 2026 | Match Fixtures, Venues & Time</title>
-        <meta name="description" content="Get the full Pakistan cricket schedule for 2026. Official fixtures, match timings in PST, venues, and series details for all Test, ODI and T20I matches." />
+        <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Dates & Venues</title>
+        <meta name="description" content="Check the complete Pakistan cricket schedule 2026 with match dates, venues, and timings. Get full fixtures, upcoming matches, and series details." />
         <meta name="keywords" content="Pakistan cricket schedule 2026, PAK vs BAN schedule, Pakistan tour schedule, cricket match timings, Pakistan team fixtures" />
         <link rel="canonical" href="https://pakcric-schedule.online/schedule" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Pakistan Cricket Schedule 2026 | Match Fixtures & Venues" />
-        <meta property="og:description" content="Complete guide to all Pakistan cricket matches in 2026. Includes Test, ODI, and T20I fixtures with official timings." />
+        <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Dates & Venues" />
+        <meta property="og:description" content="Check the complete Pakistan cricket schedule 2026 with match dates, venues, and timings." />
         <meta property="og:url" content="https://pakcric-schedule.online/schedule" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
@@ -123,8 +130,8 @@ export default function Schedule() {
           <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4">
             <ArrowLeft className="w-4 h-4" /> Back to Dashboard
           </Link>
-          <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">
-            Tournament <span className="text-pak-green">Schedule</span>
+          <h1 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 text-ink">
+            Pakistan Cricket Team Schedule 2026 <span className="text-pak-green">(Complete Fixtures)</span>
           </h1>
           <div className="flex items-center gap-4">
             <div className="px-4 py-1.5 rounded-full bg-pak-green text-white text-[10px] font-bold uppercase tracking-[2px]">
@@ -138,11 +145,28 @@ export default function Schedule() {
 
         {/* Global Controls */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-          <div className="relative group w-full md:w-80">
+          {/* Venue Dropdown */}
+          <div className="relative group w-full md:w-64">
+            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
+            <select
+              value={filterVenue}
+              onChange={(e) => setFilterVenue(e.target.value)}
+              className="appearance-none bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-10 text-[10px] font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/30 focus:ring-1 focus:ring-pak-green/20 transition-all w-full text-ink shadow-sm cursor-pointer"
+            >
+              {venues.map(v => (
+                <option key={v} value={v} className="bg-card-bg text-ink">{v === 'All' ? 'All Venues' : v}</option>
+              ))}
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <ArrowUpDown className="w-3 h-3 text-neutral-500" />
+            </div>
+          </div>
+
+          <div className="relative group w-full md:w-72">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
             <input 
               type="text" 
-              placeholder="Filter by Team or Venue..."
+              placeholder="Search Opponent..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-6 text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 focus:ring-1 focus:ring-pak-green/20 transition-all w-full text-ink shadow-sm"
@@ -174,20 +198,20 @@ export default function Schedule() {
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
               <tr className="bg-white/5 border-b border-card-border">
-                <th className="px-8 py-8 cursor-pointer group" onClick={() => handleSort('date')}>
+                <th className="px-8 py-8 cursor-pointer group w-48" onClick={() => handleSort('date')}>
                   <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
                     Full Date <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'date' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 cursor-pointer group w-64" onClick={() => handleSort('opponent')}>
+                <th className="px-8 py-8 cursor-pointer group w-56" onClick={() => handleSort('opponent')}>
                   <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
                     Opposition <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'opponent' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 w-64">
+                <th className="px-8 py-8 w-56">
                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Format & Series</div>
                 </th>
-                <th className="px-8 py-8 w-80">
+                <th className="px-8 py-8 w-64">
                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Pitch</div>
                 </th>
                 <th className="px-8 py-8 text-right">
@@ -228,18 +252,25 @@ export default function Schedule() {
                       </td>
 
                       {/* Opponent Column */}
-                      <td className="px-8 py-8">
+                      <td className="px-8 py-8 relative group/opp">
+                        {/* Opposition Tooltip */}
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-2 bg-neutral-900 text-white rounded-xl text-[10px] whitespace-nowrap opacity-0 group-hover/opp:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl border border-white/10 font-bold uppercase tracking-widest">
+                          Pakistan vs {match.opponent}
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-900" />
+                        </div>
+
                         <div className="flex items-center gap-4">
-                          <div className="relative">
+                          <div className="relative shrink-0">
                             <img src={match.flagUrl} alt="" className="w-10 h-7 object-cover rounded-lg shadow-sm border border-card-border" />
                             <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-pak-green rounded-full border-2 border-card-bg flex items-center justify-center">
                               <Globe className="w-2 h-2 text-white" />
                             </div>
                           </div>
-                          <div className="flex flex-col">
-                            <span className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none whitespace-nowrap">
-                              PAK <span className="text-white/40 opacity-70">VS</span> {match.opponent.substring(0, 3).toUpperCase()}
+                          <div className="flex flex-col min-w-0">
+                            <span className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none truncate block max-w-[140px]">
+                              {match.opponent}
                             </span>
+                            <span className="text-[9px] font-bold text-pak-green uppercase tracking-widest mt-1">vs Pakistan</span>
                           </div>
                         </div>
                       </td>
@@ -263,17 +294,17 @@ export default function Schedule() {
                       </td>
 
                       {/* Venue Column */}
-                      <td className="px-8 py-8 w-80 relative group/venue">
+                      <td className="px-8 py-8 w-64 relative group/venue">
                         {/* Venue Tooltip */}
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-2 bg-neutral-900 text-white rounded-xl text-[10px] whitespace-nowrap opacity-0 group-hover/venue:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl border border-white/10 font-bold uppercase tracking-widest">
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-2 bg-neutral-900 text-white rounded-xl text-[10px] whitespace-nowrap opacity-0 group-hover/venue:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl border border-white/10 font-bold uppercase tracking-widest max-w-[300px] text-center !leading-relaxed !whitespace-normal">
                           {match.venue}
                           <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-900" />
                         </div>
 
                         <div className="flex items-start gap-2">
                           <MapPin className="w-4 h-4 text-pak-green mt-0.5 shrink-0" />
-                          <div className="space-y-1 overflow-hidden">
-                            <span className="text-[11px] font-bold text-ink leading-relaxed line-clamp-1 truncate block w-full">{match.venue}</span>
+                          <div className="space-y-1 min-w-0">
+                            <span className="text-[11px] font-bold text-ink leading-relaxed truncate block w-full">{match.venue}</span>
                             <span className="text-[9px] font-bold text-ink/30 uppercase tracking-[2px]">International Standard</span>
                           </div>
                         </div>
@@ -303,7 +334,7 @@ export default function Schedule() {
                           <p className="text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed">Try adjusting your filters or search query to find upcoming fixtures.</p>
                         </div>
                         <button 
-                          onClick={() => {setFilterFormat('All'); setSearchQuery('');}}
+                          onClick={() => {setFilterFormat('All'); setFilterVenue('All'); setSearchQuery('');}}
                           className="px-8 py-3 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-ink transition-all"
                         >
                           Clear All Filters

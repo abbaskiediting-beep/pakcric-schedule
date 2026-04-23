@@ -43,6 +43,16 @@ const BLOG_POSTS = [
     icon: Trophy,
     color: 'text-yellow-500',
   },
+  {
+    id: 'babar-azam-form-impact-pakistan',
+    title: 'The Ripple Effect: How Babar Azam’s Form Dictates Pakistan’s Destiny',
+    summary: 'A deep dive into why Babar Azam is the psychological anchor of the team and how his personal milestones correlate with Pakistan’s victories.',
+    date: 'April 23, 2026',
+    category: 'Player Analysis',
+    path: '/news/babar-azam-form-impact-pakistan',
+    icon: Target,
+    color: 'text-pak-green',
+  },
 ];
 
 export default function Blogs() {

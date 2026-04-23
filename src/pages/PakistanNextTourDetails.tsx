@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ChevronLeft, Flag, Calendar, Target, Info, MapPin } from 'lucide-react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 
@@ -55,12 +56,21 @@ export default function PakistanNextTourDetails() {
   const nextSeries = 'Pakistan Tour of Bangladesh (Test Series)';
   const followUpSeries = 'Pakistan Tour of West Indies';
 
-  useEffect(() => {
-    document.title = "Pakistan Next Tour Details – Full 2026 Schedule & Squads";
-  }, []);
-
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>Pakistan Next Match 2026 – Date, Time & Opponent</title>
+        <meta name="description" content="Find Pakistan next match date, time, opponent, and venue. Stay updated with upcoming Pakistan cricket matches." />
+        <meta name="keywords" content="Pakistan next match, upcoming Pakistan cricket matches, Pakistan cricket schedule 2026, next cricket tour Pakistan" />
+        <link rel="canonical" href="https://pakcric-schedule.online/pakistan-next-tour-details" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Pakistan Next Match 2026 – Date, Time & Opponent" />
+        <meta property="og:description" content="Find Pakistan next match date, time, opponent, and venue. Stay updated with upcoming Pakistan cricket matches." />
+        <meta property="og:url" content="https://pakcric-schedule.online/pakistan-next-tour-details" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+      </Helmet>
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
@@ -74,8 +84,8 @@ export default function PakistanNextTourDetails() {
           <span className="px-4 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block">
             2026 Tour Forecast
           </span>
-          <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-none">
-            Pakistan Next Tour Details
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tighter leading-tight">
+            Pakistan Next Match Details <span className="text-pak-green">(2026)</span>
           </h1>
         </div>
 

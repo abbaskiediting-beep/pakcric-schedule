@@ -26,15 +26,15 @@ export default function Rankings() {
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
       <Helmet>
-        <title>ICC Rankings 2026 | Pakistan Team, Batting & Bowling Rankings</title>
-        <meta name="description" content="Check latest ICC rankings 2026 including Pakistan team ranking, top batsmen, bowlers and all-rounders rankings." />
-        <meta name="keywords" content="ICC rankings 2026, Pakistan ranking ICC, top batsmen ranking, cricket rankings" />
+        <title>ICC Rankings 2026 – Pakistan Team Position in T20, ODI & Test</title>
+        <meta name="description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with full rankings table." />
+        <meta name="keywords" content="ICC rankings 2026, Pakistan ICC ranking, Pakistan team position 2026, cricket team standings" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pakcric-schedule.online/rankings" />
-        <meta property="og:title" content="ICC Rankings 2026 | Pakistan Team, Batting & Bowling Rankings" />
-        <meta property="og:description" content="Stay updated with the latest ICC rankings for 2026. Check Pakistan team position and individual player rankings across all formats." />
+        <meta property="og:title" content="ICC Rankings 2026 – Pakistan Team Position in T20, ODI & Test" />
+        <meta property="og:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with full rankings table." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
@@ -45,10 +45,10 @@ export default function Rankings() {
         <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
       </Helmet>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
-          ICC <span className="text-white">Rankings</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">
+          Pakistan ICC <span className="text-pak-green">Rankings 2026</span>
         </h1>
-        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px]">Official World Team Standings 2026</p>
+        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px]">Official World Team Standings (All Formats)</p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">

@@ -35,22 +35,22 @@ export default function MatchDetail() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
       <Helmet>
-        <title>{`Pakistan vs ${match.opponent} | ${match.series} | Match Dates & Details`}</title>
-        <meta name="description" content={`Check Pakistan vs ${match.opponent} 2026 match details, venues, and timings for the ${match.series}. Stay updated with all the latest Pakistan cricket fixtures.`} />
+        <title>{`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`}</title>
+        <meta name="description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates for the ${match.series}.`} />
         <meta name="keywords" content={`Pakistan vs ${match.opponent}, ${match.series}, match schedule, cricket fixtures, Pakistan cricket 2026`} />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://pakcric-schedule.online/match/${match.id}`} />
-        <meta property="og:title" content={`Pakistan vs ${match.opponent} | ${match.series} | Match Dates & Details`} />
-        <meta property="og:description" content={`Full schedule and match details for Pakistan vs ${match.opponent} in the ${match.series}. Get venue, time and news.`} />
+        <meta property="og:title" content={`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`} />
+        <meta property="og:description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates.`} />
         <meta property="og:image" content={match.flagUrl} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={`https://pakcric-schedule.online/match/${match.id}`} />
-        <meta property="twitter:title" content={`Pakistan vs ${match.opponent} | ${match.series} | Match Dates & Details`} />
-        <meta property="twitter:description" content={`Full schedule and match details for Pakistan vs ${match.opponent} in the ${match.series}. Get venue, time and news.`} />
+        <meta property="twitter:title" content={`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`} />
+        <meta property="twitter:description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates.`} />
         <meta property="twitter:image" content={match.flagUrl} />
 
         <script type="application/ld+json">
@@ -106,6 +106,10 @@ export default function MatchDetail() {
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
+
+      <h1 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight mb-8 text-ink text-center md:text-left">
+        Pakistan vs <span className="text-pak-green">{match.opponent}</span> 2026 – Full Match Details
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Match Header Section */}

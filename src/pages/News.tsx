@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { Newspaper, ChevronRight, Calendar, ArrowUpRight } from 'lucide-react';
 import { NEWS_DATA } from '../newsData';
 
@@ -10,13 +11,23 @@ export default function News() {
 
   return (
     <div className="max-w-6xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>Pakistan Cricket News Today – Latest Updates 2026</title>
+        <meta name="description" content="Get the latest Pakistan cricket news, team updates, match previews, and breaking stories in 2026." />
+        <meta name="keywords" content="Pakistan cricket news, latest cricket updates, green shirts news, PCB news 2026" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Pakistan Cricket News Today – Latest Updates 2026" />
+        <meta property="og:description" content="Get the latest Pakistan cricket news, team updates, match previews, and breaking stories in 2026." />
+        <meta property="og:url" content="https://pakcric-schedule.online/news" />
+      </Helmet>
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }} 
         animate={{ opacity: 1, scale: 1 }} 
         className="mb-16 text-center"
       >
-        <h1 className="text-5xl md:text-8xl font-display font-bold uppercase tracking-tighter mb-6 leading-[0.85]">
-          Field <span className="text-white">Reports</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-6 text-ink">
+          Latest Pakistan <span className="text-pak-green">Cricket News & Updates</span>
         </h1>
         <div className="flex items-center justify-center gap-4">
           <div className="h-px w-12 bg-white/20" />

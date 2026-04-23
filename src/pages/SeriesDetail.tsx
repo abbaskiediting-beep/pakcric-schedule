@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { Trophy, Calendar, MapPin, ChevronLeft } from 'lucide-react';
 import { useState, useMemo } from 'react';
@@ -29,6 +30,16 @@ export default function SeriesDetail() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>{`Pakistan vs ${seriesMatches[0].opponent} 2026 Schedule, Squad & Match Details`}</title>
+        <meta name="description" content={`Get complete ${seriesName} 2026 series schedule, squad, match dates, venues, and updates.`} />
+        <meta name="keywords" content={`Pakistan vs ${seriesMatches[0].opponent}, ${seriesName}, cricket series 2026, Pakistan tour schedule`} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={`Pakistan vs ${seriesMatches[0].opponent} 2026 Schedule, Squad & Match Details`} />
+        <meta property="og:description" content={`Get complete ${seriesName} 2026 series schedule, squad, match dates, venues, and updates.`} />
+        <meta property="og:url" content={`https://pakcric-schedule.online/series/${slug}`} />
+      </Helmet>
       <Link to="/schedule" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Schedule
       </Link>
@@ -39,7 +50,9 @@ export default function SeriesDetail() {
         </div>
         <div className="relative z-10">
           <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[2px] mb-4">Tour Center</span>
-          <h1 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">{seriesName}</h1>
+          <h1 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">
+            Pakistan vs <span className="text-pak-green">{seriesMatches[0].opponent}</span> 2026 Series Full Details
+          </h1>
           <div className="flex flex-wrap gap-6 items-center">
              <div className="flex items-center gap-2 text-ink/40">
                 <Calendar className="w-4 h-4" />

@@ -167,15 +167,15 @@ export default function Squads() {
   return (
     <div className="max-w-5xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Pakistan Cricket Players List 2026 | Squad & Player Stats</title>
-        <meta name="description" content="View Pakistan cricket players list 2026 with squad details, player stats, batting and bowling records. Explore all Pakistan team players." />
-        <meta name="keywords" content="Pakistan players list, Pakistan cricket squad 2026, player stats Pakistan, cricket team Pakistan" />
+        <title>Pakistan Squad 2026 – Full Team Players List</title>
+        <meta name="description" content="Check Pakistan cricket team squad 2026 with complete players list, roles, and latest updates." />
+        <meta name="keywords" content="Pakistan squad 2026, Pakistan players list, cricket team Pakistan, Pakistan cricket team roster" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pakcric-schedule.online/squads" />
-        <meta property="og:title" content="Pakistan Cricket Players List 2026 | Squad & Player Stats" />
-        <meta property="og:description" content="View the full Pakistan cricket players list for 2026. Explore squad details, individual player stats, and performance records." />
+        <meta property="og:title" content="Pakistan Squad 2026 – Full Team Players List" />
+        <meta property="og:description" content="Check Pakistan cricket team squad 2026 with complete players list, roles, and latest updates." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
@@ -192,10 +192,10 @@ export default function Squads() {
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
       `}} />
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
-          Team <span className="text-white">Squads 2026</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">
+          Pakistan Cricket Team <span className="text-pak-green">Squad 2026</span>
         </h1>
-        <p className="text-ink/60 font-medium mb-8">Player lists for upcoming tours and home series.</p>
+        <p className="text-ink/60 font-medium mb-8">Official player lists for upcoming tours and home series.</p>
 
         <div className="space-y-8">
           {/* Search Bar */}
@@ -734,10 +734,16 @@ export default function Squads() {
                 )}
               </div>
 
-                <div className="p-8 bg-card-bg border-t border-white/5">
+                <div className="p-8 bg-card-bg border-t border-white/5 flex flex-col gap-3">
+                  <Link 
+                    to={`/player/${selectedPlayer.name.toLowerCase().replace(/ /g, '-')}`}
+                    className="w-full py-4 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-[0.4em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-2"
+                  >
+                    View Full Stats Page <ChevronRight className="w-4 h-4" />
+                  </Link>
                   <button 
                     onClick={closeModal}
-                    className="w-full py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-[0.4em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-white/10"
+                    className="w-full py-4 bg-white/5 text-neutral-500 rounded-2xl text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white/10 hover:text-white transition-all"
                   >
                     Close Profile
                   </button>

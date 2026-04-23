@@ -35,6 +35,7 @@ const MatchPreviewBangladesh = lazy(() => import('./pages/MatchPreviewBangladesh
 const SquadIntelligence = lazy(() => import('./pages/SquadIntelligence'));
 const News = lazy(() => import('./pages/News'));
 const NewsDetail = lazy(() => import('./pages/NewsDetail'));
+const PlayerStats = lazy(() => import('./pages/PlayerStats'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -105,6 +106,7 @@ export default function App() {
               <Route path="/rankings/test-allrounder" element={<TestAllrounder />} />
               <Route path="/news" element={<News />} />
               <Route path="/news/:id" element={<NewsDetail />} />
+              <Route path="/player/:name" element={<PlayerStats />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
