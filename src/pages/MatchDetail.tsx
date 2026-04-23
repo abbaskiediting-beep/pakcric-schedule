@@ -1,17 +1,108 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { MATCH_RESULTS } from '../matchResultsData';
-import { ChevronLeft, MapPin, Clock, Calendar, Ticket, Trophy, Timer, Zap, Target, Users } from 'lucide-react';
+import { 
+  ChevronLeft, MapPin, Clock, Calendar, Ticket, 
+  Trophy, Timer, Zap, Target, Users, Bell, CheckCircle2 
+} from 'lucide-react';
+import { useState } from 'react';
 
 export default function MatchDetail() {
   const { id } = useParams();
   const match = [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS].find(m => m.id === id);
+  const [reminderSet, setReminderSet] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleSetReminder = () => {
+    if (reminderSet) return;
+    
+    setReminderSet(true);
+    setShowToast(true);
+    
+    // Auto-hide toast after 3 seconds
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+
+    // In a real app, this could trigger a browser notification or a calendar API
+    console.log(`Reminder set for match: ${match?.series} - ${match?.opponent}`);
+  };
 
   if (!match) return <div className="p-12 text-center text-ink/60">Match not found</div>;
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>{`Pakistan vs ${match.opponent} | ${match.series} | Match Dates & Details`}</title>
+        <meta name="description" content={`Check Pakistan vs ${match.opponent} 2026 match details, venues, and timings for the ${match.series}. Stay updated with all the latest Pakistan cricket fixtures.`} />
+        <meta name="keywords" content={`Pakistan vs ${match.opponent}, ${match.series}, match schedule, cricket fixtures, Pakistan cricket 2026`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://pakcric-schedule.online/match/${match.id}`} />
+        <meta property="og:title" content={`Pakistan vs ${match.opponent} | ${match.series} | Match Dates & Details`} />
+        <meta property="og:description" content={`Full schedule and match details for Pakistan vs ${match.opponent} in the ${match.series}. Get venue, time and news.`} />
+        <meta property="og:image" content={match.flagUrl} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://pakcric-schedule.online/match/${match.id}`} />
+        <meta property="twitter:title" content={`Pakistan vs ${match.opponent} | ${match.series} | Match Dates & Details`} />
+        <meta property="twitter:description" content={`Full schedule and match details for Pakistan vs ${match.opponent} in the ${match.series}. Get venue, time and news.`} />
+        <meta property="twitter:image" content={match.flagUrl} />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "SportsEvent",
+              "name": "Pakistan vs ${match.opponent} ${match.format || 'Cricket Match'}",
+              "startDate": "2026-${match.date.includes('May') ? '05' : '01'}-08T09:00",
+              "location": {
+                "@type": "Place",
+                "name": "${match.venue.split(',')[0]}",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "${match.venue.split(',')[1] || 'TBA'}",
+                  "addressCountry": "TBA"
+                }
+              },
+              "competitor": [
+                {
+                  "@type": "SportsTeam",
+                  "name": "Pakistan"
+                },
+                {
+                  "@type": "SportsTeam",
+                  "name": "${match.opponent}"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="fixed bottom-12 left-0 right-0 z-50 flex justify-center px-6 pointer-events-none"
+          >
+            <div className="bg-pak-green text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-md border border-white/20">
+              <CheckCircle2 className="w-5 h-5" />
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest leading-none mb-1">Success</p>
+                <p className="text-xs font-medium opacity-80">Reminder set for {match.opponent} series!</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
@@ -72,22 +163,48 @@ export default function MatchDetail() {
                </div>
              )}
 
-             <div className="inline-flex flex-wrap items-center justify-center gap-8 p-4 bg-black/30 rounded-3xl border border-white/5 backdrop-blur-md">
-                <div className="flex items-center gap-2">
-                   <Calendar className="w-4 h-4 text-white" />
-                   <span className="text-[10px] font-bold uppercase tracking-widest">{match.date}</span>
-                 </div>
-                 <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-white" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">{match.time}</span>
-                 </div>
-                 <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-white" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">{match.venue}</span>
-                 </div>
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+                <div className="inline-flex flex-wrap items-center justify-center gap-8 p-4 bg-black/30 rounded-3xl border border-white/5 backdrop-blur-md">
+                   <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-white" />
+                      <span className="text-[10px] font-bold uppercase tracking-widest">{match.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <Clock className="w-4 h-4 text-white" />
+                       <span className="text-[10px] font-bold uppercase tracking-widest">{match.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <MapPin className="w-4 h-4 text-white" />
+                       <span className="text-[10px] font-bold uppercase tracking-widest">{match.venue}</span>
+                    </div>
+                </div>
+
+                {match.status !== 'Completed' && (
+                  <button 
+                    onClick={handleSetReminder}
+                    disabled={reminderSet}
+                    className={`px-6 py-4 rounded-3xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-3 backdrop-blur-md border border-white/10 ${
+                      reminderSet 
+                        ? 'bg-white/10 text-white cursor-default' 
+                        : 'bg-white text-pak-green hover:scale-105 active:scale-95 shadow-xl shadow-black/20'
+                    }`}
+                  >
+                    {reminderSet ? (
+                      <>
+                        <CheckCircle2 className="w-4 h-4" /> 
+                        <span>Active</span>
+                      </>
+                    ) : (
+                      <>
+                        <Bell className="w-4 h-4" /> 
+                        <span>Remind</span>
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
            </div>
-         </motion.div>
+        </motion.div>
 
         {/* Detailed Stats for Completed Matches */}
         {match.status === 'Completed' && match.stats && (
@@ -191,13 +308,38 @@ export default function MatchDetail() {
            </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-pak-green rounded-[32px] p-8 text-white">
-           <h3 className="text-lg font-display font-bold uppercase tracking-tight mb-2">Live Stream</h3>
-           <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Watch the match live in HD on PCB Digital & PTV Sports.</p>
-           <button className="px-6 py-2 bg-white text-pak-green rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all">
-              Set Reminder
-           </button>
-        </motion.div>
+        {match.status !== 'Completed' && (
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-pak-green rounded-[32px] p-8 text-white relative overflow-hidden group">
+             <div className="relative z-10">
+               <h3 className="text-lg font-display font-bold uppercase tracking-tight mb-2">Live Stream</h3>
+               <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Watch the match live in HD on PCB Digital & PTV Sports.</p>
+               <button 
+                onClick={handleSetReminder}
+                disabled={reminderSet}
+                className={`px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 ${
+                  reminderSet 
+                    ? 'bg-pak-green border border-white/30 text-white cursor-default' 
+                    : 'bg-white text-pak-green hover:scale-105 active:scale-95'
+                }`}
+               >
+                  {reminderSet ? (
+                    <>
+                      <CheckCircle2 className="w-4 h-4" /> Reminder Set
+                    </>
+                  ) : (
+                    <>
+                      <Bell className="w-4 h-4" /> Set Reminder
+                    </>
+                  )}
+               </button>
+             </div>
+             
+             {/* Background Decoration */}
+             <div className="absolute -bottom-8 -right-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                <Bell className="w-32 h-32" />
+             </div>
+          </motion.div>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag } from 'lucide-react';
 
 const ARTICLES: Record<string, any> = {
@@ -185,9 +186,53 @@ export default function NewsDetail() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>{`${article.title} | PakCric Hub News`}</title>
+        <meta name="description" content={article.content.split('\n')[0].substring(0, 160).trim() || `Read the latest about ${article.title} on PakCric Hub.`} />
+        <meta name="keywords" content={`Pakistan cricket news, ${article.title.split(' ').slice(0, 3).join(', ')}, cricket updates`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://pakcric-schedule.online/news/${id}`} />
+        <meta property="og:title" content={`${article.title} | PakCric Hub News`} />
+        <meta property="og:description" content={article.content.split('\n')[0].substring(0, 160).trim()} />
+        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://pakcric-schedule.online/news/${id}`} />
+        <meta property="twitter:title" content={`${article.title} | PakCric Hub News`} />
+        <meta property="twitter:description" content={article.content.split('\n')[0].substring(0, 160).trim()} />
+        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "${article.title.replace(/"/g, '\\"')}",
+              "description": "${article.content.split('\\n')[0].substring(0, 160).trim().replace(/"/g, '\\"')}",
+              "author": {
+                "@type": "Person",
+                "name": "${article.author}"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "PakCric Hub",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://pakcric-schedule.online/logo.png"
+                }
+              },
+              "datePublished": "2026-04-20",
+              "dateModified": "2026-04-23"
+            }
+          `}
+        </script>
+      </Helmet>
       <button 
         onClick={() => navigate('/news')}
-        className="inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-[10px] mb-8 hover:translate-x-[-4px] transition-transform"
+        className="inline-flex items-center gap-2 text-white font-normal uppercase tracking-widest text-[10px] mb-8 hover:translate-x-[-4px] transition-transform"
       >
         <ArrowLeft className="w-4 h-4 text-white" /> Back to News
       </button>
@@ -232,15 +277,58 @@ export default function NewsDetail() {
                  return (
                    <h2 
                      key={idx} 
-                     className="text-2xl font-display font-medium text-white tracking-tight mt-12 mb-6"
+                     className="text-2xl font-display font-bold text-white tracking-tight mt-12 mb-6"
                    >
                      {paragraph.replace('#', '').trim()}
                    </h2>
                  );
                }
+
+               // Internal Linking Helper
+               const linkKeywords = (text: string) => {
+                 const keywords: Record<string, string> = {
+                   'schedule': '/schedule',
+                   'squad': '/squads',
+                   'rankings': '/rankings',
+                   'icc': '/rankings',
+                   'wtc': '/rankings',
+                   'world test championship': '/rankings',
+                   'news': '/news',
+                   'blogs': '/blogs'
+                 };
+
+                 let parts: (string | JSX.Element)[] = [text];
+                 
+                 Object.entries(keywords).forEach(([keyword, path]) => {
+                   const newParts: (string | JSX.Element)[] = [];
+                   parts.forEach(part => {
+                     if (typeof part === 'string') {
+                       const regex = new RegExp(`(${keyword})`, 'gi');
+                       const splitParts = part.split(regex);
+                       splitParts.forEach((sp, i) => {
+                         if (sp.toLowerCase() === keyword) {
+                           newParts.push(
+                             <Link key={`${keyword}-${i}`} to={path} className="text-pak-green hover:underline">
+                               {sp}
+                             </Link>
+                           );
+                         } else if (sp !== '') {
+                           newParts.push(sp);
+                         }
+                       });
+                     } else {
+                       newParts.push(part);
+                     }
+                   });
+                   parts = newParts;
+                 });
+
+                 return parts;
+               };
+
                return (
                  <p key={idx} className="text-neutral-300 leading-relaxed mb-6 text-lg font-sans font-normal">
-                   {paragraph}
+                   {linkKeywords(paragraph)}
                  </p>
                );
              })}

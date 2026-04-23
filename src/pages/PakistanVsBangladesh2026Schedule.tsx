@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ChevronLeft, Calendar, MapPin, Trophy, Users, Clock, Info } from 'lucide-react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 
@@ -9,11 +10,41 @@ export default function PakistanVsBangladesh2026Schedule() {
   const matches = PAKISTAN_SCHEDULE.filter(m => m.series === seriesName);
 
   useEffect(() => {
-    document.title = "Pakistan vs Bangladesh 2026 Schedule – Full Match List";
+    // We already have Helmet for the title, keeping this legacy update as well for consistency
+    document.title = "Pakistan vs Bangladesh 2026 Schedule | Match Dates & Details";
   }, []);
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>Pakistan vs Bangladesh 2026 Schedule | Match Dates & Details</title>
+        <meta name="description" content="Check Pakistan vs Bangladesh 2026 schedule, match dates, venues, timings and full series details. Complete schedule in one place." />
+        <meta name="keywords" content="Pakistan vs Bangladesh 2026, match schedule, test series Pakistan Bangladesh, cricket fixtures" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "Pakistan vs Bangladesh 2026 Schedule",
+              "description": "Full Pakistan vs Bangladesh 2026 schedule, match dates, venues and timings.",
+              "author": {
+                "@type": "Person",
+                "name": "PakCric Team"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "PakCric Hub",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://pakcric-schedule.online/logo.png"
+                }
+              },
+              "datePublished": "2026-04-20",
+              "dateModified": "2026-04-23"
+            }
+          `}
+        </script>
+      </Helmet>
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>

@@ -4,6 +4,46 @@ import { ChevronLeft, Calendar, MapPin, Users, Info, Clock, Trophy } from 'lucid
 import { PAKISTAN_SCHEDULE } from '../constants';
 
 export default function UpcomingSeriesArticle() {
+  // Internal Linking Helper
+  const linkKeywords = (text: string) => {
+    const keywords: Record<string, string> = {
+      'schedule': '/schedule',
+      'squad': '/squads',
+      'rankings': '/rankings',
+      'icc': '/rankings',
+      'wtc': '/rankings',
+      'world test championship': '/rankings'
+    };
+
+    let parts: (string | JSX.Element)[] = [text];
+    
+    Object.entries(keywords).forEach(([keyword, path]) => {
+      const newParts: (string | JSX.Element)[] = [];
+      parts.forEach(part => {
+        if (typeof part === 'string') {
+          const regex = new RegExp(`(${keyword})`, 'gi');
+          const splitParts = part.split(regex);
+          splitParts.forEach((sp, i) => {
+            if (sp.toLowerCase() === keyword) {
+              newParts.push(
+                <Link key={`${keyword}-${i}`} to={path} className="text-pak-green hover:underline">
+                  {sp}
+                </Link>
+              );
+            } else if (sp !== '') {
+              newParts.push(sp);
+            }
+          });
+        } else {
+          newParts.push(part);
+        }
+      });
+      parts = newParts;
+    });
+
+    return parts;
+  };
+
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
@@ -28,10 +68,10 @@ export default function UpcomingSeriesArticle() {
           {/* Introduction */}
           <section className="prose prose-invert max-w-none">
             <p className="text-lg text-ink/80 leading-relaxed">
-              For every cricket enthusiast in Pakistan, the national team's calendar is more than just a list of dates; it is a journey of emotions, victories, and hard-fought battles. As we look ahead, the <strong>Pakistan upcoming series full schedule</strong> for 2026 promises an action-packed year filled with high-stakes Test matches, intense T20 encounters, and prestigious tours. From the tricky spinning tracks of Bangladesh to the lush green outfields of England, the Green Shirts are set to travel far and wide to assert their dominance in the cricketing world.
+              {linkKeywords("For every cricket enthusiast in Pakistan, the national team's calendar is more than just a list of dates; it is a journey of emotions, victories, and hard-fought battles. As we look ahead, the Pakistan upcoming series full schedule for 2026 promises an action-packed year filled with high-stakes Test matches, intense T20 encounters, and prestigious tours. From the tricky spinning tracks of Bangladesh to the lush green outfields of England, the Green Shirts are set to travel far and wide to assert their dominance in the cricketing world.")}
             </p>
             <p className="text-ink/60 leading-relaxed">
-              In this comprehensive guide, we bring you the complete breakdown of the <strong>Pakistan upcoming series full schedule</strong>. Whether you are a fan of the traditional five-day format or the fast-paced nature of T20 Internationals, this article covers everything you need to know about where and when the Pakistan cricket team will be in action. We will highlight key match-ups, venues, and the players who are expected to shine during these crucial fixtures.
+              {linkKeywords("In this comprehensive guide, we bring you the complete breakdown of the Pakistan upcoming series full schedule. Whether you are a fan of the traditional five-day format or the fast-paced nature of T20 Internationals, this article covers everything you need to know about where and when the Pakistan cricket team will be in action. We will highlight key match-ups, venues, and the players who are expected to shine during these crucial fixtures.")}
             </p>
           </section>
 
@@ -42,7 +82,7 @@ export default function UpcomingSeriesArticle() {
               Complete Pakistan Cricket Schedule for 2026
             </h2>
             <p className="text-ink/60 leading-relaxed mb-8">
-              The year 2026 is shaping up to be one of the most demanding years for the Pakistan cricket team. With a significant focus on the ICC World Test Championship (WTC) points and preparation for upcoming ICC events, the <strong>Pakistan upcoming series full schedule</strong> includes tours of Bangladesh, the West Indies, England, and Sri Lanka, along with home series that will keep local fans on the edge of their seats.
+              {linkKeywords("The year 2026 is shaping up to be one of the most demanding years for the Pakistan cricket team. With a significant focus on the ICC World Test Championship (WTC) points and preparation for upcoming ICC events, the Pakistan upcoming series full schedule includes tours of Bangladesh, the West Indies, England, and Sri Lanka, along with home series that will keep local fans on the edge of their seats.")}
             </p>
 
             <div className="space-y-8">
@@ -145,7 +185,7 @@ export default function UpcomingSeriesArticle() {
           <section className="prose prose-invert max-w-none space-y-6">
             <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tight">The Tactical Outlook for 2026</h2>
             <p className="text-ink/60 leading-relaxed">
-              When analyzing the <strong>Pakistan upcoming series full schedule</strong>, one cannot overlook the strategic importance of the venues selected. Playing in Bangladesh requires a spin-centric approach. We expect the rise of spinners like Noman Ali and Sajid Khan to be a highlight of the May tour. These bowlers have recently shown that they can dismantle top-tier lineups on helpful tracks. The slow nature of the Dhaka pitch often demands patience and accuracy, two traits that Pakistan's current spin duo has mastered.
+              {linkKeywords("When analyzing the Pakistan upcoming series full schedule, one cannot overlook the strategic importance of the venues selected. Playing in Bangladesh requires a spin-centric approach. We expect the rise of spinners like Noman Ali and Sajid Khan to be a highlight of the May tour. These bowlers have recently shown that they can dismantle top-tier lineups on helpful tracks. The slow nature of the Dhaka pitch often demands patience and accuracy, two traits that Pakistan's current spin duo has mastered.")}
             </p>
             <p className="text-ink/60 leading-relaxed">
               Moving to the West Indies and England later in the year, the focus will shift back to the fast bowlers. Pakistan's pace battery, led by Shaheen Afridi and Khurram Shahzad, will relish the extra bounce in Barbados and the lateral movement in Leeds and London. The <strong>Pakistan upcoming series full schedule</strong> is perfectly balanced to test both the spin and pace departments of the team. The historic conditions at Lord's, in particular, provide a unique stage where legends are born, and Pakistani seamers have a rich tradition of performing under the cloudy London skies.

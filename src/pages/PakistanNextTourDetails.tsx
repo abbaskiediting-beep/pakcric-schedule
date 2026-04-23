@@ -5,6 +5,45 @@ import { ChevronLeft, Flag, Calendar, Target, Info, MapPin } from 'lucide-react'
 import { PAKISTAN_SCHEDULE } from '../constants';
 
 export default function PakistanNextTourDetails() {
+  const linkKeywords = (text: string) => {
+    const keywords: Record<string, string> = {
+      'schedule': '/schedule',
+      'squad': '/squads',
+      'rankings': '/rankings',
+      'icc': '/rankings',
+      'wtc': '/icc-wtc-projections-2026',
+      'world test championship': '/icc-wtc-projections-2026'
+    };
+
+    let parts: (string | JSX.Element)[] = [text];
+    
+    Object.entries(keywords).forEach(([keyword, path]) => {
+      const newParts: (string | JSX.Element)[] = [];
+      parts.forEach(part => {
+        if (typeof part === 'string') {
+          const regex = new RegExp(`(${keyword})`, 'gi');
+          const splitParts = part.split(regex);
+          splitParts.forEach((sp, i) => {
+            if (sp.toLowerCase() === keyword) {
+              newParts.push(
+                <Link key={`${keyword}-${i}`} to={path} className="text-pak-green hover:underline">
+                  {sp}
+                </Link>
+              );
+            } else if (sp !== '') {
+              newParts.push(sp);
+            }
+          });
+        } else {
+          newParts.push(part);
+        }
+      });
+      parts = newParts;
+    });
+
+    return parts;
+  };
+
   // Logic to determine the "Next Tour"
   // Since it's April 21, 2026, the next matches start on May 8
   const upcomingMatches = PAKISTAN_SCHEDULE.filter(m => {
@@ -48,10 +87,10 @@ export default function PakistanNextTourDetails() {
               Which Country is Pakistan Touring Next?
             </h2>
             <p className="text-ink/80 leading-relaxed">
-              As the international cricket calendar heats up, fans are eagerly asking: where is the Green Team headed? We have the latest <strong>Pakistan next tour details</strong>. The Pakistan national team is scheduled to fly to <strong>Bangladesh</strong> in May 2026 for a high-intensity two-match Test series. 
+              {linkKeywords("As the international cricket calendar heats up, fans are eagerly asking: where is the Green Team headed? We have the latest Pakistan next tour details. The Pakistan national team is scheduled to fly to Bangladesh in May 2026 for a high-intensity two-match Test series.")}
             </p>
             <p className="text-ink/60 leading-relaxed">
-              This series is crucial for Pakistan’s standing in the ICC World Test Championship. Following the conclusion of the Bangladesh tour, Pakistan will then travel to the <strong>West Indies</strong> in July 2026 for a multi-format series including Tests, and potentially ODIs and T20Is.
+              {linkKeywords("This series is crucial for Pakistan’s standing in the ICC World Test Championship. Following the conclusion of the Bangladesh tour, Pakistan will then travel to the West Indies in July 2026 for a multi-format series including Tests, and potentially ODIs and T20Is.")}
             </p>
           </section>
 
@@ -140,12 +179,30 @@ export default function PakistanNextTourDetails() {
           {/* Section 4: Deep Dive Context */}
           <section className="prose prose-invert max-w-none pt-4 border-t border-white/10">
             <p className="text-ink/60 leading-relaxed">
-              When analyzing the <strong>Pakistan next tour details</strong>, critics highlight the physical toll of back-to-back subcontinental and Caribbean series. The transition from the slow turners of Dhaka to the often-bouncy Kensington Oval in Barbados will be a true test of the team's versatility.
+              {linkKeywords("When analyzing the Pakistan next tour details, critics highlight the physical toll of back-to-back subcontinental and Caribbean series. The transition from the slow turners of Dhaka to the often-bouncy Kensington Oval in Barbados will be a true test of the team's versatility.")}
             </p>
             <p className="text-ink/60 leading-relaxed">
-              Fans should stay tuned for the official squad announcement, usually expected two weeks before the team's departure. Our <strong>Pakistan next tour details</strong> guide will be updated live as new information emerges from the PCB.
+              {linkKeywords("Fans should stay tuned for the official squad announcement, usually expected two weeks before the team's departure. Our Pakistan next tour details guide will be updated live as new information emerges from the PCB.")}
             </p>
           </section>
+
+          <div className="mt-12 p-8 border border-white/10 bg-white/5 rounded-[32px]">
+            <h3 className="text-xl font-display font-bold uppercase mb-8 text-white text-center">Related Analysis</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Link to="/pakistan-tour-bangladesh-test-2026" className="p-6 bg-white/5 border border-white/5 rounded-3xl hover:border-pak-green transition-colors group">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-2">Series Opener</p>
+                <h4 className="text-white text-xs font-bold group-hover:text-pak-green transition-colors leading-tight uppercase">Red-Ball Revival: Strategic Return to Dhaka</h4>
+              </Link>
+              <Link to="/pakistan-tour-bangladesh-squad-2026" className="p-6 bg-white/5 border border-white/5 rounded-3xl hover:border-pak-green transition-colors group">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-2">Deep Dive</p>
+                <h4 className="text-white text-xs font-bold group-hover:text-pak-green transition-colors leading-tight uppercase">Pakistan’s 16-Member Squad & Complete Breakdown</h4>
+              </Link>
+              <Link to="/red-ball-resilience-overview-2026" className="p-6 bg-white/5 border border-white/5 rounded-3xl hover:border-pak-green transition-colors group">
+                <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-2">Analysis</p>
+                <h4 className="text-white text-xs font-bold group-hover:text-pak-green transition-colors leading-tight uppercase">Tactics & The Spin Duo Impact</h4>
+              </Link>
+            </div>
+          </div>
         </div>
       </motion.article>
 
@@ -156,9 +213,14 @@ export default function PakistanNextTourDetails() {
           <p className="text-ink/60 text-sm max-w-xl mx-auto mb-8">
             Get instant notifications on <strong>Pakistan next tour details</strong>, squad changes, and real-time match predictions.
           </p>
-          <button className="px-10 py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-pak-green hover:text-white transition-all transform hover:scale-105">
+          <a 
+            href="https://www.pcb.com.pk/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-pak-green hover:text-white transition-all transform hover:scale-105"
+          >
             Join the Fan Community
-          </button>
+          </a>
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,169,92,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>

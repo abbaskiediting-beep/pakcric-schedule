@@ -1,8 +1,44 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Calendar, ArrowUpRight, Trophy, Users } from 'lucide-react';
+import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target } from 'lucide-react';
 
 const BLOG_POSTS = [
+  {
+    id: 'red-ball-resilience-overview-2026',
+    title: 'Red-Ball Resilience: An Overview of the Pakistan vs Bangladesh Test Series 2026',
+    summary: 'A high-stakes battle for WTC points as Pakistan tours Bangladesh for a critical two-match Test series in May 2026.',
+    date: 'April 2026',
+    path: '/red-ball-resilience-overview-2026',
+    icon: Shield,
+    color: 'text-red-500',
+  },
+  {
+    id: 'babar-azam-3rd-century-psl-history',
+    title: 'Long Live the King: Babar Azam is Still the Undisputed Face of the PSL',
+    summary: 'In Match 29 of PSL 11, Babar conducted an orchestra, smashing 100* off 52 balls with only one dot ball in his entire innings.',
+    date: 'April 20, 2026',
+    path: '/news/babar-azam-3rd-century-psl-history',
+    icon: Target,
+    color: 'text-yellow-500',
+  },
+  {
+    id: 'pakistan-test-squad-player-profiles-2026',
+    title: 'Pakistan Test Squad for Bangladesh Tour 2026: Player Profiles',
+    summary: 'A comprehensive look at the 16-man squad selected for the pivotal Bangladesh series, from uncapped prodigies to seasoned legends.',
+    date: 'April 20, 2026',
+    path: '/news/pakistan-test-squad-player-profiles-2026',
+    icon: Users,
+    color: 'text-pak-green',
+  },
+  {
+    id: 'sarfaraz-ahmed-coach',
+    title: 'Sarfaraz Ahmed: The Invincible Leader Now Shaping Pakistan’s Future',
+    summary: 'Sarfaraz Ahmed: The Invincible Leader Now Shaping Pakistan’s Future. An in-depth look at Saifi Bhai’s transition to the dugout.',
+    date: 'April 19, 2026',
+    path: '/news/sarfaraz-ahmed-coach',
+    icon: Shield,
+    color: 'text-pak-green',
+  },
   {
     id: 'pakistan-tour-bangladesh-test-2026',
     title: 'Red-Ball Revival: Pakistan’s Strategic Return to Bangladesh in 2026',

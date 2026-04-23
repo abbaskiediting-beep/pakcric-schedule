@@ -2,6 +2,7 @@ import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight } from 'luci
 import { motion } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useState, useMemo } from 'react';
 import { Match } from '../types';
 
@@ -63,6 +64,48 @@ export default function Schedule() {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>Pakistan Match Schedule 2026 | Full Fixtures & Timings</title>
+        <meta name="description" content="Explore Pakistan match schedule 2026 with full fixtures, match dates, timings and venues. Get complete Pakistan cricket schedule in one place." />
+        <meta name="keywords" content="Pakistan match schedule, Pakistan fixtures 2026, cricket schedule Pakistan, Pakistan upcoming matches" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pakcric-schedule.online/schedule" />
+        <meta property="og:title" content="Pakistan Match Schedule 2026 | Full Fixtures & Timings" />
+        <meta property="og:description" content="Explore the complete Pakistan match schedule for 2026. Dates, venues, and timings for all Test, ODI and T20 series." />
+        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://pakcric-schedule.online/schedule" />
+        <meta property="twitter:title" content="Pakistan Match Schedule 2026 | Full Fixtures & Timings" />
+        <meta property="twitter:description" content="Explore the complete Pakistan match schedule for 2026. Dates, venues, and timings for all Test, ODI and T20 series." />
+        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://pakcric-schedule.online/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Schedule",
+                  "item": "https://pakcric-schedule.online/schedule"
+                }
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
           <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-4">

@@ -35,16 +35,14 @@ export default function News() {
             className="group relative cursor-pointer overflow-hidden rounded-[40px] bg-card-bg border border-card-border"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative h-64 lg:h-auto overflow-hidden">
-                <img 
-                  src={featuredNews.imageUrl || 'https://picsum.photos/seed/latest/1200/800'} 
-                  alt={featuredNews.title}
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent lg:hidden" />
+              <div className="relative h-64 lg:h-auto border-b lg:border-b-0 lg:border-r border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent flex items-center justify-center overflow-hidden">
+                <Newspaper className="w-32 h-32 text-white/5 absolute -right-8 -bottom-8 rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+                <div className="text-center relative z-10 px-8">
+                   <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-white transition-colors duration-500">
+                      <Newspaper className="w-8 h-8 text-white group-hover:text-black transition-colors duration-500" />
+                   </div>
+                   <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-neutral-500">Field Briefing</p>
+                </div>
               </div>
               <div className="p-8 lg:p-14 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-6">
@@ -82,18 +80,15 @@ export default function News() {
               onClick={() => navigate(`/news/${item.id}`)}
               className="group relative flex flex-col bg-card-bg border border-card-border rounded-[32px] overflow-hidden hover:border-white/30 transition-all cursor-pointer"
             >
-              <div className="h-48 overflow-hidden relative grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
-                <img 
-                  src={item.imageUrl || `https://picsum.photos/seed/${item.id}/800/600`} 
-                  alt={item.title}
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card-bg to-transparent" />
+              <div className="h-40 relative flex items-center justify-center bg-gradient-to-br from-white/[0.01] to-transparent border-b border-white/5">
+                <Newspaper className="w-16 h-16 text-white/[0.03] group-hover:text-pak-green/10 transition-colors duration-500" />
+                <div className="absolute top-6 left-6">
+                   <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                      <Newspaper className="w-4 h-4 text-white/40" />
+                   </div>
+                </div>
               </div>
-              <div className="p-8 pt-0 -mt-6 relative z-10">
+              <div className="p-8 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-500 border border-white/10 px-2 py-0.5 rounded">{item.tag}</span>
                   <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-700">{item.date}</span>

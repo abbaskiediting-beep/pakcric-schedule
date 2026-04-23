@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { ALL_SQUADS } from '../squadData';
 import { PLAYER_STATS } from '../playerData';
 import { Trophy, ChevronRight, Search, X, TrendingUp, User, Info, StickyNote, Save, Star, Award, Share2 } from 'lucide-react';
@@ -165,6 +166,25 @@ export default function Squads() {
 
   return (
     <div className="max-w-5xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>Pakistan Cricket Players List 2026 | Squad & Player Stats</title>
+        <meta name="description" content="View Pakistan cricket players list 2026 with squad details, player stats, batting and bowling records. Explore all Pakistan team players." />
+        <meta name="keywords" content="Pakistan players list, Pakistan cricket squad 2026, player stats Pakistan, cricket team Pakistan" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pakcric-schedule.online/squads" />
+        <meta property="og:title" content="Pakistan Cricket Players List 2026 | Squad & Player Stats" />
+        <meta property="og:description" content="View the full Pakistan cricket players list for 2026. Explore squad details, individual player stats, and performance records." />
+        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://pakcric-schedule.online/squads" />
+        <meta property="twitter:title" content="Pakistan Cricket Players List 2026 | Squad & Player Stats" />
+        <meta property="twitter:description" content="View the full Pakistan cricket players list for 2026. Explore squad details, individual player stats, and performance records." />
+        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: `
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }

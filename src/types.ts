@@ -103,5 +103,4 @@ export interface NewsItem {
   date: string;
   tag: string;
   summary: string;
-  imageUrl?: string;
 }

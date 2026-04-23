@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, Suspense, lazy } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Nav from './components/Nav';
 
@@ -24,10 +25,12 @@ const SeriesDetail = lazy(() => import('./pages/SeriesDetail'));
 const MatchDetail = lazy(() => import('./pages/MatchDetail'));
 const Blogs = lazy(() => import('./pages/Blogs'));
 const PakistanVsBangladesh2026Schedule = lazy(() => import('./pages/PakistanVsBangladesh2026Schedule'));
+const RedBallResilienceBlog = lazy(() => import('./pages/RedBallResilienceBlog'));
 const PakistanTourBangladeshTestBlog = lazy(() => import('./pages/PakistanTourBangladeshTestBlog'));
 const PakistanTourBangladeshSquadBlog = lazy(() => import('./pages/PakistanTourBangladeshSquadBlog'));
 const UpcomingSeriesArticle = lazy(() => import('./pages/UpcomingSeriesArticle'));
 const PakistanNextTourDetails = lazy(() => import('./pages/PakistanNextTourDetails'));
+const WTCStandings = lazy(() => import('./pages/rankings/WTCStandings'));
 const News = lazy(() => import('./pages/News'));
 const NewsDetail = lazy(() => import('./pages/NewsDetail'));
 const About = lazy(() => import('./pages/About'));
@@ -41,6 +44,18 @@ const PageLoader = () => (
     <div className="w-8 h-8 border-4 border-pak-green border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
+
+const SEO = () => {
+  const location = useLocation();
+  const baseUrl = 'https://pakcric-schedule.online';
+  const canonicalUrl = `${baseUrl}${location.pathname === '/' ? '' : location.pathname}`;
+
+  return (
+    <Helmet>
+      <link rel="canonical" href={canonicalUrl} />
+    </Helmet>
+  );
+};
 
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -58,6 +73,7 @@ export default function App() {
 
   return (
     <Router>
+      <SEO />
       <div className="min-h-screen bg-bg text-ink flex flex-col font-sans transition-colors duration-300">
         <Header theme={theme} onToggleTheme={toggleTheme} />
         <Nav />
@@ -72,6 +88,7 @@ export default function App() {
               <Route path="/icc-t20-ranking-2026" element={<RankingsT20 />} />
               <Route path="/icc-odi-ranking-2026" element={<RankingsODI />} />
               <Route path="/icc-test-ranking-2026" element={<RankingsTest />} />
+              <Route path="/icc-wtc-projections-2026" element={<WTCStandings />} />
               
               {/* Player Rankings */}
               <Route path="/rankings/t20-batting" element={<T20Batting />} />
@@ -93,6 +110,7 @@ export default function App() {
               <Route path="/match/:id" element={<MatchDetail />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
+              <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
               <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />
               <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />

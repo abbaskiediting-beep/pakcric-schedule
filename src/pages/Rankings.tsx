@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Trophy, Star, Users, ChevronRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function Rankings() {
   const t20Rankings = [
@@ -24,6 +25,25 @@ export default function Rankings() {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>ICC Rankings 2026 | Pakistan Team, Batting & Bowling Rankings</title>
+        <meta name="description" content="Check latest ICC rankings 2026 including Pakistan team ranking, top batsmen, bowlers and all-rounders rankings." />
+        <meta name="keywords" content="ICC rankings 2026, Pakistan ranking ICC, top batsmen ranking, cricket rankings" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pakcric-schedule.online/rankings" />
+        <meta property="og:title" content="ICC Rankings 2026 | Pakistan Team, Batting & Bowling Rankings" />
+        <meta property="og:description" content="Stay updated with the latest ICC rankings for 2026. Check Pakistan team position and individual player rankings across all formats." />
+        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://pakcric-schedule.online/rankings" />
+        <meta property="twitter:title" content="ICC Rankings 2026 | Pakistan Team, Batting & Bowling Rankings" />
+        <meta property="twitter:description" content="Stay updated with the latest ICC rankings for 2026. Check Pakistan team position and individual player rankings across all formats." />
+        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+      </Helmet>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
           ICC <span className="text-white">Rankings</span>
@@ -33,6 +53,7 @@ export default function Rankings() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         {rankingCards.map((card, idx) => (
+          // ... (existing code mapping)
           <Link to={`/icc-${card.type.toLowerCase()}-ranking-2026`} key={card.type}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -78,6 +99,45 @@ export default function Rankings() {
           </Link>
         ))}
       </div>
+
+      <div className="flex items-center gap-4 mb-8">
+        <Trophy className="w-8 h-8 text-pak-green" />
+        <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-white">Championship Race</h2>
+      </div>
+
+      <Link to="/icc-wtc-projections-2026">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="bg-card-bg border border-card-border rounded-[40px] p-8 md:p-12 mb-20 relative overflow-hidden group cursor-pointer hover:border-pak-green/50 transition-all shadow-3xl"
+        >
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="inline-block px-4 py-1.5 bg-pak-green/10 text-pak-green rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-6 border border-pak-green/20">
+                WTC Standings 2025-27
+              </div>
+              <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-6">
+                Road to the <span className="text-pak-green">WTC Final</span>
+              </h2>
+              <p className="text-ink/60 font-medium text-lg leading-relaxed max-w-md mb-8">
+                Pakistan currently holds the <span className="text-white font-bold">5th position</span>. Track the percentages and point scenarios as the Green Shirts fight for a spot at Lord's.
+              </p>
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white group-hover:gap-4 transition-all">
+                View Full Standings Table <ChevronRight className="w-4 h-4 text-pak-green" />
+              </div>
+            </div>
+            <div className="hidden md:flex justify-end">
+               <div className="w-64 h-64 rounded-full bg-pak-green/5 border border-pak-green/10 flex items-center justify-center relative">
+                  <Trophy className="w-32 h-32 text-pak-green opacity-40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-pak-green/20 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+               </div>
+            </div>
+          </div>
+          
+          {/* Background Gradient */}
+          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-r from-transparent to-pak-green/[0.03] pointer-events-none" />
+        </motion.div>
+      </Link>
 
       <div className="flex items-center gap-4 mb-12">
         <Users className="w-8 h-8 text-white" />
