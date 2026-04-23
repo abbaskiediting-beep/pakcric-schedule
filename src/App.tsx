@@ -129,12 +129,16 @@ export default function App() {
              <span>© 2026 Official Fan Portal</span>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-             <Link to="/about" className="hover:text-white transition-colors">About</Link>
-             <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
-             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-             <Link to="/news" className="hover:text-white transition-colors">News</Link>
-             <Link to="/blogs" className="hover:text-white transition-colors">Blogs</Link>
+             <Link to="/schedule" className="hover:text-white transition-colors">Schedule</Link>
+             <Link to="/rankings" className="hover:text-white transition-colors">ICC Rankings</Link>
+             <Link to="/icc-wtc-projections-2026" className="hover:text-white transition-colors">WTC Standings</Link>
+             <Link to="/squads" className="hover:text-white transition-colors">Squads</Link>
+             <Link to="/news" className="hover:text-white transition-colors">Latest News</Link>
+             <Link to="/blogs" className="hover:text-white transition-colors">Expert Blogs</Link>
+             <Link to="/about" className="hover:text-white transition-colors">About Us</Link>
+             <Link to="/contact" className="hover:text-white transition-colors">Support</Link>
+             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
           <div className="flex gap-6">
              <a href="#" className="hover:text-white transition-colors">Twitter</a>

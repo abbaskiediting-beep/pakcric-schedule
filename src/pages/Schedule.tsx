@@ -1,4 +1,4 @@
-import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe } from 'lucide-react';
+import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { Link } from 'react-router-dom';
@@ -37,8 +37,21 @@ export default function Schedule() {
     // Sort
     result.sort((a, b) => {
       if (sortKey === 'date') {
-        const dateA = new Date(a.date.includes('–') ? a.date.split('–')[0] + ' ' + a.date.split(' ').pop() : a.date).getTime();
-        const dateB = new Date(b.date.includes('–') ? b.date.split('–')[0] + ' ' + b.date.split(' ').pop() : b.date).getTime();
+        const parseDate = (d: string) => {
+          if (!d) return 0;
+          
+          // Handle "May 8–12, 2026" or "May 8, 2026"
+          if (/[a-zA-Z]/.test(d)) {
+            const clean = d.includes('–') ? d.split('–')[0].trim() : d;
+            const withYear = clean.includes(',') ? clean : `${clean}, 2026`;
+            return new Date(withYear).getTime() || 0;
+          }
+          
+          // Handle ISO "2026-07-21"
+          return new Date(d).getTime() || 0;
+        };
+        const dateA = parseDate(a.date);
+        const dateB = parseDate(b.date);
         return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
       }
 
@@ -131,15 +144,15 @@ export default function Schedule() {
                     Full Date <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'date' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 cursor-pointer group" onClick={() => handleSort('opponent')}>
+                <th className="px-8 py-8 cursor-pointer group w-64" onClick={() => handleSort('opponent')}>
                   <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
                     Opposition <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'opponent' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8">
+                <th className="px-8 py-8 w-64">
                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Format & Series</div>
                 </th>
-                <th className="px-8 py-8">
+                <th className="px-8 py-8 w-80">
                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Pitch</div>
                 </th>
                 <th className="px-8 py-8 text-right">
@@ -163,8 +176,12 @@ export default function Schedule() {
                       <td className="px-8 py-8">
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 rounded-2xl bg-pak-green/5 border border-pak-green/10 flex flex-col items-center justify-center shrink-0">
-                            <span className="text-xl font-bold text-ink leading-none">{match.date.match(/\d+/)}</span>
-                            <span className="text-[8px] font-bold text-pak-green uppercase tracking-widest">{match.date.split(' ')[0].substring(0,3)}</span>
+                            <span className="text-xl font-bold text-ink leading-none">
+                              {match.date.match(/\d+/) ? match.date.match(/\d+/)![0] : ''}
+                            </span>
+                            <span className="text-[8px] font-bold text-pak-green uppercase tracking-widest">
+                              {match.date.includes(' ') ? match.date.split(' ')[0].substring(0,3) : '2026'}
+                            </span>
                           </div>
                           <div>
                             <span className="text-sm font-bold text-ink block whitespace-nowrap">{match.date}</span>
@@ -185,14 +202,15 @@ export default function Schedule() {
                             </div>
                           </div>
                           <div className="flex flex-col">
-                            <span className="text-sm font-bold text-ink uppercase tracking-tight">Pakistan VS</span>
-                            <span className="text-lg font-display font-bold text-pak-green uppercase tracking-tighter leading-none">{match.opponent}</span>
+                            <span className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none whitespace-nowrap">
+                              PAK <span className="text-white/40 opacity-70">VS</span> {match.opponent.substring(0, 3).toUpperCase()}
+                            </span>
                           </div>
                         </div>
                       </td>
 
                       {/* Format/Series Column */}
-                      <td className="px-8 py-8">
+                      <td className="px-8 py-8 w-64">
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <span className={`px-3 py-1 rounded-lg text-[9px] font-bold uppercase tracking-widest border ${
@@ -210,11 +228,17 @@ export default function Schedule() {
                       </td>
 
                       {/* Venue Column */}
-                      <td className="px-8 py-8">
+                      <td className="px-8 py-8 w-80 relative group/venue">
+                        {/* Venue Tooltip */}
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-2 bg-neutral-900 text-white rounded-xl text-[10px] whitespace-nowrap opacity-0 group-hover/venue:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl border border-white/10 font-bold uppercase tracking-widest">
+                          {match.venue}
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-900" />
+                        </div>
+
                         <div className="flex items-start gap-2">
                           <MapPin className="w-4 h-4 text-pak-green mt-0.5 shrink-0" />
-                          <div className="space-y-1">
-                            <span className="text-[11px] font-bold text-ink leading-relaxed line-clamp-2">{match.venue}</span>
+                          <div className="space-y-1 overflow-hidden">
+                            <span className="text-[11px] font-bold text-ink leading-relaxed line-clamp-1 truncate block w-full">{match.venue}</span>
                             <span className="text-[9px] font-bold text-ink/30 uppercase tracking-[2px]">International Standard</span>
                           </div>
                         </div>

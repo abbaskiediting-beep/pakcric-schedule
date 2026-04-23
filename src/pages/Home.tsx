@@ -2,9 +2,14 @@ import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer } 
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Suspense, lazy } from 'react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { NEWS_DATA } from '../newsData';
 import { MATCH_RESULTS } from '../matchResultsData';
+
+// Lazy load non-critical sections to speed up initial mobile paint
+const CommonQuestions = lazy(() => import('../components/CommonQuestions'));
+const FanClubSection = lazy(() => import('../components/FanClubSection'));
 
 export default function Home() {
   const nextMatch = PAKISTAN_SCHEDULE[0];
@@ -160,7 +165,16 @@ export default function Home() {
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex flex-col items-center gap-2">
                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 p-1">
-                        <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+                        <img 
+                          src="https://flagcdn.com/pk.svg" 
+                          alt="PAK" 
+                          referrerPolicy="no-referrer" 
+                          loading="lazy" 
+                          decoding="async" 
+                          width="40"
+                          height="40"
+                          className="w-full h-full object-cover rounded-full" 
+                        />
                      </div>
                      <span className="text-xs font-bold uppercase tracking-tighter">PAK</span>
                   </div>
@@ -184,7 +198,16 @@ export default function Home() {
 
                   <div className="flex flex-col items-center gap-2">
                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 p-1">
-                        <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+                        <img 
+                          src={match.flagUrl} 
+                          alt={match.opponent} 
+                          referrerPolicy="no-referrer" 
+                          loading="lazy" 
+                          decoding="async" 
+                          width="40"
+                          height="40"
+                          className="w-full h-full object-cover rounded-full" 
+                        />
                      </div>
                      <span className="text-xs font-bold uppercase tracking-tighter">{match.opponent.substring(0, 3)}</span>
                   </div>
@@ -265,9 +288,9 @@ export default function Home() {
               </div>
 
               <div className="text-center md:text-right order-1 md:order-2">
-                <h2 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none text-white mb-2">
+                <h1 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none text-white mb-2">
                   PAK <span className="text-white opacity-50">vs</span> {nextMatch.opponent.substring(0, 3)}
-                </h2>
+                </h1>
                 <p className="text-lg font-bold uppercase tracking-widest text-white/50 mb-1">{nextMatch.venue}</p>
                 <p className="text-sm font-bold text-white uppercase tracking-[4px]">{nextMatch.date} • {nextMatch.time}</p>
               </div>
@@ -371,82 +394,15 @@ export default function Home() {
         </motion.section>
 
         {/* Featured News / Social Widget */}
-        <motion.section
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="md:col-span-2 bg-white rounded-[40px] p-8 flex flex-col items-center justify-center text-black overflow-hidden relative group shadow-2xl shadow-white/20"
-        >
-          <div className="relative z-10 text-center">
-            <h3 className="text-3xl font-display font-bold uppercase tracking-tighter mb-4 leading-none">The Fan Club</h3>
-            <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Join 2 million fans in the official community.</p>
-            <a 
-              href="https://www.pcb.com.pk/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full py-4 bg-black text-white rounded-2xl text-[10px] font-bold uppercase tracking-[3px] hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-2"
-            >
-               Join <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-125 transition-transform duration-1000 pointer-events-none">
-             <Trophy className="w-32 h-32" />
-          </div>
-        </motion.section>
+        <Suspense fallback={<div className="md:col-span-2 h-[400px] bg-white/5 animate-pulse rounded-[40px]" />}>
+          <FanClubSection />
+        </Suspense>
       </div>
 
       {/* Visible FAQ Section for SEO and Users */}
-      <section className="mt-24 max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-4">
-            Common <span className="text-pak-green">Questions</span>
-          </h2>
-          <p className="text-[10px] font-bold text-ink/40 uppercase tracking-[3px]">Expert Answers to Fan Queries</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            {
-              q: "Pakistan ka next match kab hai?",
-              a: "Pakistan ka next match upcoming international schedule ke mutabiq jaldi hi hoga. Aap hamari website par latest match dates aur timing check kar sakte hain."
-            },
-            {
-              q: "Pakistan cricket schedule 2026 kahan check karein?",
-              a: "Pakistan cricket schedule 2026 aap hamari website par dekh sakte hain jahan tamam upcoming matches, series aur timings update ki jati hain."
-            },
-            {
-              q: "Pakistan vs Bangladesh 2026 series kab start hogi?",
-              a: "Pakistan vs Bangladesh 2026 series ki exact dates schedule page par available hoti hain. Aap wahan full details check kar sakte hain."
-            },
-            {
-              q: "Pakistan matches ki timing kis time zone me hoti hai?",
-              a: "Pakistan matches ki timing usually Pakistan Standard Time (PST) me show ki jati hai, taake local users asaani se match follow kar saken."
-            },
-            {
-              q: "Kya Pakistan cricket schedule PDF download available hai?",
-              a: "Ji haan, Pakistan cricket schedule ka PDF version bhi available hota hai jise aap download karke offline dekh sakte hain."
-            },
-            {
-              q: "Pakistan team ka squad 2026 me kya hai?",
-              a: "Pakistan team ka latest squad har series ke mutabiq update hota hai. Aap hamari website ke players section me updated squad dekh sakte hain."
-            }
-          ].map((faq, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="bg-card-bg border border-card-border rounded-3xl p-8 hover:border-white/20 transition-all group"
-            >
-              <h4 className="text-sm font-bold text-white uppercase tracking-tight mb-4 group-hover:text-pak-green transition-colors">
-                {faq.q}
-              </h4>
-              <p className="text-xs text-ink/60 font-medium leading-relaxed">
-                {faq.a}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <Suspense fallback={<div className="h-[400px] bg-white/5 animate-pulse rounded-[40px] mt-24" />}>
+        <CommonQuestions />
+      </Suspense>
     </div>
   );
 }

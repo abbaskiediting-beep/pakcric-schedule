@@ -10,6 +10,8 @@ const ARTICLES: Record<string, any> = {
     date: "April 20, 2026",
     tag: "Match Report",
     author: "Zalmi Media",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
+    infographic: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800&auto=format&fit=crop",
     content: `
 The lights of the National Bank Stadium in Karachi have seen many heroes, but on the night of April 19, 2026, they witnessed a coronation.
 
@@ -47,6 +49,8 @@ The King isn't going anywhere. He’s just getting started.
     date: "April 20, 2026",
     tag: "Squad Deep Dive",
     author: "PCB Editorial Team",
+    image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1200&auto=format&fit=crop",
+    infographic: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     content: `
 The Pakistan Cricket Board has announced a formidable 16-member squad for the upcoming two-match Test series against Bangladesh, scheduled to begin in Dhaka on May 8, 2026. This squad represents a deliberate fusion of stability and future-forward experimentation.
 
@@ -97,6 +101,7 @@ Would you like a detailed statistical comparison between the two lead spinners, 
     date: "April 19, 2026",
     tag: "Feature",
     author: "Haider Ali",
+    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop",
     content: `
 In the history of Pakistan cricket, few names evoke as much emotion and respect as Sarfaraz Ahmed. From the streets of Karachi to the balcony of Lord’s, Sarfaraz has transitioned through every possible role—prodigy, survivor, champion, and leader. Now, as he takes on the mantle of Head Coach for the national Test side, there is a sense of "poetic justice."
 
@@ -143,6 +148,8 @@ Saifi Bhai is back in the driver's seat, and Pakistan cricket couldn't be in bet
     date: "April 19, 2026",
     tag: "Series Preview",
     author: "PCB Media Cell",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
+    infographic: "https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=800&auto=format&fit=crop",
     content: `
 As of April 19, 2026, the Pakistan Cricket Board (PCB) has officially set the stage for a critical two-Test tour of Bangladesh this May. Positioned 5th in the ICC World Test Championship standings, Pakistan is viewing this series as a mandatory "redemption" tour following recent white-ball struggles in the region.
 
@@ -242,10 +249,22 @@ export default function NewsDetail() {
         animate={{ opacity: 1, y: 0 }}
         className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl"
       >
-        <div className="h-64 bg-gradient-to-br from-pak-green to-[#00220e] relative flex items-center justify-center overflow-hidden">
+        <div className="h-64 md:h-96 relative flex items-end overflow-hidden group">
+          {article.image ? (
+            <>
+              <img 
+                src={article.image} 
+                alt={article.title} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-pak-green to-[#00220e]" />
+          )}
           <Newspaper className="w-32 h-32 text-white/5 absolute -right-8 -bottom-8 rotate-12" />
-          <div className="text-center px-6 relative z-10">
-            <span className="inline-block px-4 py-1.5 bg-white/10 text-white rounded-full text-[10px] font-normal uppercase tracking-[3px] mb-4 border border-white/10">
+          <div className="p-8 md:p-12 relative z-10 w-full">
+            <span className="inline-block px-4 py-1.5 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 border border-white/10">
               {article.tag}
             </span>
             <h1 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter text-white leading-none">
@@ -333,6 +352,20 @@ export default function NewsDetail() {
                );
              })}
           </div>
+
+          {article.infographic && (
+            <div className="mt-12 p-1 bg-white/5 border border-white/5 rounded-[32px] overflow-hidden shadow-inner">
+               <div className="bg-neutral-900 rounded-[28px] p-6 text-center border border-white/5 mb-1">
+                 <span className="text-[10px] font-bold uppercase tracking-[4px] text-pak-green">Visual Analytics</span>
+                 <h3 className="text-xl font-display font-bold text-white uppercase mt-1">Data Infographic</h3>
+               </div>
+               <img 
+                src={article.infographic} 
+                alt="Article Infographic" 
+                className="w-full h-auto object-cover rounded-[28px]"
+               />
+            </div>
+          )}
 
           <div className="mt-16 pt-8 border-t border-white/5">
                <h4 className="text-sm font-normal uppercase tracking-widest text-white mb-6">What do you think?</h4>
