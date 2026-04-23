@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import { Trophy, Star, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
+
 export default function RankingsTest() {
   const teams = [
     'Australia', 'India', 'England', 'South Africa', 'New Zealand', 
@@ -10,6 +12,11 @@ export default function RankingsTest() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>ICC Test Rankings 2026 | Pakistan Test Standings & Team List</title>
+        <meta name="description" content="View the current ICC Test team rankings for 2026. Check Pakistan's world Test position and full top 10 rankings list." />
+        <link rel="canonical" href="https://pakcric-schedule.online/icc-test-ranking-2026" />
+      </Helmet>
       <Link to="/rankings" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to All Rankings
       </Link>

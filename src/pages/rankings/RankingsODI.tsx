@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import { Trophy, Star, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
+
 export default function RankingsODI() {
   const teams = [
     'India', 'Australia', 'South Africa', 'Pakistan', 'New Zealand', 
@@ -10,6 +12,11 @@ export default function RankingsODI() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>ICC ODI Rankings 2026 | Pakistan ODI Standings & Team List</title>
+        <meta name="description" content="Official ICC ODI team rankings 2026. Review Pakistan's current standing in the world One Day International rankings and top teams list." />
+        <link rel="canonical" href="https://pakcric-schedule.online/icc-odi-ranking-2026" />
+      </Helmet>
       <Link to="/rankings" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to All Rankings
       </Link>

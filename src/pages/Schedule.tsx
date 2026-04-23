@@ -78,8 +78,43 @@ export default function Schedule() {
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Pakistan Match Schedule 2026 | Full Fixtures & Match Timings</title>
-        <meta name="description" content="Official Pakistan cricket schedule 2026. View all upcoming fixtures, match dates, Pakistan time (PST), and international venues in one structured table." />
+        <title>Pakistan Cricket Schedule 2026 | Match Fixtures, Venues & Time</title>
+        <meta name="description" content="Get the full Pakistan cricket schedule for 2026. Official fixtures, match timings in PST, venues, and series details for all Test, ODI and T20I matches." />
+        <meta name="keywords" content="Pakistan cricket schedule 2026, PAK vs BAN schedule, Pakistan tour schedule, cricket match timings, Pakistan team fixtures" />
+        <link rel="canonical" href="https://pakcric-schedule.online/schedule" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Pakistan Cricket Schedule 2026 | Match Fixtures & Venues" />
+        <meta property="og:description" content="Complete guide to all Pakistan cricket matches in 2026. Includes Test, ODI, and T20I fixtures with official timings." />
+        <meta property="og:url" content="https://pakcric-schedule.online/schedule" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+
+        {/* JSON-LD for Cricket Events */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "itemListElement": ${JSON.stringify(
+                PAKISTAN_SCHEDULE.slice(0, 10).map((match, index) => ({
+                  "@type": "ListItem",
+                  "position": index + 1,
+                  "item": {
+                    "@type": "Event",
+                    "name": "Pakistan vs " + match.opponent,
+                    "startDate": match.date,
+                    "location": {
+                      "@type": "Place",
+                      "name": match.venue
+                    },
+                    "description": match.series + " - " + match.format
+                  }
+                }))
+              )}
+            }
+          `}
+        </script>
       </Helmet>
 
       {/* Header Section */}

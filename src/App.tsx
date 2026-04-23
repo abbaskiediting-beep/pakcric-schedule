@@ -39,6 +39,7 @@ const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Loading component
 const PageLoader = () => (
@@ -119,6 +120,7 @@ export default function App() {
               <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/pakistan-next-tour-details" element={<PakistanNextTourDetails />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

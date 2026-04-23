@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Trophy, ArrowLeft, Star, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { PlayerRanking } from '../playerRankingsData';
 
 interface PlayerRankingsDetailProps {
@@ -12,8 +13,16 @@ interface PlayerRankingsDetailProps {
 }
 
 export default function PlayerRankingsDetail({ title, category, format, data, themeColor }: PlayerRankingsDetailProps) {
+  const metaDescription = `Official ICC ${format} ${category} rankings for 2026. See the top 10 players in the world, including Pakistan's best performers and current world ratings.`;
+  const pageTitle = `ICC ${format} ${category} Rankings 2026 | Top 10 World Players`;
+
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={`ICC ${format} rankings, ${category} ranking 2026, top cricket players, pakistan player rankings`} />
+      </Helmet>
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="mb-12">
         <Link to="/rankings" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-4">
           <ArrowLeft className="w-4 h-4" /> All Rankings
