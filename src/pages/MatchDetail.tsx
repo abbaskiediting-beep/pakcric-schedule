@@ -8,6 +8,7 @@ import {
   Trophy, Timer, Zap, Target, Users, Bell, CheckCircle2 
 } from 'lucide-react';
 import { useState } from 'react';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 export default function MatchDetail() {
   const { id } = useParams();
@@ -111,6 +112,9 @@ export default function MatchDetail() {
         Pakistan vs <span className="text-pak-green">{match.opponent}</span> 2026 – Full Match Details
       </h1>
 
+      {/* Ad below title */}
+      <AdPlaceholder type="banner" className="mb-10" />
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Match Header Section */}
         <motion.div 
@@ -209,6 +213,11 @@ export default function MatchDetail() {
               </div>
            </div>
         </motion.div>
+
+        {/* Mid-content ad after header info */}
+        <div className="md:col-span-3">
+          <AdPlaceholder type="native" className="mb-8" label="Popular Tours in 2026" />
+        </div>
 
         {/* Detailed Stats for Completed Matches */}
         {match.status === 'Completed' && match.stats && (
@@ -345,6 +354,9 @@ export default function MatchDetail() {
           </motion.div>
         )}
       </div>
+
+      {/* Bottom Ad for long sessions */}
+      <AdPlaceholder type="leaderboard" className="mt-12" />
     </div>
   );
 }

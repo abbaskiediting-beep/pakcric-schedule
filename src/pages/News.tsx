@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Newspaper, ChevronRight, Calendar, ArrowUpRight } from 'lucide-react';
 import { NEWS_DATA } from '../newsData';
+import React from 'react';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 export default function News() {
   const navigate = useNavigate();
@@ -35,6 +37,9 @@ export default function News() {
           <div className="h-px w-12 bg-white/20" />
         </div>
       </motion.div>
+
+      {/* Top Banner Ad for News Feed */}
+      <AdPlaceholder type="leaderboard" className="mb-16" />
 
       <div className="space-y-16">
         {/* Featured News / Hero */}
@@ -80,47 +85,57 @@ export default function News() {
           </motion.div>
         )}
 
+        {/* Ad after featured post */}
+        <AdPlaceholder type="banner" className="my-12" />
+
         {/* Other News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {otherNews.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + idx * 0.1 }}
-              onClick={() => navigate(`/news/${item.id}`)}
-              className="group relative flex flex-col bg-card-bg border border-card-border rounded-[32px] overflow-hidden hover:border-white/30 transition-all cursor-pointer"
-            >
-              <div className="h-40 relative flex items-center justify-center bg-gradient-to-br from-white/[0.01] to-transparent border-b border-white/5">
-                <Newspaper className="w-16 h-16 text-white/[0.03] group-hover:text-pak-green/10 transition-colors duration-500" />
-                <div className="absolute top-6 left-6">
-                   <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                      <Newspaper className="w-4 h-4 text-white/40" />
-                   </div>
+            <React.Fragment key={item.id}>
+              {/* Mid-grid ad placement every 4 items */}
+              {idx > 0 && idx % 4 === 0 && (
+                <div className="md:col-span-2">
+                  <AdPlaceholder type="native" className="mb-4" />
                 </div>
-              </div>
-              <div className="p-8 relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-500 border border-white/10 px-2 py-0.5 rounded">{item.tag}</span>
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-700">{item.date}</span>
-                </div>
-                <h3 className="text-xl font-display font-bold uppercase tracking-tight group-hover:text-white transition-colors mb-4 leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-ink/60 text-xs font-medium line-clamp-2 leading-relaxed mb-6 italic">
-                  "{item.summary}"
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 group-hover:gap-4 transition-all">
-                    <div className="h-px w-4 bg-white/20 group-hover:w-8 group-hover:bg-white transition-all" />
-                    <span className="text-[8px] font-bold uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-all cursor-pointer">Explore</span>
-                  </div>
-                  <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-white/20 group-hover:bg-white/5 transition-all">
-                    <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              )}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + idx * 0.1 }}
+                onClick={() => navigate(`/news/${item.id}`)}
+                className="group relative flex flex-col bg-card-bg border border-card-border rounded-[32px] overflow-hidden hover:border-white/30 transition-all cursor-pointer"
+              >
+                <div className="h-40 relative flex items-center justify-center bg-gradient-to-br from-white/[0.01] to-transparent border-b border-white/5">
+                  <Newspaper className="w-16 h-16 text-white/[0.03] group-hover:text-pak-green/10 transition-colors duration-500" />
+                  <div className="absolute top-6 left-6">
+                     <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                        <Newspaper className="w-4 h-4 text-white/40" />
+                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+                <div className="p-8 relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-500 border border-white/10 px-2 py-0.5 rounded">{item.tag}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-700">{item.date}</span>
+                  </div>
+                  <h3 className="text-xl font-display font-bold uppercase tracking-tight group-hover:text-white transition-colors mb-4 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-ink/60 text-xs font-medium line-clamp-2 leading-relaxed mb-6 italic">
+                    "{item.summary}"
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 group-hover:gap-4 transition-all">
+                      <div className="h-px w-4 bg-white/20 group-hover:w-8 group-hover:bg-white transition-all" />
+                      <span className="text-[8px] font-bold uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-all cursor-pointer">Explore</span>
+                    </div>
+                    <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-white/20 group-hover:bg-white/5 transition-all">
+                      <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </React.Fragment>
           ))}
           
           {/* Empty State / Coming Soon */}

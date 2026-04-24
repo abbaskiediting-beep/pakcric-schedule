@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag } from 'lucide-react';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 const ARTICLES: Record<string, any> = {
   'babar-azam-3rd-century-psl-history': {
@@ -347,14 +348,22 @@ export default function NewsDetail() {
 
           <div className="prose prose-invert prose-neutral max-w-none">
              {article.content.split('\n\n').map((paragraph: string, idx: number) => {
+               // Ad Insertions Logic
+               const shouldInsertAd = idx === 1 || idx === 4 || idx === 8;
+               const adToInsert = shouldInsertAd ? (
+                 <AdPlaceholder key={`ad-${idx}`} type="in-article" className="my-10" />
+               ) : null;
+
                if (paragraph.startsWith('#')) {
                  return (
-                   <h2 
-                     key={idx} 
-                     className="text-2xl font-display font-bold text-white tracking-tight mt-12 mb-6"
-                   >
-                     {paragraph.replace('#', '').trim()}
-                   </h2>
+                   <React.Fragment key={idx}>
+                     {adToInsert}
+                     <h2 
+                       className="text-2xl font-display font-bold text-white tracking-tight mt-12 mb-6"
+                     >
+                       {paragraph.replace('#', '').trim()}
+                     </h2>
+                   </React.Fragment>
                  );
                }
 
@@ -371,10 +380,10 @@ export default function NewsDetail() {
                    'blogs': '/blogs'
                  };
 
-                 let parts: (string | JSX.Element)[] = [text];
+                 let parts: any[] = [text];
                  
                  Object.entries(keywords).forEach(([keyword, path]) => {
-                   const newParts: (string | JSX.Element)[] = [];
+                   const newParts: any[] = [];
                    parts.forEach(part => {
                      if (typeof part === 'string') {
                        const regex = new RegExp(`(${keyword})`, 'gi');
@@ -401,9 +410,12 @@ export default function NewsDetail() {
                };
 
                return (
-                 <p key={idx} className="text-neutral-300 leading-relaxed mb-6 text-lg font-sans font-normal">
-                   {linkKeywords(paragraph)}
-                 </p>
+                 <React.Fragment key={idx}>
+                   {adToInsert}
+                   <p className="text-neutral-300 leading-relaxed mb-6 text-lg font-sans font-normal">
+                     {linkKeywords(paragraph)}
+                   </p>
+                 </React.Fragment>
                );
              })}
           </div>

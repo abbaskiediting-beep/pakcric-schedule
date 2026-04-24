@@ -13,10 +13,10 @@ export default function PakistanTourBangladeshTestBlog() {
       'world test championship': '/icc-wtc-projections-2026'
     };
 
-    let parts: (string | JSX.Element)[] = [text];
+    let parts: any[] = [text];
     
     Object.entries(keywords).forEach(([keyword, path]) => {
-      const newParts: (string | JSX.Element)[] = [];
+      const newParts: any[] = [];
       parts.forEach(part => {
         if (typeof part === 'string') {
           const regex = new RegExp(`(${keyword})`, 'gi');

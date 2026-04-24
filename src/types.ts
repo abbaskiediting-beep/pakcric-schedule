@@ -33,7 +33,7 @@ export interface Match {
   time: string;
   venue: string;
   series: string;
-  status: 'Upcoming' | 'Live' | 'Completed';
+  status: 'Upcoming' | 'Live' | 'Completed' | 'Scheduled' | 'High Voltage';
   result?: string;
   flagUrl?: string;
   scorePAK?: string;

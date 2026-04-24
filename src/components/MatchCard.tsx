@@ -22,9 +22,9 @@ export default function MatchCard({ match, index }: MatchCardProps) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ 
-        scale: 1.03,
-        borderColor: 'rgba(255, 255, 255, 0.4)',
-        boxShadow: '0 20px 40px -10px rgba(0, 169, 92, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05)'
+        scale: 1.02,
+        borderColor: '#01411C',
+        boxShadow: '0 0 20px rgba(1, 65, 28, 0.2)'
       }}
       transition={{ 
         type: 'spring',

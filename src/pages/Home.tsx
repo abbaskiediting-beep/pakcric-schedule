@@ -6,6 +6,7 @@ import { Suspense, lazy } from 'react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { NEWS_DATA } from '../newsData';
 import { MATCH_RESULTS } from '../matchResultsData';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 // Lazy load non-critical sections to speed up initial mobile paint
 const CommonQuestions = lazy(() => import('../components/CommonQuestions'));
@@ -21,16 +22,18 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-6 py-8">
+      {/* Top Leaderboard - Above the fold, below navbar */}
+      <AdPlaceholder type="leaderboard" className="mb-8" />
       <Helmet>
-        <title>Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates</title>
-        <meta name="description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates. Stay updated with Pakistan cricket." />
-        <meta name="keywords" content="Pakistan cricket schedule, Pakistan matches 2026, Pakistan fixtures, upcoming matches Pakistan, cricket schedule updates" />
+        <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Match Dates & Updates | PakCric Schedule</title>
+        <meta name="description" content="Stay updated with the Pakistan cricket schedule 2026. Get full fixtures, match dates, venues, timings, and latest updates on PakCric Schedule." />
+        <meta name="keywords" content="Pakistan cricket schedule 2026, Pakistan matches 2026, Pakistan fixtures, upcoming matches Pakistan, cricket schedule updates, PakCric Schedule" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pakcric-schedule.online/" />
-        <meta property="og:title" content="Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates" />
-        <meta property="og:description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates." />
+        <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Match Dates & Updates | PakCric Schedule" />
+        <meta property="og:description" content="Stay updated with the Pakistan cricket schedule 2026. Get full fixtures, match dates, venues, timings, and latest updates on PakCric Schedule." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
@@ -130,8 +133,87 @@ export default function Home() {
           `}
         </script>
       </Helmet>
+      {/* High Conversion Hero Section */}
+      <section className="mb-20 mt-8 text-center max-w-5xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-pak-green/10 border border-pak-green/20 rounded-full mb-8">
+            <div className="w-2 h-2 rounded-full bg-pak-green animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-[3px] text-pak-green">Live 2026 Season Coverage</span>
+          </div>
+
+          <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-tight text-white mb-6">
+            Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Never Miss a Match</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
+            Get complete match dates, venues, and timings of Pakistan cricket team — all in one simple and updated place.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            {[
+              { icon: '✔', label: 'Updated Daily' },
+              { icon: '✔', label: 'Accurate Match Timings (PKT)' },
+              { icon: '✔', label: 'Full Series & Fixtures' }
+            ].map((trust, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="text-pak-green font-bold text-lg">{trust.icon}</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">{trust.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+            <Link 
+              to="/schedule" 
+              className="w-full sm:w-auto px-12 py-5 bg-pak-green text-white rounded-2xl text-xs font-extra-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
+            >
+              View Full Schedule <ArrowRight className="w-4 h-4" />
+            </Link>
+            <button 
+              onClick={() => {
+                const element = document.getElementById('match-center');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full sm:w-auto px-12 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-xs font-extra-bold uppercase tracking-widest hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
+            >
+              Check Next Match <Timer className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="flex flex-col items-center gap-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="px-6 py-2 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3"
+            >
+              <span className="text-lg">📅</span>
+              <span className="text-[10px] font-black uppercase tracking-[2px] text-red-500">
+                Next Match: Pakistan vs Bangladesh – May 8, 2026
+              </span>
+            </motion.div>
+            
+            <p className="text-[10px] font-bold text-ink/30 uppercase tracking-widest">
+              No sign-up needed • 100% free • Fast updates
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Dynamic Scoreboard Row */}
-      <section className="mb-12 overflow-hidden">
+      <section id="match-center" className="mb-12 overflow-hidden scroll-mt-24">
+        <div className="mb-8 text-center md:text-left">
+          <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-4">
+            Pakistan <span className="text-pak-green">Upcoming Matches</span>
+          </h2>
+          <p className="text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl">
+            Stay ahead of every game with our regularly updated list of Pakistan’s upcoming matches. Whether it’s a home series or an overseas tour, you’ll always know who Pakistan is playing next, match dates, times, and venue details.
+          </p>
+        </div>
         <div className="flex items-center justify-between mb-6 px-2">
           <div className="flex items-center gap-2">
             <Activity className="w-5 h-5 text-pak-green" />
@@ -251,6 +333,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ad after Upcoming Matches - High CTR placement */}
+      <AdPlaceholder type="banner" className="mb-12" />
+
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
         {/* Hero Section ... lines 19 to 71 */}
         {/* Mini Series Schedule ... lines 74 to 114 */}
@@ -288,9 +373,9 @@ export default function Home() {
               </div>
 
               <div className="text-center md:text-right order-1 md:order-2">
-                <h1 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none text-white mb-2">
+                <h2 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none text-white mb-2">
                   PAK <span className="text-white opacity-50">vs</span> {nextMatch.opponent.substring(0, 3)}
-                </h1>
+                </h2>
                 <p className="text-lg font-bold uppercase tracking-widest text-white/50 mb-1">{nextMatch.venue}</p>
                 <p className="text-sm font-bold text-white uppercase tracking-[4px]">{nextMatch.date} • {nextMatch.time}</p>
               </div>
@@ -398,6 +483,118 @@ export default function Home() {
           <FanClubSection />
         </Suspense>
       </div>
+
+      {/* SEO & Informative Sections */}
+      <div className="mt-24 space-y-24">
+        {/* Why Choose Section */}
+        <section className="bg-card-bg border border-card-border rounded-[40px] p-10 md:p-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6">
+                Why <span className="text-pak-green">PakCric Schedule</span> is Different
+              </h2>
+              <p className="text-ink/60 font-medium leading-relaxed mb-8">
+                There are plenty of cricket websites out there, but most of them are either cluttered or outdated. We focus on what really matters—accuracy and speed. This platform is built specifically for fans who want quick, reliable, and distraction-free cricket information.
+              </p>
+              <div className="space-y-4">
+                {[
+                  'Clean and simple schedule layout',
+                  'Fast updates after official announcements',
+                  'Accurate match timings for Pakistan users',
+                  'Easy navigation for quick access'
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-pak-green/20 flex items-center justify-center border border-pak-green/20">
+                      <div className="w-1.5 h-1.5 rounded-full bg-pak-green"></div>
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white/5 border border-white/5 rounded-3xl p-8 flex items-center justify-center">
+              <Trophy className="w-32 h-32 text-pak-green/20" />
+            </div>
+          </div>
+        </section>
+
+        {/* Full Year Schedule Section */}
+        <section className="text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6">
+            Pakistan Cricket <span className="text-pak-green">Full Schedule 2026</span>
+          </h2>
+          <p className="text-ink/60 font-medium leading-relaxed mb-10">
+            The 2026 season is packed with exciting tours and tournaments. From bilateral series to global events, Pakistan has a busy cricket calendar. On this website, you can explore complete yearly fixtures, series-wise match breakdown, and <Link to="/schedule" className="text-pak-green hover:underline">tournament schedules</Link>. Everything is structured to help you find exactly what you're looking for within seconds.
+          </p>
+          
+          {/* Native Ad Block - Looks like content */}
+          <AdPlaceholder type="native" className="mb-10 max-w-2xl mx-auto" label="Recommended for You" />
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/schedule" className="px-10 py-5 bg-pak-green text-white rounded-2xl text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-pak-green/20">
+              Check Full Schedule Now
+            </Link>
+            <Link to="/news" className="px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+              Latest News Updates
+            </Link>
+          </div>
+        </section>
+
+        {/* Match Details Section */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-2 bg-gradient-to-br from-white/5 to-transparent border border-white/5 rounded-[40px] p-10">
+            <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
+              Detailed Match Information
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed mb-8">
+              Each match on PakCric Schedule comes with essential details so you don’t have to search anywhere else. We keep things simple but informative—perfect for both casual viewers and serious fans.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {['Match Date & Time', 'Stadium & Location', 'Opponent Team', 'Series Name'].map((item, idx) => (
+                <div key={idx} className="bg-black/20 p-4 rounded-2xl border border-white/5">
+                  <span className="text-[9px] font-bold uppercase tracking-[2px] text-pak-green block mb-1">Feature</span>
+                  <span className="text-[10px] font-bold text-white uppercase">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-pak-green rounded-[40px] p-10 flex flex-col justify-center text-white">
+            <h2 className="text-2xl font-display font-bold uppercase mb-4 leading-tight">Stay Informed, Always</h2>
+            <p className="text-white/80 text-xs font-medium leading-relaxed mb-6">
+              Cricket schedules can change—and when they do, we make sure you know about it. Our platform is regularly updated for accuracy.
+            </p>
+            <Link to="/blogs" className="text-[10px] font-bold uppercase tracking-[3px] flex items-center gap-2 hover:translate-x-2 transition-transform">
+              Explore Blogs <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="relative overflow-hidden bg-white/5 border border-white/5 rounded-[40px] p-12 md:p-20 text-center">
+          <div className="absolute inset-0 opacity-5 pointer-events-none select-none flex items-center justify-center">
+            <Activity className="w-96 h-96" />
+          </div>
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="relative z-10 max-max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
+              Never Miss a <span className="text-pak-green">Pakistan Match</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed mb-12">
+              Bookmark PakCric Schedule and stay connected with every match Pakistan plays in 2026. Join thousands of fans who rely on us for accurate timing and fixtures.
+            </p>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+              <Link to="/schedule" className="w-full md:w-auto px-12 py-5 bg-pak-green text-white rounded-2xl text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-pak-green/30">
+                Explore Upcoming Matches
+              </Link>
+              <Link to="/blogs" className="w-full md:w-auto px-12 py-5 bg-transparent border border-white/20 text-white rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+                Latest Tactical Blogs
+              </Link>
+            </div>
+          </motion.div>
+        </section>
+      </div>
+
+      {/* Footer Banner - Final conversion point */}
+      <AdPlaceholder type="banner" className="mt-20 mb-8" />
 
       {/* Visible FAQ Section for SEO and Users */}
       <Suspense fallback={<div className="h-[400px] bg-white/5 animate-pulse rounded-[40px] mt-24" />}>

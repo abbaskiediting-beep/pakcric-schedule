@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Trophy, Star, Users, ChevronRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 export default function Rankings() {
   const t20Rankings = [
@@ -50,6 +51,9 @@ export default function Rankings() {
         </h1>
         <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px]">Official World Team Standings (All Formats)</p>
       </motion.div>
+
+      {/* Top Banner on Rankings */}
+      <AdPlaceholder type="leaderboard" className="mb-16" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         {rankingCards.map((card, idx) => (
@@ -100,6 +104,9 @@ export default function Rankings() {
         ))}
       </div>
 
+      {/* Mid-content Ad */}
+      <AdPlaceholder type="native" className="mb-16" label="Explore Official Tours" />
+
       <div className="flex items-center gap-4 mb-8">
         <Trophy className="w-8 h-8 text-pak-green" />
         <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-white">Championship Race</h2>
@@ -138,6 +145,8 @@ export default function Rankings() {
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-r from-transparent to-pak-green/[0.03] pointer-events-none" />
         </motion.div>
       </Link>
+
+      <AdPlaceholder type="banner" className="my-16" />
 
       <div className="flex items-center gap-4 mb-12">
         <Users className="w-8 h-8 text-white" />

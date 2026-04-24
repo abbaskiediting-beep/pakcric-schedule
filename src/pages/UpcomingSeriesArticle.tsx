@@ -15,10 +15,10 @@ export default function UpcomingSeriesArticle() {
       'world test championship': '/rankings'
     };
 
-    let parts: (string | JSX.Element)[] = [text];
+    let parts: any[] = [text];
     
     Object.entries(keywords).forEach(([keyword, path]) => {
-      const newParts: (string | JSX.Element)[] = [];
+      const newParts: any[] = [];
       parts.forEach(part => {
         if (typeof part === 'string') {
           const regex = new RegExp(`(${keyword})`, 'gi');

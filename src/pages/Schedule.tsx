@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Match } from '../types';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 type SortKey = 'date' | 'opponent' | 'series';
 
@@ -84,10 +85,12 @@ export default function Schedule() {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-6">
+      {/* Top Banner Placement */}
+      <AdPlaceholder type="leaderboard" className="mb-10" />
       <Helmet>
-        <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Dates & Venues</title>
-        <meta name="description" content="Check the complete Pakistan cricket schedule 2026 with match dates, venues, and timings. Get full fixtures, upcoming matches, and series details." />
-        <meta name="keywords" content="Pakistan cricket schedule 2026, PAK vs BAN schedule, Pakistan tour schedule, cricket match timings, Pakistan team fixtures" />
+        <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Dates, Time & Venues</title>
+        <meta name="description" content="Check the complete Pakistan cricket schedule 2026 with full fixtures, match dates, timings, and venues. Stay updated with upcoming matches and series." />
+        <meta name="keywords" content="Pakistan cricket schedule 2026, Pakistan upcoming matches, Pakistan fixtures, cricket match timings, Pakistan team schedule, PKT match timings" />
         <link rel="canonical" href="https://pakcric-schedule.online/schedule" />
         
         {/* Open Graph */}
@@ -125,66 +128,127 @@ export default function Schedule() {
       </Helmet>
 
       {/* Header Section */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+      <div className="mb-12">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
           <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4">
             <ArrowLeft className="w-4 h-4" /> Back to Dashboard
           </Link>
-          <h1 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 text-ink">
-            Pakistan Cricket Team Schedule 2026 <span className="text-pak-green">(Complete Fixtures)</span>
+          <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-6 text-white max-w-4xl leading-tight">
+            Pakistan Cricket Team <span className="text-pak-green">Complete Schedule 2026</span>
           </h1>
+          <div className="max-w-3xl space-y-4 mb-10">
+            <p className="text-lg md:text-xl text-ink/70 font-medium leading-relaxed">
+              The 2026 cricket calendar is packed with high-octane action for Pakistan fans, featuring major ICC tournaments, historic home series, and challenging overseas tours.
+            </p>
+            <p className="text-ink/50 font-medium leading-relaxed">
+              Explore the full fixtures list below, updated in real-time with official timings (PKT), venues, and match-center details. Use our advanced filters to find specific series or formats instantly.
+            </p>
+            <p className="text-[11px] font-bold uppercase tracking-[4px] text-pak-green/60">
+              Fastest Updates • Official Timings • Venue Directions
+            </p>
+          </div>
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full bg-pak-green text-white text-[10px] font-bold uppercase tracking-[2px]">
-              Season 2026
+            <div className="px-6 py-2 rounded-full bg-pak-green text-white text-[10px] font-bold uppercase tracking-[3px] shadow-lg shadow-pak-green/20">
+              Active Season 2026
             </div>
-            <p className="text-ink/40 font-bold uppercase tracking-widest text-[10px] border-l border-card-border pl-4">
-              {filteredAndSortedMatches.length} Total Fixtures
+            <p className="text-ink/40 font-bold uppercase tracking-widest text-[10px] border-l border-card-border pl-6">
+              {filteredAndSortedMatches.length} Confirmed Fixtures
             </p>
           </div>
         </motion.div>
+      </div>
 
-        {/* Global Controls */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+      {/* Broad Overview Section */}
+      <section className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.02] border border-card-border rounded-[48px] p-10 md:p-20 relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-pak-green/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="relative z-10">
+          <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-8">
+            2026 Season <span className="text-pak-green">At A Glance</span>
+          </h2>
+          <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
+            <p className="text-lg">
+              Pakistan’s roadmap this year is designed to test their mettle across all formats. From the high-stakes Asia Cup to crucial Test series, every match is a stepping stone to glory.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              {[
+                { label: 'Real-time Fixtures', desc: 'Synced with official schedules' },
+                { label: 'Format Breakdown', desc: 'Test, ODI, and T20 filters' },
+                { label: 'Localized Timings', desc: 'Always in Pakistan time (PKT)' },
+                { label: 'Venue Insights', desc: 'In-depth stadium information' }
+              ].map((item, idx) => (
+                <div key={idx} className="p-4 bg-white/5 border border-white/5 rounded-2xl">
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-pak-green mb-1">{item.label}</h4>
+                  <p className="text-[9px] font-bold text-ink/40 uppercase tracking-widest leading-normal">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs italic text-ink/30 mt-8 font-medium">
+              * All dates and venues are subject to official board notifications. We update changes within minutes.
+            </p>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="bg-pak-green/10 rounded-[40px] aspect-square flex flex-col items-center justify-center text-center border border-pak-green/20 relative group-hover:bg-pak-green/20 transition-colors">
+            <Trophy className="w-24 h-24 text-pak-green mb-6 animate-pulse" />
+            <span className="text-[11px] font-bold uppercase tracking-[6px] text-pak-green">Pursuit of Excellence</span>
+          </div>
+          <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-pak-green/20 rounded-full blur-[60px]" />
+        </div>
+      </section>
+
+      {/* Global Controls */}
+      <div className="mb-12 space-y-12">
+        <div className="max-w-2xl">
+          <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-4">
+            Upcoming <span className="text-pak-green">Match Search</span>
+          </h2>
+          <p className="text-ink/60 font-medium leading-relaxed">
+            Never miss a single delivery. Use our comprehensive search and filter tools to find upcoming Pakistan matches by opponent, venue, or format.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6">
+          {/* Search Box */}
+          <div className="relative group flex-1 max-w-lg">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
+            <input 
+              type="text" 
+              placeholder="Search by Team, Venue or Series..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="bg-card-bg border border-card-border rounded-3xl py-5 pl-14 pr-8 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl"
+            />
+          </div>
+
           {/* Venue Dropdown */}
-          <div className="relative group w-full md:w-64">
-            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
+          <div className="relative group w-full md:w-72">
             <select
               value={filterVenue}
               onChange={(e) => setFilterVenue(e.target.value)}
-              className="appearance-none bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-10 text-[10px] font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/30 focus:ring-1 focus:ring-pak-green/20 transition-all w-full text-ink shadow-sm cursor-pointer"
+              className="appearance-none bg-card-bg border border-card-border rounded-3xl py-5 pl-14 pr-12 text-[10px] font-bold uppercase tracking-[4px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
             >
               {venues.map(v => (
-                <option key={v} value={v} className="bg-card-bg text-ink">{v === 'All' ? 'All Venues' : v}</option>
+                <option key={v} value={v} className="bg-card-bg text-ink uppercase">{v === 'All' ? 'Every Venue' : v}</option>
               ))}
             </select>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-              <ArrowUpDown className="w-3 h-3 text-neutral-500" />
+            <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+              <MapPin className="w-4 h-4 text-pak-green" />
             </div>
-          </div>
-
-          <div className="relative group w-full md:w-72">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
-            <input 
-              type="text" 
-              placeholder="Search Opponent..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-6 text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 focus:ring-1 focus:ring-pak-green/20 transition-all w-full text-ink shadow-sm"
-            />
           </div>
         </div>
       </div>
 
+
       {/* Format Filter Bar */}
-      <div className="flex flex-wrap items-center gap-2 mb-8 bg-card-bg/50 p-2 rounded-[24px] border border-card-border w-fit">
+      <div className="flex flex-wrap items-center gap-2 mb-8 bg-card-bg border border-card-border p-3 rounded-[32px] w-fit shadow-lg shadow-black/20">
         {formats.map(f => (
           <button
             key={f}
             onClick={() => setFilterFormat(f)}
-            className={`px-8 py-2.5 rounded-2xl text-[10px] font-bold uppercase tracking-[2px] transition-all ${
+            className={`px-10 py-3 rounded-2xl text-[10px] font-bold uppercase tracking-[3px] transition-all duration-300 ${
               filterFormat === f 
-                ? 'bg-pak-green text-white shadow-xl scale-105' 
-                : 'text-ink/40 hover:text-ink hover:bg-white/5'
+                ? 'bg-pak-green text-white shadow-pak-green/40 shadow-xl scale-105' 
+                : 'text-ink/30 hover:text-ink hover:bg-white/5'
             }`}
           >
             {f}
@@ -192,12 +256,19 @@ export default function Schedule() {
         ))}
       </div>
 
+      {/* SEO Optimized Table Header Note */}
+      <div className="mb-6 px-4">
+        <p className="text-sm font-bold text-ink/40 uppercase tracking-[2px]">
+          Below is the complete Pakistan cricket schedule 2026 with match dates, venues, and timings.
+        </p>
+      </div>
+
       {/* Structured Schedule Container */}
       <div className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl relative">
         <div className="overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse min-w-[1000px]">
-            <thead>
-              <tr className="bg-white/5 border-b border-card-border">
+            <thead className="sticky top-0 z-20">
+              <tr className="bg-neutral-900 border-b border-card-border">
                 <th className="px-8 py-8 cursor-pointer group w-48" onClick={() => handleSort('date')}>
                   <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
                     Full Date <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'date' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
@@ -212,7 +283,7 @@ export default function Schedule() {
                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Format & Series</div>
                 </th>
                 <th className="px-8 py-8 w-64">
-                  <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Pitch</div>
+                  <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Status</div>
                 </th>
                 <th className="px-8 py-8 text-right">
                    <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Match Center</div>
@@ -220,17 +291,23 @@ export default function Schedule() {
               </tr>
             </thead>
             <tbody className="divide-y divide-card-border">
-              <AnimatePresence mode="popLayout">
                 {filteredAndSortedMatches.length > 0 ? (
                   filteredAndSortedMatches.map((match, idx) => (
-                    <motion.tr 
-                      key={match.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ delay: idx * 0.05 }}
-                      className="hover:bg-pak-green/[0.02] transition-colors group"
-                    >
+                    <React.Fragment key={match.id}>
+                      {/* Insertion of ad every 5 matches for monetization */}
+                      {idx > 0 && idx % 5 === 0 && (
+                        <tr className="bg-white/[0.01]">
+                          <td colSpan={5} className="px-8 py-4">
+                            <AdPlaceholder type="in-article" className="max-w-3xl mx-auto" />
+                          </td>
+                        </tr>
+                      )}
+                      <motion.tr 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        className="hover:bg-pak-green/[0.02] transition-colors group"
+                      >
                       {/* Date Column */}
                       <td className="px-8 py-8">
                         <div className="flex items-center gap-4">
@@ -268,9 +345,8 @@ export default function Schedule() {
                           </div>
                           <div className="flex flex-col min-w-0">
                             <span className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none truncate block max-w-[140px]">
-                              {match.opponent}
+                              PAK vs {match.opponent}
                             </span>
-                            <span className="text-[9px] font-bold text-pak-green uppercase tracking-widest mt-1">vs Pakistan</span>
                           </div>
                         </div>
                       </td>
@@ -293,19 +369,23 @@ export default function Schedule() {
                         </div>
                       </td>
 
-                      {/* Venue Column */}
+                      {/* Venue/Status Column */}
                       <td className="px-8 py-8 w-64 relative group/venue">
-                        {/* Venue Tooltip */}
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-2 bg-neutral-900 text-white rounded-xl text-[10px] whitespace-nowrap opacity-0 group-hover/venue:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl border border-white/10 font-bold uppercase tracking-widest max-w-[300px] text-center !leading-relaxed !whitespace-normal">
-                          {match.venue}
-                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-900" />
-                        </div>
-
-                        <div className="flex items-start gap-2">
-                          <MapPin className="w-4 h-4 text-pak-green mt-0.5 shrink-0" />
-                          <div className="space-y-1 min-w-0">
+                        <div className="flex flex-col gap-3">
+                          <div className="flex items-start gap-2 min-w-0">
+                            <MapPin className="w-4 h-4 text-pak-green mt-0.5 shrink-0" />
                             <span className="text-[11px] font-bold text-ink leading-relaxed truncate block w-full">{match.venue}</span>
-                            <span className="text-[9px] font-bold text-ink/30 uppercase tracking-[2px]">International Standard</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                             <span className={`px-2 py-0.5 rounded-md text-[8px] font-bold uppercase tracking-widest ${
+                               match.status === 'Live' ? 'bg-red-600 text-white animate-pulse' :
+                               match.status === 'High Voltage' ? 'bg-red-800 text-white shadow-lg shadow-red-900/40' :
+                               match.status === 'Upcoming' ? 'bg-amber-500 text-black' :
+                               match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
+                               'bg-white/10 text-ink/40'
+                             }`}>
+                               {match.status}
+                             </span>
                           </div>
                         </div>
                       </td>
@@ -321,6 +401,7 @@ export default function Schedule() {
                          </Link>
                       </td>
                     </motion.tr>
+                  </React.Fragment>
                   ))
                 ) : (
                   <tr>
@@ -343,10 +424,88 @@ export default function Schedule() {
                     </td>
                   </tr>
                 )}
-              </AnimatePresence>
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* Bottom Leaderboard */}
+      <AdPlaceholder type="leaderboard" className="mt-12" />
+
+      {/* Bottom Informative Sections */}
+      <div className="mt-24 space-y-24">
+        {/* Series Breakdown & Match Timings */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="bg-card-bg border border-card-border p-10 rounded-[40px]">
+            <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white mb-6">
+              Series-Wise <span className="text-pak-green">Schedule</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed mb-6">
+              Pakistan’s 2026 calendar features several important series against top international teams. Each series is organized separately so you can easily follow match dates, formats (Test, ODI, T20), and venues. This makes it simple to track a specific tour without scrolling through the entire schedule.
+            </p>
+          </div>
+          <div className="bg-card-bg border border-card-border p-10 rounded-[40px]">
+            <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white mb-6">
+              Match Timings <span className="text-pak-green">(PKT)</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed mb-6">
+              All match timings on this page are listed in Pakistan Standard Time (PKT) to make it easier for local fans to follow. No need to convert time zones — everything is already adjusted for your convenience.
+            </p>
+          </div>
+        </section>
+
+        {/* Why This Page Section */}
+        <section className="text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
+            Why This Schedule Page <span className="text-pak-green">is Useful</span>
+          </h2>
+          <p className="text-ink/60 font-medium leading-relaxed mb-10">
+            Instead of searching different websites for match details, you can rely on this page for accurate and up-to-date information. We focus on a simple layout for quick browsing, fast updates after official announcements, and clear match details without unnecessary clutter.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {['Simple Layout', 'Fast Updates', 'Clear Details'].map((feature, i) => (
+              <div key={i} className="p-6 bg-white/5 border border-white/5 rounded-2xl">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-pak-green">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Stay Updated Section */}
+        <section className="bg-gradient-to-br from-pak-green to-pak-green/80 rounded-[40px] p-12 md:p-20 text-center text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
+            <Globe className="w-96 h-96" />
+          </div>
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-8">
+              Stay Updated with Latest Changes
+            </h2>
+            <p className="text-white/80 font-medium leading-relaxed mb-10">
+              Cricket schedules can change due to weather, logistics, or tournament adjustments. That’s why we keep this page updated regularly. Make sure to bookmark this page (Ctrl+D) so you can always access the latest Pakistan cricket schedule instantly.
+            </p>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="text-center py-12">
+          <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-8">
+            Never Miss a <span className="text-pak-green">Pakistan Match</span>
+          </h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="px-12 py-5 bg-pak-green text-white rounded-2xl text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-pak-green/30"
+            >
+              Check Upcoming Matches Above
+            </button>
+            <Link to="/blogs" className="px-12 py-5 bg-white/5 text-white border border-white/20 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+              Explore Full Series Details
+            </Link>
+          </div>
+          <p className="mt-8 text-[10px] font-bold text-ink/30 uppercase tracking-[4px]">
+            Visit daily for the latest updates
+          </p>
+        </section>
       </div>
 
       {/* Structured Helper Note */}

@@ -3,7 +3,7 @@ import { Match } from './types';
 export const PAKISTAN_SCHEDULE: Match[] = [
   {
     id: '1',
-    opponent: 'Bangladesh',
+    opponent: 'BAN',
     format: 'Test',
     date: 'May 8–12, 2026',
     time: '09:00 AM PKT',
@@ -14,7 +14,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '2',
-    opponent: 'Bangladesh',
+    opponent: 'BAN',
     format: 'Test',
     date: 'May 16–20, 2026',
     time: '09:00 AM PKT',
@@ -25,7 +25,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '8',
-    opponent: 'West Indies',
+    opponent: 'WI',
     format: 'Test',
     date: '2026-07-21',
     time: '20:00 PKT',
@@ -36,7 +36,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '9',
-    opponent: 'England',
+    opponent: 'ENG',
     format: 'Test',
     date: '2026-08-19',
     time: '15:00 PKT',
@@ -47,7 +47,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '10',
-    opponent: 'England',
+    opponent: 'ENG',
     format: 'Test',
     date: '2026-08-27',
     time: '15:00 PKT',
@@ -58,7 +58,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '11',
-    opponent: 'England',
+    opponent: 'ENG',
     format: 'Test',
     date: '2026-09-09',
     time: '15:00 PKT',
@@ -69,7 +69,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '12',
-    opponent: 'Sri Lanka',
+    opponent: 'SL',
     format: 'T20I',
     date: '2026-10-15',
     time: '19:30 PKT',
@@ -80,7 +80,7 @@ export const PAKISTAN_SCHEDULE: Match[] = [
   },
   {
     id: '13',
-    opponent: 'Sri Lanka',
+    opponent: 'SL',
     format: 'Test',
     date: '2026-11-10',
     time: '10:00 PKT',

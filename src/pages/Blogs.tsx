@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target } from 'lucide-react';
+import React from 'react';
+import AdPlaceholder from '../components/AdPlaceholder';
 
 const BLOG_POSTS = [
   {
@@ -72,9 +74,19 @@ export default function Blogs() {
         </p>
       </motion.div>
 
+      {/* Top Banner for Article Hub */}
+      <AdPlaceholder type="leaderboard" className="mb-12" />
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
         {BLOG_POSTS.map((post, idx) => (
-          <motion.div
+          <React.Fragment key={post.id}>
+            {/* Insertion of ad every 2 posts for grid monetization */}
+            {idx > 0 && idx % 2 === 0 && (
+              <div className="md:col-span-2">
+                <AdPlaceholder type="native" className="mb-4" label="Editorial Recommendations" />
+              </div>
+            )}
+            <motion.div
             key={post.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,6 +125,7 @@ export default function Blogs() {
               </Link>
             </div>
           </motion.div>
+          </React.Fragment>
         ))}
       </div>
 

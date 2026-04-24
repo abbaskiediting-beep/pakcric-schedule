@@ -1,10 +1,13 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { ALL_SQUADS } from '../squadData';
 import { PLAYER_STATS } from '../playerData';
 import { Trophy, ChevronRight, Search, X, TrendingUp, User, Info, StickyNote, Save, Star, Award, Share2 } from 'lucide-react';
 import { MatchFormat, Player } from '../types';
+import AdPlaceholder from '../components/AdPlaceholder';
+import React from 'react';
 
 function StatCard({ label, value, highlight }: { label: string; value: any; highlight?: boolean }) {
   return (
@@ -167,22 +170,22 @@ export default function Squads() {
   return (
     <div className="max-w-5xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Pakistan Squad 2026 – Full Team Players List</title>
-        <meta name="description" content="Check Pakistan cricket team squad 2026 with complete players list, roles, and latest updates." />
-        <meta name="keywords" content="Pakistan squad 2026, Pakistan players list, cricket team Pakistan, Pakistan cricket team roster" />
+        <title>Pakistan Squad 2026 – Full Team Players List & Updates</title>
+        <meta name="description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
+        <meta name="keywords" content="Pakistan squad 2026, Pakistan players list, cricket team Pakistan, Pakistan cricket team roster, Pakistan team players list" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pakcric-schedule.online/squads" />
-        <meta property="og:title" content="Pakistan Squad 2026 – Full Team Players List" />
-        <meta property="og:description" content="Check Pakistan cricket team squad 2026 with complete players list, roles, and latest updates." />
+        <meta property="og:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
+        <meta property="og:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://pakcric-schedule.online/squads" />
-        <meta property="twitter:title" content="Pakistan Cricket Players List 2026 | Squad & Player Stats" />
-        <meta property="twitter:description" content="View the full Pakistan cricket players list for 2026. Explore squad details, individual player stats, and performance records." />
+        <meta property="twitter:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
+        <meta property="twitter:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
         <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: `
@@ -191,53 +194,244 @@ export default function Squads() {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
       `}} />
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 text-ink">
-          Pakistan Cricket Team <span className="text-pak-green">Squad 2026</span>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-16">
+        <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-8 text-white leading-tight">
+          Pakistan Cricket Team <span className="text-pak-green underline decoration-pak-green/20 underline-offset-8">Squad 2026</span>
         </h1>
-        <p className="text-ink/60 font-medium mb-8">Official player lists for upcoming tours and home series.</p>
+        
+        <div className="max-w-3xl space-y-6 mb-12">
+          <p className="text-xl text-ink/80 font-medium leading-relaxed">
+            Keeping track of the Pakistan cricket team squad can be confusing, especially when selections change from one series to another. That’s why this page brings everything together in one place.
+          </p>
+          <p className="text-ink/60 font-medium leading-relaxed">
+            Here, you’ll find the latest Pakistan squad for 2026, including player names, roles, and updates for upcoming matches and series. Whether you're looking for the official lineup or just want to see who’s been selected, this page makes it simple and easy.
+          </p>
+        </div>
 
-        <div className="space-y-8">
-          {/* Search Bar */}
-          <div className="relative max-w-2xl mx-auto w-full">
-            <input
-              type="text"
-              placeholder="SEARCH PLAYER BY NAME..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white/5 border border-card-border rounded-2xl py-5 pl-14 pr-6 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-white/30 transition-all shadow-2xl focus:shadow-white/5"
-            />
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-white" />
+        {/* Top Banner on Squads */}
+        <AdPlaceholder type="leaderboard" className="mb-12" />
+
+        <div className="space-y-8 bg-white/[0.02] border border-card-border rounded-[40px] p-8 md:p-12 shadow-2xl">
+          <div className="flex items-center gap-4 mb-4">
+             <div className="h-2 w-12 bg-pak-green rounded-full" />
+             <h2 className="text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Search Bar */}
+            <div className="relative group">
+              <input
+                type="text"
+                placeholder="SEARCH PLAYER BY NAME..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full bg-white/5 border border-card-border rounded-3xl py-5 pl-14 pr-6 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
+              />
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-pak-green" />
+            </div>
 
-          {/* Format Filters */}
-          <div className="flex flex-wrap justify-center gap-3">
-             {formats.map(f => (
-               <button
-                 key={f}
-                 onClick={() => setFilterFormat(f)}
-                 className={`px-8 py-3 rounded-2xl text-[11px] font-bold uppercase tracking-[0.2em] transition-all border-2 ${
-                   filterFormat === f 
-                   ? 'bg-white border-white text-black shadow-lg shadow-white/20' 
-                   : 'bg-white/5 border-white/10 text-neutral-400 hover:border-white/30 hover:text-white'
-                 }`}
-               >
-                 {f}
-               </button>
-             ))}
+            {/* Format Filters */}
+            <div className="flex items-center bg-black/20 rounded-3xl p-1.5 border border-white/5">
+               {formats.map(f => (
+                 <button
+                   key={f}
+                   onClick={() => setFilterFormat(f)}
+                   className={`flex-1 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
+                     filterFormat === f 
+                     ? 'bg-white text-black shadow-xl scale-105' 
+                     : 'text-neutral-500 hover:text-white hover:bg-white/5'
+                   }`}
+                 >
+                   {f}
+                 </button>
+               ))}
+            </div>
           </div>
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <AnimatePresence mode="popLayout">
-          {filteredSquads.map((squad) => (
+      {/* Latest Squad Categorized List Section */}
+      <section className="mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight mb-3">
+              Pakistan Latest Squad <span className="text-pak-green">(2026)</span>
+            </h2>
+            <p className="text-ink/60 font-medium max-w-2xl">
+              Below is the most recent Pakistan cricket squad announced for the current or upcoming series. Each squad is updated as soon as official announcements are made.
+            </p>
+          </div>
+          <div className="px-6 py-2 rounded-full bg-pak-green/10 border border-pak-green/20 text-pak-green text-[10px] font-bold uppercase tracking-widest">
+            Last Updated: April 2026
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { 
+              role: 'Batsmen', 
+              players: ['Babar Azam', 'Shan Masood', 'Saud Shakeel', 'Abdullah Fazal', 'Azan Awais', 'Imam-ul-Haq'],
+              icon: '🏏',
+              desc: 'Top & middle-order anchors'
+            },
+            { 
+              role: 'Bowlers', 
+              players: ['Shaheen Shah Afridi', 'Noman Ali', 'Sajid Khan', 'Mohammad Abbas', 'Hasan Ali', 'Khurram Shahzad'],
+              icon: '⚡',
+              desc: 'Pace attack & spin maestros'
+            },
+            { 
+              role: 'All-rounders', 
+              players: ['Salman Ali Agha', 'Amad Butt'],
+              icon: '🔄',
+              desc: 'Versatile dual-impact players'
+            },
+            { 
+              role: 'Wicketkeepers', 
+              players: ['Mohammad Rizwan', 'Muhammad Ghazi Ghori'],
+              icon: '🧤',
+              desc: 'Reliable behind the stumps'
+            }
+          ].map((cat, i) => (
             <motion.div 
+              key={cat.role}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-card-bg border border-card-border rounded-[32px] p-8 hover:border-pak-green/40 transition-all group"
+            >
+              <div className="text-3xl mb-4 group-hover:scale-110 transition-transform block">{cat.icon}</div>
+              <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-1">{cat.role}</h3>
+              <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-6">{cat.desc}</p>
+              
+              <div className="space-y-3">
+                {cat.players.map(p => (
+                  <button 
+                    key={p} 
+                    onClick={() => handlePlayerClick(p)}
+                    className="flex items-center justify-between w-full text-left text-[11px] font-bold uppercase tracking-widest text-ink hover:text-white transition-colors py-1 group/item"
+                  >
+                    {p} <ChevronRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 transition-opacity text-pak-green" />
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Squad Breakdown Section */}
+      <section className="mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.03] border border-card-border rounded-[48px] p-10 md:p-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-pak-green/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
+        <div className="relative z-10">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-8 leading-tight">
+            Team Composition <span className="text-pak-green">& Roles</span>
+          </h2>
+          <div className="space-y-6 text-ink/70 font-medium leading-relaxed">
+            <p>
+              A balanced squad is key to success in modern cricket. Pakistan usually selects a mix of experienced players and young talent to maintain stability and aggression.
+            </p>
+            <p>
+              On this page, squads are organized into clear categories to help you quickly understand the team combination for any upcoming series:
+            </p>
+            <ul className="space-y-4">
+              {[
+                { label: 'Batsmen', desc: 'Top and middle-order players responsible for scoring runs' },
+                { label: 'Bowlers', desc: 'Fast bowlers and spinners who lead the attack' },
+                { label: 'All-rounders', desc: 'Players who contribute with both bat and ball' },
+                { label: 'Wicketkeepers', desc: 'Players responsible for keeping and finishing innings' }
+              ].map((item, idx) => (
+                <li key={idx} className="flex gap-4">
+                  <div className="mt-1 w-2 h-2 rounded-full bg-pak-green shrink-0" />
+                  <div>
+                    <span className="block text-[10px] font-bold uppercase tracking-widest text-white mb-1">{item.label}</span>
+                    <span className="text-sm font-medium text-ink/50">{item.desc}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="relative aspect-square bg-pak-green/10 rounded-[60px] flex items-center justify-center border border-pak-green/20 group">
+          <div className="absolute inset-8 border border-pak-green/10 rounded-[40px] animate-pulse" />
+          <Trophy className="w-32 h-32 text-pak-green opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
+            <span className="text-[12px] font-display font-bold text-pak-green uppercase tracking-[0.5em]">Victory DNA</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Series Wise & Updates Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        {/* Series-Wise Squads */}
+        <div className="bg-card-bg border border-card-border rounded-[40px] p-10 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-2 h-full bg-pak-green transition-all" />
+          <h2 className="text-2xl font-display font-bold uppercase tracking-tight mb-6">Pakistan Squad <span className="text-pak-green">per Series</span></h2>
+          <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
+            <p>
+              Pakistan often announces different squads depending on the format and opposition. Whether it's the bounce of Australian pitches or spinning tracks in Sri Lanka, selections vary.
+            </p>
+            <p>Explore squads for:</p>
+            <div className="grid grid-cols-2 gap-3">
+              {['Test Series', 'ODI Series', 'T20I Series', 'Major ICC Events'].map(m => (
+                <div key={m} className="p-4 bg-white/5 border border-white/5 rounded-2xl text-center hover:border-pak-green/20 transition-all">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white">{m}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs italic pt-4">Each squad is listed separately so you can easily follow changes between series.</p>
+          </div>
+        </div>
+
+        {/* Squad Updates */}
+        <div className="bg-card-bg border border-card-border rounded-[40px] p-10 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-2 h-full bg-pak-green transition-all" />
+          <h2 className="text-2xl font-display font-bold uppercase tracking-tight mb-6">Latest <span className="text-pak-green">Updates</span> & Changes</h2>
+          <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
+            <p>
+              Cricket squads are dynamic — changes can happen due to injuries, form, or strategic shifts. Our team ensures that every shift is documented immediately.
+            </p>
+            <p>Stay informed about:</p>
+            <ul className="space-y-3">
+              {['New player call-ups & selections', 'Injury reports & medical replacements', 'Tactical squad rotations', 'Last-minute travel changes'].map((u, i) => (
+                <li key={i} className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-white/80">
+                  <TrendingUp className="w-3 h-3 text-pak-green" /> {u}
+                </li>
+              ))}
+            </ul>
+            <div className="pt-6">
+               <div className="bg-pak-green/5 border border-pak-green/10 rounded-2xl p-4 flex items-center gap-4">
+                 <div className="w-10 h-10 rounded-full bg-pak-green/20 flex items-center justify-center text-pak-green">
+                   <Info className="w-5 h-5" />
+                 </div>
+                 <p className="text-[10px] font-bold text-pak-green/80 uppercase tracking-widest leading-relaxed">
+                   Refresh frequently for real-time selection news.
+                 </p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-12">
+        <AdPlaceholder type="banner" />
+      </div>
+
+      {/* Main Squad Grid (Existing Component) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          {filteredSquads.map((squad, idx) => (
+            <React.Fragment key={squad.series}>
+              {/* Mid-grid ad placement */}
+              {idx > 0 && idx % 2 === 0 && (
+                <div className="md:col-span-2">
+                  <AdPlaceholder type="native" className="mb-4" />
+                </div>
+              )}
+              <motion.div 
               key={squad.series}
               layout
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
               className="bg-card-bg border border-card-border rounded-[32px] p-8 flex flex-col h-full"
             >
               <div className="flex justify-between items-start mb-6">
@@ -307,19 +501,96 @@ export default function Squads() {
                 </button>
               )}
             </motion.div>
+            </React.Fragment>
           ))}
-        </AnimatePresence>
       </div>
       
       {filteredSquads.length === 0 && (
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center py-20 bg-white/5 rounded-[32px] border border-dashed border-card-border"
+          className="text-center py-20 bg-white/5 rounded-[32px] border border-dashed border-card-border mb-24"
         >
           <p className="text-xs font-bold uppercase tracking-[3px] opacity-40">No squads found matching your criteria</p>
         </motion.div>
       )}
+
+      {/* Why This Page is Useful Section */}
+      <section className="mb-24">
+        <div className="bg-gradient-to-br from-pak-green/10 to-transparent border border-pak-green/20 rounded-[48px] p-10 md:p-16">
+          <h2 className="text-3xl font-display font-bold uppercase tracking-tight mb-8">Why Follow Pakistan <span className="text-pak-green">Squad Updates Here</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-pak-green/20 flex items-center justify-center text-pak-green">
+                <Info className="w-6 h-6" />
+              </div>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-white">Accurate & Verified</h4>
+              <p className="text-xs text-ink/60 leading-relaxed font-medium">We cross-reference every selection with official PCB announcements and match-day signals.</p>
+            </div>
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-pak-green/20 flex items-center justify-center text-pak-green">
+                <Trophy className="w-6 h-6" />
+              </div>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-white">Easy-to-Read Format</h4>
+              <p className="text-xs text-ink/60 leading-relaxed font-medium">No cluttered tables. Players are organized by role and series for instant clarity.</p>
+            </div>
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-pak-green/20 flex items-center justify-center text-pak-green">
+                <TrendingUp className="w-6 h-6" />
+              </div>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-white">Quick Freshness</h4>
+              <p className="text-xs text-ink/60 leading-relaxed font-medium">Our platform signals ensure you get updates within minutes of an announcement.</p>
+            </div>
+          </div>
+          <p className="mt-12 text-center text-sm font-medium text-ink/40 max-w-2xl mx-auto">
+            It’s built for fans who want reliable information without unnecessary complexity. One source, total clarity.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA & Quick Links Section */}
+      <section className="mb-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-4">Stay Updated With <span className="text-pak-green">Team Selection</span></h2>
+          <p className="text-ink/60 font-medium">Want to stay updated with every squad announcement?</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-card-bg border border-card-border rounded-3xl p-8 flex flex-col items-center text-center">
+            <Trophy className="w-10 h-10 text-pak-green mb-4" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-4 italic">Next Game</span>
+            <Link to="/match/pakistan-vs-bangladesh-test" className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all w-full">
+              View Next Match
+            </Link>
+          </div>
+          <div className="bg-card-bg border border-card-border rounded-3xl p-8 flex flex-col items-center text-center">
+            <TrendingUp className="w-10 h-10 text-pak-green mb-4" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-4 italic">Official List</span>
+            <Link to="/schedule" className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all w-full">
+              Pakistan Schedule
+            </Link>
+          </div>
+          <div className="bg-card-bg border border-card-border rounded-3xl p-8 flex flex-col items-center text-center">
+            <User className="w-10 h-10 text-pak-green mb-4" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-4 italic">Deep Dive</span>
+            <Link to="/rankings" className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all w-full">
+              ICC Player Rankings
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-wrap justify-center gap-4">
+           {['Pakistan Schedule', 'Next Match', 'Player Stats', 'Rankings'].map(link => (
+             <Link 
+               key={link} 
+               to={`/${link.toLowerCase().replace(/ /g, '-')}`}
+               className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 hover:text-pak-green transition-colors"
+             >
+               • {link}
+             </Link>
+           ))}
+        </div>
+      </section>
 
       {/* Player Modal */}
       <AnimatePresence>
@@ -395,6 +666,9 @@ export default function Squads() {
               </div>
 
               <div className="overflow-y-auto p-8 md:p-10 custom-scrollbar">
+                {/* Modal Internal Ad */}
+                <AdPlaceholder type="banner" className="mb-10" />
+
                 {isSelectingComparison ? (
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
