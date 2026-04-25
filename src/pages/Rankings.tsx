@@ -54,10 +54,10 @@ export default function Rankings() {
         </h1>
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-xl text-ink/80 font-medium leading-relaxed">
-            Cricket rankings give a clear picture of how teams are performing on the international stage. For Pakistan fans, keeping track of the <strong>Pakistan ICC Rankings</strong> across formats is just as important as following match results.
+            Cricket rankings give a clear picture of how teams are performing on the international stage. For Pakistan fans, keeping track of the <Link to="/rankings" className="text-pak-green hover:underline">Pakistan ICC Rankings</Link> across formats is just as important as following <Link to="/schedule" className="text-pak-green hover:underline">match results</Link>.
           </p>
           <p className="text-ink/60 font-medium leading-relaxed">
-            On this page, you’ll find the latest world rankings for 2026, including detailed insights into <strong>T20, ODI & Test</strong> standings. Everything is presented in a simple format so you can quickly understand where Pakistan stands globally.
+            On this page, you’ll find the latest <Link to="/rankings" className="text-pak-green hover:underline">world rankings</Link> for 2026, including detailed insights into <strong>T20, ODI & Test</strong> standings. Everything is presented in a simple format so you can quickly understand where Pakistan stands globally compared to other teams.
           </p>
         </div>
       </motion.div>
@@ -66,10 +66,10 @@ export default function Rankings() {
       <section className="mb-24">
         <div className="bg-white/[0.02] border border-white/5 rounded-[40px] p-8 md:p-12 mb-16">
           <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
-            Pakistan Team <span className="text-pak-green">Rankings Overview</span>
+            <Link to="/rankings" className="hover:text-pak-green">Pakistan Team <span className="text-pak-green">Rankings Overview</span></Link>
           </h2>
           <p className="text-ink/60 font-medium leading-relaxed max-w-4xl mb-10">
-            Pakistan competes in all three formats of international cricket, and rankings vary depending on performance in each format. This gives a quick snapshot of how the team is doing overall.
+            Pakistan competes in all three formats of international cricket, and <Link to="/rankings" className="text-pak-green hover:underline">rankings</Link> vary depending on performance in each format. This gives a quick snapshot of how the team is doing overall across the <Link to="/schedule" className="text-pak-green hover:underline">cricket season</Link>.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -273,27 +273,27 @@ export default function Rankings() {
               <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
                 How ICC <span className="text-pak-green">Rankings Work</span>
               </h2>
-              <div className="space-y-6 text-ink/70 font-medium leading-relaxed">
-                <p>
-                  ICC rankings are based on a sophisticated points system that ensures rankings reflect overall team performance rather than just individual matches.
-                </p>
-                <div className="space-y-4">
-                  {[
-                    { label: 'Match Results', desc: 'Points are awarded for winning matches, with extra weight for wins against higher-ranked opponents.' },
-                    { label: 'Opponent Strength', desc: 'The quality of the team you play against significantly impacts the points gained or lost.' },
-                    { label: 'Series Outcomes', desc: 'Winning a series provides bonus points to a team\'s overall rating.' },
-                    { label: 'Time Weighting', desc: 'Recent matches carry more weight (100%) compared to matches from 2-3 years ago (50%).' }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex gap-4">
-                      <div className="w-1.5 h-1.5 rounded-full bg-pak-green mt-2 shrink-0" />
-                      <div>
-                        <span className="block text-[10px] font-bold uppercase tracking-widest text-white mb-1">{item.label}</span>
-                        <span className="text-sm opacity-60">{item.desc}</span>
-                      </div>
-                    </div>
-                  ))}
+          <div className="space-y-6 text-ink/70 font-medium leading-relaxed">
+            <p>
+              The <Link to="/rankings" className="text-pak-green hover:underline">ICC rankings</Link> are based on a sophisticated points system that ensures rankings reflect overall team performance rather than just individual matches in a <Link to="/pakistan-upcoming-series-full-schedule" className="text-pak-green hover:underline">series</Link>.
+            </p>
+            <div className="space-y-4">
+              {[
+                { label: 'Match Results', desc: 'Points are awarded for winning matches, with extra weight for wins against higher-ranked opponents.', link: '/schedule' },
+                { label: 'Opponent Strength', desc: 'The quality of the team significantly impacts the points gained or lost globally.', link: '/rankings' },
+                { label: 'Series Outcomes', desc: 'Winning a full series provides significant bonus points to a team\'s overall rating.', link: '/schedule' },
+                { label: 'Time Weighting', desc: 'Recent matches carry more weight compared to matches from previous cricket years.', link: '/news' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-pak-green mt-2 shrink-0" />
+                  <div>
+                    <Link to={item.link} className="block text-[10px] font-bold uppercase tracking-widest text-white mb-1 hover:text-pak-green">{item.label}</Link>
+                    <span className="text-sm opacity-60">{item.desc}</span>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
             </div>
             <div className="bg-pak-green/10 p-12 rounded-[40px] border border-pak-green/20">
                <TrendingUp className="w-20 h-20 text-pak-green mb-6 opacity-20" />

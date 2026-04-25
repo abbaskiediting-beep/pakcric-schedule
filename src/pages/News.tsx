@@ -33,10 +33,10 @@ export default function News() {
         </h1>
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-xl text-ink/80 font-medium leading-relaxed">
-            Cricket in Pakistan moves fast — squad changes, match results, injuries, and big moments happen all the time. Keeping up with everything can be difficult if you’re checking multiple sources.
+            Cricket in Pakistan moves fast — <Link to="/squads" className="text-pak-green hover:underline">squad changes</Link>, <Link to="/schedule" className="text-pak-green hover:underline">match results</Link>, injuries, and big moments happen all the time. Keeping up with everything can be difficult if you’re checking multiple sources.
           </p>
           <p className="text-ink/60 font-medium leading-relaxed">
-            That’s why this page brings together the latest Pakistan cricket news and updates in one place. From official announcements to match previews and key highlights, everything is presented in a simple and easy-to-read format.
+            That’s why this page brings together the latest <Link to="/news" className="text-pak-green hover:underline">Pakistan cricket news</Link> and updates in one place. From <Link to="/squads" className="text-pak-green hover:underline">official announcements</Link> to <Link to="/news" className="text-pak-green hover:underline">match previews</Link> and key <Link to="/news" className="text-pak-green hover:underline">highlights</Link>, everything is presented in a simple and easy-to-read format.
           </p>
         </div>
       </motion.div>
@@ -49,10 +49,10 @@ export default function News() {
           Pakistan Cricket <span className="text-pak-green">Latest News</span>
         </h2>
         <p className="text-ink/60 font-medium leading-relaxed max-w-3xl mb-4">
-          Here you’ll find the most recent updates related to the Pakistan cricket team. We cover squad announcements, match previews and summaries, player injuries and replacements, and team selection updates.
+          Here you’ll find the most recent updates related to the <Link to="/" className="text-pak-green hover:underline">Pakistan cricket team</Link>. We cover <Link to="/squads" className="text-pak-green hover:underline">squad announcements</Link>, <Link to="/news" className="text-pak-green hover:underline">match previews</Link> and summaries, player injuries and replacements, and <Link to="/squads" className="text-pak-green hover:underline">team selection updates</Link>.
         </p>
         <p className="text-ink/40 text-xs font-medium italic">
-          Each update is written clearly so you can quickly understand what’s happening without going through unnecessary details.
+          Each update is written clearly so you can quickly understand what’s happening in the <Link to="/schedule" className="text-pak-green hover:underline">upcoming series</Link> without going through unnecessary details.
         </p>
       </div>
 
@@ -166,37 +166,37 @@ export default function News() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-16 border-t border-white/5">
           <section className="space-y-6">
             <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
-              Match Previews & <span className="text-pak-green">Insights</span>
+              <Link to="/news" className="hover:text-pak-green">Match Previews & Insights</Link>
             </h2>
             <p className="text-ink/60 font-medium leading-relaxed">
-              Before every match, fans want to know what to expect. This section provides quick previews with key information such as match importance, expected playing XI, key players to watch, and possible match outcomes. It helps you stay prepared and makes watching matches more exciting.
+              Before every <Link to="/schedule" className="text-pak-green hover:underline">match</Link>, fans want to know what to expect. This section provides quick <Link to="/news" className="text-pak-green hover:underline">previews</Link> with key information such as match importance, expected <Link to="/squads" className="text-pak-green hover:underline">playing XI</Link>, key players to watch, and possible match outcomes. It helps you stay prepared and makes watching matches more exciting.
             </p>
           </section>
 
           <section className="space-y-6">
             <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
-              Match Reports & <span className="text-pak-green">Highlights</span>
+              <Link to="/news" className="hover:text-pak-green">Match Reports & Highlights</Link>
             </h2>
             <p className="text-ink/60 font-medium leading-relaxed">
-              After each match, we provide short and clear match reports so you don’t miss anything important. These reports include match result, top performers, turning points, and key moments. Perfect for fans who couldn’t watch the game live but still want a quick summary.
+              After each <Link to="/schedule" className="text-pak-green hover:underline">match</Link>, we provide short and clear <Link to="/news" className="text-pak-green hover:underline">match reports</Link> so you don’t miss anything important. These reports include match result, top performers, turning points, and <Link to="/news" className="text-pak-green hover:underline">key moments</Link>. Perfect for fans who couldn’t watch the game live but still want a quick summary.
             </p>
           </section>
 
           <section className="space-y-6">
             <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
-              Squad News & <span className="text-pak-green">Team Updates</span>
+              <Link to="/squads" className="hover:text-pak-green">Squad News & Team Updates</Link>
             </h2>
             <p className="text-ink/60 font-medium leading-relaxed">
-              Pakistan’s squad often changes depending on the format, series, and player availability. On this page, you’ll get updates about new player selections, injuries and replacements, and changes in team combinations. This ensures you always know the latest team situation before a match.
+              Pakistan’s <Link to="/squads" className="text-pak-green hover:underline">squad</Link> often changes depending on the format, series, and player availability. On this page, you’ll get updates about <Link to="/squads" className="text-pak-green hover:underline">new player selections</Link>, injuries and replacements, and changes in <Link to="/squads" className="text-pak-green hover:underline">team combinations</Link>. This ensures you always know the latest team situation before a match.
             </p>
           </section>
 
           <section className="space-y-6">
             <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
-              Why Follow Pakistan <span className="text-pak-green">Cricket News Here</span>
+              Why Follow <Link to="/news" className="hover:text-pak-green">Pakistan Cricket News Here</Link>
             </h2>
             <p className="text-ink/60 font-medium leading-relaxed">
-              Instead of jumping between multiple websites, you can rely on this page for consistent and accurate updates. We focus on fast and reliable news, simple and clean content, and regular updates throughout the day.
+              Instead of jumping between multiple websites, you can rely on this page for consistent and accurate updates. We focus on <Link to="/news" className="text-pak-green hover:underline">fast and reliable news</Link>, simple and clean content, and regular <Link to="/news" className="text-pak-green hover:underline">daily updates</Link> throughout the year. For more in-depth statistical data and live coverage, you can also explore the <a href="https://www.cricbuzz.com/cricket-news" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">latest world cricket news on Cricbuzz</a>.
             </p>
           </section>
         </div>

@@ -141,13 +141,13 @@ export default function Schedule() {
           </h1>
           <div className="max-w-3xl space-y-4 mb-10">
             <p className="text-lg md:text-xl text-ink/70 font-medium leading-relaxed">
-              We bring you the <strong>Pakistan cricket schedule 2026</strong> with <strong>complete match details</strong> for every upcoming series, international tour, and major tournament. Fans can look forward to a busy year as Pakistan competes across all formats, including Test, ODI, and T20 matches.
+              We bring you the <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket schedule 2026</Link> with <strong>complete match details</strong> for every <Link to="/pakistan-upcoming-series-full-schedule" className="text-pak-green hover:underline">upcoming series</Link>, international tour, and major tournament. Fans can look forward to a busy year as Pakistan competes across all formats, including <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test</Link>, <Link to="/icc-odi-ranking-2026" className="text-pak-green hover:underline">ODI</Link>, and <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 matches</Link>.
             </p>
             <p className="text-ink/50 font-medium leading-relaxed">
-              On this page, you’ll find the complete Pakistan cricket schedule, including match dates, venues, and timings — all organized in a simple and easy-to-follow format. Whether you're planning to watch live matches or just want to stay updated, this page has everything you need.
+              On this page, you’ll find the <Link to="/schedule" className="text-pak-green hover:underline">complete Pakistan cricket schedule</Link>, including <Link to="/pakistan-next-tour-details" className="text-pak-green hover:underline">match dates, venues, and timings</Link> — all organized in a simple and easy-to-follow format. Whether you're planning to watch live matches or just want to stay updated, this page has everything you need.
             </p>
             <p className="text-[11px] font-bold uppercase tracking-[4px] text-pak-green/60 pt-4">
-              Fastest Updates • Official Timings • Venue Directions
+              Fastest Updates • <Link to="/news" className="text-pak-green hover:underline">Official Timings</Link> • Venue Directions
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -170,19 +170,19 @@ export default function Schedule() {
           </h2>
           <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
             <p className="text-lg">
-              Pakistan is set to play multiple international matches throughout 2026. These include bilateral series as well as global tournaments. The schedule is updated regularly to ensure accuracy.
+              Pakistan is set to play multiple <Link to="/schedule" className="text-pak-green hover:underline">international matches</Link> throughout 2026. These include bilateral series as well as <Link to="/schedule" className="text-pak-green hover:underline">global tournaments</Link>. The <Link to="/schedule" className="text-pak-green hover:underline">fixture list</Link> is updated regularly to ensure accuracy and reflect official PCB announcements. You can also view the <a href="https://www.icc-cricket.com/tournaments/calendar" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">official ICC tournament calendar</a> for global event planning.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               {[
-                { label: 'Bilateral Series', desc: 'Home and away international tours' },
-                { label: 'Global Tournaments', desc: 'Asia Cup and ICC event fixtures' },
-                { label: 'Top-Tier Opponents', desc: 'Matches against leading cricket nations' },
-                { label: 'Format Variety', desc: 'Test, ODI, and T20 match-ups' }
+                { label: 'Bilateral Series', desc: 'Home and away international tours', link: '/pakistan-upcoming-series-full-schedule' },
+                { label: 'Global Tournaments', desc: 'Asia Cup and ICC event fixtures', link: '/schedule' },
+                { label: 'Top-Tier Opponents', desc: 'Matches against leading nations', link: '/rankings' },
+                { label: 'Format Variety', desc: 'Test, ODI, and T20 match-ups', link: '/players-stats' }
               ].map((item, idx) => (
-                <div key={idx} className="p-4 bg-white/5 border border-white/5 rounded-2xl">
+                <Link to={item.link} key={idx} className="p-4 bg-white/5 border border-white/5 rounded-2xl hover:border-pak-green/30 transition-all">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-pak-green mb-1">{item.label}</h4>
                   <p className="text-[9px] font-bold text-ink/40 uppercase tracking-widest leading-normal">{item.desc}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -444,21 +444,23 @@ export default function Schedule() {
             </h2>
             <div className="space-y-6">
               <div>
-                <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">Pakistan vs Bangladesh 2026</h4>
+                <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">
+                  <Link to="/pakistan-tour-bangladesh-test-2026" className="hover:underline">Pakistan vs Bangladesh 2026</Link>
+                </h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
-                  Pakistan will tour Bangladesh for an exciting series featuring multiple matches across formats, testing the team's adaptability in subcontinent conditions.
+                  Pakistan will tour Bangladesh for an exciting series featuring multiple <Link to="/match/pak-ban-5th-may" className="text-pak-green hover:underline">matches across formats</Link>, testing the team's adaptability in subcontinent conditions.
                 </p>
               </div>
               <div className="pt-4 border-t border-white/5">
                 <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">Pakistan vs England 2026</h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
-                  A highly competitive series expected to test Pakistan’s strength at home. Fans can expect world-class cricket as these giants clash.
+                  A highly competitive series expected to test Pakistan’s strength at home. Fans can expect world-class cricket as these giants clash in <Link to="/schedule" className="text-pak-green hover:underline">Lahore and Karachi</Link>.
                 </p>
               </div>
               <div className="pt-4 border-t border-white/5">
                 <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">Asia Cup 2026</h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
-                  Pakistan will participate in the Asia Cup, including high-voltage matches like Pakistan vs India. This remains the most anticipated event of the year.
+                  Pakistan will participate in the Asia Cup, including <Link to="/schedule" className="text-pak-green hover:underline">high-voltage matches</Link> like Pakistan vs India. This remains the most anticipated <Link to="/blogs" className="text-pak-green hover:underline">event of the year</Link>.
                 </p>
               </div>
             </div>

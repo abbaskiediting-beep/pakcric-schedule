@@ -200,10 +200,10 @@ export default function Squads() {
         
         <div className="max-w-3xl space-y-6 mb-12">
           <p className="text-xl text-ink/80 font-medium leading-relaxed">
-            Finding the official <strong>Pakistan Cricket Team Squad 2026</strong> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
+            Finding the <Link to="/squads" className="text-pak-green hover:underline">official Pakistan Cricket Team Squad 2026</Link> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
           </p>
           <p className="text-ink/60 font-medium leading-relaxed">
-            Here, you’ll find the latest <strong>Pakistan Squad 2026</strong> player details, roles, and squad updates for upcoming matches and series. Whether you're looking for the official lineup or just want to see who’s been selected, this page makes it simple.
+            Here, you’ll find the latest <Link to="/squads" className="text-pak-green hover:underline">Pakistan Squad 2026</Link> player details, roles, and <Link to="/news" className="text-pak-green hover:underline">squad updates</Link> for <Link to="/schedule" className="text-pak-green hover:underline">upcoming matches and series</Link>. Whether you're looking for the <Link to="/squads" className="text-pak-green hover:underline">official lineup</Link> or just want to see who’s been selected, this page makes it simple.
           </p>
         </div>
 
@@ -328,22 +328,22 @@ export default function Squads() {
           </h2>
           <div className="space-y-6 text-ink/70 font-medium leading-relaxed">
             <p>
-              A balanced squad is key to success in modern cricket. Pakistan usually selects a mix of experienced players and young talent to maintain stability and aggression.
+              A balanced squad is key to success in modern cricket. Pakistan usually selects a mix of experienced players and young talent to maintain stability and aggression across <Link to="/schedule" className="text-pak-green hover:underline">all series</Link>.
             </p>
             <p>
-              On this page, squads are organized into clear categories to help you quickly understand the team combination for any upcoming series:
+              On this page, <Link to="/squads" className="text-pak-green hover:underline">squads</Link> are organized into clear categories to help you quickly understand the <Link to="/squads" className="text-pak-green hover:underline">team combination</Link> for any upcoming <Link to="/schedule" className="text-pak-green hover:underline">Pakistan series</Link>:
             </p>
             <ul className="space-y-4">
               {[
-                { label: 'Batsmen', desc: 'Top and middle-order players responsible for scoring runs' },
-                { label: 'Bowlers', desc: 'Fast bowlers and spinners who lead the attack' },
-                { label: 'All-rounders', desc: 'Players who contribute with both bat and ball' },
-                { label: 'Wicketkeepers', desc: 'Players responsible for keeping and finishing innings' }
+                { label: 'Batsmen', desc: 'Top and middle-order players responsible for scoring runs', link: '/players-stats' },
+                { label: 'Bowlers', desc: 'Fast bowlers and spinners who lead the attack', link: '/players-stats' },
+                { label: 'All-rounders', desc: 'Players who contribute with both bat and ball', link: '/rankings' },
+                { label: 'Wicketkeepers', desc: 'Players responsible for keeping and finishing innings', link: '/players-stats' }
               ].map((item, idx) => (
                 <li key={idx} className="flex gap-4">
                   <div className="mt-1 w-2 h-2 rounded-full bg-pak-green shrink-0" />
                   <div>
-                    <span className="block text-[10px] font-bold uppercase tracking-widest text-white mb-1">{item.label}</span>
+                    <Link to={item.link} className="block text-[10px] font-bold uppercase tracking-widest text-white mb-1 hover:text-pak-green">{item.label}</Link>
                     <span className="text-sm font-medium text-ink/50">{item.desc}</span>
                   </div>
                 </li>
@@ -368,17 +368,22 @@ export default function Squads() {
           <h2 className="text-2xl font-display font-bold uppercase tracking-tight mb-6">Pakistan Squad <span className="text-pak-green">per Series</span></h2>
           <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
             <p>
-              Pakistan often announces different squads depending on the format and opposition. Whether it's the bounce of Australian pitches or spinning tracks in Sri Lanka, selections vary.
+              Pakistan often announces different <Link to="/squads" className="text-pak-green hover:underline">squads</Link> depending on the format and opposition. Whether it's the bounce of Australian pitches or spinning tracks in Sri Lanka, selections vary.
             </p>
-            <p>Explore squads for:</p>
+            <p>Explore <Link to="/squads" className="text-pak-green hover:underline">squads</Link> for:</p>
             <div className="grid grid-cols-2 gap-3">
-              {['Test Series', 'ODI Series', 'T20I Series', 'Major ICC Events'].map(m => (
-                <div key={m} className="p-4 bg-white/5 border border-white/5 rounded-2xl text-center hover:border-pak-green/20 transition-all">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white">{m}</span>
-                </div>
+              {[
+                { name: 'Test Series', link: '/icc-test-ranking-2026' },
+                { name: 'ODI Series', link: '/icc-odi-ranking-2026' },
+                { name: 'T20I Series', link: '/icc-t20-ranking-2026' },
+                { name: 'Major ICC Events', link: '/rankings' }
+              ].map(m => (
+                <Link to={m.link} key={m.name} className="p-4 bg-white/5 border border-white/5 rounded-2xl text-center hover:border-pak-green/20 transition-all">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white">{m.name}</span>
+                </Link>
               ))}
             </div>
-            <p className="text-xs italic pt-4">Each squad is listed separately so you can easily follow changes between series.</p>
+            <p className="text-xs italic pt-4">Each <Link to="/squads" className="text-pak-green hover:underline">squad</Link> is listed separately so you can easily follow <Link to="/news" className="text-pak-green hover:underline">selection changes</Link> between series.</p>
           </div>
         </div>
 

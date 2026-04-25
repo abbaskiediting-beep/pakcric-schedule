@@ -81,10 +81,10 @@ export default function Blogs() {
         </h1>
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-xl text-ink/80 font-medium leading-relaxed italic">
-            If you enjoy going beyond just match schedules and scores, this is where things get interesting.
+            If you enjoy going beyond just <Link to="/schedule" className="text-pak-green hover:underline">match schedules</Link> and <Link to="/schedule" className="text-pak-green hover:underline">scores</Link>, this is where things get interesting.
           </p>
           <p className="text-ink/60 font-medium leading-relaxed">
-            The blogs section on PakCric Schedule is designed for fans who want deeper insights into Pakistan cricket — from match analysis to player performances and upcoming predictions. Everything here is written in a simple, clear, and engaging way.
+            The blogs section on <Link to="/" className="text-pak-green hover:underline">PakCric Schedule</Link> is designed for fans who want deeper insights into <Link to="/" className="text-pak-green hover:underline">Pakistan cricket</Link> — from <Link to="/blogs" className="text-pak-green hover:underline">match analysis</Link> to <Link to="/players-stats" className="text-pak-green hover:underline">player performances</Link> and upcoming <Link to="/blogs" className="text-pak-green hover:underline">predictions</Link>. Everything here is written in a simple, clear, and engaging way.
           </p>
         </div>
       </motion.div>
@@ -240,7 +240,7 @@ export default function Blogs() {
           Why Read Pakistan <span className="text-pak-green italic">Cricket Blogs Here</span>
         </h2>
         <p className="text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-16 text-lg">
-          We focus on simple and clear writing, relevant topics for Pakistan fans, and practical insights instead of unnecessary details. Our goal is to make cricket content enjoyable and useful.
+          We focus on simple and clear writing, relevant topics for <Link to="/" className="text-pak-green hover:underline">Pakistan fans</Link>, and practical <Link to="/blogs" className="text-pak-green hover:underline">match insights</Link> instead of unnecessary details. Our goal is to make <Link to="/" className="text-pak-green hover:underline">Pakistan cricket news</Link> and content enjoyable and useful for everyone following the <Link to="/schedule" className="text-pak-green hover:underline">cricket schedule</Link>.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -261,8 +261,8 @@ export default function Blogs() {
         <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
           Stay Updated with <span className="text-pak-green italic">New Blog Posts</span>
         </h2>
-        <p className="text-ink/60 font-medium max-w-2xl mx-auto mb-12">
-          New blogs are added regularly, especially during active series and tournaments. Bookmark this page so you don’t miss out on the latest analysis and insights.
+        <p className="text-ink/60 font-medium leading-relaxed max-w-2xl mx-auto mb-12">
+          New <Link to="/blogs" className="text-pak-green hover:underline">blogs</Link> are added regularly, especially during active <Link to="/schedule" className="text-pak-green hover:underline">series and tournaments</Link>. Bookmark this page so you don’t miss out on the <Link to="/blogs" className="text-pak-green hover:underline">latest analysis</Link>, <Link to="/news" className="text-pak-green hover:underline">selection news</Link>, and <Link to="/squads" className="text-pak-green hover:underline">playing XI</Link> updates.
         </p>
         <motion.div 
           className="p-12 border border-pak-green/10 bg-pak-green/5 rounded-[48px] max-w-2xl mx-auto"

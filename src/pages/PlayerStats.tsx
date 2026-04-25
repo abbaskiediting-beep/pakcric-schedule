@@ -112,13 +112,13 @@ export default function PlayerStats() {
           </h1>
           <div className="max-w-3xl space-y-6">
             <p className="text-xl text-ink/80 font-medium leading-relaxed">
-              If you want to understand how the Pakistan cricket team is performing, player statistics are the best place to start.
+              If you want to understand how the <Link to="/" className="text-pak-green hover:underline">Pakistan cricket team</Link> is performing, <Link to="/players-stats" className="text-pak-green hover:underline">player statistics</Link> are the best place to start.
             </p>
             <p className="text-ink/60 font-medium leading-relaxed">
-              This page gives you a complete overview of Pakistan players’ stats across all formats, including Test, ODI, and T20 cricket. From top run scorers to leading wicket-takers, everything is presented in a clear and easy-to-read format.
+              This page gives you a complete overview of <Link to="/players-stats" className="text-pak-green hover:underline">Pakistan players’ stats</Link> across all formats, including <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test</Link>, <Link to="/icc-odi-ranking-2026" className="text-pak-green hover:underline">ODI</Link>, and <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 cricket</Link>. From top run scorers to leading wicket-takers, everything is presented in a clear and easy-to-read format.
             </p>
             <p className="text-sm font-bold uppercase tracking-[3px] text-pak-green/60">
-              Whether you’re comparing players or just checking recent performances, this page has all the key numbers in one place.
+              Whether you’re <Link to="/squads" className="text-pak-green hover:underline">comparing players</Link> or just checking recent performances in the <Link to="/schedule" className="text-pak-green hover:underline">latest matches</Link>, this page has all the key numbers in one place.
             </p>
           </div>
         </div>
@@ -179,25 +179,25 @@ export default function PlayerStats() {
         {/* Batting & Bowling SEO Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <section className="bg-card-bg border border-card-border rounded-[40px] p-10">
-            <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Pakistan <span className="text-pak-green">Batting Stats</span></h2>
+            <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Pakistan <Link to="/rankings" className="text-pak-green hover:underline">Batting Stats</Link></h2>
             <p className="text-sm text-ink/60 leading-relaxed font-medium mb-6">
-              Batting statistics show how consistently players are scoring runs and contributing to the team. Here you can find total runs scored, batting average, strike rate, and number of 50s and 100s.
+              <Link to="/players-stats" className="text-pak-green hover:underline">Batting statistics</Link> show how consistently players are scoring runs and contributing to the team. Here you can find total runs scored, <Link to="/rankings" className="text-pak-green hover:underline">batting average</Link>, <Link to="/rankings" className="text-pak-green hover:underline">strike rate</Link>, and number of 50s and 100s.
             </p>
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
               <span className="text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
-                Identify the most reliable batsmen and in-form players format-wise (Test, ODI, T20).
+                Identify the most reliable batsmen and in-form players format-wise (Test, ODI, T20) via <Link to="/rankings" className="text-pak-green hover:underline">official rankings</Link>.
               </span>
             </div>
           </section>
 
           <section className="bg-card-bg border border-card-border rounded-[40px] p-10">
-            <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Pakistan <span className="text-pak-green">Bowling Stats</span></h2>
+            <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Pakistan <Link to="/players-stats" className="text-pak-green hover:underline">Bowling Stats</Link></h2>
             <p className="text-sm text-ink/60 leading-relaxed font-medium mb-6">
-              Bowling performance plays a crucial role in winning matches. On this page, you can explore total wickets taken, bowling average, economy rate, and best bowling figures.
+              Bowling performance plays a crucial role in winning <Link to="/schedule" className="text-pak-green hover:underline">matches</Link>. On this page, you can explore total wickets taken, bowling average, economy rate, and best bowling figures for the <Link to="/squads" className="text-pak-green hover:underline">Pakistan squad</Link>.
             </p>
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
               <span className="text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
-                Highlight the effectiveness of Pakistan’s fast bowlers and spinners in tight situations.
+                Highlight the effectiveness of Pakistan’s fast bowlers and spinners in <Link to="/news" className="text-pak-green hover:underline">match updates</Link>.
               </span>
             </div>
           </section>
