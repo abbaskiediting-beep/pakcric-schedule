@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Newspaper, ChevronRight, Calendar, ArrowUpRight } from 'lucide-react';
@@ -14,32 +14,47 @@ export default function News() {
   return (
     <div className="max-w-6xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Pakistan Cricket News Today – Latest Updates 2026</title>
-        <meta name="description" content="Get the latest Pakistan cricket news, team updates, match previews, and breaking stories in 2026." />
-        <meta name="keywords" content="Pakistan cricket news, latest cricket updates, green shirts news, PCB news 2026" />
+        <title>Pakistan Cricket News 2026 – Latest Updates, Squad News & Match Reports</title>
+        <meta name="description" content="Stay updated with Pakistan cricket news 2026 including squad announcements, match previews, injuries, and latest team updates." />
+        <meta name="keywords" content="Pakistan cricket news, Pakistan team updates, Pakistan squad news, cricket news 2026, PCB news" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Pakistan Cricket News Today – Latest Updates 2026" />
-        <meta property="og:description" content="Get the latest Pakistan cricket news, team updates, match previews, and breaking stories in 2026." />
+        <meta property="og:title" content="Pakistan Cricket News 2026 – Latest Updates, Squad News & Match Reports" />
+        <meta property="og:description" content="Stay updated with Pakistan cricket news 2026 including squad announcements, match previews, injuries, and latest team updates." />
         <meta property="og:url" content="https://pakcric-schedule.online/news" />
       </Helmet>
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }} 
-        animate={{ opacity: 1, scale: 1 }} 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }} 
         className="mb-16 text-center"
       >
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-6 text-ink">
+        <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-8 text-white leading-tight">
           Latest Pakistan <span className="text-pak-green">Cricket News & Updates</span>
         </h1>
-        <div className="flex items-center justify-center gap-4">
-          <div className="h-px w-12 bg-white/20" />
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Latest Updates • April 2026</p>
-          <div className="h-px w-12 bg-white/20" />
+        <div className="max-w-3xl mx-auto space-y-6">
+          <p className="text-xl text-ink/80 font-medium leading-relaxed">
+            Cricket in Pakistan moves fast — squad changes, match results, injuries, and big moments happen all the time. Keeping up with everything can be difficult if you’re checking multiple sources.
+          </p>
+          <p className="text-ink/60 font-medium leading-relaxed">
+            That’s why this page brings together the latest Pakistan cricket news and updates in one place. From official announcements to match previews and key highlights, everything is presented in a simple and easy-to-read format.
+          </p>
         </div>
       </motion.div>
 
       {/* Top Banner Ad for News Feed */}
       <AdPlaceholder type="leaderboard" className="mb-16" />
+
+      <div className="mb-12">
+        <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
+          Pakistan Cricket <span className="text-pak-green">Latest News</span>
+        </h2>
+        <p className="text-ink/60 font-medium leading-relaxed max-w-3xl mb-4">
+          Here you’ll find the most recent updates related to the Pakistan cricket team. We cover squad announcements, match previews and summaries, player injuries and replacements, and team selection updates.
+        </p>
+        <p className="text-ink/40 text-xs font-medium italic">
+          Each update is written clearly so you can quickly understand what’s happening without going through unnecessary details.
+        </p>
+      </div>
 
       <div className="space-y-16">
         {/* Featured News / Hero */}
@@ -146,6 +161,69 @@ export default function News() {
              </div>
           )}
         </div>
+
+        {/* Detailed Info Sections */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-16 border-t border-white/5">
+          <section className="space-y-6">
+            <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
+              Match Previews & <span className="text-pak-green">Insights</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed">
+              Before every match, fans want to know what to expect. This section provides quick previews with key information such as match importance, expected playing XI, key players to watch, and possible match outcomes. It helps you stay prepared and makes watching matches more exciting.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
+              Match Reports & <span className="text-pak-green">Highlights</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed">
+              After each match, we provide short and clear match reports so you don’t miss anything important. These reports include match result, top performers, turning points, and key moments. Perfect for fans who couldn’t watch the game live but still want a quick summary.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
+              Squad News & <span className="text-pak-green">Team Updates</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed">
+              Pakistan’s squad often changes depending on the format, series, and player availability. On this page, you’ll get updates about new player selections, injuries and replacements, and changes in team combinations. This ensures you always know the latest team situation before a match.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white">
+              Why Follow Pakistan <span className="text-pak-green">Cricket News Here</span>
+            </h2>
+            <p className="text-ink/60 font-medium leading-relaxed">
+              Instead of jumping between multiple websites, you can rely on this page for consistent and accurate updates. We focus on fast and reliable news, simple and clean content, and regular updates throughout the day.
+            </p>
+          </section>
+        </div>
+
+        <section className="bg-white/[0.02] border border-white/5 rounded-[40px] p-8 md:p-12 text-center">
+          <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6">
+            Stay Updated with Every <span className="text-pak-green">Development</span>
+          </h2>
+          <p className="text-ink/60 font-medium max-w-2xl mx-auto leading-relaxed mb-8">
+            Cricket news changes quickly, especially during busy series and tournaments. We update this page regularly so you always get the latest and most relevant information about Pakistan cricket. Bookmark this page and check back often.
+          </p>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-card-bg border border-card-border rounded-[48px] p-10 md:p-16 text-center shadow-3xl">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
+            Explore More <span className="text-pak-green">Pakistan Cricket Content</span>
+          </h2>
+          <p className="text-ink/60 font-medium max-w-xl mx-auto mb-10">
+            Looking for more than just news? Get all your Pakistan cricket essentials in one place.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/schedule" className="px-8 py-3 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-[3px] hover:scale-105 transition-transform">Match Schedule</Link>
+            <Link to="/squads" className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[10px] font-bold uppercase tracking-[3px] hover:bg-white hover:text-black transition-all">Squad Updates</Link>
+            <Link to="/rankings" className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[10px] font-bold uppercase tracking-[3px] hover:bg-white hover:text-black transition-all">Player Stats</Link>
+          </div>
+        </section>
       </div>
 
       <motion.div 

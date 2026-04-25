@@ -22,10 +22,17 @@ export default function RankingsTest() {
       </Link>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
-          ICC Test <span className="text-white">Rankings 2026</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-6 text-white">
+          ICC Test <span className="text-pak-green">Rankings 2026</span>
         </h1>
-        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px]">Official World Test Standings</p>
+        <div className="max-w-2xl space-y-4">
+          <p className="text-lg text-ink/80 font-medium leading-relaxed">
+            Test cricket remains the ultimate test of a team's skill, temperament, and patience. The ICC Test rankings measure the long-term dominance of nations in the red-ball format.
+          </p>
+          <p className="text-sm text-ink/60 font-medium leading-relaxed">
+            Below is the current standing of the world’s top 10 Test playing nations for the 2026 cycle. Pakistan’s world position is updated after every series completion.
+          </p>
+        </div>
       </motion.div>
 
       <div className="bg-gradient-to-br from-orange-500/10 to-transparent border border-card-border rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden">

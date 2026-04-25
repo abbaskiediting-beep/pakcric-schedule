@@ -22,10 +22,17 @@ export default function RankingsT20() {
       </Link>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
-          ICC T20 <span className="text-white">Rankings 2026</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-6 text-white">
+          ICC T20 <span className="text-pak-green">Rankings 2026</span>
         </h1>
-        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px]">Official World T20I Standings</p>
+        <div className="max-w-2xl space-y-4">
+          <p className="text-lg text-ink/80 font-medium leading-relaxed">
+            Twenty20 International cricket is the most explosive and unpredictable format of the game. ICC T20 rankings highlight the teams that excel in power-hitting and strategic white-ball bowling.
+          </p>
+          <p className="text-sm text-ink/60 font-medium leading-relaxed">
+            Check the latest world T20I rankings for 2026. This list is updated frequently based on individual match results, emphasizing the fast-paced nature of the format.
+          </p>
+        </div>
       </motion.div>
 
       <div className="bg-gradient-to-br from-purple-500/10 to-transparent border border-card-border rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden">

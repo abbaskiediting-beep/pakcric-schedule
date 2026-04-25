@@ -140,9 +140,9 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-pak-green/10 border border-pak-green/20 rounded-full mb-8">
-            <div className="w-2 h-2 rounded-full bg-pak-green animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-[3px] text-pak-green">Live 2026 Season Coverage</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
           <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-tight text-white mb-6">
@@ -189,10 +189,10 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="px-6 py-2 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3"
+              className="px-6 py-2 bg-black border border-white/10 rounded-xl flex items-center gap-3 shadow-2xl"
             >
-              <span className="text-lg">📅</span>
-              <span className="text-[10px] font-black uppercase tracking-[2px] text-red-500">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+              <span className="text-[10px] font-black uppercase tracking-[2px] text-white">
                 Next Match: Pakistan vs Bangladesh – May 8, 2026
               </span>
             </motion.div>
@@ -353,8 +353,8 @@ export default function Home() {
               <span className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-[3px] text-white border border-white/10 backdrop-blur-md">
                 Up Next • {nextMatch.series}
               </span>
-              <div className="flex items-center gap-2 bg-black/40 px-4 py-1.5 rounded-full border border-white/5 backdrop-blur-md shadow-lg">
-                <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+              <div className="flex items-center gap-2 bg-black/60 px-4 py-1.5 rounded-full border border-white/5 backdrop-blur-md shadow-lg">
+                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-white">Tickets: Fast Filling</span>
               </div>
             </div>

@@ -22,10 +22,17 @@ export default function RankingsODI() {
       </Link>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
-          ICC ODI <span className="text-white">Rankings 2026</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-6 text-white">
+          ICC ODI <span className="text-pak-green">Rankings 2026</span>
         </h1>
-        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px]">Official World ODI Standings</p>
+        <div className="max-w-2xl space-y-4">
+          <p className="text-lg text-ink/80 font-medium leading-relaxed">
+            The One Day International format is a balance of tactical depth and aggressive intent. ICC ODI rankings track team performances in 50-over cricket, including crucial world tournaments.
+          </p>
+          <p className="text-sm text-ink/60 font-medium leading-relaxed">
+            Explore the official ICC ODI team standings for 2026. Pakistan's progress in the 50-over format is closely monitored after each bilateral series and multi-nation event.
+          </p>
+        </div>
       </motion.div>
 
       <div className="bg-gradient-to-br from-blue-500/10 to-transparent border border-card-border rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden">
