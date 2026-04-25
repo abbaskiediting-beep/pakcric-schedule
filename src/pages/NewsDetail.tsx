@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag } from 'lucide-react';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 const ARTICLES: Record<string, any> = {
   'babar-azam-3rd-century-psl-history': {
@@ -256,14 +257,12 @@ export default function NewsDetail() {
         
         {/* Open Graph */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://pakcric-schedule.online/news/${id}`} />
         <meta property="og:title" content={`Pakistan Cricket News Today – Latest Updates 2026 | ${article.title}`} />
         <meta property="og:description" content={article.metaDescription || `Get the latest Pakistan cricket news, team updates, and breaking stories. Now: ${article.title}.`} />
         <meta property="og:image" content={article.image || "https://pakcric-schedule.online/logo.png"} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://pakcric-schedule.online/news/${id}`} />
         <meta property="twitter:title" content={article.metaTitle || article.title} />
         <meta property="twitter:description" content={article.metaDescription || article.content.split('\n')[0].substring(0, 160).trim()} />
         <meta property="twitter:image" content={article.image || "https://pakcric-schedule.online/logo.png"} />
@@ -312,6 +311,8 @@ export default function NewsDetail() {
                 src={article.image} 
                 alt={article.title} 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
             </>
@@ -430,6 +431,8 @@ export default function NewsDetail() {
                 src={article.infographic} 
                 alt="Article Infographic" 
                 className="w-full h-auto object-cover rounded-[28px]"
+                referrerPolicy="no-referrer"
+                loading="lazy"
                />
             </div>
           )}
@@ -452,6 +455,8 @@ export default function NewsDetail() {
           </div>
         </div>
       </motion.article>
+
+      <InternalLinkSection />
     </div>
   );
 }

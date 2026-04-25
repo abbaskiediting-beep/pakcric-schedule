@@ -82,7 +82,7 @@ export default function PlayerRankingsDetail({ title, category, format, data, th
                   </td>
                   <td className="px-8 py-6">
                     <div className="flex items-center gap-3">
-                      <img src={player.flagUrl} alt="" className="w-6 h-4 object-cover rounded shadow" referrerPolicy="no-referrer" />
+                      <img src={player.flagUrl} alt="" className="w-6 h-4 object-cover rounded shadow" referrerPolicy="no-referrer" loading="lazy" />
                       <span className="text-xs font-bold uppercase tracking-tight text-ink/60">{player.country}</span>
                     </div>
                   </td>

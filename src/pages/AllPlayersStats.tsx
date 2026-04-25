@@ -6,6 +6,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function AllPlayersStats() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -128,7 +129,7 @@ export default function AllPlayersStats() {
             </div>
             <div className="flex items-center gap-6 relative z-10">
               <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-2">
-                {player.imgUrl ? <img src={player.imgUrl} alt={player.name} className="w-full h-full object-contain" /> : <User className="text-white/20" />}
+                {player.imgUrl ? <img src={player.imgUrl} alt={player.name} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="text-white/20" />}
               </div>
               <div className="min-w-0">
                 <span className={`text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-2 inline-block ${idx === 0 ? 'bg-amber-500 text-black' : 'bg-pak-green/20 text-pak-green'}`}>
@@ -259,7 +260,7 @@ export default function AllPlayersStats() {
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 overflow-hidden shrink-0">
-                          {player.imgUrl ? <img src={player.imgUrl} alt="" className="w-full h-full object-contain" /> : <User className="w-4 h-4 text-white/20" />}
+                          {player.imgUrl ? <img src={player.imgUrl} alt="" referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-4 h-4 text-white/20" />}
                         </div>
                         <span className="text-sm font-bold text-white group-hover/row:text-pak-green transition-colors">{player.name}</span>
                       </div>
@@ -412,6 +413,8 @@ export default function AllPlayersStats() {
           </div>
         </div>
       </section>
+
+      <InternalLinkSection />
 
       {/* Summary Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">

@@ -8,6 +8,9 @@ import { NEWS_DATA } from '../newsData';
 import { MATCH_RESULTS } from '../matchResultsData';
 import AdPlaceholder from '../components/AdPlaceholder';
 
+import InternalLinkSection from '../components/InternalLinkSection';
+import ExternalResourcesSection from '../components/ExternalResourcesSection';
+
 // Lazy load non-critical sections to speed up initial mobile paint
 const CommonQuestions = lazy(() => import('../components/CommonQuestions'));
 const FanClubSection = lazy(() => import('../components/FanClubSection'));
@@ -31,14 +34,12 @@ export default function Home() {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pakcric-schedule.online/" />
         <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Match Dates & Updates | PakCric Schedule" />
         <meta property="og:description" content="Stay updated with the Pakistan cricket schedule 2026. Get full fixtures, match dates, venues, timings, and latest updates on PakCric Schedule." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://pakcric-schedule.online/" />
         <meta property="twitter:title" content="Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates" />
         <meta property="twitter:description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates." />
         <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
@@ -150,7 +151,7 @@ export default function Home() {
           </h1>
           
           <p className="text-lg md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
-            Get complete match dates, venues, and timings of Pakistan cricket team — all in one simple and updated place.
+            Get the full <strong>Pakistan cricket schedule 2026</strong> for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and <strong>never miss a match</strong> of your favorite team.
           </p>
 
           <div className="flex flex-wrap justify-center gap-8 mb-12">
@@ -362,13 +363,13 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="flex items-center gap-8 order-2 md:order-1">
                  <div className="w-24 h-24 rounded-full border-4 border-white/10 p-2 overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm">
-                    <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" decoding="async" className="w-full h-full object-cover rounded-full" />
+                    <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
                  </div>
                  <div className="text-center">
                     <span className="text-5xl font-display font-bold text-white/20 italic">VS</span>
                  </div>
                  <div className="w-24 h-24 rounded-full border-4 border-white/10 p-2 overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm">
-                    <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" decoding="async" className="w-full h-full object-cover rounded-full" />
+                    <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
                  </div>
               </div>
 
@@ -486,6 +487,27 @@ export default function Home() {
 
       {/* SEO & Informative Sections */}
       <div className="mt-24 space-y-24">
+        {/* Detailed SEO Content Section */}
+        <section className="max-w-4xl mx-auto text-left">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
+            Complete <span className="text-pak-green">Pakistan Cricket Guide 2026</span>
+          </h2>
+          <div className="space-y-6 text-ink/60 font-medium leading-relaxed text-lg">
+            <p>
+              Are you looking for the most reliable source of <strong>Pakistan cricket matches in 2026</strong>? You’ve come to the right place. Our platform is dedicated to providing cricket enthusiasts with a comprehensive, easy-to-use, and regularly updated <strong>Pakistan cricket schedule 2026</strong>. From the highly anticipated clashes against traditional rivals to important bilateral series across the globe, we cover it all in one convenient dashboard.
+            </p>
+            <p>
+              The year 2026 is a monumental one for Pakistan cricket. With a packed calendar featuring multiple Test series, One Day Internationals (ODIs), and fast-paced T20 tournaments, fans need a tool that helps them keep track of every game. Our schedule not only provides the <strong>match dates and times</strong> but also includes verified stadium locations and precise timings in <strong>Pakistan Standard Time (PKT)</strong>. This ensures that you can plan your day and never miss a single ball, whether the match is being played in Lahore, Karachi, or in international venues like Dhaka or London.
+            </p>
+            <p>
+              Beyond the fixtures, we understand that true fans care about the details. That’s why we provide deep insights into the <strong>Pakistan Cricket Team Squad</strong> for every series. Whether it’s a veteran returning to the side or a young talent making their international debut, you’ll find updated player lists right here. Additionally, we keep a close eye on the <strong>ICC Team Rankings</strong>, tracking Pakistan’s progress in the global standings throughout the year 2026.
+            </p>
+            <p>
+              Why settle for cluttered news sites when you can have a clean, focused, and high-performance cricket hub? We have optimized every page to load quickly on mobile devices, making it perfect for fans on the go. Our commitment to accuracy means that as soon as the PCB (Pakistan Cricket Board) or ICC makes an official announcement regarding tour dates or venue changes, our system reflects it immediately. Stay tuned for expert tactical blogs, player performance stats, and high-voltage match previews that give you the edge in understanding the game.
+            </p>
+          </div>
+        </section>
+
         {/* Why Choose Section */}
         <section className="bg-card-bg border border-card-border rounded-[40px] p-10 md:p-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -568,6 +590,10 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
+        <ExternalResourcesSection />
+
+        <InternalLinkSection />
 
         {/* CTA Section */}
         <section className="relative overflow-hidden bg-white/5 border border-white/5 rounded-[40px] p-12 md:p-20 text-center">

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function MatchDetail() {
   const { id } = useParams();
@@ -42,14 +43,12 @@ export default function MatchDetail() {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://pakcric-schedule.online/match/${match.id}`} />
         <meta property="og:title" content={`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`} />
         <meta property="og:description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates.`} />
         <meta property="og:image" content={match.flagUrl} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://pakcric-schedule.online/match/${match.id}`} />
         <meta property="twitter:title" content={`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`} />
         <meta property="twitter:description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates.`} />
         <meta property="twitter:image" content={match.flagUrl} />
@@ -139,7 +138,7 @@ export default function MatchDetail() {
              
              <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-12">
                 <div className="flex flex-col items-center">
-                   <img src="https://flagcdn.com/pk.svg" alt="PAK" className="w-24 h-24 rounded-full border-4 border-white/10 mb-4 p-2 shadow-2xl bg-black/20" />
+                   <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 rounded-full border-4 border-white/10 mb-4 p-2 shadow-2xl bg-black/20" />
                    <h2 className="text-3xl font-display font-bold">PAKISTAN</h2>
                    {match.scorePAK && (
                      <div className="mt-2 text-4xl font-display font-bold text-white">{match.scorePAK}</div>
@@ -151,7 +150,7 @@ export default function MatchDetail() {
                 </div>
 
                 <div className="flex flex-col items-center">
-                   <img src={match.flagUrl} alt={match.opponent} className="w-24 h-24 rounded-full border-4 border-white/10 mb-4 p-2 shadow-2xl bg-black/20" />
+                   <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 rounded-full border-4 border-white/10 mb-4 p-2 shadow-2xl bg-black/20" />
                    <h2 className="text-3xl font-display font-bold uppercase">{match.opponent}</h2>
                    {match.scoreOpponent && (
                      <div className="mt-2 text-4xl font-display font-bold text-white">{match.scoreOpponent}</div>
@@ -356,7 +355,9 @@ export default function MatchDetail() {
       </div>
 
       {/* Bottom Ad for long sessions */}
-      <AdPlaceholder type="leaderboard" className="mt-12" />
+      <AdPlaceholder type="leaderboard" className="mt-12 mb-12" />
+
+      <InternalLinkSection />
     </div>
   );
 }

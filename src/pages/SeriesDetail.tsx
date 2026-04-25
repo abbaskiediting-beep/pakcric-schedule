@@ -38,7 +38,6 @@ export default function SeriesDetail() {
         {/* Open Graph */}
         <meta property="og:title" content={`Pakistan vs ${seriesMatches[0].opponent} 2026 Schedule, Squad & Match Details`} />
         <meta property="og:description" content={`Get complete ${seriesName} 2026 series schedule, squad, match dates, venues, and updates.`} />
-        <meta property="og:url" content={`https://pakcric-schedule.online/series/${slug}`} />
       </Helmet>
       <Link to="/schedule" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Schedule

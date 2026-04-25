@@ -62,12 +62,10 @@ export default function PakistanNextTourDetails() {
         <title>Pakistan Next Match 2026 – Date, Time & Opponent</title>
         <meta name="description" content="Find Pakistan next match date, time, opponent, and venue. Stay updated with upcoming Pakistan cricket matches." />
         <meta name="keywords" content="Pakistan next match, upcoming Pakistan cricket matches, Pakistan cricket schedule 2026, next cricket tour Pakistan" />
-        <link rel="canonical" href="https://pakcric-schedule.online/pakistan-next-tour-details" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Pakistan Next Match 2026 – Date, Time & Opponent" />
         <meta property="og:description" content="Find Pakistan next match date, time, opponent, and venue. Stay updated with upcoming Pakistan cricket matches." />
-        <meta property="og:url" content="https://pakcric-schedule.online/pakistan-next-tour-details" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
       </Helmet>

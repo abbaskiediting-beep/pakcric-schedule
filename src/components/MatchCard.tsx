@@ -46,7 +46,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
         <div className="flex items-center justify-between mb-4 px-2">
           <div className="flex items-center gap-2">
              <div className="w-8 h-8 rounded-full border border-card-border bg-black/20 p-1 overflow-hidden shrink-0 transition-all duration-300">
-                <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover" />
              </div>
              <span className="text-xs font-bold uppercase group-hover:text-white transition-colors">PAK</span>
           </div>
@@ -60,6 +60,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
                   src={match.flagUrl || `https://picsum.photos/seed/${match.opponent}/32/32`} 
                   alt={match.opponent} 
                   referrerPolicy="no-referrer" 
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
                 />
              </div>

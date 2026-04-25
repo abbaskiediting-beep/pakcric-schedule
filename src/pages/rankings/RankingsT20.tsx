@@ -15,7 +15,6 @@ export default function RankingsT20() {
       <Helmet>
         <title>ICC T20 Rankings 2026 | Pakistan T20 Standings & Team List</title>
         <meta name="description" content="Latest ICC T20 team rankings for 2026. See Pakistan's position in the world T20I standings and top 10 ranked teams." />
-        <link rel="canonical" href="https://pakcric-schedule.online/icc-t20-ranking-2026" />
       </Helmet>
       <Link to="/rankings" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to All Rankings

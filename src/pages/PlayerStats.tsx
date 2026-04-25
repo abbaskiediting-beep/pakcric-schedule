@@ -8,6 +8,7 @@ import {
   Target, Zap, Activity, Info, FileText, Save, Trash2 
 } from 'lucide-react';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function PlayerStats() {
   const { name } = useParams();
@@ -92,7 +93,6 @@ export default function PlayerStats() {
         {/* Open Graph */}
         <meta property="og:title" content={`Pakistan Players Stats 2026 – Batting, Bowling & All Format Records`} />
         <meta property="og:description" content={`Explore Pakistan cricket players stats 2026 including runs, wickets, averages, and performance in Test, ODI, and T20 formats.`} />
-        <meta property="og:url" content={`https://pakcric-schedule.online/player/${name}`} />
         <meta property="og:image" content={player.imgUrl || "https://pakcric-schedule.online/logo.png"} />
       </Helmet>
 
@@ -132,7 +132,7 @@ export default function PlayerStats() {
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
             <div className="w-48 h-48 rounded-[32px] bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-4">
               {player.imgUrl ? (
-                <img src={player.imgUrl} alt={player.name} className="w-full h-full object-contain" />
+                <img src={player.imgUrl} alt={player.name} className="w-full h-full object-contain" referrerPolicy="no-referrer" loading="lazy" />
               ) : (
                 <User className="w-24 h-24 text-white/20" />
               )}
@@ -414,6 +414,8 @@ export default function PlayerStats() {
           </button>
         </div>
       </motion.div>
+
+      <InternalLinkSection />
     </div>
   );
 }

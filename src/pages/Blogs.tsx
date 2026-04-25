@@ -4,6 +4,7 @@ import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, Trendi
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 const BLOG_POSTS = [
   {
@@ -45,6 +46,16 @@ const BLOG_POSTS = [
     path: '/news/babar-azam-form-impact-pakistan',
     icon: Trophy,
     color: 'text-pak-green',
+  },
+  {
+    id: 'pakistan-cricket-schedule-2026-full-fixtures',
+    title: 'Pakistan Cricket Schedule 2026: Full Fixtures, Dates & Match Timings',
+    summary: 'A detailed look at Pakistan’s 2026 international calendar including England, Bangladesh, and the highly anticipated Asia Cup.',
+    date: 'April 25, 2026',
+    category: 'Full Schedule',
+    path: '/schedule',
+    icon: Calendar,
+    color: 'text-blue-500',
   },
 ];
 
@@ -272,6 +283,8 @@ export default function Blogs() {
           </div>
         </motion.div>
       </section>
+
+      <InternalLinkSection />
 
       {/* Final CTA */}
       <section className="mb-20">

@@ -7,6 +7,7 @@ import { PLAYER_STATS } from '../playerData';
 import { Trophy, ChevronRight, Search, X, TrendingUp, User, Info, StickyNote, Save, Star, Award, Share2 } from 'lucide-react';
 import { MatchFormat, Player } from '../types';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 import React from 'react';
 
 function StatCard({ label, value, highlight }: { label: string; value: any; highlight?: boolean }) {
@@ -176,14 +177,12 @@ export default function Squads() {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pakcric-schedule.online/squads" />
         <meta property="og:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
         <meta property="og:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://pakcric-schedule.online/squads" />
         <meta property="twitter:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
         <meta property="twitter:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
         <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
@@ -201,10 +200,10 @@ export default function Squads() {
         
         <div className="max-w-3xl space-y-6 mb-12">
           <p className="text-xl text-ink/80 font-medium leading-relaxed">
-            Keeping track of the Pakistan cricket team squad can be confusing, especially when selections change from one series to another. That’s why this page brings everything together in one place.
+            Finding the official <strong>Pakistan Cricket Team Squad 2026</strong> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
           </p>
           <p className="text-ink/60 font-medium leading-relaxed">
-            Here, you’ll find the latest Pakistan squad for 2026, including player names, roles, and updates for upcoming matches and series. Whether you're looking for the official lineup or just want to see who’s been selected, this page makes it simple and easy.
+            Here, you’ll find the latest <strong>Pakistan Squad 2026</strong> player details, roles, and squad updates for upcoming matches and series. Whether you're looking for the official lineup or just want to see who’s been selected, this page makes it simple.
           </p>
         </div>
 
@@ -591,6 +590,8 @@ export default function Squads() {
            ))}
         </div>
       </section>
+
+      <InternalLinkSection />
 
       {/* Player Modal */}
       <AnimatePresence>

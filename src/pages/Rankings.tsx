@@ -3,6 +3,7 @@ import { Trophy, Star, Users, ChevronRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function Rankings() {
   const t20Rankings = [
@@ -33,14 +34,12 @@ export default function Rankings() {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pakcric-schedule.online/rankings" />
         <meta property="og:title" content="Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings" />
         <meta property="og:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
         <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://pakcric-schedule.online/rankings" />
         <meta property="twitter:title" content="Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings" />
         <meta property="twitter:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
         <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
@@ -55,10 +54,10 @@ export default function Rankings() {
         </h1>
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-xl text-ink/80 font-medium leading-relaxed">
-            Cricket rankings give a clear picture of how teams are performing on the international stage. For Pakistan fans, keeping track of the team’s position across formats is just as important as following match results.
+            Cricket rankings give a clear picture of how teams are performing on the international stage. For Pakistan fans, keeping track of the <strong>Pakistan ICC Rankings</strong> across formats is just as important as following match results.
           </p>
           <p className="text-ink/60 font-medium leading-relaxed">
-            On this page, you’ll find the latest Pakistan ICC rankings for 2026, including positions in T20, ODI, and Test cricket. Everything is presented in a simple format so you can quickly understand where Pakistan stands globally.
+            On this page, you’ll find the latest world rankings for 2026, including detailed insights into <strong>T20, ODI & Test</strong> standings. Everything is presented in a simple format so you can quickly understand where Pakistan stands globally.
           </p>
         </div>
       </motion.div>
@@ -352,6 +351,8 @@ export default function Rankings() {
         </div>
       </section>
 
+      <InternalLinkSection />
+      
       {/* CTA Section */}
       <section className="mb-20">
         <div className="bg-card-bg border border-card-border rounded-[48px] p-10 md:p-16 text-center shadow-3xl shadow-black/40">

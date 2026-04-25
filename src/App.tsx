@@ -58,6 +58,7 @@ const SEO = () => {
   return (
     <Helmet>
       <link rel="canonical" href={canonicalUrl} />
+      <meta property="og:url" content={canonicalUrl} />
     </Helmet>
   );
 };
@@ -129,27 +130,50 @@ export default function App() {
           </Suspense>
         </main>
 
-        <footer className="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-8 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px] border-t border-card-border mt-12">
-          <div className="flex flex-col items-center md:items-start gap-4">
-             <span className="text-white text-lg font-display font-bold">PAKCRICT HUB</span>
-             <span>© 2026 Official Fan Portal</span>
-          </div>
-          <div className="flex flex-wrap justify-center gap-8">
-             <Link to="/schedule" className="hover:text-white transition-colors">Schedule</Link>
-             <Link to="/rankings" className="hover:text-white transition-colors">ICC Rankings</Link>
-             <Link to="/icc-wtc-projections-2026" className="hover:text-white transition-colors">WTC Standings</Link>
-             <Link to="/squads" className="hover:text-white transition-colors">Squads</Link>
-             <Link to="/news" className="hover:text-white transition-colors">Latest News</Link>
-             <Link to="/blogs" className="hover:text-white transition-colors">Expert Blogs</Link>
-             <Link to="/about" className="hover:text-white transition-colors">About Us</Link>
-             <Link to="/contact" className="hover:text-white transition-colors">Support</Link>
-             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-          <div className="flex gap-6">
-             <a href="#" className="hover:text-white transition-colors">Twitter</a>
-             <a href="#" className="hover:text-white transition-colors">Instagram</a>
-             <a href="#" className="hover:text-white transition-colors">YouTube</a>
+        <footer className="container mx-auto px-6 py-12 flex flex-col gap-12 border-t border-card-border mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="flex flex-col gap-6">
+               <span className="text-white text-lg font-display font-bold">PAKCRICT HUB</span>
+               <p className="text-neutral-500 text-[11px] font-medium leading-relaxed uppercase tracking-[1px]">
+                 Your ultimate destination for Pakistan cricket schedules, rankings, and in-depth analysis. Stay connected with the Green Shirts.
+               </p>
+               <span className="text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">© 2026 Official Fan Portal</span>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Internal Links</span>
+              <div className="grid grid-cols-2 gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
+                <Link to="/schedule" className="hover:text-white transition-colors">Schedule</Link>
+                <Link to="/rankings" className="hover:text-white transition-colors">ICC Rankings</Link>
+                <Link to="/icc-wtc-projections-2026" className="hover:text-white transition-colors">WTC Standings</Link>
+                <Link to="/squads" className="hover:text-white transition-colors">Squads</Link>
+                <Link to="/news" className="hover:text-white transition-colors">Latest News</Link>
+                <Link to="/blogs" className="hover:text-white transition-colors">Expert Blogs</Link>
+                <Link to="/about" className="hover:text-white transition-colors">About Us</Link>
+                <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Cricket Resources</span>
+              <div className="grid grid-cols-2 gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
+                <a href="https://www.espncricinfo.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">ESPNcricinfo</a>
+                <a href="https://www.cricbuzz.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Cricbuzz</a>
+                <a href="https://www.pcb.com.pk" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">PCB Official</a>
+                <a href="https://www.icc-cricket.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">ICC Official</a>
+                <a href="https://www.cricinfo.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">CricInfo</a>
+                <a href="https://www.geosuper.tv" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Geo Super</a>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Follow Us</span>
+              <div className="flex gap-6 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
+                <a href="#" className="hover:text-white transition-colors">Twitter</a>
+                <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                <a href="#" className="hover:text-white transition-colors">YouTube</a>
+              </div>
+            </div>
           </div>
         </footer>
       </div>

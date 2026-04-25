@@ -5,6 +5,7 @@ import { Newspaper, ChevronRight, Calendar, ArrowUpRight } from 'lucide-react';
 import { NEWS_DATA } from '../newsData';
 import React from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function News() {
   const navigate = useNavigate();
@@ -21,7 +22,6 @@ export default function News() {
         {/* Open Graph */}
         <meta property="og:title" content="Pakistan Cricket News 2026 – Latest Updates, Squad News & Match Reports" />
         <meta property="og:description" content="Stay updated with Pakistan cricket news 2026 including squad announcements, match previews, injuries, and latest team updates." />
-        <meta property="og:url" content="https://pakcric-schedule.online/news" />
       </Helmet>
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
@@ -224,6 +224,8 @@ export default function News() {
             <Link to="/rankings" className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[10px] font-bold uppercase tracking-[3px] hover:bg-white hover:text-black transition-all">Player Stats</Link>
           </div>
         </section>
+
+        <InternalLinkSection />
       </div>
 
       <motion.div 
