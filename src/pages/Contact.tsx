@@ -8,7 +8,7 @@ export default function Contact() {
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
           Get in <span className="text-white">Touch</span>
         </h1>
-        <p className="text-ink/60 font-medium whitespace-pre-line uppercase tracking-[4px] text-[10px]">Official Helpdesk of Pakistan Cricket Hub</p>
+        <p className="text-ink/60 font-medium whitespace-pre-line uppercase tracking-[4px] text-[10px]">Official Helpdesk of PakCric Schedule</p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

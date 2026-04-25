@@ -49,7 +49,7 @@ export default function Home() {
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "PakCric Hub",
+              "name": "PakCric Schedule",
               "url": "https://pakcric-schedule.online/",
               "potentialAction": {
                 "@type": "SearchAction",
@@ -64,13 +64,13 @@ export default function Home() {
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "PakCric Hub",
+              "name": "PakCric Schedule",
               "url": "https://pakcric-schedule.online/",
               "logo": "https://pakcric-schedule.online/logo.png",
               "sameAs": [
-                "https://facebook.com/pakcrichub",
-                "https://twitter.com/pakcrichub",
-                "https://instagram.com/pakcrichub"
+                "https://facebook.com/pakcricschedule",
+                "https://twitter.com/pakcricschedule",
+                "https://instagram.com/pakcricschedule"
               ]
             }
           `}

@@ -10,7 +10,9 @@ export default function SeriesDetail() {
   const [activeFormat, setActiveFormat] = useState<string | null>(null);
 
   const seriesMatches = useMemo(() => {
-    return PAKISTAN_SCHEDULE.filter(m => m.series.toLowerCase().replace(/ /g, '-') === slug);
+    return PAKISTAN_SCHEDULE.filter(m => 
+      m.series.toLowerCase().replace(/[^a-z0-9]+/g, '-') === slug?.replace(/[^a-z0-9]+/g, '-')
+    );
   }, [slug]);
 
   const formats = useMemo(() => {

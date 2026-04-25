@@ -133,7 +133,7 @@ export default function App() {
         <footer className="container mx-auto px-6 py-12 flex flex-col gap-12 border-t border-card-border mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div className="flex flex-col gap-6">
-               <span className="text-white text-lg font-display font-bold">PAKCRICT HUB</span>
+               <span className="text-white text-lg font-display font-bold">PAKCRIC SCHEDULE</span>
                <p className="text-neutral-500 text-[11px] font-medium leading-relaxed uppercase tracking-[1px]">
                  Your ultimate destination for Pakistan cricket schedules, rankings, and in-depth analysis. Stay connected with the Green Shirts.
                </p>

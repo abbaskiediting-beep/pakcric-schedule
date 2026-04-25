@@ -367,7 +367,7 @@ export default function Rankings() {
            </div>
            <div className="mt-16 flex flex-wrap justify-center gap-8 border-t border-white/5 pt-10">
               <Link to="/squads" className="text-[10px] font-bold uppercase tracking-[3px] text-ink/40 hover:text-pak-green transition-colors">Squad Updates</Link>
-              <Link to="/player-stats" className="text-[10px] font-bold uppercase tracking-[3px] text-ink/40 hover:text-pak-green transition-colors">Player Stats Hub</Link>
+              <Link to="/players-stats" className="text-[10px] font-bold uppercase tracking-[3px] text-ink/40 hover:text-pak-green transition-colors">Player Stats Hub</Link>
               <Link to="/" className="text-[10px] font-bold uppercase tracking-[3px] text-ink/40 hover:text-pak-green transition-colors">Home Dashboard</Link>
            </div>
         </div>

@@ -563,7 +563,7 @@ export default function Squads() {
           <div className="bg-card-bg border border-card-border rounded-3xl p-8 flex flex-col items-center text-center">
             <Trophy className="w-10 h-10 text-pak-green mb-4" />
             <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-4 italic">Next Game</span>
-            <Link to="/match/pakistan-vs-bangladesh-test" className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all w-full">
+            <Link to="/match/1" className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all w-full">
               View Next Match
             </Link>
           </div>

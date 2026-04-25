@@ -448,7 +448,7 @@ export default function Schedule() {
                   <Link to="/pakistan-tour-bangladesh-test-2026" className="hover:underline">Pakistan vs Bangladesh 2026</Link>
                 </h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
-                  Pakistan will tour Bangladesh for an exciting series featuring multiple <Link to="/match/pak-ban-5th-may" className="text-pak-green hover:underline">matches across formats</Link>, testing the team's adaptability in subcontinent conditions.
+                  Pakistan will tour Bangladesh for an exciting series featuring multiple <Link to="/match/1" className="text-pak-green hover:underline">matches across formats</Link>, testing the team's adaptability in subcontinent conditions.
                 </p>
               </div>
               <div className="pt-4 border-t border-white/5">

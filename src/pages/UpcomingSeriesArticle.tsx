@@ -224,7 +224,7 @@ export default function UpcomingSeriesArticle() {
                 As we finalize our look at the <strong>Pakistan upcoming series full schedule for 2026</strong>, the picture is one of challenge and incredible opportunity. This is a year where the 'Green Shirts' can truly re-establish themselves as the premier power in world cricket across all formats. From the spinning tracks of Dhaka to the historic slopes of Lord's and the festive atmosphere of the Caribbean, the stage is set for a season of destiny.
               </p>
               <p className="text-lg text-ink/70 leading-relaxed">
-                Stay tuned to PakCric Hub for every boundary, every wicket, and every tactical masterpiece as we track the <strong>Pakistan upcoming series full schedule</strong> together. We are your home for accurate, fast, and high-quality <strong>cricket schedule</strong> updates and analysis. 
+                Stay tuned to PakCric Schedule for every boundary, every wicket, and every tactical masterpiece as we track the <strong>Pakistan upcoming series full schedule</strong> together. We are your home for accurate, fast, and high-quality <strong>cricket schedule</strong> updates and analysis. 
               </p>
             </div>
           </section>
@@ -252,7 +252,7 @@ export default function UpcomingSeriesArticle() {
 
       <div className="mt-12 text-center">
         <p className="text-ink/40 text-[10px] font-bold uppercase tracking-[2px]">
-          Published April 2026 • Pakistan Cricket Hub Editorial
+          Published April 2026 • PakCric Schedule Editorial
         </p>
       </div>
     </div>

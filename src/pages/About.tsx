@@ -6,7 +6,7 @@ export default function About() {
     <div className="max-w-4xl mx-auto py-12 px-6">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
-          About <span className="text-white">Pakistan Cricket Hub</span>
+          About <span className="text-white">PakCric Schedule</span>
         </h1>
         <p className="text-ink/60 font-medium">Your definitive source for Pakistan National Team schedule, squads and rankings.</p>
       </motion.div>
@@ -18,7 +18,7 @@ export default function About() {
           </h2>
           <div className="space-y-6 text-ink/60 font-medium leading-relaxed text-lg">
             <p>
-              <strong>Pakistan Cricket Hub</strong> was born out of a simple need: to provide passionate fans with a fast, reliable, and distraction-free way to stay connected with the <Link to="/" className="text-pak-green hover:underline">Pakistan National Cricket Team</Link>. In a digital world filled with cluttered sports websites that are hard to navigate on mobile devices, we wanted to build something different—something that puts the fans first.
+              <strong>PakCric Schedule</strong> was born out of a simple need: to provide passionate fans with a fast, reliable, and distraction-free way to stay connected with the <Link to="/" className="text-pak-green hover:underline">Pakistan National Cricket Team</Link>. In a digital world filled with cluttered sports websites that are hard to navigate on mobile devices, we wanted to build something different—something that puts the fans first.
             </p>
             <p>
               Our platform specializes in providing the most accurate <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket schedule 2026</Link>. We track every international tour, every home series, and all major ICC and regional tournaments like the <Link to="/schedule" className="text-pak-green hover:underline">Asia Cup</Link> and <strong>Champions Trophy</strong>. Whether it is a crucial <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test match</Link> in the World Test Championship or a thrilling <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 encounter</Link>, our mission is to ensure that you have exactly what you need: match dates, precise timings in <Link to="/pakistan-next-tour-details" className="text-pak-green hover:underline">Pakistan Standard Time (PKT)</Link>, and verified stadium venues at your fingertips.

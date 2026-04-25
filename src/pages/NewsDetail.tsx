@@ -280,7 +280,7 @@ export default function NewsDetail() {
               },
               "publisher": {
                 "@type": "Organization",
-                "name": "PakCric Hub",
+                "name": "PakCric Schedule",
                 "logo": {
                   "@type": "ImageObject",
                   "url": "https://pakcric-schedule.online/logo.png"

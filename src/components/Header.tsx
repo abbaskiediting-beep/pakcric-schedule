@@ -20,7 +20,7 @@ export default function Header({ theme, onToggleTheme }: HeaderProps) {
             <Trophy className="w-6 h-6 text-[#F8FAF9]" aria-hidden="true" />
           </div>
           <h1 className="font-display text-2xl tracking-tighter uppercase font-bold text-ink">
-            PAKISTAN <span className="text-pak-green">CRICKET</span>
+            PAKCRIC <span className="text-pak-green">SCHEDULE</span>
           </h1>
         </motion.div>
         

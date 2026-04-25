@@ -21,7 +21,7 @@ export default function InternalLinkSection() {
         </div>
         <div>
           <h2 className="text-3xl font-display font-bold uppercase tracking-tight text-white">
-            Explore <span className="text-pak-green">PakCric Hub</span>
+            Explore <span className="text-pak-green">PakCric Schedule</span>
           </h2>
           <p className="text-[10px] font-bold text-ink/30 uppercase tracking-[4px]">
             Navigate through our comprehensive portal

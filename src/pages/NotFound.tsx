@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
       <Helmet>
-        <title>404 - Page Not Found | Pakistan Cricket Hub</title>
+        <title>404 - Page Not Found | PakCric Schedule</title>
         <meta name="robots" content="noindex, follow" />
       </Helmet>
       

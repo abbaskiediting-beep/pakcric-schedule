@@ -1,0 +1,30 @@
+# PakCric Schedule - LLMs Directory
+
+This file provides information about the PakCric Schedule application for Large Language Models.
+
+## Core Pages
+- Home: /
+- Cricket Schedule 2026: /schedule
+- Team Squads: /squads
+- ICC Rankings Overview: /rankings
+- T20 Rankings: /icc-t20-ranking-2026
+- ODI Rankings: /icc-odi-ranking-2026
+- Test Rankings: /icc-test-ranking-2026
+- Latest Cricket News: /news
+- Expert Blogs: /blogs
+- Detailed Player Stats: /players-stats
+- WTC Projections: /icc-wtc-projections-2026
+- About Us: /about
+
+## Key Features
+- Real-time match fixtures and timings in PKT.
+- Comprehensive team squads for upcoming series.
+- Official ICC rankings for teams and players.
+- In-depth match analysis and tactical previews.
+- Mobile-optimized performance.
+
+## SEO & Linking
+- Optimized SEO structure with 250+ words per key page and proper paragraph segmentation.
+- Robust internal linking (8-10 links per page) connecting Schedule, Squads, Rankings, and Blogs.
+- Strategic external linking to authoritative resources like PCB, Cricbuzz, and ESPNcricinfo.
+- Fixed 404 errors related to missing assets and incorrect internal paths.

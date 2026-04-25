@@ -6,7 +6,7 @@ export default function Nav() {
     { name: 'Home', path: '/' },
     { name: 'Schedule', path: '/schedule' },
     { name: 'Next Match 🔴', path: '/match/1', highlight: true },
-    { name: 'Series', path: '/series/pakistan-tour-of-bangladesh-(test-series)' },
+    { name: 'Series', path: '/series/pakistan-tour-of-bangladesh-test-series' },
     { name: 'Squad', path: '/squads' },
     { name: 'Stats', path: '/players-stats' },
     { name: 'Rankings', path: '/rankings' },

@@ -219,7 +219,7 @@ export default function RedBallResilienceBlog() {
           </div>
 
           <p className="mb-10 leading-relaxed italic border-t border-card-border pt-8 text-ink/80 text-sm">
-            As the WTC cycle nears its conclusion, every session in Dhaka and Sylhet will be scrutinized by fans and analysts worldwide. For the Green Shirts, this is a path to redemption. For the Tigers, this is a chance to prove they are the new kings of Asian Test cricket. Stay tuned to PakCric Hub for every boundary, every wicket, and every tactical shift!
+            As the WTC cycle nears its conclusion, every session in Dhaka and Sylhet will be scrutinized by fans and analysts worldwide. For the Green Shirts, this is a path to redemption. For the Tigers, this is a chance to prove they are the new kings of Asian Test cricket. Stay tuned to PakCric Schedule for every boundary, every wicket, and every tactical shift!
           </p>
         </div>
 

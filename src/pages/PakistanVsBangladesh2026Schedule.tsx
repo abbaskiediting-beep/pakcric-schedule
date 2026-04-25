@@ -33,7 +33,7 @@ export default function PakistanVsBangladesh2026Schedule() {
               },
               "publisher": {
                 "@type": "Organization",
-                "name": "PakCric Hub",
+                "name": "PakCric Schedule",
                 "logo": {
                   "@type": "ImageObject",
                   "url": "https://pakcric-schedule.online/logo.png"
@@ -183,7 +183,7 @@ export default function PakistanVsBangladesh2026Schedule() {
               As the players prepare to take the field on 8 May, the cricketing world is watching. We expect a hard-fought series where technique, temperament, and tactical brilliance will override brute force. Whether the "Green Shirts" can dominate away from home or the "Tigers" can protect their territory remains the burning question that only 450 overs of Test cricket can answer.
             </p>
             <p className="text-ink/60 leading-relaxed mt-8 italic">
-              Keep following PakCric Hub for exclusive insights, live updates, and post-match analysis. Don't forget to check the <Link to="/schedule" className="text-pak-green font-bold">full fixtures list</Link> for match timings in your local time zone.
+              Keep following PakCric Schedule for exclusive insights, live updates, and post-match analysis. Don't forget to check the <Link to="/schedule" className="text-pak-green font-bold">full fixtures list</Link> for match timings in your local time zone.
             </p>
           </div>
         </div>
