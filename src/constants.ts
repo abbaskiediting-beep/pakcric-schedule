@@ -10,7 +10,19 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     venue: 'Sher-e-Bangla National Stadium, Dhaka',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
     status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/bd.svg'
+    flagUrl: 'https://flagcdn.com/bd.svg',
+    preMatchAnalysis: `
+### Tactical Overview
+Pakistan enters this test series with a renewed focus on red-ball resilience. Following a mixed home season, the Babar Azam-led side is looking to dominate the spin-friendly conditions in Dhaka. Bangladesh, on the other hand, remains a formidable force at home, especially with their spin trio expected to play a crucial role.
+
+### Key Matchups
+1. **Shaheen vs Tamim:** The initial burst from Shaheen Shah Afridi will be critical against the experienced Tamim Iqbal.
+2. **Babar vs Taijul:** How Pakistan's skipper handles the left-arm spin of Taijul Islam could define the middle-order battle.
+3. **The Spin Factor:** Expect the surface at Mirpur to offer significant turn from Day 3 onwards. Pakistan may consider playing three specialized spinners.
+
+### Team Form
+Pakistan has won 3 of their last 5 Test matches, while Bangladesh is coming off a series defeat against India. Both teams are desperate for WTC points.
+    `
   },
   {
     id: '2',

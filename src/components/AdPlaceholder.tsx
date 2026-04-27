@@ -20,7 +20,7 @@ export default function AdPlaceholder({ id, type = 'banner', className = '', lab
 
   if (type === 'anchor') {
     return (
-      <div className={`fixed bottom-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-t border-white/10 flex items-center justify-center p-2 shadow-2xl md:hidden ${className}`}>
+      <div className={`fixed bottom-16 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-t border-white/10 flex items-center justify-center p-2 shadow-2xl md:hidden ${className}`}>
         <div className="w-full max-w-md h-full bg-white/5 border border-dashed border-white/20 flex flex-col items-center justify-center rounded-lg overflow-hidden relative">
           <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest absolute top-1 left-2">Ad</span>
           <div className="text-[10px] font-bold text-pak-green uppercase tracking-wider">Mobile Anchor Ad</div>

@@ -13,8 +13,8 @@ import React from 'react';
 function StatCard({ label, value, highlight }: { label: string; value: any; highlight?: boolean }) {
   return (
     <div className={`p-4 rounded-2xl border transition-all ${highlight ? 'bg-white border-white' : 'bg-white/5 border-white/5 hover:bg-white/10'}`}>
-      <p className={`text-[8px] font-bold uppercase tracking-[0.2em] mb-1.5 ${highlight ? 'text-black/60' : 'text-neutral-500'}`}>{label}</p>
-      <p className={`text-2xl font-display font-bold tabular-nums ${highlight ? 'text-black' : 'text-white'}`}>{value}</p>
+      <p className={`text-[9px] font-bold uppercase tracking-[0.1em] mb-1.5 ${highlight ? 'text-black/60' : 'text-neutral-500'}`}>{label}</p>
+      <p className={`text-xl md:text-2xl font-display font-bold tabular-nums ${highlight ? 'text-black' : 'text-white'}`}>{value}</p>
     </div>
   );
 }
@@ -169,7 +169,7 @@ export default function Squads() {
   const formats: (MatchFormat | 'All')[] = ['All', 'Test', 'ODI', 'T20I'];
 
   return (
-    <div className="max-w-5xl mx-auto py-12 px-6">
+    <div className="max-w-5xl mx-auto py-8 sm:py-12 px-4 sm:px-6">
       <Helmet>
         <title>Pakistan Squad 2026 – Full Team Players List & Updates</title>
         <meta name="description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
@@ -193,79 +193,79 @@ export default function Squads() {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
       `}} />
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-16">
-        <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-8 text-white leading-tight">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12 md:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-6 md:mb-8 text-white leading-tight">
           Pakistan Cricket Team <span className="text-pak-green underline decoration-pak-green/20 underline-offset-8">Squad 2026</span>
         </h1>
         
-        <div className="max-w-3xl space-y-6 mb-12">
-          <p className="text-xl text-ink/80 font-medium leading-relaxed">
+        <div className="max-w-3xl space-y-4 md:space-y-6 mb-8 md:mb-12">
+          <p className="text-lg sm:text-xl text-ink/80 font-medium leading-relaxed">
             Finding the <Link to="/squads" className="text-pak-green hover:underline">official Pakistan Cricket Team Squad 2026</Link> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
           </p>
-          <p className="text-ink/60 font-medium leading-relaxed">
+          <p className="text-sm sm:text-base text-ink/60 font-medium leading-relaxed">
             Here, you’ll find the latest <Link to="/squads" className="text-pak-green hover:underline">Pakistan Squad 2026</Link> player details, roles, and <Link to="/news" className="text-pak-green hover:underline">squad updates</Link> for <Link to="/schedule" className="text-pak-green hover:underline">upcoming matches and series</Link>. Whether you're looking for the <Link to="/squads" className="text-pak-green hover:underline">official lineup</Link> or just want to see who’s been selected, this page makes it simple.
           </p>
         </div>
 
         {/* Top Banner on Squads */}
-        <AdPlaceholder type="leaderboard" className="mb-12" />
+        <AdPlaceholder type="leaderboard" className="mb-8 md:mb-12" />
 
-        <div className="space-y-8 bg-white/[0.02] border border-card-border rounded-[40px] p-8 md:p-12 shadow-2xl">
-          <div className="flex items-center gap-4 mb-4">
-             <div className="h-2 w-12 bg-pak-green rounded-full" />
-             <h2 className="text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
+      <div className="space-y-6 md:space-y-8 bg-white/[0.02] border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-12 shadow-2xl">
+        <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-4">
+           <div className="h-1.5 md:h-2 w-8 md:w-12 bg-pak-green rounded-full" />
+           <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {/* Search Bar */}
+          <div className="relative group">
+            <input
+              type="text"
+              placeholder="SEARCH PLAYER..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-white/5 border border-card-border rounded-xl md:rounded-3xl py-4 md:py-5 pl-12 md:pl-14 pr-4 md:pr-6 text-xs md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
+            />
+            <Search className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-5 h-5 md:w-6 md:h-6 text-pak-green" />
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Search Bar */}
-            <div className="relative group">
-              <input
-                type="text"
-                placeholder="SEARCH PLAYER BY NAME..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-white/5 border border-card-border rounded-3xl py-5 pl-14 pr-6 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
-              />
-              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-pak-green" />
-            </div>
 
-            {/* Format Filters */}
-            <div className="flex items-center bg-black/20 rounded-3xl p-1.5 border border-white/5">
-               {formats.map(f => (
-                 <button
-                   key={f}
-                   onClick={() => setFilterFormat(f)}
-                   className={`flex-1 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
-                     filterFormat === f 
-                     ? 'bg-white text-black shadow-xl scale-105' 
-                     : 'text-neutral-500 hover:text-white hover:bg-white/5'
-                   }`}
-                 >
-                   {f}
-                 </button>
-               ))}
-            </div>
+          {/* Format Filters */}
+          <div className="flex items-center bg-black/20 rounded-xl md:rounded-3xl p-1 md:p-1.5 border border-white/5 overflow-x-auto scrollbar-hide">
+             {formats.map(f => (
+               <button
+                 key={f}
+                 onClick={() => setFilterFormat(f)}
+                 className={`min-w-[80px] flex-1 py-3 md:py-4 rounded-lg md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] transition-all flex items-center justify-center ${
+                   filterFormat === f 
+                   ? 'bg-white text-black shadow-xl scale-105' 
+                   : 'text-neutral-500 hover:text-white hover:bg-white/5'
+                 }`}
+               >
+                 {f}
+               </button>
+             ))}
           </div>
         </div>
+      </div>
       </motion.div>
 
       {/* Latest Squad Categorized List Section */}
-      <section className="mb-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <section className="mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold uppercase tracking-tight mb-3 text-white">
               Pakistan Latest Squad <span className="text-pak-green">(2026)</span>
             </h2>
-            <p className="text-ink/60 font-medium max-w-2xl">
+            <p className="text-sm md:text-base text-ink/60 font-medium max-w-2xl">
               Below is the most recent Pakistan cricket squad announced for the current or upcoming series. Each squad is updated as soon as official announcements are made.
             </p>
           </div>
-          <div className="px-6 py-2 rounded-full bg-pak-green/10 border border-pak-green/20 text-pak-green text-[10px] font-bold uppercase tracking-widest">
+          <div className="self-start md:self-auto px-4 md:px-6 py-2 rounded-full bg-pak-green/10 border border-pak-green/20 text-pak-green text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
             Last Updated: April 2026
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
             { 
               role: 'Batsmen', 
@@ -303,14 +303,29 @@ export default function Squads() {
               <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-1">{cat.role}</h3>
               <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-6">{cat.desc}</p>
               
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {cat.players.map(p => (
                   <button 
                     key={p} 
                     onClick={() => handlePlayerClick(p)}
-                    className="flex items-center justify-between w-full text-left text-[11px] font-bold uppercase tracking-widest text-ink hover:text-white transition-colors py-1 group/item"
+                    className="flex flex-col w-full text-left p-3 rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/40 hover:bg-white/[0.08] transition-all group/item"
                   >
-                    {p} <ChevronRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 transition-opacity text-pak-green" />
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[11px] font-black uppercase tracking-widest text-ink group-hover/item:text-white transition-colors">
+                        {p}
+                      </span>
+                      <ChevronRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-pak-green" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[8px] font-bold text-neutral-500 uppercase tracking-widest">
+                        {PLAYER_STATS[p]?.role || 'Team Member'}
+                      </span>
+                      <div className="flex gap-0.5">
+                        {PLAYER_STATS[p]?.stats?.recentForm?.slice(0, 3).map((score, idx) => (
+                          <div key={idx} className={`w-1 h-1 rounded-full ${getFormColor(score, PLAYER_STATS[p]?.role || 'Batter')}`} />
+                        ))}
+                      </div>
+                    </div>
                   </button>
                 ))}
               </div>
@@ -320,13 +335,13 @@ export default function Squads() {
       </section>
 
       {/* Squad Breakdown Section */}
-      <section className="mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.03] border border-card-border rounded-[48px] p-10 md:p-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-pak-green/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
+      <section className="mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-white/[0.03] border border-card-border rounded-3xl md:rounded-[48px] p-8 md:p-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-pak-green/5 blur-[80px] md:blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-8 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-6 md:mb-8 leading-tight">
             Team Composition <span className="text-pak-green">& Roles</span>
           </h2>
-          <div className="space-y-6 text-ink/70 font-medium leading-relaxed">
+          <div className="space-y-4 md:space-y-6 text-sm md:text-base text-ink/70 font-medium leading-relaxed">
             <p>
               A balanced squad is key to success in modern cricket. Pakistan usually selects a mix of experienced players and young talent to maintain stability and aggression across <Link to="/schedule" className="text-pak-green hover:underline">all series</Link>.
             </p>
@@ -341,36 +356,36 @@ export default function Squads() {
                 { label: 'Wicketkeepers', desc: 'Players responsible for keeping and finishing innings', link: '/players-stats' }
               ].map((item, idx) => (
                 <li key={idx} className="flex gap-4">
-                  <div className="mt-1 w-2 h-2 rounded-full bg-pak-green shrink-0" />
+                  <div className="mt-1.5 w-2 h-2 rounded-full bg-pak-green shrink-0" />
                   <div>
                     <Link to={item.link} className="block text-[10px] font-bold uppercase tracking-widest text-white mb-1 hover:text-pak-green">{item.label}</Link>
-                    <span className="text-sm font-medium text-ink/50">{item.desc}</span>
+                    <span className="text-xs md:text-sm font-medium text-ink/50 leading-snug block">{item.desc}</span>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="relative aspect-square bg-pak-green/10 rounded-[60px] flex items-center justify-center border border-pak-green/20 group">
-          <div className="absolute inset-8 border border-pak-green/10 rounded-[40px] animate-pulse" />
-          <Trophy className="w-32 h-32 text-pak-green opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+        <div className="relative aspect-square bg-pak-green/10 rounded-[40px] md:rounded-[60px] flex items-center justify-center border border-pak-green/20 group">
+          <div className="absolute inset-8 border border-pak-green/10 rounded-2xl md:rounded-[40px] animate-pulse" />
+          <Trophy className="w-24 md:w-32 h-24 md:h-32 text-pak-green opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
-            <span className="text-[12px] font-display font-bold text-pak-green uppercase tracking-[0.5em]">Victory DNA</span>
+            <span className="text-[10px] md:text-[12px] font-display font-bold text-pak-green uppercase tracking-[0.5em]">Victory DNA</span>
           </div>
         </div>
       </section>
 
       {/* Series Wise & Updates Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24">
         {/* Series-Wise Squads */}
-        <div className="bg-card-bg border border-card-border rounded-[40px] p-10 relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-2 h-full bg-pak-green transition-all" />
-          <h2 className="text-2xl font-display font-bold uppercase tracking-tight mb-6">Pakistan Squad <span className="text-pak-green">per Series</span></h2>
-          <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
+        <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-8 md:p-10 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-1 md:w-2 h-full bg-pak-green transition-all" />
+          <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight mb-4 md:mb-6 text-white">Pakistan Squad <span className="text-pak-green">per Series</span></h2>
+          <div className="space-y-4 md:space-y-6 text-sm text-ink/60 font-medium leading-relaxed">
             <p>
               Pakistan often announces different <Link to="/squads" className="text-pak-green hover:underline">squads</Link> depending on the format and opposition. Whether it's the bounce of Australian pitches or spinning tracks in Sri Lanka, selections vary.
             </p>
-            <p>Explore <Link to="/squads" className="text-pak-green hover:underline">squads</Link> for:</p>
+            <p className="text-white/80 font-bold uppercase tracking-widest text-[9px]">Explore squads for:</p>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { name: 'Test Series', link: '/icc-test-ranking-2026' },
@@ -378,37 +393,37 @@ export default function Squads() {
                 { name: 'T20I Series', link: '/icc-t20-ranking-2026' },
                 { name: 'Major ICC Events', link: '/rankings' }
               ].map(m => (
-                <Link to={m.link} key={m.name} className="p-4 bg-white/5 border border-white/5 rounded-2xl text-center hover:border-pak-green/20 transition-all">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white">{m.name}</span>
+                <Link to={m.link} key={m.name} className="p-3 md:p-4 bg-white/5 border border-white/5 rounded-2xl text-center hover:border-pak-green/20 transition-all">
+                   <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white">{m.name}</span>
                 </Link>
               ))}
             </div>
-            <p className="text-xs italic pt-4">Each <Link to="/squads" className="text-pak-green hover:underline">squad</Link> is listed separately so you can easily follow <Link to="/news" className="text-pak-green hover:underline">selection changes</Link> between series.</p>
+            <p className="text-[10px] italic pt-2">Each <Link to="/squads" className="text-pak-green hover:underline">squad</Link> is listed separately so you can easily follow <Link to="/news" className="text-pak-green hover:underline">selection changes</Link> between series.</p>
           </div>
         </div>
 
         {/* Squad Updates */}
-        <div className="bg-card-bg border border-card-border rounded-[40px] p-10 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-2 h-full bg-pak-green transition-all" />
-          <h2 className="text-2xl font-display font-bold uppercase tracking-tight mb-6">Latest <span className="text-pak-green">Updates</span> & Changes</h2>
-          <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
+        <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-8 md:p-10 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-1 md:w-2 h-full bg-pak-green transition-all" />
+          <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight mb-4 md:mb-6 text-white">Latest <span className="text-pak-green">Updates</span> & Changes</h2>
+          <div className="space-y-4 md:space-y-6 text-sm text-ink/60 font-medium leading-relaxed">
             <p>
               Cricket squads are dynamic — changes can happen due to injuries, form, or strategic shifts. Our team ensures that every shift is documented immediately.
             </p>
-            <p>Stay informed about:</p>
+            <p className="text-white/80 font-bold uppercase tracking-widest text-[9px]">Stay informed about:</p>
             <ul className="space-y-3">
               {['New player call-ups & selections', 'Injury reports & medical replacements', 'Tactical squad rotations', 'Last-minute travel changes'].map((u, i) => (
-                <li key={i} className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-white/80">
+                <li key={i} className="flex items-center gap-3 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white/80">
                   <TrendingUp className="w-3 h-3 text-pak-green" /> {u}
                 </li>
               ))}
             </ul>
-            <div className="pt-6">
+            <div className="pt-4">
                <div className="bg-pak-green/5 border border-pak-green/10 rounded-2xl p-4 flex items-center gap-4">
-                 <div className="w-10 h-10 rounded-full bg-pak-green/20 flex items-center justify-center text-pak-green">
+                 <div className="w-10 h-10 rounded-full bg-pak-green/20 flex items-center justify-center text-pak-green shrink-0">
                    <Info className="w-5 h-5" />
                  </div>
-                 <p className="text-[10px] font-bold text-pak-green/80 uppercase tracking-widest leading-relaxed">
+                 <p className="text-[9px] font-bold text-pak-green/80 uppercase tracking-widest leading-relaxed">
                    Refresh frequently for real-time selection news.
                  </p>
                </div>
@@ -459,24 +474,35 @@ export default function Squads() {
                 </div>
               </div>
 
-              <div className="flex-grow space-y-3">
+              <div className="flex-grow space-y-2.5">
                  {(searchTerm || expandedSeries.includes(squad.series) ? squad.players : squad.players.slice(0, 8)).map((player, pIdx) => (
                    <button 
                      key={pIdx} 
                      onClick={() => handlePlayerClick(player.name)}
-                     className="w-full flex items-center justify-between py-2 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors group/row text-left px-2 rounded-lg"
+                     className="w-full flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
                    >
-                       <div className="flex items-center gap-2">
-                         <span className={`text-[11px] font-bold uppercase tracking-tight group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : ''}`}>
-                           {player.name}
-                         </span>
-                         <div className="flex items-center gap-1.5 opacity-40 group-hover/row:opacity-100 transition-opacity">
-                           <Info className="w-3 h-3 text-white" />
-                           <StickyNote className={`w-3 h-3 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/40'}`} />
+                       <div className="flex items-center gap-3">
+                         <div className="w-8 h-8 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
+                           {PLAYER_STATS[player.name]?.imgUrl ? (
+                             <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-6 h-6 object-contain" />
+                           ) : (
+                             <User className="w-4 h-4 text-pak-green/40" />
+                           )}
                          </div>
-                         
-                         {/* Form Dots */}
-                        <div className="flex gap-1 ml-2">
+                         <div>
+                            <span className={`text-[11px] font-black uppercase tracking-tight block group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
+                              {player.name}
+                            </span>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              <span className="text-[7px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
+                              <StickyNote className={`w-2.5 h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
+                            </div>
+                         </div>
+                      </div>
+
+                      <div className="flex items-center gap-4">
+                        {/* Form Dots */}
+                        <div className="hidden sm:flex gap-1">
                           {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
                             <div 
                               key={i} 
@@ -485,14 +511,15 @@ export default function Squads() {
                             />
                           ))}
                         </div>
+                        {player.description && (
+                          <span className="text-[8px] font-bold bg-pak-green/20 text-pak-green px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
+                        )}
+                        <ChevronRight className="w-3.5 h-3.5 text-pak-green opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
                       </div>
-                      {player.description && (
-                        <span className="text-[8px] font-bold bg-white/5 text-white px-2 py-0.5 rounded uppercase">{player.description}</span>
-                      )}
                    </button>
                  ))}
                  {!searchTerm && !expandedSeries.includes(squad.series) && squad.players.length > 8 && (
-                   <p className="text-[9px] font-bold text-neutral-500 uppercase pt-2 px-2">And {squad.players.length - 8} more players...</p>
+                   <p className="text-[9px] font-bold text-neutral-500 uppercase pt-2 px-2 text-center italic">And {squad.players.length - 8} more elite athletes...</p>
                  )}
               </div>
 
@@ -609,45 +636,45 @@ export default function Squads() {
               onClick={() => setSelectedPlayer(null)}
               className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
-              <div className="relative w-full max-w-4xl bg-card-bg border border-card-border rounded-[40px] overflow-hidden max-h-[90vh] flex flex-col"
+              <div className="relative w-full max-w-4xl bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] overflow-hidden max-h-[90vh] flex flex-col"
               >
-              <div className="p-6 md:p-8 border-b border-white/5 flex items-center justify-between bg-card-bg/50 backdrop-blur-md sticky top-0 z-20">
-                  <div className="flex items-center gap-6">
-                    <div className="flex -space-x-4">
-                      <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-10">
+              <div className="p-4 md:p-8 border-b border-white/5 flex items-center justify-between bg-card-bg/50 backdrop-blur-md sticky top-0 z-20">
+                  <div className="flex items-center gap-3 md:gap-6">
+                    <div className="flex -space-x-3 md:-space-x-4">
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-10 shrink-0">
                         {selectedPlayer.imgUrl ? (
                           <img src={selectedPlayer.imgUrl} alt={selectedPlayer.name} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-contain" />
                         ) : (
-                          <User className="w-8 h-8 text-white opacity-50" />
+                          <User className="w-6 h-6 md:w-8 md:h-8 text-white opacity-50" />
                         )}
                       </div>
                       {comparisonPlayer && (
                         <motion.div
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-0"
+                          className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-0 shrink-0"
                         >
                           {comparisonPlayer.imgUrl ? (
                             <img src={comparisonPlayer.imgUrl} alt={comparisonPlayer.name} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-contain opacity-60" />
                           ) : (
-                            <User className="w-8 h-8 text-white opacity-50" />
+                            <User className="w-6 h-6 md:w-8 md:h-8 text-white opacity-50" />
                           )}
                         </motion.div>
                       )}
                     </div>
-                    <div>
-                      <h3 className="text-xl font-display font-bold uppercase tracking-tight text-white">
+                    <div className="min-w-0">
+                      <h3 className="text-base md:text-xl font-display font-bold uppercase tracking-tight text-white truncate">
                         {comparisonPlayer ? `${selectedPlayer.name} vs ${comparisonPlayer.name}` : selectedPlayer.name}
                       </h3>
-                      <p className="text-[9px] font-bold text-neutral-500 uppercase tracking-widest">{selectedPlayer.role}</p>
+                      <p className="text-[8px] md:text-[9px] font-bold text-neutral-500 uppercase tracking-widest truncate">{selectedPlayer.role}</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 md:gap-3">
                     {!comparisonPlayer && !isSelectingComparison && (
                       <button 
                         onClick={() => setIsSelectingComparison(true)}
-                        className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-pak-green text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-pak-green/20"
+                        className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-pak-green text-white text-[8px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-pak-green/20"
                       >
                         <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4" /> 
                         <span className="hidden xs:inline">Compare</span>
@@ -656,7 +683,7 @@ export default function Squads() {
                     {comparisonPlayer && (
                        <button 
                         onClick={() => setComparisonPlayer(null)}
-                        className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all shadow-lg shadow-red-500/5"
+                        className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 text-[8px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all shadow-lg shadow-red-500/5"
                       >
                         <X className="w-3.5 h-3.5" />
                         <span className="hidden xs:inline">Reset</span>
@@ -664,14 +691,14 @@ export default function Squads() {
                     )}
                     <button 
                       onClick={closeModal}
-                      className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-colors"
+                      className="p-1.5 md:p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-colors"
                     >
                       <X className="w-5 h-5" />
                     </button>
                   </div>
               </div>
 
-              <div className="overflow-y-auto p-8 md:p-10 custom-scrollbar">
+              <div className="overflow-y-auto p-6 md:p-10 custom-scrollbar">
                 {/* Modal Internal Ad */}
                 <AdPlaceholder type="banner" className="mb-10" />
 
@@ -761,7 +788,7 @@ export default function Squads() {
                         <div className="h-px flex-grow bg-white/5" />
                       </div>
                       
-                      <div className="grid grid-cols-1 gap-3">
+                      <div className={comparisonPlayer ? "grid grid-cols-1 gap-3" : "grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4"}>
                         {(() => {
                           const getFormatData = (player: any, tab: string) => {
                             if (tab === 'overall') return player.stats;
@@ -773,7 +800,7 @@ export default function Squads() {
 
                           if (!currentStats1 && !currentStats2) {
                             return (
-                              <div className="py-12 text-center border border-dashed border-white/5 rounded-2xl opacity-40">
+                              <div className="col-span-full py-12 text-center border border-dashed border-white/5 rounded-2xl opacity-40">
                                 <p className="text-[9px] font-bold uppercase tracking-widest italic">No {activeStatTab} data available</p>
                               </div>
                             );
@@ -806,6 +833,15 @@ export default function Squads() {
                             
                             if (val1 === undefined && val2 === undefined) return null;
 
+                            if (!comparisonPlayer) {
+                              return (
+                                <div key={stat.key} className="bg-white/5 border border-white/5 p-4 rounded-2xl flex flex-col justify-between min-h-[80px] group hover:bg-white/[0.08] transition-all">
+                                  <span className="text-[8px] font-bold text-neutral-500 uppercase tracking-widest block mb-1 group-hover:text-pak-green transition-colors">{stat.label}</span>
+                                  <p className="text-xl font-display font-bold text-white tabular-nums">{val1 ?? '—'}</p>
+                                </div>
+                              );
+                            }
+
                             const isNumeric1 = val1 !== undefined && !isNaN(parseFloat(val1));
                             const isNumeric2 = val2 !== undefined && val2 !== null && !isNaN(parseFloat(val2));
                             const better1 = isNumeric1 && isNumeric2 && parseFloat(val1) > parseFloat(val2);
@@ -815,37 +851,27 @@ export default function Squads() {
                               <div key={stat.key} className="group/stat">
                                 <div className="flex justify-between items-center p-4 rounded-2xl border border-white/5 bg-white/5 transition-all hover:bg-white/[0.08] hover:border-white/10">
                                   <div className="w-[35%]">
-                                    <p className={`text-xl md:text-2xl font-display font-bold tabular-nums transition-colors ${better1 ? 'text-pak-green' : 'text-white'}`}>
+                                    <p className={`text-lg md:text-2xl font-display font-bold tabular-nums transition-colors ${better1 ? 'text-pak-green' : 'text-white'}`}>
                                       {val1 ?? '—'}
                                     </p>
                                     <p className="text-[7px] font-bold text-neutral-600 uppercase truncate">{selectedPlayer.name}</p>
                                   </div>
                                   
-                                  <div className="w-[30%] text-center px-2">
-                                    <div className="text-[8px] font-black text-white/40 uppercase tracking-[0.2em] group-hover/stat:text-white transition-colors">
+                                  <div className="w-[30%] text-center px-1">
+                                    <div className="text-[8px] font-black text-white/40 uppercase tracking-[0.1em] group-hover/stat:text-white transition-colors">
                                       {stat.label}
                                     </div>
-                                    {comparisonPlayer && (
-                                      <div className="flex justify-center gap-1 mt-1.5">
-                                        <div className={`h-0.5 flex-1 rounded-full ${better1 ? 'bg-pak-green' : 'bg-white/10'}`} />
-                                        <div className={`h-0.5 flex-1 rounded-full ${better2 ? 'bg-pak-green' : 'bg-white/10'}`} />
-                                      </div>
-                                    )}
+                                    <div className="flex justify-center gap-1 mt-1.5">
+                                      <div className={`h-0.5 flex-1 rounded-full ${better1 ? 'bg-pak-green' : 'bg-white/10'}`} />
+                                      <div className={`h-0.5 flex-1 rounded-full ${better2 ? 'bg-pak-green' : 'bg-white/10'}`} />
+                                    </div>
                                   </div>
 
                                   <div className="w-[35%] text-right">
-                                    {comparisonPlayer ? (
-                                       <>
-                                        <p className={`text-xl md:text-2xl font-display font-bold tabular-nums transition-colors ${better2 ? 'text-pak-green' : 'text-white'}`}>
-                                          {val2 ?? '—'}
-                                        </p>
-                                        <p className="text-[7px] font-bold text-neutral-600 uppercase truncate">{comparisonPlayer.name}</p>
-                                       </>
-                                    ) : (
-                                       <div className="h-10 flex items-center justify-end opacity-10">
-                                          <div className="w-8 h-px bg-white" />
-                                       </div>
-                                    )}
+                                    <p className={`text-lg md:text-2xl font-display font-bold tabular-nums transition-colors ${better2 ? 'text-pak-green' : 'text-white'}`}>
+                                      {val2 ?? '—'}
+                                    </p>
+                                    <p className="text-[7px] font-bold text-neutral-600 uppercase truncate">{comparisonPlayer.name}</p>
                                   </div>
                                 </div>
                               </div>
@@ -875,13 +901,13 @@ export default function Squads() {
                                 ))}
                               </div>
                             </div>
-                            <div className="flex gap-2">
+                            <div className="grid grid-cols-5 gap-1.5 md:gap-2">
                               {selectedPlayer.stats.recentForm.map((score, i) => (
                                 <div 
                                   key={i} 
-                                  className={`flex-1 p-2 rounded-xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, selectedPlayer.role)}/10 border-${getFormColor(score, selectedPlayer.role).replace('bg-', '')}/30`}
+                                  className={`p-2 md:p-3 rounded-xl md:rounded-2xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, selectedPlayer.role)}/10 border-${getFormColor(score, selectedPlayer.role).replace('bg-', '')}/30`}
                                 >
-                                  <p className={`text-[10px] font-display font-bold tabular-nums ${getFormColor(score, selectedPlayer.role).replace('bg-', 'text-')}`}>
+                                  <p className={`text-[9px] md:text-sm font-display font-bold tabular-nums ${getFormColor(score, selectedPlayer.role).replace('bg-', 'text-')}`}>
                                     {score}
                                   </p>
                                 </div>
@@ -903,13 +929,13 @@ export default function Squads() {
                                   ))}
                                 </div>
                               </div>
-                              <div className="flex gap-2">
+                              <div className="grid grid-cols-5 gap-1.5 md:gap-2">
                                 {comparisonPlayer.stats.recentForm.map((score, i) => (
                                   <div 
                                     key={i} 
-                                    className={`flex-1 p-2 rounded-xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, comparisonPlayer.role)}/10 border-${getFormColor(score, comparisonPlayer.role).replace('bg-', '')}/30`}
+                                    className={`p-2 md:p-3 rounded-xl md:rounded-2xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, comparisonPlayer.role)}/10 border-${getFormColor(score, comparisonPlayer.role).replace('bg-', '')}/30`}
                                   >
-                                    <p className={`text-[10px] font-display font-bold tabular-nums ${getFormColor(score, comparisonPlayer.role).replace('bg-', 'text-')}`}>
+                                    <p className={`text-[9px] md:text-sm font-display font-bold tabular-nums ${getFormColor(score, comparisonPlayer.role).replace('bg-', 'text-')}`}>
                                       {score}
                                     </p>
                                   </div>

@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Calendar, MapPin, Trophy, Users, Shield, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import AuthorSection from '../components/AuthorSection';
 
 export default function RedBallResilienceBlog() {
   return (
@@ -235,6 +236,8 @@ export default function RedBallResilienceBlog() {
               Squad Details
             </Link>
           </div>
+          
+          <AuthorSection authorId="hassan-tariq" />
         </div>
       </motion.article>
     </div>

@@ -40,6 +40,8 @@ export interface Match {
   scoreOpponent?: string;
   overs?: string;
   stats?: MatchStats;
+  preMatchAnalysis?: string;
+  postMatchSummary?: string;
 }
 
 export interface Achievement {
@@ -103,4 +105,30 @@ export interface NewsItem {
   date: string;
   tag: string;
   summary: string;
+}
+
+export interface Author {
+  id: string;
+  name: string;
+  bio: string;
+  role: string;
+  avatarUrl?: string;
+  specialization: string;
+  socials?: {
+    twitter?: string;
+    facebook?: string;
+    linkedin?: string;
+  };
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  summary: string;
+  date: string;
+  category: string;
+  path: string;
+  authorId: string;
+  icon?: any;
+  color?: string;
 }

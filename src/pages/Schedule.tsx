@@ -86,9 +86,9 @@ export default function Schedule() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-6">
+    <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6">
       {/* Top Banner Placement */}
-      <AdPlaceholder type="leaderboard" className="mb-10" />
+      <AdPlaceholder type="leaderboard" className="mb-8 md:mb-10" />
       <Helmet>
         <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Dates, Venues & Timings</title>
         <meta name="description" content="Check the complete Pakistan cricket schedule 2026 with full fixtures, match dates, venues, and timings. Stay updated with upcoming Pakistan matches." />
@@ -128,22 +128,22 @@ export default function Schedule() {
       </Helmet>
 
       {/* Header Section */}
-      <div className="mb-12">
+      <div className="mb-10 md:mb-12">
         <motion.div 
           initial={{ opacity: 0, x: -20 }} 
           animate={{ opacity: 1, x: 0 }}
         >
-          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4">
+          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-3 md:mb-4">
             <ArrowLeft className="w-4 h-4" /> Back to Dashboard
           </Link>
-          <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-6 text-white max-w-4xl leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 text-white max-w-4xl leading-tight">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
           </h1>
-          <div className="max-w-3xl space-y-4 mb-10">
-            <p className="text-lg md:text-xl text-ink/70 font-medium leading-relaxed">
+          <div className="max-w-3xl space-y-4 mb-8 md:mb-10">
+            <p className="text-base md:text-xl text-ink/70 font-medium leading-relaxed">
               We bring you the <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket schedule 2026</Link> with <strong>complete match details</strong> for every <Link to="/pakistan-upcoming-series-full-schedule" className="text-pak-green hover:underline">upcoming series</Link>, international tour, and major tournament. Fans can look forward to a busy year as Pakistan competes across all formats, including <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test</Link>, <Link to="/icc-odi-ranking-2026" className="text-pak-green hover:underline">ODI</Link>, and <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 matches</Link>.
             </p>
-            <p className="text-ink/50 font-medium leading-relaxed">
+            <p className="text-sm text-ink/50 font-medium leading-relaxed">
               On this page, you’ll find the <Link to="/schedule" className="text-pak-green hover:underline">complete Pakistan cricket schedule</Link>, including <Link to="/pakistan-next-tour-details" className="text-pak-green hover:underline">match dates, venues, and timings</Link> — all organized in a simple and easy-to-follow format. Whether you're planning to watch live matches or just want to stay updated, this page has everything you need.
             </p>
             <p className="text-[11px] font-bold uppercase tracking-[4px] text-pak-green/60 pt-4">
@@ -239,12 +239,12 @@ export default function Schedule() {
 
 
       {/* Format Filter Bar */}
-      <div className="flex flex-wrap items-center gap-2 mb-8 bg-card-bg border border-card-border p-3 rounded-[32px] w-fit shadow-lg shadow-black/20">
+      <div className="flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-card-bg border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-3">
         {formats.map(f => (
           <button
             key={f}
             onClick={() => setFilterFormat(f)}
-            className={`px-10 py-3 rounded-2xl text-[10px] font-bold uppercase tracking-[3px] transition-all duration-300 ${
+            className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 ${
               filterFormat === f 
                 ? 'bg-pak-green text-white shadow-pak-green/40 shadow-xl scale-105' 
                 : 'text-ink/30 hover:text-ink hover:bg-white/5'
@@ -266,8 +266,84 @@ export default function Schedule() {
       </div>
 
       {/* Structured Schedule Container */}
-      <div className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl relative">
-        <div className="overflow-x-auto custom-scrollbar">
+      <div className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl relative">
+        {/* Mobile-only Card View */}
+        <div className="md:hidden divide-y divide-card-border/40">
+          {filteredAndSortedMatches.length > 0 ? (
+            filteredAndSortedMatches.map((match, idx) => (
+              <React.Fragment key={match.id}>
+                {idx > 0 && idx % 3 === 0 && (
+                  <div className="p-4 bg-white/[0.01]">
+                    <AdPlaceholder type="native" className="max-w-full" label="ADVERTISEMENT" />
+                  </div>
+                )}
+                <div className="p-6 flex flex-col gap-5">
+                  <div className="flex justify-between items-start gap-3">
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-11 h-11 rounded-xl bg-pak-green/5 border border-pak-green/10 flex flex-col items-center justify-center shrink-0">
+                        <span className="text-[17px] font-bold text-ink leading-none">
+                          {match.date.match(/\d+/) ? match.date.match(/\d+/)![0] : ''}
+                        </span>
+                        <span className="text-[8px] font-bold text-pak-green uppercase tracking-widest">
+                          {match.date.includes(' ') ? match.date.split(' ')[0].substring(0,3) : '2026'}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-sm font-bold text-ink block leading-tight">{match.date}</span>
+                        <span className="text-[10px] font-bold text-ink/30 uppercase tracking-widest mt-1 inline-block">{match.time} PKT</span>
+                      </div>
+                    </div>
+                    <span className={`px-2.5 py-1 rounded-lg text-[9px] font-bold uppercase tracking-widest shrink-0 ${
+                      match.format === 'Test' ? 'border border-orange-500/20 text-orange-600 bg-orange-500/5' :
+                      match.format === 'ODI' ? 'border border-blue-500/20 text-blue-600 bg-blue-500/5' :
+                      'border border-purple-500/20 text-purple-600 bg-purple-500/5'
+                    }`}>
+                      {match.format}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4 bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+                    <img src={match.flagUrl} alt="" className="w-10 h-7 object-cover rounded shadow-sm border border-card-border shrink-0" referrerPolicy="no-referrer" />
+                    <span className="text-base font-display font-bold text-white uppercase tracking-tighter leading-none">PAK vs {match.opponent}</span>
+                  </div>
+
+                  <div className="flex flex-col gap-2.5 px-1">
+                    <div className="flex items-start gap-2.5">
+                      <MapPin className="w-4 h-4 text-pak-green mt-0.5" />
+                      <span className="text-[11px] font-bold text-ink/60 leading-snug">{match.venue}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <Trophy className="w-4 h-4 text-ink/20 mt-0.5" />
+                      <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-snug">{match.series}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center pt-2">
+                    <span className={`px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest ${
+                      match.status === 'Live' ? 'bg-red-600 text-white animate-pulse' :
+                      match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' :
+                      match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
+                      'bg-white/10 text-ink/40'
+                    }`}>
+                      {match.status}
+                    </span>
+                    <Link to={`/match/${match.id}`} className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[10px] font-bold text-pak-green uppercase tracking-widest flex items-center gap-2 hover:bg-pak-green hover:text-white transition-all">
+                      Match Details <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </React.Fragment>
+            ))
+          ) : (
+            <div className="py-24 text-center px-6">
+              <Trophy className="w-12 h-12 text-white/5 mx-auto mb-6" />
+              <p className="text-xs font-bold uppercase tracking-[4px] text-white/20">No matching fixtures</p>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Table View */}
+        <div className="hidden md:block overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead className="sticky top-0 z-20">
               <tr className="bg-neutral-900 border-b border-card-border">

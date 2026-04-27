@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Calendar, MapPin, Trophy, Users, Clock, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AuthorSection from '../components/AuthorSection';
 
 export default function PakistanTourBangladeshTestBlog() {
   const linkKeywords = (text: string) => {
@@ -193,6 +194,8 @@ export default function PakistanTourBangladeshTestBlog() {
               Analyze WTC Scenarios
             </Link>
           </div>
+
+          <AuthorSection authorId="hassan-tariq" />
         </div>
       </motion.div>
     </div>

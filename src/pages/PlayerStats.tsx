@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { PLAYER_STATS } from '../playerData';
 import { 
   ChevronLeft, User, TrendingUp, Award, Star, 
-  Target, Zap, Activity, Info, FileText, Save, Trash2 
+  Target, Zap, Activity, Info, FileText, Save, Trash2, ArrowUpRight
 } from 'lucide-react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
@@ -84,7 +84,7 @@ export default function PlayerStats() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto py-12 px-6">
+    <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 sm:px-6">
       <Helmet>
         <title>{`Pakistan Players Stats 2026 – Batting, Bowling & All Format Records`}</title>
         <meta name="description" content={`Explore Pakistan cricket players stats 2026 including runs, wickets, averages, and performance in Test, ODI, and T20 formats.`} />
@@ -106,12 +106,12 @@ export default function PlayerStats() {
         className="space-y-8"
       >
         {/* Intro Section */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-8 text-white leading-tight">
+        <div className="mb-8 md:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-6 md:mb-8 text-white leading-tight">
             Pakistan Players Stats – <span className="text-pak-green">Batting, Bowling & Records</span>
           </h1>
-          <div className="max-w-3xl space-y-6">
-            <p className="text-xl text-ink/80 font-medium leading-relaxed">
+          <div className="max-w-3xl space-y-4 md:space-y-6">
+            <p className="text-lg md:text-xl text-ink/80 font-medium leading-relaxed">
               If you want to understand how the <Link to="/" className="text-pak-green hover:underline">Pakistan cricket team</Link> is performing, <Link to="/players-stats" className="text-pak-green hover:underline">player statistics</Link> are the best place to start.
             </p>
             <p className="text-ink/60 font-medium leading-relaxed">
@@ -124,28 +124,28 @@ export default function PlayerStats() {
         </div>
 
         {/* Profile Header */}
-        <div className="bg-card-bg border border-card-border rounded-[40px] p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-            <User className="w-64 h-64" />
+        <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-5 md:p-12 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-8 md:p-12 opacity-5 pointer-events-none">
+            <User className="w-48 h-48 md:w-64 md:h-64" />
           </div>
           
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-            <div className="w-48 h-48 rounded-[32px] bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-4">
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 text-center md:text-left">
+            <div className="w-28 h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-[24px] md:rounded-[32px] bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-3 sm:p-4 shrink-0">
               {player.imgUrl ? (
                 <img src={player.imgUrl} alt={player.name} className="w-full h-full object-contain" referrerPolicy="no-referrer" loading="lazy" />
               ) : (
-                <User className="w-24 h-24 text-white/20" />
+                <User className="w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 text-white/20" />
               )}
             </div>
             
-            <div className="text-center md:text-left">
-              <span className="px-4 py-1.5 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[4px] mb-6 inline-block">
+            <div className="min-w-0">
+              <span className="px-3 sm:px-4 py-1 bg-pak-green text-white rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-[2px] sm:tracking-[4px] mb-2 sm:mb-6 inline-block">
                 {player.role}
               </span>
-              <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-4">
-                {player.name} <span className="text-pak-green line-clamp-1 block md:inline font-normal italic opacity-30">#STATS2026</span>
+              <h1 className="text-2xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words">
+                {player.name} <span className="text-pak-green block md:inline font-normal italic opacity-30 text-lg sm:text-2xl md:text-4xl">#2026</span>
               </h1>
-              <p className="text-ink/60 font-bold uppercase tracking-widest text-xs">
+              <p className="text-ink/60 font-bold uppercase tracking-widest text-[8px] md:text-xs">
                 {player.name} Cricket Stats & Records
               </p>
             </div>
@@ -156,19 +156,19 @@ export default function PlayerStats() {
         <AdPlaceholder type="banner" className="my-8" />
 
         {/* Career Summary Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {[
-            { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-4 h-4" /> },
-            { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-4 h-4" /> },
-            { label: 'Average', value: player.stats.avg, icon: <TrendingUp className="w-4 h-4" /> },
-            { label: 'Strike Rate', value: player.stats.sr, icon: <Zap className="w-4 h-4" /> },
+            { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+            { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+            { label: 'Average', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+            { label: 'Strike Rate', value: player.stats.sr, icon: <Zap className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
           ].map((stat, i) => (
-            <div key={i} className="bg-card-bg border border-card-border p-6 rounded-3xl">
-              <div className="flex items-center gap-2 mb-2 text-neutral-500">
+            <div key={i} className="bg-card-bg border border-card-border p-3.5 md:p-6 rounded-2xl md:rounded-3xl">
+              <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2 text-neutral-500">
                 {stat.icon}
-                <span className="text-[10px] font-bold uppercase tracking-widest">{stat.label}</span>
+                <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest leading-none">{stat.label}</span>
               </div>
-              <p className="text-3xl font-display font-bold text-white tabular-nums">{stat.value}</p>
+              <p className="text-xl md:text-3xl font-display font-bold text-white tabular-nums leading-none">{stat.value}</p>
             </div>
           ))}
         </div>
@@ -177,26 +177,26 @@ export default function PlayerStats() {
         <AdPlaceholder type="native" className="my-8" label="Promoted for Fans" />
 
         {/* Batting & Bowling SEO Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <section className="bg-card-bg border border-card-border rounded-[40px] p-10">
-            <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Pakistan <Link to="/rankings" className="text-pak-green hover:underline">Batting Stats</Link></h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <section className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] p-6 md:p-10">
+            <h2 className="text-xl md:text-2xl font-display font-bold uppercase text-white mb-4 md:mb-6">Pakistan <Link to="/rankings" className="text-pak-green hover:underline">Batting Stats</Link></h2>
             <p className="text-sm text-ink/60 leading-relaxed font-medium mb-6">
               <Link to="/players-stats" className="text-pak-green hover:underline">Batting statistics</Link> show how consistently players are scoring runs and contributing to the team. Here you can find total runs scored, <Link to="/rankings" className="text-pak-green hover:underline">batting average</Link>, <Link to="/rankings" className="text-pak-green hover:underline">strike rate</Link>, and number of 50s and 100s.
             </p>
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-              <span className="text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
+              <span className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
                 Identify the most reliable batsmen and in-form players format-wise (Test, ODI, T20) via <Link to="/rankings" className="text-pak-green hover:underline">official rankings</Link>.
               </span>
             </div>
           </section>
 
-          <section className="bg-card-bg border border-card-border rounded-[40px] p-10">
-            <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Pakistan <Link to="/players-stats" className="text-pak-green hover:underline">Bowling Stats</Link></h2>
+          <section className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] p-6 md:p-10">
+            <h2 className="text-xl md:text-2xl font-display font-bold uppercase text-white mb-4 md:mb-6">Pakistan <Link to="/players-stats" className="text-pak-green hover:underline">Bowling Stats</Link></h2>
             <p className="text-sm text-ink/60 leading-relaxed font-medium mb-6">
               Bowling performance plays a crucial role in winning <Link to="/schedule" className="text-pak-green hover:underline">matches</Link>. On this page, you can explore total wickets taken, bowling average, economy rate, and best bowling figures for the <Link to="/squads" className="text-pak-green hover:underline">Pakistan squad</Link>.
             </p>
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-              <span className="text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
+              <span className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
                 Highlight the effectiveness of Pakistan’s fast bowlers and spinners in <Link to="/news" className="text-pak-green hover:underline">match updates</Link>.
               </span>
             </div>
@@ -204,86 +204,148 @@ export default function PlayerStats() {
         </div>
 
         {/* All-Rounder Analysis */}
-        <section className="bg-gradient-to-br from-pak-green/10 to-transparent border border-pak-green/20 rounded-[48px] p-10 md:p-16">
-          <h2 className="text-3xl font-display font-bold uppercase text-white mb-6">All-Rounders <span className="text-pak-green">Performance</span></h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-ink/70 font-medium leading-relaxed">
+        <section className="bg-gradient-to-br from-pak-green/10 to-transparent border border-pak-green/20 rounded-[32px] md:rounded-[48px] p-6 md:p-16">
+          <h2 className="text-2xl md:text-3xl font-display font-bold uppercase text-white mb-6">All-Rounders <span className="text-pak-green">Performance</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-base md:text-lg text-ink/70 font-medium leading-relaxed">
                 All-rounders add balance to the team by contributing with both bat and ball. This section includes runs and wickets combined to understand overall match impact.
               </p>
               <ul className="space-y-3">
                 {['Runs and wickets combined', 'Batting and bowling averages', 'Match impact performance'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-white/80">
+                  <li key={i} className="flex items-center gap-3 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white/80">
                     <div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-black/40 border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center">
-               <TrendingUp className="w-16 h-16 text-pak-green mb-4" />
-               <p className="text-[10px] font-bold text-pak-green uppercase tracking-[4px]">Overall Team Impact</p>
+            <div className="bg-black/40 border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center text-center">
+               <TrendingUp className="w-12 h-12 md:w-16 md:h-16 text-pak-green mb-4" />
+               <p className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-[4px]">Overall Team Impact</p>
             </div>
           </div>
         </section>
 
-        {/* Format Specific Tables */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {['test', 'odi', 't20i'].map((format) => {
-            const formatStats = player.stats.formats?.[format as keyof typeof player.stats.formats];
-            if (!formatStats) return null;
+        {/* Format Specific Detailed Stats */}
+        <section className="space-y-6 md:space-y-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold uppercase text-white">
+              Format Breakdown <span className="text-pak-green">Analysis</span>
+            </h2>
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+              <Info className="w-4 h-4 text-pak-green" />
+              <span className="text-[10px] font-bold text-ink/60 uppercase tracking-widest">Across All Match Formats</span>
+            </div>
+          </div>
 
-            return (
-              <div key={format} className="bg-card-bg border border-card-border rounded-[32px] p-8">
-                <h3 className="text-xl font-display font-bold uppercase mb-6 text-white border-b border-white/5 pb-4">
-                  {format} <span className="text-pak-green">Stats</span>
-                </h3>
-                <div className="space-y-4">
-                  {Object.entries(formatStats).map(([key, value]) => (
-                    <div key={key} className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0 last:pb-0">
-                      <span className="text-[10px] font-bold text-neutral-500 uppercase">{key.replace(/([A-Z])/g, ' $1')}</span>
-                      <span className="text-sm font-bold text-white tabular-nums">{value ?? '—'}</span>
+          <div className="grid grid-cols-1 gap-6 md:gap-8">
+            {['test', 'odi', 't20i'].map((format) => {
+              const formatStats = player.stats.formats?.[format as keyof typeof player.stats.formats];
+              if (!formatStats) return null;
+
+              const metrics = [
+                { label: 'Matches', value: formatStats.matches, icon: <Activity className="w-3.5 h-3.5" /> },
+                { label: 'Innings', value: formatStats.innings, icon: <FileText className="w-3.5 h-3.5" /> },
+                { label: 'Runs', value: formatStats.runs, icon: <Target className="w-3.5 h-3.5" /> },
+                { label: 'Avg', value: formatStats.avg, icon: <TrendingUp className="w-3.5 h-3.5" /> },
+                { label: 'SR', value: formatStats.sr, icon: <Zap className="w-3.5 h-3.5" /> },
+                { label: 'Highest', value: formatStats.highestScore, icon: <Award className="w-3.5 h-3.5" /> },
+                { label: 'Wickets', value: formatStats.wickets, icon: <Target className="w-3.5 h-3.5" /> },
+                { label: 'Best', value: formatStats.bestBowling, icon: <Award className="w-3.5 h-3.5" /> },
+                { label: '100s', value: formatStats.centuries, icon: <Star className="w-3.5 h-3.5" /> },
+                { label: '50s', value: formatStats.fifties, icon: <TrendingUp className="w-3.5 h-3.5" /> },
+                { label: '5W', value: formatStats.fiveWickets, icon: <Award className="w-3.5 h-3.5" /> },
+              ].filter(m => m.value !== undefined);
+
+              return (
+                <motion.div 
+                  key={format}
+                  whileHover={{ y: -5 }}
+                  className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] p-6 md:p-10 relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none select-none">
+                    <span className="text-8xl font-display font-black uppercase italic">{format}</span>
+                  </div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[3px] border ${
+                        format === 'test' ? 'bg-white text-black border-white' : 
+                        format === 'odi' ? 'bg-pak-green text-white border-pak-green' : 
+                        'bg-blue-600 text-white border-blue-600'
+                      }`}>
+                        {format}
+                      </div>
+                      <div className="h-px flex-grow bg-white/5" />
                     </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
+                      {metrics.map((m, idx) => (
+                        <div key={idx} className="bg-white/5 border border-white/5 rounded-2xl p-4 flex flex-col justify-between min-h-[90px]">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="text-pak-green flex shrink-0 opacity-60">
+                              {m.icon}
+                            </span>
+                            <span className="text-[9px] font-bold text-neutral-500 uppercase tracking-widest truncate">
+                              {m.label}
+                            </span>
+                          </div>
+                          <p className="text-xl md:text-2xl font-display font-bold text-white tabular-nums">
+                            {m.value}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
 
         {/* Format-Wise Stats Overview */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-display font-bold uppercase text-white mb-6">Stats by Format <span className="text-pak-green">(Test, ODI, T20)</span></h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-             <div className="p-8 bg-card-bg border border-card-border rounded-3xl">
-               <h4 className="text-lg font-display font-bold text-white uppercase mb-2">Test Cricket</h4>
-               <p className="text-xs text-ink/40 font-medium leading-relaxed">Long format consistency and technical endurance records.</p>
+        <section className="mb-8 md:mb-12">
+          <h2 className="text-xl md:text-2xl font-display font-bold uppercase text-white mb-6">Stats by Format <span className="text-pak-green">(Test, ODI, T20)</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+             <div className="p-6 md:p-8 bg-card-bg border border-card-border rounded-[24px] md:rounded-3xl">
+               <h4 className="text-base md:text-lg font-display font-bold text-white uppercase mb-2">Test Cricket</h4>
+               <p className="text-[11px] md:text-xs text-ink/40 font-medium leading-relaxed">Long format consistency and technical endurance records.</p>
              </div>
-             <div className="p-8 bg-card-bg border border-card-border rounded-3xl">
-               <h4 className="text-lg font-display font-bold text-white uppercase mb-2">ODI Cricket</h4>
-               <p className="text-xs text-ink/40 font-medium leading-relaxed">Balanced performance showing tactical middle-overs depth.</p>
+             <div className="p-6 md:p-8 bg-card-bg border border-card-border rounded-[24px] md:rounded-3xl">
+               <h4 className="text-base md:text-lg font-display font-bold text-white uppercase mb-2">ODI Cricket</h4>
+               <p className="text-[11px] md:text-xs text-ink/40 font-medium leading-relaxed">Balanced performance showing tactical middle-overs depth.</p>
              </div>
-             <div className="p-8 bg-card-bg border border-card-border rounded-3xl">
-               <h4 className="text-lg font-display font-bold text-white uppercase mb-2">T20 Cricket</h4>
-               <p className="text-xs text-ink/40 font-medium leading-relaxed">Aggressive and fast scoring strike rate and boundary frequency.</p>
+             <div className="p-6 md:p-8 bg-card-bg border border-card-border rounded-[24px] md:rounded-3xl">
+               <h4 className="text-base md:text-lg font-display font-bold text-white uppercase mb-2">T20 Cricket</h4>
+               <p className="text-[11px] md:text-xs text-ink/40 font-medium leading-relaxed">Aggressive and fast scoring strike rate and boundary frequency.</p>
              </div>
           </div>
         </section>
 
         {/* Recent Form */}
-        <div className="bg-card-bg border border-card-border rounded-[40px] p-8 md:p-12">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xs font-bold uppercase tracking-[4px] text-neutral-500">Form Trajectory</h3>
-            <span className="text-[10px] font-bold text-pak-green uppercase">Last 5 Innings</span>
+        <div className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] p-6 md:p-12 overflow-hidden">
+          <div className="flex items-center justify-between mb-6 md:mb-8">
+            <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+              <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[4px] text-neutral-500">Form Trajectory</h3>
+              <div className="h-0.5 w-8 bg-pak-green/20 hidden md:block" />
+            </div>
+            <span className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest">Last 5 Innings</span>
           </div>
-          <div className="grid grid-cols-5 gap-4">
+          
+          <div className="flex gap-2.5 md:gap-4 overflow-x-auto pb-4 md:pb-0 scrollbar-hide -mx-2 px-2 snap-x">
             {player.stats.recentForm.map((score, i) => (
-              <div key={i} className={`p-6 rounded-3xl text-center border-2 transition-all hover:scale-105 ${getFormColor(score, player.role)}/10 border-${getFormColor(score, player.role).replace('bg-', '')}/30`}>
-                <p className={`text-2xl font-display font-bold tabular-nums ${getFormColor(score, player.role).replace('bg-', 'text-')}`}>
+              <div key={i} className={`min-w-[80px] flex-1 p-4 md:p-6 rounded-2xl md:rounded-3xl text-center border-2 transition-all hover:scale-105 snap-center ${getFormColor(score, player.role)}/10 border-${getFormColor(score, player.role).replace('bg-', '')}/30`}>
+                <p className={`text-base sm:text-lg md:text-2xl font-display font-bold tabular-nums leading-none ${getFormColor(score, player.role).replace('bg-', 'text-')}`}>
                   {score}
                 </p>
-                <div className={`w-2 h-2 rounded-full mx-auto mt-2 ${getFormColor(score, player.role)}`} />
+                <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full mx-auto mt-2.5 ${getFormColor(score, player.role)}`} />
               </div>
             ))}
+          </div>
+          <div className="mt-4 flex md:hidden justify-center items-center gap-1">
+             <div className="w-1 h-1 rounded-full bg-pak-green" />
+             <div className="w-4 h-0.5 rounded-full bg-pak-green/20" />
+             <div className="w-1 h-1 rounded-full bg-pak-green/40" />
           </div>
         </div>
 
@@ -291,15 +353,15 @@ export default function PlayerStats() {
 
         {/* Achievements */}
         {player.achievements && player.achievements.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {player.achievements.map((achievement, i) => (
-              <div key={i} className={`p-8 rounded-[32px] border ${achievement.featured ? 'bg-pak-green/10 border-pak-green/30' : 'bg-card-bg border-card-border'} flex items-start gap-6`}>
-                <div className={`p-4 rounded-2xl ${achievement.featured ? 'bg-pak-green text-white' : 'bg-white/5 text-neutral-500'}`}>
-                  {achievement.featured ? <Star className="w-6 h-6" /> : <Award className="w-6 h-6" />}
+              <div key={i} className={`p-6 md:p-8 rounded-[24px] md:rounded-[32px] border ${achievement.featured ? 'bg-pak-green/10 border-pak-green/30' : 'bg-card-bg border-card-border'} flex flex-col xs:flex-row items-start gap-4 md:gap-6`}>
+                <div className={`p-3 md:p-4 rounded-xl md:rounded-2xl shrink-0 ${achievement.featured ? 'bg-pak-green text-white' : 'bg-white/5 text-neutral-500'}`}>
+                  {achievement.featured ? <Star className="w-5 h-5 md:w-6 md:h-6" /> : <Award className="w-5 h-5 md:w-6 md:h-6" />}
                 </div>
                 <div>
-                  <h4 className="text-lg font-display font-bold uppercase text-white mb-2">{achievement.title}</h4>
-                  <p className="text-sm text-ink/60 leading-relaxed font-medium">{achievement.description}</p>
+                  <h4 className="text-base md:text-lg font-display font-bold uppercase text-white mb-2">{achievement.title}</h4>
+                  <p className="text-xs md:text-sm text-ink/60 leading-relaxed font-medium">{achievement.description}</p>
                 </div>
               </div>
             ))}
@@ -307,29 +369,29 @@ export default function PlayerStats() {
         )}
 
         {/* Personal Scouting Notes */}
-        <div className="bg-card-bg border border-card-border rounded-[40px] p-8 md:p-12 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+        <div className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] p-6 md:p-12 relative overflow-hidden">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 md:mb-8">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <FileText className="w-6 h-6 text-pak-green" />
-                <h3 className="text-xl font-display font-bold uppercase text-white">Personal Scouting Notes</h3>
+                <FileText className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
+                <h3 className="text-lg md:text-xl font-display font-bold uppercase text-white">Personal Scouting Notes</h3>
               </div>
-              <p className="text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed">
+              <p className="text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-relaxed max-w-xl">
                 Add your private observations, tactical insights, or scouting reports for {player.name}.
               </p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <button 
                 onClick={handleClearNotes}
-                className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 hover:bg-red-500/20 transition-all flex items-center justify-center"
+                className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 hover:bg-red-500 active:text-white transition-all flex items-center justify-center shrink-0 group/btn"
                 title="Delete Notes"
               >
-                <Trash2 className="w-4 h-4" />
+                <Trash2 className="w-4 h-4 group-active/btn:scale-90 transition-transform" />
               </button>
               <button 
                 onClick={handleSaveNotes}
                 disabled={isSaving}
-                className={`flex items-center gap-3 px-8 py-3 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pak-green/20 disabled:opacity-50 disabled:scale-100`}
+                className={`flex-grow md:flex-grow-0 flex items-center justify-center gap-2 px-6 md:px-10 py-3.5 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pak-green/20 disabled:opacity-50 disabled:scale-100 min-w-[180px]`}
               >
                 {isSaving ? (
                   <motion.div 
@@ -339,9 +401,9 @@ export default function PlayerStats() {
                     <Activity className="w-4 h-4" />
                   </motion.div>
                 ) : (
-                  <Save className="w-4 h-4" />
+                  <Save className="w-4 h-4" /> 
                 )}
-                {isSaving ? 'Saving...' : 'Save Observations'}
+                <span className="relative">{isSaving ? 'Saving...' : 'Save Observations'}</span>
               </button>
             </div>
           </div>
@@ -350,65 +412,65 @@ export default function PlayerStats() {
             <textarea 
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder={`Write your personal notes for ${player.name} here... (e.g., "Great against spin", "Weakness on shorter deliveries", "Future captaincy material")`}
-              className="w-full h-48 bg-white/5 border border-white/10 rounded-2xl p-6 text-sm text-white placeholder:text-white/10 focus:outline-none focus:border-pak-green/30 transition-all resize-none font-medium leading-relaxed group-hover:border-white/20"
+              placeholder={`Write your personal notes for ${player.name} here...`}
+              className="w-full h-40 md:h-48 bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 text-sm text-white placeholder:text-white/10 focus:outline-none focus:border-pak-green/30 transition-all resize-none font-medium leading-relaxed group-hover:border-white/20"
             />
             <AnimatePresence>
               {showSavedMsg && (
                 <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute bottom-6 right-6 px-4 py-2 bg-pak-green text-white rounded-lg text-[9px] font-bold uppercase tracking-widest shadow-lg pointer-events-none"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  className="absolute bottom-4 right-4 md:bottom-6 md:right-6 px-4 py-2 bg-pak-green text-white rounded-lg text-[8px] md:text-[9px] font-bold uppercase tracking-widest shadow-lg pointer-events-none"
                 >
-                  Notes Saved Successfully
+                  Saved!
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
           
-          <div className="mt-6 flex items-center gap-3 text-[10px] font-bold text-ink/30 uppercase tracking-widest">
-            <Info className="w-3 h-3" />
+          <div className="mt-4 md:mt-6 flex items-start gap-3 text-[9px] md:text-[10px] font-bold text-ink/30 uppercase tracking-widest">
+            <Info className="w-3 h-3 mt-0.5 shrink-0" />
             <span>These notes are stored locally on your device and are not visible to anyone else.</span>
           </div>
         </div>
 
-        <div className="p-12 bg-pak-green/5 border border-dashed border-pak-green/20 rounded-[40px] text-center">
-          <Info className="w-12 h-12 text-pak-green/40 mx-auto mb-6" />
-          <h3 className="text-xl font-display font-bold text-white uppercase mb-4">Why Player Stats Are Important</h3>
-          <p className="text-sm text-ink/60 max-w-xl mx-auto leading-relaxed font-medium mb-8">
+        <div className="p-6 md:p-12 bg-pak-green/5 border border-dashed border-pak-green/20 rounded-[32px] md:rounded-[40px] text-center">
+          <Info className="w-10 h-10 md:w-12 md:h-12 text-pak-green/40 mx-auto mb-4 md:mb-6" />
+          <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase mb-4">Why Player Stats Are Important</h3>
+          <p className="text-xs md:text-sm text-ink/60 max-w-xl mx-auto leading-relaxed font-medium mb-8">
             Statistics give a deeper understanding of the game beyond just match results. They help fans compare players objectively, track performance over time, and understand team strengths and weaknesses.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 mb-12">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8 md:mb-12">
              <div className="flex flex-col items-center">
-                <span className="text-2xl font-bold text-white mb-1">01</span>
-                <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">Compare Players</span>
+                <span className="text-xl md:text-2xl font-bold text-white mb-1">01</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-ink/40 uppercase tracking-widest">Compare Players</span>
              </div>
              <div className="flex flex-col items-center">
-                <span className="text-2xl font-bold text-white mb-1">02</span>
-                <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">Track Growth</span>
+                <span className="text-xl md:text-2xl font-bold text-white mb-1">02</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-ink/40 uppercase tracking-widest">Track Growth</span>
              </div>
              <div className="flex flex-col items-center">
-                <span className="text-2xl font-bold text-white mb-1">03</span>
-                <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">Strategy Analysis</span>
+                <span className="text-xl md:text-2xl font-bold text-white mb-1">03</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-ink/40 uppercase tracking-widest">Strategy Analysis</span>
              </div>
           </div>
 
-          <div className="bg-card-bg border border-card-border rounded-3xl p-8 max-w-2xl mx-auto text-left mb-12">
-             <h4 className="text-lg font-display font-bold text-white uppercase mb-4">Explore More Data</h4>
-             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Link to="/schedule" className="px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all text-center">Full Match Schedule</Link>
-                <Link to="/squads" className="px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all text-center">View Team Squads</Link>
+          <div className="bg-card-bg border border-card-border rounded-[24px] md:rounded-3xl p-6 md:p-8 max-w-2xl mx-auto text-left mb-8 md:mb-12">
+             <h4 className="text-base md:text-lg font-display font-bold text-white uppercase mb-4">Explore More Data</h4>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                <Link to="/schedule" className="px-4 md:px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all text-center">Full Match Schedule</Link>
+                <Link to="/squads" className="px-4 md:px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all text-center">View Team Squads</Link>
              </div>
           </div>
 
-          <h3 className="text-xl font-display font-bold text-white uppercase mb-4">Official Records Audit</h3>
-          <p className="text-sm text-ink/60 max-w-xl mx-auto leading-relaxed font-medium mb-8">
+          <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase mb-4">Official Records Audit</h3>
+          <p className="text-xs md:text-sm text-ink/60 max-w-xl mx-auto leading-relaxed font-medium mb-8">
             All statistics for {player.name} are verified against official ICC and PCB databases. These records include 2026 Season performances up to current local time.
           </p>
           <button 
             onClick={() => window.print()}
-            className="px-8 py-3 bg-white text-black rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
+            className="w-full sm:w-auto px-8 py-3 bg-white text-black rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
           >
             Export Stats Sheet (PDF)
           </button>

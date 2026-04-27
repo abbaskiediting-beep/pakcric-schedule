@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -24,7 +24,7 @@ export default function Home() {
   const bangladeshMatches = PAKISTAN_SCHEDULE.filter(m => m.series === bangladeshSeriesName);
 
   return (
-    <div className="container mx-auto px-6 py-8">
+    <div className="container mx-auto px-4 md:px-6 py-6 md:py-8">
       {/* Top Leaderboard - Above the fold, below navbar */}
       <AdPlaceholder type="leaderboard" className="mb-8" />
       <Helmet>
@@ -135,42 +135,42 @@ export default function Home() {
         </script>
       </Helmet>
       {/* High Conversion Hero Section */}
-      <section className="mb-20 mt-8 text-center max-w-5xl mx-auto px-4">
+      <section className="mb-12 md:mb-20 mt-4 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-6 md:mb-8 backdrop-blur-md">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-[3px] text-white">Live 2026 Season Coverage</span>
+            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-tight text-white mb-6">
-            Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Never Miss a Match</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white mb-4 md:mb-6">
+            Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black">Never Miss a Match</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
-            Get the full <strong>Pakistan cricket schedule 2026</strong> for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and <strong>never miss a match</strong> of your favorite team.
+          <p className="text-sm sm:text-base md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10">
+            Get the full <strong>Pakistan cricket schedule 2026</strong> for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and <strong>never miss a match</strong>.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-8 mb-8 md:mb-12">
             {[
               { icon: '✔', label: 'Updated Daily' },
-              { icon: '✔', label: 'Accurate Match Timings (PKT)' },
-              { icon: '✔', label: 'Full Series & Fixtures' }
+              { icon: '✔', label: 'Accurate PKT Timings' },
+              { icon: '✔', label: 'Full Series' }
             ].map((trust, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <span className="text-pak-green font-bold text-lg">{trust.icon}</span>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">{trust.label}</span>
+              <div key={i} className="flex items-center gap-1.5 md:gap-2">
+                <span className="text-pak-green font-bold text-sm md:text-lg">{trust.icon}</span>
+                <span className="text-[7px] xs:text-[8px] md:text-[10px] font-bold uppercase tracking-[1px] md:tracking-widest text-white/60">{trust.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Link 
               to="/schedule" 
-              className="w-full sm:w-auto px-12 py-5 bg-pak-green text-white rounded-2xl text-xs font-extra-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-4 md:py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
             >
               View Full Schedule <ArrowRight className="w-4 h-4" />
             </Link>
@@ -179,7 +179,7 @@ export default function Home() {
                 const element = document.getElementById('match-center');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-12 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-xs font-extra-bold uppercase tracking-widest hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-4 md:py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
             >
               Check Next Match <Timer className="w-4 h-4" />
             </button>
@@ -190,49 +190,49 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="px-6 py-2 bg-black border border-white/10 rounded-xl flex items-center gap-3 shadow-2xl"
+              className="px-5 py-2 bg-black border border-white/10 rounded-xl flex items-center gap-3 shadow-2xl"
             >
               <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
-              <span className="text-[10px] font-black uppercase tracking-[2px] text-white">
-                Next Match: Pakistan vs Bangladesh – May 8, 2026
+              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[2px] text-white">
+                Next: Pak vs Ban – May 8, 2026
               </span>
             </motion.div>
             
-            <p className="text-[10px] font-bold text-ink/30 uppercase tracking-widest">
-              No sign-up needed • 100% free • Fast updates
+            <p className="text-[8px] md:text-[10px] font-bold text-ink/30 uppercase tracking-widest">
+              Fast updates • 100% free • Fans first point
             </p>
           </div>
         </motion.div>
       </section>
 
       {/* Dynamic Scoreboard Row */}
-      <section id="match-center" className="mb-12 overflow-hidden scroll-mt-24">
-        <div className="mb-8 text-center md:text-left">
-          <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-4">
+      <section id="match-center" className="mb-10 md:mb-12 overflow-hidden scroll-mt-24 px-0">
+        <div className="mb-6 md:mb-8 text-center md:text-left px-4 md:px-0">
+          <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-3 md:mb-4">
             Pakistan <span className="text-pak-green">Upcoming Matches</span>
           </h2>
-          <p className="text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl">
+          <p className="text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
             Stay ahead of every game with our regularly updated list of Pakistan’s upcoming matches. Whether it’s a home series or an overseas tour, you’ll always know who Pakistan is playing next, match dates, times, and venue details.
           </p>
         </div>
-        <div className="flex items-center justify-between mb-6 px-2">
+        <div className="flex items-center justify-between mb-4 md:mb-6 px-4 md:px-0">
           <div className="flex items-center gap-2">
-            <Activity className="w-5 h-5 text-pak-green" />
-            <h2 className="text-sm font-bold uppercase tracking-[3px] text-white">Match Center</h2>
+            <Activity className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+            <h2 className="text-[11px] md:text-sm font-bold uppercase tracking-[2px] md:tracking-[3px] text-white">Match Center</h2>
           </div>
-          <Link to="/schedule" className="text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors">
+          <Link to="/schedule" className="text-[9px] md:text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors">
             View All Fixtures
           </Link>
         </div>
 
-        <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide -mx-2 px-2">
+        <div className="flex gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide px-4 md:px-0">
           {MATCH_RESULTS.length > 0 ? (
             MATCH_RESULTS.map((match) => (
               <motion.div
                 key={match.id}
                 whileHover={{ y: -4 }}
                 onClick={() => navigate(`/match/${match.id}`)}
-                className="min-w-[320px] md:min-w-[400px] bg-card-bg border border-card-border rounded-[32px] p-6 cursor-pointer hover:border-white/20 transition-all flex flex-col justify-between"
+                className="min-w-[280px] sm:min-w-[320px] md:min-w-[400px] bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-5 md:p-6 cursor-pointer hover:border-white/20 transition-all flex flex-col justify-between"
               >
                 <div className="flex justify-between items-center mb-6">
                   <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
@@ -341,53 +341,69 @@ export default function Home() {
         {/* Hero Section ... lines 19 to 71 */}
         {/* Mini Series Schedule ... lines 74 to 114 */}
         <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:col-span-4 relative bg-gradient-to-br from-pak-green to-[#00220e] rounded-[40px] p-10 flex flex-col justify-center overflow-hidden border border-white/5 shadow-2xl shadow-pak-green/20 min-h-[400px]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="md:col-span-4 relative bg-gradient-to-br from-[#0a4d2e] via-pak-green to-[#00220e] rounded-[32px] md:rounded-[48px] p-5 md:p-12 flex flex-col justify-center overflow-hidden border border-white/10 shadow-3xl shadow-pak-green/20 min-h-[400px] md:min-h-[460px] group"
         >
-          <div className="absolute inset-0 opacity-10 pointer-events-none select-none flex items-center justify-center">
-            <span className="text-[250px] font-bold font-display rotate-12">PAK</span>
+          <div className="absolute inset-0 opacity-[0.15] pointer-events-none select-none flex items-center justify-center mix-blend-overlay">
+            <span className="text-[120px] sm:text-[180px] md:text-[300px] font-bold font-display rotate-12 group-hover:rotate-6 transition-transform duration-1000">PAK</span>
           </div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.1)_0%,_transparent_60%)] pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col h-full justify-between gap-12">
-            <div className="flex justify-between items-start">
-              <span className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-[3px] text-white border border-white/10 backdrop-blur-md">
-                Up Next • {nextMatch.series}
-              </span>
-              <div className="flex items-center gap-2 bg-black/60 px-4 py-1.5 rounded-full border border-white/5 backdrop-blur-md shadow-lg">
-                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white">Tickets: Fast Filling</span>
+          <div className="relative z-10 flex flex-col h-full justify-between gap-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                <span className="inline-block px-3.5 py-1.5 bg-white text-black rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[2px] md:tracking-[4px] shadow-lg">
+                  Up Next
+                </span>
+                <span className="inline-block px-3.5 py-1.5 bg-white/10 rounded-full text-[9px] md:text-[11px] font-bold uppercase tracking-[1.5px] text-white border border-white/20 backdrop-blur-md max-w-[200px] xs:max-w-xs truncate">
+                  {nextMatch.series}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 bg-red-600/20 px-3.5 py-1.5 rounded-full border border-red-500/30 backdrop-blur-md shadow-lg shrink-0">
+                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
+                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-red-100">Tickets: Fast Filling</span>
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-              <div className="flex items-center gap-8 order-2 md:order-1">
-                 <div className="w-24 h-24 rounded-full border-4 border-white/10 p-2 overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm">
-                    <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-10 md:gap-12 py-2">
+              <div className="flex items-center gap-5 sm:gap-10 order-2 sm:order-1">
+                 <div className="group/flag relative">
+                    <div className="w-16 h-16 md:w-28 md:h-28 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-1.5 overflow-hidden shadow-3xl bg-white/5 backdrop-blur-sm group-hover/flag:scale-110 transition-transform">
+                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+                    </div>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-white rounded text-[8px] font-black text-black">PAK</div>
                  </div>
                  <div className="text-center">
-                    <span className="text-5xl font-display font-bold text-white/20 italic">VS</span>
+                    <span className="text-3xl md:text-6xl font-display font-black text-white/10 uppercase tracking-tighter">VS</span>
                  </div>
-                 <div className="w-24 h-24 rounded-full border-4 border-white/10 p-2 overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm">
-                    <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+                 <div className="group/flag relative">
+                    <div className="w-16 h-16 md:w-28 md:h-28 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-1.5 overflow-hidden shadow-3xl bg-white/5 backdrop-blur-sm group-hover/flag:scale-110 transition-transform">
+                      <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+                    </div>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-white rounded text-[8px] font-black text-black">{nextMatch.opponent.substring(0, 3)}</div>
                  </div>
               </div>
 
-              <div className="text-center md:text-right order-1 md:order-2">
-                <h2 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none text-white mb-2">
-                  PAK <span className="text-white opacity-50">vs</span> {nextMatch.opponent.substring(0, 3)}
+              <div className="text-center sm:text-right order-1 sm:order-2 w-full sm:w-auto">
+                <h2 className="text-3xl sm:text-4xl md:text-8xl font-display font-black uppercase tracking-tighter leading-[0.9] text-white mb-2 md:mb-3 drop-shadow-2xl">
+                  PAK <span className="text-white/40 font-bold block sm:inline">vs</span> {nextMatch.opponent.substring(0, 3)}
                 </h2>
-                <p className="text-lg font-bold uppercase tracking-widest text-white/50 mb-1">{nextMatch.venue}</p>
-                <p className="text-sm font-bold text-white uppercase tracking-[4px]">{nextMatch.date} • {nextMatch.time}</p>
+                <div className="space-y-1">
+                  <p className="text-[11px] md:text-xl font-bold uppercase tracking-[3px] md:tracking-[6px] text-white/70 flex items-center justify-center sm:justify-end gap-2">
+                    <MapPin className="w-3 h-3 md:w-5 md:h-5 text-pak-green" /> {nextMatch.venue}
+                  </p>
+                  <p className="text-[10px] md:text-base font-black text-white uppercase tracking-[2px] md:tracking-[4px] bg-white/5 inline-block px-3 py-1 rounded-lg border border-white/10">{nextMatch.date} • {nextMatch.time}</p>
+                </div>
               </div>
             </div>
 
-            <div className="flex gap-4">
-               <Link to={`/match/${nextMatch.id}`} className="px-8 py-4 bg-white text-black rounded-2xl text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-2 shadow-xl shadow-white/20">
-                  Match Details <ArrowRight className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mt-auto pt-4 md:pt-0">
+               <Link to={`/match/${nextMatch.id}`} className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-white text-black rounded-[20px] md:rounded-[24px] text-[11px] md:text-sm font-black uppercase tracking-[3px] hover:scale-[1.03] active:scale-[0.98] transition-all shadow-[0_20px_50px_rgba(255,255,255,0.2)] text-center flex items-center justify-center gap-3">
+                  Match Details <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                </Link>
-               <button className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all flex items-center gap-2 backdrop-blur-md">
-                  <Ticket className="w-4 h-4" /> Book Tickets
+               <button className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-white/10 text-white border border-white/20 rounded-[20px] md:rounded-[24px] text-[11px] md:text-sm font-black uppercase tracking-[2px] hover:bg-white/20 transition-all flex items-center justify-center gap-3 backdrop-blur-xl">
+                  <Ticket className="w-4 h-4 md:w-5 md:h-5" /> Book Tickets
                </button>
             </div>
           </div>
@@ -396,25 +412,25 @@ export default function Home() {
         <motion.section 
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="md:col-span-2 bg-card-bg border border-card-border rounded-[40px] p-8 flex flex-col justify-between overflow-hidden shadow-xl"
+          className="md:col-span-2 bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl"
         >
           <div>
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex justify-between items-center mb-6 md:mb-8">
                <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">Hot Series</h3>
-               <Link to="/schedule" className="text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
+               <Link to="/schedule" className="text-[9px] md:text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
                  See More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                </Link>
             </div>
             
             <div className="space-y-4">
-               <div className="bg-white/5 rounded-3xl p-6 border border-white/5 relative group hover:border-white/30 transition-all">
-                  <div className="flex items-center gap-4 mb-4">
-                     <div className="w-12 h-12 rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-lg">
-                        <Trophy className="w-6 h-6" />
+               <div className="bg-white/5 rounded-[24px] md:rounded-3xl p-5 md:p-6 border border-white/5 relative group hover:border-white/30 transition-all">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4">
+                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-lg shrink-0">
+                        <Trophy className="w-5 h-5 md:w-6 md:h-6" />
                      </div>
-                     <div>
-                        <span className="text-xs font-bold uppercase tracking-tight block text-white">{bangladeshSeriesName}</span>
-                        <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">{bangladeshMatches.length} Elite Matches</span>
+                     <div className="min-w-0">
+                        <span className="text-[11px] md:text-xs font-bold uppercase tracking-tight block text-white truncate">{bangladeshSeriesName}</span>
+                        <span className="text-[9px] md:text-[10px] text-ink/40 font-bold uppercase tracking-widest">{bangladeshMatches.length} Elite Matches</span>
                      </div>
                   </div>
                   
@@ -439,7 +455,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="md:col-span-4 bg-card-bg border border-card-border rounded-[40px] p-10 overflow-hidden shadow-xl"
+          className="md:col-span-4 bg-card-bg border border-card-border rounded-[28px] md:rounded-[40px] p-6 md:p-10 overflow-hidden shadow-xl"
         >
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-3">
@@ -509,8 +525,8 @@ export default function Home() {
         </section>
 
         {/* Why Choose Section */}
-        <section className="bg-card-bg border border-card-border rounded-[40px] p-10 md:p-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6">
                 Why <span className="text-pak-green">PakCric Schedule</span> is Different
@@ -564,11 +580,11 @@ export default function Home() {
 
         {/* Match Details Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 bg-gradient-to-br from-white/5 to-transparent border border-white/5 rounded-[40px] p-10">
+          <div className="md:col-span-2 bg-gradient-to-br from-white/5 to-transparent border border-white/5 rounded-3xl md:rounded-[40px] p-7 md:p-10">
             <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
               Detailed Match Information
             </h2>
-            <p className="text-ink/60 font-medium leading-relaxed mb-8">
+            <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed mb-8">
               Each match on PakCric Schedule comes with essential details so you don’t have to search anywhere else. We keep things simple but informative—perfect for both casual viewers and serious fans.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -580,9 +596,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="bg-pak-green rounded-[40px] p-10 flex flex-col justify-center text-white">
+          <div className="bg-pak-green rounded-3xl md:rounded-[40px] p-8 md:p-10 flex flex-col justify-center text-white">
             <h2 className="text-2xl font-display font-bold uppercase mb-4 leading-tight">Stay Informed, Always</h2>
-            <p className="text-white/80 text-xs font-medium leading-relaxed mb-6">
+            <p className="text-white/80 text-[11px] md:text-xs font-medium leading-relaxed mb-6">
               Cricket schedules can change—and when they do, we make sure you know about it. Our platform is regularly updated for accuracy.
             </p>
             <Link to="/blogs" className="text-[10px] font-bold uppercase tracking-[3px] flex items-center gap-2 hover:translate-x-2 transition-transform">
@@ -596,22 +612,22 @@ export default function Home() {
         <InternalLinkSection />
 
         {/* CTA Section */}
-        <section className="relative overflow-hidden bg-white/5 border border-white/5 rounded-[40px] p-12 md:p-20 text-center">
+        <section className="relative overflow-hidden bg-white/5 border border-white/5 rounded-3xl md:rounded-[40px] p-8 md:p-20 text-center">
           <div className="absolute inset-0 opacity-5 pointer-events-none select-none flex items-center justify-center">
-            <Activity className="w-96 h-96" />
+            <Activity className="w-64 md:w-96 h-64 md:h-96" />
           </div>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="relative z-10 max-max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="relative z-10 max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6 md:mb-8">
               Never Miss a <span className="text-pak-green">Pakistan Match</span>
             </h2>
-            <p className="text-ink/60 font-medium leading-relaxed mb-12">
+            <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed mb-8 md:mb-12">
               Bookmark PakCric Schedule and stay connected with every match Pakistan plays in 2026. Join thousands of fans who rely on us for accurate timing and fixtures.
             </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              <Link to="/schedule" className="w-full md:w-auto px-12 py-5 bg-pak-green text-white rounded-2xl text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-pak-green/30">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+              <Link to="/schedule" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-pak-green/30">
                 Explore Upcoming Matches
               </Link>
-              <Link to="/blogs" className="w-full md:w-auto px-12 py-5 bg-transparent border border-white/20 text-white rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+              <Link to="/blogs" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 bg-transparent border border-white/20 text-white rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
                 Latest Tactical Blogs
               </Link>
             </div>

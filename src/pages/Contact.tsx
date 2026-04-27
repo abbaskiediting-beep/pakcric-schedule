@@ -73,19 +73,38 @@ export default function Contact() {
           <div className="absolute top-0 right-0 p-8 opacity-5">
             <Send className="w-32 h-32 text-pak-green" />
           </div>
-          <h2 className="text-2xl font-display font-bold uppercase text-white mb-6 relative">Send Message</h2>
-          <div className="space-y-4 relative">
-             <input type="text" placeholder="Name" className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 text-white" />
-             <input type="email" placeholder="Email" className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 text-white" />
-             <input type="text" placeholder="Subject" className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 text-white" />
-             <textarea placeholder="Message" rows={4} className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 resize-none text-white"></textarea>
-             <button className="w-full py-4 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-[4px] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-pak-green/20">
+          <h2 className="text-2xl font-display font-bold uppercase text-white mb-6 relative">Send Us a Message</h2>
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert('Thank you for your message! We will get back to you soon.');
+              (e.target as HTMLFormElement).reset();
+            }}
+            className="space-y-4 relative"
+          >
+             <div className="space-y-1">
+               <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest ml-1">Full Name</label>
+               <input required type="text" placeholder="John Doe" className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 text-white" />
+             </div>
+             <div className="space-y-1">
+               <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest ml-1">Email Address</label>
+               <input required type="email" placeholder="john@example.com" className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 text-white" />
+             </div>
+             <div className="space-y-1">
+               <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest ml-1">Subject</label>
+               <input required type="text" placeholder="Inquiry about schedule" className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 text-white" />
+             </div>
+             <div className="space-y-1">
+               <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest ml-1">Your Message</label>
+               <textarea required placeholder="How can we help you?" rows={4} className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-xs font-bold focus:border-pak-green outline-none transition-all placeholder:opacity-30 resize-none text-white"></textarea>
+             </div>
+             <button type="submit" className="w-full py-4 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-[4px] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-pak-green/20 mt-2">
                 Submit Request <Send className="w-4 h-4" />
              </button>
              <p className="text-[10px] text-ink/40 text-center italic mt-4">
                👉 Please provide clear details so we can assist you better.
              </p>
-          </div>
+          </form>
         </motion.div>
       </div>
 

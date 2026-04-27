@@ -80,8 +80,8 @@ export const PLAYER_STATS: Record<string, Player> = {
       highestScore: '208*',
       recentForm: ['208*', '12', '45', '101*', '34'],
       formats: {
-        test: { matches: 21, runs: 1773, avg: 47.92, sr: 55.40, highestScore: '208*', centuries: 3, fifties: 7 },
-        odi: { matches: 19, runs: 408, avg: 27.20, sr: 82.30, highestScore: '68' }
+        test: { matches: 21, innings: 37, runs: 1773, avg: 47.92, sr: 55.40, highestScore: '208*', centuries: 3, fifties: 7 },
+        odi: { matches: 19, innings: 18, runs: 408, avg: 27.20, sr: 82.30, highestScore: '68', fifties: 2 }
       }
     }
   },
@@ -97,9 +97,9 @@ export const PLAYER_STATS: Record<string, Player> = {
       bestBowling: '2/34',
       recentForm: ['132*', '45', '1/22', '89', '2/34'],
       formats: {
-        test: { matches: 23, runs: 1487, avg: 39.13, sr: 62.45, highestScore: '132*', wickets: 20 },
-        odi: { matches: 50, runs: 1538, avg: 45.24, sr: 88.50, highestScore: '134', wickets: 19 },
-        t20i: { matches: 52, runs: 916, avg: 22.90, sr: 134.20, highestScore: '76', wickets: 6 }
+        test: { matches: 23, innings: 41, runs: 1487, avg: 39.13, sr: 62.45, highestScore: '132*', wickets: 20, bestBowling: '3/42', centuries: 3, fifties: 8 },
+        odi: { matches: 50, innings: 45, runs: 1538, avg: 45.24, sr: 88.50, highestScore: '134', wickets: 19, bestBowling: '3/33', centuries: 1, fifties: 11 },
+        t20i: { matches: 52, innings: 48, runs: 916, avg: 22.90, sr: 134.20, highestScore: '76', wickets: 6, fifties: 4 }
       }
     }
   },
@@ -249,9 +249,9 @@ export const PLAYER_STATS: Record<string, Player> = {
       highestScore: '59',
       recentForm: ['2/15', '1/45', '5/30', '3/22', '1/33'],
       formats: {
-        test: { matches: 25, wickets: 80, runs: 382, avg: 28.32, sr: 54.2, highestScore: '30' },
-        odi: { matches: 68, wickets: 102, runs: 383, avg: 30.03, sr: 33.1, highestScore: '59' },
-        t20i: { matches: 57, wickets: 72, runs: 147, avg: 23.10, sr: 16.5, highestScore: '23' }
+        test: { matches: 25, innings: 41, wickets: 80, runs: 382, avg: 28.32, sr: 54.2, highestScore: '30', bestBowling: '5/27', fiveWickets: 6 },
+        odi: { matches: 68, innings: 67, wickets: 102, runs: 383, avg: 30.03, sr: 33.1, highestScore: '59', bestBowling: '5/34', fiveWickets: 4 },
+        t20i: { matches: 57, innings: 56, wickets: 72, runs: 147, avg: 23.10, sr: 16.5, highestScore: '23', bestBowling: '4/18' }
       }
     }
   },
@@ -266,9 +266,9 @@ export const PLAYER_STATS: Record<string, Player> = {
       highestScore: '157',
       recentForm: ['93', '71', '12', '45', '101'],
       formats: {
-        test: { matches: 26, runs: 1687, avg: 36.67, highestScore: '157', sr: 48.20, centuries: 3, fifties: 8 },
-        odi: { matches: 75, runs: 3152, avg: 47.04, highestScore: '151', sr: 82.30 },
-        t20i: { matches: 2, runs: 21, avg: 10.50, highestScore: '14', sr: 110.50 }
+        test: { matches: 26, innings: 49, runs: 1687, avg: 36.67, highestScore: '157', sr: 48.20, centuries: 3, fifties: 8 },
+        odi: { matches: 75, innings: 73, runs: 3152, avg: 47.04, highestScore: '151', sr: 82.30, centuries: 9, fifties: 20 },
+        t20i: { matches: 2, innings: 2, runs: 21, avg: 10.50, highestScore: '14', sr: 110.50 }
       }
     }
   },

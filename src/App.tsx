@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Nav from './components/Nav';
+import MobileTabBar from './components/MobileTabBar';
 
 // Lazy load pages for better bundle splitting and initial load time
 const Home = lazy(() => import('./pages/Home'));
@@ -37,6 +38,10 @@ const News = lazy(() => import('./pages/News'));
 const NewsDetail = lazy(() => import('./pages/NewsDetail'));
 const PlayerStats = lazy(() => import('./pages/PlayerStats'));
 const AllPlayersStats = lazy(() => import('./pages/AllPlayersStats'));
+const AuthorProfile = lazy(() => import('./pages/AuthorProfile'));
+const PSL11RunScorersBlog = lazy(() => import('./pages/PSL11RunScorersBlog'));
+const PSL11WicketTakersBlog = lazy(() => import('./pages/PSL11WicketTakersBlog'));
+const PSL11QualifierPreview = lazy(() => import('./pages/PSL11QualifierPreview'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -80,7 +85,7 @@ export default function App() {
   return (
     <Router>
       <SEO />
-      <div className="min-h-screen bg-bg text-ink flex flex-col font-sans transition-colors duration-300">
+      <div className="min-h-screen bg-bg text-ink flex flex-col font-sans transition-colors duration-300 pb-16 md:pb-0">
         <Header theme={theme} onToggleTheme={toggleTheme} />
         <Nav />
         
@@ -109,6 +114,7 @@ export default function App() {
               <Route path="/news" element={<News />} />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/player/:name" element={<PlayerStats />} />
+              <Route path="/author/:authorId" element={<AuthorProfile />} />
               <Route path="/players-stats" element={<AllPlayersStats />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
@@ -123,6 +129,9 @@ export default function App() {
               <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
               <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />
               <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
+              <Route path="/psl-11-top-run-scorers-2026" element={<PSL11RunScorersBlog />} />
+              <Route path="/psl-11-top-wicket-takers-2026" element={<PSL11WicketTakersBlog />} />
+              <Route path="/psl-11-qualifier-1-showdown-2026" element={<PSL11QualifierPreview />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/pakistan-next-tour-details" element={<PakistanNextTourDetails />} />
               <Route path="*" element={<NotFound />} />
@@ -130,7 +139,7 @@ export default function App() {
           </Suspense>
         </main>
 
-        <footer className="container mx-auto px-6 py-12 flex flex-col gap-12 border-t border-card-border mt-12">
+        <footer className="container mx-auto px-4 md:px-6 py-12 flex flex-col gap-12 border-t border-card-border mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div className="flex flex-col gap-6">
                <span className="text-white text-lg font-display font-bold">PAKCRIC SCHEDULE</span>
@@ -176,6 +185,7 @@ export default function App() {
             </div>
           </div>
         </footer>
+        <MobileTabBar />
       </div>
     </Router>
   );
