@@ -146,8 +146,11 @@ export default function Home() {
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black">Never Miss a Match</span>
           </h1>
           
-          <p className="text-sm sm:text-base md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10">
+          <p className="text-sm sm:text-base md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
             Get the full <strong>Pakistan cricket schedule 2026</strong> for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and <strong>never miss a match</strong>.
+          </p>
+          <p className="text-[10px] md:text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10">
+            Follow the national team journey through the <strong>ICC Champions Trophy</strong>, bilateral tours, and home series. Our <strong>PakCric Schedule</strong> is updated in real-time to ensure fans have the best experience.
           </p>
 
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-8 mb-8 md:mb-12">
@@ -205,10 +208,10 @@ export default function Home() {
       <section id="match-center" className="mb-10 md:mb-12 overflow-hidden scroll-mt-24 px-0">
         <div className="mb-6 md:mb-8 text-center md:text-left px-4 md:px-0">
           <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-3 md:mb-4">
-            Pakistan <span className="text-pak-green">Upcoming Matches</span>
+            Pakistan <span className="text-pak-green">Upcoming Matches</span> & Fixtures
           </h2>
           <p className="text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
-            Stay ahead of every game with our regularly updated list of Pakistan’s upcoming matches. Whether it’s a home series or an overseas tour, you’ll always know who Pakistan is playing next, match dates, times, and venue details.
+            Stay ahead of every game with our list of Pakistan’s upcoming matches. We provide the latest <strong>match dates</strong> and <strong>updates</strong> for every series. Whether it is a home game or an overseas tour, you will know the details. Check our <strong>Pakistan cricket schedule 2026</strong> for venues, timings, and player stats. All fixtures are verified for accuracy.
           </p>
         </div>
         <div className="flex items-center justify-between mb-4 md:mb-6 px-4 md:px-0">
@@ -500,22 +503,25 @@ export default function Home() {
       {/* SEO & Informative Sections */}
       <div className="mt-24 space-y-24">
         {/* Detailed SEO Content Section */}
-        <section className="max-w-4xl mx-auto text-left">
-          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-8">
-            Complete <span className="text-pak-green">Pakistan Cricket Guide 2026</span>
+        <section className="max-w-4xl mx-auto text-left py-12">
+          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-10">
+            Complete <span className="text-pak-green font-black">Pakistan Cricket Schedule 2026</span> & Guide
           </h2>
-          <div className="space-y-6 text-ink/60 font-medium leading-relaxed text-lg">
-            <p>
-              Are you looking for the most reliable source of <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket matches in 2026</Link>? You’ve come to the right place. Our platform is dedicated to providing cricket enthusiasts with a comprehensive, easy-to-use, and regularly updated <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket schedule 2026</Link>. From the highly anticipated clashes against traditional rivals to important bilateral series across the globe, we cover it all in one convenient dashboard.
+          <div className="space-y-8 text-ink/60 font-medium leading-relaxed text-lg">
+            <p className="mb-4">
+              Welcome to the ultimate hub for the <strong>Pakistan cricket schedule 2026</strong>. If you are a fan looking for <strong>full fixtures</strong>, our platform provides everything in one place. We ensure that you get the latest <strong>match dates</strong> and <strong>updates</strong> directly from official sources. This year, the <strong>PakCric Schedule</strong> is your primary portal for following the national team across all formats. From high-octane T20 matches to classic Test series, we bring you every detail.
+            </p>
+            <p className="mb-4">
+              Our <strong>Pakistan cricket schedule 2026</strong> covers home series and international tours. You can find detailed information about venues like Lahore and Karachi. We also track matches in international stadiums such as Colombo or Dhaka. Because timings are critical, we provide all <strong>match dates</strong> in Pakistan Standard Time (PKT). This helps fans plan their day. Use our <strong>full fixtures</strong> list to stay ahead. By using our service, you will <strong>never miss a match</strong>. 
+            </p>
+            <p className="mb-4">
+              The 2026 season is special. It features the <strong>Pakistan vs Bangladesh</strong> series and major world tournaments. Our <strong>PakCric Schedule</strong> updates daily to reflect changes. Whether it is a squad update or a venue shift, we notify you fast. We also track <strong>ICC Rankings</strong>. You can see where Pakistan stands in Tests, ODIs, and T20Is. Following the <strong>Pakistan cricket schedule 2026</strong> has never been easier or faster.
+            </p>
+            <p className="mb-4">
+              Why Choose our <strong>full fixtures</strong> guide? We focus on speed. Most sites are slow and filled with ads. We provide a clean interface. Our <strong>updates</strong> are verified by experts. We include <strong>match dates</strong> for every upcoming game. If you want to know about the <strong>Pakistan cricket team squad</strong>, we have that too. We analyze player stats and performance. This makes our <strong>Pakistan cricket schedule 2026</strong> the most reliable fan resource online.
             </p>
             <p>
-              The year 2026 is a monumental one for Pakistan cricket. With a packed calendar featuring multiple <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test series</Link>, One Day Internationals (<Link to="/icc-odi-ranking-2026" className="text-pak-green hover:underline">ODIs</Link>), and fast-paced <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 tournaments</Link>, fans need a tool that helps them keep track of every game. Our schedule not only provides the <Link to="/pakistan-next-tour-details" className="text-pak-green hover:underline">match dates and times</Link> but also includes verified stadium locations and precise timings in <strong>Pakistan Standard Time (PKT)</strong>. This ensures that you can plan your day and never miss a single ball, whether the match is being played in Lahore, Karachi, or in international venues like Dhaka or London.
-            </p>
-            <p>
-              Beyond the fixtures, we understand that true fans care about the details. That’s why we provide deep insights into the <Link to="/squads" className="text-pak-green hover:underline">Pakistan Cricket Team Squad</Link> for every series. Whether it’s a veteran returning to the side or a young talent making their international debut, you’ll find updated player lists right here. Additionally, we keep a close eye on the <Link to="/rankings" className="text-pak-green hover:underline">ICC Team Rankings</Link>, tracking Pakistan’s progress in the global standings throughout the year 2026.
-            </p>
-            <p>
-              Why settle for cluttered news sites when you can have a clean, focused, and high-performance cricket hub? We have optimized every page to load quickly on mobile devices, making it perfect for fans on the go. Our commitment to accuracy means that as soon as the <a href="https://www.pcb.com.pk/" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">PCB (Pakistan Cricket Board)</a> or <a href="https://www.icc-cricket.com/" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">ICC</a> makes an official announcement regarding tour dates or venue changes, our system reflects it immediately. Stay tuned for <Link to="/blogs" className="text-pak-green hover:underline">expert tactical blogs</Link>, <Link to="/players-stats" className="text-pak-green hover:underline">player performance stats</Link>, and high-voltage <Link to="/blogs" className="text-pak-green hover:underline">match previews</Link> that give you the edge in understanding the game. For live ball-by-ball updates, we also recommend checking <a href="https://www.cricbuzz.com/" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">Cricbuzz</a> or <a href="https://www.espncricinfo.com/" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">ESPNcricinfo</a>.
+              Stay connected with <strong>PakCric Schedule</strong> for year-round coverage. We offer more than just a <strong>cricket schedule</strong>. Explore <strong>match dates</strong>, expert blogs, and tactical previews. Our goal is simple. We want every fan to enjoy cricket without hassle. Bookmark this page for the best <strong>Pakistan cricket schedule 2026</strong> experience. We are committed to accuracy. We are committed to the fans. Together, we celebrate Pakistan cricket.
             </p>
           </div>
         </section>
