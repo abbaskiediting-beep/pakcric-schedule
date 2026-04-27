@@ -2,47 +2,9 @@ import { motion } from 'motion/react';
 import { Calendar, Trophy, Users, Shield, Star, Info, ArrowLeft, ClipboardList } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AuthorSection from '../components/AuthorSection';
+import { LinkText } from '../components/LinkText';
 
 export default function PakistanTourBangladeshSquadBlog() {
-  const linkKeywords = (text: string) => {
-    const keywords: Record<string, string> = {
-      'schedule': '/schedule',
-      'squad': '/squads',
-      'rankings': '/rankings',
-      'icc': '/rankings',
-      'wtc': '/icc-wtc-projections-2026',
-      'world test championship': '/icc-wtc-projections-2026'
-    };
-
-    let parts: any[] = [text];
-    
-    Object.entries(keywords).forEach(([keyword, path]) => {
-      const newParts: any[] = [];
-      parts.forEach(part => {
-        if (typeof part === 'string') {
-          const regex = new RegExp(`(${keyword})`, 'gi');
-          const splitParts = part.split(regex);
-          splitParts.forEach((sp, i) => {
-            if (sp.toLowerCase() === keyword) {
-              newParts.push(
-                <Link key={`${keyword}-${i}`} to={path} className="text-pak-green hover:underline">
-                  {sp}
-                </Link>
-              );
-            } else if (sp !== '') {
-              newParts.push(sp);
-            }
-          });
-        } else {
-          newParts.push(part);
-        }
-      });
-      parts = newParts;
-    });
-
-    return parts;
-  };
-
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
       <Link 
@@ -57,16 +19,16 @@ export default function PakistanTourBangladeshSquadBlog() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-8 leading-tight">
-          Pakistan Tour of Bangladesh 2026: <span className="text-pak-green">Squads and Complete Schedule Overview</span>
+          <LinkText text="Pakistan Tour of Bangladesh 2026: Squads and Complete Schedule Overview" />
         </h1>
 
         <div className="prose prose-invert max-w-none">
           <p className="text-xl text-ink/80 leading-relaxed mb-10 border-l-4 border-pak-green pl-6 italic shadow-inner bg-pak-green/[0.02] py-4 rounded-r-2xl">
-            {linkKeywords("As the cricketing world turns its attention to the red-ball format, Pakistan is set for a high-stakes two-Test series in Bangladesh this May 2026. This series is a pivotal part of the 2025–2027 World Test Championship cycle, with both teams eager to climb the standings in what is expected to be a classic subcontinental battle of grit, patience, and elite spin bowling.")}
+            <LinkText text="As the cricketing world turns its attention to the red-ball format, Pakistan is set for a high-stakes two-Test series in Bangladesh this May 2026. This series is a pivotal part of the 2025–2027 World Test Championship cycle, with both teams eager to climb the standings in what is expected to be a classic subcontinental battle of grit, patience, and elite spin bowling." />
           </p>
 
           <p className="text-ink/60 leading-relaxed mb-8">
-            The <strong>Pakistan tour of Bangladesh 2026</strong> represents more than just a bilateral series; it is a fundamental test of the team's depth and technical adaptability. In recent months, the focus of the Pakistan Cricket Board (PCB) has shifted towards building a sustainable long-format culture, and the selection of this 16-member squad reflects a blend of seasoned veterans and explosive young talent. For fans following the <strong>Pakistan upcoming series full schedule</strong>, this tour is the centerpiece of the summer, offering a grueling examination on the spinning tracks of Dhaka and Sylhet.
+            <LinkText text="The Pakistan tour of Bangladesh 2026 represents more than just a bilateral series; it is a fundamental test of the team's depth and technical adaptability. In recent months, the focus of the Pakistan Cricket Board (PCB) has shifted towards building a sustainable long-format culture, and the selection of this 16-member squad reflects a blend of seasoned veterans and explosive young talent. For fans following the Pakistan upcoming series full schedule, this tour is the centerpiece of the summer, offering a grueling examination on the spinning tracks of Dhaka and Sylhet." />
           </p>
 
           <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6 flex items-center gap-3">
@@ -74,7 +36,7 @@ export default function PakistanTourBangladeshSquadBlog() {
             Phase 1: The Official Series Schedule
           </h2>
           <p className="text-ink/60 mb-8 leading-relaxed">
-            The tour is strategically divided into two major venues, starting in the bustling capital of Dhaka and moving to the picturesque landscapes of Sylhet. Each venue offers a distinct challenge that will test the <strong>Pakistan cricket team</strong>'s ability to adapt. Dhaka is notoriously known for its abrasive surface that aids reverse swing and significant spin from Day 3 onwards, while Sylhet typically provides a more balanced contest with something for the seamers during the morning sessions.
+            <LinkText text="The tour is strategically divided into two major venues, starting in the bustling capital of Dhaka and moving to the picturesque landscapes of Sylhet. Each venue offers a distinct challenge that will test the Pakistan cricket team's ability to adapt. Dhaka is notoriously known for its abrasive surface that aids reverse swing and significant spin from Day 3 onwards, while Sylhet typically provides a more balanced contest with something for the seamers during the morning sessions." />
           </p>
 
           <div className="overflow-hidden rounded-[40px] border border-white/10 bg-white/5 mb-12 shadow-2xl">
@@ -114,7 +76,7 @@ export default function PakistanTourBangladeshSquadBlog() {
             <div className="space-y-3">
               <p className="text-sm font-bold text-blue-300 uppercase tracking-[4px]">Pre-Tour Training Intel</p>
               <p className="text-base text-blue-100/70 m-0 leading-relaxed italic">
-                The team's intensive preparation includes a specialized high-performance training camp in Karachi from 27 April to 1 May. The focus is strictly on playing against the "dusty bowl" conditions. Following the conclusion of the camp, the official <strong>Pakistan squad</strong> will fly to Dhaka on 2 May for final acclimatization sessions.
+                <LinkText text="The team's intensive preparation includes a specialized high-performance training camp in Karachi from 27 April to 1 May. The focus is strictly on playing against the 'dusty bowl' conditions. Following the conclusion of the camp, the official Pakistan squad will fly to Dhaka on 2 May for final acclimatization sessions." />
               </p>
             </div>
           </div>
@@ -125,7 +87,7 @@ export default function PakistanTourBangladeshSquadBlog() {
           </h2>
 
           <p className="text-ink/60 leading-relaxed mb-10 text-lg">
-            The 16-member <strong>Pakistan Test squad</strong> is a statement of intent. The inclusion of three uncapped players—Abdullah Fazal, Azan Awais, and Muhammad Ghazi Ghori—signals a clear move toward a talent pipeline that can sustain the team through the 2026–2030 cycle. However, the success of this tour hinges on the consistency of the 'Big Three': Shan Masood's aggressive leadership, Babar Azam's conversion rate, and Shaheen Afridi's initial burst with the new ball. The balance of the side is heavily skewed toward spin, acknowledging the role Noman Ali and Sajid Khan will play in Dhaka.
+            <LinkText text="The 16-member Pakistan Test squad is a statement of intent. The inclusion of three uncapped players—Abdullah Fazal, Azan Awais, and Muhammad Ghazi Ghori—signals a clear move toward a talent pipeline that can sustain the team through the 2026–2030 cycle. However, the success of this tour hinges on the consistency of the 'Big Three': Shan Masood's aggressive leadership, Babar Azam's conversion rate, and Shaheen Afridi's initial burst with the new ball. The balance of the side is heavily skewed toward spin, acknowledging the role Noman Ali and Sajid Khan will play in Dhaka." />
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -193,22 +155,21 @@ export default function PakistanTourBangladeshSquadBlog() {
                In a widely celebrated move by the PCB, former legend <span className="text-white font-bold underline decoration-pak-green underline-offset-8">Sarfaraz Ahmed</span> has been appointed as the Head Coach specifically for this tour. His tactical understanding of subcontinental surface dynamics is considered unmatched in the modern era. He is flanked by <span className="text-white font-bold">Asad Shafiq</span> (Batting Technical Specialist) and <span className="text-white font-bold underline decoration-pak-green underline-offset-8">Umar Gul</span> (Pace Deployment Guru), creating a 'Dream Team' of management that understands what it means to wear the 'Green Shirt' under pressure.
              </p>
           </div>
-
           <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-8 italic">Analyzing the Bangladesh Threat Matrix</h2>
           <p className="text-lg text-ink/70 leading-relaxed mb-6">
-            {linkKeywords("While the official Test squad for Bangladesh is typically finalized closer to the match date, the core remains strong under the expected leadership of Mehidy Hasan Miraz. Their recent performance in the March ODI series—where they secured a 2–1 victory against the Pakistan cricket team—gives them significant home-turf momentum.")}
+            <LinkText text="While the official Test squad for Bangladesh is typically finalized closer to the match date, the core remains strong under the expected leadership of Mehidy Hasan Miraz. Their recent performance in the March ODI series—where they secured a 2–1 victory against the Pakistan cricket team—gives them significant home-turf momentum." />
           </p>
           <p className="text-base text-ink/60 leading-relaxed mb-12">
-            The key factor for Bangladesh is their depth in the spin department. On tracks that offer even a hint of turn, bowlers like Taijul Islam and Mehidy Hassan become world-class threats. The <strong>Pakistan tour of Bangladesh 2026</strong> will likely see these spinners operating for long 15-20 over spells, testing the physical and mental stamina of the Pakistani top order. Fans can check player head-to-head records in our {linkKeywords("squad")} section to see how these individual matchups favor each side.
+            <LinkText text="The key factor for Bangladesh is their depth in the spin department. On tracks that offer even a hint of turn, bowlers like Taijul Islam and Mehidy Hassan become world-class threats. The Pakistan tour of Bangladesh 2026 will likely see these spinners operating for long 15-20 over spells, testing the physical and mental stamina of the Pakistani top order. Fans can check player head-to-head records in our squad section to see how these individual matchups favor each side." />
           </p>
 
           <h2 className="text-4xl font-display font-bold text-pak-green uppercase tracking-tighter mt-16 mb-10 text-center italic border-t border-white/5 pt-16">The Road to the WTC Final 2027 Standings</h2>
           <p className="text-xl text-ink/70 leading-relaxed mb-8">
-            {linkKeywords("For Pakistan, this series is purely about redemption and survival. After an early exit from the T20 World Cup 2026 and a mixed result in the March ODIs, the \"Shaheens\" need a dominant red-ball performance to stay in contention for the WTC Final standing. The potential inclusion of veteran Mohammad Abbas highlights a strategic return to disciplined line-and-length bowling—a tactic that has historically troubled Bangladeshi batters.")}
+            <LinkText text="For Pakistan, this series is purely about redemption and survival. After an early exit from the T20 World Cup 2026 and a mixed result in the March ODIs, the 'Shaheens' need a dominant red-ball performance to stay in contention for the WTC Final standing. The potential inclusion of veteran Mohammad Abbas highlights a strategic return to disciplined line-and-length bowling—a tactic that has historically troubled Bangladeshi batters." />
           </p>
           
           <p className="text-base text-ink/70 leading-relaxed mb-12 italic border-l-2 border-pak-green/20 pl-8 font-medium">
-            {linkKeywords("Furthermore, the points system of the World Test Championship makes every away win twice as valuable for the overall rankings. If Pakistan can secure a 2-0 whitewash in Dhaka and Sylhet, they will catapult into the top 3 of the global rankings, putting immense pressure on other contenders like Australia and India. Every session of the Pakistan tour of Bangladesh 2026 is, therefore, a miniature championship final packed with national expectation.")}
+            <LinkText text="Furthermore, the points system of the World Test Championship makes every away win twice as valuable for the overall rankings. If Pakistan can secure a 2-0 whitewash in Dhaka and Sylhet, they will catapult into the top 3 of the global rankings, putting immense pressure on other contenders like Australia and India. Every session of the Pakistan tour of Bangladesh 2026 is, therefore, a miniature championship final packed with national expectation." />
           </p>
 
           <div className="mt-24 p-12 md:p-16 border border-white/10 bg-white/5 rounded-[64px] shadow-2xl relative overflow-hidden">

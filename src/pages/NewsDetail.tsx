@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag } from 'lucide-react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
+import { LinkText } from '../components/LinkText';
 
 const ARTICLES: Record<string, any> = {
   'babar-azam-3rd-century-psl-history': {
@@ -325,7 +326,7 @@ export default function NewsDetail() {
               Latest Pakistan Cricket News & Updates
             </span>
             <h1 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter text-white leading-none">
-              {article.title}
+              <LinkText text={article.title} />
             </h1>
           </div>
         </div>
@@ -362,59 +363,17 @@ export default function NewsDetail() {
                      <h2 
                        className="text-2xl font-display font-bold text-white tracking-tight mt-12 mb-6"
                      >
-                       {paragraph.replace('#', '').trim()}
+                       <LinkText text={paragraph.replace('#', '').trim()} />
                      </h2>
                    </React.Fragment>
                  );
                }
 
-               // Internal Linking Helper
-               const linkKeywords = (text: string) => {
-                 const keywords: Record<string, string> = {
-                   'schedule': '/schedule',
-                   'squad': '/squads',
-                   'rankings': '/rankings',
-                   'icc': '/rankings',
-                   'wtc': '/rankings',
-                   'world test championship': '/rankings',
-                   'news': '/news',
-                   'blogs': '/blogs'
-                 };
-
-                 let parts: any[] = [text];
-                 
-                 Object.entries(keywords).forEach(([keyword, path]) => {
-                   const newParts: any[] = [];
-                   parts.forEach(part => {
-                     if (typeof part === 'string') {
-                       const regex = new RegExp(`(${keyword})`, 'gi');
-                       const splitParts = part.split(regex);
-                       splitParts.forEach((sp, i) => {
-                         if (sp.toLowerCase() === keyword) {
-                           newParts.push(
-                             <Link key={`${keyword}-${i}`} to={path} className="text-pak-green hover:underline">
-                               {sp}
-                             </Link>
-                           );
-                         } else if (sp !== '') {
-                           newParts.push(sp);
-                         }
-                       });
-                     } else {
-                       newParts.push(part);
-                     }
-                   });
-                   parts = newParts;
-                 });
-
-                 return parts;
-               };
-
                return (
                  <React.Fragment key={idx}>
                    {adToInsert}
                    <p className="text-neutral-300 leading-relaxed mb-6 text-lg font-sans font-normal">
-                     {linkKeywords(paragraph)}
+                     <LinkText text={paragraph} />
                    </p>
                  </React.Fragment>
                );

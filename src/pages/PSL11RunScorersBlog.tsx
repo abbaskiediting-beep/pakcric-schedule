@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Trophy, Calendar, Users, Star, TrendingUp, Target, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AuthorSection from '../components/AuthorSection';
+import { LinkText } from '../components/LinkText';
 
 export default function PSL11RunScorersBlog() {
   const batsTable = [
@@ -31,7 +32,7 @@ export default function PSL11RunScorersBlog() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-8 leading-tight">
-          PSL 11: The Elite <span className="text-pak-green">Run-Scorers</span> of the 2026 Season
+          <LinkText text="PSL 11: The Elite Run-Scorers of the 2026 Season" />
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -54,11 +55,11 @@ export default function PSL11RunScorersBlog() {
 
         <div className="prose prose-invert prose-p:text-ink/70 prose-p:leading-relaxed prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tighter max-w-none">
           <p className="text-xl text-white font-medium leading-relaxed mb-8 italic border-l-4 border-pak-green pl-6">
-            As of the conclusion of the league stage in April 2026, Kusal Mendis of Peshawar Zalmi leads the run-scoring charts with 500 runs, closely followed by his captain Babar Azam with 485 runs. The upcoming playoffs, starting on 28 April with the Qualifier between Peshawar Zalmi and Islamabad United, will provide these top performers a final chance to secure the prestigious Green Cap.
+            <LinkText text="As of the conclusion of the league stage in April 2026, Kusal Mendis of Peshawar Zalmi leads the run-scoring charts with 500 runs, closely followed by his captain Babar Azam with 485 runs. The upcoming playoffs, starting on 28 April with the Qualifier between Peshawar Zalmi and Islamabad United, will provide these top performers a final chance to secure the prestigious Green Cap." />
           </p>
 
           <p>
-            The 11th edition of the Pakistan Super League (PSL) has been a masterclass in modern T20 batting. From seasoned anchors like <strong>Babar Azam</strong> to explosive international stars like <strong>Kusal Mendis</strong> and <strong>Steven Smith</strong>, the 2026 season has seen consistent high scores and record-breaking strike rates. As we head into the playoffs, here is a detailed breakdown of the top 10 batsmen who have dominated the league stage.
+            <LinkText text="The 11th edition of the Pakistan Super League (PSL) has been a masterclass in modern T20 batting. From seasoned anchors like Babar Azam to explosive international stars like Kusal Mendis and Steven Smith, the 2026 season has seen consistent high scores and record-breaking strike rates. As we head into the playoffs, here is a detailed breakdown of the top 10 batsmen who have dominated the league stage." />
           </p>
 
           <h2 className="text-3xl mt-12 mb-6">Top 10 Batsmen Leaderboard (PSL 11 League Stage)</h2>
@@ -90,10 +91,14 @@ export default function PSL11RunScorersBlog() {
                       </span>
                     </td>
                     <td className="p-6">
-                      <p className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">{row.player}</p>
+                      <p className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">
+                        <LinkText text={row.player} />
+                      </p>
                     </td>
                     <td className="p-6">
-                      <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{row.team}</p>
+                      <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
+                        <LinkText text={row.team} />
+                      </p>
                     </td>
                     <td className="p-6 text-center">
                       <p className="text-sm font-black text-white tabular-nums">{row.runs}</p>
@@ -118,41 +123,51 @@ export default function PSL11RunScorersBlog() {
           <div className="space-y-12">
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-pak-green group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">1. Kusal Mendis (Peshawar Zalmi)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="1. Kusal Mendis (Peshawar Zalmi)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                Mendis has been the revelation of PSL 11. With a high score of 109, he has provided the "Zalmi Storm" with explosive starts. His strike rate of 170.65 is the highest among the top 10 run-getters, making him the most dangerous powerplay batter this season.
+                <LinkText text="Mendis has been the revelation of PSL 11. With a high score of 109, he has provided the 'Zalmi Storm' with explosive starts. His strike rate of 170.65 is the highest among the top 10 run-getters, making him the most dangerous powerplay batter this season." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-pak-green group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">2. Babar Azam (Peshawar Zalmi)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="2. Babar Azam (Peshawar Zalmi)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                The "Captain Consistent" continues to rewrite history. Babar reached a milestone of 4,000 PSL career runs this season and currently boasts an astronomical average of 80.83. While Mendis provides the fire, Babar provides the ice, anchoring the innings with a century of his own (100*).
+                <LinkText text="The 'Captain Consistent' continues to rewrite history. Babar reached a milestone of 4,000 PSL career runs this season and currently boasts an astronomical average of 80.83. While Mendis provides the fire, Babar provides the ice, anchoring the innings with a century of his own (100*)." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-pak-green group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">3. Fakhar Zaman (Lahore Qalandars)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="3. Fakhar Zaman (Lahore Qalandars)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                Despite Lahore's mixed fortunes, Fakhar has been their sole warrior. His 103 off 51 balls against Quetta was a season highlight. He remains the most frequent boundary-hitter alongside Babar, consistently finding the ropes with 48 fours.
+                <LinkText text="Despite Lahore's mixed fortunes, Fakhar has been their sole warrior. His 103 off 51 balls against Quetta was a season highlight. He remains the most frequent boundary-hitter alongside Babar, consistently finding the ropes with 48 fours." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-pak-green group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">4. Steven Smith (Multan Sultans)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="4. Steven Smith (Multan Sultans)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                The Australian legend adapted seamlessly to the Sultans' middle order. His century (106) showcased his ability to manipulate fields, and his strike rate of 163.11 proved that he can still accelerate against high-quality pace.
+                <LinkText text="The Australian legend adapted seamlessly to the Sultans' middle order. His century (106) showcased his ability to manipulate fields, and his strike rate of 163.11 proved that he can still accelerate against high-quality pace." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-pak-green group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">5. Sahibzada Farhan (Multan Sultans)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="5. Sahibzada Farhan (Multan Sultans)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                Farhan has been the most prolific six-hitter among the top run-scorers, clearing the fence 23 times. His strike rate of 168.98 highlights his role as the aggressor for the Sultans, often outscoring his partners in the middle overs.
+                <LinkText text="Farhan has been the most prolific six-hitter among the top run-scorers, clearing the fence 23 times. His strike rate of 168.98 highlights his role as the aggressor for the Sultans, often outscoring his partners in the middle overs." />
               </p>
             </div>
           </div>

@@ -2,47 +2,9 @@ import { motion } from 'motion/react';
 import { Calendar, MapPin, Trophy, Users, Clock, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AuthorSection from '../components/AuthorSection';
+import { LinkText } from '../components/LinkText';
 
 export default function PakistanTourBangladeshTestBlog() {
-  const linkKeywords = (text: string) => {
-    const keywords: Record<string, string> = {
-      'schedule': '/schedule',
-      'squad': '/squads',
-      'rankings': '/rankings',
-      'icc': '/rankings',
-      'wtc': '/icc-wtc-projections-2026',
-      'world test championship': '/icc-wtc-projections-2026'
-    };
-
-    let parts: any[] = [text];
-    
-    Object.entries(keywords).forEach(([keyword, path]) => {
-      const newParts: any[] = [];
-      parts.forEach(part => {
-        if (typeof part === 'string') {
-          const regex = new RegExp(`(${keyword})`, 'gi');
-          const splitParts = part.split(regex);
-          splitParts.forEach((sp, i) => {
-            if (sp.toLowerCase() === keyword) {
-              newParts.push(
-                <Link key={`${keyword}-${i}`} to={path} className="text-pak-green hover:underline">
-                  {sp}
-                </Link>
-              );
-            } else if (sp !== '') {
-              newParts.push(sp);
-            }
-          });
-        } else {
-          newParts.push(part);
-        }
-      });
-      parts = newParts;
-    });
-
-    return parts;
-  };
-
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
       <Link 
@@ -57,7 +19,7 @@ export default function PakistanTourBangladeshTestBlog() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-8 leading-tight">
-          Red-Ball Revival: Pakistan’s Strategic <span className="text-pak-green">Return to Bangladesh</span> in 2026
+          <LinkText text="Red-Ball Revival: Pakistan’s Strategic Return to Bangladesh in 2026" />
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -80,20 +42,20 @@ export default function PakistanTourBangladeshTestBlog() {
 
         <div className="prose prose-invert prose-p:text-ink/70 prose-p:leading-relaxed prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tighter max-w-none">
           <p className="text-xl text-white font-medium leading-relaxed mb-8 italic border-l-4 border-pak-green pl-6 italic">
-            {linkKeywords("The first Test match between Pakistan and Bangladesh in 2026 is scheduled to begin on 8 May 2026 at the Sher-e-Bangla National Cricket Stadium in Dhaka. This match is the opening fixture of a high-intensity two-Test series, which forms a critical part of the ICC World Test Championship (WTC) cycle standings.")}
+            <LinkText text="The first Test match between Pakistan and Bangladesh in 2026 is scheduled to begin on 8 May 2026 at the Sher-e-Bangla National Cricket Stadium in Dhaka. This match is the opening fixture of a high-intensity two-Test series, which forms a critical part of the ICC World Test Championship (WTC) cycle standings." />
           </p>
 
           <p>
-            {linkKeywords("The cricketing calendar for 2026 is already delivering high-stakes drama, and few encounters carry as much weight for regional pride and World Test Championship (WTC) points as the upcoming clash between Pakistan and Bangladesh. Following a spirited white-ball leg in March, the two nations are set to transition into the rigorous demands of Test cricket this May. The <strong>Pakistan upcoming series full schedule</strong> indicates that this tour is the primary focus for the subcontinental giants as they look to re-establish their red-ball dominance.")}
+            <LinkText text="The cricketing calendar for 2026 is already delivering high-stakes drama, and few encounters carry as much weight for regional pride and World Test Championship (WTC) points as the upcoming clash between Pakistan and Bangladesh. Following a spirited white-ball leg in March, the two nations are set to transition into the rigorous demands of Test cricket this May. The Pakistan upcoming series full schedule indicates that this tour is the primary focus for the subcontinental giants as they look to re-establish their red-ball dominance." />
           </p>
 
           <p className="text-ink/60 mb-8 leading-relaxed">
-            The transition from the fast-paced, high-adrenaline world of T20 and ODI cricket to the patient, technical grind of five-day Tests is one of the most difficult adjustments in modern sports. For the <strong>Pakistan cricket team</strong>, this transition is particularly significant as they aim to improve their away record in Asia. Bangladesh has become a fortress in recent years, especially in the red-ball format, where their local knowledge of the conditions has humbled many top-tier programs.
+            <LinkText text="The transition from the fast-paced, high-adrenaline world of T20 and ODI cricket to the patient, technical grind of five-day Tests is one of the most difficult adjustments in modern sports. For the Pakistan cricket team, this transition is particularly significant as they aim to improve their away record in Asia. Bangladesh has become a fortress in recent years, especially in the red-ball format, where their local knowledge of the conditions has humbled many top-tier programs." />
           </p>
 
-          <h2 className="text-3xl mt-12 mb-6">The Venue: Mirpur's "Home of Cricket" Atmosphere</h2>
+          <h2 className="text-3xl mt-12 mb-6">The Venue: Mirpur's 'Home of Cricket' Atmosphere</h2>
           <p>
-            {linkKeywords("The first Test will be hosted at the iconic Sher-e-Bangla National Cricket Stadium in Mirpur, Dhaka. Often referred to as the \"Home of Cricket\" in Bangladesh, this venue is renowned for its spin-friendly tracks and passionate atmosphere, making it a formidable challenge for any visiting side. The pitch at Mirpur is notoriously abrasive, which means the ball begins to degrade early, facilitating reverse swing for the fast bowlers and offering significant purchase for the specialized spinners.")}
+            <LinkText text="The first Test will be hosted at the iconic Sher-e-Bangla National Cricket Stadium in Mirpur, Dhaka. Often referred to as the 'Home of Cricket' in Bangladesh, this venue is renowned for its spin-friendly tracks and passionate atmosphere, making it a formidable challenge for any visiting side. The pitch at Mirpur is notoriously abrasive, which means the ball begins to degrade early, facilitating reverse swing for the fast bowlers and offering significant purchase for the specialized spinners." />
           </p>
           
           <p className="text-ink/60 leading-relaxed italic">
@@ -108,15 +70,15 @@ export default function PakistanTourBangladeshTestBlog() {
 
           <h2 className="text-3xl mt-12 mb-6">A Strategic Two-Phase Tour Analysis</h2>
           <p>
-            {linkKeywords("The 2026 tour was strategically split by the respective cricket boards into two distinct phases to accommodate a packed international schedule that includes multiple ICC events. The first phase concluded in March with a three-match ODI series, where Bangladesh secured a hard-fought 2–1 victory on their home turf. The upcoming Test leg, beginning on 8 May, marks the second phase, following a short but intensive break where both squads have been refining their red-ball skills.")}
+            <LinkText text="The 2026 tour was strategically split by the respective cricket boards into two distinct phases to accommodate a packed international schedule that includes multiple ICC events. The first phase concluded in March with a three-match ODI series, where Bangladesh secured a hard-fought 2–1 victory on their home turf. The upcoming Test leg, beginning on 8 May, marks the second phase, following a short but intensive break where both squads have been refining their red-ball skills." />
           </p>
           <p className="text-ink/60 leading-relaxed mb-8 italic border-l-2 border-white/5 pl-8">
-            The gap between the phases has allowed the <strong>Pakistan squad</strong> to rotate some of their multi-format specialists and bring in red-ball durables like Mohammad Abbas and Noman Ali. These selections indicate that Pakistan is not taking the spin challenge lightly.
+            <LinkText text="The gap between the phases has allowed the Pakistan squad to rotate some of their multi-format specialists and bring in red-ball durables like Mohammad Abbas and Noman Ali. These selections indicate that Pakistan is not taking the spin challenge lightly." />
           </p>
 
           <h2 className="text-3xl mt-12 mb-6 text-pak-green">Strategic Significance: The WTC points Equation</h2>
           <p>
-            {linkKeywords("This series is more than just a bilateral contest; it is a critical juncture for both teams in the ICC World Test Championship standings. For Pakistan, winning away from home is essential to maintain a clear path toward the WTC final in 2027. The points system in the WTC rewards consistency on the road, and a 2-0 series win in Bangladesh would be a massive boost to their qualification probability.")}
+            <LinkText text="This series is more than just a bilateral contest; it is a critical juncture for both teams in the ICC World Test Championship standings. For Pakistan, winning away from home is essential to maintain a clear path toward the WTC final in 2027. The points system in the WTC rewards consistency on the road, and a 2-0 series win in Bangladesh would be a massive boost to their qualification probability." />
           </p>
           <p className="text-ink/60 leading-relaxed mb-8">
             Bangladesh, on the other hand, is currently in a phase where they are proving they are no longer just 'home track' kings but actual contenders in the <strong>World Test Championship</strong> cycle. Securing a series win against a side like Pakistan would significantly improve their <strong>ICC rankings</strong> and provide them with the momentum needed for their upcoming tours of Australia and South Africa later in the year.
@@ -155,7 +117,7 @@ export default function PakistanTourBangladeshTestBlog() {
 
           <h2 className="text-3xl mt-12 mb-8 font-display italic border-t border-white/5 pt-8">Preparation and The Domestic Pipeline</h2>
           <p>
-            {linkKeywords("Both teams enter this Test series with fresh data from their recent domestic tournaments. The <strong>Pakistan cricket team</strong> selectors have leaned heavily on performers from the Quaid-e-Azam Trophy, ensuring that the players are match-fit and ready for the long-form grind. Red-ball resilience is the theme of the PCB's preparation camp, and the results of this focus will be visible from the first ball in Dhaka.")}
+            <LinkText text="Both teams enter this Test series with fresh data from their recent domestic tournaments. The Pakistan cricket team selectors have leaned heavily on performers from the Quaid-e-Azam Trophy, ensuring that the players are match-fit and ready for the long-form grind. Red-ball resilience is the theme of the PCB's preparation camp, and the results of this focus will be visible from the first ball in Dhaka." />
           </p>
           <p className="text-ink/60 leading-relaxed italic">
             Bangladesh, similarly, has been investing in their 'A' team program, giving their fringe players exposure to high-pressure situations. This depth means that even if a regular starter is injured, the replacement is someone who has already performed at a high level. This structural strength is what makes them such a dangerous opponent at home.

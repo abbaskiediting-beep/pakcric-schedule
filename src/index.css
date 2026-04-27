@@ -45,6 +45,27 @@
     letter-spacing: -0.01em;
   }
 
+  @media (max-width: 640px) {
+    .prose p {
+      @apply text-[15px];
+    }
+    
+    h1 { @apply text-2xl leading-tight font-black; }
+    h2 { @apply text-xl leading-tight font-black; }
+    h3 { @apply text-lg leading-tight font-bold; }
+
+    /* Utility for mobile-only padding and margins */
+    .mobile-px { @apply px-5; }
+    .mobile-py { @apply py-6; }
+    .mobile-gap { @apply gap-4; }
+  }
+
+  /* Optimized tap targets for mobile */
+  button, a {
+    @apply cursor-pointer;
+    touch-action: manipulation;
+  }
+
   /* Performance: Optimize long pages */
   section {
     content-visibility: auto;

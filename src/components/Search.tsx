@@ -52,12 +52,13 @@ export default function Search() {
 
     // Search Matches
     PAKISTAN_SCHEDULE.forEach(match => {
-      if (match.opponent.toLowerCase().includes(q) || match.venue.toLowerCase().includes(q)) {
+      const matchSearchText = `${match.opponent} ${match.venue} ${match.format} ${match.series}`.toLowerCase();
+      if (matchSearchText.includes(q)) {
         searchResults.push({
           id: `match-${match.id}`,
           type: 'match',
           title: `vs ${match.opponent}`,
-          subtitle: `${match.format} - ${match.date}`,
+          subtitle: `${match.format} • ${match.series} • ${match.date}`,
           link: `/match/${match.id}`
         });
       }
@@ -97,41 +98,41 @@ export default function Search() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="p-3 rounded-full bg-card-bg border border-card-border hover:border-white/30 transition-all text-ink focus:outline-none focus:ring-2 focus:ring-pak-green/50 active:scale-95"
+        className="p-1 sm:p-2.5 rounded-xl sm:rounded-full bg-card-bg border border-card-border hover:border-pak-green hover:text-pak-green transition-all text-ink focus:outline-none focus:ring-2 focus:ring-pak-green/50 active:scale-95 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 shadow-sm"
         aria-label="Search"
       >
-        <SearchIcon className="w-5 h-5" />
+        <SearchIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
       </button>
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] flex items-start justify-center pt-24 px-4 bg-black/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[100] flex items-start justify-center pt-0 sm:pt-24 px-0 sm:px-4 bg-black/80 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="w-full max-w-2xl bg-card-bg border border-card-border rounded-[32px] shadow-2xl overflow-hidden"
+              exit={{ opacity: 0, scale: 0.98, y: 10 }}
+              className="w-full max-w-2xl bg-card-bg sm:border border-card-border sm:rounded-[40px] shadow-2xl overflow-hidden h-full sm:h-auto"
             >
-              <div className="relative p-6 border-b border-card-border">
-                <SearchIcon className="absolute left-10 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
+              <div className="relative p-5 sm:p-8 border-b border-card-border bg-card-bg/50 backdrop-blur-xl">
+                <SearchIcon className="absolute left-10 sm:left-14 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                 <input
                   ref={inputRef}
                   type="text"
-                  placeholder="Search players, matches, or series..."
-                  className="w-full pl-12 pr-12 py-4 bg-white/5 rounded-2xl border-none text-ink placeholder:text-neutral-500 focus:ring-2 focus:ring-pak-green outline-none font-display text-lg tracking-tight"
+                  placeholder="SEARCH Hub..."
+                  className="w-full pl-12 sm:pl-16 pr-12 py-4 bg-white/5 rounded-2xl border-none text-ink placeholder:text-neutral-600 focus:ring-2 focus:ring-pak-green/30 outline-none font-display text-xl sm:text-2xl tracking-tighter uppercase font-bold"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
                 />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute right-10 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 transition-colors text-neutral-500"
+                  className="absolute right-10 top-1/2 -translate-y-1/2 p-3 rounded-full hover:bg-white/10 transition-colors text-neutral-500"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-6 h-6" />
                 </button>
               </div>
 
-              <div className="max-h-[60vh] overflow-y-auto p-4 custom-scrollbar">
+              <div className="max-h-[calc(100vh-140px)] sm:max-h-[60vh] overflow-y-auto p-4 sm:p-8 custom-scrollbar">
                 {results.length > 0 ? (
                   <div className="space-y-2">
                     {results.map((result) => (
@@ -162,7 +163,7 @@ export default function Search() {
                   <div className="p-12 text-center text-neutral-500">
                     <p className="text-xs uppercase tracking-[4px] mb-6">Quick Suggestions</p>
                     <div className="flex flex-wrap justify-center gap-3">
-                      {['Babar Azam', 'Bangladesh Special', 'Home Series', 'Schedule 2026'].map(tag => (
+                      {['Babar Azam', 'Test Matches', 'ODI Series', 'T20I', 'England Tour', 'Bangladesh Series'].map(tag => (
                         <button
                           key={tag}
                           onClick={() => setQuery(tag)}

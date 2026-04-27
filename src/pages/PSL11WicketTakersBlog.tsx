@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Target, Calendar, Users, Star, TrendingUp, Award, ArrowLeft, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AuthorSection from '../components/AuthorSection';
+import { LinkText } from '../components/LinkText';
 
 export default function PSL11WicketTakersBlog() {
   const bowlingTable = [
@@ -31,7 +32,7 @@ export default function PSL11WicketTakersBlog() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-8 leading-tight">
-          Master of the <span className="text-rose-600">Maroon Cap</span>: Top 10 Wicket-Takers of PSL 11
+          <LinkText text="Master of the Maroon Cap: Top 10 Wicket-Takers of PSL 11" />
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -54,11 +55,11 @@ export default function PSL11WicketTakersBlog() {
 
         <div className="prose prose-invert prose-p:text-ink/70 prose-p:leading-relaxed prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tighter max-w-none">
           <p className="text-xl text-white font-medium leading-relaxed mb-8 italic border-l-4 border-rose-600 pl-6">
-            As of the conclusion of the PSL 11 league stage on 27 April 2026, Sufiyan Muqeem of Peshawar Zalmi leads the bowling charts with 19 wickets, holding the prestigious Maroon Cap. He is followed by Shaheen Shah Afridi (16 wickets) and Hasan Ali (15 wickets). While Shaheen and Hasan will not add to their tallies as their teams were eliminated, Muqeem and others in the top 10 from playoff-bound teams have a chance to secure the Fazal Mahmood Award.
+            <LinkText text="As of the conclusion of the PSL 11 league stage on 27 April 2026, Sufiyan Muqeem of Peshawar Zalmi leads the bowling charts with 19 wickets, holding the prestigious Maroon Cap. He is followed by Shaheen Shah Afridi (16 wickets) and Hasan Ali (15 wickets). While Shaheen and Hasan will not add to their tallies as their teams were eliminated, Muqeem and others in the top 10 from playoff-bound teams have a chance to secure the Fazal Mahmood Award." />
           </p>
 
           <p>
-            While batters often steal the limelight with towering sixes, the 11th edition of the Pakistan Super League (PSL) in 2026 has been a showcase of bowling masterclasses. From Sufiyan Muqeem’s lethal left-arm wrist spin to the high-velocity pace of the usual suspects, the race for the Maroon Cap has been one of the most competitive in recent memory.
+            <LinkText text="While batters often steal the limelight with towering sixes, the 11th edition of the Pakistan Super League (PSL) in 2026 has been a showcase of bowling masterclasses. From Sufiyan Muqeem’s lethal left-arm wrist spin to the high-velocity pace of the usual suspects, the race for the Maroon Cap has been one of the most competitive in recent memory." />
           </p>
 
           <h2 className="text-3xl mt-12 mb-6">The Top 10 Bowling Leaderboard (League Stage Results)</h2>
@@ -90,10 +91,14 @@ export default function PSL11WicketTakersBlog() {
                       </span>
                     </td>
                     <td className="p-6">
-                      <p className="text-sm font-bold text-white group-hover:text-rose-400 transition-colors">{row.player}</p>
+                      <p className="text-sm font-bold text-white group-hover:text-rose-400 transition-colors">
+                        <LinkText text={row.player} />
+                      </p>
                     </td>
                     <td className="p-6">
-                      <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{row.team}</p>
+                      <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
+                        <LinkText text={row.team} />
+                      </p>
                     </td>
                     <td className="p-6 text-center">
                       <p className="text-sm font-black text-white tabular-nums">{row.wickets}</p>
@@ -118,33 +123,41 @@ export default function PSL11WicketTakersBlog() {
           <div className="space-y-12">
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-rose-600 group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">1. The Rise of Sufiyan Muqeem (Peshawar Zalmi)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="1. The Rise of Sufiyan Muqeem (Peshawar Zalmi)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                Emerging as the primary match-winner for the "Yellow Storm," Muqeem has been unplayable during the middle overs. His 19 wickets at a strike rate of 11.37 mean he strikes nearly twice every match. Holding the Maroon Cap, he is the heavy favorite to win the Fazal Mahmood Award for the tournament's leading bowler.
+                <LinkText text="Emerging as the primary match-winner for the 'Yellow Storm,' Muqeem has been unplayable during the middle overs. His 19 wickets at a strike rate of 11.37 mean he strikes nearly twice every match. Holding the Maroon Cap, he is the heavy favorite to win the Fazal Mahmood Award for the tournament's leading bowler." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-rose-600 group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">2. The Wicket-Taking Efficiency of Shadab Khan (Islamabad United)</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="2. The Wicket-Taking Efficiency of Shadab Khan (Islamabad United)" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                While others have more wickets, Shadab Khan has arguably been the most efficient. His average of 12.93 and economy of 6.46 are the best among the top 10, highlighting his ability to both take wickets and choke the scoring rate.
+                <LinkText text="While others have more wickets, Shadab Khan has arguably been the most efficient. His average of 12.93 and economy of 6.46 are the best among the top 10, highlighting his ability to both take wickets and choke the scoring rate." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-rose-600 group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">3. Early Blows: The Iftikhar Ahmed Experiment</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="3. Early Blows: The Iftikhar Ahmed Experiment" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                One of the tactical surprises of 2026 was using Iftikhar Ahmed in the powerplay. He rewarded Peshawar Zalmi with 12 wickets, including a career-best 4/9 against Hyderabad Kingsmen, becoming one of only four bowlers in PSL history to take four wickets inside the powerplay.
+                <LinkText text="One of the tactical surprises of 2026 was using Iftikhar Ahmed in the powerplay. He rewarded Peshawar Zalmi with 12 wickets, including a career-best 4/9 against Hyderabad Kingsmen, becoming one of only four bowlers in PSL history to take four wickets inside the powerplay." />
               </p>
             </div>
 
             <div className="relative pl-12 border-l border-white/10 group">
               <div className="absolute left-[-8px] top-1 w-4 h-4 rounded-full bg-rose-600 group-hover:scale-125 transition-transform" />
-              <h3 className="text-xl font-display font-bold text-white mb-4 italic">4. Farewell to the Leaders</h3>
+              <h3 className="text-xl font-display font-bold text-white mb-4 italic">
+                <LinkText text="4. Farewell to the Leaders" />
+              </h3>
               <p className="text-ink/70 leading-relaxed italic">
-                A significant twist as the league stage wrapped up is the elimination of Lahore Qalandars and Karachi Kings. This means that Shaheen Shah Afridi (16 wickets) and Hasan Ali (15 wickets), currently 2nd and 3rd on the list, cannot increase their tallies, leaving the door wide open for Shadab Khan and Mohammad Ali to overtake them during the playoffs.
+                <LinkText text="A significant twist as the league stage wrapped up is the elimination of Lahore Qalandars and Karachi Kings. This means that Shaheen Shah Afridi (16 wickets) and Hasan Ali (15 wickets), currently 2nd and 3rd on the list, cannot increase their tallies, leaving the door wide open for Shadab Khan and Mohammad Ali to overtake them during the playoffs." />
               </p>
             </div>
           </div>

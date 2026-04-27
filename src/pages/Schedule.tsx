@@ -128,15 +128,15 @@ export default function Schedule() {
       </Helmet>
 
       {/* Header Section */}
-      <div className="mb-10 md:mb-12">
+      <div className="mb-8 md:mb-12">
         <motion.div 
           initial={{ opacity: 0, x: -20 }} 
           animate={{ opacity: 1, x: 0 }}
         >
-          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-3 md:mb-4">
+          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4 md:mb-6">
             <ArrowLeft className="w-4 h-4" /> Back to Dashboard
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 text-white max-w-4xl leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 text-white max-w-4xl leading-tight">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
           </h1>
           <div className="max-w-3xl space-y-4 mb-8 md:mb-10">
@@ -238,8 +238,8 @@ export default function Schedule() {
       </div>
 
 
-      {/* Format Filter Bar */}
-      <div className="flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-card-bg border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-3">
+      {/* Format Filter Bar - Sticky on Mobile */}
+      <div className="sticky top-28 sm:top-36 z-30 flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-bg/80 backdrop-blur-xl border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-3">
         {formats.map(f => (
           <button
             key={f}
@@ -247,7 +247,7 @@ export default function Schedule() {
             className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 ${
               filterFormat === f 
                 ? 'bg-pak-green text-white shadow-pak-green/40 shadow-xl scale-105' 
-                : 'text-ink/30 hover:text-ink hover:bg-white/5'
+                : 'text-neutral-500 hover:text-ink hover:bg-white/5'
             }`}
           >
             {f}

@@ -13,6 +13,8 @@ import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 
+import { LinkText } from '../components/LinkText';
+
 export default function MatchDetail() {
   const { id } = useParams();
   const match = [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS].find(m => m.id === id);
@@ -37,7 +39,7 @@ export default function MatchDetail() {
   if (!match) return <div className="p-12 text-center text-ink/60">Match not found</div>;
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-6">
+    <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-6">
       <Helmet>
         <title>{`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`}</title>
         <meta name="description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates for the ${match.series}.`} />
@@ -121,16 +123,16 @@ export default function MatchDetail() {
         <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
-           className="md:col-span-3 bg-gradient-to-br from-[#0a4d2e] via-pak-green to-black rounded-3xl md:rounded-[48px] p-6 md:p-16 text-center border border-white/10 relative overflow-hidden shadow-3xl"
+           className="md:col-span-3 bg-gradient-to-br from-[#0a4d2e] via-pak-green to-black rounded-3xl md:rounded-[48px] p-6 sm:p-10 md:p-16 text-center border border-white/10 relative overflow-hidden shadow-3xl"
         >
-          <div className="absolute inset-0 opacity-[0.07] flex items-center justify-center pointer-events-none select-none mix-blend-soft-light">
-             <span className="text-[150px] md:text-[300px] font-display font-black italic tracking-tighter">
+          <div className="absolute inset-0 opacity-[0.05] flex items-center justify-center pointer-events-none select-none mix-blend-soft-light">
+             <span className="text-[120px] sm:text-[200px] md:text-[300px] font-display font-black italic tracking-tighter">
                {match.status === 'Live' ? 'LIVE' : 'VS'}
              </span>
           </div>
           
           <div className="relative z-10">
-             <div className="flex flex-col items-center gap-4 mb-10">
+             <div className="flex flex-col items-center gap-4 mb-8 md:mb-10">
                <span className="px-4 py-1.5 bg-white text-black rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] shadow-lg">{match.series}</span>
                {match.status === 'Live' && (
                  <div className="flex items-center gap-2.5 px-4 py-1.5 bg-red-600/20 text-red-100 rounded-full text-[9px] font-black uppercase tracking-widest border border-red-500/30 animate-pulse backdrop-blur-sm">
@@ -140,30 +142,30 @@ export default function MatchDetail() {
                )}
              </div>
              
-             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 mb-14">
+             <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-20 mb-10 md:mb-14">
                 <div className="flex flex-col items-center">
-                   <div className="relative mb-6">
-                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1.5 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transform hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-white rounded-md text-[10px] font-black text-black">PAK</div>
+                   <div className="relative mb-4 md:mb-6">
+                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-white rounded-md text-[8px] md:text-[10px] font-black text-black">PAK</div>
                    </div>
-                   <h2 className="text-2xl md:text-5xl font-display font-black text-white tracking-widest">PAKISTAN</h2>
+                   <h2 className="text-xl sm:text-2xl md:text-5xl font-display font-black text-white tracking-widest">PAKISTAN</h2>
                    {match.scorePAK && (
-                     <div className="mt-3 text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
+                     <div className="mt-3 text-3xl sm:text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
                    )}
                 </div>
 
-                <div className="text-4xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic">
+                <div className="text-3xl sm:text-4xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic">
                   {match.status === 'Live' || match.status === 'Completed' ? '-' : 'VS'}
                 </div>
 
                 <div className="flex flex-col items-center">
-                   <div className="relative mb-6">
-                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1.5 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transform hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-white rounded-md text-[10px] font-black text-black">{match.opponent.substring(0, 3)}</div>
+                   <div className="relative mb-4 md:mb-6">
+                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-white rounded-md text-[8px] md:text-[10px] font-black text-black">{match.opponent.substring(0, 3)}</div>
                    </div>
-                   <h2 className="text-2xl md:text-5xl font-display font-black text-white uppercase tracking-widest">{match.opponent}</h2>
+                   <h2 className="text-xl sm:text-2xl md:text-5xl font-display font-black text-white uppercase tracking-widest">{match.opponent}</h2>
                    {match.scoreOpponent && (
-                     <div className="mt-3 text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
+                     <div className="mt-3 text-3xl sm:text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
                    )}
                 </div>
              </div>
@@ -387,7 +389,7 @@ export default function MatchDetail() {
                   <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white">Pre-Match Analysis</h2>
                 </div>
                 <div className="prose prose-invert prose-sm md:prose-base max-w-none prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-pak-green prose-p:text-ink/70 prose-strong:text-white prose-li:text-ink/70">
-                  <Markdown>{match.preMatchAnalysis}</Markdown>
+                  <LinkText text={match.preMatchAnalysis} />
                 </div>
               </div>
             )}
@@ -399,7 +401,7 @@ export default function MatchDetail() {
                   <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white">Post-Match Summary</h2>
                 </div>
                 <div className="prose prose-invert prose-sm md:prose-base max-w-none prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-pak-green prose-p:text-ink/70 prose-strong:text-white prose-li:text-ink/70">
-                  <Markdown>{match.postMatchSummary}</Markdown>
+                  <LinkText text={match.postMatchSummary} />
                 </div>
               </div>
             )}

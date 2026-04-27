@@ -115,8 +115,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'psl-11-qualifier-1-preview-2026',
-    title: 'Peshawar vs Islamabad 1st Qualifier Match 2026: Road to the Final',
-    summary: 'A high-stakes showdown between table-toppers Peshawar Zalmi and Islamabad United for a direct spot in the PSL 11 Final.',
+    title: 'PSL 11 Qualifier 1: PZ vs ISU Playing XI, Match Preview & Prediction',
+    summary: 'A complete breakdown of PSL 11 Qualifier 1: Peshawar Zalmi vs Islamabad United playing XI, key battles, match preview, and expert winner prediction at Karachi.',
     date: 'April 27, 2026',
     category: 'Match Preview',
     path: '/psl-11-qualifier-1-showdown-2026',

@@ -17,13 +17,13 @@ export default function Nav() {
   ];
 
   return (
-    <nav className="bg-card-bg border-b border-card-border overflow-x-auto custom-scrollbar sticky top-16 md:top-20 z-40 shadow-lg scrollbar-hide">
-      <div className="container mx-auto px-4 sm:px-6 h-12 sm:h-14 flex items-center gap-1 whitespace-nowrap">
+    <nav className="bg-card-bg border-b border-card-border overflow-x-auto custom-scrollbar sticky top-14 sm:top-20 z-40 shadow-lg scrollbar-hide">
+      <div className="container mx-auto px-4 sm:px-6 h-11 sm:h-14 flex items-center gap-0.5 sm:gap-1 whitespace-nowrap">
         {links.map((link) => (
           <Link
             key={link.path}
             to={link.path}
-            className={`h-full flex items-center px-4 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all relative group ${
+            className={`h-full flex items-center px-3 sm:px-4 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all relative group ${
               link.highlight 
                 ? 'bg-pak-green text-white hover:bg-pak-green/90 shadow-lg shadow-pak-green/20' 
                 : 'text-ink/60 hover:text-pak-green hover:bg-pak-green/5'

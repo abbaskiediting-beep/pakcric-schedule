@@ -5,7 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import { PLAYER_STATS } from '../playerData';
 import { 
   ChevronLeft, User, TrendingUp, Award, Star, 
-  Target, Zap, Activity, Info, FileText, Save, Trash2, ArrowUpRight
+  Target, Zap, Activity, Info, FileText, Save, Trash2, ArrowUpRight,
+  Share2, Check
 } from 'lucide-react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
@@ -16,6 +17,7 @@ export default function PlayerStats() {
   const [notes, setNotes] = useState('');
   const [isSaving, setIsSaving] = useState(false);
   const [showSavedMsg, setShowSavedMsg] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   
   // Find player by name (handling slug)
   const playerName = name?.replace(/-/g, ' ');
@@ -50,6 +52,29 @@ export default function PlayerStats() {
     if (window.confirm('Are you sure you want to delete your notes for this player?')) {
       setNotes('');
       localStorage.removeItem(`scouting_notes_${player.name}`);
+    }
+  };
+
+  const handleShare = async () => {
+    if (!player) return;
+    const shareData = {
+      title: `${player.name} - Pakistan Cricket Stats 2026`,
+      text: `Check out ${player.name}'s latest cricket stats and records for the 2026 season!`,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000);
+      }
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') {
+        console.error('Error sharing:', err);
+      }
     }
   };
 
@@ -138,10 +163,28 @@ export default function PlayerStats() {
               )}
             </div>
             
-            <div className="min-w-0">
-              <span className="px-3 sm:px-4 py-1 bg-pak-green text-white rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-[2px] sm:tracking-[4px] mb-2 sm:mb-6 inline-block">
-                {player.role}
-              </span>
+            <div className="min-w-0 flex-grow">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 sm:gap-4 mb-2 sm:mb-6">
+                <span className="px-3 sm:px-4 py-1 bg-pak-green text-white rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-[2px] sm:tracking-[4px] inline-block w-fit">
+                  {player.role}
+                </span>
+                <button 
+                  onClick={handleShare}
+                  className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-ink/40 hover:text-pak-green hover:border-pak-green/30 hover:bg-pak-green/10 transition-all w-fit group/share"
+                >
+                  {isCopied ? (
+                    <>
+                      <Check className="w-3 h-3 text-pak-green" />
+                      <span className="text-pak-green">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="w-3 h-3 group-hover/share:scale-110 transition-transform" />
+                      <span>Share Profile</span>
+                    </>
+                  )}
+                </button>
+              </div>
               <h1 className="text-2xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words">
                 {player.name} <span className="text-pak-green block md:inline font-normal italic opacity-30 text-lg sm:text-2xl md:text-4xl">#2026</span>
               </h1>
