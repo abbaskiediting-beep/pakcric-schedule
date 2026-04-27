@@ -136,11 +136,7 @@ export default function Home() {
       </Helmet>
       {/* High Conversion Hero Section */}
       <section className="mb-12 md:mb-20 mt-4 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-6 md:mb-8 backdrop-blur-md">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[3px] text-white">Live 2026 Season Coverage</span>
@@ -202,7 +198,7 @@ export default function Home() {
               Fast updates • 100% free • Fans first point
             </p>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Dynamic Scoreboard Row */}
@@ -528,9 +524,9 @@ export default function Home() {
         <section className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6">
+              <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6">
                 Why <span className="text-pak-green">PakCric Schedule</span> is Different
-              </h2>
+              </h3>
               <p className="text-ink/60 font-medium leading-relaxed mb-8">
                 There are plenty of cricket websites out there, but most of them are either cluttered or outdated. We focus on what really matters—accuracy and speed. This platform is built specifically for fans who want quick, reliable, and distraction-free cricket information.
               </p>
@@ -558,9 +554,9 @@ export default function Home() {
 
         {/* Full Year Schedule Section */}
         <section className="text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6">
+          <h3 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6">
             Pakistan Cricket <span className="text-pak-green">Full Schedule 2026</span>
-          </h2>
+          </h3>
           <p className="text-ink/60 font-medium leading-relaxed mb-10">
             The 2026 season is packed with exciting tours and tournaments. From bilateral series to global events, Pakistan has a busy cricket calendar. On this website, you can explore complete yearly fixtures, series-wise match breakdown, and <Link to="/schedule" className="text-pak-green hover:underline">tournament schedules</Link>. Everything is structured to help you find exactly what you're looking for within seconds.
           </p>
@@ -581,9 +577,9 @@ export default function Home() {
         {/* Match Details Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2 bg-gradient-to-br from-white/5 to-transparent border border-white/5 rounded-3xl md:rounded-[40px] p-7 md:p-10">
-            <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
+            <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
               Detailed Match Information
-            </h2>
+            </h3>
             <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed mb-8">
               Each match on PakCric Schedule comes with essential details so you don’t have to search anywhere else. We keep things simple but informative—perfect for both casual viewers and serious fans.
             </p>
@@ -597,7 +593,7 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-pak-green rounded-3xl md:rounded-[40px] p-8 md:p-10 flex flex-col justify-center text-white">
-            <h2 className="text-2xl font-display font-bold uppercase mb-4 leading-tight">Stay Informed, Always</h2>
+            <h3 className="text-2xl font-display font-bold uppercase mb-4 leading-tight">Stay Informed, Always</h3>
             <p className="text-white/80 text-[11px] md:text-xs font-medium leading-relaxed mb-6">
               Cricket schedules can change—and when they do, we make sure you know about it. Our platform is regularly updated for accuracy.
             </p>

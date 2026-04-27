@@ -58,7 +58,7 @@ const PageLoader = () => (
 const SEO = () => {
   const location = useLocation();
   const baseUrl = 'https://pakcric-schedule.online';
-  const canonicalUrl = `${baseUrl}${location.pathname === '/' ? '' : location.pathname}`;
+  const canonicalUrl = `${baseUrl}${location.pathname}`;
 
   return (
     <Helmet>
