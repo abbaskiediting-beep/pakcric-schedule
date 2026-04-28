@@ -64,7 +64,7 @@ export default function PakistanTourBangladeshTestBlog() {
 
           <div className="bg-pak-green/10 rounded-[32px] p-10 my-10 border border-pak-green/20 text-center shadow-inner">
             <Link to="/pakistan-vs-bangladesh-2026-schedule" className="text-pak-green font-bold uppercase tracking-[4px] text-[12px] hover:underline hover:text-white transition-colors italic">
-              Unlock Detailed Daily Match Progress & Official Live Schedule
+              Unlock Detailed Daily Match Progress & Accurate Live Schedule
             </Link>
           </div>
 
@@ -135,7 +135,7 @@ export default function PakistanTourBangladeshTestBlog() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Link to="/pakistan-tour-bangladesh-squad-2026" className="p-8 bg-white/5 border border-white/5 rounded-[32px] hover:border-pak-green transition-all group hover:bg-white/[0.08] shadow-lg">
                 <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-3 italic tracking-[4px]">Deep Dive Analysis</p>
-                <h4 className="text-xl text-white font-bold group-hover:text-pak-green transition-colors leading-tight font-display mb-4">Official 16-Member Squad & Series Roadmap</h4>
+                <h4 className="text-xl text-white font-bold group-hover:text-pak-green transition-colors leading-tight font-display mb-4">Confirmed 16-Member Squad & Series Roadmap</h4>
                 <p className="text-xs text-ink/40 italic leading-relaxed">Analyzing the specific technical value each player brings to the upcoming tour of Bangladesh.</p>
               </Link>
               <Link to="/red-ball-resilience-overview-2026" className="p-8 bg-white/5 border border-white/5 rounded-[32px] hover:border-pak-green transition-all group hover:bg-white/[0.08] shadow-lg">

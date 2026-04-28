@@ -26,7 +26,7 @@ export default function Privacy() {
         <section>
            <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-3">3. External Links</h3>
            <p className="text-xs text-ink/80 leading-relaxed font-medium">
-             Our site contains links to official PCB social media and ticketing partners. We are not responsible for the privacy practices of external sites.
+             Our site contains links to verified PCB social media and ticketing partners. We are not responsible for the privacy practices of external sites.
            </p>
         </section>
       </div>

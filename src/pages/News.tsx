@@ -36,7 +36,7 @@ export default function News() {
             Cricket in Pakistan moves fast — <Link to="/squads" className="text-pak-green hover:underline">squad changes</Link>, <Link to="/schedule" className="text-pak-green hover:underline">match results</Link>, injuries, and big moments happen all the time. Keeping up with everything can be difficult if you’re checking multiple sources.
           </p>
           <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed">
-            That’s why this page brings together the latest <Link to="/news" className="text-pak-green hover:underline">Pakistan cricket news</Link> and updates in one place. From <Link to="/squads" className="text-pak-green hover:underline">official announcements</Link> to <Link to="/news" className="text-pak-green hover:underline">match previews</Link> and key <Link to="/news" className="text-pak-green hover:underline">highlights</Link>, everything is presented in a simple and easy-to-read format.
+            That’s why this page brings together the latest <Link to="/news" className="text-pak-green hover:underline">Pakistan cricket news</Link> and updates in one place. From <Link to="/squads" className="text-pak-green hover:underline">verified announcements</Link> to <Link to="/news" className="text-pak-green hover:underline">match previews</Link> and key <Link to="/news" className="text-pak-green hover:underline">highlights</Link>, everything is presented in a simple and easy-to-read format.
           </p>
         </div>
       </motion.div>

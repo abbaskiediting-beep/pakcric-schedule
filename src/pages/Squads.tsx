@@ -200,10 +200,10 @@ export default function Squads() {
         
         <div className="max-w-3xl space-y-4 md:space-y-6 mb-8 md:mb-12">
           <p className="text-lg sm:text-xl text-ink/80 font-medium leading-relaxed">
-            Finding the <Link to="/squads" className="text-pak-green hover:underline">official Pakistan Cricket Team Squad 2026</Link> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
+            Finding the <Link to="/squads" className="text-pak-green hover:underline">latest Pakistan Cricket Team Squad 2026</Link> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
           </p>
           <p className="text-sm sm:text-base text-ink/60 font-medium leading-relaxed">
-            Here, you’ll find the latest <Link to="/squads" className="text-pak-green hover:underline">Pakistan Squad 2026</Link> player details, roles, and <Link to="/news" className="text-pak-green hover:underline">squad updates</Link> for <Link to="/schedule" className="text-pak-green hover:underline">upcoming matches and series</Link>. Whether you're looking for the <Link to="/squads" className="text-pak-green hover:underline">official lineup</Link> or just want to see who’s been selected, this page makes it simple.
+            Here, you’ll find the latest <Link to="/squads" className="text-pak-green hover:underline">Pakistan Squad 2026</Link> player details, roles, and <Link to="/news" className="text-pak-green hover:underline">squad updates</Link> for <Link to="/schedule" className="text-pak-green hover:underline">upcoming matches and series</Link>. Whether you're looking for the <Link to="/squads" className="text-pak-green hover:underline">confirmed lineup</Link> or just want to see who’s been selected, this page makes it simple.
           </p>
         </div>
 
@@ -257,7 +257,7 @@ export default function Squads() {
               Pakistan Latest Squad <span className="text-pak-green">(2026)</span>
             </h2>
             <p className="text-sm md:text-base text-ink/60 font-medium max-w-2xl">
-              Below is the most recent Pakistan cricket squad announced for the current or upcoming series. Each squad is updated as soon as official announcements are made.
+              Below is the most recent Pakistan cricket squad announced for the current or upcoming series. Each squad is updated as soon as confirmed announcements are made.
             </p>
           </div>
           <div className="self-start md:self-auto px-4 md:px-6 py-2 rounded-full bg-pak-green/10 border border-pak-green/20 text-pak-green text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
@@ -556,7 +556,7 @@ export default function Squads() {
                 <Info className="w-6 h-6" />
               </div>
               <h4 className="text-sm font-bold uppercase tracking-widest text-white">Accurate & Verified</h4>
-              <p className="text-xs text-ink/60 leading-relaxed font-medium">We cross-reference every selection with official PCB announcements and match-day signals.</p>
+              <p className="text-xs text-ink/60 leading-relaxed font-medium">We cross-reference every selection with verified PCB announcements and match-day signals.</p>
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-pak-green/20 flex items-center justify-center text-pak-green">
@@ -596,7 +596,7 @@ export default function Squads() {
           </div>
           <div className="bg-card-bg border border-card-border rounded-3xl p-8 flex flex-col items-center text-center">
             <TrendingUp className="w-10 h-10 text-pak-green mb-4" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-4 italic">Official List</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-4 italic">Verified List</span>
             <Link to="/schedule" className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all w-full">
               Pakistan Schedule
             </Link>

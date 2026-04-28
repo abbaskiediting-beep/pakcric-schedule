@@ -1,4 +1,4 @@
-import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info } from 'lucide-react';
+import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info, Share2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { Link } from 'react-router-dom';
@@ -128,26 +128,46 @@ export default function Schedule() {
       </Helmet>
 
       {/* Header Section */}
-      <div className="mb-8 md:mb-12">
+      <div className="mb-6 md:mb-12">
         <motion.div 
           initial={{ opacity: 0, x: -20 }} 
           animate={{ opacity: 1, x: 0 }}
         >
-          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4 md:mb-6">
-            <ArrowLeft className="w-4 h-4" /> Back to Dashboard
+          <Link to="/" className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4 md:mb-6">
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Back to Dashboard
           </Link>
-          <h1 className="text-2xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 text-white max-w-4xl leading-tight">
-            Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
-          </h1>
-          <div className="max-w-3xl space-y-4 mb-8 md:mb-10">
-            <p className="text-base md:text-xl text-ink/70 font-medium leading-relaxed">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 md:mb-6">
+            <h1 className="text-xl sm:text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white leading-tight">
+              Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
+            </h1>
+            <button 
+              onClick={() => {
+                const shareData = {
+                  title: 'Pakistan Cricket Schedule 2026',
+                  text: 'Check out the complete Pakistan cricket schedule for the 2026 season!',
+                  url: window.location.href
+                };
+                if (navigator.share) {
+                  navigator.share(shareData);
+                } else {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert('Link copied to clipboard!');
+                }
+              }}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:border-pak-green/20 transition-all w-fit"
+            >
+              <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span>Share Schedule</span>
+            </button>
+          </div>
+          <div className="max-w-3xl space-y-3 sm:space-y-4 mb-6 md:mb-10">
+            <p className="text-sm sm:text-base md:text-xl text-ink/70 font-medium leading-relaxed">
               We bring you the <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket schedule 2026</Link> with <strong>complete match details</strong> for every <Link to="/pakistan-upcoming-series-full-schedule" className="text-pak-green hover:underline">upcoming series</Link>, international tour, and major tournament. Fans can look forward to a busy year as Pakistan competes across all formats, including <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test</Link>, <Link to="/icc-odi-ranking-2026" className="text-pak-green hover:underline">ODI</Link>, and <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 matches</Link>.
             </p>
             <p className="text-sm text-ink/50 font-medium leading-relaxed">
               On this page, you’ll find the <Link to="/schedule" className="text-pak-green hover:underline">complete Pakistan cricket schedule</Link>, including <Link to="/pakistan-next-tour-details" className="text-pak-green hover:underline">match dates, venues, and timings</Link> — all organized in a simple and easy-to-follow format. Whether you're planning to watch live matches or just want to stay updated, this page has everything you need.
             </p>
             <p className="text-[11px] font-bold uppercase tracking-[4px] text-pak-green/60 pt-4">
-              Fastest Updates • <Link to="/news" className="text-pak-green hover:underline">Official Timings</Link> • Venue Directions
+              Fastest Updates • <Link to="/news" className="text-pak-green hover:underline">Verified Timings</Link> • Venue Directions
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -170,7 +190,7 @@ export default function Schedule() {
           </h2>
           <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
             <p className="text-lg">
-              Pakistan is set to play multiple <Link to="/schedule" className="text-pak-green hover:underline">international matches</Link> throughout 2026. These include bilateral series as well as <Link to="/schedule" className="text-pak-green hover:underline">global tournaments</Link>. The <Link to="/schedule" className="text-pak-green hover:underline">fixture list</Link> is updated regularly to ensure accuracy and reflect official PCB announcements. You can also view the <a href="https://www.icc-cricket.com/tournaments/calendar" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">official ICC tournament calendar</a> for global event planning.
+              Pakistan is set to play multiple <Link to="/schedule" className="text-pak-green hover:underline">international matches</Link> throughout 2026. These include bilateral series as well as <Link to="/schedule" className="text-pak-green hover:underline">global tournaments</Link>. The <Link to="/schedule" className="text-pak-green hover:underline">fixture list</Link> is updated regularly to ensure accuracy and reflect verified PCB announcements. You can also view the <a href="https://www.icc-cricket.com/tournaments/calendar" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">standard ICC tournament calendar</a> for global event planning.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               {[
@@ -239,12 +259,12 @@ export default function Schedule() {
 
 
       {/* Format Filter Bar - Sticky on Mobile */}
-      <div className="sticky top-28 sm:top-36 z-30 flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-bg/80 backdrop-blur-xl border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-3">
+      <div className="sticky top-28 sm:top-36 z-30 flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap items-center gap-1.5 md:gap-2 mb-8 bg-bg/80 backdrop-blur-xl border border-card-border p-1.5 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-3 snap-x snap-mandatory">
         {formats.map(f => (
           <button
             key={f}
             onClick={() => setFilterFormat(f)}
-            className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 ${
+            className={`whitespace-nowrap px-5 md:px-10 py-2 md:py-3 rounded-lg md:rounded-2xl text-[8px] md:text-[10px] font-bold uppercase tracking-[1.5px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 ${
               filterFormat === f 
                 ? 'bg-pak-green text-white shadow-pak-green/40 shadow-xl scale-105' 
                 : 'text-neutral-500 hover:text-ink hover:bg-white/5'
@@ -571,7 +591,7 @@ export default function Schedule() {
             This page is designed to give you quick and accurate access to Pakistan’s full cricket schedule without any confusion. Instead of searching multiple websites, you can find everything here: Match dates, Venues, Timings, and Series details.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {['Accurate Dates', 'Official Venues', 'PKT Timings'].map((feature, i) => (
+            {['Accurate Dates', 'Verified Venues', 'PKT Timings'].map((feature, i) => (
               <div key={i} className="p-6 bg-white/5 border border-white/5 rounded-2xl">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-pak-green">{feature}</span>
               </div>

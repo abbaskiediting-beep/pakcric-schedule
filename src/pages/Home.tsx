@@ -135,18 +135,18 @@ export default function Home() {
         </script>
       </Helmet>
       {/* High Conversion Hero Section */}
-      <section className="mb-12 md:mb-20 mt-4 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
+      <section className="mb-10 md:mb-20 mt-2 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-6 md:mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-4 md:mb-8 backdrop-blur-md">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[3px] text-white">Live 2026 Season Coverage</span>
+            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white mb-4 md:mb-6">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white mb-4 md:mb-6">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black">Never Miss a Match</span>
           </h1>
           
-          <p className="text-sm sm:text-base md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
+          <p className="text-sm xs:text-base md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
             Get the full <strong>Pakistan cricket schedule 2026</strong> for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and <strong>never miss a match</strong>.
           </p>
           <p className="text-[10px] md:text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10">
@@ -207,10 +207,10 @@ export default function Home() {
       {/* Dynamic Scoreboard Row */}
       <section id="match-center" className="mb-10 md:mb-12 overflow-hidden scroll-mt-24 px-0">
         <div className="mb-6 md:mb-8 text-center md:text-left px-4 md:px-0">
-          <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-3 md:mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-3 md:mb-4">
             Pakistan <span className="text-pak-green">Upcoming Matches</span> & Fixtures
           </h2>
-          <p className="text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
+          <p className="text-[10px] sm:text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-[1px] sm:tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
             Stay ahead of every game with our list of Pakistan’s upcoming matches. We provide the latest <strong>match dates</strong> and <strong>updates</strong> for every series. Whether it is a home game or an overseas tour, you will know the details. Check our <strong>Pakistan cricket schedule 2026</strong> for venues, timings, and player stats. All fixtures are verified for accuracy.
           </p>
         </div>
@@ -224,14 +224,14 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="flex gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide px-4 md:px-0">
+        <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth">
           {MATCH_RESULTS.length > 0 ? (
             MATCH_RESULTS.map((match) => (
               <motion.div
                 key={match.id}
                 whileHover={{ y: -4 }}
                 onClick={() => navigate(`/match/${match.id}`)}
-                className="min-w-[280px] sm:min-w-[320px] md:min-w-[400px] bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-5 md:p-6 cursor-pointer hover:border-white/20 transition-all flex flex-col justify-between"
+                className="min-w-[280px] sm:min-w-[320px] md:min-w-[400px] bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-5 md:p-6 cursor-pointer hover:border-white/20 transition-all flex flex-col justify-between snap-start shrink-0"
               >
                 <div className="flex justify-between items-center mb-6">
                   <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
@@ -509,7 +509,7 @@ export default function Home() {
           </h2>
           <div className="space-y-8 text-ink/60 font-medium leading-relaxed text-lg">
             <p className="mb-4">
-              Welcome to the ultimate hub for the <strong>Pakistan cricket schedule 2026</strong>. If you are a fan looking for <strong>full fixtures</strong>, our platform provides everything in one place. We ensure that you get the latest <strong>match dates</strong> and <strong>updates</strong> directly from official sources. This year, the <strong>PakCric Schedule</strong> is your primary portal for following the national team across all formats. From high-octane T20 matches to classic Test series, we bring you every detail.
+              Welcome to the ultimate hub for the <strong>Pakistan cricket schedule 2026</strong>. If you are a fan looking for <strong>full fixtures</strong>, our platform provides everything in one place. We ensure that you get the latest <strong>match dates</strong> and <strong>updates</strong> directly from verified sources. This year, the <strong>PakCric Schedule</strong> is your primary portal for following the national team across all formats. From high-octane T20 matches to classic Test series, we bring you every detail.
             </p>
             <p className="mb-4">
               Our <strong>Pakistan cricket schedule 2026</strong> covers home series and international tours. You can find detailed information about venues like Lahore and Karachi. We also track matches in international stadiums such as Colombo or Dhaka. Because timings are critical, we provide all <strong>match dates</strong> in Pakistan Standard Time (PKT). This helps fans plan their day. Use our <strong>full fixtures</strong> list to stay ahead. By using our service, you will <strong>never miss a match</strong>. 
@@ -539,7 +539,7 @@ export default function Home() {
               <div className="space-y-4">
                 {[
                   'Clean and simple schedule layout',
-                  'Fast updates after official announcements',
+                  'Fast updates after verified announcements',
                   'Accurate match timings for Pakistan users',
                   'Easy navigation for quick access'
                 ].map((item, idx) => (

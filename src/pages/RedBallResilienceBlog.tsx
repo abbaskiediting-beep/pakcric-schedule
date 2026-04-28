@@ -109,7 +109,7 @@ export default function RedBallResilienceBlog() {
 
           <h2 className="text-3xl mt-12 mb-6">Team Pakistan: The "Sarfaraz Era" Coaching Debut</h2>
           <p className="mb-6">
-            <LinkText text="Pakistan has opted for a bold, perhaps revolutionary, selection and management strategy for this tour. The 16-member official squad, led by Shan Masood, represents a blend of hardened veterans and exciting new prospects. The headline of the tour, however, is the debut of former Pakistan captain Sarfaraz Ahmed as the Head Coach. Known for his tactical ingenuity and his ability to read subcontinental pitches, Sarfaraz’s partnership with Masood will be under the microscope." />
+            <LinkText text="Pakistan has opted for a bold, perhaps revolutionary, selection and management strategy for this tour. The 16-member confirmed squad, led by Shan Masood, represents a blend of hardened veterans and exciting new prospects. The headline of the tour, however, is the debut of former Pakistan captain Sarfaraz Ahmed as the Head Coach. Known for his tactical ingenuity and his ability to read subcontinental pitches, Sarfaraz’s partnership with Masood will be under the microscope." />
           </p>
           <p className="mb-6">
             <LinkText text="The team's philosophy appears to have shifted toward more aggressive spin options and a reliable opening pair. The inclusion of Abdullah Shafique and Saim Ayub at the top indicates a desire for both stability and flair. In the middle order, the 'Babar-Rizwan' engine room remains the heart of Pakistan's batting. Their ability to negotiate the spin of Bangladesh will be the focal point of the series' first innings." />

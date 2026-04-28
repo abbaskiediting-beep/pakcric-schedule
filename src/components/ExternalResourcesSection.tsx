@@ -4,8 +4,8 @@ import { Activity, ArrowRight } from 'lucide-react';
 const RESOURCES = [
   { name: 'ESPNcricinfo', url: 'https://www.espncricinfo.com' },
   { name: 'Cricbuzz', url: 'https://www.cricbuzz.com' },
-  { name: 'PCB Official', url: 'https://www.pcb.com.pk' },
-  { name: 'ICC Official', url: 'https://www.icc-cricket.com' },
+  { name: 'PCB Portal', url: 'https://www.pcb.com.pk' },
+  { name: 'ICC Portal', url: 'https://www.icc-cricket.com' },
   { name: 'Geo Super', url: 'https://www.geosuper.tv' }
 ];
 
@@ -18,7 +18,7 @@ export default function ExternalResourcesSection() {
           Weekly <span className="text-pak-green">Cricket Recommendations</span>
         </h2>
         <p className="text-ink/60 font-medium leading-relaxed mb-12 max-w-2xl text-center md:text-left">
-          Stay fully informed by visiting our recommended cricket partners and official boards for live scorecards and detailed player performance historical data.
+          Stay fully informed by visiting our recommended cricket partners and verified boards for live scorecards and detailed player performance historical data.
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">

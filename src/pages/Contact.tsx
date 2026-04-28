@@ -15,7 +15,7 @@ export default function Contact() {
         <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4 text-white">
           Contact Us
         </h1>
-        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px] mb-8">Official Helpdesk of PakCric Schedule</p>
+        <p className="text-ink/60 font-medium uppercase tracking-[4px] text-[10px] mb-8">Primary Helpdesk of PakCric Schedule</p>
         
         <div className="bg-card-bg border border-card-border rounded-3xl p-8 text-center max-w-2xl mx-auto">
           <p className="text-lg font-medium leading-relaxed text-ink/80">

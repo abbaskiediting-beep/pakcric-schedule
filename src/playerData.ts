@@ -72,6 +72,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   'Saud Shakeel': {
     name: 'Saud Shakeel',
     role: 'Batter',
+    imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/288/4489-camedia.png',
     stats: {
       matches: 40,
       runs: 2181,

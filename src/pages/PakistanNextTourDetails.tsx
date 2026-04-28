@@ -190,7 +190,7 @@ export default function PakistanNextTourDetails() {
               {linkKeywords("When analyzing the Pakistan next tour details, critics highlight the physical toll of back-to-back subcontinental and Caribbean series. The transition from the slow turners of Dhaka to the often-bouncy Kensington Oval in Barbados will be a true test of the team's versatility.")}
             </p>
             <p className="text-ink/60 leading-relaxed">
-              {linkKeywords("Fans should stay tuned for the official squad announcement, usually expected two weeks before the team's departure. Our Pakistan next tour details guide will be updated live as new information emerges from the PCB.")}
+              {linkKeywords("Fans should stay tuned for the confirmed squad announcement, usually expected two weeks before the team's departure. Our Pakistan next tour details guide will be updated live as new information emerges from the PCB.")}
             </p>
           </section>
 

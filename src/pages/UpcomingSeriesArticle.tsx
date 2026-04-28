@@ -92,7 +92,7 @@ export default function UpcomingSeriesArticle() {
           {/* Section 2: The Schedule Table */}
           <section className="bg-white/5 rounded-[40px] p-8 md:p-12 border border-card-border shadow-inner">
             <h2 className="text-2xl md:text-3xl font-display font-bold text-ink uppercase tracking-tight mb-8 text-center md:text-left">
-              Official Pakistan Upcoming Series Full Schedule 2026 Table
+              Accurate Pakistan Upcoming Series Full Schedule 2026 Table
             </h2>
             <div className="overflow-x-auto custom-scrollbar">
               <table className="w-full text-left border-collapse">
@@ -101,7 +101,7 @@ export default function UpcomingSeriesArticle() {
                     <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Format</th>
                     <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Opposition Entity</th>
                     <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Scheduled Date</th>
-                    <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Official Venue</th>
+                    <th className="py-6 px-6 text-[10px] font-bold uppercase tracking-widest text-pak-green">Verified Venue</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm text-ink/80">
@@ -121,7 +121,7 @@ export default function UpcomingSeriesArticle() {
               </table>
             </div>
             <p className="mt-8 text-[11px] text-ink/40 font-bold uppercase tracking-widest text-center border-t border-card-border pt-8">
-              * Note: The Pakistan Upcoming Series Full Schedule is based on official releases and is subject to change.
+              * Note: The Pakistan Upcoming Series Full Schedule is based on verified releases and is subject to change.
             </p>
           </section>
 
@@ -185,7 +185,7 @@ export default function UpcomingSeriesArticle() {
                  <LinkText text="The Pakistan upcoming series full schedule isn't just a list of games for the players; it's a social fabric for the global Pakistani community. Whether it's the domestic fans in Karachi and Multan or the passionate diaspora in London and Birmingham, the 2026 season will bring a sense of collective identity. The viewership figures for the 2026 England tour are expected to exceed traditional records, as fans are eager to witness a modern classic in the making." />
                </p>
                <p className="text-ink/70 leading-relaxed">
-                 <LinkText text="Experts and broadcasters are already preparing for this cricket schedule Pakistan 2026 extravaganza. With massive digital integration and advanced data analytics being shared via official portals, fans will have more access to internal team dynamics and tactical data than ever before in the history of the sport." />
+                 <LinkText text="Experts and broadcasters are already preparing for this cricket schedule Pakistan 2026 extravaganza. With massive digital integration and advanced data analytics being shared via mainstream portals, fans will have more access to internal team dynamics and tactical data than ever before in the history of the sport." />
                </p>
             </div>
 

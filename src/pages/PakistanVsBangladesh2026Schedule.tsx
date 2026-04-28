@@ -117,7 +117,7 @@ export default function PakistanVsBangladesh2026Schedule() {
             </div>
           </div>
           <p className="mt-8 text-xs text-ink/40 font-bold italic tracking-wider">
-            👉 Final squad details will be updated once officially announced.
+            👉 Final squad details will be updated once confirmed.
           </p>
         </section>
 

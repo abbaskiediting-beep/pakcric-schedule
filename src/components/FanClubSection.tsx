@@ -11,7 +11,7 @@ export default function FanClubSection() {
     >
       <div className="relative z-10 text-center">
         <h3 className="text-3xl font-display font-bold uppercase tracking-tighter mb-4 leading-none">The Fan Club</h3>
-        <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Join 2 million fans in the official community.</p>
+        <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Join 2 million fans in our growing community.</p>
         <a 
           href="https://www.pcb.com.pk/" 
           target="_blank" 

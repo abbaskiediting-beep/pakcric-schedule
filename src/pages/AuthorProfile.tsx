@@ -126,7 +126,7 @@ export default function AuthorProfile() {
       <div className="p-12 border border-card-border bg-white/[0.01] rounded-[48px] text-center max-w-4xl mx-auto">
         <h3 className="text-xl font-display font-bold text-white uppercase mb-4">Interested in collaboration?</h3>
         <p className="text-sm text-ink/60 mb-8 italic font-medium leading-relaxed">
-          {author.name} is often open to discussing cricket strategy, data analysis, and media opportunities. You can reach out via social media or our official helpdesk.
+          {author.name} is often open to discussing cricket strategy, data analysis, and media opportunities. You can reach out via social media or our main helpdesk.
         </p>
         <Link 
           to="/contact" 

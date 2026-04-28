@@ -13,7 +13,7 @@ interface PlayerRankingsDetailProps {
 }
 
 export default function PlayerRankingsDetail({ title, category, format, data, themeColor }: PlayerRankingsDetailProps) {
-  const metaDescription = `Official ICC ${format} ${category} rankings for 2026. See the top 10 players in the world, including Pakistan's best performers and current world ratings.`;
+  const metaDescription = `Latest ICC ${format} ${category} rankings for 2026. See the top 10 players in the world, including Pakistan's best performers and current world ratings.`;
   const pageTitle = `ICC ${format} ${category} Rankings 2026 | Top 10 World Players`;
 
   return (

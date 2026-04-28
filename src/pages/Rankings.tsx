@@ -127,21 +127,21 @@ export default function Rankings() {
                     {card.teams.slice(0, 5).map((team, rankIdx) => (
                       <div 
                         key={team} 
-                        className={`flex items-center justify-between p-2.5 md:p-3 rounded-xl md:rounded-2xl border transition-all ${
+                        className={`flex items-center justify-between p-2 sm:p-3 rounded-lg sm:rounded-2xl border transition-all ${
                           team === 'Pakistan' 
                             ? 'bg-pak-green/40 border-white shadow-lg' 
                             : 'bg-black/20 border-white/5 group-hover:bg-black/40'
                         }`}
                       >
-                        <div className="flex items-center gap-3 md:gap-4">
-                          <span className={`text-[10px] md:text-xs font-bold w-4 md:w-5 ${team === 'Pakistan' ? 'text-white' : 'text-neutral-500'}`}>
+                        <div className="flex items-center gap-2 sm:gap-4">
+                          <span className={`text-[9px] sm:text-xs font-bold w-4 md:w-5 ${team === 'Pakistan' ? 'text-white' : 'text-neutral-500'}`}>
                             {rankIdx + 1}
                           </span>
-                          <span className={`text-[10px] md:text-[11px] font-bold uppercase tracking-tight ${team === 'Pakistan' ? 'text-white' : 'text-white/80'}`}>
+                          <span className={`text-[9px] sm:text-[11px] font-bold uppercase tracking-tight ${team === 'Pakistan' ? 'text-white' : 'text-white/80'}`}>
                             {team}
                           </span>
                         </div>
-                        {team === 'Pakistan' && <Star className="w-2.5 md:w-3 h-2.5 md:h-3 text-white fill-white" />}
+                        {team === 'Pakistan' && <Star className="w-2 sm:w-3 h-2 sm:h-3 text-white fill-white" />}
                       </div>
                     ))}
                     <div className="text-[9px] md:text-[10px] font-bold text-center pt-3 md:pt-4 text-pak-green uppercase tracking-[3px] md:tracking-[4px] group-hover:tracking-[6px] transition-all">

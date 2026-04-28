@@ -31,6 +31,9 @@ const PakistanTourBangladeshTestBlog = lazy(() => import('./pages/PakistanTourBa
 const PakistanTourBangladeshSquadBlog = lazy(() => import('./pages/PakistanTourBangladeshSquadBlog'));
 const UpcomingSeriesArticle = lazy(() => import('./pages/UpcomingSeriesArticle'));
 const PakistanNextTourDetails = lazy(() => import('./pages/PakistanNextTourDetails'));
+const EvolutionShaheensBlog = lazy(() => import('./pages/EvolutionShaheensBlog'));
+const RankingsAnalysisBlog = lazy(() => import('./pages/RankingsAnalysisBlog'));
+const Series = lazy(() => import('./pages/Series'));
 const WTCStandings = lazy(() => import('./pages/rankings/WTCStandings'));
 const MatchPreviewBangladesh = lazy(() => import('./pages/MatchPreviewBangladesh'));
 const SquadIntelligence = lazy(() => import('./pages/SquadIntelligence'));
@@ -143,6 +146,9 @@ export default function App() {
               <Route path="/psl-11-top-wicket-takers-2026" element={<PSL11WicketTakersBlog />} />
               <Route path="/psl-11-qualifier-1-showdown-2026" element={<PSL11QualifierPreview />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
+              <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
+              <Route path="/pakistan-icc-rankings-april-2026-analysis" element={<RankingsAnalysisBlog />} />
+              <Route path="/pakistan-cricket-series" element={<Series />} />
               <Route path="/pakistan-next-tour-details" element={<PakistanNextTourDetails />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
@@ -156,18 +162,21 @@ export default function App() {
                <p className="text-neutral-500 text-[11px] font-medium leading-relaxed uppercase tracking-[1px] max-w-xs">
                  Your ultimate destination for Pakistan cricket schedules, rankings, and in-depth analysis. Stay connected with the Green Shirts.
                </p>
-               <span className="text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">© 2026 Official Fan Portal</span>
+               <span className="text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">© 2026 Independent Fan Portal</span>
             </div>
 
             <div className="flex flex-col gap-5 sm:gap-6">
               <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Internal Links</span>
               <div className="grid grid-cols-2 gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
                 <Link to="/schedule" className="hover:text-pak-green transition-colors">Schedule</Link>
+                <Link to="/pakistan-cricket-series" className="hover:text-pak-green transition-colors">Series Hub</Link>
                 <Link to="/rankings" className="hover:text-pak-green transition-colors">ICC Rankings</Link>
                 <Link to="/icc-wtc-projections-2026" className="hover:text-pak-green transition-colors">WTC Standings</Link>
                 <Link to="/squads" className="hover:text-pak-green transition-colors">Squads</Link>
                 <Link to="/news" className="hover:text-pak-green transition-colors">Latest News</Link>
                 <Link to="/blogs" className="hover:text-pak-green transition-colors">Expert Blogs</Link>
+                <Link to="/the-evolution-of-the-shaheens-2026-strategy" className="hover:text-pak-green transition-colors">Evolution Analysis</Link>
+                <Link to="/pakistan-icc-rankings-april-2026-analysis" className="hover:text-pak-green transition-colors">Rankings Analysis</Link>
                 <Link to="/about" className="hover:text-pak-green transition-colors">About Us</Link>
                 <Link to="/contact" className="hover:text-pak-green transition-colors">Contact</Link>
               </div>
@@ -178,8 +187,8 @@ export default function App() {
               <div className="grid grid-cols-2 gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
                 <a href="https://www.espncricinfo.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">ESPNcricinfo</a>
                 <a href="https://www.cricbuzz.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">Cricbuzz</a>
-                <a href="https://www.pcb.com.pk" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">PCB Official</a>
-                <a href="https://www.icc-cricket.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">ICC Official</a>
+                <a href="https://www.pcb.com.pk" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">PCB Portal</a>
+                <a href="https://www.icc-cricket.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">ICC Portal</a>
               </div>
             </div>
 

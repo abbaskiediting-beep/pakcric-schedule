@@ -55,11 +55,17 @@ export default function PlayerStats() {
     }
   };
 
-  const handleShare = async () => {
+  const handleShare = async (includeNotes = false) => {
     if (!player) return;
+    
+    let shareText = `Check out ${player.name}'s latest cricket stats and records for the 2026 season!`;
+    if (includeNotes && notes.trim()) {
+      shareText = `My Scouting Notes for ${player.name}:\n"${notes.trim()}"\n\nFull stats and records:`;
+    }
+
     const shareData = {
       title: `${player.name} - Pakistan Cricket Stats 2026`,
-      text: `Check out ${player.name}'s latest cricket stats and records for the 2026 season!`,
+      text: shareText,
       url: window.location.href,
     };
 
@@ -67,7 +73,8 @@ export default function PlayerStats() {
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        await navigator.clipboard.writeText(window.location.href);
+        const textToCopy = includeNotes ? `${shareText} ${window.location.href}` : window.location.href;
+        await navigator.clipboard.writeText(textToCopy);
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
       }
@@ -148,14 +155,13 @@ export default function PlayerStats() {
           </div>
         </div>
 
-        {/* Profile Header */}
         <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-5 md:p-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 md:p-12 opacity-5 pointer-events-none">
-            <User className="w-48 h-48 md:w-64 md:h-64" />
+            <User className="w-24 h-24 sm:w-48 sm:h-48 md:w-64 md:h-64" />
           </div>
           
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 text-center md:text-left">
-            <div className="w-28 h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-[24px] md:rounded-[32px] bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-3 sm:p-4 shrink-0">
+            <div className="w-24 h-24 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-[24px] md:rounded-[32px] bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-2.5 sm:p-4 shrink-0 shadow-2xl">
               {player.imgUrl ? (
                 <img src={player.imgUrl} alt={player.name} className="w-full h-full object-contain" referrerPolicy="no-referrer" loading="lazy" />
               ) : (
@@ -164,32 +170,32 @@ export default function PlayerStats() {
             </div>
             
             <div className="min-w-0 flex-grow">
-              <div className="flex flex-col md:flex-row md:items-center gap-2 sm:gap-4 mb-2 sm:mb-6">
-                <span className="px-3 sm:px-4 py-1 bg-pak-green text-white rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-[2px] sm:tracking-[4px] inline-block w-fit">
+              <div className="flex flex-col md:flex-row md:items-center justify-center md:justify-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <span className="px-3 sm:px-4 py-1 bg-pak-green text-white rounded-full text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[4px] inline-block w-fit mx-auto md:mx-0">
                   {player.role}
                 </span>
                 <button 
-                  onClick={handleShare}
-                  className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-ink/40 hover:text-pak-green hover:border-pak-green/30 hover:bg-pak-green/10 transition-all w-fit group/share"
+                  onClick={() => handleShare()}
+                  className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-ink/40 hover:text-pak-green hover:border-pak-green/30 hover:bg-pak-green/10 transition-all w-fit mx-auto md:mx-0 group/share"
                 >
                   {isCopied ? (
                     <>
-                      <Check className="w-3 h-3 text-pak-green" />
+                      <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-pak-green" />
                       <span className="text-pak-green">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Share2 className="w-3 h-3 group-hover/share:scale-110 transition-transform" />
+                      <Share2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 group-hover/share:scale-110 transition-transform" />
                       <span>Share Profile</span>
                     </>
                   )}
                 </button>
               </div>
-              <h1 className="text-2xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words">
-                {player.name} <span className="text-pak-green block md:inline font-normal italic opacity-30 text-lg sm:text-2xl md:text-4xl">#2026</span>
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words leading-none italic">
+                {player.name.split(' ')[0]} <br className="sm:hidden" /><span className="text-pak-green">{player.name.split(' ')[1]}</span>
               </h1>
-              <p className="text-ink/60 font-bold uppercase tracking-widest text-[8px] md:text-xs">
-                {player.name} Cricket Stats & Records
+              <p className="text-ink/40 font-bold uppercase tracking-[2px] sm:tracking-widest text-[7px] sm:text-[9px] md:text-xs">
+                {player.name} Cricket Stats & Records • 2026 Season
               </p>
             </div>
           </div>
@@ -198,20 +204,21 @@ export default function PlayerStats() {
         {/* Top Ad for Player Profile */}
         <AdPlaceholder type="banner" className="my-8" />
 
-        {/* Career Summary Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
           {[
-            { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
-            { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
-            { label: 'Average', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
-            { label: 'Strike Rate', value: player.stats.sr, icon: <Zap className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+            { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+            { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+            { label: 'Average', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+            { label: 'Strike Rate', value: player.stats.sr || '—', icon: <Zap className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
           ].map((stat, i) => (
-            <div key={i} className="bg-card-bg border border-card-border p-3.5 md:p-6 rounded-2xl md:rounded-3xl">
-              <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2 text-neutral-500">
+            <div key={i} className="bg-card-bg border border-card-border p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] hover:border-white/10 transition-colors">
+              <div className="flex items-center gap-2 mb-2 text-neutral-500">
                 {stat.icon}
-                <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest leading-none">{stat.label}</span>
+                <span className="text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-widest leading-none">{stat.label}</span>
               </div>
-              <p className="text-xl md:text-3xl font-display font-bold text-white tabular-nums leading-none">{stat.value}</p>
+              <p className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white tabular-nums leading-none tracking-tighter">
+                {stat.value}
+              </p>
             </div>
           ))}
         </div>
@@ -228,7 +235,7 @@ export default function PlayerStats() {
             </p>
             <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
               <span className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest leading-relaxed">
-                Identify the most reliable batsmen and in-form players format-wise (Test, ODI, T20) via <Link to="/rankings" className="text-pak-green hover:underline">official rankings</Link>.
+                Identify the most reliable batsmen and in-form players format-wise (Test, ODI, T20) via <Link to="/rankings" className="text-pak-green hover:underline">verified rankings</Link>.
               </span>
             </div>
           </section>
@@ -425,6 +432,14 @@ export default function PlayerStats() {
             </div>
             <div className="flex gap-2">
               <button 
+                onClick={() => handleShare(true)}
+                disabled={!notes.trim()}
+                className="p-3 bg-white/5 border border-white/10 rounded-xl text-neutral-400 hover:text-pak-green hover:border-pak-green/20 transition-all flex items-center justify-center shrink-0 disabled:opacity-30"
+                title="Share Notes"
+              >
+                <Share2 className="w-4 h-4" />
+              </button>
+              <button 
                 onClick={handleClearNotes}
                 className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 hover:bg-red-500 active:text-white transition-all flex items-center justify-center shrink-0 group/btn"
                 title="Delete Notes"
@@ -507,9 +522,9 @@ export default function PlayerStats() {
              </div>
           </div>
 
-          <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase mb-4">Official Records Audit</h3>
+          <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase mb-4">Verified Records Audit</h3>
           <p className="text-xs md:text-sm text-ink/60 max-w-xl mx-auto leading-relaxed font-medium mb-8">
-            All statistics for {player.name} are verified against official ICC and PCB databases. These records include 2026 Season performances up to current local time.
+            All statistics for {player.name} are verified against accurate ICC and PCB databases. These records include 2026 Season performances up to current local time.
           </p>
           <button 
             onClick={() => window.print()}

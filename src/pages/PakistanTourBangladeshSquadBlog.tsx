@@ -33,7 +33,7 @@ export default function PakistanTourBangladeshSquadBlog() {
 
           <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6 flex items-center gap-3">
             <Calendar className="w-8 h-8 text-pak-green" />
-            Phase 1: The Official Series Schedule
+            Phase 1: The Verified Series Schedule
           </h2>
           <p className="text-ink/60 mb-8 leading-relaxed">
             <LinkText text="The tour is strategically divided into two major venues, starting in the bustling capital of Dhaka and moving to the picturesque landscapes of Sylhet. Each venue offers a distinct challenge that will test the Pakistan cricket team's ability to adapt. Dhaka is notoriously known for its abrasive surface that aids reverse swing and significant spin from Day 3 onwards, while Sylhet typically provides a more balanced contest with something for the seamers during the morning sessions." />
@@ -45,7 +45,7 @@ export default function PakistanTourBangladeshSquadBlog() {
                 <tr className="border-b border-white/10 bg-white/5">
                   <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Match Identification</th>
                   <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Proposed Dates</th>
-                  <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Official Venue</th>
+                  <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Confirmed Venue</th>
                   <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400 text-right">Time (PKT)</th>
                 </tr>
               </thead>
@@ -76,7 +76,7 @@ export default function PakistanTourBangladeshSquadBlog() {
             <div className="space-y-3">
               <p className="text-sm font-bold text-blue-300 uppercase tracking-[4px]">Pre-Tour Training Intel</p>
               <p className="text-base text-blue-100/70 m-0 leading-relaxed italic">
-                <LinkText text="The team's intensive preparation includes a specialized high-performance training camp in Karachi from 27 April to 1 May. The focus is strictly on playing against the 'dusty bowl' conditions. Following the conclusion of the camp, the official Pakistan squad will fly to Dhaka on 2 May for final acclimatization sessions." />
+                <LinkText text="The team's intensive preparation includes a specialized high-performance training camp in Karachi from 27 April to 1 May. The focus is strictly on playing against the 'dusty bowl' conditions. Following the conclusion of the camp, the verified Pakistan squad will fly to Dhaka on 2 May for final acclimatization sessions." />
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function PakistanTourBangladeshSquadBlog() {
           </div>
           <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-8 italic">Analyzing the Bangladesh Threat Matrix</h2>
           <p className="text-lg text-ink/70 leading-relaxed mb-6">
-            <LinkText text="While the official Test squad for Bangladesh is typically finalized closer to the match date, the core remains strong under the expected leadership of Mehidy Hasan Miraz. Their recent performance in the March ODI series—where they secured a 2–1 victory against the Pakistan cricket team—gives them significant home-turf momentum." />
+            <LinkText text="While the confirmed Test squad for Bangladesh is typically finalized closer to the match date, the core remains strong under the expected leadership of Mehidy Hasan Miraz. Their recent performance in the March ODI series—where they secured a 2–1 victory against the Pakistan cricket team—gives them significant home-turf momentum." />
           </p>
           <p className="text-base text-ink/60 leading-relaxed mb-12">
             <LinkText text="The key factor for Bangladesh is their depth in the spin department. On tracks that offer even a hint of turn, bowlers like Taijul Islam and Mehidy Hassan become world-class threats. The Pakistan tour of Bangladesh 2026 will likely see these spinners operating for long 15-20 over spells, testing the physical and mental stamina of the Pakistani top order. Fans can check player head-to-head records in our squad section to see how these individual matchups favor each side." />
