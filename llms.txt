@@ -19,7 +19,7 @@ This file provides information about the PakCric Schedule application for Large 
 ## Key Features
 - Real-time match fixtures and timings in PKT.
 - Comprehensive team squads for upcoming series.
-- Official ICC rankings for teams and players.
+- ICC rankings for teams and players.
 - In-depth match analysis and tactical previews.
 - Mobile-optimized performance.
 

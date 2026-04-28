@@ -6,8 +6,8 @@ import Nav from './components/Nav';
 import MobileTabBar from './components/MobileTabBar';
 
 // Lazy load pages for better bundle splitting and initial load time
-const Home = lazy(() => import('./pages/Home'));
-const Schedule = lazy(() => import('./pages/Schedule'));
+import Home from './pages/Home';
+import MatchSchedulePage from './pages/MatchSchedulePage';
 const Squads = lazy(() => import('./pages/Squads'));
 const Rankings = lazy(() => import('./pages/Rankings'));
 const RankingsT20 = lazy(() => import('./pages/rankings/RankingsT20'));
@@ -106,7 +106,10 @@ export default function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/schedule" element={<Schedule />} />
+              <Route path="/schedule" element={<MatchSchedulePage />} />
+              <Route path="/match-schedule" element={<MatchSchedulePage />} />
+              <Route path="/full-fixtures" element={<MatchSchedulePage />} />
+              <Route path="/fixtures" element={<MatchSchedulePage />} />
               <Route path="/squads" element={<Squads />} />
               <Route path="/rankings" element={<Rankings />} />
               <Route path="/icc-t20-ranking-2026" element={<RankingsT20 />} />

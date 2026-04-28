@@ -11,7 +11,7 @@ import ExternalResourcesSection from '../components/ExternalResourcesSection';
 
 type SortKey = 'date' | 'opponent' | 'series';
 
-export default function Schedule() {
+export default function MatchSchedulePage() {
   const [sortKey, setSortKey] = useState<SortKey>('date');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [filterFormat, setFilterFormat] = useState<string>('All');
