@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -122,6 +122,39 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-11-qualifier-1-showdown-2026',
     icon: Zap,
     color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'pz-vs-isu-powerplay-blog-psl-11',
+    title: 'Zalmi Blitz in Karachi: Babar and Haris Dismantle United’s Attack Early',
+    summary: 'A tactical breakdown of the PSL 11 Qualifier 1 powerplay: How Babar Azam and Mohammad Haris dominated Islamabad United’s bowling with record-breaking aggression.',
+    date: 'April 28, 2026',
+    category: 'Match Update',
+    path: '/psl-11-qualifier-1-pz-vs-iu-powerplay-blog-2026',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'babar-azam-all-psl-centuries-complete-list',
+    title: 'Babar Azam All PSL Centuries',
+    summary: 'A definitive guide to every hundred scored by Babar Azam in the PSL. Detailed stats on balls faced, strike rates, venues, and the record-breaking 2026 season.',
+    date: 'April 29, 2026',
+    category: 'Statistical Deep Dive',
+    path: '/babar-azam-all-psl-centuries-list-2026-details',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'most-centuries-in-psl-history-ranking',
+    title: 'Top 5 Players With Most Centuries in PSL History',
+    summary: 'Discover the top 5 century-scorers in the Pakistan Super League history—Usman Khan, Babar Azam, Kamran Akmal, Rilee Rossouw & Mohammad Rizwan—with full stats and record details.',
+    date: 'April 29, 2026',
+    category: 'Hall of Fame',
+    path: '/top-5-players-with-most-centuries-in-psl-history-2026',
+    icon: Medal,
+    color: 'text-yellow-500',
     authorId: 'zainab-rashid'
   },
 ];

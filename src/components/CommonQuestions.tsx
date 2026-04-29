@@ -1,6 +1,11 @@
 import { motion } from 'motion/react';
 
-const FAQS = [
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+const DEFAULT_FAQS = [
   {
     q: "Pakistan ka next match kab hai?",
     a: "Pakistan ka next match upcoming international schedule ke mutabiq jaldi hi hoga. Aap hamari website par latest match dates aur timing check kar sakte hain."
@@ -27,7 +32,11 @@ const FAQS = [
   }
 ];
 
-export default function CommonQuestions() {
+interface CommonQuestionsProps {
+  faqs?: FAQ[];
+}
+
+export default function CommonQuestions({ faqs = DEFAULT_FAQS }: CommonQuestionsProps) {
   return (
     <section className="mt-24 max-w-4xl mx-auto">
       <div className="text-center mb-16">
@@ -38,7 +47,7 @@ export default function CommonQuestions() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {FAQS.map((faq, i) => (
+        {faqs.map((faq, i) => (
           <motion.div 
             key={i}
             initial={{ opacity: 0, y: 10 }}

@@ -45,6 +45,9 @@ const AuthorProfile = lazy(() => import('./pages/AuthorProfile'));
 const PSL11RunScorersBlog = lazy(() => import('./pages/PSL11RunScorersBlog'));
 const PSL11WicketTakersBlog = lazy(() => import('./pages/PSL11WicketTakersBlog'));
 const PSL11QualifierPreview = lazy(() => import('./pages/PSL11QualifierPreview'));
+const PSL11QualifierPowerplayBlog = lazy(() => import('./pages/PSL11QualifierPowerplayBlog'));
+const BabarAzamPSLCenturiesBlog = lazy(() => import('./pages/BabarAzamPSLCenturiesBlog'));
+const MostPSLCenturiesBlog = lazy(() => import('./pages/MostPSLCenturiesBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -148,6 +151,9 @@ export default function App() {
               <Route path="/psl-11-top-run-scorers-2026" element={<PSL11RunScorersBlog />} />
               <Route path="/psl-11-top-wicket-takers-2026" element={<PSL11WicketTakersBlog />} />
               <Route path="/psl-11-qualifier-1-showdown-2026" element={<PSL11QualifierPreview />} />
+              <Route path="/psl-11-qualifier-1-pz-vs-iu-powerplay-blog-2026" element={<PSL11QualifierPowerplayBlog />} />
+              <Route path="/babar-azam-all-psl-centuries-list-2026-details" element={<BabarAzamPSLCenturiesBlog />} />
+              <Route path="/top-5-players-with-most-centuries-in-psl-history-2026" element={<MostPSLCenturiesBlog />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
               <Route path="/pakistan-icc-rankings-april-2026-analysis" element={<RankingsAnalysisBlog />} />
@@ -198,7 +204,8 @@ export default function App() {
             <div className="flex flex-col gap-5 sm:gap-6">
               <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Follow Us</span>
               <div className="flex flex-wrap gap-6 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
-                <a href="#" className="hover:text-pak-green transition-colors">Twitter</a>
+                <a href="https://x.com/Pakcric76933" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">X (Twitter)</a>
+                <a href="https://www.facebook.com/profile.php?id=61588688469344" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">Facebook</a>
                 <a href="#" className="hover:text-pak-green transition-colors">Instagram</a>
                 <a href="#" className="hover:text-pak-green transition-colors">YouTube</a>
               </div>

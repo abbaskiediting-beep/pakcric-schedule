@@ -12,7 +12,18 @@ const INTERNAL_LINKS = [
   { name: 'About PakCric', path: '/about', desc: 'Learn more about our portal' },
 ];
 
-export default function InternalLinkSection() {
+interface InternalLinkSectionProps {
+  cols?: 1 | 2 | 3 | 4;
+  title?: string;
+}
+
+export default function InternalLinkSection({ cols, title }: InternalLinkSectionProps) {
+  const gridCols = cols === 1 
+    ? 'grid-cols-1' 
+    : cols === 2 
+    ? 'grid-cols-1 sm:grid-cols-2' 
+    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
+
   return (
     <section className="mb-20">
       <div className="flex items-center gap-3 mb-10">
@@ -20,8 +31,8 @@ export default function InternalLinkSection() {
           <LayoutGrid className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="text-3xl font-display font-bold uppercase tracking-tight text-white">
-            Explore <span className="text-pak-green">PakCric Schedule</span>
+          <h3 className="text-3xl font-display font-bold uppercase tracking-tight text-white line-clamp-1">
+            {title || <>Explore <span className="text-pak-green">PakCric Schedule</span></>}
           </h3>
           <p className="text-[10px] font-bold text-ink/30 uppercase tracking-[4px]">
             Navigate through our comprehensive portal
@@ -29,22 +40,22 @@ export default function InternalLinkSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className={`grid gap-6 ${gridCols}`}>
         {INTERNAL_LINKS.map((link, idx) => (
           <Link 
             key={idx} 
             to={link.path}
-            className="group bg-card-bg border border-card-border p-6 rounded-[32px] hover:border-pak-green/40 hover:bg-pak-green/5 transition-all flex flex-col justify-between"
+            className={`group bg-card-bg border border-card-border rounded-[32px] hover:border-pak-green/40 hover:bg-pak-green/5 transition-all flex flex-col justify-between ${cols === 1 ? 'p-5' : 'p-6'}`}
           >
             <div>
-              <h3 className="text-white font-bold text-lg mb-2 group-hover:text-pak-green transition-colors">
+              <h3 className={`text-white font-bold mb-2 group-hover:text-pak-green transition-colors ${cols === 1 ? 'text-base' : 'text-lg'}`}>
                 {link.name}
               </h3>
               <p className="text-ink/50 text-xs font-medium leading-relaxed">
                 {link.desc}
               </p>
             </div>
-            <div className="mt-6 flex items-center gap-2 text-[10px] font-bold text-pak-green uppercase tracking-[2px] opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+            <div className={`mt-6 flex items-center gap-2 text-[10px] font-bold text-pak-green uppercase tracking-[2px] ${cols === 1 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0`}>
               Open Page <ChevronRight className="w-4 h-4" />
             </div>
           </Link>
