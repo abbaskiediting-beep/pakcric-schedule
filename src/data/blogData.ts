@@ -198,4 +198,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'psl-2026-eliminator-1-multan-vs-hyderabad-preview',
+    title: 'PSL 2026 Eliminator 1: Multan Sultans vs Hyderabad Kingsmen Preview',
+    summary: 'A do-or-die night in Lahore: One survives, one goes home. A full analysis of the high-stakes showdown between Multan and Hyderabad Kingsmen.',
+    date: 'April 29, 2026',
+    category: 'Match Preview',
+    path: '/psl-2026-eliminator-1-multan-vs-hyderabad-match-analysis',
+    icon: Target,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
 ];
