@@ -7,6 +7,7 @@ import { LinkText } from '../components/LinkText';
 export default function Series() {
   const upcomingSeries = [
     {
+      id: 'pak-ban-test-2026',
       title: "Pakistan Tour of Bangladesh 2026",
       format: "Test Series",
       matches: "2 Tests",
@@ -15,19 +16,12 @@ export default function Series() {
       icon: <MapPin className="w-5 h-5" />
     },
     {
-      title: "Pakistan vs England 2026",
-      format: "Expected Multi-format Series",
-      matches: "TBD",
-      venue: "Schedule Awaited",
-      status: "Awaited",
-      icon: <Calendar className="w-5 h-5" />
-    },
-    {
-      title: "Asia Cup 2026",
-      format: "Tournament (ODI/T20)",
-      matches: "Multi-Team",
-      venue: "TBD",
-      status: "Upcoming",
+      id: 'psl-11-2026',
+      title: "PSL 11 - 2026",
+      format: "Tournament",
+      matches: "Playoffs",
+      venue: "Lahore & Karachi",
+      status: "Ongoing",
       icon: <Trophy className="w-5 h-5" />
     }
   ];
@@ -64,10 +58,10 @@ export default function Series() {
           <section>
             <div className="flex items-center gap-4 mb-8">
               <Calendar className="w-8 h-8 text-pak-green" />
-              <h2 className="text-3xl font-display font-bold uppercase tracking-tighter italic">Upcoming Pakistan Series</h2>
+              <h2 className="text-3xl font-display font-bold uppercase tracking-tighter italic">Featured Series Analytics</h2>
             </div>
             <p className="text-ink/60 mb-8 italic">
-              <LinkText text="Stay ahead with all upcoming Pakistan cricket series. We regularly update this section so you never miss an important tour." />
+              <LinkText text="Stay ahead with deep analytical reports for all upcoming Pakistan cricket series. Click on a series to view head-to-head records, venue history, and predicted playing XIs." />
             </p>
             
             <div className="space-y-4">
@@ -77,30 +71,35 @@ export default function Series() {
                   whileHover={{ x: 10 }}
                   className="bg-card-bg border border-card-border p-6 rounded-[32px] group transition-all"
                 >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                        {series.icon}
+                  <Link to={`/series-intelligence/${series.id}`} className="block">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                      <div className="flex gap-4">
+                        <div className="w-12 h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                          {series.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold italic mb-1 group-hover:text-pak-green transition-colors">
+                            <LinkText text={series.title} />
+                          </h3>
+                          <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest">{series.format} • {series.matches}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold italic mb-1 group-hover:text-pak-green transition-colors">
-                          <LinkText text={series.title} />
-                        </h3>
-                        <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest">{series.format} • {series.matches}</p>
+                      <div className="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
+                        <div className="text-right">
+                          <p className="text-[10px] font-black uppercase text-neutral-500 tracking-widest mb-1">Venue</p>
+                          <p className="text-sm font-bold text-white italic">{series.venue}</p>
+                        </div>
+                        <div className="flex flex-col items-end gap-2">
+                          <span className={`px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${
+                            series.status === 'Upcoming' ? 'bg-pak-green/20 text-pak-green' : 'bg-yellow-500/10 text-yellow-500 border border-yellow-500/20'
+                          }`}>
+                            {series.status}
+                          </span>
+                          <span className="text-[8px] font-black text-pak-green group-hover:underline uppercase tracking-tighter">View Intel Report →</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
-                      <div className="text-right">
-                        <p className="text-[10px] font-black uppercase text-neutral-500 tracking-widest mb-1">Venue</p>
-                        <p className="text-sm font-bold text-white italic">{series.venue}</p>
-                      </div>
-                      <span className={`px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${
-                        series.status === 'Upcoming' ? 'bg-pak-green/20 text-pak-green' : 'bg-neutral-800 text-neutral-400'
-                      }`}>
-                        {series.status}
-                      </span>
-                    </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

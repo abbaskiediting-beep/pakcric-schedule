@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Share2 } from 'lucide-react';
+import { Calendar, Clock, MapPin, Share2, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Match } from '../types';
@@ -9,6 +9,16 @@ interface MatchCardProps {
 }
 
 export default function MatchCard({ match, index }: MatchCardProps) {
+  // Map series names to IDs for intelligence reports
+  const seriesIntelMap: Record<string, string> = {
+    'PSL 11 2026': 'psl-11-2026',
+    'Pakistan vs New Zealand T20I Series': 'pak-nz-series-2026',
+    'T20 World Cup 2026': 't20-wc-2026',
+    'Pakistan Tour of Bangladesh (Test Series)': 'pak-ban-test-2026'
+  };
+
+  const intelId = seriesIntelMap[match.series];
+
   const formatColor = {
     'Test': 'border-red-500/30 text-red-400 bg-red-500/10',
     'ODI': 'border-blue-500/30 text-blue-400 bg-blue-500/10',
@@ -41,13 +51,18 @@ export default function MatchCard({ match, index }: MatchCardProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ 
+          y: -8, 
+          scale: 1.02,
+          transition: { type: 'spring', stiffness: 400, damping: 10 }
+        }}
         transition={{ 
           type: 'spring',
           stiffness: 400,
           damping: 25,
           delay: index * 0.05
         }}
-        className={`bg-card-bg border rounded-2xl p-5 h-full flex flex-col justify-between cursor-pointer transition-all duration-300 group hover:scale-[1.03] hover:-translate-y-1.5 ${
+        className={`bg-card-bg border rounded-2xl p-5 h-full flex flex-col justify-between cursor-pointer transition-colors transition-shadow duration-300 group ${
           match.status === 'Live' 
             ? 'border-red-500/50 shadow-[0_0_20px_-10px_rgba(239,68,68,0.5)] hover:border-red-500 hover:shadow-[0_12px_40px_-12px_rgba(239,68,68,0.4)]' 
             : 'border-card-border hover:border-pak-green/50 hover:shadow-[0_12px_40px_-12px_rgba(0,102,46,0.3)]'
@@ -56,17 +71,29 @@ export default function MatchCard({ match, index }: MatchCardProps) {
       >
       <div>
         <div className="flex justify-between items-center mb-5">
-           <div className="flex items-center gap-2">
-             <span className="text-[9px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[3px] transition-colors">{match.series}</span>
-             {match.status === 'Live' && (
-               <motion.div 
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: 1 }}
-                 className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full"
+           <div className="flex flex-col gap-1">
+             <div className="flex items-center gap-2">
+               <span className="text-[9px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[3px] transition-colors">{match.series}</span>
+               {match.status === 'Live' && (
+                 <motion.div 
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 1 }}
+                   className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full"
+                 >
+                   <span className="w-1 h-1 bg-red-500 rounded-full animate-pulse" />
+                   <span className="text-[7px] font-black uppercase tracking-widest text-red-500">Live</span>
+                 </motion.div>
+               )}
+             </div>
+             {intelId && (
+               <Link 
+                 to={`/series-intelligence/${intelId}`}
+                 onClick={(e) => e.stopPropagation()}
+                 className="flex items-center gap-1.5 w-fit px-2 py-1 bg-yellow-500/10 border border-yellow-500/20 rounded-lg text-[7px] font-black uppercase tracking-widest text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all"
                >
-                 <span className="w-1 h-1 bg-red-500 rounded-full animate-pulse" />
-                 <span className="text-[7px] font-black uppercase tracking-widest text-red-500">Live</span>
-               </motion.div>
+                 <Zap className="w-2.5 h-2.5 fill-current" />
+                 Series Intel
+               </Link>
              )}
            </div>
            <div className="flex items-center gap-2">
@@ -130,7 +157,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
         match.status === 'Live' ? 'border-red-500/20' : 'border-card-border/30'
       }`}>
         <div 
-          className="grid grid-cols-2 gap-3 mb-3 cursor-help group/time"
+          className="grid grid-cols-1 xs:grid-cols-2 gap-3 mb-3 cursor-help group/time"
           title={`Full Schedule: ${match.date} at ${match.time} Pakistan Standard Time (PKT)`}
         >
           <div className={`flex items-center gap-2 transition-colors ${
@@ -141,7 +168,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
             }`} />
             <span className="text-[9px] font-black uppercase tracking-widest">{match.date}</span>
           </div>
-          <div className={`flex items-center gap-2 transition-colors justify-end ${
+          <div className={`flex items-center gap-2 transition-colors justify-start xs:justify-end ${
             match.status === 'Live' ? 'text-red-400 group-hover/time:text-red-300' : 'text-ink/40 group-hover/time:text-pak-green'
           }`}>
             <Clock className={`w-3.5 h-3.5 ${

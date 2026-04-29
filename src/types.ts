@@ -140,3 +140,32 @@ export interface BlogPost {
   icon?: any;
   color?: string;
 }
+
+export interface SeriesSummary {
+  id: string;
+  seriesName: string;
+  opponent: string;
+  format: MatchFormat;
+  headToHead: {
+    total: number;
+    pakWins: number;
+    oppWins: number;
+    noResult: number;
+  };
+  venueHistory: {
+    venue: string;
+    totalMatches: number;
+    pakWins: number;
+    oppWins: number;
+    averageScore?: string;
+  }[];
+  predictedXI: {
+    team: string;
+    players: string[];
+  }[];
+  keyPlayers: {
+    name: string;
+    team: string;
+    reason: string;
+  }[];
+}

@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, Suspense, lazy } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import MobileTabBar from './components/MobileTabBar';
 
 // Lazy load pages for better bundle splitting and initial load time
-import Home from './pages/Home';
-import MatchSchedulePage from './pages/MatchSchedulePage';
+const Home = lazy(() => import('./pages/Home'));
+const MatchSchedulePage = lazy(() => import('./pages/MatchSchedulePage'));
 const Squads = lazy(() => import('./pages/Squads'));
 const Rankings = lazy(() => import('./pages/Rankings'));
 const RankingsT20 = lazy(() => import('./pages/rankings/RankingsT20'));
@@ -52,6 +53,7 @@ const MostPSLCenturiesBlog = lazy(() => import('./pages/MostPSLCenturiesBlog'));
 const PSLEliminator1Blog = lazy(() => import('./pages/PSLEliminator1Blog'));
 const PSLEliminator1LineupsBlog = lazy(() => import('./pages/PSLEliminator1LineupsBlog'));
 const KingsmenDominateEliminator1 = lazy(() => import('./pages/KingsmenDominateEliminator1'));
+const KingsmenFinalVictoryBlog = lazy(() => import('./pages/KingsmenFinalVictoryBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -60,9 +62,34 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Loading component
 const PageLoader = () => (
-  <div className="flex items-center justify-center min-h-[60vh]">
-    <div className="w-8 h-8 border-4 border-pak-green border-t-transparent rounded-full animate-spin"></div>
-  </div>
+  <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 z-50 flex items-center justify-center bg-bg/80 backdrop-blur-sm"
+  >
+    <div className="relative flex flex-col items-center">
+      <motion.div
+        animate={{ 
+          rotate: 360,
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ 
+          rotate: { duration: 1.5, repeat: Infinity, ease: "linear" },
+          scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+        }}
+        className="w-16 h-16 border-4 border-pak-green border-t-transparent rounded-full shadow-[0_0_20px_-5px_rgba(0,102,46,0.5)]"
+      />
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="mt-6 text-[10px] font-black tracking-[4px] text-pak-green uppercase"
+      >
+        Loading Experience
+      </motion.div>
+    </div>
+  </motion.div>
 );
 
 const SEO = () => {
@@ -162,6 +189,8 @@ export default function App() {
               <Route path="/psl-2026-eliminator-1-multan-vs-hyderabad-match-analysis" element={<PSLEliminator1Blog />} />
               <Route path="/psl-2026-eliminator-1-playing-xi-match-updates-final" element={<PSLEliminator1LineupsBlog />} />
               <Route path="/psl-2026-eliminator-1-match-summary-kingsmen-vs-multan" element={<KingsmenDominateEliminator1 />} />
+              <Route path="/psl-2026-eliminator-1-kingsmen-vs-multan-final-result-report" element={<KingsmenFinalVictoryBlog />} />
+              <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
               <Route path="/pakistan-icc-rankings-april-2026-analysis" element={<RankingsAnalysisBlog />} />

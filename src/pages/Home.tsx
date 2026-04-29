@@ -169,7 +169,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Link 
               to="/schedule" 
-              className="w-full sm:w-auto px-10 py-4 md:py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
             >
               View Full Schedule <ArrowRight className="w-4 h-4" />
             </Link>
@@ -178,7 +178,7 @@ export default function Home() {
                 const element = document.getElementById('match-center');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-10 py-4 md:py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
             >
               Check Next Match <Timer className="w-4 h-4" />
             </button>
@@ -444,10 +444,10 @@ export default function Home() {
           transition={{ delay: 0.1 }}
           className="md:col-span-4 bg-card-bg border border-card-border rounded-[28px] md:rounded-[40px] p-6 md:p-10 overflow-hidden shadow-xl"
         >
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex flex-wrap justify-between items-center mb-8 gap-4">
             <div className="flex items-center gap-3">
               <Newspaper className="w-6 h-6 text-white" />
-              <h3 className="text-xl font-display font-bold uppercase tracking-tight">Latest Cricket News</h3>
+              <h3 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight">Latest Cricket News</h3>
             </div>
             <Link to="/news" className="text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
               Read All News <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />

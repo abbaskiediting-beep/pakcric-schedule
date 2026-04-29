@@ -231,4 +231,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-emerald-500',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'kingsmen-final-victory-multan-dethroned-2026',
+    title: 'Kingsmen’s Masterclass: Hyderabad Dethrones Multan in One-Sided Eliminator 1',
+    summary: 'A ruthless display of T20 cricket as Hyderabad Kingsmen chase down 160 with 8 wickets and 28 balls to spare. Maaz Sadaqat and Usman Khan lead the charge.',
+    date: 'April 29, 2026',
+    category: 'Match Report',
+    path: '/psl-2026-eliminator-1-kingsmen-vs-multan-final-result-report',
+    icon: Trophy,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
 ];
