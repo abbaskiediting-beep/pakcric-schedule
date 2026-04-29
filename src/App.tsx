@@ -50,6 +50,8 @@ const BabarAzamPSLCenturiesBlog = lazy(() => import('./pages/BabarAzamPSLCenturi
 const BabarAzamResurgenceBlog = lazy(() => import('./pages/BabarAzamResurgenceBlog'));
 const MostPSLCenturiesBlog = lazy(() => import('./pages/MostPSLCenturiesBlog'));
 const PSLEliminator1Blog = lazy(() => import('./pages/PSLEliminator1Blog'));
+const PSLEliminator1LineupsBlog = lazy(() => import('./pages/PSLEliminator1LineupsBlog'));
+const KingsmenDominateEliminator1 = lazy(() => import('./pages/KingsmenDominateEliminator1'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -158,6 +160,8 @@ export default function App() {
               <Route path="/babar-azam-glorious-return-psl-2026-centuries" element={<BabarAzamResurgenceBlog />} />
               <Route path="/top-5-players-with-most-centuries-in-psl-history-2026" element={<MostPSLCenturiesBlog />} />
               <Route path="/psl-2026-eliminator-1-multan-vs-hyderabad-match-analysis" element={<PSLEliminator1Blog />} />
+              <Route path="/psl-2026-eliminator-1-playing-xi-match-updates-final" element={<PSLEliminator1LineupsBlog />} />
+              <Route path="/psl-2026-eliminator-1-match-summary-kingsmen-vs-multan" element={<KingsmenDominateEliminator1 />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
               <Route path="/pakistan-icc-rankings-april-2026-analysis" element={<RankingsAnalysisBlog />} />

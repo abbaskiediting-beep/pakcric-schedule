@@ -8,7 +8,7 @@ import InternalLinkSection from '../components/InternalLinkSection';
 import CommonQuestions from '../components/CommonQuestions';
 
 export default function PSLEliminator1Blog() {
-  const blogTitle = "PSL 2026 Eliminator 1: Multan Sultans vs Hyderabad Kingsmen — Full Match Preview & Analysis";
+  const blogTitle = "PSL 2026 Eliminator 1: Hyderabad Kingsmen Opt to Bowl in High-Stakes Clash Against Multan Sultans";
   const publishDate = "April 29, 2026";
   const authorId = "zainab-rashid";
 
@@ -128,9 +128,59 @@ export default function PSLEliminator1Blog() {
               </ul>
             </div>
             <div className="bg-pak-green/10 border border-pak-green/20 p-8 rounded-3xl flex flex-col justify-center text-center">
-              <p className="text-[10px] font-black uppercase tracking-[4px] text-pak-green mb-2">Toss Prediction</p>
-              <h3 className="text-2xl font-display font-black text-white uppercase italic">Field First</h3>
-              <p className="text-xs text-white/40 mt-2">Dew factor expected to play major role</p>
+              <p className="text-[10px] font-black uppercase tracking-[4px] text-pak-green mb-2">Toss Update</p>
+              <h3 className="text-xl font-display font-black text-white uppercase italic leading-tight">Hyderabad Kingsmen won the toss & elected to bowl first</h3>
+              <p className="text-xs text-white/40 mt-2">Strategic move to tackle expected dew factor</p>
+            </div>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-display font-black mb-8 mt-16 leading-tight">
+            Toss Strategy & Playing XIs
+          </h2>
+          <p className="text-lg text-white/70 mb-8 font-medium">
+            The decision to bowl first appears to be driven by the dew factor and Hyderabad’s recent success in chasing. While Gaddafi Stadium has historically favored teams batting first this season, Hyderabad successfully chased down 214 against the Sultans just a week ago, giving them the confidence to back their deep batting lineup under lights.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden group">
+               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Trophy className="w-20 h-20" />
+               </div>
+               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Multan Sultans XI</h3>
+               <ul className="space-y-2 text-sm font-bold text-white/70">
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Sahibzada Farhan</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Steven Smith</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Josh Philippe (wk)</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Shan Masood</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Arafat Minhas</li>
+                  <li className="flex items-center gap-2 font-black text-white"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Ashton Turner (c)</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Mohammad Nawaz</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Mohammad Imran Randhawa</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Peter Siddle</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Muhammad Ismail</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Faisal Akram</li>
+               </ul>
+               <p className="mt-4 text-[10px] text-white/40 italic">* Mohammad Nawaz returns; Wasim Jr dropped.</p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden group">
+               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Flame className="w-20 h-20" />
+               </div>
+               <h3 className="text-xl font-black text-pak-green uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Hyderabad Kingsmen XI</h3>
+               <ul className="space-y-2 text-sm font-bold text-white/70">
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Saim Ayub</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Maaz Sadaqat</li>
+                  <li className="flex items-center gap-2 font-black text-white"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Marnus Labuschagne (c)</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Usman Khan (wk)</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Kusal Perera</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Glenn Maxwell</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Irfan Khan</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Hassan Khan</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Hunain Shah</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Mohammad Ali</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Akif Javed</li>
+               </ul>
             </div>
           </div>
 

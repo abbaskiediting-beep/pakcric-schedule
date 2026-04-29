@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3 } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -207,6 +207,28 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-2026-eliminator-1-multan-vs-hyderabad-match-analysis',
     icon: Target,
     color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'psl-2026-eliminator-1-confirmed-playing-xi-updates',
+    title: 'PSL 2026 Eliminator 1: Confirmed Playing XIs Details',
+    summary: 'The battle lines are drawn. Multan Sultans shuffle their bowling while Hyderabad Kingsmen stick to their winning formula. Full lineups inside.',
+    date: 'April 29, 2026',
+    category: 'Lineups',
+    path: '/psl-2026-eliminator-1-playing-xi-match-updates-final',
+    icon: Shield,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'kingsmen-dominate-eliminator-1-multan-collapse-2026',
+    title: 'Kingsmen Dominate Eliminator 1: Multan Sultans Collapse to 159/9',
+    summary: 'A clinical bowling performance from Hyderabad Kingsmen restricts Multan Sultans in the high-pressure PSL 2026 Eliminator 1. Shan Masood’s lone battle saves face.',
+    date: 'April 29, 2026',
+    category: 'Match Report',
+    path: '/psl-2026-eliminator-1-match-summary-kingsmen-vs-multan',
+    icon: BarChart3,
+    color: 'text-emerald-500',
     authorId: 'zainab-rashid'
   },
 ];

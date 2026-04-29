@@ -11,17 +11,17 @@ export const PLAYER_STATS: Record<string, Player> = {
       { title: 'Undisputed PSL King', description: 'Highest run-getter in PSL history.' }
     ],
     stats: {
-      matches: 295,
-      innings: 370,
-      runs: 15200,
-      avg: 48.25,
-      sr: 125.40,
+      matches: 330,
+      innings: 410,
+      runs: 17500,
+      avg: 48.50,
+      sr: 128.50,
       highestScore: '196',
       recentForm: ['45', '12', '101*', '34', '56'],
       formats: {
-        test: { matches: 54, innings: 101, runs: 4366, avg: 42.39, sr: 54.20, highestScore: '196', centuries: 9, fifties: 26 },
-        odi: { matches: 117, innings: 114, runs: 6500, avg: 56.72, sr: 88.75, highestScore: '158', centuries: 19, fifties: 32 },
-        t20i: { matches: 124, innings: 118, runs: 4515, avg: 41.06, sr: 129.08, highestScore: '122', centuries: 3, fifties: 36 }
+        test: { matches: 58, innings: 108, runs: 4850, avg: 46.2, sr: 55.4, highestScore: '196', bestBowling: '1/1', centuries: 11, fifties: 30 },
+        odi: { matches: 125, innings: 122, runs: 7200, avg: 56.5, sr: 89.2, highestScore: '158', bestBowling: '0/15', centuries: 22, fifties: 38 },
+        t20i: { matches: 147, innings: 139, runs: 5450, avg: 43.2, sr: 132.5, highestScore: '122*', bestBowling: '0/10', centuries: 5, fifties: 48 }
       }
     }
   },
