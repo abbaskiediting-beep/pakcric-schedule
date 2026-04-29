@@ -11,6 +11,11 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     series: 'Pakistan Tour of Bangladesh (Test Series)',
     status: 'Upcoming',
     flagUrl: 'https://flagcdn.com/bd.svg',
+    playersToWatch: [
+      { name: 'Babar Azam', role: 'Batter', reason: 'Top-ranked Test batter with an excellent record in Bangladesh.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Babar' },
+      { name: 'Litton Das', role: 'Batter', reason: 'Bangladesh\'s most consistent run-scorer in home conditions.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Litton' },
+      { name: 'Shaheen Afridi', role: 'Bowler', reason: 'His ability to swing the new ball could rattle the top order.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shaheen' }
+    ],
     preMatchAnalysis: `
 ### Tactical Overview
 Pakistan enters this test series with a renewed focus on red-ball resilience. Following a mixed home season, the Babar Azam-led side is looking to dominate the spin-friendly conditions in Dhaka. Bangladesh, on the other hand, remains a formidable force at home, especially with their spin trio expected to play a crucial role.
@@ -33,7 +38,19 @@ Pakistan has won 3 of their last 5 Test matches, while Bangladesh is coming off 
     venue: 'Zahur Ahmed Chowdhury Stadium, Chattogram',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
     status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/bd.svg'
+    flagUrl: 'https://flagcdn.com/bd.svg',
+    preMatchAnalysis: `
+### Series Context
+The second Test in Chattogram often favors batsmen early on before becoming a spin minefield. Pakistan will look to consolidate their position in the series here.
+
+### Tactical Battle
+* **Reverse Swing:** The dry conditions in Chattogram often provide reverse swing, making Naseem Shah a key weapon.
+* **Middle Order Stability:** Saud Shakeel and Mohammad Rizwan will be pivotal in holding the innings together if the top order struggles against the new ball.
+    `,
+    playersToWatch: [
+      { name: 'Naseem Shah', role: 'Bowler', reason: 'Exceptional control with reverse swing on abrasive surfaces.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Naseem' },
+      { name: 'Shakib Al Hasan', role: 'All-rounder', reason: 'The veteran remains the most dangerous threat with his clever changes of pace.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shakib' }
+    ]
   },
   {
     id: '8',

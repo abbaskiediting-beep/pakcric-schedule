@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -337,72 +337,60 @@ export default function Home() {
       <AdPlaceholder type="banner" className="mb-12" />
 
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-        {/* Hero Section ... lines 19 to 71 */}
-        {/* Mini Series Schedule ... lines 74 to 114 */}
+        {/* Featured Hero Match Section */}
         <motion.section 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="md:col-span-4 relative bg-gradient-to-br from-[#0a4d2e] via-pak-green to-[#00220e] rounded-[32px] md:rounded-[48px] p-5 md:p-12 flex flex-col justify-center overflow-hidden border border-white/10 shadow-3xl shadow-pak-green/20 min-h-[400px] md:min-h-[460px] group"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:col-span-4 relative bg-gradient-to-br from-[#042111] via-pak-green to-[#001a08] rounded-[24px] md:rounded-[32px] p-4 md:p-6 flex flex-col justify-center overflow-hidden border border-white/5 shadow-xl min-h-[300px] md:min-h-[340px] group text-white"
         >
-          <div className="absolute inset-0 opacity-[0.15] pointer-events-none select-none flex items-center justify-center mix-blend-overlay">
-            <span className="text-[120px] sm:text-[180px] md:text-[300px] font-bold font-display rotate-12 group-hover:rotate-6 transition-transform duration-1000">PAK</span>
+          {/* Subtle Background Text */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none select-none flex items-center justify-center">
+            <span className="text-[120px] md:text-[200px] font-black font-display tracking-tighter">PAK</span>
           </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.1)_0%,_transparent_60%)] pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-                <span className="inline-block px-3.5 py-1.5 bg-white text-black rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[2px] md:tracking-[4px] shadow-lg">
-                  Up Next
-                </span>
-                <span className="inline-block px-3.5 py-1.5 bg-white/10 rounded-full text-[9px] md:text-[11px] font-bold uppercase tracking-[1.5px] text-white border border-white/20 backdrop-blur-md max-w-[200px] xs:max-w-xs truncate">
-                  {nextMatch.series}
-                </span>
-              </div>
-              <div className="flex items-center gap-2 bg-red-600/20 px-3.5 py-1.5 rounded-full border border-red-500/30 backdrop-blur-md shadow-lg shrink-0">
-                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
-                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-red-100">Tickets: Fast Filling</span>
-              </div>
+          <div className="relative z-10 space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 bg-white text-pak-green rounded-full text-[8px] font-black uppercase tracking-wider">NEXT MATCH</span>
+              <span className="px-2.5 py-0.5 bg-black/40 rounded-full text-[8px] font-bold uppercase tracking-wider text-white/60 border border-white/10 uppercase">{nextMatch.series}</span>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-10 md:gap-12 py-2">
-              <div className="flex items-center gap-5 sm:gap-10 order-2 sm:order-1">
-                 <div className="group/flag relative">
-                    <div className="w-16 h-16 md:w-28 md:h-28 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-1.5 overflow-hidden shadow-3xl bg-white/5 backdrop-blur-sm group-hover/flag:scale-110 transition-transform">
-                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-3">
+                <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none">
+                  PAK <span className="text-pak-green">VS</span> {nextMatch.opponent.substring(0, 3)}
+                </h2>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2 text-[9px] font-medium text-white/70 uppercase tracking-widest">
+                    <MapPin className="w-3 h-3 text-pak-green" /> {nextMatch.venue}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1.5 text-[9px] font-black text-white uppercase tracking-wider">
+                      <Calendar className="w-3 h-3 text-pak-green" /> {nextMatch.date}
                     </div>
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-white rounded text-[8px] font-black text-black">PAK</div>
-                 </div>
-                 <div className="text-center">
-                    <span className="text-3xl md:text-6xl font-display font-black text-white/10 uppercase tracking-tighter">VS</span>
-                 </div>
-                 <div className="group/flag relative">
-                    <div className="w-16 h-16 md:w-28 md:h-28 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-1.5 overflow-hidden shadow-3xl bg-white/5 backdrop-blur-sm group-hover/flag:scale-110 transition-transform">
-                      <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full" />
+                    <div className="flex items-center gap-1.5 text-[9px] font-black text-white uppercase tracking-wider">
+                      <Timer className="w-3 h-3 text-pak-green" /> {nextMatch.time}
                     </div>
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-white rounded text-[8px] font-black text-black">{nextMatch.opponent.substring(0, 3)}</div>
-                 </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="text-center sm:text-right order-1 sm:order-2 w-full sm:w-auto">
-                <h2 className="text-3xl sm:text-4xl md:text-8xl font-display font-black uppercase tracking-tighter leading-[0.9] text-white mb-2 md:mb-3 drop-shadow-2xl">
-                  PAK <span className="text-white/40 font-bold block sm:inline">vs</span> {nextMatch.opponent.substring(0, 3)}
-                </h2>
-                <div className="space-y-1">
-                  <p className="text-[11px] md:text-xl font-bold uppercase tracking-[3px] md:tracking-[6px] text-white/70 flex items-center justify-center sm:justify-end gap-2">
-                    <MapPin className="w-3 h-3 md:w-5 md:h-5 text-pak-green" /> {nextMatch.venue}
-                  </p>
-                  <p className="text-[10px] md:text-base font-black text-white uppercase tracking-[2px] md:tracking-[4px] bg-white/5 inline-block px-3 py-1 rounded-lg border border-white/10">{nextMatch.date} • {nextMatch.time}</p>
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 md:w-24 md:h-24 rounded-xl border-2 border-pak-green/30 p-1 bg-black/40 backdrop-blur-md">
+                  <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-lg" />
+                </div>
+                <div className="text-lg font-display font-black text-white/10 uppercase">VS</div>
+                <div className="w-14 h-14 md:w-24 md:h-24 rounded-xl border-2 border-white/10 p-1 bg-black/40 backdrop-blur-md">
+                  <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-lg" />
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 mt-auto pt-4 md:pt-0">
-               <Link to={`/match/${nextMatch.id}`} className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-white text-black rounded-[20px] md:rounded-[24px] text-[11px] md:text-sm font-black uppercase tracking-[3px] hover:scale-[1.03] active:scale-[0.98] transition-all shadow-[0_20px_50px_rgba(255,255,255,0.2)] text-center flex items-center justify-center gap-3">
-                  Match Details <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+            <div className="flex gap-2.5 pt-2">
+               <Link to={`/match/${nextMatch.id}`} className="px-6 py-2.5 bg-white text-black rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-pak-green hover:text-white transition-all shadow-md">
+                  View Details
                </Link>
-               <button className="w-full sm:w-auto px-10 md:px-14 py-4 md:py-5 bg-white/10 text-white border border-white/20 rounded-[20px] md:rounded-[24px] text-[11px] md:text-sm font-black uppercase tracking-[2px] hover:bg-white/20 transition-all flex items-center justify-center gap-3 backdrop-blur-xl">
-                  <Ticket className="w-4 h-4 md:w-5 md:h-5" /> Book Tickets
+               <button className="px-6 py-2.5 bg-white/5 text-white border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-white/10 transition-all">
+                  Tickets
                </button>
             </div>
           </div>

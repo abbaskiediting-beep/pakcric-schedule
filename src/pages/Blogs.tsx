@@ -125,6 +125,63 @@ export default function Blogs() {
         </div>
       </section>
 
+      {/* Our Experts Section */}
+      <section className="mb-20 md:mb-32">
+        <div className="flex items-center gap-4 mb-10 md:mb-16">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-pak-green flex items-center justify-center text-white shadow-lg shadow-pak-green/20">
+            <Users className="w-6 h-6 md:w-8 md:h-8" />
+          </div>
+          <div>
+            <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-1 md:mb-2">
+              Meet Our <span className="text-pak-green italic">Editorial Experts</span>
+            </h2>
+            <p className="text-[9px] md:text-[10px] font-bold text-ink/40 uppercase tracking-[4px] md:tracking-[6px]">
+              The voices behind Pakistan's top cricket analysis
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {AUTHORS.map((author, idx) => (
+            <motion.div
+              key={author.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.05 }}
+              viewport={{ once: true }}
+              className="bg-white/[0.02] border border-white/5 rounded-3xl md:rounded-[40px] p-6 md:p-10 hover:bg-pak-green/5 hover:border-pak-green/20 transition-all group"
+            >
+              <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-pak-green/10 border border-pak-green/20 overflow-hidden p-1 group-hover:border-pak-green/40 transition-colors">
+                  <img src={author.avatarUrl} alt={author.name} className="w-full h-full object-cover rounded-xl md:rounded-2xl" />
+                </div>
+                <div>
+                  <h3 className="text-base md:text-xl font-display font-bold text-white uppercase mb-1 md:mb-1.5 group-hover:text-pak-green transition-colors leading-tight">
+                    {author.name}
+                  </h3>
+                  <div className="px-3 py-1 bg-white/5 border border-white/5 rounded-full text-[8px] md:text-[9px] font-black text-pak-green uppercase tracking-widest inline-block mb-2">
+                    {author.role}
+                  </div>
+                </div>
+              </div>
+              <div className="mb-6 md:mb-8">
+                <p className="text-[10px] md:text-[11px] font-bold text-ink/30 uppercase tracking-[2px] md:tracking-[3px] mb-2 md:mb-3">Specialization</p>
+                <p className="text-white/80 font-bold text-xs md:text-sm tracking-tight">{author.specialization}</p>
+              </div>
+              <p className="text-ink/60 text-xs md:text-[13px] font-medium leading-relaxed mb-8 line-clamp-3">
+                {author.bio}
+              </p>
+              <Link 
+                to={`/author/${author.id}`}
+                className="flex items-center justify-between py-3 md:py-4 px-5 md:px-6 bg-white/5 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] text-white/40 group-hover:bg-pak-green group-hover:text-white transition-all transform group-hover:translate-y-[-4px]"
+              >
+                View Profile <ChevronRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Feature Sections */}
       <div className="space-y-16 md:space-y-32">
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">

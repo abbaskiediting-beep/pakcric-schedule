@@ -19,6 +19,13 @@ export interface KeyPartnership {
   balls: string;
 }
 
+export interface PlayerToWatch {
+  name: string;
+  role: string;
+  reason: string;
+  imgUrl?: string;
+}
+
 export interface MatchStats {
   topScorers?: TopScorer[];
   leadingWicketTakers?: WicketTaker[];
@@ -42,6 +49,7 @@ export interface Match {
   stats?: MatchStats;
   preMatchAnalysis?: string;
   postMatchSummary?: string;
+  playersToWatch?: PlayerToWatch[];
 }
 
 export interface Achievement {

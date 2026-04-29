@@ -32,6 +32,36 @@ export const AUTHORS: Author[] = [
     specialization: 'PCB Updates & Historical Insights',
     bio: 'Omar has been the voice of Pakistan cricket for over two decades. He has a deep understanding of the board dynamics and a passion for cricket history. He manages the core news desk at PakCric Schedule.',
     avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Omar'
+  },
+  {
+    id: 'bilal-ahmed',
+    name: 'Bilal Ahmed',
+    role: 'Domestic Talent Scout',
+    specialization: 'Grassroots & Emerging Players',
+    bio: 'Bilal spends his time traveling across Pakistan to find the next generation of superstars. From Tape-ball street stars to Quaid-e-Azam Trophy standouts, he has an eye for raw potential.',
+    socials: {
+      twitter: 'https://twitter.com/bilal_scout'
+    },
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bilal'
+  },
+  {
+    id: 'ayesha-khan',
+    name: 'Ayesha Khan',
+    role: 'Lead Ground Correspondent',
+    specialization: 'Live Match Coverage & Player Interviews',
+    bio: 'Ayesha is always where the action is. With experience reporting from every major stadium in Pakistan, she provides the "vibe" from the stadium that data cannot capture.',
+    socials: {
+      twitter: 'https://twitter.com/ayesha_cric_live'
+    },
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ayesha'
+  },
+  {
+    id: 'faisal-qureshi',
+    name: 'Dr. Faisal Qureshi',
+    role: 'Sports Science Expert',
+    specialization: 'Injury Management & Workload Analysis',
+    bio: 'A former physiotherapist for domestic teams, Dr. Faisal provides medical perspectives on player fitness, workload management, and the science behind recovery in modern cricket.',
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Faisal'
   }
 ];
 

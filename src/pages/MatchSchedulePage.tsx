@@ -1,6 +1,7 @@
-import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info, Share2 } from 'lucide-react';
+import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info, Share2, ChevronDown, ChevronUp, User, Target, Zap, Newspaper } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
+import { MATCH_RESULTS } from '../matchResultsData';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import React, { useState, useMemo } from 'react';
@@ -8,8 +9,133 @@ import { Match } from '../types';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import ExternalResourcesSection from '../components/ExternalResourcesSection';
+import { LinkText } from '../components/LinkText';
 
 type SortKey = 'date' | 'opponent' | 'series';
+
+function MatchDetailExpanded({ match }: { match: Match }) {
+  return (
+    <div className="bg-white/[0.03] border-t border-card-border p-6 md:p-10 animate-in fade-in slide-in-from-top-4 duration-500">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        {/* Left Column: Stats & Summary */}
+        <div className="space-y-8">
+          {match.status === 'Completed' && match.stats && (
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 mb-2">
+                <Trophy className="w-5 h-5 text-pak-green" />
+                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Match Performance</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {match.stats.topScorers && (
+                  <div className="bg-black/20 rounded-2xl p-5 border border-white/5">
+                    <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-4">Top Scorers</p>
+                    <div className="space-y-3">
+                      {match.stats.topScorers.map((s, idx) => (
+                        <div key={idx} className="flex justify-between items-center group/item">
+                          <span className="text-xs font-bold text-white/70 group-hover/item:text-white transition-colors">{s.name}</span>
+                          <span className="text-sm font-display font-black text-pak-green">{s.runs} <span className="text-[10px] text-white/20 font-sans">({s.balls})</span></span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {match.stats.leadingWicketTakers && (
+                  <div className="bg-black/20 rounded-2xl p-5 border border-white/5">
+                    <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-4">Best Bowling</p>
+                    <div className="space-y-3">
+                      {match.stats.leadingWicketTakers.map((s, idx) => (
+                        <div key={idx} className="flex justify-between items-center group/item">
+                          <span className="text-xs font-bold text-white/70 group-hover/item:text-white transition-colors">{s.name}</span>
+                          <span className="text-sm font-display font-black text-pak-green">{s.wickets}-{s.runs} <span className="text-[10px] text-white/20 font-sans">({s.overs})</span></span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {match.preMatchAnalysis && (
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Zap className="w-5 h-5 text-pak-green" />
+                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Pre-Match Analysis</h3>
+              </div>
+              <div className="bg-black/20 rounded-3xl p-6 border border-white/5 prose prose-invert prose-sm max-w-none">
+                <LinkText text={match.preMatchAnalysis.substring(0, 300) + (match.preMatchAnalysis.length > 300 ? '...' : '')} />
+                {match.preMatchAnalysis.length > 300 && (
+                  <Link to={`/match/${match.id}`} className="text-pak-green font-bold block mt-4 hover:underline">Read Full Analysis</Link>
+                )}
+              </div>
+            </div>
+          )}
+
+          {match.postMatchSummary && (
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Newspaper className="w-5 h-5 text-pak-green" />
+                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Match Summary</h3>
+              </div>
+              <div className="bg-black/20 rounded-3xl p-6 border border-white/5 prose prose-invert prose-sm max-w-none">
+                <LinkText text={match.postMatchSummary.substring(0, 300) + (match.postMatchSummary.length > 300 ? '...' : '')} />
+                {match.postMatchSummary.length > 300 && (
+                  <Link to={`/match/${match.id}`} className="text-pak-green font-bold block mt-4 hover:underline">Read Full Summary</Link>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Right Column: Key Players & Meta */}
+        <div className="space-y-8">
+          {match.playersToWatch && (
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Target className="w-5 h-5 text-pak-green" />
+                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Players to Watch</h3>
+              </div>
+              <div className="space-y-4">
+                {match.playersToWatch.map((player, idx) => (
+                  <div key={idx} className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-pak-green/20 transition-all group">
+                    <div className="w-12 h-12 rounded-xl bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0 group-hover:bg-pak-green/20 transition-colors">
+                      {player.imgUrl ? (
+                        <img src={player.imgUrl} alt={player.name} className="w-full h-full object-cover rounded-lg" />
+                      ) : (
+                        <User className="w-6 h-6 text-pak-green" />
+                      )}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <h4 className="text-sm font-bold text-white">{player.name}</h4>
+                        <span className="text-[9px] font-black uppercase text-pak-green bg-pak-green/10 px-2 py-0.5 rounded-md">{player.role}</span>
+                      </div>
+                      <p className="text-[11px] text-white/50 leading-relaxed italic">"{player.reason}"</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="bg-pak-green/10 rounded-3xl p-8 border border-pak-green/20 relative overflow-hidden group">
+            <div className="relative z-10">
+              <h3 className="text-lg font-display font-bold uppercase tracking-tight text-white mb-2">Detailed Statistics</h3>
+              <p className="text-xs text-white/60 mb-6 leading-relaxed">
+                Looking for more in-depth data? Visit our full Match Center for historical head-to-head records and ground statistics.
+              </p>
+              <Link to={`/match/${match.id}`} className="inline-flex items-center gap-2 px-6 py-3 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-pak-green transition-all shadow-xl shadow-pak-green/20">
+                Go to Match Center <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <Globe className="absolute -bottom-8 -right-8 w-32 h-32 text-pak-green/10 group-hover:scale-110 transition-transform duration-700" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function MatchSchedulePage() {
   const [sortKey, setSortKey] = useState<SortKey>('date');
@@ -17,13 +143,16 @@ export default function MatchSchedulePage() {
   const [filterFormat, setFilterFormat] = useState<string>('All');
   const [filterVenue, setFilterVenue] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const allMatches = useMemo(() => [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS], []);
 
   // Extract all available formats and venues
-  const formats = ['All', ...Array.from(new Set(PAKISTAN_SCHEDULE.map(m => m.format)))];
-  const venues = ['All', ...Array.from(new Set(PAKISTAN_SCHEDULE.map(m => m.venue)))];
+  const formats = useMemo(() => ['All', ...Array.from(new Set(allMatches.map(m => m.format)))], [allMatches]);
+  const venues = useMemo(() => ['All', ...Array.from(new Set(allMatches.map(m => m.venue)))], [allMatches]);
 
   const filteredAndSortedMatches = useMemo(() => {
-    let result = [...PAKISTAN_SCHEDULE];
+    let result = [...allMatches];
 
     // Search
     if (searchQuery) {
@@ -240,18 +369,41 @@ export default function MatchSchedulePage() {
           </div>
 
           {/* Venue Dropdown */}
-          <div className="relative group w-full md:w-72">
+          <div className="relative group w-full md:w-64">
             <select
               value={filterVenue}
               onChange={(e) => setFilterVenue(e.target.value)}
-              className="appearance-none bg-card-bg border border-card-border rounded-3xl py-5 pl-14 pr-12 text-[10px] font-bold uppercase tracking-[4px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
+              className="appearance-none bg-card-bg border border-card-border rounded-3xl py-5 pl-12 pr-10 text-[9px] font-bold uppercase tracking-[3px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
             >
               {venues.map(v => (
-                <option key={v} value={v} className="bg-card-bg text-ink uppercase">{v === 'All' ? 'Every Venue' : v}</option>
+                <option key={v} value={v} className="bg-neutral-900 text-ink uppercase">{v === 'All' ? 'Every Venue' : v}</option>
               ))}
             </select>
-            <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
               <MapPin className="w-4 h-4 text-pak-green" />
+            </div>
+          </div>
+
+          {/* Sort Dropdown */}
+          <div className="relative group w-full md:w-64">
+            <select
+              value={`${sortKey}-${sortOrder}`}
+              onChange={(e) => {
+                const [key, order] = e.target.value.split('-') as [SortKey, 'asc' | 'desc'];
+                setSortKey(key);
+                setSortOrder(order);
+              }}
+              className="appearance-none bg-card-bg border border-card-border rounded-3xl py-5 pl-12 pr-10 text-[9px] font-bold uppercase tracking-[3px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
+            >
+              <option value="date-asc" className="bg-neutral-900">Date (Oldest First)</option>
+              <option value="date-desc" className="bg-neutral-900">Date (Newest First)</option>
+              <option value="opponent-asc" className="bg-neutral-900">Opponent (A-Z)</option>
+              <option value="opponent-desc" className="bg-neutral-900">Opponent (Z-A)</option>
+              <option value="series-asc" className="bg-neutral-900">Series (A-Z)</option>
+              <option value="series-desc" className="bg-neutral-900">Series (Z-A)</option>
+            </select>
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+              <ArrowUpDown className="w-4 h-4 text-pak-green" />
             </div>
           </div>
         </div>
@@ -297,7 +449,10 @@ export default function MatchSchedulePage() {
                     <AdPlaceholder type="native" className="max-w-full" label="ADVERTISEMENT" />
                   </div>
                 )}
-                <div className={`p-6 flex flex-col gap-5 transition-all ${match.status === 'Live' ? 'bg-red-500/5 ring-1 ring-red-500/20 shadow-[0_0_20px_-10px_rgba(239,68,68,0.3)]' : ''}`}>
+                <div 
+                  onClick={() => setExpandedId(expandedId === match.id ? null : match.id)}
+                  className={`p-6 flex flex-col gap-5 transition-all cursor-pointer hover:bg-white/[0.04] ${match.status === 'Live' ? 'bg-red-500/5 ring-1 ring-red-500/20 shadow-[0_0_20px_-10px_rgba(239,68,68,0.3)]' : ''}`}
+                >
                   <div className="flex justify-between items-start gap-3">
                     <div className="flex items-center gap-3.5">
                       <div className={`w-11 h-11 rounded-xl flex flex-col items-center justify-center shrink-0 ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/5 border-pak-green/10'} border`}>
@@ -353,15 +508,34 @@ export default function MatchSchedulePage() {
                       {match.status === 'Live' && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
                       {match.status}
                     </span>
-                    <Link to={`/match/${match.id}`} className={`px-5 py-2.5 rounded-xl border text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all ${
-                      match.status === 'Live' 
-                        ? 'bg-red-600/10 border-red-500/30 text-red-500 hover:bg-red-600 hover:text-white' 
-                        : 'bg-white/5 border-white/10 text-pak-green hover:bg-pak-green hover:text-white'
-                    }`}>
-                      Match Details <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Optional: Navigate to detail page or keep as just expansion
+                      }}
+                      className={`px-5 py-2.5 rounded-xl border text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all ${
+                        match.status === 'Live' 
+                          ? 'bg-red-600/10 border-red-500/30 text-red-500 hover:bg-red-600 hover:text-white' 
+                          : 'bg-white/5 border-white/10 text-pak-green hover:bg-pak-green hover:text-white'
+                      }`}
+                    >
+                      {expandedId === match.id ? 'Show Less' : 'Quick View'} {expandedId === match.id ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    </button>
                   </div>
                 </div>
+
+                <AnimatePresence>
+                  {expandedId === match.id && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-black/20"
+                    >
+                      <MatchDetailExpanded match={match} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </React.Fragment>
             ))
           ) : (
@@ -387,14 +561,16 @@ export default function MatchSchedulePage() {
                     Opposition <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'opponent' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 w-56">
-                  <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Format & Series</div>
+                <th className="px-8 py-8 cursor-pointer group w-56" onClick={() => handleSort('series')}>
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
+                    Format & Series <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'series' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
+                  </div>
                 </th>
                 <th className="px-8 py-8 w-64">
                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Status</div>
                 </th>
                 <th className="px-8 py-8 text-right">
-                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Match Center</div>
+                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Match Details</div>
                 </th>
               </tr>
             </thead>
@@ -414,7 +590,8 @@ export default function MatchSchedulePage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.05 }}
-                        className={`transition-colors group ${match.status === 'Live' ? 'bg-red-500/[0.04] ring-inset ring-1 ring-red-500/10' : 'hover:bg-pak-green/[0.02]'}`}
+                        onClick={() => setExpandedId(expandedId === match.id ? null : match.id)}
+                        className={`transition-colors group cursor-pointer ${match.status === 'Live' ? 'bg-red-500/[0.04] ring-inset ring-1 ring-red-500/10' : 'hover:bg-pak-green/[0.02]'} ${expandedId === match.id ? 'bg-pak-green/[0.04] border-l-4 border-pak-green' : ''}`}
                       >
                       {/* Date Column */}
                       <td className="px-8 py-8">
@@ -505,19 +682,35 @@ export default function MatchSchedulePage() {
 
                       {/* Action Column */}
                       <td className="px-8 py-8 text-right">
-                         <Link 
-                          to={`/match/${match.id}`} 
+                         <div 
                           className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full border transition-all group/btn shadow-sm ${
                             match.status === 'Live' 
                               ? 'bg-red-600 text-white border-red-500' 
                               : 'bg-card-bg border-card-border hover:bg-pak-green hover:text-white hover:border-pak-green'
                           }`}
                         >
-                            <span className="text-[10px] font-bold uppercase tracking-widest">Match Details</span>
-                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                         </Link>
+                            <span className="text-[10px] font-bold uppercase tracking-widest">{expandedId === match.id ? 'Close' : 'Quick View'}</span>
+                            {expandedId === match.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                         </div>
                       </td>
                     </motion.tr>
+
+                    <AnimatePresence>
+                      {expandedId === match.id && (
+                        <tr className="bg-white/[0.01]">
+                          <td colSpan={5} className="p-0 border-b border-card-border">
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <MatchDetailExpanded match={match} />
+                            </motion.div>
+                          </td>
+                        </tr>
+                      )}
+                    </AnimatePresence>
                   </React.Fragment>
                   ))
                 ) : (
