@@ -1,4 +1,4 @@
-import { Calendar, Clock, User, ArrowLeft, Share2, Trophy, Target, Star, History, BarChart3, Zap } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft, Share2, Trophy, Target, Star, History as HistoryIcon, BarChart3, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -151,7 +151,7 @@ export default function BabarAzamPSLCenturiesBlog() {
                 </div>
 
                 <h2 className="text-3xl font-black uppercase tracking-tighter mb-8 flex items-center gap-4">
-                  <History className="w-8 h-8 text-pak-green" />
+                  <HistoryIcon className="w-8 h-8 text-pak-green" />
                   Century #1: The Rawalpindi breakthrough (2023)
                 </h2>
                 <div className="bg-black/40 border border-white/5 p-8 rounded-3xl mb-10">

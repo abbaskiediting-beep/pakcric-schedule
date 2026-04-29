@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ALL_SQUADS } from '../squadData';
 import { PLAYER_STATS } from '../playerData';
-import { Trophy, ChevronRight, Search, X, TrendingUp, User, Info, StickyNote, Save, Star, Award, Share2 } from 'lucide-react';
+import { Trophy, ChevronRight, ChevronDown, Search, X, TrendingUp, User, Info, StickyNote, Save, Star, Award, Share2 } from 'lucide-react';
 import { MatchFormat, Player } from '../types';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
@@ -37,6 +37,7 @@ export default function Squads() {
   const [compSearchTerm, setCompSearchTerm] = useState('');
   const [activeStatTab, setActiveStatTab] = useState<'overall' | 'test' | 'odi' | 't20i'>('overall');
   const [expandedSeries, setExpandedSeries] = useState<string[]>([]);
+  const [collapsedSeries, setCollapsedSeries] = useState<string[]>([]);
   const [playerNotes, setPlayerNotes] = useState<Record<string, string>>(() => {
     const saved = localStorage.getItem('pak_player_notes');
     return saved ? JSON.parse(saved) : {};
@@ -108,6 +109,12 @@ export default function Squads() {
 
   const toggleSeries = (series: string) => {
     setExpandedSeries(prev => 
+      prev.includes(series) ? prev.filter(s => s !== series) : [...prev, series]
+    );
+  };
+
+  const toggleSectionCollapse = (series: string) => {
+    setCollapsedSeries(prev => 
       prev.includes(series) ? prev.filter(s => s !== series) : [...prev, series]
     );
   };
@@ -437,6 +444,27 @@ export default function Squads() {
       </div>
 
       {/* Main Squad Grid (Existing Component) */}
+      <div className="mb-12 flex items-center justify-between">
+        <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white flex items-center gap-3">
+          <Trophy className="w-6 h-6 text-pak-green" />
+          Series Lineups
+        </h2>
+        {filteredSquads.length > 1 && (
+          <button 
+            onClick={() => {
+              if (collapsedSeries.length === filteredSquads.length) {
+                setCollapsedSeries([]);
+              } else {
+                setCollapsedSeries(filteredSquads.map(s => s.series));
+              }
+            }}
+            className="text-[10px] font-bold uppercase tracking-widest text-pak-green hover:bg-pak-green/10 px-4 py-2 rounded-xl transition-all border border-pak-green/20"
+          >
+            {collapsedSeries.length === filteredSquads.length ? 'Expand All' : 'Collapse All'}
+          </button>
+        )}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {filteredSquads.map((squad, idx) => (
             <React.Fragment key={squad.series}>
@@ -451,9 +479,13 @@ export default function Squads() {
               layout
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-card-bg border border-card-border rounded-[32px] p-8 flex flex-col h-full"
+              className={`bg-card-bg border border-card-border rounded-[32px] overflow-hidden transition-all duration-500 ${collapsedSeries.includes(squad.series) ? 'h-fit' : 'min-h-full'}`}
             >
-              <div className="flex justify-between items-start mb-6">
+              <button 
+                onClick={() => toggleSectionCollapse(squad.series)}
+                className="w-full flex justify-between items-start p-8 text-left hover:bg-white/[0.02] transition-colors"
+                aria-expanded={!collapsedSeries.includes(squad.series)}
+              >
                 <div>
                   <h2 className="text-xl font-display font-bold uppercase tracking-tight mb-1">{squad.series}</h2>
                   <div className="flex items-center gap-2">
@@ -469,68 +501,85 @@ export default function Squads() {
                     </p>
                   </div>
                 </div>
-                <div className="bg-white/5 p-3 rounded-2xl border border-white/10">
-                  <Trophy className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-3">
+                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 hidden sm:block">
+                    <Trophy className="w-5 h-5 text-white" />
+                  </div>
+                  <div className={`p-2 rounded-full transition-transform duration-300 ${collapsedSeries.includes(squad.series) ? '' : 'rotate-180'}`}>
+                    <ChevronDown className="w-5 h-5 text-pak-green" />
+                  </div>
                 </div>
-              </div>
+              </button>
 
-              <div className="flex-grow space-y-2.5">
-                 {(searchTerm || expandedSeries.includes(squad.series) ? squad.players : squad.players.slice(0, 8)).map((player, pIdx) => (
-                   <button 
-                     key={pIdx} 
-                     onClick={() => handlePlayerClick(player.name)}
-                     className="w-full flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
-                   >
-                       <div className="flex items-center gap-3">
-                         <div className="w-8 h-8 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
-                           {PLAYER_STATS[player.name]?.imgUrl ? (
-                             <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-6 h-6 object-contain" />
-                           ) : (
-                             <User className="w-4 h-4 text-pak-green/40" />
-                           )}
-                         </div>
-                         <div>
-                            <span className={`text-[11px] font-black uppercase tracking-tight block group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
-                              {player.name}
-                            </span>
-                            <div className="flex items-center gap-1.5 mt-0.5">
-                              <span className="text-[7px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
-                              <StickyNote className={`w-2.5 h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
-                            </div>
-                         </div>
-                      </div>
+              <AnimatePresence>
+                {(!collapsedSeries.includes(squad.series) || searchTerm) && (
+                  <motion.div
+                    initial={searchTerm ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="px-8 pb-8"
+                  >
+                    <div className="space-y-2.5 mb-6">
+                      {(searchTerm || expandedSeries.includes(squad.series) ? squad.players : squad.players.slice(0, 8)).map((player, pIdx) => (
+                        <button 
+                          key={pIdx} 
+                          onClick={() => handlePlayerClick(player.name)}
+                          className="w-full flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
+                        >
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
+                                {PLAYER_STATS[player.name]?.imgUrl ? (
+                                  <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-6 h-6 object-contain" />
+                                ) : (
+                                  <User className="w-4 h-4 text-pak-green/40" />
+                                )}
+                              </div>
+                              <div>
+                                 <span className={`text-[11px] font-black uppercase tracking-tight block group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
+                                   {player.name}
+                                 </span>
+                                 <div className="flex items-center gap-1.5 mt-0.5">
+                                   <span className="text-[7px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
+                                   <StickyNote className={`w-2.5 h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
+                                 </div>
+                              </div>
+                           </div>
 
-                      <div className="flex items-center gap-4">
-                        {/* Form Dots */}
-                        <div className="hidden sm:flex gap-1">
-                          {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
-                            <div 
-                              key={i} 
-                              className={`w-1.5 h-1.5 rounded-full border border-black/20 shadow-sm ${getFormColor(result, PLAYER_STATS[player.name]?.role || 'Batter')}`}
-                              title={result}
-                            />
-                          ))}
-                        </div>
-                        {player.description && (
-                          <span className="text-[8px] font-bold bg-pak-green/20 text-pak-green px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
-                        )}
-                        <ChevronRight className="w-3.5 h-3.5 text-pak-green opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
-                      </div>
-                   </button>
-                 ))}
-                 {!searchTerm && !expandedSeries.includes(squad.series) && squad.players.length > 8 && (
-                   <p className="text-[9px] font-bold text-neutral-500 uppercase pt-2 px-2 text-center italic">And {squad.players.length - 8} more elite athletes...</p>
-                 )}
-              </div>
+                           <div className="flex items-center gap-4">
+                             {/* Form Dots */}
+                             <div className="hidden sm:flex gap-1">
+                               {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
+                                 <div 
+                                   key={i} 
+                                   className={`w-1.5 h-1.5 rounded-full border border-black/20 shadow-sm ${getFormColor(result, PLAYER_STATS[player.name]?.role || 'Batter')}`}
+                                   title={result}
+                                 />
+                               ))}
+                             </div>
+                             {player.description && (
+                               <span className="text-[8px] font-bold bg-pak-green/20 text-pak-green px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
+                             )}
+                             <ChevronRight className="w-3.5 h-3.5 text-pak-green opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
+                           </div>
+                        </button>
+                      ))}
+                      {!searchTerm && !expandedSeries.includes(squad.series) && squad.players.length > 8 && (
+                        <p className="text-[9px] font-bold text-neutral-500 uppercase pt-2 px-2 text-center italic">And {squad.players.length - 8} more elite athletes...</p>
+                      )}
+                    </div>
 
-              {squad.players.length > 8 && !searchTerm && (
-                <button 
-                  onClick={() => toggleSeries(squad.series)}
-                  className="mt-8 w-full py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
-                >
-                  {expandedSeries.includes(squad.series) ? 'Show Less' : 'View Full Squad'} <ChevronRight className={`w-4 h-4 transition-transform ${expandedSeries.includes(squad.series) ? 'rotate-90' : ''}`} />
-                </button>
-              )}
+                    {squad.players.length > 8 && !searchTerm && (
+                      <button 
+                        onClick={() => toggleSeries(squad.series)}
+                        className="w-full py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
+                      >
+                        {expandedSeries.includes(squad.series) ? 'Show Less' : 'View Full Squad List'} <ChevronRight className={`w-4 h-4 transition-transform ${expandedSeries.includes(squad.series) ? 'rotate-90' : ''}`} />
+                      </button>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
             </React.Fragment>
           ))}

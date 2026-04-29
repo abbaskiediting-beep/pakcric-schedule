@@ -18,45 +18,48 @@ interface InternalLinkSectionProps {
 }
 
 export default function InternalLinkSection({ cols, title }: InternalLinkSectionProps) {
-  const gridCols = cols === 1 
+  const isSidebar = cols === 1;
+  const gridCols = isSidebar 
     ? 'grid-cols-1' 
     : cols === 2 
     ? 'grid-cols-1 sm:grid-cols-2' 
     : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
 
   return (
-    <section className="mb-20">
-      <div className="flex items-center gap-3 mb-10">
-        <div className="w-10 h-10 rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-lg">
-          <LayoutGrid className="w-5 h-5" />
+    <section className={isSidebar ? "mb-10" : "mb-20"}>
+      <div className={`flex items-center gap-3 ${isSidebar ? "mb-6" : "mb-10"}`}>
+        <div className={`${isSidebar ? "w-8 h-8 rounded-xl" : "w-10 h-10 rounded-2xl"} bg-pak-green flex items-center justify-center text-white shadow-lg`}>
+          <LayoutGrid className={isSidebar ? "w-4 h-4" : "w-5 h-5"} />
         </div>
         <div>
-          <h3 className="text-3xl font-display font-bold uppercase tracking-tight text-white line-clamp-1">
+          <h3 className={`${isSidebar ? "text-xl" : "text-3xl"} font-display font-bold uppercase tracking-tight text-white line-clamp-1`}>
             {title || <>Explore <span className="text-pak-green">PakCric Schedule</span></>}
           </h3>
           <p className="text-[10px] font-bold text-ink/30 uppercase tracking-[4px]">
-            Navigate through our comprehensive portal
+            {isSidebar ? "Quick Navigation" : "Navigate through our comprehensive portal"}
           </p>
         </div>
       </div>
 
-      <div className={`grid gap-6 ${gridCols}`}>
+      <div className={`grid ${isSidebar ? "gap-3" : "gap-6"} ${gridCols}`}>
         {INTERNAL_LINKS.map((link, idx) => (
           <Link 
             key={idx} 
             to={link.path}
-            className={`group bg-card-bg border border-card-border rounded-[32px] hover:border-pak-green/40 hover:bg-pak-green/5 transition-all flex flex-col justify-between ${cols === 1 ? 'p-5' : 'p-6'}`}
+            className={`group bg-card-bg border border-card-border hover:border-pak-green/40 hover:bg-pak-green/5 transition-all flex flex-col justify-between ${isSidebar ? 'p-4 rounded-[24px]' : 'p-6 rounded-[32px]'}`}
           >
             <div>
-              <h3 className={`text-white font-bold mb-2 group-hover:text-pak-green transition-colors ${cols === 1 ? 'text-base' : 'text-lg'}`}>
+              <h3 className={`text-white font-bold group-hover:text-pak-green transition-colors ${isSidebar ? 'text-sm mb-1 line-clamp-1' : 'text-lg mb-2'}`}>
                 {link.name}
               </h3>
-              <p className="text-ink/50 text-xs font-medium leading-relaxed">
-                {link.desc}
-              </p>
+              {!isSidebar && (
+                <p className="text-ink/50 text-xs font-medium leading-relaxed">
+                  {link.desc}
+                </p>
+              )}
             </div>
-            <div className={`mt-6 flex items-center gap-2 text-[10px] font-bold text-pak-green uppercase tracking-[2px] ${cols === 1 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0`}>
-              Open Page <ChevronRight className="w-4 h-4" />
+            <div className={`${isSidebar ? "mt-3" : "mt-6"} flex items-center gap-2 text-[10px] font-bold text-pak-green uppercase tracking-[2px] ${isSidebar ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0`}>
+              {isSidebar ? "" : "Open Page"} <ChevronRight className="w-4 h-4" />
             </div>
           </Link>
         ))}

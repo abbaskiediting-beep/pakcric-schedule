@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -155,6 +155,17 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/top-5-players-with-most-centuries-in-psl-history-2026',
     icon: Medal,
     color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'babar-azam-resurgence-psl-2026-analysis',
+    title: "Babar Azam's Glorious Return: Two Centuries & A Season for the Ages",
+    summary: 'After two years and 67 innings, Babar Azam has silenced every critic with two massive centuries in PSL 2026. A detailed breakdown of his peak form.',
+    date: 'April 29, 2026',
+    category: 'Editorial Analysis',
+    path: '/babar-azam-glorious-return-psl-2026-centuries',
+    icon: HistoryIcon,
+    color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
 ];

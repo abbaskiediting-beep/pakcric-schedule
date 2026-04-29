@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Trophy, Calendar, MapPin, Users, History, ArrowRight, ShieldCheck, Star, Activity, Info } from 'lucide-react';
+import { Trophy, Calendar, MapPin, Users, History as HistoryIcon, ArrowRight, ShieldCheck, Star, Activity, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { LinkText } from '../components/LinkText';
@@ -199,7 +199,7 @@ export default function Series() {
           {/* Recent Series Section */}
           <section>
             <div className="flex items-center gap-4 mb-8">
-              <History className="w-8 h-8 text-pak-green" />
+              <HistoryIcon className="w-8 h-8 text-pak-green" />
               <h2 className="text-3xl font-display font-bold uppercase tracking-tighter italic">Recent Series</h2>
             </div>
             <p className="text-ink/60 mb-8 italic">
