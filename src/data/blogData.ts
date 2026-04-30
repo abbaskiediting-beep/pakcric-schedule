@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3 } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -273,6 +273,17 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/multan-sultans-psl-2026-full-season-journey-review',
     icon: HistoryIcon,
     color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'maaz-sadaqat-psl-2026-season-review-stats',
+    title: "Maaz Sadaqat PSL 2026: Pakistan's Most Exciting 20-Year-Old Takes the League by Storm",
+    summary: "A complete story of Maaz Sadaqat's PSL 2026 — from a 19-ball half-century to a match-winning 64* in the Eliminator knockout.",
+    date: 'April 30, 2026',
+    category: 'Rising Star',
+    path: '/maaz-sadaqat-psl-2026-season-review-stats',
+    icon: Star,
+    color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
 ];

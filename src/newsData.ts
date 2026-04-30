@@ -15,6 +15,13 @@ export const NEWS_DATA: NewsItem[] = [
     tag: 'Season Review',
     summary: 'From rebranding chaos to Eliminator heartbreak. Relive Multan Sultans\' rollercoaster PSL 11 journey from start to finish.'
   },
+  {
+    id: 'maaz-sadaqat-psl-2026-season-review-stats',
+    title: 'Maaz Sadaqat: The Breakout Star of PSL 2026',
+    date: 'April 30, 2026',
+    tag: 'Rising Star',
+    summary: 'A 19-ball fifty and an Eliminator masterclass. How 20-year-old Maaz Sadaqat became the most exciting talent in Pakistan cricket.'
+  },
   { 
     id: 'pakistan-vs-bangladesh-test-series-2026',
     title: 'Pakistan vs Bangladesh test series', 

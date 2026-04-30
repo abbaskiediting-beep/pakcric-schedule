@@ -57,6 +57,7 @@ const KingsmenFinalVictoryBlog = lazy(() => import('./pages/KingsmenFinalVictory
 const PSLEliminator1Report = lazy(() => import('./pages/PSLEliminator1Report'));
 const PSL11Qualifier1Report = lazy(() => import('./pages/PSL11Qualifier1Report'));
 const MultanSultansSeasonReview = lazy(() => import('./pages/MultanSultansSeasonReview'));
+const MaazSadaqatSeasonReview = lazy(() => import('./pages/MaazSadaqatSeasonReview'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -196,6 +197,7 @@ export default function App() {
               <Route path="/psl-2026-eliminator-1-full-match-report-analysis" element={<PSLEliminator1Report />} />
               <Route path="/psl-11-qualifier-1-match-report-babar-century" element={<PSL11Qualifier1Report />} />
               <Route path="/multan-sultans-psl-2026-full-season-journey-review" element={<MultanSultansSeasonReview />} />
+              <Route path="/maaz-sadaqat-psl-2026-season-review-stats" element={<MaazSadaqatSeasonReview />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

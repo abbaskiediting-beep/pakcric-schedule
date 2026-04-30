@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -465,6 +465,8 @@ export default function Home() {
                     navigate('/psl-2026-eliminator-1-full-match-report-analysis');
                   } else if (item.id === 'multan-sultans-psl-2026-full-season-journey-review') {
                     navigate('/multan-sultans-psl-2026-full-season-journey-review');
+                  } else if (item.id === 'maaz-sadaqat-psl-2026-season-review-stats') {
+                    navigate('/maaz-sadaqat-psl-2026-season-review-stats');
                   } else {
                     navigate(`/news/${item.id}`);
                   }
@@ -529,6 +531,22 @@ export default function Home() {
                     <div>
                        <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">PSL 11 Stats</p>
                        <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Elite Run-Scorers of the 2026 Season</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/maaz-sadaqat-psl-2026-season-review-stats"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Star className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Rising Star Profile</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Maaz Sadaqat: Pakistan's Next Big Thing</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
