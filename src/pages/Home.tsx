@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -438,6 +438,7 @@ export default function Home() {
           </Link>
         </motion.section>
 
+        {/* Latest Cricket News */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -459,7 +460,15 @@ export default function Home() {
               <motion.div
                 key={item.id || idx}
                 whileHover={{ y: -5 }}
-                onClick={() => navigate(`/news/${item.id}`)}
+                onClick={() => {
+                  if (item.id === 'psl-2026-eliminator-1-full-match-report-analysis') {
+                    navigate('/psl-2026-eliminator-1-full-match-report-analysis');
+                  } else if (item.id === 'multan-sultans-psl-2026-full-season-journey-review') {
+                    navigate('/multan-sultans-psl-2026-full-season-journey-review');
+                  } else {
+                    navigate(`/news/${item.id}`);
+                  }
+                }}
                 className="bg-white/5 border border-white/5 rounded-3xl p-6 group hover:border-white/30 transition-all cursor-pointer"
               >
                 <div className="flex justify-between items-start mb-4">
@@ -479,6 +488,52 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="mt-12 pt-10 border-t border-white/5">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <Trophy className="w-4 h-4 text-pak-green" />
+                <h4 className="text-xs font-black uppercase tracking-[2px] text-white">Featured Tactical Blogs</h4>
+              </div>
+              <Link to="/blogs" className="text-[9px] font-bold text-pak-green hover:underline uppercase tracking-widest">
+                View All Blogs
+              </Link>
+            </div>
+            
+            <div className="space-y-4">
+               <Link 
+                 to="/psl-11-qualifier-1-match-report-babar-century"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Zap className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Qualifier 1 Match Report</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Babar Azam 103 Sinks Islamabad United</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+               
+               <Link 
+                 to="/psl-11-top-run-scorers-2026"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Trophy className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">PSL 11 Stats</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Elite Run-Scorers of the 2026 Season</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+            </div>
           </div>
         </motion.section>
 

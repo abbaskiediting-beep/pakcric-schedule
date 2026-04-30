@@ -1,6 +1,20 @@
 import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
+  {
+    id: 'psl-2026-eliminator-1-full-match-report-analysis',
+    title: 'PSL 2026 Eliminator 1: Kingsmen Knock Out Sultans',
+    date: 'April 30, 2026',
+    tag: 'Match Report',
+    summary: 'Hyderabad Kingsmen crushed Multan Sultans by 8 wickets at Gaddafi Stadium Lahore. Usman Khan and Maaz Sadaqat powered the chase in just 15.2 overs.'
+  },
+  {
+    id: 'multan-sultans-psl-2026-full-season-journey-review',
+    title: 'Multan Sultans PSL 2026: The Complete Season Review',
+    date: 'April 30, 2026',
+    tag: 'Season Review',
+    summary: 'From rebranding chaos to Eliminator heartbreak. Relive Multan Sultans\' rollercoaster PSL 11 journey from start to finish.'
+  },
   { 
     id: 'pakistan-vs-bangladesh-test-series-2026',
     title: 'Pakistan vs Bangladesh test series', 
@@ -21,12 +35,5 @@ export const NEWS_DATA: NewsItem[] = [
     date: 'April 27, 2026',
     tag: 'Tournament Update',
     summary: 'Sufiyan Muqeem leads the PSL 11 bowling charts with 19 wickets. Shadab Khan and Mohammad Ali aim to overtake the leaders in playoffs.'
-  },
-  {
-    id: 'psl-11-qualifier-1-preview-2026-news',
-    title: 'Peshawar vs Islamabad: Qualifier 1 Preview',
-    date: 'April 27, 2026',
-    tag: 'Match Preview',
-    summary: 'Everything you need to know about the high-stakes Qualifier 1 between Zalmi and United in Karachi. Battle for a direct final spot.'
   }
 ];

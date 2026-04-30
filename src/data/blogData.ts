@@ -242,4 +242,37 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-yellow-500',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'psl-2026-eliminator-1-full-match-report-kingsmen-vs-multan',
+    title: 'PSL 2026 Eliminator 1 Match Report: Hyderabad Kingsmen Knock Out Multan Sultans by 8 Wickets',
+    summary: 'A comprehensive breakdown of Eliminator 1. From Multan\'s early collapse to Usman Khan and Maaz Sadaqat\'s explosive half-centuries. Full scorecard inside.',
+    date: 'April 30, 2026',
+    category: 'Match Report',
+    path: '/psl-2026-eliminator-1-full-match-report-analysis',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'psl-11-qualifier-1-match-report-babar-century',
+    title: 'PSL 11 Qualifier 1 Match Report: Babar Azam 103 Sinks Islamabad United',
+    summary: 'A definitive breakdown of the Qualifier 1 showdown. How Babar Azam\'s 11th T20 century propelled Peshawar Zalmi into the final.',
+    date: 'April 28, 2026',
+    category: 'Match Report',
+    path: '/psl-11-qualifier-1-match-report-babar-century',
+    icon: Trophy,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'multan-sultans-psl-2026-full-season-journey-review',
+    title: 'Multan Sultans PSL 2026: Poori Season Ki Kahani — Shuru Se Eliminator Tak Ki Mukammal Journey',
+    summary: 'Multan Sultans ka PSL 2026 ka poora safar — naye maalik, naya captain, Sahibzada Farhan ki batting aur Eliminator ki shikast ka mukammal jaiza.',
+    date: 'April 30, 2026',
+    category: 'Season Review',
+    path: '/multan-sultans-psl-2026-full-season-journey-review',
+    icon: HistoryIcon,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
 ];

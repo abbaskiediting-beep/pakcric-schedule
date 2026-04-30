@@ -54,6 +54,9 @@ const PSLEliminator1Blog = lazy(() => import('./pages/PSLEliminator1Blog'));
 const PSLEliminator1LineupsBlog = lazy(() => import('./pages/PSLEliminator1LineupsBlog'));
 const KingsmenDominateEliminator1 = lazy(() => import('./pages/KingsmenDominateEliminator1'));
 const KingsmenFinalVictoryBlog = lazy(() => import('./pages/KingsmenFinalVictoryBlog'));
+const PSLEliminator1Report = lazy(() => import('./pages/PSLEliminator1Report'));
+const PSL11Qualifier1Report = lazy(() => import('./pages/PSL11Qualifier1Report'));
+const MultanSultansSeasonReview = lazy(() => import('./pages/MultanSultansSeasonReview'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -190,6 +193,9 @@ export default function App() {
               <Route path="/psl-2026-eliminator-1-playing-xi-match-updates-final" element={<PSLEliminator1LineupsBlog />} />
               <Route path="/psl-2026-eliminator-1-match-summary-kingsmen-vs-multan" element={<KingsmenDominateEliminator1 />} />
               <Route path="/psl-2026-eliminator-1-kingsmen-vs-multan-final-result-report" element={<KingsmenFinalVictoryBlog />} />
+              <Route path="/psl-2026-eliminator-1-full-match-report-analysis" element={<PSLEliminator1Report />} />
+              <Route path="/psl-11-qualifier-1-match-report-babar-century" element={<PSL11Qualifier1Report />} />
+              <Route path="/multan-sultans-psl-2026-full-season-journey-review" element={<MultanSultansSeasonReview />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
