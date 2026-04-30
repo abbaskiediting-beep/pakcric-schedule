@@ -35,21 +35,25 @@ export default function SeriesSummaryComponent({ summary }: SeriesSummaryProps) 
             <BarChart3 className="w-5 h-5 text-pak-green" />
             <h3 className="text-lg md:text-xl font-display font-black uppercase tracking-tight">Head to Head Records</h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
              <div className="flex flex-col items-center p-5 md:p-6 bg-white/5 rounded-3xl border border-white/10">
-                <span className="text-[10px] font-black uppercase text-white/40 mb-2">Total Matches</span>
-                <span className="text-3xl md:text-4xl font-display font-black">{summary.headToHead.total}</span>
+                <span className="text-[10px] font-black uppercase text-white/40 mb-2">Total</span>
+                <span className="text-2xl md:text-4xl font-display font-black">{summary.headToHead.total}</span>
              </div>
              <div className="flex flex-col items-center p-5 md:p-6 bg-pak-green/10 rounded-3xl border border-pak-green/20">
                 <span className="text-[10px] font-black uppercase text-pak-green mb-2">PAK Wins</span>
-                <span className="text-3xl md:text-4xl font-display font-black text-pak-green">{summary.headToHead.pakWins}</span>
+                <span className="text-2xl md:text-4xl font-display font-black text-pak-green">{summary.headToHead.pakWins}</span>
              </div>
              <div className="flex flex-col items-center p-5 md:p-6 bg-red-500/10 rounded-3xl border border-red-500/20">
                 <span className="text-[10px] font-black uppercase text-red-500 mb-2">{summary.opponent} Wins</span>
-                <span className="text-3xl md:text-4xl font-display font-black text-red-500">{summary.headToHead.oppWins}</span>
+                <span className="text-2xl md:text-4xl font-display font-black text-red-500">{summary.headToHead.oppWins}</span>
+             </div>
+             <div className="flex flex-col items-center p-5 md:p-6 bg-white/5 rounded-3xl border border-white/10">
+                <span className="text-[10px] font-black uppercase text-white/40 mb-2">No Result</span>
+                <span className="text-2xl md:text-4xl font-display font-black">{summary.headToHead.noResult}</span>
              </div>
           </div>
-          <div className="mt-4 h-3 bg-white/5 rounded-full overflow-hidden flex">
+          <div className="mt-6 h-3 bg-white/5 rounded-full overflow-hidden flex">
              <div 
                className="h-full bg-pak-green" 
                style={{ width: `${(summary.headToHead.pakWins / summary.headToHead.total) * 100}%` }} 

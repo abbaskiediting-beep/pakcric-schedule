@@ -112,16 +112,16 @@ export default function MultanSultansSeasonReview() {
                {[
                  { match: "Match 2 vs HYK", result: "WIN ✅", desc: "Multan 227/4 beat Hyderabad 225/5. Sahibzada Farhan hit an unbeaten 106 off 57 balls." },
                  { match: "Match 4 vs Rawalpindiz", result: "WIN ✅", desc: "Farhan hit 68 off 38 balls with 5 massive sixes. Sultans won by 7 wickets." },
-                 { match: "Match 8 vs HYK (2nd)", result: "LOSS ❌", desc: "Hyderabad chased 214. Usman Khan's 44-ball century turned the season's momentum." },
+                 { match: "Match 8 vs HYK (2nd)", result: "LOSS ❌", desc: "Hyderabad chased 214. Usman Khan's 44-ball century turned the season's momentum. Read the full story of his record-breaking year." },
                  { match: "Match 9 vs IU (2nd)", result: "LOSS ❌", desc: "Islamabad United won by 4 wickets despite Multan's 192/7. Chapman's 69* was the difference." }
                ].map((item, i) => (
-                 <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-2xl group hover:border-pak-green/30 transition-all">
+                 <Link key={i} to={item.match.includes('Match 8') ? '/usman-khan-psl-2026-season-review-records' : '#'} className="block p-6 bg-white/5 border border-white/10 rounded-2xl group hover:border-pak-green/30 transition-all">
                     <div className="flex justify-between items-start mb-2">
                        <h4 className="text-sm font-black uppercase tracking-widest text-white/40">{item.match}</h4>
                        <span className={`text-[10px] font-black px-2 py-0.5 rounded ${item.result.includes('WIN') ? 'bg-pak-green/20 text-pak-green' : 'bg-rose-500/20 text-rose-500'}`}>{item.result}</span>
                     </div>
                     <p className="text-sm font-bold text-white/70 leading-relaxed">{item.desc}</p>
-                 </div>
+                 </Link>
                ))}
             </div>
 
@@ -131,7 +131,7 @@ export default function MultanSultansSeasonReview() {
                <strong>Multan 159/9 — Hyderabad 162/2 — Kingsmen won by 8 wickets</strong>
             </p>
             <p>
-              Multan ka safar Eliminator 1 mein khatam hua. Higher-ranked hone ke bawajood, unka top order collapse kar gaya (55/5). Shan Masood ne unbeaten 69 off 46 maare lekin Hyderabad ne 160 ka target sirf 15.2 overs mein chase kar liya.
+              Multan ka safar Eliminator 1 mein khatam hua. Higher-ranked hone ke bawajood, unka top order collapse kar gaya (55/5). Shan Masood ne unbeaten 69 off 46 maare lekin Hyderabad ne 160 ka target sirf 15.2 overs mein chase kar liya. You can read the <Link to="/maaz-sadaqat-psl-2026-season-review-stats" className="text-pak-green hover:underline">Maaz Sadaqat season review</Link> for more on his part in this match.
             </p>
 
             <h2>Season's Top Performers</h2>

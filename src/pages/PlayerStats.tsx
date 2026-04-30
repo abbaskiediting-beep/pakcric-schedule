@@ -174,6 +174,9 @@ export default function PlayerStats() {
                 <span className="px-3 sm:px-4 py-1 bg-pak-green text-white rounded-full text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[4px] inline-block w-fit mx-auto md:mx-0">
                   {player.role}
                 </span>
+                <span className="px-3 sm:px-4 py-1 bg-white/5 border border-white/10 text-white rounded-full text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[4px] inline-block w-fit mx-auto md:mx-0">
+                  {player.country}
+                </span>
                 <button 
                   onClick={() => handleShare()}
                   className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-ink/40 hover:text-pak-green hover:border-pak-green/30 hover:bg-pak-green/10 transition-all w-fit mx-auto md:mx-0 group/share"

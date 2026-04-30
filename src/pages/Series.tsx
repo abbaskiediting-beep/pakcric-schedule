@@ -13,7 +13,8 @@ export default function Series() {
       matches: "2 Tests",
       venue: "Dhaka & Sylhet",
       status: "Upcoming",
-      icon: <MapPin className="w-5 h-5" />
+      icon: <MapPin className="w-5 h-5" />,
+      path: "/pakistan-vs-bangladesh-2026-schedule"
     },
     {
       id: 'psl-11-2026',
@@ -23,6 +24,16 @@ export default function Series() {
       venue: "Lahore & Karachi",
       status: "Ongoing",
       icon: <Trophy className="w-5 h-5" />
+    },
+    {
+      id: 'pak-aus-odi-2026',
+      title: "Australia Tour of Pakistan 2026",
+      format: "ODI Series",
+      matches: "3 ODIs",
+      venue: "Lahore",
+      status: "Upcoming",
+      icon: <Star className="w-5 h-5" />,
+      path: "/pakistan-vs-australia-2026-schedule-odi"
     }
   ];
 
@@ -71,7 +82,7 @@ export default function Series() {
                   whileHover={{ x: 10 }}
                   className="bg-card-bg border border-card-border p-6 rounded-[32px] group transition-all"
                 >
-                  <Link to={`/series-intelligence/${series.id}`} className="block">
+                  <Link to={series.path || `/series-intelligence/${series.id}`} className="block">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                       <div className="flex gap-4">
                         <div className="w-12 h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">

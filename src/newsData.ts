@@ -22,6 +22,13 @@ export const NEWS_DATA: NewsItem[] = [
     tag: 'Rising Star',
     summary: 'A 19-ball fifty and an Eliminator masterclass. How 20-year-old Maaz Sadaqat became the most exciting talent in Pakistan cricket.'
   },
+  {
+    id: 'usman-khan-psl-2026-season-review-records',
+    title: 'Usman Khan: The Man Who Rewrote PSL History',
+    date: 'April 30, 2026',
+    tag: 'History Maker',
+    summary: 'Relive the historic season of Usman Khan, who became the first batter in PSL history to score 4 centuries after a record-breaking 2026 campaign.'
+  },
   { 
     id: 'pakistan-vs-bangladesh-test-series-2026',
     title: 'Pakistan vs Bangladesh test series', 

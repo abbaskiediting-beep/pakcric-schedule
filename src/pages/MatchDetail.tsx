@@ -7,7 +7,7 @@ import { MATCH_RESULTS } from '../matchResultsData';
 import { 
   ChevronLeft, MapPin, Clock, Calendar, Ticket, 
   Trophy, Timer, Zap, Target, Users, Bell, CheckCircle2,
-  Newspaper
+  Newspaper, ArrowRight
 } from 'lucide-react';
 import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -38,16 +38,26 @@ export default function MatchDetail() {
 
   if (!match) return <div className="p-12 text-center text-ink/60">Match not found</div>;
 
+  const allMatches = [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS];
+  
+  const headToHead = allMatches
+    .filter(m => m.opponent === match.opponent && m.id !== match.id)
+    .slice(0, 3);
+    
+  const moreFormatMatches = allMatches
+    .filter(m => m.format === match.format && m.id !== match.id)
+    .slice(0, 3);
+
   return (
     <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-6">
       <Helmet>
-        <title>{`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`}</title>
-        <meta name="description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates for the ${match.series}.`} />
-        <meta name="keywords" content={`Pakistan vs ${match.opponent}, ${match.series}, match schedule, cricket fixtures, Pakistan cricket 2026`} />
+        <title>{`${match.title || `Pakistan vs ${match.opponent} 2026`} | Match Date, Time & Venue`}</title>
+        <meta name="description" content={`Get complete details of ${match.title || `Pakistan vs ${match.opponent}`} match including date, time, venue, squad, and live updates.`} />
+        <meta name="keywords" content={`${match.title}, ${match.opponent}, ${match.series}, match schedule, cricket fixtures, Pakistan cricket 2026`} />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={`Pakistan vs ${match.opponent} 2026 Match Date, Time & Venue | Full Details`} />
+        <meta property="og:title" content={`${match.title || `Pakistan vs ${match.opponent} 2026`} | Match Date, Time & Venue`} />
         <meta property="og:description" content={`Get complete details of Pakistan vs ${match.opponent} 2026 match including date, time, venue, squad, and live updates.`} />
         <meta property="og:image" content={match.flagUrl} />
 
@@ -111,8 +121,8 @@ export default function MatchDetail() {
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
 
-      <h1 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight mb-8 text-ink text-center md:text-left">
-        Pakistan vs <span className="text-pak-green">{match.opponent}</span> 2026 – Full Match Details
+      <h1 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight mb-8 text-ink text-center md:text-left leading-tight">
+        {match.title || `Pakistan vs ${match.opponent} 2026`} – <span className="text-pak-green font-black">Full Match Details</span>
       </h1>
 
       {/* Ad below title */}
@@ -408,6 +418,88 @@ export default function MatchDetail() {
           </div>
         </motion.section>
       )}
+
+      {/* Related Content Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* Head to Head */}
+        {headToHead.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-pak-green/10 flex items-center justify-center text-pak-green">
+                <Users className="w-4 h-4" />
+              </div>
+              <h3 className="text-sm font-black uppercase tracking-widest text-ink">Recent vs {match.opponent}</h3>
+            </div>
+            
+            <div className="space-y-3">
+              {headToHead.map((m) => (
+                <Link 
+                  key={m.id} 
+                  to={`/match/${m.id}`}
+                  className="group flex items-center justify-between p-4 bg-card-bg border border-card-border rounded-2xl hover:bg-white/[0.04] hover:border-pak-green/30 transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <img 
+                      src={m.flagUrl} 
+                      alt="" 
+                      className="w-10 h-6 object-cover rounded shadow-sm opacity-60 group-hover:opacity-100 transition-opacity" 
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-bold text-ink uppercase tracking-tight truncate max-w-[150px]">{m.title || `PAK vs ${m.opponent}`}</span>
+                      <span className="text-[8px] font-medium text-ink/40 uppercase tracking-widest">{m.date}</span>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-ink/20 group-hover:text-pak-green group-hover:translate-x-1 transition-all" />
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* More Format Matches */}
+        {moreFormatMatches.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-pak-green/10 flex items-center justify-center text-pak-green">
+                <Trophy className="w-4 h-4" />
+              </div>
+              <h3 className="text-sm font-black uppercase tracking-widest text-ink">More {match.format} Matches</h3>
+            </div>
+            
+            <div className="space-y-3">
+              {moreFormatMatches.map((m) => (
+                <Link 
+                  key={m.id} 
+                  to={`/match/${m.id}`}
+                  className="group flex items-center justify-between p-4 bg-card-bg border border-card-border rounded-2xl hover:bg-white/[0.04] hover:border-pak-green/30 transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-6 bg-white/5 rounded flex items-center justify-center text-[8px] font-black text-ink/40 group-hover:text-pak-green transition-colors">
+                      {m.opponent}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-bold text-ink uppercase tracking-tight truncate max-w-[150px]">{m.title || `PAK vs ${m.opponent}`}</span>
+                      <span className="text-[8px] font-medium text-ink/40 uppercase tracking-widest">{m.venue.split(',')[0]}</span>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-ink/20 group-hover:text-pak-green group-hover:translate-x-1 transition-all" />
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </div>
 
       <InternalLinkSection />
     </div>

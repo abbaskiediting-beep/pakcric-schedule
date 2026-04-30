@@ -2,12 +2,15 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { seriesSummaries } from '../data/seriesData';
 import SeriesSummaryComponent from '../components/SeriesSummaryComponent';
-import { ArrowLeft, Share2, Info } from 'lucide-react';
+import { ArrowLeft, Share2, Info, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function SeriesDetail() {
   const { id } = useParams();
-  const summary = seriesSummaries.find(s => s.id === id);
+  const currentIndex = seriesSummaries.findIndex(s => s.id === id);
+  const summary = seriesSummaries[currentIndex];
+  const prevSummary = currentIndex > 0 ? seriesSummaries[currentIndex - 1] : null;
+  const nextSummary = currentIndex < seriesSummaries.length - 1 ? seriesSummaries[currentIndex + 1] : null;
 
   if (!summary) {
     return (
@@ -58,6 +61,35 @@ export default function SeriesDetail() {
            <div className="text-sm leading-relaxed text-white/60 font-medium italic">
              <strong>Note on Intelligence Reports:</strong> Predicted Playing XIs are based on current team form, fitness updates, and local pitch conditions. Final lineups will be confirmed 30 minutes before the toss. Head-to-head records include all official fixtures as of April 2026.
            </div>
+        </div>
+
+        {/* Series Navigation */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {prevSummary ? (
+            <Link 
+              to={`/series-intelligence/${prevSummary.id}`}
+              className="flex flex-col gap-2 p-6 bg-white/5 border border-white/10 rounded-[32px] hover:bg-white/[0.08] hover:border-pak-green/30 transition-all group"
+            >
+              <div className="flex items-center gap-2 text-[10px] font-black text-pak-green uppercase tracking-widest">
+                <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
+                Previous Report
+              </div>
+              <div className="text-lg font-display font-black uppercase italic truncate">{prevSummary.seriesName}</div>
+            </Link>
+          ) : <div />}
+
+          {nextSummary && (
+            <Link 
+              to={`/series-intelligence/${nextSummary.id}`}
+              className="flex flex-col items-end gap-2 p-6 bg-white/5 border border-white/10 rounded-[32px] hover:bg-white/[0.08] hover:border-pak-green/30 transition-all group text-right"
+            >
+              <div className="flex items-center gap-2 text-[10px] font-black text-pak-green uppercase tracking-widest">
+                Next Report
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+              </div>
+              <div className="text-lg font-display font-black uppercase italic truncate">{nextSummary.seriesName}</div>
+            </Link>
+          )}
         </div>
       </main>
     </div>

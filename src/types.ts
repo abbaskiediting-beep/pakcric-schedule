@@ -36,6 +36,7 @@ export interface Match {
   id: string;
   opponent: string;
   format: MatchFormat;
+  title?: string;
   date: string;
   time: string;
   venue: string;
@@ -60,6 +61,7 @@ export interface Achievement {
 
 export interface Player {
   name: string;
+  country: string;
   role: string;
   imgUrl?: string;
   stats: PlayerStats;

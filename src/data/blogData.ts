@@ -286,4 +286,26 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'usman-khan-psl-2026-season-review-records',
+    title: "Usman Khan PSL 2026: History Maker, Record Breaker, Pakistan's Most Explosive Batter",
+    summary: "The man who rewrote PSL history in 2026. A detailed breakdown of Usman Khan's 4th PSL century and his impact on the Hyderabad Kingsmen's debut season.",
+    date: 'April 30, 2026',
+    category: 'Season Review',
+    path: '/usman-khan-psl-2026-season-review-records',
+    icon: HistoryIcon,
+    color: 'text-rose-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'pakistan-vs-australia-2026-analysis',
+    title: "Pakistan vs Australia 2026: Schedule and Deep Dive into Head-to-Head Records",
+    summary: "Exploring the storied rivalry: From Australia's Test dominance to Pakistan's recent T20I sweep. Detailed head-to-head records and 2026 schedule analysis.",
+    date: 'April 30, 2026',
+    category: 'Series Analysis',
+    path: '/blogs/pakistan-vs-australia-2026-analysis',
+    icon: HistoryIcon,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];

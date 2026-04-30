@@ -479,7 +479,9 @@ export default function MatchSchedulePage() {
 
                   <div className={`flex items-center gap-4 p-4 rounded-2xl border transition-colors ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-white/[0.02] border-white/5'}`}>
                     <img src={match.flagUrl} alt="" className="w-10 h-7 object-cover rounded shadow-sm border border-card-border shrink-0" referrerPolicy="no-referrer" />
-                    <span className="text-base font-display font-bold text-white uppercase tracking-tighter leading-none">PAK vs {match.opponent}</span>
+                    <Link to={`/match/${match.id}`} onClick={(e) => e.stopPropagation()} className="text-base font-display font-bold text-white uppercase tracking-tighter leading-none hover:text-pak-green transition-colors">
+                      {match.title || `PAK vs ${match.opponent}`}
+                    </Link>
                     {match.status === 'Live' && (
                       <div className="ml-auto">
                         <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
@@ -633,9 +635,13 @@ export default function MatchSchedulePage() {
                             </div>
                           </div>
                           <div className="flex flex-col min-w-0">
-                            <span className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none truncate block max-w-[140px]">
-                              PAK vs {match.opponent}
-                            </span>
+                            <Link 
+                              to={`/match/${match.id}`} 
+                              onClick={(e) => e.stopPropagation()} 
+                              className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none truncate block max-w-[200px] hover:text-pak-green transition-colors"
+                            >
+                              {match.title || `PAK vs ${match.opponent}`}
+                            </Link>
                           </div>
                         </div>
                       </td>
@@ -682,15 +688,25 @@ export default function MatchSchedulePage() {
 
                       {/* Action Column */}
                       <td className="px-8 py-8 text-right">
-                         <div 
-                          className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full border transition-all group/btn shadow-sm ${
-                            match.status === 'Live' 
-                              ? 'bg-red-600 text-white border-red-500' 
-                              : 'bg-card-bg border-card-border hover:bg-pak-green hover:text-white hover:border-pak-green'
-                          }`}
-                        >
-                            <span className="text-[10px] font-bold uppercase tracking-widest">{expandedId === match.id ? 'Close' : 'Quick View'}</span>
-                            {expandedId === match.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                         <div className="flex items-center justify-end gap-3">
+                           <Link 
+                            to={`/match/${match.id}`}
+                            onClick={(e) => e.stopPropagation()}
+                            className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full border transition-all group/btn shadow-sm bg-card-bg border-card-border hover:bg-white hover:text-pak-green hover:border-white`}
+                           >
+                              <span className="text-[10px] font-bold uppercase tracking-widest italic">Full Match Details</span>
+                              <ArrowRight className="w-4 h-4" />
+                           </Link>
+                           <div 
+                             className={`inline-flex items-center gap-3 px-4 py-2.5 rounded-full border transition-all group/btn shadow-sm ${
+                               match.status === 'Live' 
+                                 ? 'bg-red-600 text-white border-red-500' 
+                                 : 'bg-card-bg border-card-border hover:bg-pak-green hover:text-white hover:border-pak-green'
+                             }`}
+                           >
+                              <span className="text-[10px] font-bold uppercase tracking-widest">{expandedId === match.id ? 'Close' : 'Quick'}</span>
+                              {expandedId === match.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                           </div>
                          </div>
                       </td>
                     </motion.tr>

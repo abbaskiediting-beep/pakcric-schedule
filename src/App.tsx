@@ -27,6 +27,8 @@ const SeriesDetail = lazy(() => import('./pages/SeriesDetail'));
 const MatchDetail = lazy(() => import('./pages/MatchDetail'));
 const Blogs = lazy(() => import('./pages/Blogs'));
 const PakistanVsBangladesh2026Schedule = lazy(() => import('./pages/PakistanVsBangladesh2026Schedule'));
+const PakistanVsAustralia2026Schedule = lazy(() => import('./pages/PakistanVsAustralia2026Schedule'));
+const PakistanVsAustraliaBlog = lazy(() => import('./pages/PakistanVsAustraliaBlog'));
 const RedBallResilienceBlog = lazy(() => import('./pages/RedBallResilienceBlog'));
 const PakistanTourBangladeshTestBlog = lazy(() => import('./pages/PakistanTourBangladeshTestBlog'));
 const PakistanTourBangladeshSquadBlog = lazy(() => import('./pages/PakistanTourBangladeshSquadBlog'));
@@ -58,6 +60,7 @@ const PSLEliminator1Report = lazy(() => import('./pages/PSLEliminator1Report'));
 const PSL11Qualifier1Report = lazy(() => import('./pages/PSL11Qualifier1Report'));
 const MultanSultansSeasonReview = lazy(() => import('./pages/MultanSultansSeasonReview'));
 const MaazSadaqatSeasonReview = lazy(() => import('./pages/MaazSadaqatSeasonReview'));
+const UsmanKhanSeasonReview = lazy(() => import('./pages/UsmanKhanSeasonReview'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -180,6 +183,8 @@ export default function App() {
               <Route path="/blogs/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
               <Route path="/blogs/squad-selection-intelligence" element={<SquadIntelligence />} />
               <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
+              <Route path="/pakistan-vs-australia-2026-schedule-odi" element={<PakistanVsAustralia2026Schedule />} />
+              <Route path="/blogs/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
               <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />
               <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
@@ -198,6 +203,7 @@ export default function App() {
               <Route path="/psl-11-qualifier-1-match-report-babar-century" element={<PSL11Qualifier1Report />} />
               <Route path="/multan-sultans-psl-2026-full-season-journey-review" element={<MultanSultansSeasonReview />} />
               <Route path="/maaz-sadaqat-psl-2026-season-review-stats" element={<MaazSadaqatSeasonReview />} />
+              <Route path="/usman-khan-psl-2026-season-review-records" element={<UsmanKhanSeasonReview />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

@@ -3,6 +3,7 @@ import { Player } from './types';
 export const PLAYER_STATS: Record<string, Player> = {
   'Babar Azam': {
     name: 'Babar Azam',
+    country: 'Pakistan',
     role: 'Batter',
     imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320448.png',
     achievements: [
@@ -27,6 +28,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Mohammad Rizwan': {
     name: 'Mohammad Rizwan',
+    country: 'Pakistan',
     role: 'Wicketkeeper Batter',
     imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320461.png',
     achievements: [
@@ -49,6 +51,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Shaheen Shah Afridi': {
     name: 'Shaheen Shah Afridi',
+    country: 'Pakistan',
     role: 'Bowler',
     imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320474.png',
     achievements: [
@@ -71,6 +74,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Saud Shakeel': {
     name: 'Saud Shakeel',
+    country: 'Pakistan',
     role: 'Batter',
     imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/288/4489-camedia.png',
     stats: {
@@ -88,6 +92,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Salman Ali Agha': {
     name: 'Salman Ali Agha',
+    country: 'Pakistan',
     role: 'All-rounder',
     stats: {
       matches: 125,
@@ -106,6 +111,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Mohammad Abbas': {
     name: 'Mohammad Abbas',
+    country: 'Pakistan',
     role: 'Bowler',
     stats: {
       matches: 30,
@@ -122,6 +128,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Noman Ali': {
     name: 'Noman Ali',
+    country: 'Pakistan',
     role: 'Bowler',
     achievements: [
       { title: "Dream Debut", description: "5-wicket haul on Test debut at age 34.", featured: true }
@@ -140,6 +147,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Sajid Khan': {
     name: 'Sajid Khan',
+    country: 'Pakistan',
     role: 'Bowler',
     achievements: [
       { title: "Miracle at Mirpur", description: "Match-winning performance of 8/42 vs Bangladesh.", featured: true }
@@ -158,6 +166,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Muhammad Ghazi Ghori': {
     name: 'Muhammad Ghazi Ghori',
+    country: 'Pakistan',
     role: 'Wicketkeeper Batter',
     stats: {
       matches: 1,
@@ -174,6 +183,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Shan Masood': {
     name: 'Shan Masood',
+    country: 'Pakistan',
     role: 'Batter',
     stats: {
       matches: 75,
@@ -191,6 +201,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Abdullah Fazal': {
     name: 'Abdullah Fazal',
+    country: 'Pakistan',
     role: 'Batter',
     stats: {
       matches: 25,
@@ -207,6 +218,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Amad Butt': {
     name: 'Amad Butt',
+    country: 'Pakistan',
     role: 'All-rounder',
     stats: {
       matches: 255,
@@ -224,6 +236,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Azan Awais': {
     name: 'Azan Awais',
+    country: 'Pakistan',
     role: 'Batter',
     stats: {
       matches: 46,
@@ -240,6 +253,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Hasan Ali': {
     name: 'Hasan Ali',
+    country: 'Pakistan',
     role: 'Bowler',
     stats: {
       matches: 150,
@@ -258,6 +272,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Imam-ul-Haq': {
     name: 'Imam-ul-Haq',
+    country: 'Pakistan',
     role: 'Batter',
     stats: {
       matches: 103,
@@ -275,6 +290,7 @@ export const PLAYER_STATS: Record<string, Player> = {
   },
   'Khurram Shahzad': {
     name: 'Khurram Shahzad',
+    country: 'Pakistan',
     role: 'Bowler',
     stats: {
       matches: 45,
@@ -285,6 +301,43 @@ export const PLAYER_STATS: Record<string, Player> = {
       recentForm: ['6/90', '5/44', '2/33', '1/45', '3/22'],
       formats: {
         test: { matches: 6, wickets: 20, runs: 83, avg: 30.00, sr: 58.4, highestScore: '18' }
+      }
+    }
+  },
+  'Litton Das': {
+    name: 'Litton Das',
+    country: 'Bangladesh',
+    role: 'Batter',
+    imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320459.png',
+    stats: {
+      matches: 180,
+      runs: 6500,
+      avg: 34.50,
+      sr: 125.40,
+      recentForm: ['12', '45', '78', '23', '56'],
+      formats: {
+        test: { matches: 40, runs: 2400, avg: 36.2, sr: 58.4, highestScore: '141', centuries: 3, fifties: 15 },
+        odi: { matches: 75, runs: 2200, avg: 32.5, sr: 88.2, highestScore: '176', centuries: 5, fifties: 10 },
+        t20i: { matches: 65, runs: 1900, avg: 24.5, sr: 132.5, highestScore: '83', fifties: 10 }
+      }
+    }
+  },
+  'Shakib Al Hasan': {
+    name: 'Shakib Al Hasan',
+    country: 'Bangladesh',
+    role: 'All-rounder',
+    imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320436.png',
+    stats: {
+      matches: 420,
+      runs: 14000,
+      wickets: 650,
+      avg: 35.80,
+      sr: 110.20,
+      recentForm: ['2/34', '45', '1/22', '89', '3/15'],
+      formats: {
+        test: { matches: 66, runs: 4454, wickets: 233, avg: 39.07, sr: 62.4, bestBowling: '7/36', centuries: 5, fifties: 31 },
+        odi: { matches: 247, runs: 7570, wickets: 317, avg: 37.29, sr: 82.3, bestBowling: '5/29', centuries: 9, fifties: 56 },
+        t20i: { matches: 117, runs: 2382, wickets: 140, avg: 23.82, sr: 122.3, bestBowling: '5/20', fifties: 12 }
       }
     }
   }

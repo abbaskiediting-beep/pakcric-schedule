@@ -57,7 +57,7 @@ export default function MaazSadaqatSeasonReview() {
 
             <h2>Introduction: A 20-Year-Old Who Took PSL 2026 By the Scruff of the Neck</h2>
             <p>
-              Maaz Sadaqat, signed by the brand-new Hyderabad Kingsmen franchise, entered PSL 11 as a debutant with little spotlight. However, his explosive, fearless batting at the top of the order quickly turned heads. He has smashed one of the fastest fifties in PSL history and earned a match-winning 64* in an Eliminator knockout.
+              Maaz Sadaqat, signed by the brand-new Hyderabad Kingsmen franchise, entered PSL 11 as a debutant with little spotlight. However, his explosive, fearless batting at the top of the order quickly turned heads. He has smashed one of the fastest fifties in PSL history and earned a match-winning 64* in an Eliminator knockout while partnering with <Link to="/usman-khan-psl-2026-season-review-records" className="text-pak-green hover:underline">Usman Khan</Link>.
             </p>
 
             <div className="my-10 p-8 bg-white/5 border border-white/10 rounded-3xl not-prose">

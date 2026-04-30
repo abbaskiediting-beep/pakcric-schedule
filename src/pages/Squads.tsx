@@ -94,8 +94,9 @@ export default function Squads() {
         if (stats) return stats;
         
         // Fallback for players without detailed stats yet
-        return {
+        const fallbackPlayer: Player = {
           name,
+          country: 'Pakistan',
           role: 'Stats Not Available',
           stats: {
             matches: 0,
@@ -104,6 +105,7 @@ export default function Squads() {
             recentForm: []
           }
         };
+        return fallbackPlayer;
       });
   }, [selectedPlayer, compSearchTerm]);
 
@@ -141,6 +143,7 @@ export default function Squads() {
       // Fallback for players without detailed stats yet
       setSelectedPlayer({
         name: playerName,
+        country: 'Pakistan',
         role: 'Stats Not Available',
         stats: {
           matches: 0,

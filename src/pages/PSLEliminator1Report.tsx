@@ -111,7 +111,7 @@ export default function PSLEliminator1Report() {
             </div>
 
             <p className="text-xl md:text-2xl font-medium leading-relaxed italic text-white/90 border-l-4 border-pak-green pl-8 mb-12">
-              Nobody gave Hyderabad Kingsmen much of a chance when PSL 2026 started. A brand-new franchise, playing their very first season, with no history, no winning culture, and no playoff experience — they lost their opening four matches and sat at the bottom of the table. Many wrote them off before April had even begun.
+              Hyderabad Kingsmen's debut season fairytale continues as they brush aside the heavyweights. Relive the full <Link to="/multan-sultans-psl-2026-full-season-journey-review" className="text-pak-green hover:underline">Multan Sultans season journey</Link> or dive into our detailed match analysis below.
             </p>
 
             <h2>Introduction: The Debutants Eliminate the Champions</h2>
@@ -185,12 +185,12 @@ export default function PSLEliminator1Report() {
 
             <h3>The Usman Khan Show: 64 off 35 Balls</h3>
             <p>
-              Usman Khan immediately made the chase irrelevant. He reached his fifty in 29 balls, helped by a 19-run over off Mohammad Nawaz. He eventualy fell for 64 off 35 balls, but the match was already over as a contest.
+              <Link to="/usman-khan-psl-2026-season-review-records" className="text-pak-green hover:underline font-bold">Usman Khan</Link> immediately made the chase irrelevant. He reached his fifty in 29 balls, helped by a 19-run over off Mohammad Nawaz. He eventualy fell for 64 off 35 balls, but the match was already over as a contest.
             </p>
 
             <h3>Maaz Sadaqat: Player Of The Match</h3>
             <p>
-              If Usman was the catalyst, <strong>Maaz Sadaqat</strong> was the clinical finisher. The 20-year-old left-hander finished <strong>64* off 32 balls</strong> with 6 fours and 2 sixes. He drove Faisal Akram to the boundary to seal a historic 8-wicket win with nearly 5 overs to spare.
+              If Usman was the catalyst, <strong><Link to="/maaz-sadaqat-psl-2026-season-review-stats" className="text-pak-green hover:underline">Maaz Sadaqat</Link></strong> was the clinical finisher. The 20-year-old left-hander finished <strong>64* off 32 balls</strong> with 6 fours and 2 sixes. He drove Faisal Akram to the boundary to seal a historic 8-wicket win with nearly 5 overs to spare.
             </p>
 
             {/* Internal Links Block */}
