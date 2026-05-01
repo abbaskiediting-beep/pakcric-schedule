@@ -7,10 +7,10 @@ import Nav from './components/Nav';
 import MobileTabBar from './components/MobileTabBar';
 
 // Lazy load pages for better bundle splitting and initial load time
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const MatchSchedulePage = lazy(() => import('./pages/MatchSchedulePage'));
 const Squads = lazy(() => import('./pages/Squads'));
-const Rankings = lazy(() => import('./pages/Rankings'));
+const Rankings = lazy(() => import('./pages/RankingsPage'));
 const RankingsT20 = lazy(() => import('./pages/rankings/RankingsT20'));
 const RankingsODI = lazy(() => import('./pages/rankings/RankingsODI'));
 const RankingsTest = lazy(() => import('./pages/rankings/RankingsTest'));
@@ -62,6 +62,7 @@ const PSL11Qualifier1Report = lazy(() => import('./pages/PSL11Qualifier1Report')
 const MultanSultansSeasonReview = lazy(() => import('./pages/MultanSultansSeasonReview'));
 const MaazSadaqatSeasonReview = lazy(() => import('./pages/MaazSadaqatSeasonReview'));
 const UsmanKhanSeasonReview = lazy(() => import('./pages/UsmanKhanSeasonReview'));
+const DarrenSammyFinalInvitationBlog = lazy(() => import('./pages/DarrenSammyFinalInvitationBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -70,12 +71,7 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Loading component
 const PageLoader = () => (
-  <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="fixed inset-0 z-50 flex items-center justify-center bg-bg/80 backdrop-blur-sm"
-  >
+  <div className="w-full min-h-[60vh] flex items-center justify-center bg-bg/50 backdrop-blur-sm transition-opacity duration-300">
     <div className="relative flex flex-col items-center">
       <motion.div
         animate={{ 
@@ -97,7 +93,7 @@ const PageLoader = () => (
         Loading Experience
       </motion.div>
     </div>
-  </motion.div>
+  </div>
 );
 
 const SEO = () => {
@@ -206,6 +202,7 @@ export default function App() {
               <Route path="/multan-sultans-psl-2026-full-season-journey-review" element={<MultanSultansSeasonReview />} />
               <Route path="/maaz-sadaqat-psl-2026-season-review-stats" element={<MaazSadaqatSeasonReview />} />
               <Route path="/usman-khan-psl-2026-season-review-records" element={<UsmanKhanSeasonReview />} />
+              <Route path="/blogs/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

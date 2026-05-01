@@ -189,13 +189,13 @@ export default function Squads() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
         <meta property="og:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
-        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="og:image" content="/favicon.svg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
         <meta property="twitter:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
-        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="twitter:image" content="/favicon.svg" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: `
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }

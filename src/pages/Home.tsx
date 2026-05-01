@@ -37,13 +37,13 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Match Dates & Updates | PakCric Schedule" />
         <meta property="og:description" content="Stay updated with the Pakistan cricket schedule 2026. Get full fixtures, match dates, venues, timings, and latest updates on PakCric Schedule." />
-        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="og:image" content="/favicon.svg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates" />
         <meta property="twitter:description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates." />
-        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="twitter:image" content="/favicon.svg" />
 
         <script type="application/ld+json">
           {`
@@ -67,7 +67,7 @@ export default function Home() {
               "@type": "Organization",
               "name": "PakCric Schedule",
               "url": "https://pakcric-schedule.online/",
-              "logo": "https://pakcric-schedule.online/logo.png",
+              "logo": "https://ais-dev-7nxqgzlwox4porwgparb2l-763834333617.asia-southeast1.run.app/favicon.svg",
               "sameAs": [
                 "https://facebook.com/pakcricschedule",
                 "https://twitter.com/pakcricschedule",

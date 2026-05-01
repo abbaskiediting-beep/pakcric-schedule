@@ -67,7 +67,7 @@ export default function PakistanNextTourDetails() {
         <meta property="og:title" content="Pakistan Next Match 2026 – Date, Time & Opponent" />
         <meta property="og:description" content="Find Pakistan next match date, time, opponent, and venue. Stay updated with upcoming Pakistan cricket matches." />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="og:image" content="/favicon.svg" />
       </Helmet>
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home

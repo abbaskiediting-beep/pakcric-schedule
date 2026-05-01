@@ -125,7 +125,7 @@ export default function PlayerStats() {
         {/* Open Graph */}
         <meta property="og:title" content={`Pakistan Players Stats 2026 – Batting, Bowling & All Format Records`} />
         <meta property="og:description" content={`Explore Pakistan cricket players stats 2026 including runs, wickets, averages, and performance in Test, ODI, and T20 formats.`} />
-        <meta property="og:image" content={player.imgUrl || "https://pakcric-schedule.online/logo.png"} />
+        <meta property="og:image" content={player.imgUrl || "/favicon.svg"} />
       </Helmet>
 
       <Link to="/squads" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:translate-x-[-4px] transition-transform mb-8">

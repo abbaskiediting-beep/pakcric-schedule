@@ -50,13 +50,13 @@ export default function Contact() {
               </div>
             </a>
 
-            <a href="https://www.pakcric-schedule.online" className="flex gap-6 items-center group bg-card-bg border border-card-border p-6 rounded-2xl hover:border-pak-green transition-all">
+            <a href="https://pakcric-schedule.online" className="flex gap-6 items-center group bg-card-bg border border-card-border p-6 rounded-2xl hover:border-pak-green transition-all">
               <div className="w-12 h-12 rounded-xl bg-black/40 flex items-center justify-center group-hover:bg-pak-green group-hover:text-white transition-all text-pak-green">
                 <Globe className="w-5 h-5" />
               </div>
               <div>
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 block">Website</span>
-                <p className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">www.pakcric-schedule.online</p>
+                <p className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">pakcric-schedule.online</p>
               </div>
             </a>
           </div>

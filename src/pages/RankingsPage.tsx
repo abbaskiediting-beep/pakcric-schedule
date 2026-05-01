@@ -36,13 +36,13 @@ export default function Rankings() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings" />
         <meta property="og:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
-        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="og:image" content="/favicon.svg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings" />
         <meta property="twitter:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
-        <meta property="twitter:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="twitter:image" content="/favicon.svg" />
       </Helmet>
       
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10 md:mb-16">

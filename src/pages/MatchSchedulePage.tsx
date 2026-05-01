@@ -227,7 +227,7 @@ export default function MatchSchedulePage() {
         <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Dates, Venues & Timings" />
         <meta property="og:description" content="Check the complete Pakistan cricket schedule 2026 with full fixtures, match dates, venues, and timings. Stay updated with upcoming Pakistan matches." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://pakcric-schedule.online/logo.png" />
+        <meta property="og:image" content="/favicon.svg" />
 
         {/* JSON-LD for Cricket Events */}
         <script type="application/ld+json">

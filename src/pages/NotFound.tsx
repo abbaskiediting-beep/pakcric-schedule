@@ -58,7 +58,7 @@ export default function NotFound() {
             <div className="grid grid-cols-1 gap-4">
               {[
                 { label: 'Latest Cricket News', path: '/news', icon: MessageSquare },
-                { label: 'ICC Rankins 2026', path: '/rankings', icon: Trophy },
+                { label: 'ICC Rankings 2026', path: '/rankings', icon: Trophy },
                 { label: 'Team Squads', path: '/squads', icon: Users },
                 { label: 'Match Schedule', path: '/schedule', icon: ChevronRight },
               ].map((link) => (

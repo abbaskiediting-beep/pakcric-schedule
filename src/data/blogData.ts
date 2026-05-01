@@ -396,4 +396,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'syed-abbas'
   },
+  {
+    id: 'darren-sammy-psl-11-final-invitation-javed-afridi',
+    title: 'Darren Sammy Pakistan Aa Rahe Hain! Javed Afridi Ne PSL 11 Final Ke Liye Officially Bulaya',
+    summary: 'Peshawar Zalmi ke maalik Javed Afridi ne PSL 11 Final se pehle Darren Sammy ko officially Pakistan aane ki dawat di — fans ke request par.',
+    date: 'May 1, 2026',
+    category: 'Latest News',
+    path: '/blogs/darren-sammy-psl-11-final-invitation-official',
+    icon: Star,
+    color: 'text-yellow-500',
+    authorId: 'omar-farooq'
+  },
 ];

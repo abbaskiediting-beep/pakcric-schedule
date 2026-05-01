@@ -260,13 +260,13 @@ export default function NewsDetail() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`Pakistan Cricket News Today – Latest Updates 2026 | ${article.title}`} />
         <meta property="og:description" content={article.metaDescription || `Get the latest Pakistan cricket news, team updates, and breaking stories. Now: ${article.title}.`} />
-        <meta property="og:image" content={article.image || "https://pakcric-schedule.online/logo.png"} />
+        <meta property="og:image" content={article.image || "/favicon.svg"} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={article.metaTitle || article.title} />
         <meta property="twitter:description" content={article.metaDescription || article.content.split('\n')[0].substring(0, 160).trim()} />
-        <meta property="twitter:image" content={article.image || "https://pakcric-schedule.online/logo.png"} />
+        <meta property="twitter:image" content={article.image || "/favicon.svg"} />
 
         <script type="application/ld+json">
           {`
@@ -284,7 +284,7 @@ export default function NewsDetail() {
                 "name": "PakCric Schedule",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://pakcric-schedule.online/logo.png"
+                  "url": "https://ais-dev-7nxqgzlwox4porwgparb2l-763834333617.asia-southeast1.run.app/favicon.svg"
                 }
               },
               "datePublished": "${article.date}",
