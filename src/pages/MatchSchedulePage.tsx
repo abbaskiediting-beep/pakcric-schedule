@@ -782,6 +782,22 @@ export default function MatchSchedulePage() {
                 </p>
               </div>
               <div className="pt-4 border-t border-white/5">
+                <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">
+                  <Link to="/series-intelligence/aus-pak-odi-2026" className="hover:underline">Pakistan vs Australia 2026</Link>
+                </h4>
+                <p className="text-ink/60 text-sm leading-relaxed">
+                  A historic white-ball series in Lahore. Pakistan looks to continue their momentum after the T20I sweep against the world champions in home conditions.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/5">
+                <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">
+                  <Link to="/series-intelligence/pak-nz-series-2026" className="hover:underline">Pakistan vs New Zealand T20I Series 2026</Link>
+                </h4>
+                <p className="text-ink/60 text-sm leading-relaxed">
+                  The Black Caps tour Pakistan for a high-octane 5-match T20I series, serving as a crucial preparation window for the upcoming T20 World Cup.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/5">
                 <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">Asia Cup 2026</h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
                   Pakistan will participate in the Asia Cup, including <Link to="/schedule" className="text-pak-green hover:underline">high-voltage matches</Link> like Pakistan vs India. This remains the most anticipated <Link to="/blogs" className="text-pak-green hover:underline">event of the year</Link>.

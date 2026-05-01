@@ -1,6 +1,6 @@
 import { Calendar, Clock, MapPin, Share2, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Match } from '../types';
 
 interface MatchCardProps {
@@ -9,12 +9,18 @@ interface MatchCardProps {
 }
 
 export default function MatchCard({ match, index }: MatchCardProps) {
+  const navigate = useNavigate();
   // Map series names to IDs for intelligence reports
   const seriesIntelMap: Record<string, string> = {
     'PSL 11 2026': 'psl-11-2026',
+    'PSL 11 - 2026': 'psl-11-2026',
     'Pakistan vs New Zealand T20I Series': 'pak-nz-series-2026',
     'T20 World Cup 2026': 't20-wc-2026',
-    'Pakistan Tour of Bangladesh (Test Series)': 'pak-ban-test-2026'
+    'Pakistan Tour of Bangladesh (Test Series)': 'pak-ban-test-2026',
+    'Australia Tour of Pakistan (ODI Series)': 'aus-pak-odi-2026',
+    'Pakistan Tour of West Indies': 'pak-wi-tour-2026',
+    'Pakistan Tour of England': 'pak-eng-tour-2026',
+    'Pakistan Tour of Sri Lanka': 'pak-sl-tour-2026'
   };
 
   const intelId = seriesIntelMap[match.series];
@@ -47,7 +53,10 @@ export default function MatchCard({ match, index }: MatchCardProps) {
   };
 
   return (
-    <Link to={`/match/${match.id}`} className="block focus:outline-none">
+    <div 
+      onClick={() => navigate(`/match/${match.id}`)}
+      className="block focus:outline-none"
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -70,30 +79,30 @@ export default function MatchCard({ match, index }: MatchCardProps) {
         id={`match-${match.id}`}
       >
       <div>
-        <div className="flex justify-between items-center mb-5">
-           <div className="flex flex-col gap-1">
-             <div className="flex items-center gap-2">
+        <div className="flex justify-between items-start mb-5">
+           <div className="flex flex-col gap-2">
+             <div className="flex items-center flex-wrap gap-2">
                <span className="text-[9px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[3px] transition-colors">{match.series}</span>
-               {match.status === 'Live' && (
-                 <motion.div 
-                   initial={{ opacity: 0 }}
-                   animate={{ opacity: 1 }}
-                   className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full"
+               {intelId && (
+                 <Link 
+                   to={`/series-intelligence/${intelId}`}
+                   onClick={(e) => e.stopPropagation()}
+                   className="flex items-center gap-1 px-2.5 py-1 bg-pak-green text-white rounded-md text-[7px] font-black uppercase tracking-widest hover:bg-white hover:text-pak-green border border-pak-green transition-all shadow-[0_2px_10px_-4px_rgba(0,102,46,0.5)] active:scale-95 group/intel"
                  >
-                   <span className="w-1 h-1 bg-red-500 rounded-full animate-pulse" />
-                   <span className="text-[7px] font-black uppercase tracking-widest text-red-500">Live</span>
-                 </motion.div>
+                   <Zap className="w-2.5 h-2.5 fill-current animate-pulse group-hover/intel:animate-none" />
+                   Series Intel
+                 </Link>
                )}
              </div>
-             {intelId && (
-               <Link 
-                 to={`/series-intelligence/${intelId}`}
-                 onClick={(e) => e.stopPropagation()}
-                 className="flex items-center gap-1.5 w-fit px-2 py-1 bg-yellow-500/10 border border-yellow-500/20 rounded-lg text-[7px] font-black uppercase tracking-widest text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all"
+             {match.status === 'Live' && (
+               <motion.div 
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 className="flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full w-fit"
                >
-                 <Zap className="w-2.5 h-2.5 fill-current" />
-                 Series Intel
-               </Link>
+                 <span className="w-1 h-1 bg-red-500 rounded-full animate-pulse" />
+                 <span className="text-[7px] font-black uppercase tracking-widest text-red-500">Live</span>
+               </motion.div>
              )}
            </div>
            <div className="flex items-center gap-2">
@@ -185,6 +194,6 @@ export default function MatchCard({ match, index }: MatchCardProps) {
         </div>
       </div>
     </motion.div>
-    </Link>
+    </div>
   );
 }

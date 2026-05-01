@@ -28,7 +28,13 @@ Pakistan enters this test series with a renewed focus on red-ball resilience. Fo
 
 ### Team Form
 Pakistan has won 3 of their last 5 Test matches, while Bangladesh is coming off a series defeat against India. Both teams are desperate for WTC points.
-    `
+    `,
+    venueInsights: {
+      avgFirstInningsScore: 320,
+      winPercentageBattingFirst: 48,
+      winPercentageBattingSecond: 32,
+      pitchCondition: 'Typical Mirpur surface—slow and low with significant turn as the match progresses. Early morning moisture may assist seamers, but spin will dominate from session four onwards.'
+    }
   },
   {
     id: '2',
@@ -52,7 +58,13 @@ The second Test in Chattogram often favors batsmen early on before becoming a sp
     playersToWatch: [
       { name: 'Naseem Shah', role: 'Bowler', reason: 'Exceptional control with reverse swing on abrasive surfaces.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Naseem' },
       { name: 'Shakib Al Hasan', role: 'All-rounder', reason: 'The veteran remains the most dangerous threat with his clever changes of pace.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shakib' }
-    ]
+    ],
+    venueInsights: {
+      avgFirstInningsScore: 355,
+      winPercentageBattingFirst: 42,
+      winPercentageBattingSecond: 38,
+      pitchCondition: 'The Chattogram pitch is traditionally a batting paradise for the first two days. As the heat sets in, the surface cracks, making reverse swing and leg-spin the primary wickets-taking options.'
+    }
   },
   {
     id: 'aus-odi-1',

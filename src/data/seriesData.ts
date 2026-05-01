@@ -208,5 +208,72 @@ export const seriesSummaries: SeriesSummary[] = [
         reason: 'His calmness under pressure is vital for the Black Caps.'
       }
     ]
+  },
+  {
+    id: 'aus-pak-odi-2026',
+    seriesName: 'Australia Tour of Pakistan (ODI Series)',
+    opponent: 'Australia',
+    format: 'ODI',
+    headToHead: {
+      total: 111,
+      pakWins: 36,
+      oppWins: 71,
+      noResult: 4
+    },
+    venueHistory: [
+      {
+        venue: 'Gaddafi Stadium, Lahore',
+        totalMatches: 25,
+        pakWins: 12,
+        oppWins: 11,
+        averageScore: '285'
+      }
+    ],
+    predictedXI: [
+      {
+        team: 'Pakistan',
+        players: [
+          'Fakhar Zaman',
+          'Abdullah Shafique',
+          'Babar Azam (c)',
+          'Mohammad Rizwan (wk)',
+          'Saud Shakeel',
+          'Salman Ali Agha',
+          'Iftikhar Ahmed',
+          'Shaheen Afridi',
+          'Naseem Shah',
+          'Haris Rauf',
+          'Usama Mir'
+        ]
+      },
+      {
+        team: 'Australia',
+        players: [
+          'Travis Head',
+          'Mitchell Marsh (c)',
+          'Steve Smith',
+          'Marnus Labuschagne',
+          'Josh Inglis (wk)',
+          'Glenn Maxwell',
+          'Marcus Stoinis',
+          'Sean Abbott',
+          'Adam Zampa',
+          'Josh Hazlewood',
+          'Spencer Johnson'
+        ]
+      }
+    ],
+    keyPlayers: [
+      {
+        name: 'Babar Azam',
+        team: 'Pakistan',
+        reason: 'Loves the flat tracks of Lahore; expected to anchor the innings.'
+      },
+      {
+        name: 'Travis Head',
+        team: 'Australia',
+        reason: 'His aggressive start in the powerplay will be the biggest challenge for Pakistan.'
+      }
+    ]
   }
 ];

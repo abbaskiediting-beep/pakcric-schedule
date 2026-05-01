@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -62,10 +62,87 @@ export const AUTHORS: Author[] = [
     specialization: 'Injury Management & Workload Analysis',
     bio: 'A former physiotherapist for domestic teams, Dr. Faisal provides medical perspectives on player fitness, workload management, and the science behind recovery in modern cricket.',
     avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Faisal'
+  },
+  {
+    id: 'syed-abbas',
+    name: 'Syed Abbas',
+    role: 'Lead Cricket Analyst',
+    specialization: 'Strategic Roadmap & Team Dynamics',
+    bio: 'Syed provides high-level tactical analysis on Pakistan’s transition phases. He is known for his ability to break down squad strategies and long-term planning for major ICC events.',
+    socials: {
+      twitter: 'https://twitter.com/syedabbas_cric'
+    },
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Syed'
   }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'the-evolution-of-the-shaheens-2026-strategy',
+    title: 'The Evolution of the Shaheens: A Closer Look at Pakistan’s 2026 Squad Strategy',
+    summary: 'A deep dive into Pakistan\'s cricket strategy for 2026. Explore the new Test, ODI, and T20I squad dynamics and the vision for the future of Pakistan cricket.',
+    date: 'April 28, 2026',
+    category: 'Analysis',
+    path: '/the-evolution-of-the-shaheens-2026-strategy',
+    icon: TrendingUp,
+    color: 'text-pak-green',
+    authorId: 'syed-abbas'
+  },
+  {
+    id: 'pakistan-icc-rankings-april-2026-analysis',
+    title: 'The Global Standings: Analyzing Pakistan’s Positions in the April 2026 ICC Rankings',
+    summary: 'In-depth analysis of Pakistan cricket players\' ICC rankings as of April 2026. See how Babar Azam, Noman Ali, Sahibzada Farhan, and others compare globally.',
+    date: 'April 28, 2026',
+    category: 'Rankings Update',
+    path: '/pakistan-icc-rankings-april-2026-analysis',
+    icon: BarChart3,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'match-preview-dhaka-test-2026',
+    title: 'The Dhaka Chess Match: 1st Test Preview',
+    summary: 'In-depth preview and tactical analysis for Pakistan\'s 1st Test vs Bangladesh in Dhaka. Key player battles, pitch reports, and squad news.',
+    date: 'April 22, 2026',
+    category: 'Match Preview',
+    path: '/blogs/match-preview-dhaka-test',
+    icon: Target,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'squad-selection-intelligence-2026',
+    title: 'Beyond the Names: Selection Strategy 2026',
+    summary: 'In-depth analysis of Pakistan\'s Test selection for the 2026 Bangladesh tour. Why domestic form was prioritized and tactical roles of the new call-ups.',
+    date: 'April 24, 2026',
+    category: 'Selection Intelligence',
+    path: '/blogs/squad-selection-intelligence',
+    icon: Users,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pakistan-upcoming-series-full-schedule-2026',
+    title: 'Pakistan Upcoming Series Full Schedule 2026',
+    summary: 'A complete guide to Pakistan’s 2026 international calendar including England, Bangladesh, and the highly anticipated tours.',
+    date: 'April 25, 2026',
+    category: 'Cricket Guide',
+    path: '/pakistan-upcoming-series-full-schedule',
+    icon: Calendar,
+    color: 'text-blue-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pakistan-next-tour-details-2026-guide',
+    title: 'Pakistan Next Match Details (2026)',
+    summary: 'Find Pakistan next match date, time, opponent, and venue. Stay updated with upcoming Pakistan cricket matches and tour forecasts.',
+    date: 'April 24, 2026',
+    category: 'Tour Forecast',
+    path: '/pakistan-next-tour-details',
+    icon: Target,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
   {
     id: 'pakistan-vs-bangladesh-2026-match-guide',
     title: 'Pakistan vs Bangladesh 2026 – Complete Match Guide',
@@ -307,5 +384,16 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: HistoryIcon,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
+  },
+  {
+    id: 'psl-2026-eliminator-2-preview-iu-vs-hyk',
+    title: 'PSL 2026 Eliminator 2: Islamabad United vs Hyderabad Kingsmen — Full Match Preview',
+    summary: 'One team goes to the Final. One team goes home. A complete breakdown of the high-stakes Eliminator 2 at Gaddafi Stadium.',
+    date: 'May 1, 2026',
+    category: 'Match Preview',
+    path: '/blogs/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad',
+    icon: Target,
+    color: 'text-pak-green',
+    authorId: 'syed-abbas'
   },
 ];

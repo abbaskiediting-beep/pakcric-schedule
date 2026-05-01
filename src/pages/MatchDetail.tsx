@@ -7,7 +7,7 @@ import { MATCH_RESULTS } from '../matchResultsData';
 import { 
   ChevronLeft, MapPin, Clock, Calendar, Ticket, 
   Trophy, Timer, Zap, Target, Users, Bell, CheckCircle2,
-  Newspaper, ArrowRight
+  Newspaper, ArrowRight, BarChart3, Activity, Info
 } from 'lucide-react';
 import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -375,6 +375,71 @@ export default function MatchDetail() {
           </motion.div>
         )}
       </div>
+      
+      {/* Venue Insights section for Live or Completed matches */}
+      {(match.status === 'Live' || match.status === 'Completed') && match.venueInsights && (
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="mt-12 bg-card-bg border border-card-border rounded-[32px] p-8 md:p-12 overflow-hidden shadow-2xl relative"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
+            <BarChart3 className="w-48 h-48" />
+          </div>
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-10">
+              <Activity className="w-5 h-5 text-pak-green" />
+              <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white">Venue Insights: {match.venue.split(',')[0]}</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+              <div className="p-6 bg-white/[0.03] rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
+                <span className="text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Avg 1st Innings Score</span>
+                <span className="text-4xl font-display font-black text-white">{match.venueInsights.avgFirstInningsScore}</span>
+                <span className="text-[9px] text-pak-green font-bold uppercase mt-2">Historical Average</span>
+              </div>
+              
+              <div className="p-6 bg-white/[0.03] rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
+                <span className="text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Win % Batting 1st</span>
+                <div className="relative w-20 h-20 flex items-center justify-center">
+                  <svg className="w-full h-full transform -rotate-90">
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5" />
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray={226.19} strokeDashoffset={226.19 - (226.19 * match.venueInsights.winPercentageBattingFirst) / 100} className="text-pak-green" />
+                  </svg>
+                  <span className="absolute text-sm font-black text-white">{match.venueInsights.winPercentageBattingFirst}%</span>
+                </div>
+                <span className="text-[9px] text-white/40 font-bold uppercase mt-3 italic">Defending Success</span>
+              </div>
+
+              <div className="p-6 bg-white/[0.03] rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
+                <span className="text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Win % Batting 2nd</span>
+                <div className="relative w-20 h-20 flex items-center justify-center">
+                  <svg className="w-full h-full transform -rotate-90">
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5" />
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray={226.19} strokeDashoffset={226.19 - (226.19 * match.venueInsights.winPercentageBattingSecond) / 100} className="text-amber-500" />
+                  </svg>
+                  <span className="absolute text-sm font-black text-white">{match.venueInsights.winPercentageBattingSecond}%</span>
+                </div>
+                <span className="text-[9px] text-white/40 font-bold uppercase mt-3 italic">Chasing Success</span>
+              </div>
+            </div>
+
+            <div className="bg-pak-green/5 border border-pak-green/20 rounded-[2rem] p-8">
+              <div className="flex items-start gap-4">
+                <Info className="w-5 h-5 text-pak-green mt-1 shrink-0" />
+                <div>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-pak-green mb-2">Pitch Condition & Behavior</h4>
+                  <p className="text-sm md:text-base text-ink/80 leading-relaxed italic">
+                    "{match.venueInsights.pitchCondition}"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+      )}
 
       {/* Bottom Ad for long sessions */}
       <AdPlaceholder type="leaderboard" className="mt-12 mb-12" />

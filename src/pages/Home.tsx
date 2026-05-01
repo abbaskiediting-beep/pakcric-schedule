@@ -7,6 +7,7 @@ import { PAKISTAN_SCHEDULE } from '../constants';
 import { NEWS_DATA } from '../newsData';
 import { MATCH_RESULTS } from '../matchResultsData';
 import AdPlaceholder from '../components/AdPlaceholder';
+import MatchCard from '../components/MatchCard';
 
 import InternalLinkSection from '../components/InternalLinkSection';
 import ExternalResourcesSection from '../components/ExternalResourcesSection';
@@ -226,104 +227,8 @@ export default function Home() {
 
         <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth">
           {MATCH_RESULTS.length > 0 ? (
-            MATCH_RESULTS.map((match) => (
-              <motion.div
-                key={match.id}
-                whileHover={{ y: -4 }}
-                onClick={() => navigate(`/match/${match.id}`)}
-                className="min-w-[280px] sm:min-w-[320px] md:min-w-[400px] bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-5 md:p-6 cursor-pointer hover:border-white/20 transition-all flex flex-col justify-between snap-start shrink-0"
-              >
-                <div className="flex justify-between items-center mb-6">
-                  <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
-                    match.status === 'Live' ? 'bg-red-500/20 text-red-400 border border-red-500/20' : 'bg-white/5 text-white/40 border border-white/5'
-                  }`}>
-                    {match.status}
-                  </span>
-                  <span className="text-[9px] font-bold text-white/20 uppercase tracking-widest font-mono">
-                    {match.series}
-                  </span>
-                </div>
-
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex flex-col items-center gap-2">
-                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 p-1">
-                        <img 
-                          src="https://flagcdn.com/pk.svg" 
-                          alt="PAK" 
-                          referrerPolicy="no-referrer" 
-                          loading="lazy" 
-                          decoding="async" 
-                          width="40"
-                          height="40"
-                          className="w-full h-full object-cover rounded-full" 
-                        />
-                     </div>
-                     <span className="text-xs font-bold uppercase tracking-tighter">PAK</span>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    {match.status === 'Live' ? (
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="text-2xl font-display font-bold tracking-tighter text-white">
-                          {match.scorePAK} <span className="text-white/20">-</span> {match.scoreOpponent}
-                        </div>
-                        <div className="text-[9px] font-bold text-pak-green uppercase tracking-widest flex items-center gap-1">
-                          <Timer className="w-3 h-3" /> {match.overs} Overs
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="text-xl font-display font-bold tracking-tighter text-white/40">
-                        VS
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="flex flex-col items-center gap-2">
-                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 p-1">
-                        <img 
-                          src={match.flagUrl} 
-                          alt={match.opponent} 
-                          referrerPolicy="no-referrer" 
-                          loading="lazy" 
-                          decoding="async" 
-                          width="40"
-                          height="40"
-                          className="w-full h-full object-cover rounded-full" 
-                        />
-                     </div>
-                     <span className="text-xs font-bold uppercase tracking-tighter">{match.opponent.substring(0, 3)}</span>
-                  </div>
-                </div>
-
-                {match.status === 'Completed' && (
-                  <div className="mt-4 pt-4 border-t border-white/5">
-                    <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest leading-relaxed text-center mb-4">
-                      {match.result}
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-[9px] font-mono text-white/20 uppercase">Final Scoreboard available</span>
-                      <Link 
-                        to={`/match/${match.id}`}
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-2 px-4 py-2 bg-pak-green/10 rounded-xl text-[10px] font-bold text-pak-green uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all group"
-                      >
-                        Details <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
-                )}
-                {match.status === 'Live' && (
-                  <div className="mt-4 pt-4 border-t border-white/5 flex justify-center">
-                    <Link 
-                      to={`/match/${match.id}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 px-6 py-2 bg-red-500/20 rounded-xl text-[10px] font-bold text-red-400 uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all group"
-                    >
-                      Watch Live <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                )}
-              </motion.div>
+            MATCH_RESULTS.map((match, index) => (
+              <MatchCard key={match.id} match={match} index={index} />
             ))
           ) : (
             <div className="flex-1 min-h-[140px] flex items-center justify-center bg-white/5 border border-dashed border-card-border rounded-[32px]">

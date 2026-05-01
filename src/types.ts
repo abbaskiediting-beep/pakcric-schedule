@@ -32,6 +32,13 @@ export interface MatchStats {
   keyPartnerships?: KeyPartnership[];
 }
 
+export interface VenueInsights {
+  avgFirstInningsScore: number;
+  winPercentageBattingFirst: number;
+  winPercentageBattingSecond: number;
+  pitchCondition: string;
+}
+
 export interface Match {
   id: string;
   opponent: string;
@@ -51,6 +58,7 @@ export interface Match {
   preMatchAnalysis?: string;
   postMatchSummary?: string;
   playersToWatch?: PlayerToWatch[];
+  venueInsights?: VenueInsights;
 }
 
 export interface Achievement {
