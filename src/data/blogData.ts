@@ -407,4 +407,26 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-yellow-500',
     authorId: 'omar-farooq'
   },
+  {
+    id: 'babar-azam-6-runs-away-kamran-akmal-zalmi-record',
+    title: 'Babar Azam Sirf 6 Runs Door: Kamran Akmal Ka Record Todenge Aur Baneinge PSL History Ka Anokha Khiladi',
+    summary: 'Babar Azam sirf 6 runs aur banane ke baad Peshawar Zalmi ke all-time highest run-scorer ban jayenge — Kamran Akmal ke 1972 runs ka record todke. PSL history ke pehle aur ikaule batter baneinge jo do alag franchises ke all-time highest scorer hon.',
+    date: 'May 1, 2026',
+    category: 'Analysis',
+    path: '/blogs/babar-azam-6-runs-away-zalmi-record',
+    icon: HistoryIcon,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'psl-2026-eliminator-2-first-innings-kingsmen-vs-united',
+    title: 'PSL 2026 Eliminator 2: Hyderabad Kingsmen Set 187-Run Target Against Islamabad United',
+    summary: 'Hyderabad Kingsmen post 186/5 in PSL 2026 Eliminator 2. Usman Khan shines again with 61 off 30. Full innings breakdown and match analysis.',
+    date: 'May 1, 2026',
+    category: 'Match Update',
+    path: '/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-innings-report',
+    icon: Zap,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];
