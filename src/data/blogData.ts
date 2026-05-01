@@ -429,4 +429,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'hunain-shah-last-over-psl-2026-eliminator-2-analysis',
+    title: "Hunain Shah's Last Over: 6 Balls, 3 Runs, 1 Wicket — The Most Dramatic Over in PSL 2026",
+    summary: "Islamabad United needed just 6 runs off the last over to reach the PSL Final. Hunain Shah had other ideas. A full ball-by-ball breakdown of the over that sent Hyderabad Kingsmen into their debut PSL Final.",
+    date: 'May 2, 2026',
+    category: 'Analysis',
+    path: '/blogs/hunain-shah-last-over-dramatic-finish-psl-2026',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
 ];

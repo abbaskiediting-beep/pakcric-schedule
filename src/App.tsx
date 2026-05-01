@@ -65,6 +65,7 @@ const UsmanKhanSeasonReview = lazy(() => import('./pages/UsmanKhanSeasonReview')
 const DarrenSammyFinalInvitationBlog = lazy(() => import('./pages/DarrenSammyFinalInvitationBlog'));
 const BabarZalmiRecordBlog = lazy(() => import('./pages/BabarZalmiRecordBlog'));
 const PSLEliminator2Report = lazy(() => import('./pages/PSLEliminator2Report'));
+const HunainShahLastOverBlog = lazy(() => import('./pages/HunainShahLastOverBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -207,6 +208,7 @@ export default function App() {
               <Route path="/blogs/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
               <Route path="/blogs/babar-azam-6-runs-away-zalmi-record" element={<BabarZalmiRecordBlog />} />
               <Route path="/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" element={<PSLEliminator2Report />} />
+              <Route path="/blogs/hunain-shah-last-over-dramatic-finish-psl-2026" element={<HunainShahLastOverBlog />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
@@ -219,7 +221,7 @@ export default function App() {
         </main>
 
         <footer className="container mx-auto px-4 md:px-6 py-12 flex flex-col gap-12 border-t border-card-border mt-12 bg-card-bg/30">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
             <div className="flex flex-col gap-6">
                <span className="text-white text-lg font-display font-bold">PAKCRIC SCHEDULE</span>
                <p className="text-neutral-500 text-[11px] font-medium leading-relaxed uppercase tracking-[1px] max-w-xs">
@@ -238,10 +240,19 @@ export default function App() {
                 <Link to="/squads" className="hover:text-pak-green transition-colors">Squads</Link>
                 <Link to="/news" className="hover:text-pak-green transition-colors">Latest News</Link>
                 <Link to="/blogs" className="hover:text-pak-green transition-colors">Expert Blogs</Link>
-                <Link to="/the-evolution-of-the-shaheens-2026-strategy" className="hover:text-pak-green transition-colors">Evolution Analysis</Link>
-                <Link to="/pakistan-icc-rankings-april-2026-analysis" className="hover:text-pak-green transition-colors">Rankings Analysis</Link>
                 <Link to="/about" className="hover:text-pak-green transition-colors">About Us</Link>
                 <Link to="/contact" className="hover:text-pak-green transition-colors">Contact</Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-5 sm:gap-6">
+              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Featured Series</span>
+              <div className="flex flex-col gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
+                <Link to="/pakistan-vs-bangladesh-2026-schedule" className="hover:text-pak-green transition-colors">Pakistan vs Bangladesh 2026 Schedule</Link>
+                <Link to="/series/psl-11-2026" className="hover:text-pak-green transition-colors">PSL 2026 Schedule</Link>
+                <Link to="/pakistan-vs-australia-2026-schedule-odi" className="hover:text-pak-green transition-colors">Australia Tour of Pakistan 2026 ODI Series</Link>
+                <Link to="/the-evolution-of-the-shaheens-2026-strategy" className="hover:text-pak-green transition-colors">Evolution Analysis</Link>
+                <Link to="/pakistan-icc-rankings-april-2026-analysis" className="hover:text-pak-green transition-colors">Rankings Analysis</Link>
               </div>
             </div>
 

@@ -18,6 +18,6 @@ export const MATCH_RESULTS: Match[] = [
     scoreOpponent: '184/7',
     result: 'Hyderabad Kingsmen won by 2 runs',
     overs: '20.0',
-    blogUrl: '/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report'
+    blogUrl: '/blogs/hunain-shah-last-over-dramatic-finish-psl-2026'
   }
 ];
