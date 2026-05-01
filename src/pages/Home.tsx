@@ -6,6 +6,7 @@ import { Suspense, lazy } from 'react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { NEWS_DATA } from '../newsData';
 import { MATCH_RESULTS } from '../matchResultsData';
+import { BLOG_POSTS, AUTHORS } from '../data/blogData';
 import AdPlaceholder from '../components/AdPlaceholder';
 import MatchCard from '../components/MatchCard';
 
@@ -23,6 +24,9 @@ export default function Home() {
   // Get only the Bangladesh series for the home page preview
   const bangladeshSeriesName = 'Pakistan Tour of Bangladesh (Test Series)';
   const bangladeshMatches = PAKISTAN_SCHEDULE.filter(m => m.series === bangladeshSeriesName);
+  
+  // Get latest 3 blogs
+  const latestBlogs = [...BLOG_POSTS].reverse().slice(0, 3);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -483,6 +487,81 @@ export default function Home() {
           <FanClubSection />
         </Suspense>
       </div>
+
+      {/* Latest Blogs Section - Full Width */}
+      <section className="mt-24 md:mt-32">
+        <div className="flex flex-wrap justify-between items-center mb-8 md:mb-12 gap-4">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green shadow-lg">
+              <Zap className="w-6 h-6" />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white leading-none mb-2">Latest From Our Blogs</h2>
+              <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-widest">In-depth analysis, tactical previews & exclusive stories</p>
+            </div>
+          </div>
+          <Link 
+            to="/blogs" 
+            className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all group flex items-center gap-2"
+          >
+            Explore All Articles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {latestBlogs.map((blog, idx) => {
+            const author = AUTHORS.find(a => a.id === blog.authorId);
+            return (
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ y: -10 }}
+                onClick={() => navigate(blog.path)}
+                className="bg-card-bg border border-card-border rounded-[32px] p-8 flex flex-col h-full group hover:bg-white/[0.02] hover:border-pak-green/30 transition-all cursor-pointer shadow-xl relative overflow-hidden"
+              >
+                {/* Visual Accent */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-pak-green/10 transition-all" />
+                
+                <div className="flex items-center justify-between mb-6 relative z-10">
+                  <span className="px-3 py-1 bg-pak-green/10 text-pak-green rounded-full text-[9px] font-black uppercase tracking-widest border border-pak-green/10 group-hover:bg-pak-green group-hover:text-white transition-all">
+                    {blog.category}
+                  </span>
+                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-ink/40 group-hover:text-white transition-colors uppercase tracking-widest">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {blog.date}
+                  </div>
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-4 leading-[1.2] group-hover:text-pak-green transition-colors line-clamp-3 relative z-10">
+                  {blog.title}
+                </h3>
+                
+                <p className="text-sm md:text-base text-ink/60 font-medium mb-8 line-clamp-4 leading-relaxed relative z-10 group-hover:text-ink/80 transition-colors">
+                  {blog.summary}
+                </p>
+
+                <div className="mt-auto pt-8 border-t border-white/5 flex items-center justify-between relative z-10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-2xl border-2 border-white/10 overflow-hidden bg-white/5 group-hover:border-pak-green transition-colors">
+                      <img src={author?.avatarUrl} alt={author?.name} className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-black text-white group-hover:text-pak-green transition-colors tracking-tight">{author?.name}</span>
+                      <span className="text-[10px] font-bold text-ink/30 uppercase tracking-[2px]">{author?.role}</span>
+                    </div>
+                  </div>
+                  <div className="w-10 h-10 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-all shadow-lg">
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
 
       {/* SEO & Informative Sections */}
       <div className="mt-24 space-y-24">
