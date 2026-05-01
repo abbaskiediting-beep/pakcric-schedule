@@ -23,14 +23,14 @@ export default function HunainShahLastOverBlog() {
       </Helmet>
 
       {/* Hero Header */}
-      <div className="hero relative overflow-hidden bg-dark py-20 pb-0 min-h-[600px] flex items-center text-left">
+      <div className="hero relative overflow-hidden bg-dark py-12 md:py-20 pb-0 min-h-[400px] md:min-h-[600px] flex items-center text-left">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-dark to-pak-green/5" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_40%,rgba(234,179,8,0.15)_0%,transparent_65%)]" />
         </div>
         
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1 bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 rounded-full text-[10px] font-black uppercase tracking-widest mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1 bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-4 md:mb-8">
             <Activity className="w-3 h-3 animate-pulse" />
             Tactical Analysis · Death Overs
           </div>
@@ -38,17 +38,17 @@ export default function HunainShahLastOverBlog() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            className="text-4xl md:text-7xl font-display font-bold text-white leading-[1.1] tracking-tighter mb-8 uppercase"
+            className="text-3xl sm:text-4xl md:text-7xl font-display font-bold text-white leading-[1.1] tracking-tighter mb-6 md:mb-8 uppercase"
           >
             Hunain Shah's <span className="text-yellow-500 italic">Last Over</span>: 6 Balls, 3 Runs, 1 Wicket
           </motion.h1>
           
-          <p className="text-lg md:text-xl text-white/60 font-medium mb-10 max-w-2xl leading-relaxed">
+          <p className="text-base md:text-xl text-white/60 font-medium mb-8 md:mb-10 max-w-2xl leading-relaxed">
             Islamabad United needed just 6 runs off the last over to reach the PSL Final. Hunain Shah had other ideas. The over that defined a season and sent the Kingsmen to their first final.
           </p>
 
           {/* Social Proof / Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 md:mb-12">
             {[
               { label: 'Runs Needed', val: '6' },
               { label: 'Runs Conceded', val: '3' },
@@ -202,6 +202,9 @@ export default function HunainShahLastOverBlog() {
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Analysis Library
           </Link>
           <div className="flex gap-4">
+             <Link to="/blogs/hyderabad-kingsmen-psl-2026-journey-review" className="flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all">
+                The Journey Review <ExternalLink className="w-4 h-4 text-yellow-500" />
+             </Link>
              <Link to="/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" className="flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all">
                 Full Match Report <ExternalLink className="w-4 h-4 text-yellow-500" />
              </Link>

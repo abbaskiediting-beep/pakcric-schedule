@@ -52,6 +52,10 @@
       @apply text-[15px];
     }
     
+    h1, h2, h3 { 
+      text-wrap: balance;
+    }
+    
     h1 { @apply text-2xl leading-tight font-black; }
     h2 { @apply text-xl leading-tight font-black; }
     h3 { @apply text-lg leading-tight font-bold; }

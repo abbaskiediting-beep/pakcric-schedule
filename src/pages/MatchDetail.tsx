@@ -158,13 +158,13 @@ export default function MatchDetail() {
                       <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
                       <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-white rounded-md text-[8px] md:text-[10px] font-black text-black">PAK</div>
                    </div>
-                   <h2 className="text-xl sm:text-2xl md:text-5xl font-display font-black text-white tracking-widest">PAKISTAN</h2>
+                   <h2 className="text-lg sm:text-2xl md:text-5xl font-display font-black text-white tracking-widest uppercase">PAKISTAN</h2>
                    {match.scorePAK && (
                      <div className="mt-3 text-3xl sm:text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
                    )}
                 </div>
 
-                <div className="text-3xl sm:text-4xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic">
+                <div className="text-2xl sm:text-4xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic">
                   {match.status === 'Live' || match.status === 'Completed' ? '-' : 'VS'}
                 </div>
 
@@ -173,7 +173,7 @@ export default function MatchDetail() {
                       <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
                       <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-white rounded-md text-[8px] md:text-[10px] font-black text-black">{match.opponent.substring(0, 3)}</div>
                    </div>
-                   <h2 className="text-xl sm:text-2xl md:text-5xl font-display font-black text-white uppercase tracking-widest">{match.opponent}</h2>
+                   <h2 className="text-lg sm:text-2xl md:text-5xl font-display font-black text-white uppercase tracking-widest leading-none">{match.opponent}</h2>
                    {match.scoreOpponent && (
                      <div className="mt-3 text-3xl sm:text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
                    )}

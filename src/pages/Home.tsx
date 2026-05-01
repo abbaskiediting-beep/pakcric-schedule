@@ -147,14 +147,14 @@ export default function Home() {
             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white mb-4 md:mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white mb-4 md:mb-6">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black">Never Miss a Match</span>
           </h1>
           
-          <p className="text-sm xs:text-base md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
+          <p className="text-base sm:text-lg md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
             Get the full <strong>Pakistan cricket schedule 2026</strong> for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and <strong>never miss a match</strong>.
           </p>
-          <p className="text-[10px] md:text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10">
+          <p className="text-[9px] md:text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10 px-2 sm:px-0">
             Follow the national team journey through the <strong>ICC Champions Trophy</strong>, bilateral tours, and home series. Our <strong>PakCric Schedule</strong> is updated in real-time to ensure fans have the best experience.
           </p>
 
@@ -265,7 +265,7 @@ export default function Home() {
             
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-3">
-                <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none">
+                <h2 className="text-3xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none">
                   PAK <span className="text-pak-green">VS</span> {nextMatch.opponent.substring(0, 3)}
                 </h2>
                 <div className="flex flex-col gap-1.5">

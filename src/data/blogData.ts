@@ -440,4 +440,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-yellow-500',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'hyderabad-kingsmens-journey-psl-2026-turnaround',
+    title: "From 0-4 to the Final: The Remarkable Journey of Hyderabad Kingsmen in PSL 2026",
+    summary: "How the debutants Hyderabad Kingsmen overcame a disastrous start to reach the PSL 11 Final. A story of resilience, tactical genius, and emergence of new stars.",
+    date: 'May 2, 2026',
+    category: 'Analysis',
+    path: '/blogs/hyderabad-kingsmen-psl-2026-journey-review',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];
