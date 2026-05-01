@@ -1,4 +1,4 @@
-import { Calendar, Clock, ArrowLeft, Trophy, BarChart3, Zap, Shield, Target, TrendingUp, Newspaper, ExternalLink, ChevronRight } from 'lucide-react';
+import { Calendar, ArrowLeft, Trophy, BarChart3, Zap, MapPin, Star, History as HistoryIcon, User, ChevronRight, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -6,229 +6,225 @@ import AuthorSection from '../components/AuthorSection';
 import CommonQuestions from '../components/CommonQuestions';
 
 export default function PSLEliminator2Report() {
-  const blogTitle = "PSL 2026 Eliminator 2: Hyderabad Kingsmen Set 187-Run Target Against Islamabad United";
+  const blogTitle = "Hyderabad Kingsmen ke 2 Runs se Jeet — PSL Final mein Entry";
   const publishDate = "May 1, 2026";
   const authorId = "zainab-rashid";
 
   return (
     <div className="min-h-screen bg-bg-primary text-white pb-20 font-sans selection:bg-pak-green selection:text-white">
       <Helmet>
-        <title>{blogTitle} | PakCric Schedule</title>
-        <meta name="description" content="Hyderabad Kingsmen post 186/5 in PSL 2026 Eliminator 2. Usman Khan shines again with 61 off 30. Full innings breakdown, key moments, and match analysis." />
+        <title>Hyderabad Kingsmen vs Islamabad United Match Report | PSL 2026 Eliminator 2 | PakCric Schedule</title>
+        <meta name="description" content="Hyderabad Kingsmen ne Islamabad United ko 2 runs se hara kar PSL 11 ke Final mein jagah bana li. Usman Khan ki tufaani innings aur Hunain Shah ka aakhri over ka jaadu." />
       </Helmet>
 
       {/* Hero Header */}
-      <div className="relative py-24 bg-gradient-to-br from-[#050806] via-[#0a1f14] to-black border-b border-white/5 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-pak-green/10 blur-[120px] rotate-12 translate-x-1/2" />
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-pak-green/20 text-pak-green rounded-full text-[10px] font-black tracking-widest uppercase border border-pak-green/20 mb-8"
-          >
-            <Zap className="w-4 h-4" />
-            Live Match Update • Eliminator 2
-          </motion.div>
+      <div className="hero relative overflow-hidden bg-dark py-20 pb-0 min-h-[500px] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-pak-green/20 to-pak-red/20" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_40%,rgba(15,123,83,0.35)_0%,transparent_65%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_20%_80%,rgba(200,48,42,0.25)_0%,transparent_60%)]" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1 bg-pak-green/20 border border-pak-green/50 text-pak-green rounded-full text-[10px] font-black uppercase tracking-widest mb-8">
+            <div className="w-1.5 h-1.5 rounded-full bg-pak-green animate-pulse" />
+            PSL 2026 · Eliminator 2 · Match Report
+          </div>
+          
           <motion.h1 
-            initial={{ opacity: 0, y: 30 }} 
+            initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            className="text-4xl md:text-7xl font-display font-black leading-[1.1] mb-10 max-w-5xl"
+            className="text-4xl md:text-7xl font-display font-bold text-white leading-[1.1] tracking-tighter mb-8"
           >
-            {blogTitle}
+            Hyderabad Kingsmen ke <span className="text-yellow-500">2 Runs</span> se Jeet — PSL Final mein Entry
           </motion.h1>
           
-          <div className="flex flex-wrap items-center gap-10">
-             <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full border border-white/10 bg-white/5 p-1 text-pak-green flex items-center justify-center font-black italic">
-                   ZR
-                </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase text-white/40 tracking-widest leading-none mb-1">Written By</p>
-                  <p className="text-sm font-bold text-white uppercase italic">Zainab Rashid</p>
-                </div>
-             </div>
-             <div className="h-10 w-px bg-white/10 hidden md:block" />
-             <div className="flex items-center gap-8 text-white/50 text-[11px] font-bold uppercase tracking-[0.2em]">
-               <span className="flex items-center gap-2.5"><Calendar className="w-4 h-4 text-pak-green" /> {publishDate}</span>
-               <span className="flex items-center gap-2.5"><Clock className="w-4 h-4 text-pak-green" /> 10 Min Read</span>
-             </div>
+          <p className="text-lg md:text-xl text-white/60 font-medium mb-10 max-w-2xl mx-auto italic">
+            Gaddafi Stadium, Lahore mein ek yaddgar raat — Usman Khan ki tufaani innings, Hunain Shah ki aakhri over mein jaadu, aur ek poori qaum ki saans ruk gayi.
+          </p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-6 text-[10px] font-black uppercase tracking-widest text-white/40">
+             <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-pak-green" /> {publishDate}</span>
+             <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-pak-green" /> Gaddafi Stadium, Lahore</span>
+             <span className="flex items-center gap-2"><Trophy className="w-4 h-4 text-pak-green" /> PSL 11 — Eliminator 2</span>
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 mt-16 grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
-        <div className="lg:col-span-8">
-          <div className="prose prose-invert max-w-none prose-p:text-lg prose-p:leading-relaxed prose-p:text-white/80 prose-strong:text-pak-green prose-h2:text-4xl prose-h2:font-display prose-h2:font-black prose-h2:italic prose-h2:mt-16 prose-h2:mb-8 prose-h3:text-2xl prose-h3:font-display prose-h3:font-black prose-h3:text-white/90">
+      {/* Scoreboard Section */}
+      <div className="max-w-4xl mx-auto px-4 -mt-10 relative z-20">
+        <div className="bg-card-bg border border-card-border rounded-3xl overflow-hidden shadow-2xl">
+          <div className="bg-dark px-6 py-3 border-b border-white/5 flex justify-between items-center">
+            <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Final Scorecard — Eliminator 2</span>
+            <span className="px-3 py-1 bg-pak-green/20 text-pak-green text-[10px] font-black rounded-full uppercase tracking-widest">Match Ended</span>
+          </div>
+          <div className="p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-4xl md:text-6xl font-display font-bold text-pak-green leading-none mb-2">HYK</h3>
+              <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">Hyderabad Kingsmen</p>
+              <div className="text-3xl md:text-4xl font-display font-bold">186/5 <span className="text-lg font-sans text-white/40">(20.0)</span></div>
+            </div>
             
-            <p className="text-xl md:text-2xl font-medium leading-relaxed italic text-white/90 border-l-4 border-pak-green pl-8 mb-12">
-              In a high-pressure Eliminator 2 clash of PSL 11, Hyderabad Kingsmen delivered yet another statement performance, setting a commanding 187-run target for Islamabad United.
-            </p>
-
-            <h2>🔥 Kingsmen Charge into the Spotlight</h2>
-            <p>
-              After being asked to bat first by Islamabad United, the tournament’s debut side showed no signs of nerves. Instead, they played fearless cricket, setting up a challenging 187-run target with a place in the final at stake.
-            </p>
-            <p>
-              Stay updated with the <Link to="/schedule" className="text-pak-green hover:underline">PSL 2026 Schedule</Link> to never miss any live action.
-            </p>
-
-            <div className="my-12 overflow-hidden border border-white/10 rounded-[32px] bg-white/5 not-prose">
-              <div className="bg-white/10 px-6 py-4 border-b border-white/10 flex items-center gap-3">
-                 <Target className="w-5 h-5 text-pak-green" />
-                 <h3 className="text-xl font-display font-black m-0 uppercase tracking-tighter">Match Summary at a Glance</h3>
-              </div>
-              <table className="w-full text-sm font-bold text-left m-0">
-                <tbody className="divide-y divide-white/5">
-                  <tr>
-                    <td className="px-6 py-4 text-white/40 uppercase tracking-widest text-[10px] w-1/3">Hyderabad Kingsmen</td>
-                    <td className="px-6 py-4 text-pak-green font-black">186/5 (20 overs)</td>
-                  </tr>
-                  <tr className="bg-white/[0.02]">
-                    <td className="px-6 py-4 text-white/40 uppercase tracking-widest text-[10px]">Top Performer</td>
-                    <td className="px-6 py-4 text-white font-black">Usman Khan – 61 (30)</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-white/40 uppercase tracking-widest text-[10px]">Top Bowler</td>
-                    <td className="px-6 py-4 text-rose-400 font-black">Imad Wasim – 2/16</td>
-                  </tr>
-                  <tr className="bg-pak-green/20">
-                    <td className="px-6 py-4 text-pak-green font-black uppercase tracking-widest text-[10px]">Target</td>
-                    <td className="px-6 py-4 text-white font-black italic">187 Runs for Islamabad United</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h2>🚀 The Momentum Shift: Powerplay to Middle Overs</h2>
-            <p>
-              Hyderabad Kingsmen started aggressively but faced early setbacks with quick wickets in the powerplay. However, what followed was a calculated and explosive recovery that left the Islamabad bowlers searching for answers.
-            </p>
-
-            <h2>💥 The Usman Khan Show Continues</h2>
-            <p>
-              Once again, Usman Khan proved why he is one of the most dangerous batters in PSL 2026. He completely dismantled Islamabad’s pace attack during the middle overs, shifting the momentum firmly in Hyderabad’s favor.
-            </p>
-            <ul>
-              <li><strong>61 runs</strong> off just 30 balls</li>
-              <li>Strike rate above <strong>200</strong></li>
-              <li><strong>10 boundaries</strong> (fours + sixes)</li>
-            </ul>
-            <p>
-              Check out his place among the <Link to="/top-5-players-with-most-centuries-in-psl-history-2026" className="text-pak-green hover:underline">Top PSL Century Scorers</Link>.
-            </p>
-
-            <h2>🧱 The Perfect Foundation</h2>
-            <p>
-              While Usman played aggressively, the supporting cast ensured stability:
-            </p>
-            <ul>
-              <li><strong>Marnus Labuschagne (C):</strong> 39 (32) – Anchored the innings with precision.</li>
-              <li><strong>Saim Ayub:</strong> 38 (27) – Maintained run rate with smart strokeplay.</li>
-            </ul>
-
-            <h2>🔥 Late Overs Acceleration</h2>
-            <p>
-              As the innings progressed, Kusal Perera added the finishing touch with a quickfire 37 runs off 21 balls. His cameo pushed the total beyond the 180-mark, which is considered a strong score at Lahore.
-            </p>
-
-            <h2>🎯 Islamabad United’s Bowling Analysis</h2>
-            <p>
-              Islamabad United’s bowling unit struggled to contain the flow of runs despite a few bright spots.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10 not-prose">
-              <div className="bg-pak-green/5 border border-pak-green/20 rounded-3xl p-8">
-                <h4 className="text-pak-green font-display font-black uppercase italic mb-4">✅ What Worked</h4>
-                <ul className="space-y-2 text-sm font-bold text-white/70">
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Imad Wasim: 2/16 (2 overs)</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> Chris Green: 1/19 (3 overs)</li>
-                </ul>
-              </div>
-              <div className="bg-rose-500/5 border border-rose-500/20 rounded-3xl p-8">
-                <h4 className="text-rose-400 font-display font-black uppercase italic mb-4">❌ What Went Wrong</h4>
-                <ul className="space-y-2 text-sm font-bold text-white/70">
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-rose-500" /> Pace attack leaked runs</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-rose-500" /> Faheem Ashraf: 43 conceded</li>
-                </ul>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-sm font-black text-white/20 uppercase tracking-[0.4em]">VS</span>
+              <div className="px-4 py-1.5 bg-pak-green text-white text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg shadow-pak-green/20">
+                HYK Jeet Gaye ✓
               </div>
             </div>
-            <p>
-              See how this match impacts the <Link to="/psl-2026-points-table-standings" className="text-pak-green hover:underline">PSL 2026 Points Table</Link>.
-            </p>
 
-            <h2>🤔 What’s at Stake?</h2>
-            <p>
-              With 187 runs required, Islamabad United now faces a serious challenge. Can their deep batting lineup handle the pressure? Can Shadab Khan lead his team into another final? We are just one innings away from knowing who faces Peshawar Zalmi in the Final.
-            </p>
-            <p>
-              Read our full <Link to="/blogs/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" className="text-pak-green hover:underline">PSL 2026 Playoffs Guide</Link>.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mt-20 not-prose">
-              <Link to="/blogs" className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all">
-                <ArrowLeft className="w-4 h-4" /> All Cricket News
-              </Link>
-              <a href="https://psl-t20.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-pak-green hover:border-pak-green transition-all group">
-                <ExternalLink className="w-4 h-4 text-pak-green group-hover:text-white" /> Official Scorecard
-              </a>
+            <div className="text-center md:text-right">
+              <h3 className="text-4xl md:text-6xl font-display font-bold text-pak-red leading-none mb-2">IU</h3>
+              <p className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">Islamabad United</p>
+              <div className="text-3xl md:text-4xl font-display font-bold">184/7 <span className="text-lg font-sans text-white/40">(20.0)</span></div>
             </div>
           </div>
+          <div className="bg-white/5 px-6 py-4 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/5">
+             <div className="flex items-center gap-2 text-xs font-bold text-white/60 italic">
+                <Trophy className="w-4 h-4 text-yellow-500" /> Hyderabad Kingsmen won by 2 runs
+             </div>
+             <div className="flex items-center gap-2 text-xs font-bold text-white/60 italic">
+                <Star className="w-4 h-4 text-pak-green" /> Player of Match: Usman Khan
+             </div>
+          </div>
         </div>
-
-        <aside className="lg:col-span-4 space-y-12">
-           <div className="sticky top-24 space-y-12">
-              <div className="p-8 bg-[#0a110d] border border-white/10 rounded-[40px] shadow-2xl">
-                 <div className="flex items-center gap-2 mb-8">
-                   <BarChart3 className="w-5 h-5 text-pak-green" />
-                   <h4 className="text-xl font-display font-black uppercase italic tracking-tighter">Innings Stats</h4>
-                 </div>
-                 <div className="space-y-6">
-                    {[
-                      { label: 'Total Runs', val: '186/5' },
-                      { label: 'Run Rate', val: '9.30' },
-                      { label: 'Fours', val: '18' },
-                      { label: 'Sixes', val: '7' },
-                    ].map((item, i) => (
-                      <div key={i} className="bg-white/[0.03] p-4 rounded-2xl border border-white/5">
-                         <p className="text-[9px] font-black text-white/30 uppercase tracking-widest mb-1">{item.label}</p>
-                         <p className="text-lg font-display font-black text-white">{item.val}</p>
-                      </div>
-                    ))}
-                 </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-pak-green to-emerald-950 p-10 rounded-[48px] relative overflow-hidden group">
-                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-[60px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-                 <h5 className="text-[10px] font-black uppercase tracking-[4px] text-white/50 mb-4">Chase Underway</h5>
-                 <h4 className="text-3xl font-display font-black text-white leading-tight mb-8">Can United Chase 187?</h4>
-                 <Link to="/schedule" className="block w-full py-4 bg-white text-black text-center text-[10px] font-black uppercase tracking-widest rounded-2xl hover:bg-black hover:text-white transition-colors">
-                    Watch Highlights
-                 </Link>
-              </div>
-
-              <div className="p-8 bg-[#0a110d] border border-white/10 rounded-[40px]">
-                 <h4 className="text-lg font-display font-black uppercase italic mb-6">Internal Guides</h4>
-                 <div className="space-y-4">
-                    <Link to="/psl-11-top-run-scorers-2026" className="flex items-center gap-3 text-xs font-bold text-white/60 hover:text-pak-green transition-colors">
-                       <ChevronRight className="w-4 h-4 text-pak-green" />
-                       Orange Cap Holders
-                    </Link>
-                    <Link to="/psl-11-top-wicket-takers-2026" className="flex items-center gap-3 text-xs font-bold text-white/60 hover:text-pak-green transition-colors">
-                       <ChevronRight className="w-4 h-4 text-pak-green" />
-                       Maroon Cap Race
-                    </Link>
-                 </div>
-              </div>
-           </div>
-        </aside>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 mt-32 border-t border-white/10 pt-20">
-        <AuthorSection authorId={authorId} />
+      <div className="max-w-4xl mx-auto px-4 mt-20">
+        <div className="prose prose-invert max-w-none prose-p:text-lg prose-p:leading-relaxed prose-p:text-white/70 prose-strong:text-pak-green prose-h2:text-3xl prose-h2:font-display prose-h2:font-bold prose-h2:uppercase prose-h2:tracking-tight prose-h2:mt-16 prose-h2:mb-8 border-l-2 border-white/5 pl-4 md:pl-12">
+          
+          <div className="section-label flex items-center gap-3 mb-4">
+            <div className="w-10 h-0.5 bg-pak-green rounded-full" />
+            <span className="text-[10px] font-black text-pak-green uppercase tracking-widest">Match Preview</span>
+          </div>
+          <h2>Do Teams, Ek Final Ticket — PSL ka Sabse Bada Showdown</h2>
+          <p>
+            PSL 2026 ke Eliminator 2 mein Hyderabad Kingsmen aur Islamabad United Lahore ke Gaddafi Stadium mein aaye ek baat saaf — jeetne wala PSL final mein jaayega, haarne wala ghar. Kingsmen apni zindagi ki sabse zabardast form mein the, jabke Islamabad United Qualifier mein Peshawar Zalmi se 70 run ki sharmnaak shikast ke baad wapsi ki koshish mein the.
+          </p>
+          <p>
+            Hyderabad Kingsmen ki kahani PSL 2026 ki sabse badi comeback story hai — pehle char matches haarne ke baad, unhe 7 mein se 6 matches jeete aur Eliminator 1 mein Multan Sultans ko 8 wickets se raud kar final ki taraf aae.
+          </p>
+
+          <hr className="my-12 border-white/5" />
+
+          <div className="section-label flex items-center gap-3 mb-4">
+            <div className="w-10 h-0.5 bg-pak-green rounded-full" />
+            <span className="text-[10px] font-black text-pak-green uppercase tracking-widest">Pehli Innings — HYK Batting</span>
+          </div>
+          <h2>Usman Khan ka Toofan — 61 off sirf 30 Balls</h2>
+          <p>
+            Islamabad United ne toss jeet kar Hyderabad ko pehle batane bheja. Shuruwat acchi nahi rahi — Richard Gleeson ne pehli hi over mein Maaz Sadaqat ko 4 gend par zero pe wapas bhej diya. Kingsmen mushkil mein aa gayi, powerplay mein wicketein girne lagi aur pressure badhne laga.
+          </p>
+          <p>
+            Lekin phir Marnus Labuschagne ne apni captain wali zimmedari uthaayi — 39 runs banaye aur ek stable platform teyar kiya. Saim Ayub ne bhi kuch runs jode. Lekin jis shaks ne match ka rukh badla, woh tha Usman Khan. Kusal Perera ke saath milkar Usman ne ek aisi partnership banaayi jo Islamabad ke bowlers ke hosh uda gayi.
+          </p>
+
+          <blockquote className="my-12 p-8 bg-dark border border-white/10 rounded-2xl relative overflow-hidden not-prose">
+            <div className="absolute -top-4 -left-2 text-9xl text-pak-green opacity-10 font-serif">"</div>
+            <p className="text-2xl font-display font-black text-white leading-tight italic relative z-10 mb-4">
+              Usman Khan ne 30 balls mein 61 runs thoke — yeh PSL 2026 ka ek yaddgar cameo tha.
+            </p>
+            <cite className="text-[10px] font-black text-pak-green uppercase tracking-[0.2em] relative z-10 not-italic">
+              — Match Commentary, May 1, 2026
+            </cite>
+          </blockquote>
+
+          {/* Batting Player Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-12 not-prose">
+             <div className="p-6 bg-white/5 border-l-4 border-yellow-500 rounded-2xl">
+                <div className="text-[9px] font-black text-yellow-500 uppercase tracking-widest mb-1 flex items-center gap-2">
+                   <Star className="w-3 h-3" /> Player of Match
+                </div>
+                <h4 className="text-xl font-display font-bold text-white mb-2">Usman Khan</h4>
+                <p className="text-white/40 text-[10px] font-black uppercase mb-4 tracking-widest">Hyderabad Kingsmen</p>
+                <div className="px-3 py-1.5 bg-white/5 rounded-lg inline-block text-sm font-bold text-white">61 off 30 balls (SR: 203)</div>
+             </div>
+             <div className="p-6 bg-white/5 border-l-4 border-pak-green rounded-2xl">
+                <div className="text-[9px] font-black text-pak-green uppercase tracking-widest mb-1">Batting — HYK</div>
+                <h4 className="text-xl font-display font-bold text-white mb-2">Kusal Perera</h4>
+                <p className="text-white/40 text-[10px] font-black uppercase mb-4 tracking-widest">Hyderabad Kingsmen</p>
+                <div className="px-3 py-1.5 bg-white/5 rounded-lg inline-block text-sm font-bold text-white">37 off 21 balls</div>
+             </div>
+          </div>
+
+          <p>
+            Kusal Perera ne 21 gend par 37 dhankedaar runs daale. Death overs mein yeh Usman-Perera partnership hi thi jo Hyderabad ko 186/5 tak le gayi — ek respectful total, lekin Islamabad ke liye bilkul reachable. Ya toh tha?
+          </p>
+
+          <hr className="my-12 border-white/5" />
+
+          <div className="section-label flex items-center gap-3 mb-4">
+            <div className="w-10 h-0.5 bg-pak-green rounded-full" />
+            <span className="text-[10px] font-black text-pak-green uppercase tracking-widest">Doosri Innings — IU Chase</span>
+          </div>
+          <h2>Islamabad ka Dil Dhadkane wala Peecha — 2 Runs ki Kasar</h2>
+          <p>
+            187 ka target — Gaddafi Stadium ki chhoti boundaries mein koi mushkil nahi lagta tha. Lekin Hyderabad ke bowlers ke paas ek plan tha. Mohammad Ali ne pehli hi over mein Devon Conway ko duck par bheja — naatka shuru ho gaya. IU shuruwat mein hi 2 wickets khoke mushkil mein aa gayi.
+          </p>
+
+          {/* Chase Timeline */}
+          <div className="my-12 space-y-8 not-prose border-l-2 border-white/5 pl-8 ml-4">
+             {[
+               { over: '1st Over', event: 'Mohammad Ali ne Devon Conway ko first ball duck par out kiya — IU shocking start, drama shuru.' },
+               { over: 'Middle Overs', event: 'Chapman (43 off 26) aur Sameer Minhas ne partnership banaai — IU race mein wapas aaya.', color: 'text-pak-red' },
+               { over: '17th Over', event: 'Chris Green ne Mohammad Ali ko SIX maara — IU ko target close karta dekh crowd ki saans ruk gayi.', color: 'text-yellow-500' },
+               { over: 'Aakhri Over', event: 'Hunain Shah bowling. IU ko 6 runs chahiye the 6 balls mein. Faheem Ashraf caught out — Hyderabad ki 2 runs se jeet!', color: 'text-pak-green' },
+             ].map((item, i) => (
+                <div key={i} className="relative">
+                  <div className={`absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-dark border-2 border-white/20 flex items-center justify-center`}>
+                    <div className={`w-1.5 h-1.5 rounded-full ${item.color || 'bg-white/40'}`} />
+                  </div>
+                  <div className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">{item.over}</div>
+                  <p className={`text-base font-bold italic ${item.color ? 'text-white' : 'text-white/70'}`}>{item.event}</p>
+                </div>
+             ))}
+          </div>
+
+          <p>
+            Jab aakhri over mein Islamabad ko 6 chahiye the aur Faheem Ashraf strike par tha, pura Pakistan saans rok kar baith gaya tha. Hunain Shah ne gend dali — Faheem ne haath chalaya, lekin gend edge leke Hassan Khan ke haath mein gayi. Hyderabad ne 2 runs se match jeet liya — PSL 2026 ki sabse tight, sabse dramatic jeet.
+          </p>
+
+          <hr className="my-12 border-white/5" />
+
+          <div className="section-label flex items-center gap-3 mb-4">
+            <div className="w-10 h-0.5 bg-pak-green rounded-full" />
+            <span className="text-[10px] font-black text-pak-green uppercase tracking-widest">Aage Kya?</span>
+          </div>
+          <h2>PSL 2026 Final — Hyderabad Kingsmen vs Peshawar Zalmi</h2>
+          <p>
+            Hyderabad Kingsmen ab 3 May 2026 ko PSL 2026 ka Grand Final khelenge — unka muqaabla hoga Babar Azam ki Peshawar Zalmi se. Zalmi ne Qualifier mein Islamabad ko 70 runs se raudha tha. Dono teams in best form mein hain — Babar Azam ka bat aur Usman Khan ka jazbah, Marnus Labuschagne ki captaincy aur Babar ki leadership — ek yaddgar final ka intezaar hai.
+          </p>
+
+          <div className="my-12 p-12 bg-gradient-to-br from-pak-green/20 to-transparent border border-pak-green/30 rounded-[48px] text-center not-prose">
+            <Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
+            <h3 className="text-4xl font-display font-black text-white uppercase tracking-tighter mb-2 italic">PSL 2026 FINAL</h3>
+            <p className="text-xl font-bold text-pak-green mb-0">Hyderabad Kingsmen <span className="text-white/40 font-black italic">VS</span> Peshawar Zalmi</p>
+            <p className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em] mt-4">3 May 2026 · Grand Finale</p>
+          </div>
+
+        </div>
+        
+        {/* Navigation & Sharing */}
+        <div className="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+           <Link to="/blogs" className="flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all group">
+             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Analysis Hub
+           </Link>
+           
+           <div className="flex items-center gap-4">
+             <Link to="/psl-2026-final-preview-peshawar-zalmi-vs-hyderabad-kingsmen" className="flex items-center gap-3 px-8 py-4 bg-pak-green text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-pak-green/20">
+               Final Preview <Zap className="w-4 h-4" />
+             </Link>
+           </div>
+        </div>
+
+        <div className="mt-24">
+           <AuthorSection authorId={authorId} />
+        </div>
+
         <div className="mt-24">
            <CommonQuestions faqs={[
-             { q: "What was Usman Khan's score?", a: "Usman Khan scored 61 runs off 30 balls." },
-             { q: "What is the target for Islamabad United?", a: "Islamabad United needs 187 runs to win in 20 overs." },
-             { q: "Who was the most economical bowler for United?", a: "Imad Wasim was the most economical, taking 2/16 in 2 overs." }
+             { q: "Hyderabad Kingsmen vs Islamabad United Eliminator 2 ka kya result raha?", a: "Hyderabad Kingsmen ne Islamabad United ko 2 runs se hara kar Final mein jagah bana li hai." },
+             { q: "Usman Khan ne kitne runs banaye?", a: "Usman Khan ne 30 balls mein 61 runs ki tufaani innings kheli." },
+             { q: "PSL 2026 Final kab hai?", a: "PSL 2026 Final 3 May 2026 ko Peshawar Zalmi aur Hyderabad Kingsmen ke darmiyan khela jayega." }
            ]} />
         </div>
       </div>

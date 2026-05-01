@@ -2,19 +2,22 @@ import { Match } from './types';
 
 export const MATCH_RESULTS: Match[] = [
   {
-    id: 'psl-final-2026',
-    opponent: 'Hyderabad Kingsmen',
+    id: 'psl-eliminator-2-2026',
+    opponent: 'Islamabad United',
     format: 'T20I',
-    title: 'Peshawar Zalmi vs Hyderabad Kingsmen',
-    date: 'May 3, 2026',
+    title: 'Hyderabad Kingsmen vs Islamabad United',
+    date: 'May 1, 2026',
     time: '19:30 PKT',
     venue: 'Gaddafi Stadium, Lahore',
     series: 'PSL 11 2026',
-    status: 'Upcoming',
-    flagUrl: 'https://api.dicebear.com/7.x/identicon/svg?seed=HK',
-    scorePAK: '185/6',
-    scoreOpponent: '182/9',
-    result: 'Peshawar Zalmi won by 3 runs',
-    overs: '20.0'
+    status: 'Completed',
+    teamA: 'HYK',
+    teamAFlag: 'https://api.dicebear.com/7.x/identicon/svg?seed=HK',
+    flagUrl: 'https://api.dicebear.com/7.x/identicon/svg?seed=IU',
+    scorePAK: '186/5',
+    scoreOpponent: '184/7',
+    result: 'Hyderabad Kingsmen won by 2 runs',
+    overs: '20.0',
+    blogUrl: '/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report'
   }
 ];

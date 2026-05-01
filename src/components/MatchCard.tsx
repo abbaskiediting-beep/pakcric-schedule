@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Share2, Zap } from 'lucide-react';
+import { Calendar, Clock, MapPin, Share2, Zap, Newspaper } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Match } from '../types';
@@ -35,10 +35,11 @@ export default function MatchCard({ match, index }: MatchCardProps) {
     e.preventDefault();
     e.stopPropagation();
     
+    const sharePath = match.blogUrl || `/match/${match.id}`;
     const shareData = {
       title: `Pakistan vs ${match.opponent} - ${match.series}`,
       text: `Check out the match schedule: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`,
-      url: window.location.origin + `/match/${match.id}`
+      url: window.location.origin + sharePath
     };
 
     if (navigator.share) {
@@ -54,7 +55,13 @@ export default function MatchCard({ match, index }: MatchCardProps) {
 
   return (
     <div 
-      onClick={() => navigate(`/match/${match.id}`)}
+      onClick={() => {
+        if (match.blogUrl) {
+          navigate(match.blogUrl);
+        } else {
+          navigate(`/match/${match.id}`);
+        }
+      }}
       className="block focus:outline-none"
     >
       <motion.div
@@ -83,6 +90,12 @@ export default function MatchCard({ match, index }: MatchCardProps) {
            <div className="flex flex-col gap-2">
              <div className="flex items-center flex-wrap gap-2">
                <span className="text-[9px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[3px] transition-colors">{match.series}</span>
+               {match.blogUrl && (
+                 <div className="flex items-center gap-1 px-2.5 py-1 bg-yellow-500/10 text-yellow-500 rounded-md text-[7px] font-black uppercase tracking-widest border border-yellow-500/20 transition-all">
+                   <Newspaper className="w-2.5 h-2.5" />
+                   Match Report
+                 </div>
+               )}
                {intelId && (
                  <Link 
                    to={`/series-intelligence/${intelId}`}
@@ -124,11 +137,11 @@ export default function MatchCard({ match, index }: MatchCardProps) {
              <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full border bg-black/20 p-1.5 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
                match.status === 'Live' ? 'border-red-500 animate-[pulse_2s_infinite]' : 'border-card-border group-hover:border-pak-green'
              }`}>
-                <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover rounded-full" />
+                <img src={match.teamAFlag || "https://flagcdn.com/pk.svg"} alt={match.teamA || "PAK"} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover rounded-full" />
              </div>
              <span className={`text-[10px] font-black uppercase tracking-widest transition-colors ${
                match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-ink/40 group-hover:text-white'
-             }`}>PAK</span>
+             }`}>{match.teamA || "PAK"}</span>
           </div>
 
           <div className="flex flex-col items-center gap-1">

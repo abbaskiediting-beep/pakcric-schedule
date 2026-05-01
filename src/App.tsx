@@ -206,7 +206,7 @@ export default function App() {
               <Route path="/usman-khan-psl-2026-season-review-records" element={<UsmanKhanSeasonReview />} />
               <Route path="/blogs/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
               <Route path="/blogs/babar-azam-6-runs-away-zalmi-record" element={<BabarZalmiRecordBlog />} />
-              <Route path="/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-innings-report" element={<PSLEliminator2Report />} />
+              <Route path="/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" element={<PSLEliminator2Report />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

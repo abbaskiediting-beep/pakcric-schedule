@@ -59,6 +59,9 @@ export interface Match {
   postMatchSummary?: string;
   playersToWatch?: PlayerToWatch[];
   venueInsights?: VenueInsights;
+  blogUrl?: string;
+  teamA?: string;
+  teamAFlag?: string;
 }
 
 export interface Achievement {

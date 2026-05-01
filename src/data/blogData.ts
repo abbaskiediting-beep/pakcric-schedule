@@ -419,12 +419,12 @@ export const BLOG_POSTS: BlogPost[] = [
     authorId: 'zainab-rashid'
   },
   {
-    id: 'psl-2026-eliminator-2-first-innings-kingsmen-vs-united',
-    title: 'PSL 2026 Eliminator 2: Hyderabad Kingsmen Set 187-Run Target Against Islamabad United',
-    summary: 'Hyderabad Kingsmen post 186/5 in PSL 2026 Eliminator 2. Usman Khan shines again with 61 off 30. Full innings breakdown and match analysis.',
+    id: 'psl-2026-eliminator-2-hyderabad-kingsmen-win-match-report',
+    title: 'PSL 2026 Eliminator 2: Hyderabad Kingsmen ke 2 Runs se Jeet — PSL Final mein Entry',
+    summary: 'Hyderabad Kingsmen ne Islamabad United ko 2 runs se hara kar PSL 11 ke Final mein jagah bana li. Usman Khan ki tufaani innings aur Hunain Shah ka aakhri over ka jaadu.',
     date: 'May 1, 2026',
     category: 'Match Update',
-    path: '/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-innings-report',
+    path: '/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report',
     icon: Zap,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
