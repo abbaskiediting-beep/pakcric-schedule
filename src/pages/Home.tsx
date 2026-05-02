@@ -148,45 +148,45 @@ export default function Home() {
             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white mb-4 md:mb-6">
-            Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black">Never Miss a Match</span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.05] text-white mb-6 md:mb-8">
+            Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black drop-shadow-[0_0_15px_rgba(0,102,46,0.3)]">Never Miss a Match</span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6">
+          <p className="text-base sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-2">
             <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and never miss a match." />
           </p>
-          <p className="text-[9px] md:text-xs text-ink/40 font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10 px-2 sm:px-0">
+          <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-[2px] md:tracking-widest leading-relaxed max-w-2xl mx-auto mb-10 md:mb-14 px-4">
             <LinkText text="Follow the national team journey through the ICC Champions Trophy, bilateral tours, and home series. Our PakCric Schedule is updated in real-time to ensure fans have the best experience." />
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-8 mb-8 md:mb-12">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-12 mb-10 md:mb-16">
             {[
               { icon: '✔', label: 'Updated Daily' },
               { icon: '✔', label: 'Accurate PKT Timings' },
               { icon: '✔', label: 'Full Series' }
             ].map((trust, i) => (
-              <div key={i} className="flex items-center gap-1.5 md:gap-2">
-                <span className="text-pak-green font-bold text-sm md:text-lg">{trust.icon}</span>
-                <span className="text-[7px] xs:text-[8px] md:text-[10px] font-bold uppercase tracking-[1px] md:tracking-widest text-white/60">{trust.label}</span>
+              <div key={i} className="flex items-center gap-2 md:gap-3">
+                <span className="text-pak-green font-black text-base md:text-xl">{trust.icon}</span>
+                <span className="text-[8px] sm:text-[10px] md:text-xs font-black uppercase tracking-[2px] text-white/70">{trust.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-12 md:mb-16">
             <Link 
               to="/schedule" 
-              className="w-full sm:w-auto px-10 py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-12 py-5 bg-pak-green text-white rounded-2xl text-[11px] md:text-sm font-black uppercase tracking-[3px] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
             >
-              View Full Schedule <ArrowRight className="w-4 h-4" />
+              View Full Schedule <ArrowRight className="w-5 h-5" />
             </Link>
             <button 
               onClick={() => {
                 const element = document.getElementById('match-center');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-10 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] md:text-xs font-extra-bold uppercase tracking-widest hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-12 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[11px] md:text-sm font-black uppercase tracking-[3px] hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
             >
-              Check Next Match <Timer className="w-4 h-4" />
+              Check Next Match <Timer className="w-5 h-5" />
             </button>
           </div>
 
@@ -211,21 +211,21 @@ export default function Home() {
       </section>
 
       {/* Dynamic Scoreboard Row */}
-      <section id="match-center" className="mb-10 md:mb-12 overflow-hidden scroll-mt-24 px-0">
-        <div className="mb-6 md:mb-8 text-center md:text-left px-4 md:px-0">
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-3 md:mb-4">
+      <section id="match-center" className="mb-14 md:mb-24 overflow-hidden scroll-mt-24 px-0">
+        <div className="mb-8 md:mb-12 text-center md:text-left px-4 md:px-0">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-4 md:mb-6">
             <LinkText text="Pakistan Upcoming Matches & Fixtures" />
           </h2>
-          <p className="text-[10px] sm:text-[11px] md:text-sm text-ink/40 font-bold uppercase tracking-[1px] sm:tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
-            <LinkText text="Stay ahead of every game with our list of Pakistan’s upcoming matches. We provide the latest match dates and updates for every series. Whether it is a home game or an overseas tour, you will know the details. Check our Pakistan cricket schedule 2026 for venues, timings, and player stats. All fixtures are verified for accuracy." />
+          <p className="text-xs sm:text-sm md:text-base text-ink/40 font-bold uppercase tracking-[2px] md:tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
+            <LinkText text="Stay ahead of every game with our list of Pakistan’s upcoming matches. We provide the latest match dates and updates for every series. Check our Pakistan cricket schedule 2026 for venues, timings, and player stats." />
           </p>
         </div>
-        <div className="flex items-center justify-between mb-4 md:mb-6 px-4 md:px-0">
-          <div className="flex items-center gap-2">
-            <Activity className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
-            <h2 className="text-[11px] md:text-sm font-bold uppercase tracking-[2px] md:tracking-[3px] text-white">Match Center</h2>
+        <div className="flex items-center justify-between mb-6 md:mb-8 px-4 md:px-0">
+          <div className="flex items-center gap-3">
+            <Activity className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
+            <h2 className="text-xs md:text-base font-black uppercase tracking-[3px] text-white">Match Center</h2>
           </div>
-          <Link to="/schedule" className="text-[9px] md:text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors">
+          <Link to="/schedule" className="text-[10px] md:text-xs font-black uppercase text-ink/30 hover:text-white transition-colors tracking-widest">
             View All Fixtures
           </Link>
         </div>
@@ -233,7 +233,7 @@ export default function Home() {
         <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth">
           {MATCH_RESULTS.length > 0 ? (
             MATCH_RESULTS.map((match, index) => (
-              <MatchCard key={match.id} match={match} index={index} />
+              <MatchCard key={match.id} match={match} index={index} matchId={match.id} />
             ))
           ) : (
             <div className="flex-1 min-h-[140px] flex items-center justify-center bg-white/5 border border-dashed border-card-border rounded-[32px]">
@@ -264,43 +264,43 @@ export default function Home() {
               <span className="px-2.5 py-0.5 bg-black/40 rounded-full text-[8px] font-bold uppercase tracking-wider text-white/60 border border-white/10 uppercase">{nextMatch.series}</span>
             </div>
             
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="space-y-3">
-                <h2 className="text-3xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-6">
+              <div className="space-y-4">
+                <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none">
                   PAK <span className="text-pak-green">VS</span> {nextMatch.opponent.substring(0, 3)}
                 </h2>
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex items-center gap-2 text-[9px] font-medium text-white/70 uppercase tracking-widest">
-                    <MapPin className="w-3 h-3 text-pak-green" /> {nextMatch.venue}
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-white/70 uppercase tracking-widest">
+                    <MapPin className="w-3.5 h-3.5 text-pak-green" /> {nextMatch.venue}
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1.5 text-[9px] font-black text-white uppercase tracking-wider">
-                      <Calendar className="w-3 h-3 text-pak-green" /> {nextMatch.date}
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 text-[10px] md:text-xs font-black text-white uppercase tracking-widest">
+                      <Calendar className="w-3.5 h-3.5 text-pak-green" /> {nextMatch.date}
                     </div>
-                    <div className="flex items-center gap-1.5 text-[9px] font-black text-white uppercase tracking-wider">
-                      <Timer className="w-3 h-3 text-pak-green" /> {nextMatch.time}
+                    <div className="flex items-center gap-2 text-[10px] md:text-xs font-black text-white uppercase tracking-widest">
+                      <Timer className="w-3.5 h-3.5 text-pak-green" /> {nextMatch.time}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 md:w-24 md:h-24 rounded-xl border-2 border-pak-green/30 p-1 bg-black/40 backdrop-blur-md">
-                  <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-lg" />
+              <div className="flex items-center justify-center md:justify-end gap-6 md:gap-8">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl border-2 border-pak-green/30 p-1 bg-black/40 backdrop-blur-md shadow-2xl">
+                  <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-xl" />
                 </div>
-                <div className="text-lg font-display font-black text-white/10 uppercase">VS</div>
-                <div className="w-14 h-14 md:w-24 md:h-24 rounded-xl border-2 border-white/10 p-1 bg-black/40 backdrop-blur-md">
-                  <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-lg" />
+                <div className="text-2xl font-display font-black text-white/10 uppercase italic">VS</div>
+                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl border-2 border-white/10 p-1 bg-black/40 backdrop-blur-md shadow-2xl">
+                  <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-xl" />
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-2.5 pt-2">
-               <Link to={`/match/${nextMatch.id}`} className="px-6 py-2.5 bg-white text-black rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-pak-green hover:text-white transition-all shadow-md">
-                  View Details
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+               <Link to={`/match/${nextMatch.id}`} className="w-full sm:w-auto px-8 py-3.5 bg-white text-black rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all shadow-xl text-center">
+                  View Full Details
                </Link>
-               <button className="px-6 py-2.5 bg-white/5 text-white border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-white/10 transition-all">
-                  Tickets
+               <button className="w-full sm:w-auto px-8 py-3.5 bg-white/5 text-white border border-white/10 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white/10 transition-all text-center">
+                  Get Tickets
                </button>
             </div>
           </div>
@@ -525,7 +525,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {latestBlogs.map((blog, idx) => {
             const author = AUTHORS.find(a => a.id === blog.authorId);
             return (
@@ -537,7 +537,7 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => navigate(blog.path)}
-                className="bg-card-bg border border-card-border rounded-[32px] p-8 flex flex-col h-full group hover:bg-white/[0.02] hover:border-pak-green/30 transition-all cursor-pointer shadow-xl relative overflow-hidden"
+                className="bg-card-bg border border-card-border rounded-[32px] p-6 sm:p-8 flex flex-col h-full group hover:bg-white/[0.02] hover:border-pak-green/30 transition-all cursor-pointer shadow-xl relative overflow-hidden active:scale-[0.98]"
               >
                 {/* Visual Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-pak-green/10 transition-all" />
@@ -552,26 +552,26 @@ export default function Home() {
                   </div>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-4 leading-[1.2] group-hover:text-pak-green transition-colors line-clamp-3 relative z-10">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-4 leading-[1.2] group-hover:text-pak-green transition-colors line-clamp-3 relative z-10">
                   {blog.title}
                 </h3>
                 
-                <p className="text-sm md:text-base text-ink/60 font-medium mb-8 line-clamp-4 leading-relaxed relative z-10 group-hover:text-ink/80 transition-colors">
+                <p className="text-sm sm:text-base text-ink/60 font-medium mb-8 line-clamp-4 leading-relaxed relative z-10 group-hover:text-ink/80 transition-colors">
                   {blog.summary}
                 </p>
 
                 <div className="mt-auto pt-8 border-t border-white/5 flex items-center justify-between relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-2xl border-2 border-white/10 overflow-hidden bg-white/5 group-hover:border-pak-green transition-colors">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl border-2 border-white/10 overflow-hidden bg-white/5 group-hover:border-pak-green transition-colors">
                       <img src={author?.avatarUrl} alt={author?.name} className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs font-black text-white group-hover:text-pak-green transition-colors tracking-tight">{author?.name}</span>
+                      <span className="text-xs sm:text-sm font-black text-white group-hover:text-pak-green transition-colors tracking-tight">{author?.name}</span>
                       <span className="text-[10px] font-bold text-ink/30 uppercase tracking-[2px]">{author?.role}</span>
                     </div>
                   </div>
-                  <div className="w-10 h-10 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-all shadow-lg">
-                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-all shadow-lg shrink-0">
+                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </motion.div>

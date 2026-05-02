@@ -450,89 +450,97 @@ export default function MatchSchedulePage() {
                   </div>
                 )}
                 <div 
-                  onClick={() => setExpandedId(expandedId === match.id ? null : match.id)}
-                  className={`p-6 flex flex-col gap-5 transition-all cursor-pointer hover:bg-white/[0.04] ${match.status === 'Live' ? 'bg-red-500/5 ring-1 ring-red-500/20 shadow-[0_0_20px_-10px_rgba(239,68,68,0.3)]' : ''}`}
+                   className={`p-5 flex flex-col gap-6 transition-all cursor-pointer hover:bg-white/[0.04] active:scale-[0.98] ${match.status === 'Live' ? 'bg-red-500/5 ring-1 ring-red-500/20 shadow-[0_0_20px_-10px_rgba(239,68,68,0.3)]' : ''}`}
+                   onClick={() => setExpandedId(expandedId === match.id ? null : match.id)}
                 >
-                  <div className="flex justify-between items-start gap-3">
-                    <div className="flex items-center gap-3.5">
-                      <div className={`w-11 h-11 rounded-xl flex flex-col items-center justify-center shrink-0 ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/5 border-pak-green/10'} border`}>
-                        <span className={`text-[17px] font-bold leading-none ${match.status === 'Live' ? 'text-red-500' : 'text-ink'}`}>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-xl flex flex-col items-center justify-center shrink-0 ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/5 border-pak-green/10'} border shadow-sm`}>
+                        <span className={`text-xl font-bold leading-none ${match.status === 'Live' ? 'text-red-500' : 'text-ink'}`}>
                           {match.date.match(/\d+/) ? match.date.match(/\d+/)![0] : ''}
                         </span>
-                        <span className={`text-[8px] font-bold uppercase tracking-widest ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`}>
+                        <span className={`text-[9px] font-black uppercase tracking-widest ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`}>
                           {match.date.includes(' ') ? match.date.split(' ')[0].substring(0,3) : '2026'}
                         </span>
                       </div>
                       <div>
-                        <span className="text-sm font-bold text-ink block leading-tight">{match.date}</span>
-                        <span className="text-[10px] font-bold text-ink/30 uppercase tracking-widest mt-1 inline-block">{match.time} PKT</span>
+                        <span className="text-[15px] font-bold text-ink block leading-tight mb-1">{match.date}</span>
+                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-ink/30 uppercase tracking-widest">
+                          <Clock className={`w-3.5 h-3.5 ${match.status === 'Live' ? 'text-red-400' : ''}`} /> {match.time} PKT
+                        </div>
                       </div>
                     </div>
-                    <span className={`px-2.5 py-1 rounded-lg text-[9px] font-bold uppercase tracking-widest shrink-0 ${
-                      match.format === 'Test' ? 'border border-orange-500/20 text-orange-600 bg-orange-500/5' :
-                      match.format === 'ODI' ? 'border border-blue-500/20 text-blue-600 bg-blue-500/5' :
-                      'border border-purple-500/20 text-purple-600 bg-purple-500/5'
+                    <span className={`px-2.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest shrink-0 border ${
+                      match.format === 'Test' ? 'border-orange-500/20 text-orange-600 bg-orange-500/5' :
+                      match.format === 'ODI' ? 'border-blue-500/20 text-blue-600 bg-blue-500/5' :
+                      'border-teal-500/20 text-teal-600 bg-teal-500/5'
                     }`}>
                       {match.format}
                     </span>
                   </div>
 
                   <div className={`flex items-center gap-4 p-4 rounded-2xl border transition-colors ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-white/[0.02] border-white/5'}`}>
-                    <img src={match.flagUrl} alt="" className="w-10 h-7 object-cover rounded shadow-sm border border-card-border shrink-0" referrerPolicy="no-referrer" />
-                    <Link to={`/match/${match.id}`} onClick={(e) => e.stopPropagation()} className="text-base font-display font-bold text-white uppercase tracking-tighter leading-none hover:text-pak-green transition-colors">
+                    <div className="w-12 h-9 rounded-lg overflow-hidden border border-card-border shrink-0 shadow-sm">
+                      <img src={match.flagUrl} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    </div>
+                    <Link to={`/match/${match.id}`} onClick={(e) => e.stopPropagation()} className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none hover:text-pak-green transition-colors">
                       {match.title || `PAK vs ${match.opponent}`}
                     </Link>
                     {match.status === 'Live' && (
                       <div className="ml-auto">
-                        <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_12px_rgba(220,38,38,0.8)]" />
                       </div>
                     )}
                   </div>
 
-                  <div className="flex flex-col gap-2.5 px-1">
-                    <div className="flex items-start gap-2.5">
-                      <MapPin className={`w-4 h-4 mt-0.5 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
-                      <span className="text-[11px] font-bold text-ink/60 leading-snug">{match.venue}</span>
+                  <div className="flex flex-col gap-3 px-1">
+                    <div className="flex items-start gap-3">
+                      <MapPin className={`w-4.5 h-4.5 mt-0.5 shrink-0 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
+                      <span className="text-[12px] font-bold text-ink/70 leading-relaxed">{match.venue}</span>
                     </div>
-                    <div className="flex items-start gap-2.5">
-                      <Trophy className="w-4 h-4 text-ink/20 mt-0.5" />
-                      <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-snug">{match.series}</span>
+                    <div className="flex items-start gap-3">
+                      <Trophy className="w-4.5 h-4.5 text-ink/20 mt-0.5 shrink-0" />
+                      <span className="text-[11px] font-bold text-ink/40 uppercase tracking-widest leading-relaxed line-clamp-1">{match.series}</span>
                     </div>
                   </div>
 
                   <div className="flex justify-between items-center pt-2">
-                    <span className={`px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest flex items-center gap-1.5 ${
-                      match.status === 'Live' ? 'bg-red-600 text-white animate-pulse' :
-                      match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' :
-                      match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
-                      'bg-white/10 text-ink/40'
+                    <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg ${
+                      match.status === 'Live' ? 'bg-red-600 text-white animate-pulse shadow-red-600/20' :
+                      match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-amber-500/20' :
+                      match.status === 'Scheduled' ? 'bg-emerald-600 text-white shadow-emerald-600/20' :
+                      'bg-white/10 text-ink/40 border border-white/5'
                     }`}>
                       {match.status === 'Live' && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
                       {match.status}
                     </span>
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Optional: Navigate to detail page or keep as just expansion
-                      }}
-                      className={`px-5 py-2.5 rounded-xl border text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all ${
-                        match.status === 'Live' 
-                          ? 'bg-red-600/10 border-red-500/30 text-red-500 hover:bg-red-600 hover:text-white' 
-                          : 'bg-white/5 border-white/10 text-pak-green hover:bg-pak-green hover:text-white'
-                      }`}
-                    >
-                      {expandedId === match.id ? 'Show Less' : 'Quick View'} {expandedId === match.id ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                    </button>
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setExpandedId(expandedId === match.id ? null : match.id);
+                        }}
+                        className={`px-4 py-3 rounded-xl border text-[11px] font-black uppercase tracking-widest flex items-center gap-2 transition-all ${
+                          match.status === 'Live' 
+                            ? 'bg-red-600/10 border-red-500/30 text-red-500' 
+                            : 'bg-white/5 border-white/10 text-pak-green'
+                        }`}
+                      >
+                         {expandedId === match.id ? 'Collapse' : 'Quick View'} 
+                         {expandedId === match.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                   {expandedId === match.id && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden bg-black/20"
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      className="overflow-hidden bg-black/30 backdrop-blur-md"
                     >
                       <MatchDetailExpanded match={match} />
                     </motion.div>
