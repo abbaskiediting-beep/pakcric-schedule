@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronLeft, Calendar, MapPin, Trophy, Users, Clock, Info, HelpCircle, TrendingUp, Globe } from 'lucide-react';
 import { PAKISTAN_SCHEDULE } from '../constants';
+import { LinkText } from '../components/LinkText';
 
 export default function PakistanVsBangladesh2026Schedule() {
   return (
@@ -33,10 +34,10 @@ export default function PakistanVsBangladesh2026Schedule() {
           
           <div className="prose prose-invert max-w-none">
             <p className="text-xl text-ink/80 leading-relaxed font-medium italic border-l-4 border-pak-green pl-6 mb-8">
-              The Pakistan vs Bangladesh 2026 series is shaping up to be an exciting Test battle between two competitive sides. With matches scheduled in Bangladesh, conditions are expected to play a major role, making this series even more interesting.
+              <LinkText text="The Pakistan vs Bangladesh 2026 series is shaping up to be an exciting Test battle between two competitive sides. With matches scheduled in Bangladesh, conditions are expected to play a major role, making this series even more interesting." />
             </p>
             <p className="text-lg text-ink/60 leading-relaxed">
-              In this guide, you'll find the complete schedule, venue details, and match preview to stay fully updated.
+              <LinkText text="In this guide, you'll find the complete schedule, venue details, and match preview to stay fully updated." />
             </p>
           </div>
         </header>
@@ -44,10 +45,10 @@ export default function PakistanVsBangladesh2026Schedule() {
         <section className="mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white uppercase tracking-tight mb-8 flex items-center gap-3">
             <Calendar className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
-            Pakistan vs Bangladesh 2026 Schedule
+            <LinkText text="Pakistan vs Bangladesh 2026 Schedule" />
           </h2>
           <p className="text-sm md:text-ink/60 mb-8 leading-relaxed italic">
-            The series will feature two Test matches played in Bangladesh. Below is the confirmed schedule:
+            <LinkText text="The series will feature two Test matches played in Bangladesh. Below is the confirmed schedule:" />
           </p>
 
           <div className="overflow-x-auto rounded-2xl md:rounded-3xl border border-white/5 bg-black/20 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
@@ -84,10 +85,10 @@ export default function PakistanVsBangladesh2026Schedule() {
         <section className="mb-16">
           <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight mb-8 flex items-center gap-3">
             <Users className="w-8 h-8 text-pak-green" />
-            Pakistan vs Bangladesh 2026 Squad
+            <LinkText text="Pakistan vs Bangladesh 2026 Squad" />
           </h2>
           <p className="text-ink/60 mb-8 leading-relaxed">
-            The squad for this Test series is expected to focus on players who perform well in longer formats.
+            <LinkText text="The squad for this Test series is expected to focus on players who perform well in longer formats." />
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">

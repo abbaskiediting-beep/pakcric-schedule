@@ -2,6 +2,7 @@ import { Calendar, Clock, User, ArrowLeft, Share2, Trophy, Target, Star, History
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { LinkText } from '../components/LinkText';
 import AuthorSection from '../components/AuthorSection';
 import FanClubSection from '../components/FanClubSection';
 import InternalLinkSection from '../components/InternalLinkSection';
@@ -112,7 +113,7 @@ export default function BabarAzamPSLCenturiesBlog() {
             >
               <div className="prose prose-invert max-w-none">
                 <p className="text-xl text-white/70 leading-relaxed mb-12 first-letter:text-7xl first-letter:font-black first-letter:text-pak-green first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
-                  When the history of the Pakistan Super League is written, one name will appear more consistently than almost any other at the top of the run charts — <strong>Babar Azam</strong>. The right-handed Lahore-born batter has been the most dominant run-scorer in PSL history, with over <strong>4,193 runs in 107+ matches</strong> at an average above 47 and a strike rate close to 129.
+                  <LinkText text="When the history of the Pakistan Super League is written, one name will appear more consistently than almost any other at the top of the run charts — Babar Azam. The right-handed Lahore-born batter has been the most dominant run-scorer in PSL history, with over 4,193 runs in 107+ matches at an average above 47 and a strike rate close to 129." />
                 </p>
 
                 <div className="bg-gradient-to-br from-pak-green/20 to-transparent border border-pak-green/30 p-8 rounded-3xl mb-12">
@@ -192,7 +193,7 @@ export default function BabarAzamPSLCenturiesBlog() {
                      <span className="px-3 py-1 bg-pak-green/10 text-pak-green rounded-lg text-[10px] font-bold uppercase tracking-widest">Islamabad United vs Peshawar Zalmi</span>
                    </div>
                    <p className="text-white/70 mb-8">
-                     One year later, Babar made sure his century counted in the result column. Navigating Islamabad United's spinners — Shadab Khan and Agha Salman — with characteristic patience, he reached his hundred in a devastating sequence against fast bowler Hunain Shah.
+                     <LinkText text="One year later, Babar made sure his century counted in the result column. Navigating Islamabad United's spinners — Shadab Khan and Agha Salman — with characteristic patience, he reached his hundred in a devastating sequence against fast bowler Hunain Shah." />
                    </p>
                    <div className="bg-white/[0.03] p-6 rounded-2xl flex items-center gap-6">
                       <div className="text-5xl font-black text-pak-green">111*</div>

@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import { BLOG_POSTS, AUTHORS } from '../data/blogData';
+import { LinkText } from '../components/LinkText';
 
 export default function Blogs() {
   return (
@@ -29,10 +30,10 @@ export default function Blogs() {
         </h1>
         <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
           <p className="text-lg md:text-xl text-ink/80 font-medium leading-relaxed italic">
-            If you enjoy going beyond just <Link to="/schedule" className="text-pak-green hover:underline">match schedules</Link> and <Link to="/schedule" className="text-pak-green hover:underline">scores</Link>, this is where things get interesting.
+            <LinkText text="If you enjoy going beyond just match schedules and scores, this is where things get interesting." />
           </p>
           <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed">
-            The blogs section on <Link to="/" className="text-pak-green hover:underline">PakCric Schedule</Link> is designed for fans who want deeper insights into <Link to="/" className="text-pak-green hover:underline">Pakistan cricket</Link> — from <Link to="/blogs" className="text-pak-green hover:underline">match analysis</Link> to <Link to="/players-stats" className="text-pak-green hover:underline">player performances</Link> and upcoming <Link to="/blogs" className="text-pak-green hover:underline">predictions</Link>. Everything here is written in a simple, clear, and engaging way.
+            <LinkText text="The blogs section on PakCric Schedule is designed for fans who want deeper insights into Pakistan cricket — from match analysis to player performances and upcoming predictions. Everything here is written in a simple, clear, and engaging way." />
           </p>
         </div>
       </motion.div>

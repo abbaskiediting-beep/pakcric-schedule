@@ -130,7 +130,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/pakistan-upcoming-series-full-schedule',
     icon: Calendar,
     color: 'text-blue-500',
-    authorId: 'omar-farooq'
+    authorId: 'bilal-ahmed'
   },
   {
     id: 'pakistan-next-tour-details-2026-guide',
@@ -163,7 +163,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/pakistan-tour-bangladesh-squad-2026',
     icon: Users,
     color: 'text-teal-500',
-    authorId: 'omar-farooq'
+    authorId: 'ayesha-khan'
   },
   {
     id: 'red-ball-resilience-overview-2026',
@@ -196,7 +196,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/schedule',
     icon: Calendar,
     color: 'text-blue-500',
-    authorId: 'omar-farooq'
+    authorId: 'faisal-qureshi'
   },
   {
     id: 'top-10-run-scorers-psl-11-2026',
@@ -207,7 +207,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-11-top-run-scorers-2026',
     icon: Trophy,
     color: 'text-yellow-500',
-    authorId: 'zainab-rashid'
+    authorId: 'hassan-tariq'
   },
   {
     id: 'top-10-wicket-takers-psl-11-2026',
@@ -218,7 +218,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-11-top-wicket-takers-2026',
     icon: Target,
     color: 'text-red-500',
-    authorId: 'omar-farooq'
+    authorId: 'syed-abbas'
   },
   {
     id: 'psl-11-qualifier-1-preview-2026',
@@ -229,7 +229,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-11-qualifier-1-showdown-2026',
     icon: Zap,
     color: 'text-pak-green',
-    authorId: 'zainab-rashid'
+    authorId: 'bilal-ahmed'
   },
   {
     id: 'pz-vs-isu-powerplay-blog-psl-11',
@@ -240,7 +240,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-11-qualifier-1-pz-vs-iu-powerplay-blog-2026',
     icon: Zap,
     color: 'text-yellow-500',
-    authorId: 'zainab-rashid'
+    authorId: 'ayesha-khan'
   },
   {
     id: 'babar-azam-all-psl-centuries-complete-list',
@@ -273,7 +273,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/babar-azam-glorious-return-psl-2026-centuries',
     icon: HistoryIcon,
     color: 'text-pak-green',
-    authorId: 'zainab-rashid'
+    authorId: 'faisal-qureshi'
   },
   {
     id: 'psl-2026-eliminator-1-multan-vs-hyderabad-preview',
@@ -284,7 +284,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-2026-eliminator-1-multan-vs-hyderabad-match-analysis',
     icon: Target,
     color: 'text-yellow-500',
-    authorId: 'zainab-rashid'
+    authorId: 'syed-abbas'
   },
   {
     id: 'psl-2026-eliminator-1-confirmed-playing-xi-updates',
@@ -306,7 +306,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-2026-eliminator-1-match-summary-kingsmen-vs-multan',
     icon: BarChart3,
     color: 'text-emerald-500',
-    authorId: 'zainab-rashid'
+    authorId: 'hassan-tariq'
   },
   {
     id: 'kingsmen-final-victory-multan-dethroned-2026',
@@ -328,7 +328,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/psl-2026-eliminator-1-full-match-report-analysis',
     icon: Trophy,
     color: 'text-pak-green',
-    authorId: 'zainab-rashid'
+    authorId: 'ayesha-khan'
   },
   {
     id: 'psl-11-qualifier-1-match-report-babar-century',
@@ -350,7 +350,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/multan-sultans-psl-2026-full-season-journey-review',
     icon: HistoryIcon,
     color: 'text-yellow-500',
-    authorId: 'zainab-rashid'
+    authorId: 'bilal-ahmed'
   },
   {
     id: 'maaz-sadaqat-psl-2026-season-review-stats',
@@ -372,7 +372,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/usman-khan-psl-2026-season-review-records',
     icon: HistoryIcon,
     color: 'text-rose-500',
-    authorId: 'zainab-rashid'
+    authorId: 'syed-abbas'
   },
   {
     id: 'pakistan-vs-australia-2026-analysis',
@@ -416,7 +416,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/blogs/babar-azam-6-runs-away-zalmi-record',
     icon: HistoryIcon,
     color: 'text-pak-green',
-    authorId: 'zainab-rashid'
+    authorId: 'faisal-qureshi'
   },
   {
     id: 'psl-2026-eliminator-2-hyderabad-kingsmen-win-match-report',
@@ -438,7 +438,7 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/blogs/hunain-shah-last-over-dramatic-finish-psl-2026',
     icon: Zap,
     color: 'text-yellow-500',
-    authorId: 'zainab-rashid'
+    authorId: 'bilal-ahmed'
   },
   {
     id: 'hyderabad-kingsmens-journey-psl-2026-turnaround',
@@ -461,5 +461,16 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
+  },
+  {
+    id: 'psl-11-final-ceremony-2026-details',
+    title: 'PSL 11 Final Ceremony 2026: Closing Ceremony, Trophy, Tickets & Timing',
+    summary: 'A complete guide to the PSL 2026 Final closing ceremony at Gaddafi Stadium. Details on the "Infinity" trophy, performer lineup, ticket prices, and event timeline.',
+    date: 'May 2, 2026',
+    category: 'Event Guide',
+    path: '/psl-11-final-ceremony-2026-details',
+    icon: Star,
+    color: 'text-yellow-500',
+    authorId: 'ayesha-khan'
   },
 ];

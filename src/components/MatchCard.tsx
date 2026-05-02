@@ -66,9 +66,9 @@ export default function MatchCard({ match, index }: MatchCardProps) {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         whileHover={{ 
-          y: -8, 
-          scale: 1.02,
-          transition: { type: 'spring', stiffness: 400, damping: 10 }
+          y: -10, 
+          scale: 1.025,
+          transition: { type: 'spring', stiffness: 300, damping: 15 }
         }}
         transition={{ 
           type: 'spring',
@@ -148,8 +148,8 @@ export default function MatchCard({ match, index }: MatchCardProps) {
             </div>
 
             <div className="flex items-center justify-between mb-6 px-1">
-              <div className="flex flex-col items-center gap-2">
-                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full border bg-black/20 p-1.5 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
+              <div className="flex items-center gap-2">
+                <div className={`w-6 h-6 rounded-full border bg-black/20 p-0.5 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
                   match.status === 'Live' ? 'border-red-500 animate-[pulse_2s_infinite]' : 'border-card-border group-hover:border-pak-green'
                 }`}>
                   <img src={match.teamAFlag || "https://flagcdn.com/pk.svg"} alt={match.teamA || "PAK"} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover rounded-full" />
@@ -160,32 +160,32 @@ export default function MatchCard({ match, index }: MatchCardProps) {
               </div>
 
               <div className="flex flex-col items-center gap-1">
-                <div className={`h-px w-8 transition-colors ${
+                <div className={`h-px w-6 transition-colors ${
                   match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-card-border/50 group-hover:bg-pak-green/30'
                 }`} />
                 <div className={`text-[10px] font-black transition-colors tracking-tighter ${
                   match.status === 'Live' ? 'text-red-500' : 'text-ink/20 group-hover:text-pak-green/80'
                 }`}>VS</div>
-                <div className={`h-px w-8 transition-colors ${
+                <div className={`h-px w-6 transition-colors ${
                   match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-card-border/50 group-hover:bg-pak-green/30'
                 }`} />
               </div>
 
-              <div className="flex flex-col items-center gap-2">
-                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full border bg-black/20 p-1.5 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
+              <div className="flex items-center gap-2">
+                <span className={`text-[10px] font-black uppercase tracking-widest transition-colors ${
+                  match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-ink/40 group-hover:text-white'
+                }`}>{match.opponent}</span>
+                <div className={`w-6 h-6 rounded-full border bg-black/20 p-0.5 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
                   match.status === 'Live' ? 'border-red-500 animate-[pulse_2s_infinite]' : 'border-card-border group-hover:border-pak-green'
                 }`}>
                   <img 
-                    src={match.flagUrl || `https://picsum.photos/seed/${match.opponent}/48/48`} 
+                    src={match.flagUrl || `https://api.dicebear.com/7.x/initials/svg?seed=${match.opponent}`} 
                     alt={match.opponent} 
                     referrerPolicy="no-referrer" 
                     loading="lazy"
                     className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <span className={`text-[10px] font-black uppercase tracking-widest transition-colors ${
-                  match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-ink/40 group-hover:text-white'
-                }`}>{match.opponent}</span>
               </div>
             </div>
           </div>

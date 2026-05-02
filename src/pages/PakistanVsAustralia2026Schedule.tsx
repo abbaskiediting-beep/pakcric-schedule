@@ -2,6 +2,7 @@ import { Calendar, Clock, MapPin, Trophy, History, Info, ChevronRight, ArrowLeft
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { LinkText } from '../components/LinkText';
 
 export default function PakistanVsAustralia2026Schedule() {
   const seriesTitle = "Australia Tour of Pakistan 2026: ODI Series Schedule";
@@ -65,11 +66,11 @@ export default function PakistanVsAustralia2026Schedule() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-7xl font-display font-black leading-[0.95] tracking-tighter mb-6 uppercase italic"
               >
-                Australia Tour <br />
-                <span className="text-pak-green">Of Pakistan 2026</span>
+                <LinkText text="Australia Tour" /> <br />
+                <span className="text-pak-green"><LinkText text="Of Pakistan 2026" /></span>
               </motion.h1>
               <p className="text-white/60 text-lg leading-relaxed font-medium">
-                The giants of cricket collide in the heart of Lahore. Three ODIs, one legendary venue, and a historic rivalry renewed at the Gaddafi Stadium.
+                <LinkText text="The giants of cricket collide in the heart of Lahore. Three ODIs, one legendary venue, and a historic rivalry renewed at the Gaddafi Stadium." />
               </p>
             </div>
             
@@ -139,10 +140,10 @@ export default function PakistanVsAustralia2026Schedule() {
                 </div>
                 <div className="prose prose-invert max-w-none">
                   <p className="text-lg text-white/60 leading-relaxed font-medium">
-                    This three-match ODI series, scheduled for Lahore's iconic Gaddafi Stadium, is a pivotal component of a massive 2026 international calendar for both nations. Following a high-octane T20I stretch in January, these 50-over matches serve as a critical bridge toward global tournament preparation.
+                    <LinkText text="This three-match ODI series, scheduled for Lahore's iconic Gaddafi Stadium, is a pivotal component of a massive 2026 international calendar for both nations. Following a high-octane T20I stretch in January, these 50-over matches serve as a critical bridge toward global tournament preparation." />
                   </p>
                   <p className="text-lg text-white/60 leading-relaxed font-medium">
-                    Australia is expected to bring a <strong className="text-white">full-strength squad</strong>, featuring the likes of Travis Head and Pat Cummins, anticipating the unique challenges of subcontinental conditions before they head to Bangladesh.
+                    <LinkText text="Australia is expected to bring a full-strength squad, featuring the likes of Travis Head and Pat Cummins, anticipating the unique challenges of subcontinental conditions before they head to Bangladesh." />
                   </p>
                 </div>
               </section>

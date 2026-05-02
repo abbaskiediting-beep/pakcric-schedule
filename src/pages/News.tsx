@@ -6,6 +6,7 @@ import { NEWS_DATA } from '../newsData';
 import React from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
+import { LinkText } from '../components/LinkText';
 
 export default function News() {
   const navigate = useNavigate();
@@ -33,10 +34,10 @@ export default function News() {
         </h1>
         <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
           <p className="text-lg md:text-xl text-ink/80 font-medium leading-relaxed">
-            Cricket in Pakistan moves fast — <Link to="/squads" className="text-pak-green hover:underline">squad changes</Link>, <Link to="/schedule" className="text-pak-green hover:underline">match results</Link>, injuries, and big moments happen all the time. Keeping up with everything can be difficult if you’re checking multiple sources.
+            <LinkText text="Cricket in Pakistan moves fast — squad changes, match results, injuries, and big moments happen all the time. Keeping up with everything can be difficult if you’re checking multiple sources." />
           </p>
           <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed">
-            That’s why this page brings together the latest <Link to="/news" className="text-pak-green hover:underline">Pakistan cricket news</Link> and updates in one place. From <Link to="/squads" className="text-pak-green hover:underline">verified announcements</Link> to <Link to="/news" className="text-pak-green hover:underline">match previews</Link> and key <Link to="/news" className="text-pak-green hover:underline">highlights</Link>, everything is presented in a simple and easy-to-read format.
+            <LinkText text="That’s why this page brings together the latest Pakistan cricket news and updates in one place. From verified announcements to match previews and key highlights, everything is presented in a simple and easy-to-read format." />
           </p>
         </div>
       </motion.div>
@@ -46,13 +47,13 @@ export default function News() {
 
       <div className="mb-8 md:mb-12">
         <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-4 md:mb-6">
-          Pakistan Cricket <span className="text-pak-green">Latest News</span>
+          <LinkText text="Pakistan Cricket Latest News" />
         </h2>
         <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed max-w-3xl mb-4">
-          Here you’ll find the most recent updates related to the <Link to="/" className="text-pak-green hover:underline">Pakistan cricket team</Link>. We cover <Link to="/squads" className="text-pak-green hover:underline">squad announcements</Link>, <Link to="/news" className="text-pak-green hover:underline">match previews</Link> and summaries, player injuries and replacements, and <Link to="/squads" className="text-pak-green hover:underline">team selection updates</Link>.
+          <LinkText text="Here you’ll find the most recent updates related to the Pakistan cricket team. We cover squad announcements, match previews and summaries, player injuries and replacements, and team selection updates." />
         </p>
         <p className="text-ink/40 text-[10px] md:text-xs font-medium italic">
-          Each update is written clearly so you can quickly understand what’s happening in the <Link to="/schedule" className="text-pak-green hover:underline">upcoming series</Link> without going through unnecessary details.
+          <LinkText text="Each update is written clearly so you can quickly understand what’s happening in the upcoming series without going through unnecessary details." />
         </p>
       </div>
 
