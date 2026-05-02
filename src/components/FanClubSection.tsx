@@ -7,22 +7,22 @@ export default function FanClubSection() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.2 }}
-      className="md:col-span-2 bg-white rounded-[40px] p-8 flex flex-col items-center justify-center text-black overflow-hidden relative group shadow-2xl shadow-white/20"
+      className="md:col-span-2 bg-white rounded-2xl p-4 md:p-5 flex flex-col items-center justify-center text-black overflow-hidden relative group shadow-xl shadow-white/10"
     >
-      <div className="relative z-10 text-center">
-        <h3 className="text-3xl font-display font-bold uppercase tracking-tighter mb-4 leading-none">The Fan Club</h3>
-        <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Join 2 million fans in our growing community.</p>
+      <div className="relative z-10 text-center w-full">
+        <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tighter mb-1.5 leading-none">The Fan Club</h3>
+        <p className="text-[8px] font-bold opacity-60 uppercase tracking-widest mb-3">Join 2M+ fans globally.</p>
         <a 
           href="https://www.pcb.com.pk/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="w-full py-4 bg-black text-white rounded-2xl text-[10px] font-bold uppercase tracking-[3px] hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-2"
+          className="w-full py-2.5 bg-black text-white rounded-lg text-[8px] font-bold uppercase tracking-[2px] hover:scale-105 transition-all shadow-lg flex items-center justify-center gap-1.5"
         >
-           Join <ArrowRight className="w-4 h-4" />
+           Join Now <ArrowRight className="w-3 h-3" />
         </a>
       </div>
-      <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-125 transition-transform duration-1000 pointer-events-none">
-         <Trophy className="w-32 h-32" />
+      <div className="absolute top-0 right-0 p-3 opacity-5 group-hover:scale-125 transition-transform duration-1000 pointer-events-none">
+         <Trophy className="w-24 h-24" />
       </div>
     </motion.section>
   );

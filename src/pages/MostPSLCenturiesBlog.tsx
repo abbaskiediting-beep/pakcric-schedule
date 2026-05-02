@@ -68,7 +68,7 @@ export default function MostPSLCenturiesBlog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-7xl font-black mb-8 leading-[1.05] tracking-tighter"
+            className="text-3xl md:text-7xl font-black mb-6 md:mb-8 leading-[1.05] tracking-tighter"
           >
             Top 5 Players With Most Centuries in PSL History
           </motion.h1>

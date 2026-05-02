@@ -416,6 +416,22 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
+                 to="/blogs/psl-2026-final-full-campaign-pz-vs-hyk"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Trophy className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Final Special Blog</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">PZ vs HYK: Full Campaign & Preview</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+
+               <Link 
                  to="/psl-11-qualifier-1-match-report-babar-century"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
                >

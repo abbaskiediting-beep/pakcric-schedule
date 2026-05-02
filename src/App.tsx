@@ -67,6 +67,7 @@ const BabarZalmiRecordBlog = lazy(() => import('./pages/BabarZalmiRecordBlog'));
 const PSLEliminator2Report = lazy(() => import('./pages/PSLEliminator2Report'));
 const HunainShahLastOverBlog = lazy(() => import('./pages/HunainShahLastOverBlog'));
 const HyderabadKingsmenJourneyBlog = lazy(() => import('./pages/HyderabadKingsmenJourneyBlog'));
+const PSL2026FinalCampaignBlog = lazy(() => import('./pages/PSL2026FinalCampaignBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -211,6 +212,7 @@ export default function App() {
               <Route path="/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" element={<PSLEliminator2Report />} />
               <Route path="/blogs/hunain-shah-last-over-dramatic-finish-psl-2026" element={<HunainShahLastOverBlog />} />
               <Route path="/blogs/hyderabad-kingsmen-psl-2026-journey-review" element={<HyderabadKingsmenJourneyBlog />} />
+              <Route path="/blogs/psl-2026-final-full-campaign-pz-vs-hyk" element={<PSL2026FinalCampaignBlog />} />
               <Route path="/series-intelligence/:id" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

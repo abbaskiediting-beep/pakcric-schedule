@@ -17,10 +17,10 @@ export default function Header({ theme, onToggleTheme }: HeaderProps) {
           animate={{ opacity: 1, x: 0 }}
         >
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="bg-pak-green p-1.5 sm:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
-              <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-[#F8FAF9]" aria-hidden="true" />
+            <div className="bg-pak-green p-1 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <Trophy className="w-4 h-4 md:w-6 md:h-6 text-[#F8FAF9]" aria-hidden="true" />
             </div>
-            <h1 className="font-display text-base sm:text-2xl tracking-tighter uppercase font-bold text-ink leading-none">
+            <h1 className="font-display text-[14px] xs:text-base sm:text-2xl tracking-tighter uppercase font-bold text-ink leading-none">
               PAKCRIC <span className="text-pak-green group-hover:text-pak-green/80 transition-colors">SCHEDULE</span>
             </h1>
           </Link>

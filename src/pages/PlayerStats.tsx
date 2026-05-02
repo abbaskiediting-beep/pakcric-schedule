@@ -139,7 +139,7 @@ export default function PlayerStats() {
       >
         {/* Intro Section */}
         <div className="mb-8 md:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-6 md:mb-8 text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
             Pakistan Players Stats – <span className="text-pak-green">Batting, Bowling & Records</span>
           </h1>
           <div className="max-w-3xl space-y-4 md:space-y-6">
@@ -194,7 +194,7 @@ export default function PlayerStats() {
                   )}
                 </button>
               </div>
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words leading-none italic">
+              <h1 className="text-2xl sm:text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words leading-none italic">
                 {player.name.split(' ')[0]} <br className="sm:hidden" /><span className="text-pak-green">{player.name.split(' ')[1]}</span>
               </h1>
               <p className="text-ink/40 font-bold uppercase tracking-[2px] sm:tracking-widest text-[7px] sm:text-[9px] md:text-xs">

@@ -451,4 +451,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'psl-2026-final-pz-vs-hyk-campaign-full-blog',
+    title: 'PSL 2026 Final: Peshawar Zalmi vs Hyderabad Kingsmen — Two Extraordinary Campaigns, One Historic Night',
+    summary: 'A complete review of the PSL 2026 campaigns for both finalists. From Babar Azam\'s 588 runs to Hyderabad Kingsmen\'s 0-4 turnaround. Stats, results, and final preview.',
+    date: 'May 2, 2026',
+    category: 'Full Campaign Blog',
+    path: '/blogs/psl-2026-final-full-campaign-pz-vs-hyk',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];
