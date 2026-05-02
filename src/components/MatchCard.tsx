@@ -1,6 +1,7 @@
-import { Calendar, Clock, MapPin, Share2, Zap, Newspaper } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Calendar, Clock, MapPin, Share2, Zap, Newspaper, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { Match } from '../types';
 
 interface MatchCardProps {
@@ -10,6 +11,7 @@ interface MatchCardProps {
 
 export default function MatchCard({ match, index }: MatchCardProps) {
   const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
   
   // Map series names to IDs for intelligence reports
   const seriesIntelMap: Record<string, string> = {
@@ -37,18 +39,29 @@ export default function MatchCard({ match, index }: MatchCardProps) {
     e.stopPropagation();
     
     const sharePath = match.blogUrl || `/match/${match.id}`;
+    const shareUrl = window.location.origin + sharePath;
     const shareData = {
       title: `Pakistan vs ${match.opponent} - ${match.series}`,
       text: `Check out the match schedule: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`,
-      url: window.location.origin + sharePath
+      url: shareUrl
     };
 
     if (navigator.share) {
-      navigator.share(shareData).catch(() => {});
+      navigator.share(shareData).catch((err) => {
+        if (err.name !== 'AbortError') {
+          copyToClipboard(shareUrl);
+        }
+      });
     } else {
-      navigator.clipboard.writeText(shareData.url);
-      alert('Match link copied to clipboard!');
+      copyToClipboard(shareUrl);
     }
+  };
+
+  const copyToClipboard = (url: string) => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   return (
@@ -92,7 +105,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
         <div className={`flex flex-col h-full ${match.status === 'Upcoming' ? 'pt-6' : ''}`}>
           <div>
             <div className="flex justify-between items-start mb-5">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 text-left">
                 <div className="flex items-center flex-wrap gap-2">
                   <span className="text-[9px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[3px] transition-colors">{match.series}</span>
                   {match.blogUrl && (
@@ -126,12 +139,48 @@ export default function MatchCard({ match, index }: MatchCardProps) {
               <div className="flex items-center gap-2">
                 <button 
                   onClick={handleShare}
-                  className="p-1.5 rounded-full bg-white/5 hover:bg-pak-green/20 text-ink/40 hover:text-pak-green transition-all"
-                  title="Share Match"
+                  className={`relative p-2 rounded-xl transition-all duration-300 flex items-center justify-center ${
+                    copied 
+                      ? 'bg-pak-green text-white scale-110 shadow-[0_0_15px_rgba(0,102,46,0.4)]' 
+                      : 'bg-white/5 hover:bg-white/10 text-ink/40 hover:text-pak-green'
+                  }`}
+                  aria-label="Share match"
                 >
-                  <Share2 className="w-3 h-3" />
+                  <AnimatePresence mode="wait">
+                    {copied ? (
+                      <motion.div
+                        key="check"
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.5, opacity: 0 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+                      >
+                        <Check className="w-3.5 h-3.5" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="share"
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.5, opacity: 0 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+                      >
+                        <Share2 className="w-3.5 h-3.5" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  
+                  {copied && (
+                    <motion.span 
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="absolute right-full mr-3 px-2 py-1 bg-pak-green text-white text-[8px] font-black uppercase tracking-widest rounded-lg shadow-xl pointer-events-none"
+                    >
+                      Copied!
+                    </motion.span>
+                  )}
                 </button>
-                <span className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest border ${formatColor} transition-all group-hover:scale-105 shadow-sm`}>
+                <span className={`px-2 py-1 rounded-lg text-[8px] font-black uppercase tracking-widest border ${formatColor} transition-all group-hover:scale-105 shadow-sm`}>
                   {match.format}
                 </span>
               </div>
