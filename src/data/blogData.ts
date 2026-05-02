@@ -473,4 +473,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-yellow-500',
     authorId: 'ayesha-khan'
   },
+  {
+    id: 'babar-azam-world-odi-xi-podcast-blog',
+    title: 'Babar Azam Picks His World ODI XI — No Kohli, No Rohit, and No Babar!',
+    summary: 'On the day of PSL 2026 Final, Babar Azam selected his World Best ODI XI on Zalmi TV — excluded Virat Kohli, Rohit Sharma, and Jasprit Bumrah, and placed himself as 12th man.',
+    date: 'May 3, 2026',
+    category: 'Analysis',
+    path: '/blogs/babar-azam-world-odi-xi-podcast-blog',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];
