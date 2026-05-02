@@ -464,14 +464,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'psl-11-final-ceremony-2026-details',
-    title: 'PSL 11 Final Ceremony 2026: Closing Ceremony, Trophy, Tickets & Timing',
-    summary: 'A complete guide to the PSL 2026 Final closing ceremony at Gaddafi Stadium. Details on the "Infinity" trophy, performer lineup, ticket prices, and event timeline.',
-    date: 'May 2, 2026',
+    title: 'PSL 11 Closing Ceremony: Atif Aslam, Aima Baig, Arif Lohar, Ali Azmat, Sabri Sisters & Daniya Kanwal',
+    summary: 'PSL 11 Closing Ceremony on May 3, 2026 at Gaddafi Stadium Lahore — confirmed performers are Atif Aslam, Aima Baig, Arif Lohar, Ali Azmat, Sabri Sisters and Daniya Kanwal. Full guide inside.',
+    date: 'May 3, 2026',
     category: 'Event Guide',
     path: '/psl-11-final-ceremony-2026-details',
     icon: Star,
     color: 'text-yellow-500',
-    authorId: 'ayesha-khan'
+    authorId: 'omar-farooq'
   },
   {
     id: 'babar-azam-world-odi-xi-podcast-blog',
@@ -483,5 +483,16 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
+  },
+  {
+    id: 'yasir-shah-birthday-tribute-blog-2026',
+    title: "Happy Birthday Yasir Shah! Pakistan's Greatest Modern Leg-Spinner Turns 40",
+    summary: 'Yasir Shah turns 40 today — May 3, 2026. The man from Swabi who became the fastest bowler in history to take 200 Test wickets. Full career tribute and records.',
+    date: 'May 3, 2026',
+    category: 'Analysis',
+    path: '/blogs/yasir-shah-birthday-tribute-blog-2026',
+    icon: Star,
+    color: 'text-yellow-500',
+    authorId: 'ayesha-khan'
   },
 ];
