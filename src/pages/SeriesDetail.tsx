@@ -6,8 +6,8 @@ import { ArrowLeft, Share2, Info, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function SeriesDetail() {
-  const { id } = useParams();
-  const currentIndex = seriesSummaries.findIndex(s => s.id === id);
+  const { slug } = useParams();
+  const currentIndex = seriesSummaries.findIndex(s => s.id === slug);
   const summary = seriesSummaries[currentIndex];
   const prevSummary = currentIndex > 0 ? seriesSummaries[currentIndex - 1] : null;
   const nextSummary = currentIndex < seriesSummaries.length - 1 ? seriesSummaries[currentIndex + 1] : null;

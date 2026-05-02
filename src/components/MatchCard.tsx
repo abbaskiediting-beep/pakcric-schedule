@@ -85,7 +85,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
       >
         {match.status === 'Upcoming' && (
           <div className="absolute top-0 left-0 right-0 bg-pak-green text-white text-center py-1.5 text-[9px] font-black uppercase tracking-[3px] shadow-inner z-20">
-            UPPPPPCOMING
+            UPCOMING
           </div>
         )}
 
@@ -100,16 +100,6 @@ export default function MatchCard({ match, index }: MatchCardProps) {
                       <Newspaper className="w-2.5 h-2.5" />
                       Match Report
                     </div>
-                  )}
-                  {intelId && (
-                    <Link 
-                      to={`/series-intelligence/${intelId}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1 px-2.5 py-1 bg-pak-green text-white rounded-md text-[7px] font-black uppercase tracking-widest hover:bg-white hover:text-pak-green border border-pak-green transition-all shadow-[0_2px_10px_-4px_rgba(0,102,46,0.5)] active:scale-95 group/intel"
-                    >
-                      <Zap className="w-2.5 h-2.5 fill-current animate-pulse group-hover/intel:animate-none" />
-                      Series Intel
-                    </Link>
                   )}
                 </div>
                 {match.status === 'Live' && (
@@ -129,7 +119,7 @@ export default function MatchCard({ match, index }: MatchCardProps) {
                     className="flex items-center gap-1.5 bg-pak-green/10 border border-pak-green/20 px-2 py-0.5 rounded-full w-fit"
                   >
                     <span className="w-1 h-1 bg-pak-green rounded-full shadow-[0_0_8px_rgba(0,102,46,0.5)]" />
-                    <span className="text-[7px] font-black uppercase tracking-widest text-pak-green">UPPPPPCOMING</span>
+                    <span className="text-[7px] font-black uppercase tracking-widest text-pak-green">UPCOMING</span>
                   </motion.div>
                 )}
               </div>
@@ -190,9 +180,21 @@ export default function MatchCard({ match, index }: MatchCardProps) {
             </div>
           </div>
 
-          <div className={`pt-4 mt-auto border-t transition-colors ${
-            match.status === 'Live' ? 'border-red-500/20' : 'border-card-border/30'
-          }`}>
+          <div className="mt-auto">
+            {intelId && (
+              <Link 
+                to={`/series-intelligence/${intelId}`}
+                onClick={(e) => e.stopPropagation()}
+                className="w-full flex items-center justify-center gap-2 py-2.5 mb-4 bg-pak-green/5 hover:bg-pak-green text-pak-green hover:text-white rounded-xl text-[10px] font-black uppercase tracking-[2px] border border-pak-green/20 hover:border-pak-green transition-all duration-300 group/intel shadow-sm active:scale-[0.98]"
+              >
+                <Zap className="w-3.5 h-3.5 fill-current group-hover:animate-bounce" />
+                Series Intelligence Report
+              </Link>
+            )}
+
+            <div className={`pt-4 border-t transition-colors ${
+              match.status === 'Live' ? 'border-red-500/20' : 'border-card-border/30'
+            }`}>
             <div 
               className="grid grid-cols-1 xs:grid-cols-2 gap-3 mb-3 cursor-help group/time"
               title={`Full Schedule: ${match.date} at ${match.time} Pakistan Standard Time (PKT)`}
@@ -222,7 +224,8 @@ export default function MatchCard({ match, index }: MatchCardProps) {
             </div>
           </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
+  </div>
   );
 }
