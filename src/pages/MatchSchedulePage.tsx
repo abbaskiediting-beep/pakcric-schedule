@@ -574,31 +574,31 @@ export default function MatchSchedulePage() {
         <div className="hidden md:block overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead className="sticky top-0 z-20">
-              <tr className="bg-neutral-900 border-b border-card-border">
-                <th className="px-8 py-8 cursor-pointer group w-48" onClick={() => handleSort('date')}>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
+              <tr className="bg-[#0A0A0A] border-b border-white/10">
+                <th className="px-6 py-6 cursor-pointer group" onClick={() => handleSort('date')}>
+                  <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[2px] text-white/40 group-hover:text-white transition-colors">
                     Full Date <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'date' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 cursor-pointer group w-56" onClick={() => handleSort('opponent')}>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
+                <th className="px-6 py-6 cursor-pointer group" onClick={() => handleSort('opponent')}>
+                  <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[2px] text-white/40 group-hover:text-white transition-colors">
                     Opposition <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'opponent' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 cursor-pointer group w-56" onClick={() => handleSort('series')}>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[3px] text-ink/60">
+                <th className="px-6 py-6 cursor-pointer group" onClick={() => handleSort('series')}>
+                  <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[2px] text-white/40 group-hover:text-white transition-colors">
                     Format & Series <ArrowUpDown className={`w-3 h-3 transition-opacity ${sortKey === 'series' ? 'opacity-100 text-pak-green' : 'opacity-20 group-hover:opacity-100'}`} />
                   </div>
                 </th>
-                <th className="px-8 py-8 w-64">
-                  <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Venue & Status</div>
+                <th className="px-6 py-6">
+                  <div className="text-[10px] font-black uppercase tracking-[2px] text-white/40">Venue & Status</div>
                 </th>
-                <th className="px-8 py-8 text-right">
-                   <div className="text-[10px] font-bold uppercase tracking-[3px] text-ink/60">Match Details</div>
+                <th className="px-6 py-6 text-right">
+                   <div className="text-[10px] font-black uppercase tracking-[2px] text-white/40">Options</div>
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-card-border">
+            <tbody className="divide-y divide-white/[0.03]">
                 {filteredAndSortedMatches.length > 0 ? (
                   filteredAndSortedMatches.map((match, idx) => (
                     <React.Fragment key={match.id}>
@@ -611,56 +611,43 @@ export default function MatchSchedulePage() {
                         </tr>
                       )}
                       <motion.tr 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
+                        transition={{ delay: idx * 0.03 }}
                         onClick={() => setExpandedId(expandedId === match.id ? null : match.id)}
-                        className={`transition-colors group cursor-pointer ${match.status === 'Live' ? 'bg-red-500/[0.04] ring-inset ring-1 ring-red-500/10' : 'hover:bg-pak-green/[0.02]'} ${expandedId === match.id ? 'bg-pak-green/[0.04] border-l-4 border-pak-green' : ''}`}
+                        className={`transition-all group cursor-pointer border-l-2 border-transparent border-b border-white/[0.02] last:border-b-0 ${match.status === 'Live' ? 'bg-red-500/[0.04] !border-l-red-500' : 'hover:bg-white/[0.02]'} ${expandedId === match.id ? 'bg-pak-green/[0.04] !border-l-pak-green' : ''}`}
                       >
                       {/* Date Column */}
-                      <td className="px-8 py-8">
+                      <td className="px-6 py-5">
                         <div className="flex items-center gap-4">
-                          <div className={`w-12 h-12 rounded-2xl flex flex-col items-center justify-center shrink-0 border ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/5 border-pak-green/10'}`}>
-                            <span className={`text-xl font-bold leading-none ${match.status === 'Live' ? 'text-red-500' : 'text-ink'}`}>
+                          <div className={`w-12 h-12 rounded-2xl flex flex-col items-center justify-center shrink-0 border ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-white/5 border-white/10'}`}>
+                            <span className={`text-lg font-display font-black leading-none ${match.status === 'Live' ? 'text-red-500' : 'text-white'}`}>
                               {match.date.match(/\d+/) ? match.date.match(/\d+/)![0] : ''}
                             </span>
-                            <span className={`text-[8px] font-bold uppercase tracking-widest ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`}>
+                            <span className={`text-[9px] font-black uppercase tracking-widest ${match.status === 'Live' ? 'text-red-400/60' : 'text-white/40'}`}>
                               {match.date.includes(' ') ? match.date.split(' ')[0].substring(0,3) : '2026'}
                             </span>
                           </div>
-                          <div>
-                            <span className="text-sm font-bold text-ink block whitespace-nowrap">{match.date}</span>
-                            <div className="flex items-center gap-1 mt-1 text-[9px] font-bold text-ink/30 uppercase tracking-widest">
-                              <Clock className={`w-3 h-3 ${match.status === 'Live' ? 'text-red-400' : ''}`} /> {match.time}
+                          <div className="min-w-0">
+                            <span className="text-[12px] font-bold text-white block mb-0.5">{match.date}</span>
+                            <div className="flex items-center gap-1.5 text-[9px] font-black text-white/30 uppercase tracking-widest">
+                              <Clock className={`w-3 h-3 ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`} /> {match.time}
                             </div>
                           </div>
                         </div>
                       </td>
 
                       {/* Opponent Column */}
-                      <td className="px-8 py-8 relative group/opp">
-                        {/* Opposition Tooltip */}
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-2 bg-neutral-900 text-white rounded-xl text-[10px] whitespace-nowrap opacity-0 group-hover/opp:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl border border-white/10 font-bold uppercase tracking-widest">
-                          Pakistan vs {match.opponent}
-                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-neutral-900" />
-                        </div>
-
+                      <td className="px-6 py-5">
                         <div className="flex items-center gap-4">
-                          <div className="relative shrink-0">
-                            <img src={match.flagUrl} alt="" className="w-10 h-7 object-cover rounded-lg shadow-sm border border-card-border" referrerPolicy="no-referrer" loading="lazy" />
-                            <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-card-bg flex items-center justify-center ${match.status === 'Live' ? 'bg-red-600' : 'bg-pak-green'}`}>
-                              {match.status === 'Live' ? (
-                                <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                              ) : (
-                                <Globe className="w-2 h-2 text-white" />
-                              )}
-                            </div>
+                          <div className="w-12 h-8 rounded-lg border border-white/10 overflow-hidden shrink-0 shadow-lg bg-black/20">
+                            <img src={match.flagUrl} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
                           </div>
                           <div className="flex flex-col min-w-0">
                             <Link 
                               to={`/match/${match.id}`} 
                               onClick={(e) => e.stopPropagation()} 
-                              className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none truncate block max-w-[200px] hover:text-pak-green transition-colors"
+                              className="text-base font-display font-bold text-white uppercase tracking-tight leading-none group-hover:text-pak-green transition-colors"
                             >
                               {match.title || `PAK vs ${match.opponent}`}
                             </Link>
@@ -669,66 +656,49 @@ export default function MatchSchedulePage() {
                       </td>
 
                       {/* Format/Series Column */}
-                      <td className="px-8 py-8 w-64">
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2">
-                            <span className={`px-3 py-1 rounded-lg text-[9px] font-bold uppercase tracking-widest border ${
-                              match.format === 'Test' ? 'border-orange-500/20 text-orange-600 bg-orange-500/5' :
-                              match.format === 'ODI' ? 'border-blue-500/20 text-blue-600 bg-blue-500/5' :
-                              'border-purple-500/20 text-purple-600 bg-purple-500/5'
-                            }`}>
-                              {match.format}
-                            </span>
-                          </div>
-                          <span className="text-[10px] font-bold text-ink/50 uppercase tracking-wide leading-tight block truncate max-w-[200px]">
+                      <td className="px-6 py-5">
+                        <div className="flex flex-col gap-1.5 items-start">
+                          <span className={`px-2 py-0.5 rounded-lg text-[9px] font-black uppercase tracking-widest ${
+                            match.format === 'Test' ? 'bg-orange-500/10 text-orange-500 border border-orange-500/20' :
+                            match.format === 'ODI' ? 'bg-blue-500/10 text-blue-500 border border-blue-500/20' :
+                            'bg-purple-500/10 text-purple-500 border border-purple-500/20'
+                          }`}>
+                            {match.format}
+                          </span>
+                          <span className="text-[10px] font-bold text-white/30 uppercase tracking-tight line-clamp-1">
                             {match.series}
                           </span>
                         </div>
                       </td>
 
                       {/* Venue/Status Column */}
-                      <td className="px-8 py-8 w-64 relative group/venue">
-                        <div className="flex flex-col gap-3">
-                          <div className="flex items-start gap-2 min-w-0">
-                            <MapPin className={`w-4 h-4 mt-0.5 shrink-0 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
-                            <span className="text-[11px] font-bold text-ink leading-relaxed truncate block w-full">{match.venue}</span>
-                          </div>
+                      <td className="px-6 py-5">
+                        <div className="flex flex-col gap-2">
                           <div className="flex items-center gap-2">
-                             <span className={`px-2 py-0.5 rounded-md text-[8px] font-bold uppercase tracking-widest flex items-center gap-1.5 ${
-                               match.status === 'Live' ? 'bg-red-600 text-white animate-pulse' :
-                               match.status === 'High Voltage' ? 'bg-red-800 text-white shadow-lg shadow-red-900/40' :
-                               match.status === 'Upcoming' ? 'bg-amber-500 text-black' :
-                               match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
-                               'bg-white/10 text-ink/40'
-                             }`}>
-                               {match.status === 'Live' && <span className="w-1 h-1 rounded-full bg-white animate-ping" />}
-                               {match.status}
-                             </span>
+                            <MapPin className={`w-3.5 h-3.5 shrink-0 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
+                            <span className="text-[11px] font-bold text-white/50 line-clamp-1">{match.venue}</span>
+                          </div>
+                          <div className={`w-fit px-2.5 py-1 rounded-lg text-[8px] font-black uppercase tracking-widest flex items-center gap-2 ${
+                            match.status === 'Live' ? 'bg-red-600 text-white animate-pulse' :
+                            match.status === 'High Voltage' ? 'bg-red-800 text-white' :
+                            match.status === 'Upcoming' ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20' :
+                            match.status === 'Scheduled' ? 'bg-emerald-600/10 text-emerald-500 border border-emerald-500/20' :
+                            'bg-white/5 text-white/30'
+                          }`}>
+                            {match.status === 'Live' && <span className="w-1 h-1 rounded-full bg-white animate-ping" />}
+                            {match.status}
                           </div>
                         </div>
                       </td>
 
                       {/* Action Column */}
-                      <td className="px-8 py-8 text-right">
+                      <td className="px-6 py-5 text-right">
                          <div className="flex items-center justify-end gap-3">
-                           <Link 
-                            to={`/match/${match.id}`}
-                            onClick={(e) => e.stopPropagation()}
-                            className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full border transition-all group/btn shadow-sm bg-card-bg border-card-border hover:bg-white hover:text-pak-green hover:border-white`}
+                           <button 
+                             className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${expandedId === match.id ? 'bg-pak-green text-white shadow-lg shadow-pak-green/20' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white border border-white/5 hover:border-white/10'}`}
                            >
-                              <span className="text-[10px] font-bold uppercase tracking-widest italic">Full Match Details</span>
-                              <ArrowRight className="w-4 h-4" />
-                           </Link>
-                           <div 
-                             className={`inline-flex items-center gap-3 px-4 py-2.5 rounded-full border transition-all group/btn shadow-sm ${
-                               match.status === 'Live' 
-                                 ? 'bg-red-600 text-white border-red-500' 
-                                 : 'bg-card-bg border-card-border hover:bg-pak-green hover:text-white hover:border-pak-green'
-                             }`}
-                           >
-                              <span className="text-[10px] font-bold uppercase tracking-widest">{expandedId === match.id ? 'Close' : 'Quick'}</span>
-                              {expandedId === match.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                           </div>
+                              {expandedId === match.id ? 'Close details' : 'View details'}
+                           </button>
                          </div>
                       </td>
                     </motion.tr>
@@ -736,7 +706,7 @@ export default function MatchSchedulePage() {
                     <AnimatePresence>
                       {expandedId === match.id && (
                         <tr className="bg-white/[0.01]">
-                          <td colSpan={5} className="p-0 border-b border-card-border">
+                          <td colSpan={5} className="p-0">
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}

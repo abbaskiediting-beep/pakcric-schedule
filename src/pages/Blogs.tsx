@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, TrendingUp, MessageCircle, ChevronDown, Filter, LayoutGrid, Clock, List } from 'lucide-react';
+import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, TrendingUp, MessageCircle, ChevronDown, Filter, LayoutGrid, Clock, List, Zap, ChevronRight } from 'lucide-react';
 import React, { useState, useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -75,35 +75,45 @@ function BlogCard({ post, idx }: { post: BlogPost; idx: number }) {
   );
 }
 
-const SimpleDropdown = ({ label, items }: { label: string; items: { name: string; path: string }[] }) => (
+const SimpleDropdown = ({ label, items, icon: Icon }: { label: string; items: { name: string; path: string }[]; icon: any }) => (
   <div className="relative group">
-    <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all">
-      {label} <ChevronDown className="w-3 h-3 text-pak-green" />
+    <button className="flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/40 hover:bg-white/[0.05] transition-all text-white/70 hover:text-white">
+      <Icon className="w-3.5 h-3.5 text-pak-green" />
+      {label} <ChevronDown className="w-3 h-3 opacity-40 group-hover:opacity-100 group-hover:rotate-180 transition-all" />
     </button>
-    <div className="absolute top-full left-0 mt-2 w-48 bg-card-bg border border-white/10 rounded-2xl p-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 pointer-events-none group-hover:pointer-events-auto">
+    <div className="absolute top-full left-0 mt-3 w-56 bg-card-bg/95 backdrop-blur-xl border border-white/10 rounded-[24px] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform translate-y-2 group-hover:translate-y-0 duration-300">
+      <div className="px-3 py-2 border-b border-white/5 mb-1">
+        <span className="text-[8px] font-black uppercase tracking-[2px] text-pak-green/60">Select Month</span>
+      </div>
       {items.map(item => (
-        <Link key={item.name} to={item.path} className="block px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-xl transition-all">
+        <Link key={item.name} to={item.path} className="flex items-center justify-between px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-white hover:bg-pak-green/10 rounded-xl transition-all group/item">
           {item.name}
+          <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover/item:bg-pak-green transition-colors" />
         </Link>
       ))}
     </div>
   </div>
 );
 
-const HoverDropdown = ({ label, items }: { label: string; items: { name: string; path: string; icon: any }[] }) => (
+const HoverDropdown = ({ label, items }: { label: string; items: { name: string; path: string; icon: any; desc?: string }[] }) => (
   <div className="relative group">
-    <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all">
+    <button className="flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all text-white/70">
+      <Zap className="w-3.5 h-3.5" />
       {label} <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform" />
     </button>
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      whileHover={{ opacity: 1, y: 0 }}
-      className="absolute top-full left-0 mt-2 w-64 bg-card-bg border border-white/10 rounded-3xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50"
+      className="absolute top-full left-0 mt-3 w-72 bg-card-bg/95 backdrop-blur-xl border border-white/10 rounded-[32px] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform translate-y-2 group-hover:translate-y-0 duration-300"
     >
-      <div className="space-y-1">
+      <div className="space-y-2">
         {items.map(item => (
-          <Link key={item.name} to={item.path} className="flex items-center gap-3 px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-2xl transition-all">
-            <item.icon className="w-4 h-4" /> {item.name}
+          <Link key={item.name} to={item.path} className="flex flex-col gap-1 p-3 rounded-2xl hover:bg-white/[0.05] border border-transparent hover:border-white/5 transition-all group/item">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-pak-green/10 text-pak-green group-hover/item:bg-pak-green group-hover/item:text-white transition-all">
+                <item.icon className="w-3.5 h-3.5" />
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-widest text-ink/80 group-hover/item:text-white">{item.name}</span>
+            </div>
+            {item.desc && <span className="text-[8px] font-medium text-ink/40 uppercase tracking-widest pl-11">{item.desc}</span>}
           </Link>
         ))}
       </div>
@@ -113,31 +123,66 @@ const HoverDropdown = ({ label, items }: { label: string; items: { name: string;
 
 const MegaMenu = () => (
   <div className="relative group static md:relative">
-    <button className="flex items-center gap-2 px-4 py-2 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:shadow-lg hover:shadow-pak-green/20 transition-all">
-      All News Explorer <LayoutGrid className="w-3 h-3" />
+    <button className="flex items-center gap-2.5 px-6 py-2.5 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:shadow-lg hover:shadow-pak-green/30 transition-all hover:scale-105 active:scale-95">
+      All News Explorer <LayoutGrid className="w-4 h-4" />
     </button>
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[90vw] max-w-4xl bg-card-bg border border-white/10 rounded-[40px] p-8 md:p-12 shadow-3xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform group-hover:translate-y-[-10px] translate-y-0 duration-500">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-left">
-        <div>
-          <h4 className="text-xs font-black uppercase tracking-[4px] text-pak-green mb-6 border-b border-white/5 pb-2">Tournaments</h4>
-          <div className="space-y-4">
-            <Link to="/news#psl-news" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">PSL 2026 Specials</Link>
-            <Link to="/series/bangladesh-tour-2026" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Bangladesh Series</Link>
-            <Link to="/series/australia-tour-2026" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Australia Series</Link>
+    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[95vw] max-w-5xl bg-[#0A0A0A]/95 backdrop-blur-3xl border border-white/10 rounded-[48px] p-10 md:p-14 shadow-[0_40px_100px_rgba(0,0,0,0.8)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform translate-y-4 group-hover:translate-y-0 duration-500 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-pak-green/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left relative z-10">
+        <div className="col-span-1">
+          <h4 className="text-[10px] font-black uppercase tracking-[4px] text-pak-green mb-8 flex items-center gap-2">
+            <Trophy className="w-3 h-3" /> Tournaments
+          </h4>
+          <div className="space-y-5">
+            <Link to="/news#psl-news" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">PSL 2026 Specials</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Final Phase & Stats</span>
+            </Link>
+            <Link to="/series/bangladesh-tour-2026" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">Bangladesh Series</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Test Strategy</span>
+            </Link>
+            <Link to="/series/australia-tour-2026" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">Australia Tour</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Future Prep</span>
+            </Link>
           </div>
         </div>
-        <div>
-          <h4 className="text-xs font-black uppercase tracking-[4px] text-blue-500 mb-6 border-b border-white/5 pb-2">Categories</h4>
-          <div className="space-y-4">
-            <Link to="/news" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Match Analysis</Link>
-            <Link to="/news" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Strategic Insights</Link>
-            <Link to="/rankings" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Player Stats</Link>
+        <div className="col-span-1">
+          <h4 className="text-[10px] font-black uppercase tracking-[4px] text-blue-500 mb-8 flex items-center gap-2">
+            <Target className="w-3 h-3" /> Analysis Hub
+          </h4>
+          <div className="space-y-5">
+            <Link to="/news" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-blue-500 transition-colors uppercase block">Match Deep Dives</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Tactical Overviews</span>
+            </Link>
+            <Link to="/rankings" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-blue-500 transition-colors uppercase block">Player Rankings</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">ICC Live Standings</span>
+            </Link>
+            <Link to="/players-stats" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-blue-500 transition-colors uppercase block">Form Analysis</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Career Metrics</span>
+            </Link>
           </div>
         </div>
-        <div className="bg-white/5 rounded-3xl p-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-3">Today's Highlight</h4>
-          <p className="text-[10px] text-ink/60 uppercase leading-loose mb-4">Latest analysis on Pakistan's red-ball strategy under new leadership.</p>
-          <Link to="/news" className="text-[9px] font-black text-pak-green uppercase tracking-[4px] hover:translate-x-2 transition-transform inline-block">Read Now →</Link>
+        <div className="col-span-2">
+          <div className="bg-white/[0.03] border border-white/5 rounded-[32px] p-8 h-full relative overflow-hidden group/card hover:border-pak-green/20 transition-all">
+             <div className="flex justify-between items-start mb-6">
+                <span className="px-3 py-1 bg-pak-green/20 text-pak-green rounded-full text-[8px] font-black uppercase tracking-widest">Hot Topic</span>
+                <Clock className="w-4 h-4 text-white/20" />
+             </div>
+             <h4 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white mb-4">The New Red-Ball Era begins in Dhaka</h4>
+             <p className="text-[11px] text-ink/60 uppercase leading-relaxed mb-6 font-medium">How Pakistan's selection transition marks a pivotal shift in domestic-to-international tactical integration.</p>
+             <Link to="/news/match-preview-dhaka-test" className="inline-flex items-center gap-3 text-[10px] font-black text-pak-green uppercase tracking-[4px] group-hover/card:translate-x-2 transition-transform">
+               Explore Insight <ChevronRight className="w-4 h-4" />
+             </Link>
+             <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/10 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2" />
+          </div>
         </div>
       </div>
     </div>
@@ -162,22 +207,31 @@ const ClickDropdown = () => {
     <div className="relative" ref={dropdownRef}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all text-white"
+        className={`flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border ${isOpen ? 'border-pak-green/50 bg-pak-green/5' : 'border-white/10'} rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all text-white active:scale-95`}
       >
-        Options <Filter className="w-3 h-3" />
+        Filters <Filter className={`w-3.5 h-3.5 transition-transform ${isOpen ? 'rotate-180 text-pak-green' : 'text-white/40'}`} />
       </button>
       {isOpen && (
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="absolute top-full right-0 mt-2 w-48 bg-card-bg border border-white/10 rounded-2xl p-2 shadow-2xl z-50 overflow-hidden"
+          initial={{ opacity: 0, scale: 0.9, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="absolute top-full right-0 mt-3 w-56 bg-card-bg/95 backdrop-blur-xl border border-white/10 rounded-[24px] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 overflow-hidden"
         >
-          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-xl transition-all flex items-center gap-2">
-            <Clock className="w-3 h-3" /> Latest News
+          <div className="px-4 py-2 border-b border-white/5 mb-2">
+            <span className="text-[8px] font-black uppercase tracking-[2px] text-white/30">Sort By</span>
+          </div>
+          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-pak-green/5 rounded-xl transition-all flex items-center justify-between group/sort">
+             <div className="flex items-center gap-3">
+               <Clock className="w-3.5 h-3.5" /> Latest First
+             </div>
+             <div className="w-1 h-1 rounded-full bg-pak-green shadow-[0_0_8px_rgba(0,102,46,1)]" />
           </button>
-          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-xl transition-all flex items-center gap-2">
-            <TrendingUp className="w-3 h-3" /> Most Read
+          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-pak-green/5 rounded-xl transition-all flex items-center gap-3 group/sort">
+            <TrendingUp className="w-3.5 h-3.5" /> Most Popular
           </button>
+          <div className="mt-2 pt-2 border-t border-white/5">
+             <button className="w-full py-2 bg-pak-green/10 text-pak-green rounded-lg text-[8px] font-black uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all">Apply View</button>
+          </div>
         </motion.div>
       )}
     </div>
@@ -215,9 +269,10 @@ export default function Blogs() {
       </motion.div>
 
       {/* Dropdown Explorer Bar */}
-      <div className="mb-12 md:mb-20 flex flex-wrap items-center justify-center gap-4 md:gap-8 bg-white/[0.02] border border-white/5 rounded-3xl p-4 md:p-6 backdrop-blur-sm">
+      <div className="mb-12 md:mb-20 flex flex-wrap items-center justify-center gap-4 md:gap-8 bg-white/[0.02] border border-white/5 rounded-[40px] p-5 md:p-8 backdrop-blur-xl shadow-2xl shadow-black/20">
         <SimpleDropdown 
           label="News Archive" 
+          icon={Calendar}
           items={[
             { name: 'May 2026', path: '/news' },
             { name: 'April 2026', path: '/news' },
@@ -226,17 +281,17 @@ export default function Blogs() {
         />
         
         <HoverDropdown 
-          label="Current Series" 
+          label="Live Series" 
           items={[
-            { name: 'Pakistan vs Bangladesh', path: '/series/bangladesh-tour-2026', icon: Target },
-            { name: 'PSL 11 Final Phase', path: '/news#psl-news', icon: Trophy },
-            { name: 'Australia Series Prep', path: '/series/australia-tour-2026', icon: Shield }
+            { name: 'PAK vs BAN 2026', path: '/series/bangladesh-tour-2026', icon: Target, desc: 'Test Series Coverage' },
+            { name: 'PSL 11 Finals', path: '/news#psl-news', icon: Trophy, desc: 'Live from Lahore' },
+            { name: 'PAK vs AUS Prep', path: '/series/australia-tour-2026', icon: Shield, desc: 'Coming in November' }
           ]} 
         />
 
         <MegaMenu />
 
-        <div className="h-8 w-px bg-white/5 hidden md:block mx-2" />
+        <div className="h-10 w-px bg-white/10 hidden md:block mx-4" />
 
         <ClickDropdown />
       </div>
@@ -509,18 +564,3 @@ export default function Blogs() {
   );
 }
 
-function ChevronRight(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg 
-      {...props} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  );
-}
