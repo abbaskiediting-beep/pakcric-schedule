@@ -517,4 +517,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-red-500',
     authorId: 'omar-farooq'
   },
+  {
+    id: 'babar-azam-psl-finals-from-player-to-captain-2026',
+    title: 'Babar Azam in PSL Finals: From Player to Captain — All Finals, All Performances & The Historic First',
+    summary: 'Babar Azam has played in 5 PSL finals — 2018, 2019, 2020 (winner), 2021 and 2026. Tonight is the first time he leads a team as captain in a PSL Final. Complete breakdown inside.',
+    date: 'May 3, 2026',
+    category: 'Analysis',
+    path: '/news/babar-azam-psl-finals-from-player-to-captain',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];

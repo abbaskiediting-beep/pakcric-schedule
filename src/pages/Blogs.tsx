@@ -147,7 +147,7 @@ const MegaMenu = () => (
             </Link>
             <Link to="/series/australia-tour-2026" className="group/link block">
               <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">Australia Tour</span>
-              <span className="text-[8px] text-white/20 uppercase tracking-widest">Future Prep</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">3 ODIs • May/June</span>
             </Link>
           </div>
         </div>
@@ -285,7 +285,7 @@ export default function Blogs() {
           items={[
             { name: 'PAK vs BAN 2026', path: '/series/bangladesh-tour-2026', icon: Target, desc: 'Test Series Coverage' },
             { name: 'PSL 11 Finals', path: '/news#psl-news', icon: Trophy, desc: 'Live from Lahore' },
-            { name: 'PAK vs AUS Prep', path: '/series/australia-tour-2026', icon: Shield, desc: 'Coming in November' }
+            { name: 'PAK vs AUS 2026', path: '/series/australia-tour-2026', icon: Shield, desc: '3 ODIs • May/June' }
           ]} 
         />
 
