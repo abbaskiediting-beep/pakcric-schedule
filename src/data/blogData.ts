@@ -105,7 +105,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'In-depth preview and tactical analysis for Pakistan\'s 1st Test vs Bangladesh in Dhaka. Key player battles, pitch reports, and squad news.',
     date: 'April 22, 2026',
     category: 'Match Preview',
-    path: '/blogs/match-preview-dhaka-test',
+    path: '/news/match-preview-dhaka-test',
     icon: Target,
     color: 'text-pak-green',
     authorId: 'omar-farooq'
@@ -116,7 +116,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'In-depth analysis of Pakistan\'s Test selection for the 2026 Bangladesh tour. Why domestic form was prioritized and tactical roles of the new call-ups.',
     date: 'April 24, 2026',
     category: 'Selection Intelligence',
-    path: '/blogs/squad-selection-intelligence',
+    path: '/news/squad-selection-intelligence',
     icon: Users,
     color: 'text-pak-green',
     authorId: 'omar-farooq'
@@ -380,7 +380,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: "Exploring the storied rivalry: From Australia's Test dominance to Pakistan's recent T20I sweep. Detailed head-to-head records and 2026 schedule analysis.",
     date: 'April 30, 2026',
     category: 'Series Analysis',
-    path: '/blogs/pakistan-vs-australia-2026-analysis',
+    path: '/news/pakistan-vs-australia-2026-analysis',
     icon: HistoryIcon,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
@@ -391,7 +391,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'One team goes to the Final. One team goes home. A complete breakdown of the high-stakes Eliminator 2 at Gaddafi Stadium.',
     date: 'May 1, 2026',
     category: 'Match Preview',
-    path: '/blogs/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad',
+    path: '/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad',
     icon: Target,
     color: 'text-pak-green',
     authorId: 'syed-abbas'
@@ -402,7 +402,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'Peshawar Zalmi ke maalik Javed Afridi ne PSL 11 Final se pehle Darren Sammy ko officially Pakistan aane ki dawat di — fans ke request par.',
     date: 'May 1, 2026',
     category: 'Latest News',
-    path: '/blogs/darren-sammy-psl-11-final-invitation-official',
+    path: '/news/darren-sammy-psl-11-final-invitation-official',
     icon: Star,
     color: 'text-yellow-500',
     authorId: 'omar-farooq'
@@ -413,7 +413,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'Babar Azam sirf 6 runs aur banane ke baad Peshawar Zalmi ke all-time highest run-scorer ban jayenge — Kamran Akmal ke 1972 runs ka record todke. PSL history ke pehle aur ikaule batter baneinge jo do alag franchises ke all-time highest scorer hon.',
     date: 'May 1, 2026',
     category: 'Analysis',
-    path: '/blogs/babar-azam-6-runs-away-zalmi-record',
+    path: '/news/babar-azam-6-runs-away-zalmi-record',
     icon: HistoryIcon,
     color: 'text-pak-green',
     authorId: 'faisal-qureshi'
@@ -424,7 +424,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'Hyderabad Kingsmen ne Islamabad United ko 2 runs se hara kar PSL 11 ke Final mein jagah bana li. Usman Khan ki tufaani innings aur Hunain Shah ka aakhri over ka jaadu.',
     date: 'May 1, 2026',
     category: 'Match Update',
-    path: '/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report',
+    path: '/news/psl-2026-eliminator-2-hyderabad-kingsmen-match-report',
     icon: Zap,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
@@ -435,7 +435,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: "Islamabad United needed just 6 runs off the last over to reach the PSL Final. Hunain Shah had other ideas. A full ball-by-ball breakdown of the over that sent Hyderabad Kingsmen into their debut PSL Final.",
     date: 'May 2, 2026',
     category: 'Analysis',
-    path: '/blogs/hunain-shah-last-over-dramatic-finish-psl-2026',
+    path: '/news/hunain-shah-last-over-dramatic-finish-psl-2026',
     icon: Zap,
     color: 'text-yellow-500',
     authorId: 'bilal-ahmed'
@@ -446,7 +446,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: "How the debutants Hyderabad Kingsmen overcame a disastrous start to reach the PSL 11 Final. A story of resilience, tactical genius, and emergence of new stars.",
     date: 'May 2, 2026',
     category: 'Analysis',
-    path: '/blogs/hyderabad-kingsmen-psl-2026-journey-review',
+    path: '/news/hyderabad-kingsmen-psl-2026-journey-review',
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
@@ -457,7 +457,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'A complete review of the PSL 2026 campaigns for both finalists. From Babar Azam\'s 588 runs to Hyderabad Kingsmen\'s 0-4 turnaround. Stats, results, and final preview.',
     date: 'May 2, 2026',
     category: 'Full Campaign Blog',
-    path: '/blogs/psl-2026-final-full-campaign-pz-vs-hyk',
+    path: '/news/psl-2026-final-full-campaign-pz-vs-hyk',
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
@@ -479,7 +479,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'On the day of PSL 2026 Final, Babar Azam selected his World Best ODI XI on Zalmi TV — excluded Virat Kohli, Rohit Sharma, and Jasprit Bumrah, and placed himself as 12th man.',
     date: 'May 3, 2026',
     category: 'Analysis',
-    path: '/blogs/babar-azam-world-odi-xi-podcast-blog',
+    path: '/news/babar-azam-world-odi-xi-podcast-blog',
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
@@ -490,7 +490,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'Yasir Shah turns 40 today — May 3, 2026. The man from Swabi who became the fastest bowler in history to take 200 Test wickets. Full career tribute and records.',
     date: 'May 3, 2026',
     category: 'Analysis',
-    path: '/blogs/yasir-shah-birthday-tribute-blog-2026',
+    path: '/news/yasir-shah-birthday-tribute-blog-2026',
     icon: Star,
     color: 'text-yellow-500',
     authorId: 'ayesha-khan'
@@ -501,7 +501,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'Elegance vs explosive power. The PSL final\'s two biggest batting stories, compared stat by stat.',
     date: 'May 3, 2026',
     category: 'Analysis',
-    path: '/blogs/babar-azam-vs-usman-khan-comparison-2026',
+    path: '/news/babar-azam-vs-usman-khan-comparison-2026',
     icon: BarChart3,
     color: 'text-pak-green',
     authorId: 'omar-farooq'
@@ -512,7 +512,7 @@ export const BLOG_POSTS: BlogPost[] = [
     summary: 'Everything you need to know about tonight\'s PSL 11 final schedule: Kickoff times for Pakistan, India, UAE, UK, and USA. Plus ceremony timing.',
     date: 'May 3, 2026',
     category: 'Match Guide',
-    path: '/blogs/psl-11-final-starting-time-guide-2026',
+    path: '/news/psl-11-final-starting-time-guide-2026',
     icon: Clock,
     color: 'text-red-500',
     authorId: 'omar-farooq'

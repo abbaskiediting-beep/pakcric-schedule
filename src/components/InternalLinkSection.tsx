@@ -7,7 +7,7 @@ const INTERNAL_LINKS = [
   { name: 'ICC Rankings', path: '/rankings', desc: 'Latest player and team standings' },
   { name: 'WTC Projections', path: '/icc-wtc-projections-2026', desc: 'World Test Championship updates' },
   { name: 'Latest News', path: '/news', desc: 'Daily updates from the cricket world' },
-  { name: 'Expert Blogs', path: '/blogs', desc: 'Tactical analysis and match previews' },
+  { name: 'Expert News', path: '/news', desc: 'Tactical analysis and match previews' },
   { name: 'Player Stats', path: '/players-stats', desc: 'In-depth performance metrics' },
   { name: 'About PakCric', path: '/about', desc: 'Learn more about our portal' },
 ];

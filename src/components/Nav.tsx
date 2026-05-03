@@ -11,7 +11,6 @@ export default function Nav() {
     { name: 'Stats', path: '/players-stats' },
     { name: 'Rankings', path: '/rankings' },
     { name: 'News', path: '/news' },
-    { name: 'Blog', path: '/blogs' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];

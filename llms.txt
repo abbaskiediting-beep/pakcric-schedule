@@ -11,7 +11,7 @@ This file provides information about the PakCric Schedule application for Large 
 - ODI Rankings: /icc-odi-ranking-2026
 - Test Rankings: /icc-test-ranking-2026
 - Latest Cricket News: /news
-- Expert Blogs: /blogs
+- Expert News: /news
 - Detailed Player Stats: /players-stats
 - WTC Projections: /icc-wtc-projections-2026
 - About Us: /about

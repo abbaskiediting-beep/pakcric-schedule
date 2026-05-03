@@ -1,20 +1,196 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, TrendingUp, MessageCircle } from 'lucide-react';
-import React from 'react';
+import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, TrendingUp, MessageCircle, ChevronDown, Filter, LayoutGrid, Clock, List } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import { BLOG_POSTS, AUTHORS } from '../data/blogData';
 import { LinkText } from '../components/LinkText';
 
+import { BlogPost } from '../types';
+
+function BlogCard({ post, idx }: { post: BlogPost; idx: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: (idx % 2) * 0.1 }}
+      viewport={{ once: true }}
+      className="group bg-card-bg border border-card-border rounded-3xl md:rounded-[48px] overflow-hidden hover:border-pak-green/30 transition-all flex flex-col h-full shadow-2xl relative"
+    >
+      <div className="p-6 sm:p-10 flex flex-col h-full relative z-10">
+        <div className="flex items-center justify-between mb-5 md:mb-10">
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className={`p-2.5 md:p-4 rounded-xl md:rounded-3xl bg-black/40 border border-white/5 ${post.color}`}>
+              <post.icon className="w-4 h-4 md:w-6 md:h-6" />
+            </div>
+            <div>
+              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40 block mb-0.5 md:mb-1">{post.date}</span>
+              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[4px] text-pak-green block">{post.category}</span>
+            </div>
+          </div>
+          <div className="w-9 h-9 md:w-12 md:h-12 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover:bg-pak-green group-hover:text-white group-hover:border-pak-green transition-all duration-500">
+            <ArrowUpRight className="w-4 h-4 md:w-6 md:h-6" />
+          </div>
+        </div>
+        
+        <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 group-hover:text-pak-green transition-colors text-white leading-tight">
+          {post.title}
+        </h2>
+
+        <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+          <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-pak-green/20 border border-pak-green/20 overflow-hidden">
+            <img 
+              src={AUTHORS.find(a => a.id === post.authorId)?.avatarUrl} 
+              alt="" 
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col">
+            <Link 
+              to={`/author/${post.authorId}`} 
+              className="text-[8px] md:text-[10px] font-bold text-white/40 hover:text-pak-green transition-colors uppercase tracking-widest"
+            >
+              By {AUTHORS.find(a => a.id === post.authorId)?.name}
+            </Link>
+          </div>
+        </div>
+        
+        <p className="text-ink/60 text-xs md:text-base font-medium leading-relaxed mb-6 md:mb-12 line-clamp-3 italic flex-grow border-l-2 border-pak-green/20 pl-4 md:pl-6">
+          "{post.summary}"
+        </p>
+        
+        <Link 
+          to={post.path}
+          className="inline-flex items-center gap-3 md:gap-4 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] text-pak-green hover:tracking-[0.4em] md:hover:tracking-[0.7em] transition-all"
+        >
+          Read More <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+        </Link>
+      </div>
+      {/* Subtle Background Glow */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-pak-green/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+    </motion.div>
+  );
+}
+
+const SimpleDropdown = ({ label, items }: { label: string; items: { name: string; path: string }[] }) => (
+  <div className="relative group">
+    <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all">
+      {label} <ChevronDown className="w-3 h-3 text-pak-green" />
+    </button>
+    <div className="absolute top-full left-0 mt-2 w-48 bg-card-bg border border-white/10 rounded-2xl p-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 pointer-events-none group-hover:pointer-events-auto">
+      {items.map(item => (
+        <Link key={item.name} to={item.path} className="block px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-xl transition-all">
+          {item.name}
+        </Link>
+      ))}
+    </div>
+  </div>
+);
+
+const HoverDropdown = ({ label, items }: { label: string; items: { name: string; path: string; icon: any }[] }) => (
+  <div className="relative group">
+    <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all">
+      {label} <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform" />
+    </button>
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      whileHover={{ opacity: 1, y: 0 }}
+      className="absolute top-full left-0 mt-2 w-64 bg-card-bg border border-white/10 rounded-3xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50"
+    >
+      <div className="space-y-1">
+        {items.map(item => (
+          <Link key={item.name} to={item.path} className="flex items-center gap-3 px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-2xl transition-all">
+            <item.icon className="w-4 h-4" /> {item.name}
+          </Link>
+        ))}
+      </div>
+    </motion.div>
+  </div>
+);
+
+const MegaMenu = () => (
+  <div className="relative group static md:relative">
+    <button className="flex items-center gap-2 px-4 py-2 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:shadow-lg hover:shadow-pak-green/20 transition-all">
+      All News Explorer <LayoutGrid className="w-3 h-3" />
+    </button>
+    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[90vw] max-w-4xl bg-card-bg border border-white/10 rounded-[40px] p-8 md:p-12 shadow-3xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform group-hover:translate-y-[-10px] translate-y-0 duration-500">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-left">
+        <div>
+          <h4 className="text-xs font-black uppercase tracking-[4px] text-pak-green mb-6 border-b border-white/5 pb-2">Tournaments</h4>
+          <div className="space-y-4">
+            <Link to="/news#psl-news" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">PSL 2026 Specials</Link>
+            <Link to="/series/bangladesh-tour-2026" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Bangladesh Series</Link>
+            <Link to="/series/australia-tour-2026" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Australia Series</Link>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-xs font-black uppercase tracking-[4px] text-blue-500 mb-6 border-b border-white/5 pb-2">Categories</h4>
+          <div className="space-y-4">
+            <Link to="/news" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Match Analysis</Link>
+            <Link to="/news" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Strategic Insights</Link>
+            <Link to="/rankings" className="block text-[11px] font-bold text-white/60 hover:text-pak-green transition-colors uppercase">Player Stats</Link>
+          </div>
+        </div>
+        <div className="bg-white/5 rounded-3xl p-6">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-3">Today's Highlight</h4>
+          <p className="text-[10px] text-ink/60 uppercase leading-loose mb-4">Latest analysis on Pakistan's red-ball strategy under new leadership.</p>
+          <Link to="/news" className="text-[9px] font-black text-pak-green uppercase tracking-[4px] hover:translate-x-2 transition-transform inline-block">Read Now →</Link>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const ClickDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all text-white"
+      >
+        Options <Filter className="w-3 h-3" />
+      </button>
+      {isOpen && (
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="absolute top-full right-0 mt-2 w-48 bg-card-bg border border-white/10 rounded-2xl p-2 shadow-2xl z-50 overflow-hidden"
+        >
+          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-xl transition-all flex items-center gap-2">
+            <Clock className="w-3 h-3" /> Latest News
+          </button>
+          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-white/5 rounded-xl transition-all flex items-center gap-2">
+            <TrendingUp className="w-3 h-3" /> Most Read
+          </button>
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
 export default function Blogs() {
   return (
     <div className="max-w-7xl mx-auto py-8 md:py-12 px-4 md:px-6">
       <Helmet>
-        <title>Pakistan Cricket Blogs 2026 – Match Analysis, Insights & Updates</title>
-        <meta name="description" content="Read Pakistan cricket blogs 2026 including match analysis, player performance, predictions, and expert insights." />
-        <meta name="keywords" content="Pakistan cricket blogs, Pakistan match analysis, Pakistan cricket predictions, cricket insights, player performance analysis" />
+        <title>Pakistan Cricket News & Analysis 2026 – Match Analysis, Insights & Updates</title>
+        <meta name="description" content="Read latest Pakistan cricket news 2026 including match analysis, player performance, predictions, and expert insights." />
+        <meta name="keywords" content="Pakistan cricket news, Pakistan match analysis, Pakistan cricket predictions, cricket insights, player performance analysis" />
       </Helmet>
 
       <motion.div 
@@ -23,108 +199,112 @@ export default function Blogs() {
         className="mb-10 md:mb-20 text-center"
       >
         <span className="inline-block px-3 md:px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[3px] md:tracking-[4px] mb-4 md:mb-8">
-          The Analysis Hub
+          The News & Analysis Hub
         </span>
         <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
-          Pakistan Cricket <span className="text-pak-green">Blogs & Analysis</span>
+          Pakistan Cricket <span className="text-pak-green">News & Analysis</span>
         </h1>
         <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
           <p className="text-lg md:text-xl text-ink/80 font-medium leading-relaxed italic">
             <LinkText text="If you enjoy going beyond just match schedules and scores, this is where things get interesting." />
           </p>
           <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed">
-            <LinkText text="The blogs section on PakCric Schedule is designed for fans who want deeper insights into Pakistan cricket — from match analysis to player performances and upcoming predictions. Everything here is written in a simple, clear, and engaging way." />
+            <LinkText text="The news and analysis section on PakCric Schedule is designed for fans who want deeper insights into Pakistan cricket — from match analysis to player performances and upcoming predictions. Everything here is written in a simple, clear, and engaging way." />
           </p>
         </div>
       </motion.div>
 
+      {/* Dropdown Explorer Bar */}
+      <div className="mb-12 md:mb-20 flex flex-wrap items-center justify-center gap-4 md:gap-8 bg-white/[0.02] border border-white/5 rounded-3xl p-4 md:p-6 backdrop-blur-sm">
+        <SimpleDropdown 
+          label="News Archive" 
+          items={[
+            { name: 'May 2026', path: '/news' },
+            { name: 'April 2026', path: '/news' },
+            { name: 'March 2026', path: '/news' }
+          ]} 
+        />
+        
+        <HoverDropdown 
+          label="Current Series" 
+          items={[
+            { name: 'Pakistan vs Bangladesh', path: '/series/bangladesh-tour-2026', icon: Target },
+            { name: 'PSL 11 Final Phase', path: '/news#psl-news', icon: Trophy },
+            { name: 'Australia Series Prep', path: '/series/australia-tour-2026', icon: Shield }
+          ]} 
+        />
+
+        <MegaMenu />
+
+        <div className="h-8 w-px bg-white/5 hidden md:block mx-2" />
+
+        <ClickDropdown />
+      </div>
+
       {/* Top Banner for Article Hub */}
       <AdPlaceholder type="leaderboard" className="mb-12 md:mb-20" />
 
-      {/* Latest Blogs Section */}
+      {/* Grouped Blogs Section */}
       <section className="mb-16 md:mb-32">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white">
-            Latest Pakistan <span className="text-pak-green">Cricket Blogs</span>
-          </h2>
-          <div className="flex items-center gap-2 text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40">
-            Updated Daily <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-pak-green animate-pulse" />
-          </div>
-        </div>
+        {(() => {
+          const pslBlogs = [...BLOG_POSTS].filter(post => 
+            post.id.includes('psl') || 
+            post.title.toUpperCase().includes('PSL') || 
+            post.title.toUpperCase().includes('KINGSMEN') || 
+            post.title.toUpperCase().includes('ZALMI') || 
+            post.title.toUpperCase().includes('SULTANS') || 
+            post.title.toUpperCase().includes('UNITED') ||
+            post.category === 'Tournament Stats' ||
+            post.category === 'Season Review'
+          ).reverse();
 
-        <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed max-w-2xl mb-8 md:mb-12">
-          This section features the most recent blog posts covering key topics related to Pakistan cricket. Each blog is focused on giving you useful information without unnecessary complexity.
-        </p>
+          const otherBlogs = [...BLOG_POSTS].filter(post => 
+            !pslBlogs.find(p => p.id === post.id)
+          ).reverse();
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-          {[...BLOG_POSTS].reverse().map((post, idx) => (
-            <React.Fragment key={post.id}>
-              {idx === 2 && (
-                <div className="md:col-span-2 py-2">
-                  <AdPlaceholder type="native" label="Recommended for You" />
-                </div>
-              )}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: (idx % 2) * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-card-bg border border-card-border rounded-3xl md:rounded-[48px] overflow-hidden hover:border-pak-green/30 transition-all flex flex-col h-full shadow-2xl relative"
-              >
-                <div className="p-6 sm:p-10 flex flex-col h-full relative z-10">
-                  <div className="flex items-center justify-between mb-5 md:mb-10">
-                    <div className="flex items-center gap-3 md:gap-4">
-                      <div className={`p-2.5 md:p-4 rounded-xl md:rounded-3xl bg-black/40 border border-white/5 ${post.color}`}>
-                        <post.icon className="w-4 h-4 md:w-6 md:h-6" />
-                      </div>
-                      <div>
-                        <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40 block mb-0.5 md:mb-1">{post.date}</span>
-                        <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[4px] text-pak-green block">{post.category}</span>
-                      </div>
-                    </div>
-                    <div className="w-9 h-9 md:w-12 md:h-12 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover:bg-pak-green group-hover:text-white group-hover:border-pak-green transition-all duration-500">
-                      <ArrowUpRight className="w-4 h-4 md:w-6 md:h-6" />
-                    </div>
+          return (
+            <div className="space-y-20 md:space-y-32">
+              {/* PSL News Section */}
+              <div id="psl-news">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-pak-green pl-6">
+                  <div>
+                    <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
+                      PSL 11 <span className="text-pak-green">2026 News</span>
+                    </h2>
+                    <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Everything about the Pakistan Super League</p>
                   </div>
-                  
-                  <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 group-hover:text-pak-green transition-colors text-white leading-tight">
-                    {post.title}
-                  </h2>
-
-                  <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-pak-green/20 border border-pak-green/20 overflow-hidden">
-                      <img 
-                        src={AUTHORS.find(a => a.id === post.authorId)?.avatarUrl} 
-                        alt="" 
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <Link 
-                      to={`/author/${post.authorId}`} 
-                      className="text-[8px] md:text-[10px] font-bold text-white/40 hover:text-pak-green transition-colors uppercase tracking-widest"
-                    >
-                      By {AUTHORS.find(a => a.id === post.authorId)?.name}
-                    </Link>
+                  <div className="flex items-center gap-2 text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                    Live Updates <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-pak-green animate-pulse" />
                   </div>
-                  
-                  <p className="text-ink/60 text-xs md:text-base font-medium leading-relaxed mb-6 md:mb-12 line-clamp-3 italic flex-grow border-l-2 border-pak-green/20 pl-4 md:pl-6">
-                    "{post.summary}"
-                  </p>
-                  
-                  <Link 
-                    to={post.path}
-                    className="inline-flex items-center gap-3 md:gap-4 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] text-pak-green hover:tracking-[0.4em] md:hover:tracking-[0.7em] transition-all"
-                  >
-                    Read More <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  </Link>
                 </div>
-                {/* Subtle Background Glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-pak-green/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              </motion.div>
-            </React.Fragment>
-          ))}
-        </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                  {pslBlogs.map((post, idx) => (
+                    <BlogCard key={post.id} post={post} idx={idx} />
+                  ))}
+                </div>
+              </div>
+
+              {/* International & Strategy Section */}
+              <div id="international-news">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-blue-500 pl-6">
+                  <div>
+                    <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
+                      Pakistan <span className="text-blue-500">Team & Strategy</span>
+                    </h2>
+                    <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">International Series, Rankings & Analysis</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                  {otherBlogs.map((post, idx) => (
+                    <BlogCard key={post.id} post={post} idx={idx} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* Our Experts Section */}
@@ -260,10 +440,10 @@ export default function Blogs() {
       {/* Why Read Here */}
       <section className="my-16 md:my-32 bg-white/[0.02] border border-white/5 rounded-3xl md:rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden group">
         <h2 className="text-2xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6 md:mb-8">
-          Why Read Pakistan <span className="text-pak-green italic">Cricket Blogs Here</span>
+          Why Read Pakistan <span className="text-pak-green italic">Cricket News Here</span>
         </h2>
         <p className="text-sm md:text-lg text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-10 md:mb-16">
-          We focus on simple and clear writing, relevant topics for <Link to="/" className="text-pak-green hover:underline">Pakistan fans</Link>, and practical <Link to="/blogs" className="text-pak-green hover:underline">match insights</Link> instead of unnecessary details. Our goal is to make <Link to="/" className="text-pak-green hover:underline">Pakistan cricket news</Link> and content enjoyable and useful for everyone following the <Link to="/schedule" className="text-pak-green hover:underline">cricket schedule</Link>.
+          We focus on simple and clear writing, relevant topics for <Link to="/" className="text-pak-green hover:underline">Pakistan fans</Link>, and practical <Link to="/news" className="text-pak-green hover:underline">match insights</Link> instead of unnecessary details. Our goal is to make <Link to="/" className="text-pak-green hover:underline">Pakistan cricket news</Link> and content enjoyable and useful for everyone following the <Link to="/schedule" className="text-pak-green hover:underline">cricket schedule</Link>.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {[
@@ -282,10 +462,10 @@ export default function Blogs() {
       {/* Stay Updated */}
       <section className="mb-20 md:mb-32 text-center">
         <h2 className="text-2xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6 md:mb-8">
-          Stay Updated with <span className="text-pak-green italic">New Blog Posts</span>
+          Stay Updated with <span className="text-pak-green italic">Latest News Updates</span>
         </h2>
         <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed max-w-2xl mx-auto mb-8 md:mb-12">
-          New <Link to="/blogs" className="text-pak-green hover:underline">blogs</Link> are added regularly, especially during active <Link to="/schedule" className="text-pak-green hover:underline">series and tournaments</Link>. Bookmark this page so you don’t miss out on the <Link to="/blogs" className="text-pak-green hover:underline">latest analysis</Link>, <Link to="/news" className="text-pak-green hover:underline">selection news</Link>, and <Link to="/squads" className="text-pak-green hover:underline">playing XI</Link> updates.
+          New <Link to="/news" className="text-pak-green hover:underline">news updates</Link> are added regularly, especially during active <Link to="/schedule" className="text-pak-green hover:underline">series and tournaments</Link>. Bookmark this page so you don’t miss out on the <Link to="/news" className="text-pak-green hover:underline">latest analysis</Link>, <Link to="/news" className="text-pak-green hover:underline">selection news</Link>, and <Link to="/squads" className="text-pak-green hover:underline">playing XI</Link> updates.
         </p>
         <motion.div 
           className="p-8 md:p-12 border border-pak-green/10 bg-pak-green/5 rounded-3xl md:rounded-[48px] max-w-2xl mx-auto"

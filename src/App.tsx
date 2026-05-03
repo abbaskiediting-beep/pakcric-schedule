@@ -175,7 +175,7 @@ export default function App() {
               <Route path="/rankings/test-batting" element={<TestBatting />} />
               <Route path="/rankings/test-bowling" element={<TestBowling />} />
               <Route path="/rankings/test-allrounder" element={<TestAllrounder />} />
-              <Route path="/news" element={<News />} />
+              <Route path="/news" element={<Blogs />} />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/player/:name" element={<PlayerStats />} />
               <Route path="/author/:authorId" element={<AuthorProfile />} />
@@ -184,14 +184,13 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-              <Route path="/series/:slug" element={<SeriesDetail />} />
+              <Route path="/series/:id" element={<SeriesDetail />} />
               <Route path="/match/:id" element={<MatchDetail />} />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/blogs/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
-              <Route path="/blogs/squad-selection-intelligence" element={<SquadIntelligence />} />
+              <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
+              <Route path="/news/squad-selection-intelligence" element={<SquadIntelligence />} />
               <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
               <Route path="/pakistan-vs-australia-2026-schedule-odi" element={<PakistanVsAustralia2026Schedule />} />
-              <Route path="/blogs/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
+              <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
               <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />
               <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
@@ -207,22 +206,22 @@ export default function App() {
               <Route path="/psl-2026-eliminator-1-match-summary-kingsmen-vs-multan" element={<KingsmenDominateEliminator1 />} />
               <Route path="/psl-2026-eliminator-1-kingsmen-vs-multan-final-result-report" element={<KingsmenFinalVictoryBlog />} />
               <Route path="/psl-2026-eliminator-1-full-match-report-analysis" element={<PSLEliminator1Report />} />
-              <Route path="/blogs/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />
+              <Route path="/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />
               <Route path="/psl-11-qualifier-1-match-report-babar-century" element={<PSL11Qualifier1Report />} />
               <Route path="/multan-sultans-psl-2026-full-season-journey-review" element={<MultanSultansSeasonReview />} />
               <Route path="/maaz-sadaqat-psl-2026-season-review-stats" element={<MaazSadaqatSeasonReview />} />
               <Route path="/usman-khan-psl-2026-season-review-records" element={<UsmanKhanSeasonReview />} />
-              <Route path="/blogs/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
-              <Route path="/blogs/babar-azam-6-runs-away-zalmi-record" element={<BabarZalmiRecordBlog />} />
-              <Route path="/blogs/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" element={<PSLEliminator2Report />} />
-              <Route path="/blogs/hunain-shah-last-over-dramatic-finish-psl-2026" element={<HunainShahLastOverBlog />} />
-              <Route path="/blogs/hyderabad-kingsmen-psl-2026-journey-review" element={<HyderabadKingsmenJourneyBlog />} />
-              <Route path="/blogs/psl-2026-final-full-campaign-pz-vs-hyk" element={<PSL2026FinalCampaignBlog />} />
+              <Route path="/news/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
+              <Route path="/news/babar-azam-6-runs-away-zalmi-record" element={<BabarZalmiRecordBlog />} />
+              <Route path="/news/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" element={<PSLEliminator2Report />} />
+              <Route path="/news/hunain-shah-last-over-dramatic-finish-psl-2026" element={<HunainShahLastOverBlog />} />
+              <Route path="/news/hyderabad-kingsmen-psl-2026-journey-review" element={<HyderabadKingsmenJourneyBlog />} />
+              <Route path="/news/psl-2026-final-full-campaign-pz-vs-hyk" element={<PSL2026FinalCampaignBlog />} />
               <Route path="/psl-11-final-ceremony-2026-details" element={<PSL11FinalCeremonyBlog />} />
-              <Route path="/blogs/babar-azam-world-odi-xi-podcast-blog" element={<BabarAzamWorldODIXIBlog />} />
-              <Route path="/blogs/yasir-shah-birthday-tribute-blog-2026" element={<YasirShahBirthdayBlog />} />
-              <Route path="/blogs/babar-azam-vs-usman-khan-comparison-2026" element={<BabarAzamVsUsmanKhanBlog />} />
-              <Route path="/blogs/psl-11-final-starting-time-guide-2026" element={<PSL11FinalTimeGuideBlog />} />
+              <Route path="/news/babar-azam-world-odi-xi-podcast-blog" element={<BabarAzamWorldODIXIBlog />} />
+              <Route path="/news/yasir-shah-birthday-tribute-blog-2026" element={<YasirShahBirthdayBlog />} />
+              <Route path="/news/babar-azam-vs-usman-khan-comparison-2026" element={<BabarAzamVsUsmanKhanBlog />} />
+              <Route path="/news/psl-11-final-starting-time-guide-2026" element={<PSL11FinalTimeGuideBlog />} />
               <Route path="/series-intelligence/:slug" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
@@ -253,7 +252,6 @@ export default function App() {
                 <Link to="/icc-wtc-projections-2026" className="hover:text-pak-green transition-colors">WTC Standings</Link>
                 <Link to="/squads" className="hover:text-pak-green transition-colors">Squads</Link>
                 <Link to="/news" className="hover:text-pak-green transition-colors">Latest News</Link>
-                <Link to="/blogs" className="hover:text-pak-green transition-colors">Expert Blogs</Link>
                 <Link to="/about" className="hover:text-pak-green transition-colors">About Us</Link>
                 <Link to="/contact" className="hover:text-pak-green transition-colors">Contact</Link>
               </div>

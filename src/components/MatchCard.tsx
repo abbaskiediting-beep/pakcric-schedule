@@ -98,13 +98,13 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
         }`}
         id={`match-${effectiveId}`}
       >
-        {match.status === 'Upcoming' && (
-          <div className="absolute top-0 left-0 right-0 bg-pak-green text-white text-center py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-[3px] shadow-inner z-20">
-            UPCOMING
+        {(match.status === 'Upcoming' || match.status === 'Today') && (
+          <div className={`absolute top-0 left-0 right-0 ${match.status === 'Today' ? 'bg-red-600' : 'bg-pak-green'} text-white text-center py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-[3px] shadow-inner z-20`}>
+            {match.status.toUpperCase()}
           </div>
         )}
 
-        <div className={`flex flex-col h-full ${match.status === 'Upcoming' ? 'pt-5' : ''}`}>
+        <div className={`flex flex-col h-full ${(match.status === 'Upcoming' || match.status === 'Today') ? 'pt-5' : ''}`}>
           <div>
             <div className="flex justify-between items-start mb-6">
               <div className="flex flex-col gap-1.5 text-left">
@@ -127,14 +127,14 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                     <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-widest text-red-500">Live Match</span>
                   </motion.div>
                 )}
-                {match.status === 'Upcoming' && (
+                {(match.status === 'Upcoming' || match.status === 'Today') && (
                   <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex items-center gap-1.5 sm:gap-2 bg-pak-green/10 border border-pak-green/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full w-fit"
+                    className={`flex items-center gap-1.5 sm:gap-2 ${match.status === 'Today' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/10 border-pak-green/20'} px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full w-fit`}
                   >
-                    <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-pak-green rounded-full shadow-[0_0_8px_rgba(0,102,46,0.5)]" />
-                    <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-widest text-pak-green">Upcoming</span>
+                    <span className={`w-1 h-1 sm:w-1.5 sm:h-1.5 ${match.status === 'Today' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'bg-pak-green shadow-[0_0_8px_rgba(0,102,46,0.5)]'} rounded-full`} />
+                    <span className={`text-[7px] sm:text-[8px] font-black uppercase tracking-widest ${match.status === 'Today' ? 'text-red-500' : 'text-pak-green'}`}>{match.status}</span>
                   </motion.div>
                 )}
               </div>

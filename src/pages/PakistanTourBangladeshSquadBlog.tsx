@@ -271,7 +271,8 @@ export default function PakistanTourBangladeshSquadBlog() {
               <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-pak-green">Internal Links</h4>
               <div className="flex flex-wrap gap-3">
                 <Link to="/pakistan-vs-bangladesh-2026-schedule" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">Bangladesh Tour Schedule</Link>
-                <Link to="/babar-azam-all-psl-centuries-list-2026-details" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">Babar Azam PSL Records</Link>
+                <Link to="/blogs/babar-azam-vs-usman-khan-comparison-2026" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">Babar Azam PSL 2026 Performance</Link>
+                <Link to="/blogs/psl-2026-final-full-campaign-pz-vs-hyk" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">PSL 2026 Final Full Review</Link>
                 <Link to="/rankings" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">ICC Rankings 2026</Link>
               </div>
             </div>

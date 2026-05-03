@@ -410,16 +410,16 @@ export default function Home() {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-pak-green" />
-                <h4 className="text-xs font-black uppercase tracking-[2px] text-white">Featured Tactical Blogs</h4>
+                <h4 className="text-xs font-black uppercase tracking-[2px] text-white">Featured Tactical News</h4>
               </div>
-              <Link to="/blogs" className="text-[9px] font-bold text-pak-green hover:underline uppercase tracking-widest">
-                View All Blogs
+              <Link to="/news" className="text-[9px] font-bold text-pak-green hover:underline uppercase tracking-widest">
+                View All News
               </Link>
             </div>
             
             <div className="space-y-4">
                <Link 
-                 to="/blogs/psl-2026-final-full-campaign-pz-vs-hyk"
+                 to="/news/psl-2026-final-full-campaign-pz-vs-hyk"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
                >
                  <div className="flex items-center gap-4">
@@ -507,7 +507,7 @@ export default function Home() {
         </Suspense>
       </div>
 
-      {/* Latest Blogs Section - Full Width */}
+      {/* Latest News Section - Full Width */}
       <section className="mt-24 md:mt-32">
         <div className="flex flex-wrap justify-between items-center mb-8 md:mb-12 gap-4">
           <div className="flex items-center gap-4">
@@ -515,15 +515,15 @@ export default function Home() {
               <Zap className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white leading-none mb-2">Latest From Our Blogs</h2>
+              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white leading-none mb-2">Latest Cricket News & Analysis</h2>
               <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-widest">In-depth analysis, tactical previews & exclusive stories</p>
             </div>
           </div>
           <Link 
-            to="/blogs" 
+            to="/news" 
             className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all group flex items-center gap-2"
           >
-            Explore All Articles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Explore All News <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -685,7 +685,7 @@ export default function Home() {
             <p className="text-white/80 text-[11px] md:text-xs font-medium leading-relaxed mb-6">
               Cricket schedules can change—and when they do, we make sure you know about it. Our platform is regularly updated for accuracy.
             </p>
-            <Link to="/blogs" className="text-[10px] font-bold uppercase tracking-[3px] flex items-center gap-2 hover:translate-x-2 transition-transform">
+            <Link to="/news" className="text-[10px] font-bold uppercase tracking-[3px] flex items-center gap-2 hover:translate-x-2 transition-transform">
               Explore Blogs <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -711,7 +711,7 @@ export default function Home() {
               <Link to="/schedule" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl shadow-pak-green/30">
                 Explore Upcoming Matches
               </Link>
-              <Link to="/blogs" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 bg-transparent border border-white/20 text-white rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+              <Link to="/news" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 bg-transparent border border-white/20 text-white rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
                 Latest Tactical Blogs
               </Link>
             </div>
