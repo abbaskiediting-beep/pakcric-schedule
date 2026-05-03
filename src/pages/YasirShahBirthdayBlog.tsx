@@ -68,34 +68,34 @@ export default function YasirShahBirthdayBlog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tighter italic"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tighter italic"
           >
             Happy Birthday <br />
-            <span className="text-yellow-500 underline decoration-pak-green decoration-8">Yasir Shah!</span>
+            <span className="text-yellow-500 underline decoration-pak-green decoration-4 md:decoration-8">Yasir Shah!</span>
           </motion.h1>
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap items-center gap-8"
+            className="flex flex-wrap items-center gap-4 md:gap-8"
           >
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full border border-yellow-500/30 bg-yellow-500/10 flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-yellow-500/30 bg-yellow-500/10 flex items-center justify-center overflow-hidden">
                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ayesha" alt="Ayesha Khan" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-white/40 uppercase tracking-[2px]">Tribute by</span>
-                <span className="text-[14px] font-black text-white uppercase tracking-widest">Ayesha Khan</span>
+                <span className="text-[9px] md:text-[10px] font-bold text-white/40 uppercase tracking-[2px]">Tribute by</span>
+                <span className="text-[12px] md:text-[14px] font-black text-white uppercase tracking-widest">Ayesha Khan</span>
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-8 text-white/40 text-[11px] font-bold uppercase tracking-widest">
+            <div className="flex flex-wrap items-center gap-4 md:gap-8 text-white/40 text-[9px] md:text-[11px] font-bold uppercase tracking-widest">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-pak-green" />
+                <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
                 {publishDate}
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-pak-green" />
+                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
                 15 Min Read
               </div>
             </div>
@@ -110,31 +110,31 @@ export default function YasirShahBirthdayBlog() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card-bg border border-card-border rounded-[40px] p-8 md:p-14 mb-10 overflow-hidden shadow-2xl"
+              className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-14 mb-10 overflow-hidden shadow-2xl"
             >
               <div className="prose prose-invert max-w-none">
-                <div className="flex items-center gap-4 mb-10 p-6 bg-yellow-500/10 border border-yellow-500/20 rounded-3xl">
-                   <Star className="w-10 h-10 text-yellow-500 shrink-0" />
-                   <p className="text-xl font-black uppercase tracking-tight text-white mb-0 italic">
+                <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10 p-5 md:p-6 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl md:rounded-3xl">
+                   <Star className="w-8 h-8 md:w-10 md:h-10 text-yellow-500 shrink-0" />
+                   <p className="text-lg md:text-xl font-black uppercase tracking-tight text-white mb-0 italic">
                      "40 Saal Ke Ho Gaye, Magar Jaadu Abhi Bhi Wahi Hai!"
                    </p>
                 </div>
 
-                <p className="text-xl text-white/70 leading-relaxed mb-12 first-letter:text-7xl first-letter:font-black first-letter:text-pak-green first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
+                <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 md:mb-12 first-letter:text-5xl md:first-letter:text-7xl first-letter:font-black first-letter:text-pak-green first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
                   <LinkText text="There are moments in cricket history where one player steps into a void — a desperate, almost impossible void — and not only fills it but exceeds every expectation that came before it. That is exactly what Yasir Shah did on 22 October 2014, at Sheikh Zayed Stadium in Abu Dhabi." />
                 </p>
                 
-                <p className="text-lg text-white/60 mb-10 leading-relaxed">
+                <p className="text-base md:text-lg text-white/60 mb-8 md:mb-10 leading-relaxed">
                   Pakistan had just lost Saeed Ajmal to a bowling action ban — their premier spinner, their match-winner, suddenly gone. Then Yasir Shah walked in. Today — May 3, 2026 — the man from Swabi turns **40 years old**.
                 </p>
 
-                <h2 className="text-3xl font-black uppercase tracking-tighter mb-8 flex items-center gap-4">
-                  <User className="w-8 h-8 text-pak-green" />
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6 md:mb-8 flex items-center gap-3 md:gap-4">
+                  <User className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
                   Player Profile: The Swabi Magician
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/5 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-10 md:mb-12">
+                  <div className="p-5 md:p-6 bg-white/5 rounded-2xl border border-white/5 space-y-4">
                      {[
                        { label: 'Full Name', val: 'Yasir Shah (SI)' },
                        { label: 'Date of Birth', val: '2 May 1986' },
@@ -142,12 +142,12 @@ export default function YasirShahBirthdayBlog() {
                        { label: 'Nickname', val: '"Magician of Swabi"' }
                      ].map(item => (
                        <div key={item.label} className="flex justify-between items-center">
-                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{item.label}</span>
-                         <span className="font-black text-sm">{item.val}</span>
+                         <span className="text-[9px] md:text-[10px] font-bold text-white/40 uppercase tracking-widest">{item.label}</span>
+                         <span className="font-black text-xs md:text-sm">{item.val}</span>
                        </div>
                      ))}
                   </div>
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/5 space-y-4">
+                  <div className="p-5 md:p-6 bg-white/5 rounded-2xl border border-white/5 space-y-4">
                      {[
                        { label: 'Bowling Style', val: 'Leg-break / Googly' },
                        { label: 'Test Debut', val: '2014 vs Australia' },
@@ -155,46 +155,46 @@ export default function YasirShahBirthdayBlog() {
                        { label: 'Test Wickets', val: '244' }
                      ].map(item => (
                        <div key={item.label} className="flex justify-between items-center">
-                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{item.label}</span>
-                         <span className="font-black text-sm">{item.val}</span>
+                         <span className="text-[9px] md:text-[10px] font-bold text-white/40 uppercase tracking-widest">{item.label}</span>
+                         <span className="font-black text-xs md:text-sm">{item.val}</span>
                        </div>
                      ))}
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-black uppercase tracking-tighter mb-8 flex items-center gap-4">
-                  <Trophy className="w-8 h-8 text-yellow-500" />
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6 md:mb-8 flex items-center gap-3 md:gap-4">
+                  <Trophy className="w-6 h-6 md:w-8 md:h-8 text-yellow-500" />
                   Records That Will Stand for Years
                 </h2>
 
-                <div className="space-y-6 mb-12">
-                   <div className="bg-gradient-to-r from-pak-green/20 to-transparent p-8 rounded-3xl border border-pak-green/20">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Zap className="w-6 h-6 text-yellow-500" />
-                        <h3 className="text-xl font-black uppercase m-0">Fastest to 200 Test Wickets — EVER</h3>
+                <div className="space-y-4 md:space-y-6 mb-10 md:mb-12">
+                   <div className="bg-gradient-to-r from-pak-green/20 to-transparent p-6 md:p-8 rounded-2xl md:rounded-3xl border border-pak-green/20">
+                      <div className="flex items-center gap-3 mb-3 md:mb-4">
+                        <Zap className="w-5 h-5 md:w-6 md:h-6 text-yellow-500" />
+                        <h3 className="text-lg md:text-xl font-black uppercase m-0">Fastest to 200 Test Wickets — EVER</h3>
                       </div>
-                      <p className="text-white/70 text-sm leading-relaxed mb-0">
+                      <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-0">
                         In December 2018, Shah became the fastest bowler to take 200 wickets in Tests, breaking an 82-year-old record. He reached the milestone in just his 33rd Test match, faster than Shane Warne and Muttiah Muralitharan.
                       </p>
                    </div>
 
-                   <div className="bg-white/5 p-8 rounded-3xl border border-white/5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <TrendingUp className="w-6 h-6 text-pak-green" />
-                        <h3 className="text-xl font-black uppercase m-0">Fastest Pakistani to 50 & 150 Wickets</h3>
+                   <div className="bg-white/5 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/5">
+                      <div className="flex items-center gap-3 mb-3 md:mb-4">
+                        <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
+                        <h3 className="text-lg md:text-xl font-black uppercase m-0">Fastest Pakistani to 50 & 150 Wickets</h3>
                       </div>
-                      <p className="text-white/70 text-sm leading-relaxed mb-0">
+                      <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-0">
                         He became the quickest Pakistan bowler to 50 Test wickets (9 matches) and the fastest overall to 150 Test wickets (26 matches) in 2016, surpassing Shane Warne's previous record.
                       </p>
                    </div>
                 </div>
 
-                <h2 className="text-3xl font-black uppercase tracking-tighter mb-8 bg-gradient-to-r from-pak-green to-yellow-500 bg-clip-text text-transparent">
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6 md:mb-8 bg-gradient-to-r from-pak-green to-yellow-500 bg-clip-text text-transparent">
                   Career Stats & Milestones
                 </h2>
                 
-                <div className="overflow-x-auto bg-black/40 border border-white/5 rounded-3xl p-4 md:p-8 mb-12">
-                  <table className="w-full text-left border-collapse">
+                <div className="overflow-x-auto bg-black/40 border border-white/5 rounded-2xl md:rounded-3xl p-4 md:p-8 mb-10 md:mb-12">
+                  <table className="w-full text-left border-collapse min-w-[500px]">
                     <thead>
                       <tr className="border-b border-white/10 text-[11px] font-black uppercase tracking-[2px] text-white/40">
                         <th className="py-4 px-2">Format</th>

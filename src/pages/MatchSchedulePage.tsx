@@ -15,39 +15,39 @@ type SortKey = 'date' | 'opponent' | 'series';
 
 function MatchDetailExpanded({ match }: { match: Match }) {
   return (
-    <div className="bg-white/[0.03] border-t border-card-border p-6 md:p-10 animate-in fade-in slide-in-from-top-4 duration-500">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+    <div className="bg-white/[0.03] border-t border-card-border p-5 md:p-10 animate-in fade-in slide-in-from-top-4 duration-500">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
         {/* Left Column: Stats & Summary */}
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {match.status === 'Completed' && match.stats && (
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Trophy className="w-5 h-5 text-pak-green" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Match Performance</h3>
+            <div className="space-y-5 md:space-y-6">
+              <div className="flex items-center gap-3 mb-1.5 md:mb-2">
+                <Trophy className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                <h3 className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white">Match Performance</h3>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                 {match.stats.topScorers && (
-                  <div className="bg-black/20 rounded-2xl p-5 border border-white/5">
-                    <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-4">Top Scorers</p>
-                    <div className="space-y-3">
+                  <div className="bg-black/20 rounded-xl md:rounded-2xl p-4 md:p-5 border border-white/5">
+                    <p className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest mb-3 md:mb-4">Top Scorers</p>
+                    <div className="space-y-2.5 md:space-y-3">
                       {match.stats.topScorers.map((s, idx) => (
                         <div key={idx} className="flex justify-between items-center group/item">
-                          <span className="text-xs font-bold text-white/70 group-hover/item:text-white transition-colors">{s.name}</span>
-                          <span className="text-sm font-display font-black text-pak-green">{s.runs} <span className="text-[10px] text-white/20 font-sans">({s.balls})</span></span>
+                          <span className="text-[11px] md:text-xs font-bold text-white/70 group-hover/item:text-white transition-colors uppercase tracking-tight">{s.name}</span>
+                          <span className="text-sm font-display font-black text-pak-green tracking-tighter">{s.runs} <span className="text-[9px] text-white/20 font-sans">({s.balls})</span></span>
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
                 {match.stats.leadingWicketTakers && (
-                  <div className="bg-black/20 rounded-2xl p-5 border border-white/5">
-                    <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-4">Best Bowling</p>
-                    <div className="space-y-3">
+                  <div className="bg-black/20 rounded-xl md:rounded-2xl p-4 md:p-5 border border-white/5">
+                    <p className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest mb-3 md:mb-4">Best Bowling</p>
+                    <div className="space-y-2.5 md:space-y-3">
                       {match.stats.leadingWicketTakers.map((s, idx) => (
                         <div key={idx} className="flex justify-between items-center group/item">
-                          <span className="text-xs font-bold text-white/70 group-hover/item:text-white transition-colors">{s.name}</span>
-                          <span className="text-sm font-display font-black text-pak-green">{s.wickets}-{s.runs} <span className="text-[10px] text-white/20 font-sans">({s.overs})</span></span>
+                          <span className="text-[11px] md:text-xs font-bold text-white/70 group-hover/item:text-white transition-colors uppercase tracking-tight">{s.name}</span>
+                          <span className="text-sm font-display font-black text-pak-green tracking-tighter">{s.wickets}-{s.runs} <span className="text-[9px] text-white/20 font-sans">({s.overs})</span></span>
                         </div>
                       ))}
                     </div>
@@ -59,14 +59,16 @@ function MatchDetailExpanded({ match }: { match: Match }) {
 
           {match.preMatchAnalysis && (
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Zap className="w-5 h-5 text-pak-green" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Pre-Match Analysis</h3>
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <Zap className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                <h3 className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white">Pre-Match Analysis</h3>
               </div>
-              <div className="bg-black/20 rounded-3xl p-6 border border-white/5 prose prose-invert prose-sm max-w-none">
-                <LinkText text={match.preMatchAnalysis.substring(0, 300) + (match.preMatchAnalysis.length > 300 ? '...' : '')} />
+              <div className="bg-black/20 rounded-2xl md:rounded-3xl p-5 md:p-6 border border-white/5 prose prose-invert prose-sm max-w-none">
+                <p className="text-xs md:text-sm leading-relaxed text-ink/70 italic">
+                  <LinkText text={match.preMatchAnalysis.substring(0, 300) + (match.preMatchAnalysis.length > 300 ? '...' : '')} />
+                </p>
                 {match.preMatchAnalysis.length > 300 && (
-                  <Link to={`/match/${match.id}`} className="text-pak-green font-bold block mt-4 hover:underline">Read Full Analysis</Link>
+                  <Link to={`/match/${match.id}`} className="text-pak-green font-bold block mt-3 text-[10px] uppercase tracking-widest hover:underline">Read Full Analysis</Link>
                 )}
               </div>
             </div>
@@ -74,14 +76,16 @@ function MatchDetailExpanded({ match }: { match: Match }) {
 
           {match.postMatchSummary && (
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Newspaper className="w-5 h-5 text-pak-green" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Match Summary</h3>
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <Newspaper className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                <h3 className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white">Match Summary</h3>
               </div>
-              <div className="bg-black/20 rounded-3xl p-6 border border-white/5 prose prose-invert prose-sm max-w-none">
-                <LinkText text={match.postMatchSummary.substring(0, 300) + (match.postMatchSummary.length > 300 ? '...' : '')} />
+              <div className="bg-black/20 rounded-2xl md:rounded-3xl p-5 md:p-6 border border-white/5 prose prose-invert prose-sm max-w-none">
+                <p className="text-xs md:text-sm leading-relaxed text-ink/70 italic">
+                  <LinkText text={match.postMatchSummary.substring(0, 300) + (match.postMatchSummary.length > 300 ? '...' : '')} />
+                </p>
                 {match.postMatchSummary.length > 300 && (
-                  <Link to={`/match/${match.id}`} className="text-pak-green font-bold block mt-4 hover:underline">Read Full Summary</Link>
+                  <Link to={`/match/${match.id}`} className="text-pak-green font-bold block mt-3 text-[10px] uppercase tracking-widest hover:underline">Read Full Summary</Link>
                 )}
               </div>
             </div>
@@ -89,29 +93,29 @@ function MatchDetailExpanded({ match }: { match: Match }) {
         </div>
 
         {/* Right Column: Key Players & Meta */}
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {match.playersToWatch && (
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Target className="w-5 h-5 text-pak-green" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Players to Watch</h3>
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
+                <Target className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                <h3 className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white">Players to Watch</h3>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {match.playersToWatch.map((player, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-pak-green/20 transition-all group">
-                    <div className="w-12 h-12 rounded-xl bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0 group-hover:bg-pak-green/20 transition-colors">
+                  <div key={idx} className="flex gap-4 p-3 md:p-4 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 hover:border-pak-green/20 transition-all group">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0 group-hover:bg-pak-green/20 transition-colors">
                       {player.imgUrl ? (
-                        <img src={player.imgUrl} alt={player.name} className="w-full h-full object-cover rounded-lg" />
+                        <img src={player.imgUrl} alt={player.name} className="w-full h-full object-cover rounded-md" />
                       ) : (
-                        <User className="w-6 h-6 text-pak-green" />
+                        <User className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
                       )}
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <h4 className="text-sm font-bold text-white">{player.name}</h4>
-                        <span className="text-[9px] font-black uppercase text-pak-green bg-pak-green/10 px-2 py-0.5 rounded-md">{player.role}</span>
+                    <div className="min-w-0">
+                      <div className="flex items-center flex-wrap gap-2 mb-0.5 md:mb-1">
+                        <h4 className="text-xs md:text-sm font-bold text-white leading-none capitalize">{player.name}</h4>
+                        <span className="text-[8px] font-black uppercase text-pak-green bg-pak-green/10 px-1.5 py-0.5 rounded leading-none">{player.role}</span>
                       </div>
-                      <p className="text-[11px] text-white/50 leading-relaxed italic">"{player.reason}"</p>
+                      <p className="text-[10px] md:text-[11px] text-white/50 leading-relaxed italic line-clamp-2">"{player.reason}"</p>
                     </div>
                   </div>
                 ))}
@@ -119,17 +123,17 @@ function MatchDetailExpanded({ match }: { match: Match }) {
             </div>
           )}
 
-          <div className="bg-pak-green/10 rounded-3xl p-8 border border-pak-green/20 relative overflow-hidden group">
+          <div className="bg-pak-green/10 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-pak-green/20 relative overflow-hidden group">
             <div className="relative z-10">
-              <h3 className="text-lg font-display font-bold uppercase tracking-tight text-white mb-2">Detailed Statistics</h3>
-              <p className="text-xs text-white/60 mb-6 leading-relaxed">
+              <h3 className="text-base md:text-lg font-display font-bold uppercase tracking-tight text-white mb-1.5 md:mb-2 leading-tight">Detailed Statistics</h3>
+              <p className="text-[11px] md:text-xs text-white/60 mb-5 md:mb-6 leading-relaxed italic">
                 Looking for more in-depth data? Visit our full Match Center for historical head-to-head records and ground statistics.
               </p>
-              <Link to={`/match/${match.id}`} className="inline-flex items-center gap-2 px-6 py-3 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-pak-green transition-all shadow-xl shadow-pak-green/20">
-                Go to Match Center <ArrowRight className="w-4 h-4" />
+              <Link to={`/match/${match.id}`} className="inline-flex items-center gap-2 px-6 py-3 bg-pak-green text-white rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-pak-green transition-all shadow-xl shadow-pak-green/20">
+                Go to Match Center <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
               </Link>
             </div>
-            <Globe className="absolute -bottom-8 -right-8 w-32 h-32 text-pak-green/10 group-hover:scale-110 transition-transform duration-700" />
+            <Globe className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 w-24 h-24 md:w-32 md:h-32 text-pak-green/10 group-hover:scale-110 transition-transform duration-700" />
           </div>
         </div>
       </div>
@@ -262,11 +266,11 @@ export default function MatchSchedulePage() {
           initial={{ opacity: 0, x: -20 }} 
           animate={{ opacity: 1, x: 0 }}
         >
-          <Link to="/" className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4 md:mb-6">
+          <Link to="/" className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-3 md:mb-6">
             <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Back to Dashboard
           </Link>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 md:mb-6">
-            <h1 className="text-xl sm:text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white leading-tight">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-5 md:mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white leading-tight">
               Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
             </h1>
             <button 
@@ -283,27 +287,31 @@ export default function MatchSchedulePage() {
                   alert('Link copied to clipboard!');
                 }
               }}
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:border-pak-green/20 transition-all w-fit"
+              className="flex items-center justify-center gap-2 px-5 py-3 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:border-pak-green/20 transition-all w-full sm:w-fit"
             >
-              <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span>Share Schedule</span>
+              <Share2 className="w-3.5 h-3.5 md:w-4 md:h-4" /> <span>Share Schedule</span>
             </button>
           </div>
-          <div className="max-w-3xl space-y-3 sm:space-y-4 mb-6 md:mb-10">
-            <p className="text-sm sm:text-base md:text-xl text-ink/70 font-medium leading-relaxed">
+          <div className="max-w-3xl space-y-4 md:space-y-6 mb-8 md:mb-10 px-1">
+            <p className="text-base sm:text-lg md:text-xl text-ink/70 font-medium leading-relaxed italic">
               We bring you the <Link to="/schedule" className="text-pak-green hover:underline">Pakistan cricket schedule 2026</Link> with <strong>complete match details</strong> for every <Link to="/pakistan-upcoming-series-full-schedule" className="text-pak-green hover:underline">upcoming series</Link>, international tour, and major tournament. Fans can look forward to a busy year as Pakistan competes across all formats, including <Link to="/icc-test-ranking-2026" className="text-pak-green hover:underline">Test</Link>, <Link to="/icc-odi-ranking-2026" className="text-pak-green hover:underline">ODI</Link>, and <Link to="/icc-t20-ranking-2026" className="text-pak-green hover:underline">T20 matches</Link>.
             </p>
-            <p className="text-sm text-ink/50 font-medium leading-relaxed">
+            <p className="text-sm md:text-base text-ink/50 font-medium leading-relaxed italic">
               On this page, you’ll find the <Link to="/schedule" className="text-pak-green hover:underline">complete Pakistan cricket schedule</Link>, including <Link to="/pakistan-next-tour-details" className="text-pak-green hover:underline">match dates, venues, and timings</Link> — all organized in a simple and easy-to-follow format. Whether you're planning to watch live matches or just want to stay updated, this page has everything you need.
             </p>
-            <p className="text-[11px] font-bold uppercase tracking-[4px] text-pak-green/60 pt-4">
-              Fastest Updates • <Link to="/news" className="text-pak-green hover:underline">Verified Timings</Link> • Venue Directions
-            </p>
+            <div className="flex flex-wrap items-center gap-4 text-[9px] md:text-[11px] font-bold uppercase tracking-[2px] md:tracking-[4px] text-pak-green/60 pt-4">
+              <span>Fastest Updates</span>
+              <span className="w-1 h-1 rounded-full bg-white/20" />
+              <Link to="/news" className="text-pak-green hover:underline">Verified Timings</Link>
+              <span className="w-1 h-1 rounded-full bg-white/20" />
+              <span>Venue Directions</span>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="px-6 py-2 rounded-full bg-pak-green text-white text-[10px] font-bold uppercase tracking-[3px] shadow-lg shadow-pak-green/20">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-4 px-1">
+            <div className="w-fit px-5 py-2 rounded-full bg-pak-green text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest md:tracking-[3px] shadow-lg shadow-pak-green/20">
               Active Season 2026
             </div>
-            <p className="text-ink/40 font-bold uppercase tracking-widest text-[10px] border-l border-card-border pl-6">
+            <p className="text-ink/40 font-bold uppercase tracking-widest text-[9px] md:text-[10px] sm:border-l sm:border-card-border sm:pl-6">
               {filteredAndSortedMatches.length} Confirmed Fixtures
             </p>
           </div>
@@ -311,99 +319,99 @@ export default function MatchSchedulePage() {
       </div>
 
       {/* Broad Overview Section */}
-      <section className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.02] border border-card-border rounded-[48px] p-10 md:p-20 relative overflow-hidden group">
+      <section className="mb-16 md:mb-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-white/[0.02] border border-card-border rounded-3xl md:rounded-[48px] p-6 md:p-12 lg:p-20 relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-64 h-64 bg-pak-green/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-8">
+          <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6 md:mb-8">
             Pakistan Upcoming <span className="text-pak-green">Matches 2026</span>
           </h2>
-          <div className="space-y-6 text-ink/60 font-medium leading-relaxed">
-            <p className="text-lg">
-              Pakistan is set to play multiple <Link to="/schedule" className="text-pak-green hover:underline">international matches</Link> throughout 2026. These include bilateral series as well as <Link to="/schedule" className="text-pak-green hover:underline">global tournaments</Link>. The <Link to="/schedule" className="text-pak-green hover:underline">fixture list</Link> is updated regularly to ensure accuracy and reflect verified PCB announcements. You can also view the <a href="https://www.icc-cricket.com/tournaments/calendar" target="_blank" rel="noopener noreferrer" className="text-pak-green hover:underline">standard ICC tournament calendar</a> for global event planning.
+          <div className="space-y-5 md:space-y-6 text-ink/60 font-medium leading-relaxed">
+            <p className="text-base md:text-lg italic">
+              <LinkText text="Pakistan is set to play multiple international matches throughout 2026. These include bilateral series as well as global tournaments. The fixture list is updated regularly to ensure accuracy and reflect verified PCB announcements." />
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 pt-2 md:pt-4">
               {[
-                { label: 'Bilateral Series', desc: 'Home and away international tours', link: '/pakistan-upcoming-series-full-schedule' },
-                { label: 'Global Tournaments', desc: 'Asia Cup and ICC event fixtures', link: '/schedule' },
-                { label: 'Top-Tier Opponents', desc: 'Matches against leading nations', link: '/rankings' },
-                { label: 'Format Variety', desc: 'Test, ODI, and T20 match-ups', link: '/players-stats' }
+                { label: 'Bilateral Series', desc: 'Home/Away Tours', link: '/pakistan-upcoming-series-full-schedule' },
+                { label: 'Global Cups', desc: 'Asia Cup & ICC Events', link: '/schedule' },
+                { label: 'Top Nations', desc: 'Elite Opposition', link: '/rankings' },
+                { label: 'All Formats', desc: 'Test, ODI, T20', link: '/players-stats' }
               ].map((item, idx) => (
-                <Link to={item.link} key={idx} className="p-4 bg-white/5 border border-white/5 rounded-2xl hover:border-pak-green/30 transition-all">
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-pak-green mb-1">{item.label}</h4>
-                  <p className="text-[9px] font-bold text-ink/40 uppercase tracking-widest leading-normal">{item.desc}</p>
+                <Link to={item.link} key={idx} className="p-4 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl hover:border-pak-green/30 transition-all flex flex-col justify-center">
+                  <h4 className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-pak-green mb-0.5 md:mb-1">{item.label}</h4>
+                  <p className="text-[9px] md:text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-none">{item.desc}</p>
                 </Link>
               ))}
             </div>
           </div>
         </div>
-        <div className="relative">
-          <div className="bg-pak-green/10 rounded-[40px] aspect-square flex flex-col items-center justify-center text-center border border-pak-green/20 relative group-hover:bg-pak-green/20 transition-colors">
-            <Calendar className="w-24 h-24 text-pak-green mb-6 animate-pulse" />
-            <span className="text-[11px] font-bold uppercase tracking-[6px] text-pak-green">Upcoming Fixtures</span>
+        <div className="relative mt-8 md:mt-0">
+          <div className="bg-pak-green/5 md:bg-pak-green/10 rounded-2xl md:rounded-[40px] aspect-video md:aspect-square flex flex-col items-center justify-center text-center border border-pak-green/20 relative group-hover:bg-pak-green/20 transition-colors py-8 md:py-0">
+            <Calendar className="w-12 h-12 md:w-24 md:h-24 text-pak-green mb-4 md:mb-6 animate-pulse" />
+            <span className="text-[10px] md:text-[11px] font-extrabold uppercase tracking-[4px] md:tracking-[6px] text-pak-green">Fixture Intelligence</span>
           </div>
         </div>
       </section>
 
       {/* Global Controls */}
-      <div className="mb-12 space-y-12">
+      <div className="mb-10 md:mb-12 space-y-8 md:space-y-12 px-1">
         <div className="max-w-2xl">
-          <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-4">
+          <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-3 md:mb-4">
             Upcoming <span className="text-pak-green">Match Search</span>
           </h2>
-          <p className="text-ink/60 font-medium leading-relaxed">
+          <p className="text-xs md:text-sm text-ink/60 font-medium leading-relaxed italic">
             Never miss a single delivery. Use our comprehensive search and filter tools to find upcoming Pakistan matches by opponent, venue, or format.
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-6">
           {/* Search Box */}
-          <div className="relative group flex-1 max-w-lg">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
+          <div className="relative group flex-1">
+            <Search className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
             <input 
               type="text" 
-              placeholder="Search by Team, Venue or Series..."
+              placeholder="Search by Team or Series..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-card-bg border border-card-border rounded-3xl py-5 pl-14 pr-8 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl"
+              className="bg-card-bg border border-card-border rounded-2xl md:rounded-3xl py-4 md:py-5 pl-11 md:pl-14 pr-6 md:pr-8 text-[11px] md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl"
             />
           </div>
 
-          {/* Venue Dropdown */}
-          <div className="relative group w-full md:w-64">
-            <select
-              value={filterVenue}
-              onChange={(e) => setFilterVenue(e.target.value)}
-              className="appearance-none bg-card-bg border border-card-border rounded-3xl py-5 pl-12 pr-10 text-[9px] font-bold uppercase tracking-[3px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
-            >
-              {venues.map(v => (
-                <option key={v} value={v} className="bg-neutral-900 text-ink uppercase">{v === 'All' ? 'Every Venue' : v}</option>
-              ))}
-            </select>
-            <div className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
-              <MapPin className="w-4 h-4 text-pak-green" />
+          <div className="flex gap-4">
+            {/* Venue Dropdown */}
+            <div className="relative group flex-1 md:w-64">
+              <select
+                value={filterVenue}
+                onChange={(e) => setFilterVenue(e.target.value)}
+                className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-3xl py-4 md:py-5 pl-10 md:pl-12 pr-6 md:pr-10 text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
+              >
+                {venues.map(v => (
+                  <option key={v} value={v} className="bg-neutral-900 text-ink uppercase">{v === 'All' ? 'Every Venue' : v}</option>
+                ))}
+              </select>
+              <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
+              </div>
             </div>
-          </div>
 
-          {/* Sort Dropdown */}
-          <div className="relative group w-full md:w-64">
-            <select
-              value={`${sortKey}-${sortOrder}`}
-              onChange={(e) => {
-                const [key, order] = e.target.value.split('-') as [SortKey, 'asc' | 'desc'];
-                setSortKey(key);
-                setSortOrder(order);
-              }}
-              className="appearance-none bg-card-bg border border-card-border rounded-3xl py-5 pl-12 pr-10 text-[9px] font-bold uppercase tracking-[3px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
-            >
-              <option value="date-asc" className="bg-neutral-900">Date (Oldest First)</option>
-              <option value="date-desc" className="bg-neutral-900">Date (Newest First)</option>
-              <option value="opponent-asc" className="bg-neutral-900">Opponent (A-Z)</option>
-              <option value="opponent-desc" className="bg-neutral-900">Opponent (Z-A)</option>
-              <option value="series-asc" className="bg-neutral-900">Series (A-Z)</option>
-              <option value="series-desc" className="bg-neutral-900">Series (Z-A)</option>
-            </select>
-            <div className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
-              <ArrowUpDown className="w-4 h-4 text-pak-green" />
+            {/* Sort Dropdown */}
+            <div className="relative group flex-1 md:w-64">
+              <select
+                value={`${sortKey}-${sortOrder}`}
+                onChange={(e) => {
+                  const [key, order] = e.target.value.split('-') as [SortKey, 'asc' | 'desc'];
+                  setSortKey(key);
+                  setSortOrder(order);
+                }}
+                className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-3xl py-4 md:py-5 pl-10 md:pl-12 pr-6 md:pr-10 text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] focus:outline-none focus:border-pak-green/40 focus:ring-4 focus:ring-pak-green/10 transition-all w-full text-ink shadow-xl cursor-pointer"
+              >
+                <option value="date-asc" className="bg-neutral-900">Date (Oldest)</option>
+                <option value="date-desc" className="bg-neutral-900">Date (Newest)</option>
+                <option value="opponent-asc" className="bg-neutral-900">Team (A-Z)</option>
+                <option value="series-asc" className="bg-neutral-900">Series (A-Z)</option>
+              </select>
+              <div className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <ArrowUpDown className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
+              </div>
             </div>
           </div>
         </div>
@@ -411,14 +419,14 @@ export default function MatchSchedulePage() {
 
 
       {/* Format Filter Bar - Sticky on Mobile */}
-      <div className="sticky top-28 sm:top-36 z-30 flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap items-center gap-1.5 md:gap-2 mb-8 bg-bg/80 backdrop-blur-xl border border-card-border p-1.5 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-3 snap-x snap-mandatory">
+      <div className="sticky top-[80px] md:top-[124px] z-30 flex overflow-x-auto pb-1 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-bg/80 backdrop-blur-xl border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-0 snap-x snap-mandatory">
         {formats.map(f => (
           <button
             key={f}
             onClick={() => setFilterFormat(f)}
-            className={`whitespace-nowrap px-5 md:px-10 py-2 md:py-3 rounded-lg md:rounded-2xl text-[8px] md:text-[10px] font-bold uppercase tracking-[1.5px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 ${
+            className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 ${
               filterFormat === f 
-                ? 'bg-pak-green text-white shadow-pak-green/40 shadow-xl scale-105' 
+                ? 'bg-pak-green text-white shadow-pak-green/40 shadow-lg scale-105' 
                 : 'text-neutral-500 hover:text-ink hover:bg-white/5'
             }`}
           >
@@ -428,17 +436,17 @@ export default function MatchSchedulePage() {
       </div>
 
       {/* SEO Optimized Table Header Note */}
-      <div className="mb-6 px-4">
-        <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white mb-2">
+      <div className="mb-6 px-1 md:px-4">
+        <h2 className="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-white mb-2">
           Pakistan Cricket <span className="text-pak-green">Full Schedule 2026</span>
         </h2>
-        <p className="text-sm font-bold text-ink/40 uppercase tracking-[2px]">
+        <p className="text-[10px] sm:text-sm font-bold text-ink/40 uppercase tracking-[1px] sm:tracking-[2px]">
           Below is the complete list of Pakistan's upcoming matches in 2026 with dates, venues, and timings:
         </p>
       </div>
 
       {/* Structured Schedule Container */}
-      <div className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl relative">
+      <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl relative">
         {/* Mobile-only Card View */}
         <div className="md:hidden divide-y divide-card-border/40">
           {filteredAndSortedMatches.length > 0 ? (
@@ -450,27 +458,29 @@ export default function MatchSchedulePage() {
                   </div>
                 )}
                 <div 
-                   className={`p-5 flex flex-col gap-6 transition-all cursor-pointer hover:bg-white/[0.04] active:scale-[0.98] ${match.status === 'Live' ? 'bg-red-500/5 ring-1 ring-red-500/20 shadow-[0_0_20px_-10px_rgba(239,68,68,0.3)]' : ''}`}
+                   className={`px-4 py-8 sm:p-5 flex flex-col gap-6 transition-all cursor-pointer hover:bg-white/[0.04] active:scale-[0.98] ${match.status === 'Live' ? 'bg-red-500/5 ring-1 ring-red-500/20 shadow-[0_0_20px_-10px_rgba(239,68,68,0.3)]' : ''}`}
                    onClick={() => setExpandedId(expandedId === match.id ? null : match.id)}
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-xl flex flex-col items-center justify-center shrink-0 ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/5 border-pak-green/10'} border shadow-sm`}>
-                        <span className={`text-xl font-bold leading-none ${match.status === 'Live' ? 'text-red-500' : 'text-ink'}`}>
-                          {match.date.match(/\d+/) ? match.date.match(/\d+/)![0] : ''}
+                      <div className={`w-12 h-12 rounded-xl flex flex-col items-center justify-center shrink-0 ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/10 border-pak-green/20'} border shadow-md relative overflow-hidden`}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+                        <span className={`text-xl font-display font-black leading-none relative z-10 ${match.status === 'Live' ? 'text-red-500' : 'text-white'}`}>
+                          {match.date.match(/\d+/) ? match.date.match(/\d+/)![0] : '??'}
                         </span>
-                        <span className={`text-[9px] font-black uppercase tracking-widest ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`}>
+                        <span className={`text-[9px] font-black uppercase tracking-widest relative z-10 ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`}>
                           {match.date.includes(' ') ? match.date.split(' ')[0].substring(0,3) : '2026'}
                         </span>
                       </div>
-                      <div>
-                        <span className="text-[15px] font-bold text-ink block leading-tight mb-1">{match.date}</span>
-                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-ink/30 uppercase tracking-widest">
-                          <Clock className={`w-3.5 h-3.5 ${match.status === 'Live' ? 'text-red-400' : ''}`} /> {match.time} PKT
+                      <div className="min-w-0">
+                        <span className="text-sm font-bold text-white block leading-none mb-1.5 line-clamp-1">{match.date}</span>
+                        <div className="flex items-center gap-2 text-[10px] font-bold text-ink/40 uppercase tracking-widest">
+                          <Clock className={`w-3.5 h-3.5 ${match.status === 'Live' ? 'text-red-400' : 'text-pak-green'}`} /> 
+                          {match.time} PKT
                         </div>
                       </div>
                     </div>
-                    <span className={`px-2.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest shrink-0 border ${
+                    <span className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest shrink-0 border ${
                       match.format === 'Test' ? 'border-orange-500/20 text-orange-600 bg-orange-500/5' :
                       match.format === 'ODI' ? 'border-blue-500/20 text-blue-600 bg-blue-500/5' :
                       'border-teal-500/20 text-teal-600 bg-teal-500/5'
@@ -479,57 +489,61 @@ export default function MatchSchedulePage() {
                     </span>
                   </div>
 
-                  <div className={`flex items-center gap-4 p-4 rounded-2xl border transition-colors ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20' : 'bg-white/[0.02] border-white/5'}`}>
-                    <div className="w-12 h-9 rounded-lg overflow-hidden border border-card-border shrink-0 shadow-sm">
+                  <div className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${match.status === 'Live' ? 'bg-red-500/10 border-red-500/20 shadow-lg shadow-red-900/20' : 'bg-white/[0.03] border-white/5'}`}>
+                    <div className="w-12 h-8 rounded overflow-hidden border border-white/10 shrink-0 shadow-xl">
                       <img src={match.flagUrl} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </div>
-                    <Link to={`/match/${match.id}`} onClick={(e) => e.stopPropagation()} className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none hover:text-pak-green transition-colors">
+                    <Link to={`/match/${match.id}`} onClick={(e) => e.stopPropagation()} className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none hover:text-pak-green transition-colors line-clamp-1">
                       {match.title || `PAK vs ${match.opponent}`}
                     </Link>
                     {match.status === 'Live' && (
                       <div className="ml-auto">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_12px_rgba(220,38,38,0.8)]" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_15px_rgba(220,38,38,1)]" />
                       </div>
                     )}
                   </div>
 
-                  <div className="flex flex-col gap-3 px-1">
-                    <div className="flex items-start gap-3">
-                      <MapPin className={`w-4.5 h-4.5 mt-0.5 shrink-0 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
-                      <span className="text-[12px] font-bold text-ink/70 leading-relaxed">{match.venue}</span>
+                  <div className="grid grid-cols-2 gap-4 px-1">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <MapPin className={`w-3.5 h-3.5 ${match.status === 'Live' ? 'text-red-500 font-bold' : 'text-pak-green'}`} />
+                        <span className="text-[9px] font-black uppercase tracking-widest text-ink/30 leading-none">Venue</span>
+                      </div>
+                      <span className="text-[11px] font-bold text-ink leading-tight line-clamp-2">{match.venue}</span>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Trophy className="w-4.5 h-4.5 text-ink/20 mt-0.5 shrink-0" />
-                      <span className="text-[11px] font-bold text-ink/40 uppercase tracking-widest leading-relaxed line-clamp-1">{match.series}</span>
+                    <div className="flex flex-col gap-1 border-l border-white/5 pl-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Trophy className="w-3.5 h-3.5 text-ink/20" />
+                        <span className="text-[9px] font-black uppercase tracking-widest text-ink/30 leading-none">Series</span>
+                      </div>
+                      <span className="text-[11px] font-bold text-ink/50 leading-tight line-clamp-2 uppercase tracking-tight">{match.series}</span>
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center pt-2">
-                    <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg ${
-                      match.status === 'Live' ? 'bg-red-600 text-white animate-pulse shadow-red-600/20' :
-                      match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-amber-500/20' :
-                      match.status === 'Scheduled' ? 'bg-emerald-600 text-white shadow-emerald-600/20' :
-                      'bg-white/10 text-ink/40 border border-white/5'
+                  <div className="flex gap-3 pt-2">
+                    <span className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                      match.status === 'Live' ? 'bg-red-600 text-white animate-pulse shadow-xl shadow-red-600/20' :
+                      match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/10' :
+                      match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
+                      'bg-white/5 text-ink/40 border border-white/5'
                     }`}>
                       {match.status === 'Live' && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
                       {match.status}
                     </span>
-                    <div className="flex gap-2">
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedId(expandedId === match.id ? null : match.id);
-                        }}
-                        className={`px-4 py-3 rounded-xl border text-[11px] font-black uppercase tracking-widest flex items-center gap-2 transition-all ${
-                          match.status === 'Live' 
-                            ? 'bg-red-600/10 border-red-500/30 text-red-500' 
-                            : 'bg-white/5 border-white/10 text-pak-green'
-                        }`}
-                      >
-                         {expandedId === match.id ? 'Collapse' : 'Quick View'} 
-                         {expandedId === match.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                      </button>
-                    </div>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setExpandedId(expandedId === match.id ? null : match.id);
+                      }}
+                      className={`flex-1 py-3 rounded-xl border text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all ${
+                        match.status === 'Live' 
+                          ? 'bg-red-600/10 border-red-500/30 text-red-500' 
+                          : 'bg-white/5 border-white/10 text-pak-green hover:bg-pak-green/10'
+                      }`}
+                    >
+                       {expandedId === match.id ? 'Hide Detail' : 'Quick Stats'} 
+                       {expandedId === match.id ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    </button>
                   </div>
                 </div>
 

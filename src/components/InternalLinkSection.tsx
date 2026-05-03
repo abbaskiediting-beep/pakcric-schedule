@@ -26,40 +26,40 @@ export default function InternalLinkSection({ cols, title }: InternalLinkSection
     : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
 
   return (
-    <section className={isSidebar ? "mb-10" : "mb-20"}>
-      <div className={`flex items-center gap-3 ${isSidebar ? "mb-6" : "mb-10"}`}>
-        <div className={`${isSidebar ? "w-8 h-8 rounded-xl" : "w-10 h-10 rounded-2xl"} bg-pak-green flex items-center justify-center text-white shadow-lg`}>
-          <LayoutGrid className={isSidebar ? "w-4 h-4" : "w-5 h-5"} />
+    <section className={isSidebar ? "mb-10" : "mb-16 md:mb-20"}>
+      <div className={`flex items-center gap-3 ${isSidebar ? "mb-6" : "mb-8 md:mb-10"}`}>
+        <div className={`${isSidebar ? "w-8 h-8 rounded-xl" : "w-9 h-9 md:w-10 md:h-10 rounded-xl md:rounded-2xl"} bg-pak-green flex items-center justify-center text-white shadow-lg`}>
+          <LayoutGrid className={isSidebar ? "w-4 h-4" : "w-4 h-4 md:w-5 md:h-5"} />
         </div>
         <div>
-          <h3 className={`${isSidebar ? "text-xl" : "text-3xl"} font-display font-bold uppercase tracking-tight text-white line-clamp-1`}>
+          <h3 className={`${isSidebar ? "text-xl" : "text-xl md:text-3xl"} font-display font-bold uppercase tracking-tight text-white line-clamp-1`}>
             {title || <>Explore <span className="text-pak-green">PakCric Schedule</span></>}
           </h3>
-          <p className="text-[10px] font-bold text-ink/30 uppercase tracking-[4px]">
+          <p className="text-[9px] md:text-[10px] font-bold text-ink/30 uppercase tracking-[2px] md:tracking-[4px]">
             {isSidebar ? "Quick Navigation" : "Navigate through our comprehensive portal"}
           </p>
         </div>
       </div>
 
-      <div className={`grid ${isSidebar ? "gap-3" : "gap-6"} ${gridCols}`}>
+      <div className={`grid ${isSidebar ? "gap-3" : "gap-4 md:gap-6"} ${gridCols}`}>
         {INTERNAL_LINKS.map((link, idx) => (
           <Link 
             key={idx} 
             to={link.path}
-            className={`group bg-card-bg border border-card-border hover:border-pak-green/40 hover:bg-pak-green/5 transition-all flex flex-col justify-between ${isSidebar ? 'p-4 rounded-[24px]' : 'p-6 rounded-[32px]'}`}
+            className={`group bg-card-bg border border-card-border hover:border-pak-green/40 hover:bg-pak-green/5 transition-all flex flex-col justify-between ${isSidebar ? 'p-4 rounded-[24px]' : 'p-5 md:p-6 rounded-2xl md:rounded-[32px]'}`}
           >
             <div>
-              <h3 className={`text-white font-bold group-hover:text-pak-green transition-colors ${isSidebar ? 'text-sm mb-1 line-clamp-1' : 'text-lg mb-2'}`}>
+              <h3 className={`text-white font-bold group-hover:text-pak-green transition-colors ${isSidebar ? 'text-sm mb-1 line-clamp-1' : 'text-base md:text-lg mb-1.5 md:mb-2'}`}>
                 {link.name}
               </h3>
               {!isSidebar && (
-                <p className="text-ink/50 text-xs font-medium leading-relaxed">
+                <p className="text-ink/50 text-[10px] md:text-xs font-medium leading-relaxed line-clamp-1 md:line-clamp-none">
                   {link.desc}
                 </p>
               )}
             </div>
-            <div className={`${isSidebar ? "mt-3" : "mt-6"} flex items-center gap-2 text-[10px] font-bold text-pak-green uppercase tracking-[2px] ${isSidebar ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0`}>
-              {isSidebar ? "" : "Open Page"} <ChevronRight className="w-4 h-4" />
+            <div className={`${isSidebar ? "mt-3" : "mt-4 md:mt-6"} flex items-center gap-2 text-[8px] md:text-[10px] font-bold text-pak-green uppercase tracking-[1px] md:tracking-[2px] ${isSidebar ? 'opacity-100' : 'opacity-100 md:opacity-0'} group-hover:opacity-100 transition-all transform md:translate-x-[-10px] group-hover:translate-x-0`}>
+              {isSidebar ? "" : "Open Page"} <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
             </div>
           </Link>
         ))}

@@ -65,29 +65,29 @@ export default function AllPlayersStats() {
       </Helmet>
 
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 mb-10 md:mb-12">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-          <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[2px] mb-4">Statistics Hub</span>
-          <h1 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 md:mb-6 text-white leading-tight">
+          <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] mb-4">Statistics Hub</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 md:mb-6 text-white leading-tight">
             Pakistan Players Stats – <span className="text-pak-green">Batting, Bowling & Records</span>
           </h1>
           <div className="max-w-3xl space-y-4 mb-6 md:mb-8">
-            <p className="text-base md:text-lg text-ink/70 font-medium leading-relaxed">
+            <p className="text-sm md:text-lg text-ink/70 font-medium leading-relaxed">
               If you want to understand how the Pakistan cricket team is performing, player statistics are the best place to start.
             </p>
             <p className="hidden md:block text-ink/50 font-medium leading-relaxed">
               This page gives you a complete overview of Pakistan players’ stats across all formats, including Test, ODI, and T20 cricket. From top run scorers to leading wicket-takers, everything is presented in a clear and easy-to-read format.
             </p>
-            <p className="text-[10px] md:text-sm font-bold uppercase tracking-[3px] text-pak-green/60">
+            <p className="text-[10px] md:text-sm font-bold uppercase tracking-[2px] md:tracking-[3px] text-pak-green/60">
               Check recent performances in one place.
             </p>
           </div>
-          <p className="text-ink/40 font-bold uppercase tracking-widest text-[9px] md:text-[10px] border-l-2 border-pak-green pl-4">
+          <p className="text-ink/40 font-bold uppercase tracking-widest text-[8px] md:text-[10px] border-l-2 border-pak-green pl-4">
             Comprehensive data covering {players.length} active squad members
           </p>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-4 items-center">
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
           <div className="relative group w-full md:w-64">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
             <input 
@@ -95,7 +95,7 @@ export default function AllPlayersStats() {
               placeholder="Search player name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-6 text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink shadow-sm"
+              className="bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-12 pr-6 text-[10px] md:text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink shadow-sm"
             />
           </div>
           <div className="relative w-full md:w-56">
@@ -103,7 +103,7 @@ export default function AllPlayersStats() {
             <select
               value={roleFilter}
               onChange={(e) => setRoleFilter(e.target.value)}
-              className="appearance-none bg-card-bg border border-card-border rounded-2xl py-4 pl-12 pr-10 text-[10px] font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink cursor-pointer"
+              className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-12 pr-10 text-[9px] md:text-[10px] font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink cursor-pointer"
             >
               {roles.map(role => <option key={role} value={role}>{role}</option>)}
             </select>
@@ -115,28 +115,28 @@ export default function AllPlayersStats() {
       <AdPlaceholder type="leaderboard" className="mb-12" />
 
       {/* Top 3 High Performers */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 mb-12 md:mb-12">
         {players.slice(0, 3).map((player, idx) => (
           <motion.div 
             key={player.name}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
-            className="bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-5 md:p-6 relative overflow-hidden group"
+            className={`bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-5 md:p-6 relative overflow-hidden group ${idx === 2 ? 'md:hidden lg:block' : ''}`}
           >
             <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-              <Trophy className="w-20 h-20 md:w-24 md:h-24" />
+              <Trophy className="w-16 h-16 md:w-24 md:h-24" />
             </div>
             <div className="flex items-center gap-4 md:gap-6 relative z-10">
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-2">
                 {player.imgUrl ? <img src={player.imgUrl} alt={player.name} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-8 h-8 md:w-10 md:h-10 text-white/20" />}
               </div>
               <div className="min-w-0">
-                <span className={`text-[7px] md:text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-1.5 md:mb-2 inline-block ${idx === 0 ? 'bg-amber-500 text-black' : 'bg-pak-green/20 text-pak-green'}`}>
+                <span className={`text-[7px] md:text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-1 sm:mb-2 inline-block ${idx === 0 ? 'bg-amber-500 text-black' : 'bg-pak-green/20 text-pak-green'}`}>
                   {idx === 0 ? 'Top Performer' : player.role}
                 </span>
-                <h3 className="text-base md:text-lg font-display font-bold text-white uppercase truncate">{player.name}</h3>
-                <div className="flex gap-4 mt-1.5 md:mt-2">
+                <h3 className="text-base md:text-lg font-display font-bold text-white uppercase truncate leading-tight group-hover:text-pak-green transition-colors">{player.name}</h3>
+                <div className="flex gap-4 mt-1 sm:mt-2">
                   <div>
                     <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Runs</p>
                     <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.runs || '—'}</p>
@@ -150,7 +150,7 @@ export default function AllPlayersStats() {
             </div>
             <Link 
               to={`/player/${player.name.toLowerCase().replace(/ /g, '-')}`}
-              className="mt-5 md:mt-6 flex items-center justify-center gap-2 w-full py-3 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-white transition-all"
+              className="mt-5 md:mt-6 flex items-center justify-center gap-2 w-full py-3 bg-white/5 hover:bg-pak-green/10 border border-white/5 rounded-xl text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-white transition-all shadow-sm"
             >
               Detailed Audit <ChevronRight className="w-3 h-3" />
             </Link>

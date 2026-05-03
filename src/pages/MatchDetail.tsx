@@ -121,7 +121,7 @@ export default function MatchDetail() {
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
 
-      <h1 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight mb-8 text-ink text-center md:text-left leading-tight">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-display font-bold uppercase tracking-tight mb-6 md:mb-8 text-ink text-center md:text-left leading-tight">
         {match.title || `Pakistan vs ${match.opponent} 2026`} – <span className="text-pak-green font-black">Full Match Details</span>
       </h1>
 
@@ -135,8 +135,8 @@ export default function MatchDetail() {
            animate={{ opacity: 1, scale: 1 }}
            className="md:col-span-3 bg-gradient-to-br from-[#0a4d2e] via-pak-green to-black rounded-3xl md:rounded-[48px] p-6 sm:p-10 md:p-16 text-center border border-white/10 relative overflow-hidden shadow-3xl"
         >
-          <div className="absolute inset-0 opacity-[0.05] flex items-center justify-center pointer-events-none select-none mix-blend-soft-light">
-             <span className="text-[120px] sm:text-[200px] md:text-[300px] font-display font-black italic tracking-tighter">
+          <div className="absolute inset-0 opacity-[0.03] sm:opacity-[0.05] flex items-center justify-center pointer-events-none select-none mix-blend-soft-light">
+             <span className="text-[100px] sm:text-[200px] md:text-[300px] font-display font-black italic tracking-tighter">
                {match.status === 'Live' ? 'LIVE' : 'VS'}
              </span>
           </div>
@@ -152,30 +152,30 @@ export default function MatchDetail() {
                )}
              </div>
              
-             <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-20 mb-10 md:mb-14">
+             <div className="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-10 md:gap-20 mb-10 md:mb-14">
                 <div className="flex flex-col items-center">
-                   <div className="relative mb-4 md:mb-6">
-                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-white rounded-md text-[8px] md:text-[10px] font-black text-black">PAK</div>
+                   <div className="relative mb-5 md:mb-6">
+                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-white rounded-md text-[9px] md:text-[10px] font-black text-black">PAK</div>
                    </div>
-                   <h2 className="text-lg sm:text-2xl md:text-5xl font-display font-black text-white tracking-widest uppercase">PAKISTAN</h2>
+                   <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-widest uppercase">PAKISTAN</h2>
                    {match.scorePAK && (
-                     <div className="mt-3 text-3xl sm:text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
+                     <div className="mt-3 text-4xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
                    )}
                 </div>
 
-                <div className="text-2xl sm:text-4xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic">
+                <div className="text-4xl sm:text-5xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic leading-none my-2 md:my-0">
                   {match.status === 'Live' || match.status === 'Completed' ? '-' : 'VS'}
                 </div>
 
                 <div className="flex flex-col items-center">
-                   <div className="relative mb-4 md:mb-6">
-                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-white rounded-md text-[8px] md:text-[10px] font-black text-black">{match.opponent.substring(0, 3)}</div>
+                   <div className="relative mb-5 md:mb-6">
+                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-white rounded-md text-[9px] md:text-[10px] font-black text-black">{match.opponent.substring(0, 3)}</div>
                    </div>
-                   <h2 className="text-lg sm:text-2xl md:text-5xl font-display font-black text-white uppercase tracking-widest leading-none">{match.opponent}</h2>
+                   <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white uppercase tracking-widest leading-none">{match.opponent}</h2>
                    {match.scoreOpponent && (
-                     <div className="mt-3 text-3xl sm:text-4xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
+                     <div className="mt-3 text-4xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
                    )}
                 </div>
              </div>
@@ -193,18 +193,18 @@ export default function MatchDetail() {
              )}
 
               <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
-                <div className="inline-flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 p-6 md:p-6 bg-black/40 rounded-[32px] border border-white/10 backdrop-blur-xl shadow-2xl w-full md:w-auto">
+                <div className="inline-flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 p-5 sm:p-6 md:p-6 bg-black/40 rounded-[28px] md:rounded-[32px] border border-white/10 backdrop-blur-xl shadow-2xl w-full md:w-auto">
                    <div className="flex items-center gap-3">
-                      <Calendar className="w-5 h-5 text-pak-green" />
-                      <span className="text-[10px] md:text-xs font-black uppercase tracking-[2px]">{match.date}</span>
+                      <Calendar className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                      <span className="text-[9px] md:text-xs font-black uppercase tracking-[2px]">{match.date}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                       <Clock className="w-5 h-5 text-pak-green" />
-                       <span className="text-[10px] md:text-xs font-black uppercase tracking-[2px]">{match.time} PKT</span>
+                       <Clock className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                       <span className="text-[9px] md:text-xs font-black uppercase tracking-[2px]">{match.time} PKT</span>
                     </div>
                     <div className="flex items-center gap-3">
-                       <MapPin className="w-5 h-5 text-pak-green" />
-                       <span className="text-[10px] md:text-xs font-black uppercase tracking-[2px]">{match.venue}</span>
+                       <MapPin className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                       <span className="text-[9px] md:text-xs font-black uppercase tracking-[2px] truncate max-w-[200px] md:max-w-none">{match.venue}</span>
                     </div>
                 </div>
 
@@ -250,18 +250,18 @@ export default function MatchDetail() {
           >
             {/* Top Scorers */}
             {match.stats.topScorers && (
-              <div className="bg-card-bg border border-card-border rounded-[32px] p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <Zap className="w-4 h-4 text-amber-400" />
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white">Top Scorers</h3>
+              <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-5 md:mb-6">
+                  <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-400" />
+                  <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white">Top Scorers</h3>
                 </div>
                 <div className="space-y-4">
                   {match.stats.topScorers.map((scorer, idx) => (
                     <div key={idx} className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0 last:pb-0">
-                      <span className="text-[11px] font-bold uppercase text-white/80">{scorer.name}</span>
+                      <span className="text-[10px] md:text-[11px] font-bold uppercase text-white/80">{scorer.name}</span>
                       <div className="text-right">
-                        <span className="text-sm font-display font-bold text-white">{scorer.runs}</span>
-                        <span className="text-[9px] text-ink/40 ml-1">({scorer.balls})</span>
+                        <span className="text-xs md:text-sm font-display font-bold text-white">{scorer.runs}</span>
+                        <span className="text-[8px] md:text-[9px] text-ink/40 ml-1">({scorer.balls})</span>
                       </div>
                     </div>
                   ))}
@@ -271,18 +271,18 @@ export default function MatchDetail() {
 
             {/* Leading Wicket Takers */}
             {match.stats.leadingWicketTakers && (
-              <div className="bg-card-bg border border-card-border rounded-[32px] p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <Target className="w-4 h-4 text-red-400" />
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white">Best Bowling</h3>
+              <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-5 md:mb-6">
+                  <Target className="w-3.5 h-3.5 md:w-4 md:h-4 text-red-400" />
+                  <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white">Best Bowling</h3>
                 </div>
                 <div className="space-y-4">
                   {match.stats.leadingWicketTakers.map((taker, idx) => (
                     <div key={idx} className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0 last:pb-0">
-                      <span className="text-[11px] font-bold uppercase text-white/80">{taker.name}</span>
+                      <span className="text-[10px] md:text-[11px] font-bold uppercase text-white/80">{taker.name}</span>
                       <div className="text-right">
-                        <span className="text-sm font-display font-bold text-white">{taker.wickets}-{taker.runs}</span>
-                        <span className="text-[9px] text-ink/40 ml-1">({taker.overs})</span>
+                        <span className="text-xs md:text-sm font-display font-bold text-white">{taker.wickets}-{taker.runs}</span>
+                        <span className="text-[8px] md:text-[9px] text-ink/40 ml-1">({taker.overs})</span>
                       </div>
                     </div>
                   ))}
@@ -292,18 +292,18 @@ export default function MatchDetail() {
 
             {/* Key Partnerships */}
             {match.stats.keyPartnerships && (
-              <div className="bg-card-bg border border-card-border rounded-[32px] p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <Users className="w-4 h-4 text-blue-400" />
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white">Key Partnerships</h3>
+              <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-5 md:mb-6">
+                  <Users className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-400" />
+                  <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white">Key Partnerships</h3>
                 </div>
                 <div className="space-y-4">
                   {match.stats.keyPartnerships.map((partnership, idx) => (
                     <div key={idx} className="border-b border-white/5 pb-2 last:border-0 last:pb-0">
-                      <p className="text-[10px] font-bold uppercase text-white/80 mb-1">{partnership.players}</p>
+                      <p className="text-[9px] md:text-[10px] font-bold uppercase text-white/80 mb-1">{partnership.players}</p>
                       <div className="flex justify-between items-baseline">
-                        <span className="text-sm font-display font-bold text-white">{partnership.runs} Runs</span>
-                        <span className="text-[9px] text-ink/40 ml-1">off {partnership.balls} balls</span>
+                        <span className="text-xs md:text-sm font-display font-bold text-white">{partnership.runs} Runs</span>
+                        <span className="text-[8px] md:text-[9px] text-ink/40 ml-1">off {partnership.balls} balls</span>
                       </div>
                     </div>
                   ))}
@@ -314,43 +314,43 @@ export default function MatchDetail() {
         )}
 
         {/* Action Widgets */}
-        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-card-bg border border-card-border rounded-[32px] p-8 flex flex-col justify-between">
+        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 md:p-8 flex flex-col justify-between">
            <div>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-3">Tickets</h3>
-              <p className="text-xs text-ink/40 font-medium mb-6">Experience the action live from the stadium. Premium seating available.</p>
+              <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white mb-3">Tickets</h3>
+              <p className="text-[11px] md:text-xs text-ink/40 font-medium mb-6">Experience the action live from the stadium. Premium seating available.</p>
            </div>
-           <button className="w-full py-3 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all flex items-center justify-center gap-2">
+           <button className="w-full py-3.5 bg-white text-black rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all flex items-center justify-center gap-2">
               <Ticket className="w-4 h-4" /> Book Tickets
            </button>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card-bg border border-card-border rounded-[32px] p-8">
-           <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-3">Venue Info</h3>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 md:p-8">
+           <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white mb-3">Venue Info</h3>
            <div className="space-y-4">
               <div className="flex justify-between border-b border-white/5 pb-2">
-                 <span className="text-[10px] font-bold text-ink/40 uppercase">Stadium</span>
-                 <span className="text-[10px] font-bold uppercase">{match.venue.split(',')[0]}</span>
+                 <span className="text-[9px] md:text-[10px] font-bold text-ink/40 uppercase">Stadium</span>
+                 <span className="text-[9px] md:text-[10px] font-bold uppercase text-right line-clamp-1">{match.venue.split(',')[0]}</span>
               </div>
               <div className="flex justify-between border-b border-white/5 pb-2">
-                 <span className="text-[10px] font-bold text-ink/40 uppercase">City</span>
-                 <span className="text-[10px] font-bold uppercase">{match.venue.split(',')[1] || 'TBA'}</span>
+                 <span className="text-[9px] md:text-[10px] font-bold text-ink/40 uppercase">City</span>
+                 <span className="text-[9px] md:text-[10px] font-bold uppercase text-right">{match.venue.split(',')[1] || 'TBA'}</span>
               </div>
               <div className="flex justify-between">
-                 <span className="text-[10px] font-bold text-ink/40 uppercase">Format</span>
-                 <span className="text-[10px] font-bold uppercase text-white">{match.format}</span>
+                 <span className="text-[9px] md:text-[10px] font-bold text-ink/40 uppercase">Format</span>
+                 <span className="text-[9px] md:text-[10px] font-bold uppercase text-white">{match.format}</span>
               </div>
            </div>
         </motion.div>
 
         {match.status !== 'Completed' && (
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-pak-green rounded-[32px] p-8 text-white relative overflow-hidden group">
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-pak-green rounded-3xl md:rounded-[32px] p-6 md:p-8 text-white relative overflow-hidden group">
              <div className="relative z-10">
-               <h3 className="text-lg font-display font-bold uppercase tracking-tight mb-2">Live Stream</h3>
-               <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Watch the match live in HD on PCB Digital & PTV Sports.</p>
+               <h3 className="text-base md:text-lg font-display font-bold uppercase tracking-tight mb-2">Live Stream</h3>
+               <p className="text-[9px] md:text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Watch the match live in HD on PCB Digital & PTV Sports.</p>
                <button 
                 onClick={handleSetReminder}
                 disabled={reminderSet}
-                className={`px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 ${
+                className={`px-6 md:px-8 py-3 rounded-xl md:rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 ${
                   reminderSet 
                     ? 'bg-pak-green border border-white/30 text-white cursor-default' 
                     : 'bg-white text-pak-green hover:scale-105 active:scale-95'
@@ -358,11 +358,11 @@ export default function MatchDetail() {
                >
                   {reminderSet ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4" /> Reminder Set
+                      <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4" /> Reminder Set
                     </>
                   ) : (
                     <>
-                      <Bell className="w-4 h-4" /> Set Reminder
+                      <Bell className="w-3.5 h-3.5 md:w-4 md:h-4" /> Set Reminder
                     </>
                   )}
                </button>
@@ -382,55 +382,61 @@ export default function MatchDetail() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
-          className="mt-12 bg-card-bg border border-card-border rounded-[32px] p-8 md:p-12 overflow-hidden shadow-2xl relative"
+          className="mt-10 md:mt-12 bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 sm:p-8 md:p-12 overflow-hidden shadow-2xl relative"
         >
           <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
-            <BarChart3 className="w-48 h-48" />
+            <BarChart3 className="w-32 h-32 md:w-48 md:h-48" />
           </div>
 
           <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-10">
-              <Activity className="w-5 h-5 text-pak-green" />
-              <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white">Venue Insights: {match.venue.split(',')[0]}</h2>
+            <div className="flex items-center gap-3 mb-8 md:mb-10">
+              <Activity className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+              <h2 className="text-lg md:text-2xl font-display font-bold uppercase tracking-tight text-white leading-tight">Venue Insights: {match.venue.split(',')[0]}</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-              <div className="p-6 bg-white/[0.03] rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
-                <span className="text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Avg 1st Innings Score</span>
-                <span className="text-4xl font-display font-black text-white">{match.venueInsights.avgFirstInningsScore}</span>
-                <span className="text-[9px] text-pak-green font-bold uppercase mt-2">Historical Average</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-10">
+              <div className="p-5 sm:p-6 bg-white/[0.03] rounded-2xl md:rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
+                <span className="text-[9px] md:text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Avg 1st Score</span>
+                <span className="text-3xl md:text-4xl font-display font-black text-white">{match.venueInsights.avgFirstInningsScore}</span>
+                <span className="text-[8px] md:text-[9px] text-pak-green font-bold uppercase mt-2">Historical Average</span>
               </div>
               
-              <div className="p-6 bg-white/[0.03] rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
-                <span className="text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Win % Batting 1st</span>
-                <div className="relative w-20 h-20 flex items-center justify-center">
+              <div className="p-5 sm:p-6 bg-white/[0.03] rounded-2xl md:rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
+                <span className="text-[9px] md:text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Defending Win %</span>
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
                   <svg className="w-full h-full transform -rotate-90">
-                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5" />
-                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray={226.19} strokeDashoffset={226.19 - (226.19 * match.venueInsights.winPercentageBattingFirst) / 100} className="text-pak-green" />
+                    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="6" fill="transparent" className="text-white/5 sm:hidden" />
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5 hidden sm:block" />
+                    
+                    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="6" fill="transparent" strokeDasharray={175.93} strokeDashoffset={175.93 - (175.93 * match.venueInsights.winPercentageBattingFirst) / 100} className="text-pak-green sm:hidden" />
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray={226.19} strokeDashoffset={226.19 - (226.19 * match.venueInsights.winPercentageBattingFirst) / 100} className="text-pak-green hidden sm:block" />
                   </svg>
-                  <span className="absolute text-sm font-black text-white">{match.venueInsights.winPercentageBattingFirst}%</span>
+                  <span className="absolute text-xs sm:text-sm font-black text-white">{match.venueInsights.winPercentageBattingFirst}%</span>
                 </div>
-                <span className="text-[9px] text-white/40 font-bold uppercase mt-3 italic">Defending Success</span>
+                <span className="text-[8px] md:text-[9px] text-white/40 font-bold uppercase mt-3 italic">Defending Success</span>
               </div>
 
-              <div className="p-6 bg-white/[0.03] rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
-                <span className="text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Win % Batting 2nd</span>
-                <div className="relative w-20 h-20 flex items-center justify-center">
+              <div className="p-5 sm:p-6 bg-white/[0.03] rounded-2xl md:rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center">
+                <span className="text-[9px] md:text-[10px] font-black uppercase text-ink/40 mb-3 tracking-widest">Chasing Win %</span>
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
                   <svg className="w-full h-full transform -rotate-90">
-                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5" />
-                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray={226.19} strokeDashoffset={226.19 - (226.19 * match.venueInsights.winPercentageBattingSecond) / 100} className="text-amber-500" />
+                    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="6" fill="transparent" className="text-white/5 sm:hidden" />
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5 hidden sm:block" />
+                    
+                    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="6" fill="transparent" strokeDasharray={175.93} strokeDashoffset={175.93 - (175.93 * match.venueInsights.winPercentageBattingSecond) / 100} className="text-amber-500 sm:hidden" />
+                    <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="8" fill="transparent" strokeDasharray={226.19} strokeDashoffset={226.19 - (226.19 * match.venueInsights.winPercentageBattingSecond) / 100} className="text-amber-500 hidden sm:block" />
                   </svg>
-                  <span className="absolute text-sm font-black text-white">{match.venueInsights.winPercentageBattingSecond}%</span>
+                  <span className="absolute text-xs sm:text-sm font-black text-white">{match.venueInsights.winPercentageBattingSecond}%</span>
                 </div>
-                <span className="text-[9px] text-white/40 font-bold uppercase mt-3 italic">Chasing Success</span>
+                <span className="text-[8px] md:text-[9px] text-white/40 font-bold uppercase mt-3 italic">Chasing Success</span>
               </div>
             </div>
 
-            <div className="bg-pak-green/5 border border-pak-green/20 rounded-[2rem] p-8">
+            <div className="bg-pak-green/5 border border-pak-green/20 rounded-2xl sm:rounded-[2rem] p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <Info className="w-5 h-5 text-pak-green mt-1 shrink-0" />
+                <Info className="w-4 h-4 md:w-5 md:h-5 text-pak-green mt-1 shrink-0" />
                 <div>
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-pak-green mb-2">Pitch Condition & Behavior</h4>
+                  <h4 className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-pak-green mb-2">Pitch Behavior</h4>
                   <p className="text-sm md:text-base text-ink/80 leading-relaxed italic">
                     "{match.venueInsights.pitchCondition}"
                   </p>

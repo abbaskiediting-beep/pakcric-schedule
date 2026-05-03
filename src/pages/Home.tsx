@@ -141,41 +141,41 @@ export default function Home() {
         </script>
       </Helmet>
       {/* High Conversion Hero Section */}
-      <section className="mb-10 md:mb-20 mt-2 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
+      <section className="mb-8 md:mb-20 mt-1 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/60 border border-white/10 rounded-full mb-4 md:mb-8 backdrop-blur-md">
-            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-black/60 border border-white/10 rounded-full mb-4 md:mb-8 backdrop-blur-md">
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[7px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.05] text-white mb-6 md:mb-8">
+          <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-8 transition-all">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black drop-shadow-[0_0_15px_rgba(0,102,46,0.3)]">Never Miss a Match</span>
           </h1>
           
-          <p className="text-base sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-2">
+          <p className="text-sm sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-2 transition-all">
             <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and never miss a match." />
           </p>
-          <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-[2px] md:tracking-widest leading-relaxed max-w-2xl mx-auto mb-10 md:mb-14 px-4">
+          <p className="text-[9px] md:text-sm text-ink/40 font-bold uppercase tracking-[1.5px] md:tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-14 px-4 transition-all">
             <LinkText text="Follow the national team journey through the ICC Champions Trophy, bilateral tours, and home series. Our PakCric Schedule is updated in real-time to ensure fans have the best experience." />
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-12 mb-10 md:mb-16">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-12 mb-8 md:mb-16">
             {[
               { icon: '✔', label: 'Updated Daily' },
               { icon: '✔', label: 'Accurate PKT Timings' },
               { icon: '✔', label: 'Full Series' }
             ].map((trust, i) => (
-              <div key={i} className="flex items-center gap-2 md:gap-3">
-                <span className="text-pak-green font-black text-base md:text-xl">{trust.icon}</span>
-                <span className="text-[8px] sm:text-[10px] md:text-xs font-black uppercase tracking-[2px] text-white/70">{trust.label}</span>
+              <div key={i} className="flex items-center gap-1.5 md:gap-3">
+                <span className="text-pak-green font-black text-sm md:text-xl">{trust.icon}</span>
+                <span className="text-[7px] sm:text-[10px] md:text-xs font-black uppercase tracking-[1.5px] text-white/70">{trust.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-12 md:mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-10 md:mb-16">
             <Link 
               to="/schedule" 
-              className="w-full sm:w-auto px-12 py-5 bg-pak-green text-white rounded-2xl text-[11px] md:text-sm font-black uppercase tracking-[3px] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-4 md:px-12 md:py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-sm font-black uppercase tracking-[2px] md:tracking-[3px] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
             >
               View Full Schedule <ArrowRight className="w-5 h-5" />
             </Link>
@@ -184,7 +184,7 @@ export default function Home() {
                 const element = document.getElementById('match-center');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-12 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[11px] md:text-sm font-black uppercase tracking-[3px] hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-4 md:px-12 md:py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] md:text-sm font-black uppercase tracking-[2px] md:tracking-[3px] hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
             >
               Check Next Match <Timer className="w-5 h-5" />
             </button>
@@ -195,15 +195,15 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="px-5 py-2 bg-black border border-white/10 rounded-xl flex items-center gap-3 shadow-2xl"
+              className="px-4 py-1.5 md:px-5 md:py-2 bg-black border border-white/10 rounded-xl flex items-center gap-2 md:gap-3 shadow-2xl"
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
-              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[2px] text-white">
+              <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+              <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
                 Next: Pak vs Ban – May 8, 2026
               </span>
             </motion.div>
             
-            <p className="text-[8px] md:text-[10px] font-bold text-ink/30 uppercase tracking-widest">
+            <p className="text-[7px] md:text-[10px] font-bold text-ink/30 uppercase tracking-widest">
               Fast updates • 100% free • Fans first point
             </p>
           </div>
@@ -233,7 +233,9 @@ export default function Home() {
         <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth">
           {MATCH_RESULTS.length > 0 ? (
             MATCH_RESULTS.map((match, index) => (
-              <MatchCard key={match.id} match={match} index={index} matchId={match.id} />
+              <div key={match.id} className="min-w-[280px] sm:min-w-[320px] md:min-w-0 md:flex-1 snap-start first:ml-0">
+                <MatchCard match={match} index={index} matchId={match.id} />
+              </div>
             ))
           ) : (
             <div className="flex-1 min-h-[140px] flex items-center justify-center bg-white/5 border border-dashed border-card-border rounded-[32px]">

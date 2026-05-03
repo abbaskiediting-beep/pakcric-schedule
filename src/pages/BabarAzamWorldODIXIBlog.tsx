@@ -76,7 +76,7 @@ export default function BabarAzamWorldODIXIBlog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tighter"
           >
             {blogTitle}
           </motion.h1>
@@ -85,24 +85,24 @@ export default function BabarAzamWorldODIXIBlog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap items-center gap-8"
+            className="flex flex-wrap items-center gap-4 md:gap-8"
           >
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full border border-pak-green/30 bg-pak-green/10 flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-pak-green/30 bg-pak-green/10 flex items-center justify-center overflow-hidden">
                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zainab" alt="Zainab Rashid" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-white/40 uppercase tracking-[2px]">Analyzed by</span>
-                <span className="text-[14px] font-black text-white uppercase tracking-widest">Zainab Rashid</span>
+                <span className="text-[9px] md:text-[10px] font-bold text-white/40 uppercase tracking-[2px]">Analyzed by</span>
+                <span className="text-[12px] md:text-[14px] font-black text-white uppercase tracking-widest">Zainab Rashid</span>
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-8 text-white/40 text-[11px] font-bold uppercase tracking-widest">
+            <div className="flex flex-wrap items-center gap-4 md:gap-8 text-white/40 text-[9px] md:text-[11px] font-bold uppercase tracking-widest">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-pak-green" />
+                <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
                 {publishDate}
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-pak-green" />
+                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
                 12 Min Read
               </div>
             </div>
@@ -117,45 +117,45 @@ export default function BabarAzamWorldODIXIBlog() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card-bg border border-card-border rounded-[40px] p-8 md:p-14 mb-10 overflow-hidden shadow-2xl"
+              className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 sm:p-8 md:p-14 mb-10 overflow-hidden shadow-2xl"
             >
               <div className="prose prose-invert max-w-none">
-                <p className="text-xl text-white/70 leading-relaxed mb-12 first-letter:text-7xl first-letter:font-black first-letter:text-pak-green first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
+                <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 md:mb-12 first-letter:text-5xl md:first-letter:text-7xl first-letter:font-black first-letter:text-pak-green first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
                   <LinkText text="May 3, 2026. PSL Final day. Gaddafi Stadium, Lahore, is about to host the most watched cricket match in Pakistan this year. The whole country is talking about Peshawar Zalmi vs Hyderabad Kingsmen. Babar Azam — 588 runs in the season, two centuries, one world record — is hours away from playing the biggest club game of his career as captain." />
                 </p>
                 
-                <p className="text-lg text-white/60 mb-10 leading-relaxed">
+                <p className="text-base md:text-lg text-white/60 mb-8 md:mb-10 leading-relaxed">
                   And yet, earlier today, Babar Azam sat down with Zalmi TV for a pre-Final video session and agreed to pick his **World Best ODI XI**. What followed was one of the most talked-about cricket selections of the week — not because of who Babar picked, but because of who he left out.
                 </p>
 
-                <div className="bg-red-500/10 border border-red-500/20 p-8 rounded-3xl mb-12 flex flex-col gap-4">
-                  <h3 className="text-xl font-black text-red-500 uppercase tracking-widest flex items-center gap-3">
-                    <Shield className="w-6 h-6" />
+                <div className="bg-red-500/10 border border-red-500/20 p-6 md:p-8 rounded-2xl md:rounded-3xl mb-10 md:mb-12 flex flex-col gap-4">
+                  <h3 className="text-lg md:text-xl font-black text-red-500 uppercase tracking-widest flex items-center gap-3">
+                    <Shield className="w-5 h-5 md:w-6 md:h-6" />
                     The Major Omissions
                   </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <li className="flex items-center gap-3 text-white/80 font-bold bg-white/5 py-3 px-5 rounded-2xl border border-white/5">
-                      <Zap className="w-4 h-4 text-pak-green" /> No Virat Kohli
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    <li className="flex items-center gap-2 md:gap-3 text-white/80 font-bold bg-white/5 py-3 px-4 md:px-5 rounded-xl md:rounded-2xl border border-white/5 text-xs md:text-base">
+                      <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" /> No Virat Kohli
                     </li>
-                    <li className="flex items-center gap-3 text-white/80 font-bold bg-white/5 py-3 px-5 rounded-2xl border border-white/5">
-                      <Zap className="w-4 h-4 text-pak-green" /> No Rohit Sharma
+                    <li className="flex items-center gap-2 md:gap-3 text-white/80 font-bold bg-white/5 py-3 px-4 md:px-5 rounded-xl md:rounded-2xl border border-white/5 text-xs md:text-base">
+                      <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" /> No Rohit Sharma
                     </li>
-                    <li className="flex items-center gap-3 text-white/80 font-bold bg-white/5 py-3 px-5 rounded-2xl border border-white/5">
-                      <Zap className="w-4 h-4 text-pak-green" /> No Jasprit Bumrah
+                    <li className="flex items-center gap-2 md:gap-3 text-white/80 font-bold bg-white/5 py-3 px-4 md:px-5 rounded-xl md:rounded-2xl border border-white/5 text-xs md:text-base">
+                      <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" /> No Jasprit Bumrah
                     </li>
-                    <li className="flex items-center gap-3 text-white/80 font-bold bg-white/5 py-3 px-5 rounded-2xl border border-white/5">
-                      <Zap className="w-4 h-4 text-pak-green" /> Babar himself as 12th Man
+                    <li className="flex items-center gap-2 md:gap-3 text-white/80 font-bold bg-white/5 py-3 px-4 md:px-5 rounded-xl md:rounded-2xl border border-white/5 text-xs md:text-base">
+                      <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" /> Babar as 12th Man
                     </li>
                   </ul>
                 </div>
 
-                <h2 className="text-3xl font-black uppercase tracking-tighter mb-8 flex items-center gap-4">
-                  <Trophy className="w-8 h-8 text-pak-green" />
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6 md:mb-8 flex items-center gap-3 md:gap-4">
+                  <Trophy className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
                   Babar Azam's World ODI XI
                 </h2>
                 
-                <div className="overflow-x-auto bg-black/40 border border-white/5 rounded-3xl p-4 md:p-8 mb-12 shadow-inner">
-                  <table className="w-full text-left border-collapse">
+                <div className="overflow-x-auto bg-black/40 border border-white/5 rounded-2xl md:rounded-3xl p-4 md:p-8 mb-10 md:mb-12 shadow-inner">
+                  <table className="w-full text-left border-collapse min-w-[500px]">
                     <thead>
                       <tr className="border-b border-white/10 text-[11px] font-black uppercase tracking-[2px] text-white/40">
                         <th className="py-4 px-2">#</th>

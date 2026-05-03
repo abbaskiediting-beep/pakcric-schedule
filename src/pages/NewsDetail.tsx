@@ -250,7 +250,7 @@ export default function NewsDetail() {
   const article = ARTICLES[id || ''] || ARTICLES['pakistan-vs-bangladesh-test-series-2026'];
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-6">
+    <div className="max-w-4xl mx-auto py-6 md:py-12 px-4 md:px-6">
       <Helmet>
         <title>{`Pakistan Cricket News Today – Latest Updates 2026 | ${article.title}`}</title>
         <meta name="description" content={article.metaDescription || `Get the latest Pakistan cricket news, team updates, and breaking stories. Now: ${article.title}.`} />
@@ -295,17 +295,17 @@ export default function NewsDetail() {
       </Helmet>
       <button 
         onClick={() => navigate('/news')}
-        className="inline-flex items-center gap-2 text-white font-normal uppercase tracking-widest text-[10px] mb-8 hover:translate-x-[-4px] transition-transform"
+        className="inline-flex items-center gap-2 text-white font-normal uppercase tracking-widest text-[9px] md:text-[10px] mb-6 md:mb-8 hover:translate-x-[-4px] transition-transform"
       >
-        <ArrowLeft className="w-4 h-4 text-white" /> Back to News
+        <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" /> Back to News
       </button>
 
       <motion.article
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card-bg border border-card-border rounded-[40px] overflow-hidden shadow-2xl"
+        className="bg-card-bg border border-card-border rounded-2xl md:rounded-[40px] overflow-hidden shadow-2xl"
       >
-        <div className="h-64 md:h-96 relative flex items-end overflow-hidden group">
+        <div className="h-48 sm:h-64 md:h-96 relative flex items-end overflow-hidden group">
           {article.image ? (
             <>
               <img 
@@ -320,30 +320,32 @@ export default function NewsDetail() {
           ) : (
             <div className="absolute inset-0 bg-gradient-to-br from-pak-green to-[#00220e]" />
           )}
-          <Newspaper className="w-32 h-32 text-white/5 absolute -right-8 -bottom-8 rotate-12" />
-          <div className="p-8 md:p-12 relative z-10 w-full">
-            <span className="inline-block px-4 py-1.5 bg-pak-green text-white rounded-full text-[10px] font-bold uppercase tracking-[3px] mb-4 border border-white/10">
+          <Newspaper className="w-24 h-24 md:w-32 md:h-32 text-white/5 absolute -right-6 -bottom-6 md:-right-8 md:-bottom-8 rotate-12" />
+          <div className="p-6 md:p-12 relative z-10 w-full">
+            <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] mb-3 md:mb-4 border border-white/10 leading-none">
               Latest Pakistan Cricket News & Updates
             </span>
-            <h1 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter text-white leading-none">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter text-white leading-tight md:leading-none">
               <LinkText text={article.title} />
             </h1>
           </div>
         </div>
 
-        <div className="p-8 md:p-12">
-          <div className="flex flex-wrap items-center gap-6 mb-10 pb-6 border-b border-white/5">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-white" />
-              <span className="text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.date}</span>
+        <div className="p-6 md:p-12">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6 mb-8 md:mb-10 pb-6 border-b border-white/5">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+                <span className="text-[9px] md:text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.date}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+                <span className="text-[9px] md:text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.author}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-white" />
-              <span className="text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.author}</span>
-            </div>
-            <div className="flex items-center gap-2 ml-auto">
-              <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/10">
-                <Share2 className="w-4 h-4" />
+            <div className="flex items-center gap-2 sm:ml-auto">
+              <button className="p-2 md:p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/10 flex items-center justify-center">
+                <Share2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
               </button>
             </div>
           </div>
@@ -353,15 +355,15 @@ export default function NewsDetail() {
                // Ad Insertions Logic
                const shouldInsertAd = idx === 1 || idx === 4 || idx === 8;
                const adToInsert = shouldInsertAd ? (
-                 <AdPlaceholder key={`ad-${idx}`} type="in-article" className="my-10" />
+                 <AdPlaceholder key={`ad-${idx}`} type="in-article" className="my-8 md:my-10" />
                ) : null;
 
-               if (paragraph.startsWith('#')) {
+               if (paragraph.trim().startsWith('#')) {
                  return (
                    <React.Fragment key={idx}>
                      {adToInsert}
                      <h2 
-                       className="text-2xl font-display font-bold text-white tracking-tight mt-12 mb-6"
+                       className="text-xl md:text-2xl font-display font-bold text-white tracking-tight mt-10 md:mt-12 mb-4 md:mb-6 leading-tight"
                      >
                        <LinkText text={paragraph.replace('#', '').trim()} />
                      </h2>
@@ -372,7 +374,7 @@ export default function NewsDetail() {
                return (
                  <React.Fragment key={idx}>
                    {adToInsert}
-                   <p className="text-neutral-300 leading-relaxed mb-6 text-lg font-sans font-normal">
+                   <p className="text-neutral-300 leading-relaxed mb-5 md:mb-6 text-base md:text-lg font-sans font-normal">
                      <LinkText text={paragraph} />
                    </p>
                  </React.Fragment>
@@ -381,32 +383,32 @@ export default function NewsDetail() {
           </div>
 
           {article.infographic && (
-            <div className="mt-12 p-1 bg-white/5 border border-white/5 rounded-[32px] overflow-hidden shadow-inner">
-               <div className="bg-neutral-900 rounded-[28px] p-6 text-center border border-white/5 mb-1">
-                 <span className="text-[10px] font-bold uppercase tracking-[4px] text-pak-green">Visual Analytics</span>
-                 <h3 className="text-xl font-display font-bold text-white uppercase mt-1">Data Infographic</h3>
+            <div className="mt-10 md:mt-12 p-1 bg-white/5 border border-white/5 rounded-2xl md:rounded-[32px] overflow-hidden shadow-inner">
+               <div className="bg-neutral-900 rounded-xl md:rounded-[28px] p-5 md:p-6 text-center border border-white/5 mb-1">
+                 <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[4px] text-pak-green">Visual Analytics</span>
+                 <h3 className="text-lg md:text-xl font-display font-bold text-white uppercase mt-1">Data Infographic</h3>
                </div>
                <img 
                 src={article.infographic} 
                 alt="Article Infographic" 
-                className="w-full h-auto object-cover rounded-[28px]"
+                className="w-full h-auto object-cover rounded-xl md:rounded-[28px]"
                 referrerPolicy="no-referrer"
                 loading="lazy"
                />
             </div>
           )}
 
-          <div className="mt-16 pt-8 border-t border-white/5">
-               <h4 className="text-sm font-normal uppercase tracking-widest text-white mb-6">What do you think?</h4>
-             <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
-               <p className="text-sm text-neutral-400 italic mb-6 font-normal">Should Azan Awais debut in the first Test, or should Pakistan stick to the experienced opening pair? Drop your Playing XI in the comments below!</p>
-               <div className="flex gap-4">
+          <div className="mt-12 md:mt-16 pt-8 border-t border-white/5">
+               <h4 className="text-xs md:text-sm font-normal uppercase tracking-widest text-white mb-5 md:mb-6">What do you think?</h4>
+             <div className="bg-white/5 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/5">
+               <p className="text-[11px] md:text-sm text-neutral-400 italic mb-5 md:mb-6 font-normal leading-relaxed">Should Azan Awais debut in the first Test, or should Pakistan stick to the experienced opening pair? Drop your Playing XI in the comments below!</p>
+               <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                  <input 
                    type="text" 
                    placeholder="ADD A COMMENT..."
-                   className="flex-1 bg-black/40 border border-white/10 rounded-xl px-6 py-3 text-[10px] font-normal uppercase tracking-widest focus:outline-none focus:border-white transition-colors"
+                   className="flex-1 bg-black/40 border border-white/10 rounded-xl px-5 md:px-6 py-3 text-[9px] md:text-[10px] font-normal uppercase tracking-widest focus:outline-none focus:border-white transition-colors"
                  />
-                 <button className="px-6 py-3 bg-white text-black rounded-xl text-[10px] font-normal uppercase tracking-widest hover:scale-105 transition-all">
+                 <button className="px-6 py-3 bg-white text-black rounded-xl text-[9px] md:text-[10px] font-normal uppercase tracking-widest hover:scale-105 transition-all text-center">
                    Post
                  </button>
                </div>

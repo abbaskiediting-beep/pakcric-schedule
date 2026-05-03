@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -156,14 +156,14 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'squad-intelligence-bangladesh-tour-2026',
-    title: 'Beyond the Names: The Strategic Selection for Bangladesh 2026',
-    summary: 'Inside the selection room: Why domestic form was prioritized and the tactical roles of the new call-ups.',
-    date: 'April 22, 2026',
-    category: 'Tactical Insight',
+    title: 'Pakistan Test Team Bangladesh Rawan: Poori Squad, 4 Uncapped Players, Sarfaraz Ahmed Head Coach — Aur Jo Nahi Gaye Unki Baat Bhi',
+    summary: "Pakistan's 16-member Test squad for Bangladesh 2026 announced — Shan Masood captain, Sarfaraz Ahmed head coach, 4 uncapped players (Abdullah Fazal, Amad Butt, Azan Awais, Ghazi Ghori). Plus who was LEFT OUT — Fakhar Zaman, Abrar Ahmed, Naseem Shah and more. Full analysis inside.",
+    date: 'May 3, 2026',
+    category: 'Squad Announcement',
     path: '/pakistan-tour-bangladesh-squad-2026',
     icon: Users,
-    color: 'text-teal-500',
-    authorId: 'ayesha-khan'
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
   },
   {
     id: 'red-ball-resilience-overview-2026',
@@ -494,5 +494,27 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: Star,
     color: 'text-yellow-500',
     authorId: 'ayesha-khan'
+  },
+  {
+    id: 'babar-azam-vs-usman-khan-psl-2026-batting-comparison',
+    title: 'Babar Azam vs Usman Khan — PSL 2026 Batting Comparison',
+    summary: 'Elegance vs explosive power. The PSL final\'s two biggest batting stories, compared stat by stat.',
+    date: 'May 3, 2026',
+    category: 'Analysis',
+    path: '/blogs/babar-azam-vs-usman-khan-comparison-2026',
+    icon: BarChart3,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'psl-11-final-time-guide-world-lookup-2026',
+    title: 'What Time Does PSL 11 Final Start Today? May 3, 2026 — Complete Time Guide',
+    summary: 'Everything you need to know about tonight\'s PSL 11 final schedule: Kickoff times for Pakistan, India, UAE, UK, and USA. Plus ceremony timing.',
+    date: 'May 3, 2026',
+    category: 'Match Guide',
+    path: '/blogs/psl-11-final-starting-time-guide-2026',
+    icon: Clock,
+    color: 'text-red-500',
+    authorId: 'omar-farooq'
   },
 ];

@@ -1,12 +1,25 @@
 import { motion } from 'motion/react';
-import { Calendar, Trophy, Users, Shield, Star, Info, ArrowLeft, ClipboardList } from 'lucide-react';
+import { Calendar, Users, Shield, Star, Info, ArrowLeft, Trophy, CheckCircle2, UserX, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import AuthorSection from '../components/AuthorSection';
 import { LinkText } from '../components/LinkText';
 
 export default function PakistanTourBangladeshSquadBlog() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
+      <Helmet>
+        <title>Pakistan Test Squad Bangladesh 2026 | Full 16-Member Squad, 4 Uncapped Players, Sarfaraz Head Coach & Dropped Stars | May 8 First Test</title>
+        <meta 
+          name="description" 
+          content="Pakistan's 16-member Test squad for Bangladesh 2026 announced — Shan Masood captain, Sarfaraz Ahmed head coach, 4 uncapped players (Abdullah Fazal, Amad Butt, Azan Awais, Ghazi Ghori). Plus who was LEFT OUT — Fakhar Zaman, Abrar Ahmed, Naseem Shah and more. Full analysis inside." 
+        />
+        <meta 
+          name="keywords" 
+          content="Pakistan Test Squad, Bangladesh 2026, Sarfaraz Ahmed Head Coach, Shan Masood, 4 Uncapped Players, Abdullah Fazal, Amad Butt, Azan Awais, Ghazi Ghori, Fakhar Zaman, Abrar Ahmed, Naseem Shah, Cricket News, Pakistan Cricket" 
+        />
+      </Helmet>
+
       <Link 
         to="/blogs" 
         className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-neutral-500 hover:text-white transition-colors mb-8"
@@ -18,196 +31,253 @@ export default function PakistanTourBangladeshSquadBlog() {
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-8 leading-tight">
-          <LinkText text="Pakistan Tour of Bangladesh 2026: Squads and Complete Schedule Overview" />
-        </h1>
+        <div className="mb-8">
+          <span className="px-3 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">
+            Squad Announcement & Analysis
+          </span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tighter leading-[1.1] text-white">
+            <LinkText text="Pakistan Test Team Bangladesh Rawan: Poori Squad, 4 Uncapped Players, Sarfaraz Ahmed Head Coach — Aur Jo Nahi Gaye Unki Baat Bhi" />
+          </h1>
+        </div>
 
-        <div className="prose prose-invert max-w-none">
-          <p className="text-xl text-ink/80 leading-relaxed mb-10 border-l-4 border-pak-green pl-6 italic shadow-inner bg-pak-green/[0.02] py-4 rounded-r-2xl">
-            <LinkText text="As the cricketing world turns its attention to the red-ball format, Pakistan is set for a high-stakes two-Test series in Bangladesh this May 2026. This series is a pivotal part of the 2025–2027 World Test Championship cycle, with both teams eager to climb the standings in what is expected to be a classic subcontinental battle of grit, patience, and elite spin bowling." />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="bg-card-bg p-4 rounded-2xl border border-card-border">
+            <Calendar className="w-5 h-5 text-pak-green mb-3" />
+            <p className="text-[10px] font-bold text-ink/50 uppercase tracking-widest mb-1">First Test</p>
+            <p className="text-sm font-bold text-white">8 May 2026</p>
+          </div>
+          <div className="bg-card-bg p-4 rounded-2xl border border-card-border">
+            <Users className="w-5 h-5 text-pak-green mb-3" />
+            <p className="text-[10px] font-bold text-ink/50 uppercase tracking-widest mb-1">Squad Size</p>
+            <p className="text-sm font-bold text-white">16 Players</p>
+          </div>
+          <div className="bg-card-bg p-4 rounded-2xl border border-card-border">
+            <Star className="w-5 h-5 text-pak-green mb-3" />
+            <p className="text-[10px] font-bold text-ink/50 uppercase tracking-widest mb-1">Uncapped</p>
+            <p className="text-sm font-bold text-white uppercase tracking-tight">4 New Stars</p>
+          </div>
+          <div className="bg-card-bg p-4 rounded-2xl border border-card-border">
+            <Shield className="w-5 h-5 text-pak-green mb-3" />
+            <p className="text-[10px] font-bold text-ink/50 uppercase tracking-widest mb-1">Head Coach</p>
+            <p className="text-sm font-bold text-white uppercase sm:text-[10px]">Sarfaraz Ahmed</p>
+          </div>
+        </div>
+
+        <div className="prose dark:prose-invert prose-p:text-ink/70 prose-p:leading-relaxed prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tighter max-w-none">
+          <div className="p-8 rounded-[40px] bg-pak-green/5 border border-pak-green/10 mb-12 relative overflow-hidden">
+             <div className="relative z-10">
+               <h2 className="text-2xl mb-4 text-white">Introduction: Bangladesh Ka Safar — Naye Chehre, Naya Coach, Naya Chapter</h2>
+               <p className="text-lg text-white/80 font-medium leading-relaxed italic mb-0">
+                 <LinkText text="PSL 2026 abhi khatam bhi nahi hua tha — Gaddafi Stadium mein Final ki tayaari thi — aur PCB ne 18 April 2026 ko Pakistan ki 16-member Test squad Bangladesh ke liye announce kar di." />
+               </p>
+             </div>
+             <div className="absolute top-0 right-0 p-8 opacity-10">
+               <Trophy className="w-32 h-32 text-pak-green" />
+             </div>
+          </div>
+
+          <p className="mb-6">
+            Pehla Test: <strong>8 May 2026</strong> — Sher-e-Bangla National Cricket Stadium, Dhaka<br />
+            Doosra Test: <strong>16 May 2026</strong> — Sylhet International Cricket Stadium, Sylhet
           </p>
 
-          <p className="text-ink/60 leading-relaxed mb-8">
-            <LinkText text="The Pakistan tour of Bangladesh 2026 represents more than just a bilateral series; it is a fundamental test of the team's depth and technical adaptability. In recent months, the focus of the Pakistan Cricket Board (PCB) has shifted towards building a sustainable long-format culture, and the selection of this 16-member squad reflects a blend of seasoned veterans and explosive young talent. For fans following the Pakistan upcoming series full schedule, this tour is the centerpiece of the summer, offering a grueling examination on the spinning tracks of Dhaka and Sylhet." />
+          <p className="mb-6">
+            <LinkText text="Yeh series ICC World Test Championship ka hissa hai — jahan Pakistan abhi 5th position par hai, South Africa ke saath ghar par 1-1 draw ke baad. Bangladesh ke khilaf do Test matches Pakistan ke liye WTC points ka ek important moka hain." />
           </p>
 
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-6 flex items-center gap-3">
-            <Calendar className="w-8 h-8 text-pak-green" />
-            Phase 1: The Verified Series Schedule
+          <p className="mb-8 font-bold text-pak-green">
+            Lekin squad announcement mein sirf cricket nahi tha — 3 badi khabrain theen:
+          </p>
+          <ul className="list-disc pl-6 mb-12 space-y-2 text-ink/80 font-bold uppercase tracking-tight text-sm">
+            <li>Sarfaraz Ahmed — Pakistan ka naya Test Head Coach</li>
+            <li>4 uncapped players — naye chehre, nayi umeedein</li>
+            <li>Kuch bade naam nahi hain — dropped players ka controversy</li>
+          </ul>
+
+          <h2 className="text-3xl mt-12 mb-6 flex items-center gap-3">
+            <Calendar className="w-8 h-8 text-pak-green" /> Series Details at a Glance
           </h2>
-          <p className="text-ink/60 mb-8 leading-relaxed">
-            <LinkText text="The tour is strategically divided into two major venues, starting in the bustling capital of Dhaka and moving to the picturesque landscapes of Sylhet. Each venue offers a distinct challenge that will test the Pakistan cricket team's ability to adapt. Dhaka is notoriously known for its abrasive surface that aids reverse swing and significant spin from Day 3 onwards, while Sylhet typically provides a more balanced contest with something for the seamers during the morning sessions." />
-          </p>
-
-          <div className="overflow-hidden rounded-[40px] border border-white/10 bg-white/5 mb-12 shadow-2xl">
+          <div className="overflow-hidden rounded-3xl border border-card-border bg-card-bg mb-12 border-l-4 border-l-pak-green">
             <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-white/10 bg-white/5">
-                  <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Match Identification</th>
-                  <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Proposed Dates</th>
-                  <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400">Confirmed Venue</th>
-                  <th className="p-6 text-[11px] font-bold uppercase tracking-widest text-neutral-400 text-right">Time (PKT)</th>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40 w-1/3">Series</td>
+                  <td className="p-4 text-sm font-bold text-white">Pakistan tour of Bangladesh 2026</td>
                 </tr>
-              </thead>
-              <tbody className="text-sm text-ink/80">
-                <tr className="border-b border-white/5 hover:bg-white/[0.04] transition-all group">
-                  <td className="p-6 font-bold text-white group-hover:text-pak-green transition-colors font-display text-lg">1st Test Match</td>
-                  <td className="p-6 text-xs tabular-nums font-medium">8 May – 12 May 2026</td>
-                  <td className="p-6 text-xs italic opacity-60">Sher-e-Bangla Stadium, Dhaka</td>
-                  <td className="p-6 text-xs font-mono text-right text-pak-green font-bold tracking-widest uppercase">9:00 AM</td>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">Format</td>
+                  <td className="p-4 text-sm font-bold text-white">2 Tests (ICC World Test Championship)</td>
                 </tr>
-                <tr className="hover:bg-white/[0.04] transition-all group">
-                  <td className="p-6 font-bold text-white group-hover:text-pak-green transition-colors font-display text-lg">2nd Test Match</td>
-                  <td className="p-6 text-xs tabular-nums font-medium">16 May – 20 May 2026</td>
-                  <td className="p-6 text-xs italic opacity-60">Sylhet International Stadium, Sylhet</td>
-                  <td className="p-6 text-xs font-mono text-right text-pak-green font-bold tracking-widest uppercase">9:00 AM</td>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">1st Test</td>
+                  <td className="p-4 text-sm font-bold text-white">8–12 May 2026 — Dhaka</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">Head Coach</td>
+                  <td className="p-4 text-sm font-bold text-pak-green">Sarfaraz Ahmed (New appointment)</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">Uncapped Players</td>
+                  <td className="p-4 text-sm font-bold text-white">4 (Abdullah Fazal, Amad Butt, Azan Awais, Ghazi Ghori)</td>
                 </tr>
               </tbody>
             </table>
-            <div className="p-6 bg-pak-green/5 text-center border-t border-white/5">
-              <Link to="/pakistan-vs-bangladesh-2026-schedule" className="text-[11px] font-bold uppercase tracking-[3px] text-pak-green hover:underline hover:text-white transition-colors italic">
-                Unlock Full Detailed Match Insights & Live Series Schedule
-              </Link>
-            </div>
           </div>
 
-          <div className="flex items-start gap-6 p-10 bg-blue-500/10 border border-blue-500/20 rounded-[40px] mb-12 shadow-inner">
-            <Info className="w-8 h-8 text-blue-400 shrink-0 mt-0.5" />
-            <div className="space-y-3">
-              <p className="text-sm font-bold text-blue-300 uppercase tracking-[4px]">Pre-Tour Training Intel</p>
-              <p className="text-base text-blue-100/70 m-0 leading-relaxed italic">
-                <LinkText text="The team's intensive preparation includes a specialized high-performance training camp in Karachi from 27 April to 1 May. The focus is strictly on playing against the 'dusty bowl' conditions. Following the conclusion of the camp, the verified Pakistan squad will fly to Dhaka on 2 May for final acclimatization sessions." />
-              </p>
-            </div>
-          </div>
-
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-8 flex items-center gap-3">
-            <Users className="w-10 h-10 text-pak-green" />
-            Phase 2: Tactical Squad Analysis
-          </h2>
-
-          <p className="text-ink/60 leading-relaxed mb-10 text-lg">
-            <LinkText text="The 16-member Pakistan Test squad is a statement of intent. The inclusion of three uncapped players—Abdullah Fazal, Azan Awais, and Muhammad Ghazi Ghori—signals a clear move toward a talent pipeline that can sustain the team through the 2026–2030 cycle. However, the success of this tour hinges on the consistency of the 'Big Three': Shan Masood's aggressive leadership, Babar Azam's conversion rate, and Shaheen Afridi's initial burst with the new ball. The balance of the side is heavily skewed toward spin, acknowledging the role Noman Ali and Sajid Khan will play in Dhaka." />
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="space-y-6">
-              <div className="bg-white/5 p-10 rounded-[40px] border border-white/5 hover:bg-white/[0.08] transition-all group">
-                <div className="flex items-center gap-2 mb-4">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
-                  <span className="text-[10px] font-bold uppercase tracking-[3px] text-white/40">The Captain</span>
-                </div>
-                <p className="text-3xl font-bold text-white mb-1 group-hover:text-pak-green transition-colors">Shan Masood</p>
-                <p className="text-[11px] text-pak-green font-bold uppercase tracking-widest italic">Chief Tactician</p>
-                <p className="mt-6 text-sm text-ink/50 leading-relaxed italic border-t border-white/5 pt-4">Shan's proactive approach and focus on strike rotation in the middle overs will be key to breaking the deadlock on slow Bangladeshi tracks. His ability to handle pressure in the field is equally critical for the team's morale.</p>
-              </div>
-
-              <div className="bg-white/5 p-10 rounded-[40px] border border-white/5 hover:bg-white/[0.08] transition-all">
-                <div className="flex items-center gap-2 mb-4">
-                  <Star className="w-5 h-5 text-blue-500" />
-                  <span className="text-[10px] font-bold uppercase tracking-[3px] text-white/40">Batting Mainstays</span>
-                </div>
-                <div className="flex flex-wrap gap-3 text-sm text-ink/70">
-                  <span className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10 text-white font-bold hover:bg-pak-green hover:text-white transition-colors cursor-default">Babar Azam</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10">Imam-ul-Haq</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10">Saud Shakeel</span>
-                  <span className="px-5 py-2 bg-blue-500/10 rounded-2xl border border-blue-500/20 text-blue-400 font-bold uppercase text-[10px] tracking-widest italic">A. Fazal (U)</span>
-                  <span className="px-5 py-2 bg-blue-500/10 rounded-2xl border border-blue-500/20 text-blue-400 font-bold uppercase text-[10px] tracking-widest italic">Azan Awais (U)</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-white/5 p-10 rounded-[40px] border border-white/5 hover:bg-white/[0.08] transition-all">
-                <span className="text-[10px] font-bold uppercase tracking-[3px] text-white/40 block mb-4 font-display italic tracking-[4px]">The Pace Battery</span>
-                <div className="flex flex-wrap gap-3 text-sm text-ink/70">
-                  <span className="px-5 py-2 bg-pak-green/10 rounded-2xl border border-pak-green/20 text-white font-bold">Shaheen Afridi</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10">Hasan Ali</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10">Mohammad Abbas</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10 italic">Khurram Shahzad</span>
-                  <span className="px-5 py-2 bg-blue-500/10 rounded-2xl border border-blue-500/20 text-blue-400 font-bold uppercase text-[10px] tracking-widest">Amad Butt (U)</span>
-                </div>
-              </div>
-
-              <div className="bg-white/5 p-10 rounded-[40px] border border-white/5 hover:bg-white/[0.08] transition-all">
-                <span className="text-[10px] font-bold uppercase tracking-[3px] text-white/40 block mb-6 font-display italic tracking-[4px]">Spin Coalition</span>
-                <div className="flex flex-wrap gap-4 text-sm text-ink/70">
-                  <div className="flex flex-col">
-                    <span className="text-xl text-white font-bold leading-none mb-1">Noman Ali</span>
-                    <span className="text-[10px] text-pak-green uppercase font-bold tracking-widest italic">Senior Spinner</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xl text-white font-bold leading-none mb-1">Sajid Khan</span>
-                    <span className="text-[10px] text-pak-green uppercase font-bold tracking-widest italic">Off-Spin Specialist</span>
-                  </div>
-                </div>
-                <p className="mt-8 text-xs text-ink/40 leading-relaxed italic border-l-2 border-pak-green/30 pl-4">The duo that dismantled top-tier sides in the last cycle remains the absolute heart of the bowling strategy for the <strong>Pakistan tour of Bangladesh 2026</strong>. Their ability to extract bounce from flat tracks is unique.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-pak-green/10 border border-pak-green/20 rounded-[50px] p-12 mb-16 shadow-2xl relative overflow-hidden group">
-             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Shield className="w-32 h-32 text-pak-green" />
-             </div>
-             <h3 className="text-2xl font-display font-bold uppercase text-white mb-8 font-display italic tracking-[4px] border-b border-pak-green/20 pb-4">Professional Management Elite</h3>
-             <p className="text-lg text-ink/70 leading-relaxed m-0 italic font-medium">
-               In a widely celebrated move by the PCB, former legend <span className="text-white font-bold underline decoration-pak-green underline-offset-8">Sarfaraz Ahmed</span> has been appointed as the Head Coach specifically for this tour. His tactical understanding of subcontinental surface dynamics is considered unmatched in the modern era. He is flanked by <span className="text-white font-bold">Asad Shafiq</span> (Batting Technical Specialist) and <span className="text-white font-bold underline decoration-pak-green underline-offset-8">Umar Gul</span> (Pace Deployment Guru), creating a 'Dream Team' of management that understands what it means to wear the 'Green Shirt' under pressure.
-             </p>
-          </div>
-          <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tighter mb-8 italic">Analyzing the Bangladesh Threat Matrix</h2>
-          <p className="text-lg text-ink/70 leading-relaxed mb-6">
-            <LinkText text="While the confirmed Test squad for Bangladesh is typically finalized closer to the match date, the core remains strong under the expected leadership of Mehidy Hasan Miraz. Their recent performance in the March ODI series—where they secured a 2–1 victory against the Pakistan cricket team—gives them significant home-turf momentum." />
-          </p>
-          <p className="text-base text-ink/60 leading-relaxed mb-12">
-            <LinkText text="The key factor for Bangladesh is their depth in the spin department. On tracks that offer even a hint of turn, bowlers like Taijul Islam and Mehidy Hassan become world-class threats. The Pakistan tour of Bangladesh 2026 will likely see these spinners operating for long 15-20 over spells, testing the physical and mental stamina of the Pakistani top order. Fans can check player head-to-head records in our squad section to see how these individual matchups favor each side." />
-          </p>
-
-          <h2 className="text-4xl font-display font-bold text-pak-green uppercase tracking-tighter mt-16 mb-10 text-center italic border-t border-white/5 pt-16">The Road to the WTC Final 2027 Standings</h2>
-          <p className="text-xl text-ink/70 leading-relaxed mb-8">
-            <LinkText text="For Pakistan, this series is purely about redemption and survival. After an early exit from the T20 World Cup 2026 and a mixed result in the March ODIs, the 'Shaheens' need a dominant red-ball performance to stay in contention for the WTC Final standing. The potential inclusion of veteran Mohammad Abbas highlights a strategic return to disciplined line-and-length bowling—a tactic that has historically troubled Bangladeshi batters." />
-          </p>
-          
-          <p className="text-base text-ink/70 leading-relaxed mb-12 italic border-l-2 border-pak-green/20 pl-8 font-medium">
-            <LinkText text="Furthermore, the points system of the World Test Championship makes every away win twice as valuable for the overall rankings. If Pakistan can secure a 2-0 whitewash in Dhaka and Sylhet, they will catapult into the top 3 of the global rankings, putting immense pressure on other contenders like Australia and India. Every session of the Pakistan tour of Bangladesh 2026 is, therefore, a miniature championship final packed with national expectation." />
-          </p>
-
-          <div className="mt-24 p-12 md:p-16 border border-white/10 bg-white/5 rounded-[64px] shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-6 bg-pak-green/20 rounded-bl-4xl">
-               <span className="text-[11px] font-bold text-pak-green uppercase tracking-[5px] italic">Premium Editorial Analysis</span>
-            </div>
-            <h3 className="text-3xl font-display font-bold uppercase mb-12 text-white text-center italic tracking-[6px] font-display">Deep Insight Explorations</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Link to="/pakistan-tour-bangladesh-test-2026" className="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-pak-green transition-all group hover:bg-white/[0.1] shadow-lg">
-                <p className="text-[11px] font-bold text-pak-green uppercase tracking-[4px] mb-4 italic">Series context analysis</p>
-                <h4 className="text-2xl text-white font-bold group-hover:text-pak-green transition-colors leading-tight font-display mb-4 italic">Red-Ball Revival: A Tactical Masterclass in Dhaka</h4>
-                <p className="text-sm text-ink/40 leading-relaxed italic leading-loose">Analyzing the specific technical shifts and physiological adjustments needed to survive the grueling 5-day grind in the high humidity of Bangladesh.</p>
-              </Link>
-              <Link to="/red-ball-resilience-overview-2026" className="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-pak-green transition-all group hover:bg-white/[0.1] shadow-lg">
-                <p className="text-[11px] font-bold text-pak-green uppercase tracking-[4px] mb-4 italic">Statistical Value Review</p>
-                <h4 className="text-2xl text-white font-bold group-hover:text-pak-green transition-colors leading-tight font-display mb-4 italic">The Spin Impact: Noman & Sajid's Projected Value</h4>
-                <p className="text-sm text-ink/40 leading-relaxed italic leading-loose">Why the senior spin duo is currently the most critical asset for the 2026–2027 WTC cycle and how they compare to global rankings across similar tracks.</p>
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-16 p-16 border border-pak-green/20 bg-pak-green/[0.03] rounded-[64px] text-center shadow-inner relative group">
-            <ClipboardList className="w-20 h-20 text-pak-green mx-auto mb-8 group-hover:scale-110 transition-transform duration-500" />
-            <h3 className="text-3xl font-display font-bold uppercase mb-8 text-white tracking-[8px] font-display italic">Portal Interactive Scouting</h3>
-            <p className="text-lg text-ink/60 mb-12 leading-relaxed max-w-2xl mx-auto italic font-medium">
-              Deep dive into the underlying mechanics of your favorite players. Compare live historical performance stats side-by-side or analyze previous head-to-head records across various subcontinental venues using our proprietary analytics.
+          <h2 className="text-3xl mt-12 mb-6">Pakistan Ki Full 16-Member Test Squad</h2>
+          <div className="p-8 bg-white/[0.02] border border-white/5 rounded-[40px] mb-12">
+            <p className="text-lg font-display font-medium text-white leading-relaxed tracking-tight">
+              <span className="text-pak-green font-black underline decoration-2 underline-offset-4">Shan Masood (captain)</span>, Abdullah Fazal, Amad Butt, Azan Awais, Babar Azam, Hasan Ali, Imam-ul-Haq, Khurram Shahzad, Mohammad Abbas, Mohammad Rizwan (wk), Muhammad Ghazi Ghori, Noman Ali, Sajid Khan, Salman Ali Agha, Saud Shakeel, and Shaheen Shah Afridi.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-8">
-              <Link to="/squads" className="px-12 py-5 bg-white text-black rounded-3xl text-[13px] font-black uppercase tracking-[4px] hover:bg-pak-green hover:text-white transition-all shadow-2xl hover:translate-y-[-4px]">
-                Explore Full Squad Profiles
-              </Link>
-              <Link to="/rankings" className="px-12 py-5 border-2 border-white/10 text-white rounded-3xl text-[13px] font-black uppercase tracking-[4px] hover:border-pak-green hover:bg-pak-green/10 transition-all shadow-xl hover:translate-y-[-4px]">
-                Analyze Global ICC Rankings
-              </Link>
+          </div>
+
+          <h3 className="text-xl font-bold uppercase tracking-tight text-white mb-6 border-b border-pak-green/20 pb-2 flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5 text-pak-green" /> Complete Squad by Role
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+             {[
+               { role: 'Batters', players: 'Shan Masood, Babar Azam, Imam-ul-Haq, Saud Shakeel, Abdullah Fazal (U), Azan Awais (U)' },
+               { role: 'Wicketkeepers', players: 'Mohammad Rizwan, Muhammad Ghazi Ghori (U)' },
+               { role: 'Allrounders', players: 'Salman Ali Agha, Amad Butt (U)' },
+               { role: 'Fast Bowlers', players: 'Shaheen Afridi, Hasan Ali, Khurram Shahzad, Mohammad Abbas' },
+               { role: 'Spinners', players: 'Noman Ali, Sajid Khan' }
+             ].map(item => (
+               <div key={item.role} className="p-5 rounded-2xl bg-white/[0.03] border border-white/5">
+                 <p className="text-[10px] font-black uppercase tracking-widest text-pak-green mb-2">{item.role}</p>
+                 <p className="text-sm font-bold text-white/90">{item.players}</p>
+               </div>
+             ))}
+          </div>
+
+          <h2 className="text-3xl mt-12 mb-6 flex items-center gap-3">
+             <Star className="w-8 h-8 text-yellow-500" /> 4 Uncapped Players: Pakistan Ka Kal
+          </h2>
+          <div className="space-y-6 mb-12">
+            {[
+              { name: 'Abdullah Fazal', role: 'Left-Hand Opener (Age: 23)', desc: 'Consistently impressed in Quaid-e-Azam Trophy. Technically sound openerRewarded after impressive domestic form. Useful combination against spin.' },
+              { name: 'Azan Awais', role: 'Left-Hand Opener (Age: 21)', desc: 'Pakistan cricket\'s most exciting young opening talent. Outstanding form in domestic circuit. Currently part of NCA Red-Ball Camp.' },
+              { name: 'Amad Butt', role: 'Left-Arm Pace Allrounder', desc: 'Seasoned first-class performer since 2015. Brings decade of domestic experience and left-arm variation. Smart pick for Bangladesh conditions.' },
+              { name: 'Muhammad Ghazi Ghori', role: 'Wicketkeeper-Batter (Age: 23)', desc: 'Viewed as a long-term project. Backup to Rizwan with potential to be Pakistan\'s future keeper. Part of NCA camp alongside senior players.' }
+            ].map(player => (
+              <div key={player.name} className="p-6 rounded-3xl bg-card-bg border border-card-border hover:border-pak-green/30 transition-colors">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-pak-green/10 border border-pak-green/20 flex items-center justify-center text-pak-green font-black">U</div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white leading-none mb-1">{player.name}</h4>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-ink/40">{player.role}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-ink/70 leading-relaxed italic border-l-2 border-pak-green/20 pl-4">{player.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="text-3xl mt-12 mb-6 border-l-4 border-pak-green pl-6">Sarfaraz Ahmed — Naya Test Head Coach</h2>
+          <p className="mb-6 leading-relaxed">
+            <LinkText text="The PCB also confirms the appointment of red-ball coaches for the Bangladesh tour, with former Test captain Sarfaraz Ahmed appointed as head coach." />
+          </p>
+          <p className="mb-8">
+            Yeh appointment Pakistan cricket ki ek major turning point hai. Sarfaraz Ahmed — jinhon ne <strong>ICC Champions Trophy 2017</strong> aur <strong>ICC U19 World Cup 2006</strong> jeeta captain ke taur par — ab dressing room mein ek alag haisiyat mein wapas aaye hain.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+              <p className="text-[10px] font-black uppercase tracking-widest text-pak-green mb-2 uppercase">Head Coach</p>
+              <p className="text-lg font-display font-bold text-white italic">Sarfaraz Ahmed</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+              <p className="text-[10px] font-black uppercase tracking-widest text-pak-green mb-2 uppercase">Batting Coach</p>
+              <p className="text-lg font-display font-bold text-white">Asad Shafiq</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 text-center">
+              <p className="text-[10px] font-black uppercase tracking-widest text-pak-green mb-2 uppercase">Bowling Coach</p>
+              <p className="text-lg font-display font-bold text-white">Umar Gul</p>
             </div>
           </div>
 
-          <AuthorSection authorId="omar-farooq" />
+          <h2 className="text-3xl mt-16 mb-8 flex items-center gap-3">
+            <UserX className="w-8 h-8 text-red-500" /> JO NAHI GAYE: Dropped Players Analysis
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {[
+              { name: 'Fakhar Zaman', reason: 'Young left-handers preferred; Test form inconsistent lately.' },
+              { name: 'Naseem Shah', reason: 'Workload management + fitness concerns. Trio of senior pacers selected.' },
+              { name: 'Abrar Ahmed', reason: 'Noman-Sajid duo proven dominant in subcontinent conditions.' },
+              { name: 'Saim Ayub', reason: 'Developing for red-ball format; focus on white-ball consistency.' },
+              { name: 'Zaman Khan', reason: 'Experience of Hasan Ali and Abbas preferred for swing movement.' },
+              { name: 'Tayyab Tahir', reason: 'Needs more red-ball domestic matches to polish skill.' }
+            ].map(dropped => (
+              <div key={dropped.name} className="flex gap-4 p-5 rounded-2xl bg-red-500/5 border border-red-500/10">
+                <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-1" />
+                <div>
+                   <p className="text-sm font-black uppercase tracking-widest text-red-400 mb-1 leading-none">{dropped.name}</p>
+                   <p className="text-xs text-ink/50 font-bold">{dropped.reason}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="text-3xl mt-12 mb-6">WTC Context: Why This Series Matters</h2>
+          <p className="mb-6 font-medium text-ink/80 italic">
+            <LinkText text="Pakistan stands at No. 5 in the World Test Championship after drawing the home Test series against South Africa 1-1 last October." />
+          </p>
+          <div className="p-8 rounded-[40px] bg-card-bg border border-card-border mb-12">
+             <p className="text-sm leading-relaxed mb-6">
+                WTC 2023-25 cycle mein Pakistan ne disappointing performance di thi. Bangladesh ke khilaf 2 Tests mein maximum 24 WTC points mile sakte hain. Pakistan ko WTC Final 2027 ke liye in points ki sakht zaroorat hai.
+             </p>
+             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                <div className="px-5 py-3 bg-pak-green text-white text-[10px] font-black uppercase tracking-widest flex items-center justify-between rounded-xl shadow-lg shadow-pak-green/20">
+                   <span>WTC Rank</span>
+                   <span className="text-sm">5th</span>
+                </div>
+                <div className="px-5 py-3 bg-white/5 border border-white/10 text-white/40 text-[10px] font-black uppercase tracking-widest flex items-center justify-between rounded-xl">
+                   <span>Max Points</span>
+                   <span className="text-sm text-pak-green font-bold">24</span>
+                </div>
+             </div>
+          </div>
+
+          <h2 className="text-3xl mt-12 mb-6">Schedule: Test Match Details</h2>
+          <div className="overflow-hidden rounded-3xl border border-card-border bg-card-bg mb-12 shadow-2xl">
+             <table className="w-full text-left border-collapse">
+               <thead>
+                 <tr className="bg-white/5 border-b border-card-border">
+                   <th className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">Test</th>
+                   <th className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">Venue</th>
+                   <th className="p-4 text-[10px] font-black uppercase tracking-widest text-ink/40">Dates</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr className="border-b border-white/5">
+                   <td className="p-4 text-sm font-bold text-white italic">1st Test</td>
+                   <td className="p-4 text-sm text-ink/70 font-medium">Dhaka</td>
+                   <td className="p-4 text-sm text-pak-green font-bold">8–12 May</td>
+                 </tr>
+                 <tr>
+                   <td className="p-4 text-sm font-bold text-white italic">2nd Test</td>
+                   <td className="p-4 text-sm text-ink/70 font-medium">Sylhet</td>
+                   <td className="p-4 text-sm text-pak-green font-bold">16–20 May</td>
+                 </tr>
+               </tbody>
+             </table>
+          </div>
+
+          <h2 className="text-3xl mt-12 mb-6 italic underline decoration-pak-green decoration-4 underline-offset-8">Series Prediction</h2>
+          <p className="text-lg font-medium leading-relaxed mb-10 text-ink/80">
+            Pakistan is the stronger team on paper with deep batting and variety in pace and spin. Bangladesh at home are dangerous, but Pakistan’s Noman-Sajid combination should be the deciding factor. <strong>Prediction: Pakistan to win the series 2-0.</strong>
+          </p>
+
+          <footer className="mt-16 pt-12 border-t border-card-border flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-pak-green">Internal Links</h4>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/pakistan-vs-bangladesh-2026-schedule" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">Bangladesh Tour Schedule</Link>
+                <Link to="/babar-azam-all-psl-centuries-list-2026-details" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">Babar Azam PSL Records</Link>
+                <Link to="/rankings" className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-bold uppercase tracking-widest hover:text-pak-green transition-colors">ICC Rankings 2026</Link>
+              </div>
+            </div>
+            
+            <AuthorSection authorId="omar-farooq" />
+          </footer>
         </div>
       </motion.article>
     </div>

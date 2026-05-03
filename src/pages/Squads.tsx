@@ -203,8 +203,8 @@ export default function Squads() {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
       `}} />
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12 md:mb-16">
-        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-6 md:mb-8 text-white leading-tight">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 md:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
           Pakistan Cricket Team <span className="text-pak-green underline decoration-pak-green/20 underline-offset-8">Squad 2026</span>
         </h1>
         
@@ -220,10 +220,10 @@ export default function Squads() {
         {/* Top Banner on Squads */}
         <AdPlaceholder type="leaderboard" className="mb-8 md:mb-12" />
 
-      <div className="space-y-6 md:space-y-8 bg-white/[0.02] border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-12 shadow-2xl">
-        <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-4">
-           <div className="h-1.5 md:h-2 w-8 md:w-12 bg-pak-green rounded-full" />
-           <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
+      <div className="space-y-6 md:space-y-8 bg-white/[0.02] border border-card-border rounded-3xl md:rounded-[40px] p-5 md:p-12 shadow-2xl">
+        <div className="flex items-center gap-3 md:gap-4 mb-1 md:mb-4">
+           <div className="h-1 md:h-2 w-6 md:w-12 bg-pak-green rounded-full" />
+           <h2 className="text-lg md:text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -234,9 +234,9 @@ export default function Squads() {
               placeholder="SEARCH PLAYER..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white/5 border border-card-border rounded-xl md:rounded-3xl py-4 md:py-5 pl-12 md:pl-14 pr-4 md:pr-6 text-xs md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
+              className="w-full bg-white/5 border border-card-border rounded-xl md:rounded-3xl py-3.5 md:py-5 pl-11 md:pl-14 pr-4 md:pr-6 text-[10px] md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
             />
-            <Search className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-5 h-5 md:w-6 md:h-6 text-pak-green" />
+            <Search className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-6 md:h-6 text-pak-green" />
           </div>
 
           {/* Format Filters */}
@@ -245,7 +245,7 @@ export default function Squads() {
                <button
                  key={f}
                  onClick={() => setFilterFormat(f)}
-                 className={`min-w-[80px] flex-1 py-3 md:py-4 rounded-lg md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] transition-all flex items-center justify-center ${
+                 className={`min-w-[70px] md:min-w-[80px] flex-1 py-2.5 md:py-4 rounded-lg md:rounded-2xl text-[8px] md:text-[10px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] transition-all flex items-center justify-center ${
                    filterFormat === f 
                    ? 'bg-white text-black shadow-xl scale-105' 
                    : 'text-neutral-500 hover:text-white hover:bg-white/5'
@@ -307,27 +307,27 @@ export default function Squads() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card-bg border border-card-border rounded-[32px] p-8 hover:border-pak-green/40 transition-all group"
+              className="bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-6 md:p-8 hover:border-pak-green/40 transition-all group"
             >
-              <div className="text-3xl mb-4 group-hover:scale-110 transition-transform block">{cat.icon}</div>
-              <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-1">{cat.role}</h3>
-              <p className="text-[10px] font-bold text-pak-green uppercase tracking-widest mb-6">{cat.desc}</p>
+              <div className="text-2xl md:text-3xl mb-3 md:mb-4 group-hover:scale-110 transition-transform block">{cat.icon}</div>
+              <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1">{cat.role}</h3>
+              <p className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest mb-5 md:mb-6">{cat.desc}</p>
               
-              <div className="space-y-2">
+              <div className="space-y-1.5 md:space-y-2">
                 {cat.players.map(p => (
                   <button 
                     key={p} 
                     onClick={() => handlePlayerClick(p)}
-                    className="flex flex-col w-full text-left p-3 rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/40 hover:bg-white/[0.08] transition-all group/item"
+                    className="flex flex-col w-full text-left p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/40 hover:bg-white/[0.08] transition-all group/item"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-[11px] font-black uppercase tracking-widest text-ink group-hover/item:text-white transition-colors">
+                      <span className="text-[10px] md:text-[11px] font-black uppercase tracking-widest text-ink group-hover/item:text-white transition-colors">
                         {p}
                       </span>
                       <ChevronRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-pak-green" />
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[8px] font-bold text-neutral-500 uppercase tracking-widest">
+                      <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest">
                         {PLAYER_STATS[p]?.role || 'Team Member'}
                       </span>
                       <div className="flex gap-0.5">
@@ -447,9 +447,9 @@ export default function Squads() {
       </div>
 
       {/* Main Squad Grid (Existing Component) */}
-      <div className="mb-12 flex items-center justify-between">
-        <h2 className="text-2xl font-display font-bold uppercase tracking-tight text-white flex items-center gap-3">
-          <Trophy className="w-6 h-6 text-pak-green" />
+      <div className="mb-10 md:mb-12 flex items-center justify-between gap-4">
+        <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white flex items-center gap-3">
+          <Trophy className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
           Series Lineups
         </h2>
         {filteredSquads.length > 1 && (
@@ -461,14 +461,14 @@ export default function Squads() {
                 setCollapsedSeries(filteredSquads.map(s => s.series));
               }
             }}
-            className="text-[10px] font-bold uppercase tracking-widest text-pak-green hover:bg-pak-green/10 px-4 py-2 rounded-xl transition-all border border-pak-green/20"
+            className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-pak-green hover:bg-pak-green/10 px-3 md:px-4 py-2 rounded-lg md:rounded-xl transition-all border border-pak-green/20 shrink-0"
           >
             {collapsedSeries.length === filteredSquads.length ? 'Expand All' : 'Collapse All'}
           </button>
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24">
           {filteredSquads.map((squad, idx) => (
             <React.Fragment key={squad.series}>
               {/* Mid-grid ad placement */}
@@ -482,34 +482,34 @@ export default function Squads() {
               layout
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className={`bg-card-bg border border-card-border rounded-[32px] overflow-hidden transition-all duration-500 ${collapsedSeries.includes(squad.series) ? 'h-fit' : 'min-h-full'}`}
+              className={`bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] overflow-hidden transition-all duration-500 ${collapsedSeries.includes(squad.series) ? 'h-fit' : 'min-h-full'}`}
             >
               <button 
                 onClick={() => toggleSectionCollapse(squad.series)}
-                className="w-full flex justify-between items-start p-8 text-left hover:bg-white/[0.02] transition-colors"
+                className="w-full flex justify-between items-start p-6 md:p-8 text-left hover:bg-white/[0.02] transition-colors"
                 aria-expanded={!collapsedSeries.includes(squad.series)}
               >
-                <div>
-                  <h2 className="text-xl font-display font-bold uppercase tracking-tight mb-1">{squad.series}</h2>
-                  <div className="flex items-center gap-2">
-                    <span className={`px-2 py-0.5 rounded text-[8px] font-bold uppercase border ${
+                <div className="min-w-0 flex-grow pr-4">
+                  <h2 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1 truncate">{squad.series}</h2>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={`px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border ${
                       squad.format === 'Test' ? 'border-orange-500/30 text-orange-400 bg-orange-500/5' :
                       squad.format === 'ODI' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
                       'border-purple-500/30 text-purple-400 bg-purple-500/5'
                     }`}>
                       {squad.format}
                     </span>
-                    <p className="text-[10px] font-bold text-white uppercase tracking-widest">
-                      {searchTerm ? `${squad.players.length} Matches Found` : `${squad.players.length} Players Selected`}
+                    <p className="text-[9px] md:text-[10px] font-bold text-white uppercase tracking-widest shrink-0">
+                      {searchTerm ? `${squad.players.length} Found` : `${squad.players.length} Players`}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10 hidden sm:block">
-                    <Trophy className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-2 md:gap-3 shrink-0">
+                  <div className="bg-white/5 p-2 md:p-3 rounded-xl md:rounded-2xl border border-white/10 hidden sm:block">
+                    <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </div>
-                  <div className={`p-2 rounded-full transition-transform duration-300 ${collapsedSeries.includes(squad.series) ? '' : 'rotate-180'}`}>
-                    <ChevronDown className="w-5 h-5 text-pak-green" />
+                  <div className={`p-1.5 md:p-2 rounded-full transition-transform duration-300 ${collapsedSeries.includes(squad.series) ? '' : 'rotate-180'}`}>
+                    <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
                   </div>
                 </div>
               </button>
@@ -528,28 +528,28 @@ export default function Squads() {
                         <button 
                           key={pIdx} 
                           onClick={() => handlePlayerClick(player.name)}
-                          className="w-full flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
+                          className="w-full flex items-center justify-between p-3 md:p-3.5 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
                         >
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
+                            <div className="flex items-center gap-2.5 md:gap-3">
+                              <div className="w-7 h-7 md:w-9 md:h-9 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
                                 {PLAYER_STATS[player.name]?.imgUrl ? (
-                                  <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-6 h-6 object-contain" />
+                                  <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-5 h-5 md:w-6 md:h-6 object-contain" />
                                 ) : (
-                                  <User className="w-4 h-4 text-pak-green/40" />
+                                  <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green/40" />
                                 )}
                               </div>
-                              <div>
-                                 <span className={`text-[11px] font-black uppercase tracking-tight block group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
+                              <div className="min-w-0">
+                                 <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-tight block truncate group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
                                    {player.name}
                                  </span>
                                  <div className="flex items-center gap-1.5 mt-0.5">
-                                   <span className="text-[7px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
-                                   <StickyNote className={`w-2.5 h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
+                                   <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
+                                   <StickyNote className={`w-2 h-2 md:w-2.5 md:h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
                                  </div>
                               </div>
                            </div>
 
-                           <div className="flex items-center gap-4">
+                           <div className="flex items-center gap-2 md:gap-4 shrink-0">
                              {/* Form Dots */}
                              <div className="hidden sm:flex gap-1">
                                {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
@@ -561,9 +561,9 @@ export default function Squads() {
                                ))}
                              </div>
                              {player.description && (
-                               <span className="text-[8px] font-bold bg-pak-green/20 text-pak-green px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
+                               <span className="text-[7px] md:text-[8px] font-bold bg-pak-green/20 text-pak-green px-1.5 md:px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
                              )}
-                             <ChevronRight className="w-3.5 h-3.5 text-pak-green opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
+                             <ChevronRight className="w-3 md:w-4 h-3 md:h-4 text-pak-green md:opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
                            </div>
                         </button>
                       ))}
@@ -690,62 +690,62 @@ export default function Squads() {
             />
               <div className="relative w-full max-w-4xl bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] overflow-hidden max-h-[90vh] flex flex-col"
               >
-              <div className="p-4 md:p-8 border-b border-white/5 flex items-center justify-between bg-card-bg/50 backdrop-blur-md sticky top-0 z-20">
-                  <div className="flex items-center gap-3 md:gap-6">
+              <div className="p-3 md:p-8 border-b border-white/5 flex items-center justify-between bg-card-bg/50 backdrop-blur-md sticky top-0 z-20">
+                  <div className="flex items-center gap-2.5 md:gap-6">
                     <div className="flex -space-x-3 md:-space-x-4">
-                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-10 shrink-0">
+                      <div className="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-10 shrink-0">
                         {selectedPlayer.imgUrl ? (
                           <img src={selectedPlayer.imgUrl} alt={selectedPlayer.name} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-contain" />
                         ) : (
-                          <User className="w-6 h-6 md:w-8 md:h-8 text-white opacity-50" />
+                          <User className="w-5 h-5 md:w-8 md:h-8 text-white opacity-50" />
                         )}
                       </div>
                       {comparisonPlayer && (
                         <motion.div
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-0 shrink-0"
+                          className="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center relative z-0 shrink-0"
                         >
                           {comparisonPlayer.imgUrl ? (
                             <img src={comparisonPlayer.imgUrl} alt={comparisonPlayer.name} referrerPolicy="no-referrer" loading="lazy" decoding="async" className="w-full h-full object-contain opacity-60" />
                           ) : (
-                            <User className="w-6 h-6 md:w-8 md:h-8 text-white opacity-50" />
+                            <User className="w-5 h-5 md:w-8 md:h-8 text-white opacity-50" />
                           )}
                         </motion.div>
                       )}
                     </div>
                     <div className="min-w-0">
-                      <h3 className="text-base md:text-xl font-display font-bold uppercase tracking-tight text-white truncate">
+                      <h3 className="text-sm md:text-xl font-display font-bold uppercase tracking-tight text-white truncate">
                         {comparisonPlayer ? `${selectedPlayer.name} vs ${comparisonPlayer.name}` : selectedPlayer.name}
                       </h3>
-                      <p className="text-[8px] md:text-[9px] font-bold text-neutral-500 uppercase tracking-widest truncate">{selectedPlayer.role}</p>
+                      <p className="text-[7px] md:text-[9px] font-bold text-neutral-500 uppercase tracking-widest truncate">{selectedPlayer.role}</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-2 md:gap-3">
+                  <div className="flex items-center gap-1.5 md:gap-3">
                     {!comparisonPlayer && !isSelectingComparison && (
                       <button 
                         onClick={() => setIsSelectingComparison(true)}
-                        className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-pak-green text-white text-[8px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-pak-green/20"
+                        className="flex items-center gap-1.5 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-pak-green text-white text-[8px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-pak-green/20"
                       >
-                        <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4" /> 
+                        <TrendingUp className="w-3 md:w-4 h-3 md:h-4 text-white" /> 
                         <span className="hidden xs:inline">Compare</span>
                       </button>
                     )}
                     {comparisonPlayer && (
                        <button 
                         onClick={() => setComparisonPlayer(null)}
-                        className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 text-[8px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all shadow-lg shadow-red-500/5"
+                        className="flex items-center gap-1.5 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 text-[8px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all shadow-lg shadow-red-500/5"
                       >
-                        <X className="w-3.5 h-3.5" />
+                        <X className="w-3 md:w-4 h-3 md:h-4" />
                         <span className="hidden xs:inline">Reset</span>
                       </button>
                     )}
                     <button 
                       onClick={closeModal}
-                      className="p-1.5 md:p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-colors"
+                      className="p-1 md:p-2 rounded-lg md:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-colors"
                     >
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4 md:w-5 md:h-5" />
                     </button>
                   </div>
               </div>
@@ -757,10 +757,10 @@ export default function Squads() {
                 {isSelectingComparison ? (
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-lg font-display font-bold text-white uppercase italic">Select Player to Compare</h4>
+                      <h4 className="text-base md:text-lg font-display font-bold text-white uppercase italic">Select Player to Compare</h4>
                       <button 
                         onClick={() => setIsSelectingComparison(false)}
-                        className="text-[10px] font-bold text-neutral-500 uppercase hover:text-white transition-colors"
+                        className="text-[9px] md:text-[10px] font-bold text-neutral-500 uppercase hover:text-white transition-colors"
                       >
                         Back
                       </button>
@@ -772,11 +772,11 @@ export default function Squads() {
                         placeholder="Search another player..."
                         value={compSearchTerm}
                         onChange={(e) => setCompSearchTerm(e.target.value)}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/50 transition-all"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-12 pr-4 text-[10px] md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/50 transition-all"
                         autoFocus
                       />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                       {availableComparisonPlayers.map((player) => (
                         <button
                           key={player.name}
@@ -784,42 +784,42 @@ export default function Squads() {
                             setComparisonPlayer(player);
                             setIsSelectingComparison(false);
                           }}
-                          className="flex items-center gap-4 p-3 rounded-2xl bg-white/5 border border-white/5 hover:bg-white hover:text-black transition-all text-left group"
+                          className="flex items-center gap-3 md:gap-4 p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/5 hover:bg-white hover:text-black transition-all text-left group"
                         >
-                          <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+                          <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
                              {player.imgUrl ? (
                                <img src={player.imgUrl} alt={player.name} loading="lazy" decoding="async" className="w-full h-full object-contain" />
                              ) : (
-                               <User className="w-6 h-6 opacity-30" />
+                               <User className="w-5 h-5 opacity-30" />
                              )}
                           </div>
-                          <div>
-                            <p className="text-[11px] font-bold uppercase tracking-tight">{player.name}</p>
-                            <p className="text-[8px] font-bold text-neutral-500 uppercase group-hover:text-black/60">{player.role}</p>
+                          <div className="min-w-0">
+                            <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-tight truncate">{player.name}</p>
+                            <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase group-hover:text-black/60 truncate">{player.role}</p>
                           </div>
                         </button>
                       ))}
                     </div>
                   </div>
                 ) : selectedPlayer.stats.matches > 0 ? (
-                  <div className="space-y-12">
+                  <div className="space-y-8 md:space-y-12">
                     {/* Comparison Header Mobile */}
                     {!comparisonPlayer && (
                       <button 
                         onClick={() => setIsSelectingComparison(true)}
-                        className="md:hidden w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-pak-green text-white text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all mb-8"
+                        className="md:hidden w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-pak-green text-white text-[9px] font-bold uppercase tracking-widest hover:scale-105 transition-all mb-6"
                       >
-                        <TrendingUp className="w-4 h-4" /> Compare with another player
+                        <TrendingUp className="w-3.5 h-3.5" /> Compare with another player
                       </button>
                     )}
 
                     {/* Format Tabs */}
-                    <div className="flex gap-2 mb-8 bg-white/5 p-1.5 rounded-2xl border border-white/5">
+                    <div className="flex gap-2 mb-6 md:mb-8 bg-white/5 p-1 rounded-xl md:rounded-2xl border border-white/5 overflow-x-auto scrollbar-hide">
                       {['overall', 'test', 'odi', 't20i'].map((tab) => (
                         <button
                           key={tab}
                           onClick={() => setActiveStatTab(tab as any)}
-                          className={`flex-1 py-2.5 rounded-xl text-[9px] font-bold uppercase tracking-widest transition-all ${
+                          className={`flex-1 min-w-[60px] py-2 md:py-2.5 rounded-lg md:rounded-xl text-[8px] md:text-[9px] font-bold uppercase tracking-widest transition-all ${
                             activeStatTab === tab 
                             ? 'bg-white text-black shadow-lg shadow-white/10' 
                             : 'text-neutral-500 hover:text-white hover:bg-white/5'
@@ -840,7 +840,7 @@ export default function Squads() {
                         <div className="h-px flex-grow bg-white/5" />
                       </div>
                       
-                      <div className={comparisonPlayer ? "grid grid-cols-1 gap-3" : "grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4"}>
+                      <div className={comparisonPlayer ? "grid grid-cols-1 gap-2.5 md:gap-3" : "grid grid-cols-2 sm:grid-cols-3 gap-2.5 md:gap-4"}>
                         {(() => {
                           const getFormatData = (player: any, tab: string) => {
                             if (tab === 'overall') return player.stats;
@@ -852,8 +852,8 @@ export default function Squads() {
 
                           if (!currentStats1 && !currentStats2) {
                             return (
-                              <div className="col-span-full py-12 text-center border border-dashed border-white/5 rounded-2xl opacity-40">
-                                <p className="text-[9px] font-bold uppercase tracking-widest italic">No {activeStatTab} data available</p>
+                              <div className="col-span-full py-10 md:py-12 text-center border border-dashed border-white/5 rounded-2xl md:rounded-3xl opacity-40">
+                                <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest italic">No {activeStatTab} data available</p>
                               </div>
                             );
                           }
@@ -887,9 +887,9 @@ export default function Squads() {
 
                             if (!comparisonPlayer) {
                               return (
-                                <div key={stat.key} className="bg-white/5 border border-white/5 p-4 rounded-2xl flex flex-col justify-between min-h-[80px] group hover:bg-white/[0.08] transition-all">
-                                  <span className="text-[8px] font-bold text-neutral-500 uppercase tracking-widest block mb-1 group-hover:text-pak-green transition-colors">{stat.label}</span>
-                                  <p className="text-xl font-display font-bold text-white tabular-nums">{val1 ?? '—'}</p>
+                                <div key={stat.key} className="bg-white/5 border border-white/5 p-3.5 md:p-4 rounded-xl md:rounded-2xl flex flex-col justify-between min-h-[70px] md:min-h-[80px] group hover:bg-white/[0.08] transition-all">
+                                  <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest block mb-1 group-hover:text-pak-green transition-colors">{stat.label}</span>
+                                  <p className="text-lg md:text-xl font-display font-bold text-white tabular-nums">{val1 ?? '—'}</p>
                                 </div>
                               );
                             }
@@ -901,29 +901,29 @@ export default function Squads() {
 
                             return (
                               <div key={stat.key} className="group/stat">
-                                <div className="flex justify-between items-center p-4 rounded-2xl border border-white/5 bg-white/5 transition-all hover:bg-white/[0.08] hover:border-white/10">
+                                <div className="flex justify-between items-center p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/5 bg-white/5 transition-all hover:bg-white/[0.08] hover:border-white/10">
                                   <div className="w-[35%]">
-                                    <p className={`text-lg md:text-2xl font-display font-bold tabular-nums transition-colors ${better1 ? 'text-pak-green' : 'text-white'}`}>
+                                    <p className={`text-base md:text-xl font-display font-bold tabular-nums transition-colors ${better1 ? 'text-pak-green' : 'text-white'}`}>
                                       {val1 ?? '—'}
                                     </p>
-                                    <p className="text-[7px] font-bold text-neutral-600 uppercase truncate">{selectedPlayer.name}</p>
+                                    <p className="text-[6px] md:text-[7px] font-bold text-neutral-600 uppercase truncate">{selectedPlayer.name}</p>
                                   </div>
                                   
                                   <div className="w-[30%] text-center px-1">
-                                    <div className="text-[8px] font-black text-white/40 uppercase tracking-[0.1em] group-hover/stat:text-white transition-colors">
+                                    <div className="text-[7px] md:text-[8px] font-black text-white/40 uppercase tracking-[0.05em] md:tracking-[0.1em] group-hover/stat:text-white transition-colors">
                                       {stat.label}
                                     </div>
-                                    <div className="flex justify-center gap-1 mt-1.5">
+                                    <div className="flex justify-center gap-0.5 md:gap-1 mt-1 md:mt-1.5">
                                       <div className={`h-0.5 flex-1 rounded-full ${better1 ? 'bg-pak-green' : 'bg-white/10'}`} />
                                       <div className={`h-0.5 flex-1 rounded-full ${better2 ? 'bg-pak-green' : 'bg-white/10'}`} />
                                     </div>
                                   </div>
 
                                   <div className="w-[35%] text-right">
-                                    <p className={`text-lg md:text-2xl font-display font-bold tabular-nums transition-colors ${better2 ? 'text-pak-green' : 'text-white'}`}>
+                                    <p className={`text-base md:text-xl font-display font-bold tabular-nums transition-colors ${better2 ? 'text-pak-green' : 'text-white'}`}>
                                       {val2 ?? '—'}
                                     </p>
-                                    <p className="text-[7px] font-bold text-neutral-600 uppercase truncate">{comparisonPlayer.name}</p>
+                                    <p className="text-[6px] md:text-[7px] font-bold text-neutral-600 uppercase truncate">{comparisonPlayer.name}</p>
                                   </div>
                                 </div>
                               </div>
@@ -934,22 +934,22 @@ export default function Squads() {
                     </section>
 
                     {/* Recent Form Comparison */}
-                    <section className="bg-white/[0.02] border border-white/5 rounded-[32px] p-8">
-                       <div className="flex items-center justify-between mb-8">
-                          <div className="flex items-center gap-3">
-                            <TrendingUp className="w-4 h-4 text-pak-green" />
-                            <h4 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Form Trajectory</h4>
+                    <section className="bg-white/[0.02] border border-white/5 rounded-2xl md:rounded-[32px] p-6 md:p-8">
+                       <div className="flex items-center justify-between mb-6 md:mb-8">
+                          <div className="flex items-center gap-2.5 md:gap-3">
+                            <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
+                            <h4 className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-neutral-500">Form Trajectory</h4>
                           </div>
-                          <p className="text-[8px] font-bold text-neutral-700 uppercase tracking-widest">Last 5 Matches</p>
+                          <p className="text-[7px] md:text-[8px] font-bold text-neutral-700 uppercase tracking-widest">Last 5 Matches</p>
                        </div>
                        
-                       <div className="space-y-10">
-                          <div className="flex flex-col gap-4">
+                       <div className="space-y-8 md:space-y-10">
+                          <div className="flex flex-col gap-3 md:gap-4">
                             <div className="flex items-center justify-between">
-                              <span className="text-[9px] font-bold text-white uppercase tracking-tight">{selectedPlayer.name}</span>
-                              <div className="flex gap-1.5">
+                              <span className="text-[8px] md:text-[9px] font-bold text-white uppercase tracking-tight truncate max-w-[120px]">{selectedPlayer.name}</span>
+                              <div className="flex gap-1 md:gap-1.5">
                                 {selectedPlayer.stats.recentForm.map((score, i) => (
-                                  <div key={i} className={`w-1.5 h-1.5 rounded-full ${getFormColor(score, selectedPlayer.role)}`} />
+                                  <div key={i} className={`w-1 md:w-1.5 h-1 md:h-1.5 rounded-full ${getFormColor(score, selectedPlayer.role)}`} />
                                 ))}
                               </div>
                             </div>
@@ -957,9 +957,9 @@ export default function Squads() {
                               {selectedPlayer.stats.recentForm.map((score, i) => (
                                 <div 
                                   key={i} 
-                                  className={`p-2 md:p-3 rounded-xl md:rounded-2xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, selectedPlayer.role)}/10 border-${getFormColor(score, selectedPlayer.role).replace('bg-', '')}/30`}
+                                  className={`p-1.5 md:p-3 rounded-lg md:rounded-2xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, selectedPlayer.role)}/10 border-${getFormColor(score, selectedPlayer.role).replace('bg-', '')}/30`}
                                 >
-                                  <p className={`text-[9px] md:text-sm font-display font-bold tabular-nums ${getFormColor(score, selectedPlayer.role).replace('bg-', 'text-')}`}>
+                                  <p className={`text-[10px] md:text-sm font-display font-bold tabular-nums ${getFormColor(score, selectedPlayer.role).replace('bg-', 'text-')}`}>
                                     {score}
                                   </p>
                                 </div>
@@ -971,13 +971,13 @@ export default function Squads() {
                             <motion.div 
                               initial={{ opacity: 0, y: 10 }} 
                               animate={{ opacity: 1, y: 0 }} 
-                              className="flex flex-col gap-4 border-t border-white/5 pt-8"
+                              className="flex flex-col gap-3 md:gap-4 border-t border-white/5 pt-6 md:pt-8"
                             >
                               <div className="flex items-center justify-between">
-                                <span className="text-[9px] font-bold text-white uppercase tracking-tight">{comparisonPlayer.name}</span>
-                                <div className="flex gap-1.5">
+                                <span className="text-[8px] md:text-[9px] font-bold text-white uppercase tracking-tight truncate max-w-[120px]">{comparisonPlayer.name}</span>
+                                <div className="flex gap-1 md:gap-1.5">
                                   {comparisonPlayer.stats.recentForm.map((score, i) => (
-                                    <div key={i} className={`w-1.5 h-1.5 rounded-full ${getFormColor(score, comparisonPlayer.role)}`} />
+                                    <div key={i} className={`w-1 md:w-1.5 h-1 md:h-1.5 rounded-full ${getFormColor(score, comparisonPlayer.role)}`} />
                                   ))}
                                 </div>
                               </div>
@@ -985,9 +985,9 @@ export default function Squads() {
                                 {comparisonPlayer.stats.recentForm.map((score, i) => (
                                   <div 
                                     key={i} 
-                                    className={`p-2 md:p-3 rounded-xl md:rounded-2xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, comparisonPlayer.role)}/10 border-${getFormColor(score, comparisonPlayer.role).replace('bg-', '')}/30`}
+                                    className={`p-1.5 md:p-3 rounded-lg md:rounded-2xl text-center border transition-all hover:scale-105 active:scale-95 ${getFormColor(score, comparisonPlayer.role)}/10 border-${getFormColor(score, comparisonPlayer.role).replace('bg-', '')}/30`}
                                   >
-                                    <p className={`text-[9px] md:text-sm font-display font-bold tabular-nums ${getFormColor(score, comparisonPlayer.role).replace('bg-', 'text-')}`}>
+                                    <p className={`text-[10px] md:text-sm font-display font-bold tabular-nums ${getFormColor(score, comparisonPlayer.role).replace('bg-', 'text-')}`}>
                                       {score}
                                     </p>
                                   </div>
@@ -1001,29 +1001,29 @@ export default function Squads() {
                     {/* Achievements & Milestones */}
                     {selectedPlayer.achievements && selectedPlayer.achievements.length > 0 && (
                       <section>
-                        <div className="flex items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3 mb-5 md:mb-6">
                           <div className="h-px flex-grow bg-white/5" />
-                          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">Achievements & Milestones</h4>
+                          <h4 className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-white/40">Achievements</h4>
                           <div className="h-px flex-grow bg-white/5" />
                         </div>
                         
-                        <div className="space-y-4">
+                        <div className="space-y-3 md:space-y-4">
                           {selectedPlayer.achievements.map((achievement, i) => (
                             <motion.div 
                               key={i}
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: i * 0.1 }}
-                              className={`p-5 rounded-[24px] border border-white/5 flex items-start gap-4 transition-all hover:bg-white/5 ${achievement.featured ? 'bg-gradient-to-r from-pak-green/10 to-transparent border-pak-green/20' : 'bg-white/[0.02]'}`}
+                              className={`p-4 md:p-5 rounded-2xl md:rounded-[24px] border border-white/5 flex items-start gap-3 md:gap-4 transition-all hover:bg-white/5 ${achievement.featured ? 'bg-gradient-to-r from-pak-green/10 to-transparent border-pak-green/20' : 'bg-white/[0.02]'}`}
                             >
-                              <div className={`mt-1 p-2 rounded-xl ${achievement.featured ? 'bg-pak-green/20 text-pak-green' : 'bg-white/5 text-white/40'}`}>
-                                {achievement.featured ? <Star className="w-4 h-4" /> : <Award className="w-4 h-4" />}
+                              <div className={`mt-0.5 md:mt-1 p-1.5 md:p-2 rounded-lg md:rounded-xl ${achievement.featured ? 'bg-pak-green/20 text-pak-green' : 'bg-white/5 text-white/40'}`}>
+                                {achievement.featured ? <Star className="w-3.5 h-3.5 md:w-4 md:h-4" /> : <Award className="w-3.5 h-3.5 md:w-4 md:h-4" />}
                               </div>
                               <div>
-                                <h5 className={`text-xs font-bold uppercase tracking-tight mb-1 ${achievement.featured ? 'text-white' : 'text-white/80'}`}>
+                                <h5 className={`text-[11px] md:text-xs font-bold uppercase tracking-tight mb-1 ${achievement.featured ? 'text-white' : 'text-white/80'}`}>
                                   {achievement.title}
                                 </h5>
-                                <p className="text-[10px] text-ink/60 font-medium leading-relaxed">
+                                <p className="text-[9px] md:text-[10px] text-ink/60 font-medium leading-relaxed">
                                   {achievement.description}
                                 </p>
                               </div>
@@ -1034,21 +1034,21 @@ export default function Squads() {
                     )}
 
                     {/* Personal Notes */}
-                    <section className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 relative overflow-hidden">
-                       <div className="flex items-center justify-between mb-6">
+                    <section className="bg-white/[0.03] border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-8 relative overflow-hidden">
+                       <div className="flex items-center justify-between mb-5 md:mb-6">
                           <div className="flex items-center gap-2">
-                            <StickyNote className="w-4 h-4 text-white" />
-                            <h4 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Scouting Notes</h4>
+                            <StickyNote className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+                            <h4 className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-neutral-500">Scouting Notes</h4>
                           </div>
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-2 md:gap-3">
                             {playerNotes[selectedPlayer.name] && (
                               <button 
                                 onClick={() => shareNote(selectedPlayer.name)}
-                                className="px-3 py-1.5 rounded-lg bg-pak-green/10 hover:bg-pak-green text-pak-green hover:text-white border border-pak-green/20 transition-all flex items-center gap-2 group"
+                                className="px-2.5 md:px-3 py-1.5 rounded-lg bg-pak-green/10 hover:bg-pak-green text-pak-green hover:text-white border border-pak-green/20 transition-all flex items-center gap-1.5 md:gap-2 group"
                                 title="Share your scout results"
                               >
-                                <Share2 className="w-3.5 h-3.5" />
-                                <span className="text-[9px] font-bold uppercase tracking-widest">
+                                <Share2 className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                                <span className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest leading-none">
                                   {shareFeedback ? 'Copied' : 'Share Report'}
                                 </span>
                               </button>
@@ -1057,7 +1057,7 @@ export default function Squads() {
                               <motion.span 
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                className="text-[8px] font-bold text-green-400 uppercase"
+                                className="text-[7px] md:text-[8px] font-bold text-green-400 uppercase"
                               >
                                 Saving...
                               </motion.span>
@@ -1069,17 +1069,17 @@ export default function Squads() {
                          value={playerNotes[selectedPlayer.name] || ''}
                          onChange={(e) => saveNote(selectedPlayer.name, e.target.value)}
                          placeholder="Add personal notes, tactical observations, or scouting data for this player..."
-                         className="w-full bg-black/20 border border-white/5 rounded-2xl p-4 text-xs text-white/80 placeholder:text-neutral-700 focus:outline-none focus:border-white/20 transition-all min-h-[120px] resize-none font-sans leading-relaxed"
+                         className="w-full bg-black/20 border border-white/5 rounded-xl md:rounded-2xl p-4 text-[10px] md:text-xs text-white/80 placeholder:text-neutral-700 focus:outline-none focus:border-white/20 transition-all min-h-[100px] md:min-h-[120px] resize-none font-sans leading-relaxed"
                        />
 
-                       <div className="mt-3 flex items-center justify-between text-[8px] font-bold uppercase tracking-widest text-neutral-600">
-                          <p>• Notes are saved locally to your browser</p>
-                          <p>• Only you can see these unless shared</p>
+                       <div className="mt-3 flex items-center justify-between text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-neutral-600">
+                          <p>• Saved locally</p>
+                          <p>• Private unless shared</p>
                        </div>
                        
                        {!playerNotes[selectedPlayer.name] && (
                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03]">
-                            <StickyNote className="w-24 h-24 text-white" />
+                            <StickyNote className="w-16 h-16 md:w-24 md:h-24 text-white" />
                          </div>
                        )}
                     </section>
@@ -1092,16 +1092,16 @@ export default function Squads() {
                 )}
               </div>
 
-                <div className="p-8 bg-card-bg border-t border-white/5 flex flex-col gap-3">
+                <div className="p-6 md:p-8 bg-card-bg border-t border-white/5 flex flex-col gap-2.5 md:gap-3">
                   <Link 
                     to={`/player/${selectedPlayer.name.toLowerCase().replace(/ /g, '-')}`}
-                    className="w-full py-4 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-[0.4em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-2"
+                    className="w-full py-3.5 md:py-4 bg-pak-green text-white rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-2 leading-tight"
                   >
                     View Full Stats Page <ChevronRight className="w-4 h-4" />
                   </Link>
                   <button 
                     onClick={closeModal}
-                    className="w-full py-4 bg-white/5 text-neutral-500 rounded-2xl text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white/10 hover:text-white transition-all"
+                    className="w-full py-3.5 md:py-4 bg-white/5 text-neutral-500 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] hover:bg-white/10 hover:text-white transition-all leading-tight"
                   >
                     Close Profile
                   </button>

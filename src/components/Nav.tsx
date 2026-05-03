@@ -18,7 +18,7 @@ export default function Nav() {
 
   return (
     <nav className="bg-card-bg border-b border-card-border overflow-x-auto custom-scrollbar sticky top-14 sm:top-20 z-40 shadow-lg scrollbar-hide snap-x snap-mandatory scroll-smooth relative">
-      <div className="container mx-auto px-4 sm:px-6 h-10 sm:h-14 flex items-center gap-0.5 sm:gap-1 whitespace-nowrap">
+      <div className="container mx-auto px-4 sm:px-6 h-11 sm:h-14 flex items-center gap-0.5 sm:gap-1 whitespace-nowrap">
         {links.map((link) => (
           <Link
             key={link.path}
