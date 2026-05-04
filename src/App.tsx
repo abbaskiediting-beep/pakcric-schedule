@@ -74,6 +74,8 @@ const YasirShahBirthdayBlog = lazy(() => import('./pages/YasirShahBirthdayBlog')
 const BabarAzamVsUsmanKhanBlog = lazy(() => import('./pages/BabarAzamVsUsmanKhanBlog'));
 const PSL11FinalTimeGuideBlog = lazy(() => import('./pages/PSL11FinalTimeGuideBlog'));
 const BabarAzamPSLFinalsCaptainBlog = lazy(() => import('./pages/BabarAzamPSLFinalsCaptainBlog'));
+const PSL2026FinalTossResultBlog = lazy(() => import('./pages/PSL2026FinalTossResultBlog'));
+const PSL2026FinalReportBlog = lazy(() => import('./pages/PSL2026FinalReportBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -224,6 +226,8 @@ export default function App() {
               <Route path="/news/babar-azam-vs-usman-khan-comparison-2026" element={<BabarAzamVsUsmanKhanBlog />} />
               <Route path="/news/psl-11-final-starting-time-guide-2026" element={<PSL11FinalTimeGuideBlog />} />
               <Route path="/news/babar-azam-psl-finals-from-player-to-captain" element={<BabarAzamPSLFinalsCaptainBlog />} />
+              <Route path="/news/psl-2026-final-toss-result-hyk-vs-pz" element={<PSL2026FinalTossResultBlog />} />
+              <Route path="/news/peshawar-zalmi-psl-2026-champions-match-report" element={<PSL2026FinalReportBlog />} />
               <Route path="/series-intelligence/:slug" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

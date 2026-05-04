@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Match } from '../types';
+import { getTeamLogo } from '../lib/teamLogos';
 
 interface MatchCardProps {
   match: Match;
@@ -15,6 +16,10 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
   const [copied, setCopied] = useState(false);
   const effectiveId = matchId || match.id;
   
+  // Get enhanced logos
+  const logoA = getTeamLogo(match.teamA || 'PAK');
+  const logoB = getTeamLogo(match.opponent);
+
   // Map series names to IDs for intelligence reports
   const seriesIntelMap: Record<string, string> = {
     'PSL 11 2026': 'psl-11-2026',
@@ -188,44 +193,59 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
               </div>
             </div>
 
-            <div className="flex items-center justify-between mb-8 md:mb-10 px-1">
-              <div className="flex flex-col items-center gap-2.5 basis-[40%]">
-                <div className={`w-11 h-11 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full border bg-black/20 p-1 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
-                  match.status === 'Live' ? 'border-red-500 animate-[pulse_2s_infinite]' : 'border-card-border group-hover:border-pak-green'
+            <div className="flex items-center justify-between mb-8 md:mb-10 px-1 relative">
+              {/* Background Glow for Matchup */}
+              <div className="absolute inset-0 bg-gradient-to-r from-pak-green/5 via-transparent to-red-500/5 blur-3xl opacity-50 pointer-events-none" />
+
+              <div className="flex flex-col items-center gap-3 basis-[40%] relative z-10">
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-2 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
+                  match.status === 'Live' ? 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]' : 'border-white/5 group-hover:border-pak-green/30'
                 }`}>
-                  <img src={match.teamAFlag || "https://flagcdn.com/pk.svg"} alt={match.teamA || "PAK"} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover rounded-full" />
+                  <img 
+                    src={logoA} 
+                    alt={match.teamA || "PAK"} 
+                    referrerPolicy="no-referrer" 
+                    loading="lazy" 
+                    className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
+                  />
+                  {match.status === 'Live' && (
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full animate-ping" />
+                  )}
                 </div>
-                <span className={`text-[9px] xs:text-[10px] sm:text-[11px] font-black uppercase tracking-[1px] sm:tracking-[2px] transition-colors text-center leading-tight ${
-                  match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-ink/40 group-hover:text-white'
+                <span className={`text-[10px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-tight ${
+                  match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-white/40 group-hover:text-white'
                 }`}>{match.teamA || "PAK"}</span>
               </div>
 
-              <div className="flex flex-col items-center gap-1.5 px-1 basis-[20%]">
-                <div className={`h-px w-3 xs:w-5 sm:w-8 transition-colors ${
-                  match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-card-border/50 group-hover:bg-pak-green/30'
+              <div className="flex flex-col items-center gap-1.5 px-1 basis-[20%] relative z-10">
+                <div className={`h-px w-4 xs:w-6 sm:w-10 transition-colors ${
+                  match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
                 }`} />
-                <div className={`text-[9px] xs:text-[10px] sm:text-[12px] font-black transition-colors tracking-tighter italic ${
-                  match.status === 'Live' ? 'text-red-500' : 'text-ink/20 group-hover:text-pak-green/80'
+                <div className={`text-[10px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
+                  match.status === 'Live' ? 'text-red-500' : 'text-white/10 group-hover:text-pak-green group-hover:scale-110'
                 }`}>VS</div>
-                <div className={`h-px w-3 xs:w-5 sm:w-8 transition-colors ${
-                  match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-card-border/50 group-hover:bg-pak-green/30'
+                <div className={`h-px w-4 xs:w-6 sm:w-10 transition-colors ${
+                  match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
                 }`} />
               </div>
 
-              <div className="flex flex-col items-center gap-2.5 basis-[40%]">
-                <div className={`w-11 h-11 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full border bg-black/20 p-1 overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 ${
-                  match.status === 'Live' ? 'border-red-500 animate-[pulse_2s_infinite]' : 'border-card-border group-hover:border-pak-green'
+              <div className="flex flex-col items-center gap-3 basis-[40%] relative z-10">
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-2 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
+                  match.status === 'Live' ? 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]' : 'border-white/5 group-hover:border-pak-green/30'
                 }`}>
                   <img 
-                    src={match.flagUrl || `https://api.dicebear.com/7.x/initials/svg?seed=${match.opponent}`} 
+                    src={logoB} 
                     alt={match.opponent} 
                     referrerPolicy="no-referrer" 
                     loading="lazy"
-                    className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] transition-transform duration-500"
                   />
+                  {match.status === 'Live' && (
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full animate-ping" />
+                  )}
                 </div>
-                <span className={`text-[9px] xs:text-[10px] sm:text-[11px] font-black uppercase tracking-[1px] sm:tracking-[2px] transition-colors text-center leading-tight ${
-                  match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-ink/40 group-hover:text-white'
+                <span className={`text-[10px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-tight ${
+                  match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-white/40 group-hover:text-white'
                 }`}>{match.opponent}</span>
               </div>
             </div>

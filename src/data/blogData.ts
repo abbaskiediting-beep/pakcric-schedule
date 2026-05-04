@@ -528,4 +528,26 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'psl-2026-final-toss-result-hyk-vs-pz-2026',
+    title: 'PSL 2026 Final Toss Result: Hyderabad Kingsmen Win Toss, Elect to Bowl — Peshawar Zalmi to Bat First',
+    summary: 'PSL 2026 Final toss result — Hyderabad Kingsmen won the toss and elected to field. Peshawar Zalmi batting first. Nahid Rana returns for Zalmi.',
+    date: 'May 3, 2026',
+    category: 'Breaking News',
+    path: '/news/psl-2026-final-toss-result-hyk-vs-pz',
+    icon: Zap,
+    color: 'text-red-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'peshawar-zalmi-psl-2026-champions-match-report-2026',
+    title: "Peshawar Zalmi Are PSL 2026 Champions! Aaron Hardie's All-Round Heroics Seal 5-Wicket Victory",
+    summary: "Peshawar Zalmi won the PSL 2026 Final by 5 wickets against Hyderabad Kingsmen at Gaddafi Stadium. Aaron Hardie 4/24 + 55* was Player of the Match.",
+    date: 'May 4, 2026',
+    category: 'Breaking News',
+    path: '/news/peshawar-zalmi-psl-2026-champions-match-report',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];
