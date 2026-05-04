@@ -550,4 +550,26 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'babar-azam-psl-2026-complete-story-comeback-2026',
+    title: "Babar Azam PSL 2026: How Pakistan's Most Criticised Batter Became Its Greatest Champion",
+    summary: "Babar Azam entered PSL 2026 as Pakistan's most criticised batter — and left as PSL Champion captain with 588 runs and a world record. The complete season journey.",
+    date: 'May 4, 2026',
+    category: 'Analysis',
+    path: '/news/babar-azam-psl-2026-complete-story-comeback',
+    icon: Star,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'aaron-hardie-psl-2026-final-all-rounder-masterclass-2026',
+    title: "Aaron Hardie PSL 2026 Final: The All-Rounder Who Won Pakistan's Biggest Game",
+    summary: "Aaron Hardie delivered one of the greatest all-round performances in PSL Final history — 4/27 with the ball + 56* with the bat when Zalmi were 40/4. A complete analysis of a historic night.",
+    date: 'May 4, 2026',
+    category: 'Analysis',
+    path: '/news/aaron-hardie-psl-2026-final-all-rounder-masterclass',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'syed-abbas'
+  },
 ];
