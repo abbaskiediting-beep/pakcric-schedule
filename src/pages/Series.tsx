@@ -17,15 +17,6 @@ export default function Series() {
       path: "/pakistan-vs-bangladesh-2026-schedule"
     },
     {
-      id: 'psl-11-2026',
-      title: "PSL 11 - 2026",
-      format: "Tournament",
-      matches: "Playoffs",
-      venue: "Lahore & Karachi",
-      status: "Ongoing",
-      icon: <Trophy className="w-5 h-5" />
-    },
-    {
       id: 'pak-aus-odi-2026',
       title: "Australia Tour of Pakistan 2026",
       format: "ODI Series",
@@ -37,11 +28,24 @@ export default function Series() {
     }
   ];
 
+  const recentSeries = [
+    {
+      id: 'psl-11-2026',
+      title: "PSL 11 - 2026",
+      format: "Tournament",
+      matches: "Season Review",
+      venue: "Lahore & Karachi",
+      status: "Completed",
+      icon: <Trophy className="w-5 h-5" />,
+      path: "/news/peshawar-zalmi-psl-2026-champions-match-report"
+    }
+  ];
+
   return (
     <div className="max-w-6xl mx-auto py-8 md:py-16 px-4 md:px-6">
       <Helmet>
         <title>Pakistan Cricket Series – Full Tours, Fixtures & Updates 2026</title>
-        <meta name="description" content="Complete guide to Pakistan cricket series 2026. Explore upcoming tours, ongoing matches, squad updates, and recent results for the Green Shirts." />
+        <meta name="description" content="Complete guide to Pakistan cricket series 2026. Explore upcoming tours, squad updates, and recent results for the Green Shirts." />
         <meta name="keywords" content="Pakistan Cricket Series, Pakistan upcoming tours, Pakistan cricket fixtures, Pakistan series schedule" />
       </Helmet>
 
@@ -59,7 +63,7 @@ export default function Series() {
           Pakistan Cricket <span className="text-pak-green">Series</span>
         </h1>
         <p className="text-base md:text-xl text-neutral-500 max-w-3xl mx-auto font-medium italic leading-relaxed px-2">
-          <LinkText text="Welcome to PakCric Schedule’s Series Hub — your complete source for all Pakistan cricket series, including upcoming tours, ongoing matches, and recently completed series." />
+          <LinkText text="Welcome to PakCric Schedule’s Series Hub — your complete source for all Pakistan cricket series, including upcoming tours and recently completed series." />
         </p>
       </motion.div>
 
@@ -90,7 +94,7 @@ export default function Series() {
                         </div>
                         <div>
                           <h3 className="text-lg md:text-xl font-bold italic mb-0.5 md:mb-1 group-hover:text-pak-green transition-colors">
-                            <LinkText text={series.title} />
+                            {series.title}
                           </h3>
                           <p className="text-[10px] md:text-xs font-bold text-neutral-500 uppercase tracking-widest">{series.format} • {series.matches}</p>
                         </div>
@@ -183,26 +187,40 @@ export default function Series() {
             </div>
           </section>
 
-          {/* Ongoing Series Section */}
+          {/* Featured & Recent Series Section */}
           <section className="bg-white/5 rounded-3xl md:rounded-[48px] p-6 md:p-12 border border-white/10 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12 pointer-events-none">
-              <Activity className="w-64 h-64" />
+              <HistoryIcon className="w-64 h-64" />
             </div>
             <div className="relative z-10">
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-                <Activity className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
-                <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tighter italic">Ongoing Series</h2>
+                <Trophy className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
+                <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tighter italic">Recent Series Archive</h2>
               </div>
               <p className="text-ink/60 text-sm md:text-base mb-6 md:mb-8 italic">
-                <LinkText text="Follow live action with real-time updates for ongoing series. This section ensures you stay updated throughout the series with match results and daily updates." />
+                <LinkText text="Explore completed series results and tournament reviews. This section ensures you stay updated with match results and comprehensive season analysis." />
               </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 m-0 p-0 list-none">
-                {["Match results", "Daily updates", "Team performance", "Key highlights"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-xs md:text-sm font-bold text-white italic">
-                    <div className="w-1.5 h-1.5 rounded-full bg-pak-green" /> {item}
-                  </li>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {recentSeries.map((series, idx) => (
+                  <Link 
+                    key={idx}
+                    to={series.path}
+                    className="bg-black/20 border border-white/5 p-5 rounded-2xl flex items-center justify-between group hover:border-pak-green/40 transition-all"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-all">
+                        {series.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white italic leading-none mb-1 group-hover:text-pak-green transition-colors">{series.title}</h4>
+                        <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{series.matches}</p>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-neutral-600 group-hover:text-pak-green group-hover:translate-x-1 transition-all" />
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </section>
 

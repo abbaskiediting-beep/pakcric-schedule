@@ -273,7 +273,7 @@ export default function App() {
               <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Featured Series</span>
               <div className="flex flex-col gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
                 <Link to="/pakistan-vs-bangladesh-2026-schedule" className="hover:text-pak-green transition-colors">Pakistan vs Bangladesh 2026 Schedule</Link>
-                <Link to="/series/psl-11-2026" className="hover:text-pak-green transition-colors">PSL 2026 Schedule</Link>
+                <Link to="/news/peshawar-zalmi-psl-2026-champions-match-report" className="hover:text-pak-green transition-colors">PSL 2026 Review</Link>
                 <Link to="/pakistan-vs-australia-2026-schedule-odi" className="hover:text-pak-green transition-colors">Australia Tour of Pakistan 2026 ODI Series</Link>
                 <Link to="/the-evolution-of-the-shaheens-2026-strategy" className="hover:text-pak-green transition-colors">Evolution Analysis</Link>
                 <Link to="/pakistan-icc-rankings-april-2026-analysis" className="hover:text-pak-green transition-colors">Rankings Analysis</Link>

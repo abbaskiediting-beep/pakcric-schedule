@@ -322,26 +322,45 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
-               <div className="bg-white/5 rounded-[24px] md:rounded-3xl p-5 md:p-6 border border-white/5 relative group hover:border-white/30 transition-all">
-                  <div className="flex items-center gap-3 md:gap-4 mb-4">
-                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-lg shrink-0">
-                        <Trophy className="w-5 h-5 md:w-6 md:h-6" />
-                     </div>
-                     <div className="min-w-0">
-                        <span className="text-[11px] md:text-xs font-bold uppercase tracking-tight block text-white truncate">{bangladeshSeriesName}</span>
-                        <span className="text-[9px] md:text-[10px] text-ink/40 font-bold uppercase tracking-widest">{bangladeshMatches.length} Elite Matches</span>
-                     </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                     {bangladeshMatches.slice(0, 3).map((match, idx) => (
-                       <div key={idx} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
-                          <span className="text-[10px] font-bold text-ink/60">{match.date}</span>
-                          <span className="text-[10px] font-bold uppercase tracking-tighter">PAK vs {match.opponent}</span>
+               {[
+                 {
+                   name: "Pakistan vs Bangladesh 2026",
+                   path: "/pakistan-vs-bangladesh-2026-schedule",
+                   matches: "2 Test Matches",
+                   icon: <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                   color: "bg-pak-green"
+                 },
+                 {
+                   name: "PSL 11 - 2026",
+                   path: "/news/peshawar-zalmi-psl-2026-champions-match-report",
+                   matches: "Season Review",
+                   icon: <Zap className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                   color: "bg-yellow-600"
+                 },
+                 {
+                   name: "Pakistan vs Australia 2026",
+                   path: "/pakistan-vs-australia-2026-schedule-odi",
+                   matches: "3 ODI Series",
+                   icon: <Star className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                   color: "bg-rose-500"
+                 }
+               ].map((series, idx) => (
+                 <Link 
+                   key={idx}
+                   to={series.path}
+                   className="bg-white/5 rounded-2xl md:rounded-3xl p-4 md:p-5 border border-white/5 block group hover:border-white/30 transition-all hover:bg-white/[0.08]"
+                 >
+                    <div className="flex items-center gap-3 md:gap-4">
+                       <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl ${series.color} flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform`}>
+                          {series.icon}
                        </div>
-                     ))}
-                  </div>
-               </div>
+                       <div className="min-w-0">
+                          <span className="text-[10px] md:text-xs font-bold uppercase tracking-tight block text-white truncate group-hover:text-pak-green transition-colors">{series.name}</span>
+                          <span className="text-[8px] md:text-[9px] text-ink/40 font-bold uppercase tracking-widest">{series.matches}</span>
+                       </div>
+                    </div>
+                 </Link>
+               ))}
             </div>
           </div>
 

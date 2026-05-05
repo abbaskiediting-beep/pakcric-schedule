@@ -761,7 +761,7 @@ export default function MatchSchedulePage() {
             <div className="space-y-6">
               <div>
                 <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">
-                  <Link to="/pakistan-tour-bangladesh-test-2026" className="hover:underline">Pakistan vs Bangladesh 2026</Link>
+                  <Link to="/pakistan-vs-bangladesh-2026-schedule" className="hover:underline">Pakistan vs Bangladesh 2026</Link>
                 </h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
                   Pakistan will tour Bangladesh for an exciting series featuring multiple <Link to="/match/1" className="text-pak-green hover:underline">matches across formats</Link>, testing the team's adaptability in subcontinent conditions.
@@ -775,7 +775,7 @@ export default function MatchSchedulePage() {
               </div>
               <div className="pt-4 border-t border-white/5">
                 <h4 className="text-pak-green text-[10px] font-bold uppercase tracking-widest mb-2">
-                  <Link to="/series-intelligence/aus-pak-odi-2026" className="hover:underline">Pakistan vs Australia 2026</Link>
+                  <Link to="/pakistan-vs-australia-2026-schedule-odi" className="hover:underline">Pakistan vs Australia 2026</Link>
                 </h4>
                 <p className="text-ink/60 text-sm leading-relaxed">
                   A historic white-ball series in Lahore. Pakistan looks to continue their momentum after the T20I sweep against the world champions in home conditions.

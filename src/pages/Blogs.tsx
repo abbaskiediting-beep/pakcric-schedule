@@ -75,25 +75,42 @@ function BlogCard({ post, idx }: { post: BlogPost; idx: number }) {
   );
 }
 
-const SimpleDropdown = ({ label, items, icon: Icon }: { label: string; items: { name: string; path: string }[]; icon: any }) => (
-  <div className="relative group">
-    <button className="flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/40 hover:bg-white/[0.05] transition-all text-white/70 hover:text-white">
-      <Icon className="w-3.5 h-3.5 text-pak-green" />
-      {label} <ChevronDown className="w-3 h-3 opacity-40 group-hover:opacity-100 group-hover:rotate-180 transition-all" />
-    </button>
-    <div className="absolute top-full left-0 mt-3 w-56 bg-card-bg/95 backdrop-blur-xl border border-white/10 rounded-[24px] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform translate-y-2 group-hover:translate-y-0 duration-300">
-      <div className="px-3 py-2 border-b border-white/5 mb-1">
-        <span className="text-[8px] font-black uppercase tracking-[2px] text-pak-green/60">Select Month</span>
+const SimpleDropdown = ({ label, items, icon: Icon, activeValue, onSelect }: { label: string; items: { name: string; value: string }[]; icon: any; activeValue?: string; onSelect?: (value: string) => void }) => {
+  const activeItem = items.find(i => i.value === activeValue);
+  
+  return (
+    <div className="relative group">
+      <button className={`flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border ${activeValue && activeValue !== 'all' ? 'border-pak-green/50 bg-pak-green/5 text-white' : 'border-white/10 text-white/70'} rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/40 hover:bg-white/[0.05] transition-all hover:text-white`}>
+        <Icon className="w-3.5 h-3.5 text-pak-green" />
+        {activeItem ? activeItem.name : label} <ChevronDown className="w-3 h-3 opacity-40 group-hover:opacity-100 group-hover:rotate-180 transition-all" />
+      </button>
+      <div className="absolute top-full left-0 mt-3 w-56 bg-card-bg/95 backdrop-blur-xl border border-white/10 rounded-[24px] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 transform translate-y-2 group-hover:translate-y-0 duration-300">
+        <div className="px-3 py-2 border-b border-white/5 mb-1">
+          <span className="text-[8px] font-black uppercase tracking-[2px] text-pak-green/60">Select Month</span>
+        </div>
+        {activeValue !== 'all' && (
+          <button 
+            onClick={() => onSelect?.('all')}
+            className="w-full flex items-center justify-between px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-white hover:bg-pak-green/10 rounded-xl transition-all group/item"
+          >
+            All Stories
+            <div className="w-1.5 h-1.5 rounded-full bg-white/10 transition-colors" />
+          </button>
+        )}
+        {items.map(item => (
+          <button 
+            key={item.value} 
+            onClick={() => onSelect?.(item.value)}
+            className={`w-full flex items-center justify-between px-4 py-3 text-[9px] font-bold uppercase tracking-widest ${activeValue === item.value ? 'text-white bg-pak-green/10' : 'text-ink/60'} hover:text-white hover:bg-pak-green/10 rounded-xl transition-all group/item`}
+          >
+            {item.name}
+            <div className={`w-1.5 h-1.5 rounded-full ${activeValue === item.value ? 'bg-pak-green shadow-[0_0_8px_rgba(0,102,46,1)]' : 'bg-white/10'} group-hover/item:bg-pak-green transition-colors`} />
+          </button>
+        ))}
       </div>
-      {items.map(item => (
-        <Link key={item.name} to={item.path} className="flex items-center justify-between px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-white hover:bg-pak-green/10 rounded-xl transition-all group/item">
-          {item.name}
-          <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover/item:bg-pak-green transition-colors" />
-        </Link>
-      ))}
     </div>
-  </div>
-);
+  );
+};
 
 const HoverDropdown = ({ label, items }: { label: string; items: { name: string; path: string; icon: any; desc?: string }[] }) => (
   <div className="relative group">
@@ -239,6 +256,13 @@ const ClickDropdown = () => {
 };
 
 export default function Blogs() {
+  const [selectedMonth, setSelectedMonth] = useState('all');
+
+  const filteredPosts = [...BLOG_POSTS].filter(post => {
+    if (selectedMonth === 'all') return true;
+    return post.date.toLowerCase().includes(selectedMonth.toLowerCase());
+  }).reverse();
+
   return (
     <div className="max-w-7xl mx-auto py-8 md:py-12 px-4 md:px-6">
       <Helmet>
@@ -273,19 +297,21 @@ export default function Blogs() {
         <SimpleDropdown 
           label="News Archive" 
           icon={Calendar}
+          activeValue={selectedMonth}
+          onSelect={(val) => setSelectedMonth(val)}
           items={[
-            { name: 'May 2026', path: '/news' },
-            { name: 'April 2026', path: '/news' },
-            { name: 'March 2026', path: '/news' }
+            { name: 'May 2026', value: 'May' },
+            { name: 'April 2026', value: 'April' },
+            { name: 'March 2026', value: 'March' }
           ]} 
         />
         
         <HoverDropdown 
-          label="Live Series" 
+          label="Featured Series" 
           items={[
-            { name: 'PAK vs BAN 2026', path: '/series/bangladesh-tour-2026', icon: Target, desc: 'Test Series Coverage' },
-            { name: 'PSL 11 Finals', path: '/news#psl-news', icon: Trophy, desc: 'Live from Lahore' },
-            { name: 'PAK vs AUS 2026', path: '/series/australia-tour-2026', icon: Shield, desc: '3 ODIs • May/June' }
+            { name: 'PAK vs BAN 2026', path: '/pakistan-vs-bangladesh-2026-schedule', icon: Target, desc: 'Test Series Coverage' },
+            { name: 'PSL 11 Finals', path: '/news/peshawar-zalmi-psl-2026-champions-match-report', icon: Trophy, desc: 'Season Review' },
+            { name: 'PAK vs AUS 2026', path: '/pakistan-vs-australia-2026-schedule-odi', icon: Shield, desc: '3 ODIs • May/June' }
           ]} 
         />
 
@@ -301,65 +327,95 @@ export default function Blogs() {
 
       {/* Grouped Blogs Section */}
       <section className="mb-16 md:mb-32">
-        {(() => {
-          const pslBlogs = [...BLOG_POSTS].filter(post => 
-            post.id.includes('psl') || 
-            post.title.toUpperCase().includes('PSL') || 
-            post.title.toUpperCase().includes('KINGSMEN') || 
-            post.title.toUpperCase().includes('ZALMI') || 
-            post.title.toUpperCase().includes('SULTANS') || 
-            post.title.toUpperCase().includes('UNITED') ||
-            post.category === 'Tournament Stats' ||
-            post.category === 'Season Review'
-          ).reverse();
-
-          const otherBlogs = [...BLOG_POSTS].filter(post => 
-            !pslBlogs.find(p => p.id === post.id)
-          ).reverse();
-
-          return (
-            <div className="space-y-20 md:space-y-32">
-              {/* PSL News Section */}
-              <div id="psl-news">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-pak-green pl-6">
-                  <div>
-                    <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
-                      PSL 11 <span className="text-pak-green">2026 News</span>
-                    </h2>
-                    <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Everything about the Pakistan Super League</p>
-                  </div>
-                  <div className="flex items-center gap-2 text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40">
-                    Live Updates <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-pak-green animate-pulse" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                  {pslBlogs.map((post, idx) => (
-                    <BlogCard key={post.id} post={post} idx={idx} />
-                  ))}
-                </div>
+        {selectedMonth !== 'all' ? (
+          <div>
+            <div className="flex items-center justify-between mb-12 border-l-4 border-pak-green pl-6">
+              <div>
+                <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
+                  Archive: <span className="text-pak-green">{selectedMonth} 2026</span>
+                </h2>
+                <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Showing {filteredPosts.length} stories found</p>
               </div>
-
-              {/* International & Strategy Section */}
-              <div id="international-news">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-blue-500 pl-6">
-                  <div>
-                    <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
-                      Pakistan <span className="text-blue-500">Team & Strategy</span>
-                    </h2>
-                    <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">International Series, Rankings & Analysis</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                  {otherBlogs.map((post, idx) => (
-                    <BlogCard key={post.id} post={post} idx={idx} />
-                  ))}
-                </div>
-              </div>
+              <button 
+                onClick={() => setSelectedMonth('all')}
+                className="text-[10px] font-bold text-pak-green uppercase tracking-widest hover:underline"
+              >
+                Clear Filter
+              </button>
             </div>
-          );
-        })()}
+            {filteredPosts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                {filteredPosts.map((post, idx) => (
+                  <BlogCard key={post.id} post={post} idx={idx} />
+                ))}
+              </div>
+            ) : (
+              <div className="py-20 text-center">
+                <p className="text-ink/40 text-sm font-bold uppercase tracking-widest">No articles found for this month.</p>
+              </div>
+            )}
+          </div>
+        ) : (
+          (() => {
+            const pslBlogs = [...BLOG_POSTS].filter(post => 
+              post.id.includes('psl') || 
+              post.title.toUpperCase().includes('PSL') || 
+              post.title.toUpperCase().includes('KINGSMEN') || 
+              post.title.toUpperCase().includes('ZALMI') || 
+              post.title.toUpperCase().includes('SULTANS') || 
+              post.title.toUpperCase().includes('UNITED') ||
+              post.category === 'Tournament Stats' ||
+              post.category === 'Season Review'
+            ).reverse();
+
+            const otherBlogs = [...BLOG_POSTS].filter(post => 
+              !pslBlogs.find(p => p.id === post.id)
+            ).reverse();
+
+            return (
+              <div className="space-y-20 md:space-y-32">
+                {/* PSL News Section */}
+                <div id="psl-news">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-pak-green pl-6">
+                    <div>
+                      <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
+                        PSL 11 <span className="text-pak-green">2026 Archive</span>
+                      </h2>
+                      <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Everything about the Pakistan Super League</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                      Season Review <Trophy className="w-3 md:w-4 h-3 md:h-4 text-pak-green" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                    {pslBlogs.map((post, idx) => (
+                      <BlogCard key={post.id} post={post} idx={idx} />
+                    ))}
+                  </div>
+                </div>
+
+                {/* International & Strategy Section */}
+                <div id="international-news">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-blue-500 pl-6">
+                    <div>
+                      <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
+                        Pakistan <span className="text-blue-500">Team & Strategy</span>
+                      </h2>
+                      <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">International Series, Rankings & Analysis</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                    {otherBlogs.map((post, idx) => (
+                      <BlogCard key={post.id} post={post} idx={idx} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })()
+        )}
       </section>
 
       {/* Our Experts Section */}
