@@ -10,14 +10,14 @@ export default function RedBallResilienceBlog() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
       <Helmet>
-        <title>Red-Ball Resilience: Pakistan vs Bangladesh Test Series 2026 Analysis</title>
+        <title>Pakistan vs Bangladesh Test Series 2026: WTC Analysis & Schedule</title>
         <meta 
           name="description" 
-          content="Explore the strategic importance of Pakistan's 2026 Test tour of Bangladesh. Analysis of team changes under Head Coach Sarfaraz Ahmed and Captain Shan Masood, WTC implications, and the lead spin duo's impact." 
+          content="Comprehensive analysis of the 2026 Pakistan vs Bangladesh Test series. Insights on WTC points table implications, squad breakdowns, and pitch conditions in Dhaka & Sylhet." 
         />
         <meta 
           name="keywords" 
-          content="Pakistan cricket, Bangladesh Test Series, WTC, Shan Masood, Sarfaraz Ahmed, Noman Ali, Sajid Khan, Cricket Analysis, 2026 Test Series" 
+          content="Pakistan vs Bangladesh Test Series, WTC 2025-27 points table, ICC World Test Championship standings, Shan Masood, Babar Azam, Mehidy Hasan Miraz, Test cricket analysis" 
         />
       </Helmet>
 
@@ -60,16 +60,16 @@ export default function RedBallResilienceBlog() {
           </p>
 
           <p className="text-lg mb-6 leading-relaxed">
-            <LinkText text="As the summer heat begins to intensify in the South Asian region, the focus of the cricketing world shifts from the high-velocity T20 spectacles of the PSL to the patient, technical, and mentally grueling environment of red-ball cricket. The upcoming Pakistan vs Bangladesh Test Series 2026 is set to become a defining moment in the current ICC World Test Championship cycle. Both teams, currently grappling with the challenges of transition and the hunger for consistency, view this series as a portal to climbing the global ladder." />
+            <LinkText text="As the summer heat begins to intensify in the South Asian region, the focus of the cricketing world shifts from the high-velocity T20 spectacles of the PSL to the patient, technical, and mentally grueling environment of red-ball cricket. The upcoming Pakistan vs Bangladesh Test Series 2026 is set to become a defining moment in the current ICC World Test Championship cycle. Both teams, currently grappling with the challenges of transition and the hunger for consistency, view this series as a portal to climbing the WTC 2025-27 points table." />
           </p>
 
           <p className="mb-6">
-            <LinkText text="This encounter is not merely a bilateral contest but a high-stakes battle for WTC points, with Pakistan currently sitting in a precarious position in the middle of the table. Eager to secure away wins to stay in the race for the final at Lord’s, the Green Shirts under Shan Masood are leaving no stone unturned. Bangladesh, on the other hand, is no longer the 'underdog' of Asia. Their recent triumphs, including a historic series win on Pakistani soil just two years prior, have turned the Tigers into a formidable red-ball unit, especially within their own borders." />
+            <LinkText text="This encounter is not merely a bilateral contest but a high-stakes battle for WTC points, with Pakistan currently sitting in a precarious position in the middle of the table. Eager to secure away wins to improve their ICC World Test Championship standings for a shot at the 2027 final at Lord’s, the Green Shirts under Shan Masood are leaving no stone unturned. Bangladesh, on the other hand, is no longer the 'underdog' of Asia. Their recent triumphs, including a historic series win on Pakistani soil just two years prior, have turned the Tigers into a formidable red-ball unit, especially within their own borders." />
           </p>
 
           <h2 className="text-3xl mt-12 mb-6">Strategic Schedule and Geographic Challenges</h2>
           <p className="mb-6">
-            <LinkText text="The series is strategically scheduled in May, carefully placed following the conclusion of the Pakistan Super League (PSL) 11. This scheduling is double-edged; while players enter the series with high match-fitness, the transition from T20's explosive nature to Test cricket's defensive requirements is a hurdle. The tour will move from the spinning, slow tracks of the capital to the pace-friendlier, though still challenging, conditions in the northeast." />
+            <LinkText text="The series is strategically scheduled in May, carefully placed following the conclusion of the Pakistan Super League (PSL) 11. This Pakistan vs Bangladesh Test schedule is double-edged; while players enter the series with high match-fitness, the transition from T20's explosive nature to Test cricket's defensive requirements is a hurdle. The tour will move from the spinning, slow tracks of the capital to the pace-friendlier, though still challenging, conditions in the northeast." />
           </p>
           <p className="mb-8">
             <LinkText text="Each venue presents its own set of technical puzzles. Mirpur's low bounce and sharp turn require batsmen to have impeccable footwork and the ability to use the depth of the crease. Sylhet, contrasting in its beauty and pitch behavior, often provides more carry and bounce, favoring the seamers in the early sessions but gradually becoming a paradise for spinners as the match enters its crucial third and fourth days." />
@@ -127,7 +127,7 @@ export default function RedBallResilienceBlog() {
               <Shield className="w-6 h-6 text-pak-green shrink-0 mt-1" />
               <div>
                 <p className="text-ink font-bold mb-2 uppercase tracking-tight italic">ICC Rankings Impact</p>
-                <p className="text-xs text-ink/60"><LinkText text="Success here could see Babar Azam reclaiming the top spot in the ICC Test Rankings. Shaheen Shah Afridi also looks to improve his standing after a brief injury-induced layoff." /></p>
+                <p className="text-xs text-ink/60"><LinkText text="Success here could see Babar Azam reclaiming the top spot in the ICC Test Rankings. His batting stats against quality spin are legendary, and this series will be another test of his class. Shaheen Shah Afridi also looks to improve his standing after a brief injury-induced layoff, with his pace bowling analysis remaining a key factor for Pakistan's success." /></p>
               </div>
             </li>
             <li className="flex gap-4 p-4 bg-card-bg rounded-2xl border border-card-border">
