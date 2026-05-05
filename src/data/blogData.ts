@@ -572,4 +572,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-yellow-500',
     authorId: 'syed-abbas'
   },
+  {
+    id: 'pakistan-women-vs-zimbabwe-women-1st-odi-2026',
+    title: 'Pakistan Women Beat Zimbabwe Women by 168 Runs in 1st ODI | Sadaf Shamas 98, Najiha Alvi 56*',
+    summary: 'Pakistan Women crushed Zimbabwe Women by 168 runs in the 1st ODI of Zimbabwe tour of Pakistan at National Stadium Karachi. Sadaf Shamas scored 98, Gull Feroza 50, opening stand 162.',
+    date: 'May 4, 2026',
+    category: 'Breaking News',
+    path: '/news/pakistan-women-vs-zimbabwe-women-1st-odi-2026-report',
+    icon: Target,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
@@ -78,6 +78,7 @@ const PSL2026FinalTossResultBlog = lazy(() => import('./pages/PSL2026FinalTossRe
 const PSL2026FinalReportBlog = lazy(() => import('./pages/PSL2026FinalReportBlog'));
 const BabarAzamPSL2026StoryBlog = lazy(() => import('./pages/BabarAzamPSL2026StoryBlog'));
 const AaronHardiePSL2026FinalBlog = lazy(() => import('./pages/AaronHardiePSL2026FinalBlog'));
+const PakWvsZimW1stODIBlog = lazy(() => import('./pages/PakWvsZimW1stODIBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -148,7 +149,7 @@ export default function App() {
   const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
   return (
-    <Router>
+    <>
       <SEO />
       <ScrollToTop />
       <div className="min-h-screen bg-bg text-ink flex flex-col font-sans transition-colors duration-300 pb-16 md:pb-0">
@@ -232,6 +233,7 @@ export default function App() {
               <Route path="/news/peshawar-zalmi-psl-2026-champions-match-report" element={<PSL2026FinalReportBlog />} />
               <Route path="/news/babar-azam-psl-2026-complete-story-comeback" element={<BabarAzamPSL2026StoryBlog />} />
               <Route path="/news/aaron-hardie-psl-2026-final-all-rounder-masterclass" element={<AaronHardiePSL2026FinalBlog />} />
+              <Route path="/news/pakistan-women-vs-zimbabwe-women-1st-odi-2026-report" element={<PakWvsZimW1stODIBlog />} />
               <Route path="/series-intelligence/:slug" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />
@@ -301,7 +303,7 @@ export default function App() {
         </footer>
         <MobileTabBar />
       </div>
-    </Router>
+    </>
   );
 }
 
