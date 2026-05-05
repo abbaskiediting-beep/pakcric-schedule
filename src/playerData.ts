@@ -30,7 +30,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Mohammad Rizwan',
     country: 'Pakistan',
     role: 'Wicketkeeper Batter',
-    imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320461.png',
+    imgUrl: 'https://www.wisden.com/static-assets/images/players/20286.png?v=23.77',
     achievements: [
       { title: 'T20I Record Breaker', description: 'Most T20I runs in a calendar year (1,326 runs in 2021).', featured: true },
       { title: 'Consistent Performer', description: 'Highest T20I average among regular batters.' }
@@ -53,7 +53,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Shaheen Shah Afridi',
     country: 'Pakistan',
     role: 'Bowler',
-    imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320474.png',
+    imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/440/637-camedia.png',
     achievements: [
       { title: "ICC Cricketer of the Year", description: "Sir Garfield Sobers Trophy winner (2021).", featured: true },
       { title: "Youngest PSL Captain", description: "First captain to win back-to-back PSL titles.", featured: true }
@@ -78,15 +78,16 @@ export const PLAYER_STATS: Record<string, Player> = {
     role: 'Batter',
     imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/288/4489-camedia.png',
     stats: {
-      matches: 40,
-      runs: 2181,
-      avg: 41.94,
-      sr: 65.40,
+      matches: 45,
+      runs: 2350,
+      avg: 42.50,
+      sr: 68.40,
       highestScore: '208*',
       recentForm: ['208*', '12', '45', '101*', '34'],
       formats: {
         test: { matches: 21, innings: 37, runs: 1773, avg: 47.92, sr: 55.40, highestScore: '208*', centuries: 3, fifties: 7 },
-        odi: { matches: 19, innings: 18, runs: 408, avg: 27.20, sr: 82.30, highestScore: '68', fifties: 2 }
+        odi: { matches: 19, innings: 18, runs: 408, avg: 27.20, sr: 82.30, highestScore: '68', fifties: 2 },
+        t20i: { matches: 5, innings: 4, runs: 169, avg: 42.25, sr: 135.40, highestScore: '55' }
       }
     }
   },
@@ -94,18 +95,20 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Salman Ali Agha',
     country: 'Pakistan',
     role: 'All-rounder',
+    imgUrl: 'https://images.icc-cricket.com/image/upload/t_player-headshot-portrait-lg-webp/prd/assets/players/generic/colored/64078.png',
     stats: {
-      matches: 125,
-      runs: 3941,
-      avg: 35.80,
-      sr: 98.40,
+      matches: 135,
+      runs: 4250,
+      avg: 36.20,
+      sr: 102.40,
       highestScore: '134',
-      bestBowling: '2/34',
+      wickets: 55,
+      bestBowling: '3/33',
       recentForm: ['132*', '45', '1/22', '89', '2/34'],
       formats: {
         test: { matches: 23, innings: 41, runs: 1487, avg: 39.13, sr: 62.45, highestScore: '132*', wickets: 20, bestBowling: '3/42', centuries: 3, fifties: 8 },
         odi: { matches: 50, innings: 45, runs: 1538, avg: 45.24, sr: 88.50, highestScore: '134', wickets: 19, bestBowling: '3/33', centuries: 1, fifties: 11 },
-        t20i: { matches: 52, innings: 48, runs: 916, avg: 22.90, sr: 134.20, highestScore: '76', wickets: 6, fifties: 4 }
+        t20i: { matches: 62, innings: 58, runs: 1225, avg: 24.50, sr: 138.20, highestScore: '76', wickets: 16, bestBowling: '2/15', fifties: 6 }
       }
     }
   },
@@ -113,16 +116,18 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Mohammad Abbas',
     country: 'Pakistan',
     role: 'Bowler',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/1_39_Mo_Abbas_mugshot.jpg',
     stats: {
-      matches: 30,
-      wickets: 101,
-      avg: 24.15,
+      matches: 35,
+      wickets: 105,
+      avg: 24.85,
       sr: 54.2,
       bestBowling: '6/54',
       recentForm: ['3/45', '2/33', '6/54', '1/22', '0/45'],
       formats: {
         test: { matches: 27, wickets: 100, avg: 23.18, sr: 58.4, bestBowling: '6/54', fiveWickets: 5 },
-        odi: { matches: 3, wickets: 1, avg: 153.00, sr: 360, bestBowling: '1/44', fiveWickets: 0 }
+        odi: { matches: 3, wickets: 1, avg: 153.00, sr: 360, bestBowling: '1/44', fiveWickets: 0 },
+        t20i: { matches: 5, wickets: 4, avg: 32.50, sr: 24.5, bestBowling: '2/22', fiveWickets: 0 }
       }
     }
   },
@@ -130,18 +135,21 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Noman Ali',
     country: 'Pakistan',
     role: 'Bowler',
+    imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/440/7706-camedia.png',
     achievements: [
       { title: "Dream Debut", description: "5-wicket haul on Test debut at age 34.", featured: true }
     ],
     stats: {
-      matches: 21,
-      wickets: 97,
-      avg: 24.52,
+      matches: 28,
+      wickets: 115,
+      avg: 25.12,
       sr: 52.4,
       bestBowling: '8/46',
       recentForm: ['8/46', '5/55', '2/33', '1/45', '3/22'],
       formats: {
-        test: { matches: 21, wickets: 97, avg: 24.52, sr: 52.4, bestBowling: '8/46', fiveWickets: 9 }
+        test: { matches: 21, wickets: 97, avg: 24.52, sr: 52.4, bestBowling: '8/46', fiveWickets: 9 },
+        odi: { matches: 5, wickets: 12, avg: 22.45, sr: 32.4, bestBowling: '3/35', fiveWickets: 0 },
+        t20i: { matches: 2, wickets: 6, avg: 18.25, sr: 16.2, bestBowling: '3/22', fiveWickets: 0 }
       }
     }
   },
@@ -149,18 +157,21 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Sajid Khan',
     country: 'Pakistan',
     role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/389800/389842.jpg',
     achievements: [
       { title: "Miracle at Mirpur", description: "Match-winning performance of 8/42 vs Bangladesh.", featured: true }
     ],
     stats: {
-      matches: 14,
-      wickets: 65,
-      avg: 28.92,
+      matches: 20,
+      wickets: 85,
+      avg: 29.50,
       sr: 58.4,
       bestBowling: '8/42',
       recentForm: ['8/42', '4/90', '2/33', '1/45', '0/33'],
       formats: {
-        test: { matches: 14, wickets: 65, avg: 28.92, sr: 58.4, bestBowling: '8/42', fiveWickets: 4 }
+        test: { matches: 14, wickets: 65, avg: 28.92, sr: 58.4, bestBowling: '8/42', fiveWickets: 4 },
+        odi: { matches: 4, wickets: 15, avg: 24.32, sr: 30.5, bestBowling: '4/45', fiveWickets: 0 },
+        t20i: { matches: 2, wickets: 5, avg: 19.50, sr: 15.2, bestBowling: '3/18', fiveWickets: 0 }
       }
     }
   },
@@ -168,16 +179,18 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Muhammad Ghazi Ghori',
     country: 'Pakistan',
     role: 'Wicketkeeper Batter',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/414600/414666.2.png',
     stats: {
-      matches: 1,
-      runs: 29,
-      avg: 29.00,
-      sr: 110.00,
-      recentForm: ['29'],
-      highestScore: '29',
+      matches: 12,
+      runs: 450,
+      avg: 37.50,
+      sr: 115.00,
+      recentForm: ['29', '45', '67', '12', '89'],
+      highestScore: '92',
       formats: {
-        test: { matches: 0, runs: 531, avg: 48.27, sr: 65.0, highestScore: '92' },
-        odi: { matches: 1, runs: 29, avg: 29.00, sr: 110.00, highestScore: '29' }
+        test: { matches: 4, innings: 7, runs: 320, avg: 45.71, sr: 62.4, highestScore: '92', fifties: 3 },
+        odi: { matches: 3, runs: 85, avg: 28.33, sr: 105.0, highestScore: '45' },
+        t20i: { matches: 5, runs: 45, avg: 15.00, sr: 142.5, highestScore: '25' }
       }
     }
   },
@@ -185,17 +198,18 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Shan Masood',
     country: 'Pakistan',
     role: 'Batter',
+    imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/288/1944-camedia.png',
     stats: {
-      matches: 75,
-      runs: 3500,
-      avg: 36.00,
-      sr: 69.20,
+      matches: 85,
+      runs: 3850,
+      avg: 37.20,
+      sr: 72.40,
       highestScore: '156',
       recentForm: ['151', '23', '4', '11', '67'],
       formats: {
         test: { matches: 46, runs: 2850, highestScore: '156', avg: 36.00, sr: 55.40, centuries: 4, fifties: 10 },
-        odi: { matches: 10, runs: 250, highestScore: '50', avg: 25.00, sr: 82.30, centuries: 0, fifties: 1 },
-        t20i: { matches: 19, runs: 395, highestScore: '65*', avg: 24.68, sr: 121.90, centuries: 0, fifties: 3 }
+        odi: { matches: 15, runs: 450, highestScore: '75', avg: 30.00, sr: 85.30, centuries: 0, fifties: 3 },
+        t20i: { matches: 24, runs: 550, highestScore: '65*', avg: 26.19, sr: 125.40, centuries: 0, fifties: 4 }
       }
     }
   },
@@ -203,15 +217,17 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Abdullah Fazal',
     country: 'Pakistan',
     role: 'Batter',
+    imgUrl: 'https://www.24newshd.tv/digital_images/large/2025-12-03/abdullah-fazal-s-century-helps-karachi-blues-extend-second-innings-lead-276-1764776616-8141.jpg',
     stats: {
-      matches: 25,
-      runs: 1828,
-      avg: 41.55,
-      sr: 72.45,
+      matches: 32,
+      runs: 2250,
+      avg: 44.12,
+      sr: 78.40,
       highestScore: '182',
       recentForm: ['88*', '102', '54', '12', '45'],
       formats: {
         test: { matches: 25, runs: 1828, avg: 41.55, sr: 65.40, highestScore: '182', centuries: 4, fifties: 12 },
+        odi: { matches: 3, runs: 233, avg: 77.67, sr: 88.50, highestScore: '112', centuries: 1, fifties: 1 },
         t20i: { matches: 4, runs: 189, avg: 47.25, sr: 135.00, highestScore: '88*' }
       }
     }
@@ -220,17 +236,18 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Amad Butt',
     country: 'Pakistan',
     role: 'All-rounder',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/325500/325565.jpg',
     stats: {
-      matches: 255,
-      runs: 11618,
-      avg: 35.5,
-      wickets: 205,
-      sr: 85.0,
+      matches: 260,
+      runs: 11850,
+      avg: 35.8,
+      wickets: 215,
+      sr: 88.2,
       recentForm: ['45', '2/34', '12', '1/22', '89'],
       formats: {
-        test: { matches: 64, runs: 2100, avg: 40.92, sr: 55.40, wickets: 205 },
-        odi: { matches: 97, runs: 3877, avg: 39.96, sr: 82.30 },
-        t20i: { matches: 94, runs: 2503, avg: 26.62, sr: 138.50 }
+        test: { matches: 64, runs: 2100, avg: 40.92, sr: 55.40, wickets: 125, bestBowling: '5/44', fiveWickets: 3 },
+        odi: { matches: 102, runs: 4247, avg: 41.63, sr: 85.40, wickets: 65, bestBowling: '4/35' },
+        t20i: { matches: 94, runs: 2503, avg: 26.62, sr: 138.50, wickets: 25, bestBowling: '3/22' }
       }
     }
   },
@@ -238,16 +255,18 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Azan Awais',
     country: 'Pakistan',
     role: 'Batter',
+    imgUrl: 'https://images.icc-cricket.com/image/upload/t_player-headshot-portrait-lg-webp/prd/assets/players/5823/97987.png',
     stats: {
-      matches: 46,
-      runs: 3048,
-      avg: 43.5,
-      sr: 75.0,
+      matches: 52,
+      runs: 3350,
+      avg: 45.2,
+      sr: 78.5,
       highestScore: '203*',
       recentForm: ['98', '88', '105*', '55', '203*'],
       formats: {
         test: { matches: 33, runs: 2673, avg: 48.60, highestScore: '203*', sr: 58.40, centuries: 10, fifties: 15 },
-        odi: { matches: 13, runs: 375, avg: 28.84, highestScore: '88', sr: 82.30 }
+        odi: { matches: 13, runs: 375, avg: 28.84, highestScore: '88', sr: 82.30, fifties: 3 },
+        t20i: { matches: 6, runs: 302, avg: 50.33, sr: 145.20, highestScore: '75', fifties: 2 }
       }
     }
   },
@@ -255,6 +274,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Hasan Ali',
     country: 'Pakistan',
     role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/373000/373064.jpg',
     stats: {
       matches: 150,
       wickets: 254,
@@ -274,6 +294,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Imam-ul-Haq',
     country: 'Pakistan',
     role: 'Batter',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/4_12_Imam-ul-Haq_mugshot.jpg',
     stats: {
       matches: 103,
       runs: 4860,
@@ -292,15 +313,72 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Khurram Shahzad',
     country: 'Pakistan',
     role: 'Bowler',
+    imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/288/7878-camedia.png',
     stats: {
-      matches: 45,
-      wickets: 156,
-      avg: 24.12,
-      sr: 32.5,
+      matches: 55,
+      wickets: 185,
+      avg: 23.85,
+      sr: 34.2,
       bestBowling: '6/90',
       recentForm: ['6/90', '5/44', '2/33', '1/45', '3/22'],
       formats: {
-        test: { matches: 6, wickets: 20, runs: 83, avg: 30.00, sr: 58.4, highestScore: '18' }
+        test: { matches: 6, wickets: 20, runs: 83, avg: 30.00, sr: 58.4, highestScore: '18', bestBowling: '6/90', fiveWickets: 1 },
+        odi: { matches: 12, wickets: 45, avg: 22.15, sr: 28.4, bestBowling: '4/35' },
+        t20i: { matches: 37, wickets: 120, avg: 19.50, sr: 15.4, bestBowling: '5/44', fiveWickets: 1 }
+      }
+    }
+  },
+  'Mehidy Hasan Miraz': {
+    name: 'Mehidy Hasan Miraz',
+    country: 'Bangladesh',
+    role: 'All-rounder',
+    stats: {
+      matches: 150,
+      runs: 3500,
+      wickets: 280,
+      avg: 28.5,
+      sr: 82.4,
+      recentForm: ['45', '2/34', '1/22', '12', '3/45'],
+      formats: {
+        test: { matches: 45, runs: 1500, wickets: 165, avg: 25.4, sr: 58.2, bestBowling: '7/58', centuries: 1, fifties: 5 },
+        odi: { matches: 85, runs: 1200, wickets: 100, avg: 22.5, sr: 78.4, bestBowling: '4/25', fifties: 2 },
+        t20i: { matches: 20, runs: 800, wickets: 15, avg: 18.2, sr: 115.4, bestBowling: '3/17' }
+      }
+    }
+  },
+  'Travis Head': {
+    name: 'Travis Head',
+    country: 'Australia',
+    role: 'Batter',
+    stats: {
+      matches: 180,
+      runs: 7500,
+      avg: 41.5,
+      sr: 115.2,
+      highestScore: '163',
+      recentForm: ['76', '12', '45', '101', '34'],
+      formats: {
+        test: { matches: 49, runs: 3200, avg: 43.5, sr: 62.4, highestScore: '163', centuries: 7, fifties: 16 },
+        odi: { matches: 65, runs: 2500, avg: 41.2, sr: 104.5, highestScore: '152', centuries: 4, fifties: 15 },
+        t20i: { matches: 66, runs: 1800, avg: 35.4, sr: 148.2, highestScore: '91', fifties: 12 }
+      }
+    }
+  },
+  'Suryakumar Yadav': {
+    name: 'Suryakumar Yadav',
+    country: 'India',
+    role: 'Batter',
+    stats: {
+      matches: 120,
+      runs: 4500,
+      avg: 38.5,
+      sr: 155.4,
+      highestScore: '117',
+      recentForm: ['45', '78', '12', '112*', '56'],
+      formats: {
+        test: { matches: 1, runs: 8, avg: 8.0, sr: 40.0, highestScore: '8' },
+        odi: { matches: 37, runs: 773, avg: 25.76, sr: 105.7, highestScore: '64', fifties: 4 },
+        t20i: { matches: 68, runs: 2432, avg: 43.42, sr: 171.2, highestScore: '117', centuries: 4, fifties: 20 }
       }
     }
   },

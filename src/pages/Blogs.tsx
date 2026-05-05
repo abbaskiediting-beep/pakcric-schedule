@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, TrendingUp, MessageCircle, ChevronDown, Filter, LayoutGrid, Clock, List, Zap, ChevronRight } from 'lucide-react';
+import { BookOpen, Calendar, ArrowUpRight, Trophy, Users, Shield, Target, TrendingUp, MessageCircle, ChevronDown, Filter, LayoutGrid, Clock, List, Zap, ChevronRight, BarChart3, X } from 'lucide-react';
 import React, { useState, useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -162,6 +162,10 @@ const MegaMenu = () => (
               <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">Bangladesh Series</span>
               <span className="text-[8px] text-white/20 uppercase tracking-widest">Test Strategy</span>
             </Link>
+            <Link to="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">WTC Points Analysis</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Qualification Path</span>
+            </Link>
             <Link to="/series/australia-tour-2026" className="group/link block">
               <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">Australia Tour</span>
               <span className="text-[8px] text-white/20 uppercase tracking-widest">3 ODIs • May/June</span>
@@ -270,12 +274,32 @@ const ClickDropdown = ({ currentSort, onSortChange }: { currentSort: 'latest' | 
 };
 
 export default function Blogs() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedMonth, setSelectedMonth] = useState('all');
   const [sortBy, setSortBy] = useState<'latest' | 'popular'>('latest');
 
+  const seriesFilter = searchParams.get('series') || 'all';
+
   const filteredPosts = [...BLOG_POSTS].filter(post => {
-    if (selectedMonth === 'all') return true;
-    return post.date.toLowerCase().includes(selectedMonth.toLowerCase());
+    const monthMatch = selectedMonth === 'all' || post.date.toLowerCase().includes(selectedMonth.toLowerCase());
+    
+    let seriesMatch = true;
+    if (seriesFilter !== 'all') {
+      const keywords: Record<string, string[]> = {
+        'pak-vs-ban': ['BANGLADESH', 'BAN', 'DHAKA', 'CHATTOGRAM'],
+        'psl-11': ['PSL', 'ZALMI', 'SULTANS', 'KINGSMEN', 'UNITED', 'GLADIATORS', 'BABAR', 'LAHORE', 'KARACHI'],
+        'pak-vs-aus': ['AUSTRALIA', 'AUS', 'ODI']
+      };
+      
+      const currentKeywords = keywords[seriesFilter] || [];
+      seriesMatch = currentKeywords.some(kw => 
+        post.title.toUpperCase().includes(kw) || 
+        post.summary.toUpperCase().includes(kw) ||
+        post.category.toUpperCase().includes(kw)
+      );
+    }
+
+    return monthMatch && seriesMatch;
   });
 
   if (sortBy === 'latest') {
@@ -339,9 +363,10 @@ export default function Blogs() {
         <HoverDropdown 
           label="Featured Series" 
           items={[
-            { name: 'PAK vs BAN 2026', path: '/pakistan-vs-bangladesh-2026-schedule', icon: Target, desc: 'Test Series Coverage' },
-            { name: 'PSL 11 Finals', path: '/news/peshawar-zalmi-psl-2026-champions-match-report', icon: Trophy, desc: 'Season Review' },
-            { name: 'PAK vs AUS 2026', path: '/pakistan-vs-australia-2026-schedule-odi', icon: Shield, desc: '3 ODIs • May/June' }
+            { name: 'PAK vs BAN 2026', path: '/news?series=pak-vs-ban', icon: Target, desc: 'Complete Tour Coverage' },
+            { name: 'WTC Analysis (PAK vs BAN)', path: '/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027', icon: BarChart3, desc: 'Qualification Scenarios' },
+            { name: 'PSL 11 Finals', path: '/news?series=psl-11', icon: Trophy, desc: 'Season Review' },
+            { name: 'PAK vs AUS 2026', path: '/news?series=pak-vs-aus', icon: Shield, desc: 'Upcoming 3 ODIs' }
           ]} 
         />
 
@@ -352,100 +377,81 @@ export default function Blogs() {
         <ClickDropdown currentSort={sortBy} onSortChange={setSortBy} />
       </div>
 
+      {/* Series Filter Status Banner */}
+      {seriesFilter !== 'all' && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-12 flex items-center justify-between bg-pak-green/10 border border-pak-green/20 rounded-2xl p-4 px-6"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-pak-green/20 flex items-center justify-center text-pak-green">
+              <Filter className="w-4 h-4" />
+            </div>
+            <span className="text-xs font-bold uppercase tracking-widest text-white">
+              Showing news for: <span className="text-pak-green text-sm ml-2">
+                {seriesFilter === 'pak-vs-ban' ? 'Pakistan vs Bangladesh 2026' : 
+                 seriesFilter === 'psl-11' ? 'PSL 11 - 2026' : 
+                 seriesFilter === 'pak-vs-aus' ? 'Australia Tour 2026' : seriesFilter}
+              </span>
+            </span>
+          </div>
+          <button 
+            onClick={() => {
+              searchParams.delete('series');
+              setSearchParams(searchParams);
+            }}
+            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-white transition-colors"
+          >
+            Clear Filter <X className="w-3.5 h-3.5" />
+          </button>
+        </motion.div>
+      )}
+
       {/* Top Banner for Article Hub */}
       <AdPlaceholder type="leaderboard" className="mb-12 md:mb-20" />
 
-      {/* Grouped Blogs Section */}
+      {/* Unified News Feed Section */}
       <section className="mb-16 md:mb-32">
-        {selectedMonth !== 'all' ? (
-          <div>
-            <div className="flex items-center justify-between mb-12 border-l-4 border-pak-green pl-6">
-              <div>
-                <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
-                  Archive: <span className="text-pak-green">{selectedMonth} 2026</span>
-                </h2>
-                <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Showing {filteredPosts.length} stories found</p>
-              </div>
+        <div>
+          <div className="flex items-center justify-between mb-12 border-l-4 border-pak-green pl-6">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
+                {seriesFilter !== 'all' ? 'Series' : selectedMonth !== 'all' ? 'Archive' : 'Insights'}: <span className="text-pak-green">
+                  {seriesFilter !== 'all' ? seriesFilter.replace(/-/g, ' ').toUpperCase() : 
+                   selectedMonth !== 'all' ? `${selectedMonth} 2026` : 
+                   sortBy === 'popular' ? 'Most Popular' : 'News Hub'}
+                </span>
+              </h2>
+              <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Showing {filteredPosts.length} stories found</p>
+            </div>
+            {(selectedMonth !== 'all' || seriesFilter !== 'all' || sortBy !== 'latest') && (
               <button 
-                onClick={() => setSelectedMonth('all')}
+                onClick={() => {
+                  setSelectedMonth('all');
+                  setSortBy('latest');
+                  searchParams.delete('series');
+                  setSearchParams(searchParams);
+                }}
                 className="text-[10px] font-bold text-pak-green uppercase tracking-widest hover:underline"
               >
-                Clear Filter
+                Reset All Filters
               </button>
-            </div>
-            {filteredPosts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                {filteredPosts.map((post, idx) => (
-                  <BlogCard key={post.id} post={post} idx={idx} />
-                ))}
-              </div>
-            ) : (
-              <div className="py-20 text-center">
-                <p className="text-ink/40 text-sm font-bold uppercase tracking-widest">No articles found for this month.</p>
-              </div>
             )}
           </div>
-        ) : (
-          (() => {
-            const pslBlogs = [...BLOG_POSTS].filter(post => 
-              post.id.includes('psl') || 
-              post.title.toUpperCase().includes('PSL') || 
-              post.title.toUpperCase().includes('KINGSMEN') || 
-              post.title.toUpperCase().includes('ZALMI') || 
-              post.title.toUpperCase().includes('SULTANS') || 
-              post.title.toUpperCase().includes('UNITED') ||
-              post.category === 'Tournament Stats' ||
-              post.category === 'Season Review'
-            ).reverse();
-
-            const otherBlogs = [...BLOG_POSTS].filter(post => 
-              !pslBlogs.find(p => p.id === post.id)
-            ).reverse();
-
-            return (
-              <div className="space-y-20 md:space-y-32">
-                {/* PSL News Section */}
-                <div id="psl-news">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-pak-green pl-6">
-                    <div>
-                      <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
-                        PSL 11 <span className="text-pak-green">2026 Archive</span>
-                      </h2>
-                      <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Everything about the Pakistan Super League</p>
-                    </div>
-                    <div className="flex items-center gap-2 text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40">
-                      Season Review <Trophy className="w-3 md:w-4 h-3 md:h-4 text-pak-green" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                    {pslBlogs.map((post, idx) => (
-                      <BlogCard key={post.id} post={post} idx={idx} />
-                    ))}
-                  </div>
-                </div>
-
-                {/* International & Strategy Section */}
-                <div id="international-news">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 md:mb-12 border-l-4 border-blue-500 pl-6">
-                    <div>
-                      <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
-                        Pakistan <span className="text-blue-500">Team & Strategy</span>
-                      </h2>
-                      <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">International Series, Rankings & Analysis</p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                    {otherBlogs.map((post, idx) => (
-                      <BlogCard key={post.id} post={post} idx={idx} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })()
-        )}
+          
+          {filteredPosts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+              {filteredPosts.map((post, idx) => (
+                <BlogCard key={post.id} post={post} idx={idx} />
+              ))}
+            </div>
+          ) : (
+            <div className="py-20 text-center">
+              <p className="text-ink/40 text-sm font-bold uppercase tracking-widest">No articles found for these filters.</p>
+            </div>
+          )}
+        </div>
       </section>
 
       {/* Our Experts Section */}

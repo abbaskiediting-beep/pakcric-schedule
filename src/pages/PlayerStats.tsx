@@ -88,7 +88,8 @@ export default function PlayerStats() {
   if (!player) {
     return (
       <div className="max-w-4xl mx-auto py-20 px-6 text-center">
-        <h2 className="text-3xl font-display font-bold text-white mb-6 uppercase">Player Not Found</h2>
+        <h2 className="text-3xl font-display font-bold text-white mb-6 uppercase">Player Stats Not Available</h2>
+        <p className="text-ink/60 mb-8 max-w-md mx-auto">The requested player profile is currently being updated or is not yet in our database. Please check back later.</p>
         <Link to="/squads" className="inline-flex items-center gap-2 text-pak-green font-bold uppercase tracking-widest text-[10px] hover:underline">
           <ChevronLeft className="w-4 h-4" /> Back to Squads
         </Link>
@@ -294,7 +295,24 @@ export default function PlayerStats() {
           <div className="grid grid-cols-1 gap-6 md:gap-8">
             {['test', 'odi', 't20i'].map((format) => {
               const formatStats = player.stats.formats?.[format as keyof typeof player.stats.formats];
-              if (!formatStats) return null;
+              
+              if (!formatStats) {
+                return (
+                  <motion.div 
+                    key={format}
+                    className="bg-card-bg border border-card-border rounded-[32px] md:rounded-[40px] p-6 md:p-10 relative overflow-hidden opacity-50"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="px-4 py-1.5 bg-white/5 text-neutral-500 rounded-full text-[10px] font-black uppercase tracking-[3px] border border-white/10">
+                        {format}
+                      </div>
+                    </div>
+                    <div className="py-10 text-center">
+                      <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-[4px]">No {format} Records Available</p>
+                    </div>
+                  </motion.div>
+                );
+              }
 
               const metrics = [
                 { label: 'Matches', value: formatStats.matches, icon: <Activity className="w-3.5 h-3.5" /> },

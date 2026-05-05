@@ -583,4 +583,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
   },
+  {
+    id: 'pak-vs-ban-wtc-analysis-2025-2027',
+    title: 'Pakistan vs Bangladesh WTC 2025–2027: High Stakes Series, Points Table Impact & Qualification Scenarios',
+    summary: 'Pakistan vs Bangladesh Test series is crucial for WTC 2025–2027. Pakistan aims for top 4, Bangladesh fights survival. Full analysis, points table impact & predictions.',
+    date: 'May 5, 2026',
+    category: 'WTC Analysis',
+    path: '/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027',
+    icon: BarChart3,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
+  },
 ];
