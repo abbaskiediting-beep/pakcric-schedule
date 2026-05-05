@@ -206,7 +206,7 @@ const MegaMenu = () => (
   </div>
 );
 
-const ClickDropdown = () => {
+const ClickDropdown = ({ currentSort, onSortChange }: { currentSort: 'latest' | 'popular', onSortChange: (sort: 'latest' | 'popular') => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -224,9 +224,9 @@ const ClickDropdown = () => {
     <div className="relative" ref={dropdownRef}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border ${isOpen ? 'border-pak-green/50 bg-pak-green/5' : 'border-white/10'} rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all text-white active:scale-95`}
+        className={`flex items-center gap-2.5 px-5 py-2.5 bg-white/[0.03] border ${isOpen || currentSort !== 'latest' ? 'border-pak-green/50 bg-pak-green/5' : 'border-white/10'} rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-pak-green/30 transition-all text-white active:scale-95`}
       >
-        Filters <Filter className={`w-3.5 h-3.5 transition-transform ${isOpen ? 'rotate-180 text-pak-green' : 'text-white/40'}`} />
+        {currentSort === 'latest' ? 'Latest' : 'Popular'} <Filter className={`w-3.5 h-3.5 transition-transform ${isOpen ? 'rotate-180 text-pak-green' : 'text-white/40'}`} />
       </button>
       {isOpen && (
         <motion.div 
@@ -237,17 +237,31 @@ const ClickDropdown = () => {
           <div className="px-4 py-2 border-b border-white/5 mb-2">
             <span className="text-[8px] font-black uppercase tracking-[2px] text-white/30">Sort By</span>
           </div>
-          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-pak-green/5 rounded-xl transition-all flex items-center justify-between group/sort">
+          <button 
+            onClick={() => { onSortChange('latest'); setIsOpen(false); }}
+            className={`w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest ${currentSort === 'latest' ? 'text-pak-green bg-pak-green/5' : 'text-ink/60'} hover:text-pak-green hover:bg-pak-green/5 rounded-xl transition-all flex items-center justify-between group/sort`}
+          >
              <div className="flex items-center gap-3">
                <Clock className="w-3.5 h-3.5" /> Latest First
              </div>
-             <div className="w-1 h-1 rounded-full bg-pak-green shadow-[0_0_8px_rgba(0,102,46,1)]" />
+             {currentSort === 'latest' && <div className="w-1 h-1 rounded-full bg-pak-green shadow-[0_0_8px_rgba(0,102,46,1)]" />}
           </button>
-          <button className="w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:bg-pak-green/5 rounded-xl transition-all flex items-center gap-3 group/sort">
-            <TrendingUp className="w-3.5 h-3.5" /> Most Popular
+          <button 
+            onClick={() => { onSortChange('popular'); setIsOpen(false); }}
+            className={`w-full text-left px-4 py-3 text-[9px] font-bold uppercase tracking-widest ${currentSort === 'popular' ? 'text-pak-green bg-pak-green/5' : 'text-ink/60'} hover:text-pak-green hover:bg-pak-green/5 rounded-xl transition-all flex items-center justify-between group/sort`}
+          >
+            <div className="flex items-center gap-3">
+              <TrendingUp className="w-3.5 h-3.5" /> Most Popular
+            </div>
+            {currentSort === 'popular' && <div className="w-1 h-1 rounded-full bg-pak-green shadow-[0_0_8px_rgba(0,102,46,1)]" />}
           </button>
           <div className="mt-2 pt-2 border-t border-white/5">
-             <button className="w-full py-2 bg-pak-green/10 text-pak-green rounded-lg text-[8px] font-black uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all">Apply View</button>
+             <button 
+               onClick={() => setIsOpen(false)}
+               className="w-full py-2 bg-pak-green/10 text-pak-green rounded-lg text-[8px] font-black uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all"
+             >
+               Close Filter
+             </button>
           </div>
         </motion.div>
       )}
@@ -257,11 +271,27 @@ const ClickDropdown = () => {
 
 export default function Blogs() {
   const [selectedMonth, setSelectedMonth] = useState('all');
+  const [sortBy, setSortBy] = useState<'latest' | 'popular'>('latest');
 
   const filteredPosts = [...BLOG_POSTS].filter(post => {
     if (selectedMonth === 'all') return true;
     return post.date.toLowerCase().includes(selectedMonth.toLowerCase());
-  }).reverse();
+  });
+
+  if (sortBy === 'latest') {
+    filteredPosts.reverse();
+  } else {
+    // popular: sort by popularity keywords for demo
+    filteredPosts.sort((a, b) => {
+      const popularKeywords = ['BABAR', 'CHAMPIONS', 'FINAL', 'RECORD', 'WIN', 'CENTURIES'];
+      const aPopular = popularKeywords.some(kw => a.title.toUpperCase().includes(kw)) ? 1 : 0;
+      const bPopular = popularKeywords.some(kw => b.title.toUpperCase().includes(kw)) ? 1 : 0;
+      
+      if (aPopular !== bPopular) return bPopular - aPopular;
+      // If both equally popular, keep chronological
+      return BLOG_POSTS.indexOf(b) - BLOG_POSTS.indexOf(a);
+    });
+  }
 
   return (
     <div className="max-w-7xl mx-auto py-8 md:py-12 px-4 md:px-6">
@@ -319,7 +349,7 @@ export default function Blogs() {
 
         <div className="h-10 w-px bg-white/10 hidden md:block mx-4" />
 
-        <ClickDropdown />
+        <ClickDropdown currentSort={sortBy} onSortChange={setSortBy} />
       </div>
 
       {/* Top Banner for Article Hub */}
