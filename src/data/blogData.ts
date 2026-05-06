@@ -594,4 +594,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'hassan-tariq'
   },
+  {
+    id: 'shaheen-shah-afridi-bangladesh-interview-2026',
+    title: 'Shaheen Shah Afridi\'s Bangladesh Interview: "Pakistan is Famous for Fast Bowling — Our Pacers Will Take Wickets"',
+    summary: 'Shaheen Shah Afridi speaks ahead of Pakistan\'s Bangladesh Test series 2026 — on Pakistan\'s fast bowling identity, no all-spin strategy, Babar Azam\'s return, and young players\' opportunities.',
+    date: 'May 6, 2026',
+    category: 'Latest Interview',
+    path: '/news/shaheen-shah-afridi-bangladesh-interview-2026',
+    icon: Star,
+    color: 'text-pak-green',
+    authorId: 'ayesha-khan'
+  },
 ];

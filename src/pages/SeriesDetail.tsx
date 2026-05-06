@@ -2,8 +2,9 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { seriesSummaries } from '../data/seriesData';
 import SeriesSummaryComponent from '../components/SeriesSummaryComponent';
-import { ArrowLeft, Share2, Info, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Share2, Info, ArrowRight, Newspaper, ChevronRight, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
+import { BLOG_POSTS } from '../data/blogData';
 
 export default function SeriesDetail() {
   const { slug } = useParams();
@@ -11,6 +12,22 @@ export default function SeriesDetail() {
   const summary = seriesSummaries[currentIndex];
   const prevSummary = currentIndex > 0 ? seriesSummaries[currentIndex - 1] : null;
   const nextSummary = currentIndex < seriesSummaries.length - 1 ? seriesSummaries[currentIndex + 1] : null;
+
+  // Filter relevant blogs/news for this series
+  const relevantBlogs = BLOG_POSTS.filter(blog => {
+    const seriesKeywords = summary?.seriesName.toLowerCase().split(' ');
+    const titleLower = blog.title.toLowerCase();
+    const summaryLower = blog.summary.toLowerCase();
+    
+    // Check if any major keyword match (pakistan, bangladesh, psl etc)
+    const keywordsToMatch = ['bangladesh', 'australia', 'psl', 'zimbabwe', 'england'];
+    const seriesMainTarget = keywordsToMatch.find(k => summary?.seriesName.toLowerCase().includes(k));
+    
+    if (seriesMainTarget && (titleLower.includes(seriesMainTarget) || summaryLower.includes(seriesMainTarget))) {
+        return true;
+    }
+    return false;
+  }).reverse().slice(0, 4);
 
   if (!summary) {
     return (
@@ -54,6 +71,64 @@ export default function SeriesDetail() {
         >
           <SeriesSummaryComponent summary={summary} />
         </motion.div>
+
+        {/* Related News / Analysis section for this series */}
+        {relevantBlogs.length > 0 && (
+          <section className="mt-16 sm:mt-24">
+            <div className="flex items-center justify-between mb-8 sm:mb-12">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green shadow-lg border border-pak-green/20">
+                  <Newspaper className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div>
+                   <h3 className="text-xl sm:text-2xl font-display font-black text-white uppercase italic tracking-tighter leading-none mb-2">Series Intelligence & News</h3>
+                   <p className="text-[9px] sm:text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-none">In-depth previews, interviews & tactical reports</p>
+                </div>
+              </div>
+              <Link to="/news" className="text-[9px] sm:text-[10px] font-bold text-pak-green hover:underline uppercase tracking-widest flex items-center gap-2">
+                Explore All <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              {relevantBlogs.map((blog, idx) => (
+                <motion.div
+                  key={blog.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <Link 
+                    to={blog.path}
+                    className="flex flex-col sm:flex-row gap-4 p-5 sm:p-6 bg-white/[0.03] border border-white/10 rounded-[32px] hover:bg-white/[0.06] hover:border-pak-green/30 transition-all group h-full"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="px-2.5 py-0.5 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[8px] font-black uppercase tracking-widest">
+                          {blog.category}
+                        </span>
+                        <div className="flex items-center gap-1.5 text-[8px] font-bold text-white/30 uppercase tracking-[1.5px]">
+                          <Calendar className="w-3 h-3" />
+                          {blog.date}
+                        </div>
+                      </div>
+                      <h4 className="text-sm sm:text-base font-display font-black text-white group-hover:text-pak-green transition-colors uppercase leading-tight line-clamp-2 mb-2 italic">
+                        {blog.title}
+                      </h4>
+                      <p className="text-[11px] sm:text-xs text-white/50 line-clamp-2 font-medium leading-relaxed">
+                        {blog.summary}
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/20 group-hover:bg-pak-green group-hover:text-white transition-all shrink-0 self-end sm:self-center">
+                       <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Disclaimer */}
         <div className="mt-12 p-8 bg-white/5 border border-white/10 rounded-[32px] flex gap-6 items-start opacity-60">

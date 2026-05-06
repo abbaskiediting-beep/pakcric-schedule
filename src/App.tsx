@@ -82,6 +82,7 @@ const BabarAzamPSL2026StoryBlog = lazy(() => import('./pages/BabarAzamPSL2026Sto
 const AaronHardiePSL2026FinalBlog = lazy(() => import('./pages/AaronHardiePSL2026FinalBlog'));
 const PakVsBanWTCAnalysisBlog = lazy(() => import('./pages/PakVsBanWTCAnalysisBlog'));
 const PakWvsZimW1stODIBlog = lazy(() => import('./pages/PakWvsZimW1stODIBlog'));
+const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -213,6 +214,7 @@ export default function App() {
               <Route path="/news/psl-2026-final-toss-result-hyk-vs-pz" element={<PSL2026FinalTossResultBlog />} />
               <Route path="/news/peshawar-zalmi-psl-2026-champions-match-report" element={<PSL2026FinalReportBlog />} />
               <Route path="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027" element={<PakVsBanWTCAnalysisBlog />} />
+              <Route path="/news/shaheen-shah-afridi-bangladesh-interview-2026" element={<ShaheenBangladeshInterviewBlog />} />
               <Route path="/news/babar-azam-psl-2026-complete-story-comeback" element={<BabarAzamPSL2026StoryBlog />} />
               <Route path="/news/aaron-hardie-psl-2026-final-all-rounder-masterclass" element={<AaronHardiePSL2026FinalBlog />} />
               <Route path="/news/pakistan-women-vs-zimbabwe-women-1st-odi-2026-report" element={<PakWvsZimW1stODIBlog />} />
