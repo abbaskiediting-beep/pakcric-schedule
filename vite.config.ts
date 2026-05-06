@@ -14,7 +14,7 @@ export default defineConfig(({mode}) => {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
-      dedupe: ['react', 'react-dom'],
+      dedupe: ['react', 'react-dom', 'react-router-dom', 'react-router', 'react-helmet-async', 'motion'],
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.

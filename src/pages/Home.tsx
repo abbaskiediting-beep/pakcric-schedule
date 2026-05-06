@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -438,55 +438,7 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
-                 to="/news/psl-2026-final-full-campaign-pz-vs-hyk"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Trophy className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Final Special Blog</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">PZ vs HYK: Full Campaign & Preview</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/psl-11-qualifier-1-match-report-babar-century"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Zap className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Qualifier 1 Match Report</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Babar Azam 103 Sinks Islamabad United</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-               
-               <Link 
-                 to="/psl-11-top-run-scorers-2026"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Trophy className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">PSL 11 Stats</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Elite Run-Scorers of the 2026 Season</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/maaz-sadaqat-psl-2026-season-review-stats"
+                 to="/news/shaheen-shah-afridi-bangladesh-interview-2026"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
                >
                  <div className="flex items-center gap-4">
@@ -494,24 +446,72 @@ export default function Home() {
                        <Star className="w-5 h-5" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Rising Star Profile</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Maaz Sadaqat: Pakistan's Next Big Thing</h5>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Latest Interview</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Shaheen Afridi: Pace is our Identity</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
                </Link>
 
                <Link 
-                 to="/usman-khan-psl-2026-season-review-records"
+                 to="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
                >
                  <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Target className="w-5 h-5" />
+                       <Zap className="w-5 h-5" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">History Maker</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Usman Khan: 4th PSL Century Story</h5>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">WTC Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">PAK vs BAN: WTC Scenarios 2027</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+               
+               <Link 
+                 to="/pakistan-tour-bangladesh-squad-2026"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Users className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Squad Intelligence</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Official 16-Member Test Squad</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/peshawar-zalmi-psl-2026-champions-match-report"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Trophy className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">PSL 2026 Result</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Zalmi Crowned PSL 11 Kings</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/babar-azam-psl-2026-complete-story-comeback"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <HistoryIcon className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Season Special</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Babar Azam: The Season of Redemption</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />

@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'shaheen-shah-afridi-bangladesh-interview-2026',
+    title: 'Shaheen Shah Afridi\'s Bangladesh Interview: "Pakistan is Famous for Fast Bowling — Our Pacers Will Take Wickets"',
+    date: 'May 6, 2026',
+    tag: 'Latest Interview',
+    summary: 'Shaheen Shah Afridi speaks ahead of Pakistan\'s Bangladesh Test series 2026 — on Pakistan\'s fast bowling identity, no all-spin strategy, and preparation for the World Cup.'
+  },
+  {
     id: 'psl-2026-eliminator-1-full-match-report-analysis',
     title: 'PSL 2026 Eliminator 1: Kingsmen Knock Out Sultans',
     date: 'April 30, 2026',
