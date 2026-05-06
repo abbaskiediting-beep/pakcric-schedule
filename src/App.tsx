@@ -7,6 +7,8 @@ import Nav from './components/Nav';
 import MobileTabBar from './components/MobileTabBar';
 
 // Lazy load pages for better bundle splitting and initial load time
+import SEO from './components/SEO';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 const MatchSchedulePage = lazy(() => import('./pages/MatchSchedulePage'));
 const Squads = lazy(() => import('./pages/Squads'));
@@ -112,28 +114,6 @@ const PageLoader = () => (
     </div>
   </div>
 );
-
-const SEO = () => {
-  const location = useLocation();
-  const baseUrl = 'https://pakcric-schedule.online';
-  const canonicalUrl = `${baseUrl}${location.pathname}`;
-
-  return (
-    <Helmet>
-      <link rel="canonical" href={canonicalUrl} />
-      <meta property="og:url" content={canonicalUrl} />
-    </Helmet>
-  );
-};
-
-// Scroll to top component
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
 
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');

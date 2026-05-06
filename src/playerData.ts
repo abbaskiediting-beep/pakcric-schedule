@@ -15,6 +15,7 @@ export const PLAYER_STATS: Record<string, Player> = {
       matches: 330,
       innings: 410,
       runs: 17500,
+      wickets: 2,
       avg: 48.50,
       sr: 128.50,
       highestScore: '196',
@@ -38,6 +39,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 250,
       runs: 8792,
+      wickets: 0,
       avg: 42.74,
       sr: 104.20,
       highestScore: '171*',
@@ -60,6 +62,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     ],
     stats: {
       matches: 210,
+      runs: 1150,
       wickets: 396,
       avg: 24.80,
       sr: 21.05,
@@ -80,6 +83,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 45,
       runs: 2350,
+      wickets: 5,
       avg: 42.50,
       sr: 68.40,
       highestScore: '208*',
@@ -119,6 +123,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/1_39_Mo_Abbas_mugshot.jpg',
     stats: {
       matches: 35,
+      runs: 185,
       wickets: 105,
       avg: 24.85,
       sr: 54.2,
@@ -135,12 +140,13 @@ export const PLAYER_STATS: Record<string, Player> = {
     name: 'Noman Ali',
     country: 'Pakistan',
     role: 'Bowler',
-    imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/440/7706-camedia.png',
+    imgUrl: 'https://c.ndtvimg.com/2025-10/bb4nhivs_noman-ali-afp_625x300_22_October_25.jpg?im=FeatureCrop,algorithm=dnn,width=806,height=605',
     achievements: [
       { title: "Dream Debut", description: "5-wicket haul on Test debut at age 34.", featured: true }
     ],
     stats: {
       matches: 28,
+      runs: 450,
       wickets: 115,
       avg: 25.12,
       sr: 52.4,
@@ -163,6 +169,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     ],
     stats: {
       matches: 20,
+      runs: 210,
       wickets: 85,
       avg: 29.50,
       sr: 58.4,
@@ -183,6 +190,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 12,
       runs: 450,
+      wickets: 0,
       avg: 37.50,
       sr: 115.00,
       recentForm: ['29', '45', '67', '12', '89'],
@@ -202,6 +210,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 85,
       runs: 3850,
+      wickets: 0,
       avg: 37.20,
       sr: 72.40,
       highestScore: '156',
@@ -221,6 +230,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 32,
       runs: 2250,
+      wickets: 0,
       avg: 44.12,
       sr: 78.40,
       highestScore: '182',
@@ -259,6 +269,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 52,
       runs: 3350,
+      wickets: 0,
       avg: 45.2,
       sr: 78.5,
       highestScore: '203*',
@@ -298,6 +309,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     stats: {
       matches: 103,
       runs: 4860,
+      wickets: 0,
       avg: 42.33,
       sr: 76.40,
       highestScore: '157',
@@ -316,6 +328,7 @@ export const PLAYER_STATS: Record<string, Player> = {
     imgUrl: 'https://static-files.cricket-australia.pulselive.com/headshots/288/7878-camedia.png',
     stats: {
       matches: 55,
+      runs: 250,
       wickets: 185,
       avg: 23.85,
       sr: 34.2,
@@ -325,97 +338,6 @@ export const PLAYER_STATS: Record<string, Player> = {
         test: { matches: 6, wickets: 20, runs: 83, avg: 30.00, sr: 58.4, highestScore: '18', bestBowling: '6/90', fiveWickets: 1 },
         odi: { matches: 12, wickets: 45, avg: 22.15, sr: 28.4, bestBowling: '4/35' },
         t20i: { matches: 37, wickets: 120, avg: 19.50, sr: 15.4, bestBowling: '5/44', fiveWickets: 1 }
-      }
-    }
-  },
-  'Mehidy Hasan Miraz': {
-    name: 'Mehidy Hasan Miraz',
-    country: 'Bangladesh',
-    role: 'All-rounder',
-    stats: {
-      matches: 150,
-      runs: 3500,
-      wickets: 280,
-      avg: 28.5,
-      sr: 82.4,
-      recentForm: ['45', '2/34', '1/22', '12', '3/45'],
-      formats: {
-        test: { matches: 45, runs: 1500, wickets: 165, avg: 25.4, sr: 58.2, bestBowling: '7/58', centuries: 1, fifties: 5 },
-        odi: { matches: 85, runs: 1200, wickets: 100, avg: 22.5, sr: 78.4, bestBowling: '4/25', fifties: 2 },
-        t20i: { matches: 20, runs: 800, wickets: 15, avg: 18.2, sr: 115.4, bestBowling: '3/17' }
-      }
-    }
-  },
-  'Travis Head': {
-    name: 'Travis Head',
-    country: 'Australia',
-    role: 'Batter',
-    stats: {
-      matches: 180,
-      runs: 7500,
-      avg: 41.5,
-      sr: 115.2,
-      highestScore: '163',
-      recentForm: ['76', '12', '45', '101', '34'],
-      formats: {
-        test: { matches: 49, runs: 3200, avg: 43.5, sr: 62.4, highestScore: '163', centuries: 7, fifties: 16 },
-        odi: { matches: 65, runs: 2500, avg: 41.2, sr: 104.5, highestScore: '152', centuries: 4, fifties: 15 },
-        t20i: { matches: 66, runs: 1800, avg: 35.4, sr: 148.2, highestScore: '91', fifties: 12 }
-      }
-    }
-  },
-  'Suryakumar Yadav': {
-    name: 'Suryakumar Yadav',
-    country: 'India',
-    role: 'Batter',
-    stats: {
-      matches: 120,
-      runs: 4500,
-      avg: 38.5,
-      sr: 155.4,
-      highestScore: '117',
-      recentForm: ['45', '78', '12', '112*', '56'],
-      formats: {
-        test: { matches: 1, runs: 8, avg: 8.0, sr: 40.0, highestScore: '8' },
-        odi: { matches: 37, runs: 773, avg: 25.76, sr: 105.7, highestScore: '64', fifties: 4 },
-        t20i: { matches: 68, runs: 2432, avg: 43.42, sr: 171.2, highestScore: '117', centuries: 4, fifties: 20 }
-      }
-    }
-  },
-  'Litton Das': {
-    name: 'Litton Das',
-    country: 'Bangladesh',
-    role: 'Batter',
-    imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320459.png',
-    stats: {
-      matches: 180,
-      runs: 6500,
-      avg: 34.50,
-      sr: 125.40,
-      recentForm: ['12', '45', '78', '23', '56'],
-      formats: {
-        test: { matches: 40, runs: 2400, avg: 36.2, sr: 58.4, highestScore: '141', centuries: 3, fifties: 15 },
-        odi: { matches: 75, runs: 2200, avg: 32.5, sr: 88.2, highestScore: '176', centuries: 5, fifties: 10 },
-        t20i: { matches: 65, runs: 1900, avg: 24.5, sr: 132.5, highestScore: '83', fifties: 10 }
-      }
-    }
-  },
-  'Shakib Al Hasan': {
-    name: 'Shakib Al Hasan',
-    country: 'Bangladesh',
-    role: 'All-rounder',
-    imgUrl: 'https://p.imgci.com/db/PICTURES/CMS/320400/320436.png',
-    stats: {
-      matches: 420,
-      runs: 14000,
-      wickets: 650,
-      avg: 35.80,
-      sr: 110.20,
-      recentForm: ['2/34', '45', '1/22', '89', '3/15'],
-      formats: {
-        test: { matches: 66, runs: 4454, wickets: 233, avg: 39.07, sr: 62.4, bestBowling: '7/36', centuries: 5, fifties: 31 },
-        odi: { matches: 247, runs: 7570, wickets: 317, avg: 37.29, sr: 82.3, bestBowling: '5/29', centuries: 9, fifties: 56 },
-        t20i: { matches: 117, runs: 2382, wickets: 140, avg: 23.82, sr: 122.3, bestBowling: '5/20', fifties: 12 }
       }
     }
   }
