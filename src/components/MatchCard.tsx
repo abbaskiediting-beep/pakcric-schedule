@@ -1,7 +1,7 @@
-import { Calendar, Clock, MapPin, Share2, Zap, Newspaper, Check } from 'lucide-react';
+import { Calendar, Clock, MapPin, Share2, Zap, Newspaper, Check, MessageCircle, Twitter, Facebook } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Match } from '../types';
 import { getTeamLogo } from '../lib/teamLogos';
 
@@ -14,7 +14,22 @@ interface MatchCardProps {
 export default function MatchCard({ match, index, matchId }: MatchCardProps) {
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const shareMenuRef = useRef<HTMLDivElement>(null);
   const effectiveId = matchId || match.id;
+  
+  // Close share menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (shareMenuRef.current && !shareMenuRef.current.contains(event.target as Node)) {
+        setShowShareMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   
   // Get enhanced logos
   const logoA = getTeamLogo(match.teamA || 'PAK');
@@ -44,29 +59,48 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
   const handleShare = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    const sharePath = match.blogUrl || `/match/${effectiveId}`;
-    const shareUrl = window.location.origin + sharePath;
-    const shareData = {
-      title: `Pakistan vs ${match.opponent} - ${match.series}`,
-      text: `Check out the match schedule: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`,
-      url: shareUrl
-    };
-
-    if (navigator.share) {
-      navigator.share(shareData).catch((err) => {
-        if (err.name !== 'AbortError') {
-          copyToClipboard(shareUrl);
-        }
-      });
-    } else {
-      copyToClipboard(shareUrl);
-    }
+    setShowShareMenu(!showShareMenu);
   };
 
-  const copyToClipboard = (url: string) => {
-    navigator.clipboard.writeText(url).then(() => {
+  const getShareInfo = () => {
+    const sharePath = match.blogUrl || `/match/${effectiveId}`;
+    const shareUrl = window.location.origin + sharePath;
+    const title = `Pakistan vs ${match.opponent} - ${match.series}`;
+    const text = `Check out the match schedule: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`;
+    return { shareUrl, title, text };
+  };
+
+  const shareOnWhatsApp = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { shareUrl, text } = getShareInfo();
+    window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + shareUrl)}`, '_blank');
+    setShowShareMenu(false);
+  };
+
+  const shareOnTwitter = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { shareUrl, text } = getShareInfo();
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+    setShowShareMenu(false);
+  };
+
+  const shareOnFacebook = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { shareUrl } = getShareInfo();
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+    setShowShareMenu(false);
+  };
+
+  const copyToClipboard = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { shareUrl } = getShareInfo();
+    navigator.clipboard.writeText(shareUrl).then(() => {
       setCopied(true);
+      setShowShareMenu(false);
       setTimeout(() => setCopied(false), 2000);
     });
   };
@@ -143,50 +177,82 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                   </motion.div>
                 )}
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 relative" ref={shareMenuRef}>
                 <button 
                   onClick={handleShare}
                   className={`relative p-2 sm:p-2.5 rounded-xl transition-all duration-300 flex items-center justify-center ${
-                    copied 
+                    showShareMenu || copied 
                       ? 'bg-pak-green text-white scale-110 shadow-[0_0_15px_rgba(0,102,46,0.4)]' 
                       : 'bg-white/5 hover:bg-white/10 text-ink/40 hover:text-pak-green'
                   }`}
                   aria-label="Share match"
                 >
-                  <AnimatePresence mode="wait">
-                    {copied ? (
-                      <motion.div
-                        key="check"
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.5, opacity: 0 }}
-                        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-                      >
-                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="share"
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.5, opacity: 0 }}
-                        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-                      >
-                        <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                  
-                  {copied && (
-                    <motion.span 
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="absolute right-full mr-3 px-2 py-1 sm:px-3 sm:py-1.5 bg-pak-green text-white text-[8px] sm:text-[9px] font-black uppercase tracking-widest rounded-lg shadow-xl pointer-events-none whitespace-nowrap"
-                    >
-                      Link Copied!
-                    </motion.span>
-                  )}
+                  <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
+
+                <AnimatePresence>
+                  {showShareMenu && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                      className="absolute top-full right-0 mt-3 p-2 bg-[#1A1A1A] border border-white/10 rounded-2xl shadow-2xl z-[100] min-w-[200px]"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="flex flex-col gap-1">
+                        <button
+                          onClick={shareOnWhatsApp}
+                          className="flex items-center gap-3 w-full px-4 py-2.5 hover:bg-green-500/10 text-white/70 hover:text-green-500 rounded-xl transition-colors text-left"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                            <MessageCircle className="w-4 h-4 text-green-500" />
+                          </div>
+                          <span className="text-[10px] font-black uppercase tracking-widest">WhatsApp</span>
+                        </button>
+                        <button
+                          onClick={shareOnTwitter}
+                          className="flex items-center gap-3 w-full px-4 py-2.5 hover:bg-white/10 text-white/70 hover:text-white rounded-xl transition-colors text-left"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
+                            <Twitter className="w-4 h-4 text-white" />
+                          </div>
+                          <span className="text-[10px] font-black uppercase tracking-widest">Twitter / X</span>
+                        </button>
+                        <button
+                          onClick={shareOnFacebook}
+                          className="flex items-center gap-3 w-full px-4 py-2.5 hover:bg-blue-600/10 text-white/70 hover:text-blue-500 rounded-xl transition-colors text-left"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-blue-600/10 flex items-center justify-center">
+                            <Facebook className="w-4 h-4 text-blue-500" />
+                          </div>
+                          <span className="text-[10px] font-black uppercase tracking-widest">Facebook</span>
+                        </button>
+                        <div className="h-px bg-white/5 my-1 mx-2" />
+                        <button
+                          onClick={copyToClipboard}
+                          className="flex items-center gap-3 w-full px-4 py-2.5 hover:bg-pak-green/10 text-white/70 hover:text-pak-green rounded-xl transition-colors text-left"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-pak-green/10 flex items-center justify-center">
+                            {copied ? <Check className="w-4 h-4 text-pak-green" /> : <Share2 className="w-4 h-4 text-pak-green" />}
+                          </div>
+                          <span className="text-[10px] font-black uppercase tracking-widest">
+                            {copied ? 'Copied!' : 'Copy Link'}
+                          </span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                
+                {copied && (
+                  <motion.span 
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="absolute right-full mr-3 px-2 py-1 sm:px-3 sm:py-1.5 bg-pak-green text-white text-[8px] sm:text-[9px] font-black uppercase tracking-widest rounded-lg shadow-xl pointer-events-none whitespace-nowrap"
+                  >
+                    Link Copied!
+                  </motion.span>
+                )}
                 <span className={`px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[8px] sm:text-[9px] font-black uppercase tracking-widest border ${formatColor} transition-all group-hover:scale-105 shadow-sm`}>
                   {match.format}
                 </span>

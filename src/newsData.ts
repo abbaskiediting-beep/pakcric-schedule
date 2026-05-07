@@ -2,6 +2,20 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'bangladesh-cricket-team-2026-analysis',
+    title: 'Bangladesh Cricket Team 2026: Complete Squad Analysis & Strategy',
+    date: 'May 7, 2026',
+    tag: 'Team Analysis',
+    summary: 'Complete guide to the Tigers\' Test campaign: Shanto\'s squad, the Taijul-Mehidy spin duo, and how they plan to repeat their 2024 heroics vs Pakistan.'
+  },
+  {
+    id: 'pak-vs-ban-2026-test-trophy-reveal',
+    title: 'PAK vs BAN 2026 Test Series Trophy Revealed: Shan and Shanto Unveil Prize',
+    date: 'May 7, 2026',
+    tag: 'Trophy Reveal',
+    summary: 'Dhaka, May 7: Pakistan captain Shan Masood and Bangladesh captain Najmul Hossain Shanto unveiled the glittering Test series trophy today ahead of tomorrow\'s high-stakes WTC clash.'
+  },
+  {
     id: 'australia-players-skip-pakistan-odi-series-ipl-2026',
     title: 'IPL First, Pakistan Later — Australian Stars to Skip ODI Series',
     date: 'May 7, 2026',

@@ -627,4 +627,26 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-amber-500',
     authorId: 'omar-farooq'
   },
+  {
+    id: 'bangladesh-cricket-team-2026-analysis',
+    title: 'Bangladesh Cricket Team 2026: Complete Squad Analysis, Key Players & Strategy',
+    summary: 'In-depth breakdown of the Tigers\' squad for the 2026 Pakistan series. Analysis of spin weapons, pace X-factors, and leadership challenges.',
+    date: 'May 7, 2026',
+    category: 'Team Analysis',
+    path: '/news/bangladesh-cricket-team-2026-analysis',
+    icon: Shield,
+    color: 'text-emerald-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pak-vs-ban-2026-test-trophy-reveal',
+    title: 'PAK vs BAN 2026 Test Series Trophy Revealed: Shan and Shanto Unveil the Prize',
+    summary: 'Pakistan and Bangladesh captains Shan Masood and Najmul Hossain Shanto unveiled the Test series trophy ahead of the 2-match WTC series starting May 8 in Dhaka.',
+    date: 'May 7, 2026',
+    category: 'Latest News',
+    path: '/news/pak-vs-ban-2026-test-trophy-reveal',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'sarfraz-khan'
+  },
 ];

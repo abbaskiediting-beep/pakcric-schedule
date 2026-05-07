@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -437,6 +437,38 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
+               <Link 
+                 to="/news/bangladesh-cricket-team-2026-analysis"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                       <Shield className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Team Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors">Bangladesh Team Profile: Ready for Pak?</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/pak-vs-ban-2026-test-trophy-reveal"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                       <Trophy className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Trophy News</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Trophy Unveiled in Dhaka</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/australia-players-skip-pakistan-odi-series-ipl-2026"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-amber-500/5 hover:border-amber-500/20 transition-all"
