@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -437,6 +437,22 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
+               <Link 
+                 to="/news/australia-players-skip-pakistan-odi-series-ipl-2026"
+                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-amber-500/5 hover:border-amber-500/20 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+                       <ShieldAlert className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-amber-500 uppercase tracking-widest leading-none mb-1">Breaking News</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-amber-500 transition-colors">IPL First: Aussies Skip Pakistan ODIs</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-amber-500 transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/pakistan-women-vs-zimbabwe-women-2nd-odi-2026-report"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"

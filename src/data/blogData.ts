@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock, Newspaper } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -615,5 +615,16 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'zainab-rashid'
+  },
+  {
+    id: 'australia-players-skip-pakistan-odi-series-ipl-2026',
+    title: 'IPL First, Pakistan Later — Australian Stars to Skip ODI Series',
+    summary: 'Cricket Australia confirms top stars will miss the Pakistan ODI series starting May 30 to honor IPL 2026 franchise commitments during the playoff window.',
+    date: 'May 7, 2026',
+    category: 'Breaking News',
+    path: '/news/australia-players-skip-pakistan-odi-series-ipl-2026',
+    icon: Newspaper,
+    color: 'text-amber-500',
+    authorId: 'omar-farooq'
   },
 ];

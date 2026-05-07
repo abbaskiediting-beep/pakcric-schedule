@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'australia-players-skip-pakistan-odi-series-ipl-2026',
+    title: 'IPL First, Pakistan Later — Australian Stars to Skip ODI Series',
+    date: 'May 7, 2026',
+    tag: 'Breaking News',
+    summary: 'Cricket Australia confirms top stars will miss the Pakistan ODI series starting May 30 to honor IPL franchise commitments during the playoff window.'
+  },
+  {
     id: 'pak-w-vs-zim-w-2nd-odi-2026-report',
     title: 'Pakistan Women Crush Zimbabwe by 206 Runs — Sadaf and Gull Hit Centuries',
     date: 'May 6, 2026',
