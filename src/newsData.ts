@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pak-w-vs-zim-w-2nd-odi-2026-report',
+    title: 'Pakistan Women Crush Zimbabwe by 206 Runs — Sadaf and Gull Hit Centuries',
+    date: 'May 6, 2026',
+    tag: 'Latest News',
+    summary: 'History made in Karachi as Sadaf Shamas and Gull Feroza both score centuries in a record-breaking 189-run opening stand, sealing the series 2-0.'
+  },
+  {
     id: 'shaheen-shah-afridi-bangladesh-interview-2026',
     title: 'Shaheen Shah Afridi\'s Bangladesh Interview: "Pakistan is Famous for Fast Bowling — Our Pacers Will Take Wickets"',
     date: 'May 6, 2026',

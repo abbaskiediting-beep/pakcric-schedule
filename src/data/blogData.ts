@@ -605,4 +605,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'ayesha-khan'
   },
+  {
+    id: 'pakistan-women-vs-zimbabwe-women-2nd-odi-2026',
+    title: 'Pakistan Women Beat Zimbabwe Women by 206 Runs in 2nd ODI | Sadaf Shamas 101, Gull Feroza 100',
+    summary: 'History made in Karachi as Sadaf Shamas and Gull Feroza both score centuries in a record-breaking 189-run opening stand, sealing the series 2-0. Largest ever run-margin vs Zimbabwe.',
+    date: 'May 6, 2026',
+    category: 'Match Report',
+    path: '/news/pakistan-women-vs-zimbabwe-women-2nd-odi-2026-report',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
 ];
