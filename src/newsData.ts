@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'babar-azam-injured-1st-bangladesh-test-2026',
+    title: 'Babar Azam Ruled Out of 1st Test vs Bangladesh With Knee Injury',
+    date: 'May 7, 2026',
+    tag: 'Breaking News',
+    summary: 'Dhaka: Pakistan\'s biggest batting hope Babar Azam has been ruled out of tomorrow\'s 1st Test against Bangladesh due to a left knee injury sustained during practice.'
+  },
+  {
     id: 'bangladesh-cricket-team-2026-analysis',
     title: 'Bangladesh Cricket Team 2026: Complete Squad Analysis & Strategy',
     date: 'May 7, 2026',

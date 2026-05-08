@@ -19,6 +19,7 @@ import {
   Activity,
   AlertTriangle
 } from 'lucide-react';
+import { BlogShare } from '../components/BlogShare';
 
 const BangladeshTeamAnalysisBlog = () => {
   return (
@@ -226,12 +227,11 @@ const BangladeshTeamAnalysisBlog = () => {
         </div>
       </section>
 
-      {/* Floating Share */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button className="w-14 h-14 rounded-3xl bg-emerald-500 text-black flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-emerald-500/40 group relative">
-          <Share2 className="w-6 h-6" />
-        </button>
-      </div>
+      {/* Social Share */}
+      <BlogShare 
+        title="Bangladesh Cricket Team 2026: Complete Squad Analysis" 
+        summary="Complete guide to the Tigers' Test campaign vs Pakistan." 
+      />
     </div>
   );
 };

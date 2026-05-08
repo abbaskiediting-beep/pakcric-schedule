@@ -18,6 +18,7 @@ import {
   Clock,
   Heart
 } from 'lucide-react';
+import { BlogShare } from '../components/BlogShare';
 
 const PakWvsZimW2ndODIBlog = () => {
   return (
@@ -273,15 +274,11 @@ const PakWvsZimW2ndODIBlog = () => {
         </div>
       </section>
 
-      {/* Floating Share */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button className="w-14 h-14 rounded-3xl bg-pak-green text-black flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-pak-green/40 group relative">
-          <Share2 className="w-6 h-6" />
-          <span className="absolute right-full mr-4 bg-[#0A0A0A] border border-white/10 text-white text-[10px] font-black tracking-widest uppercase px-4 py-2 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Share Result
-          </span>
-        </button>
-      </div>
+      {/* Social Share */}
+      <BlogShare 
+        title="Pakistan Women Beat Zimbabwe Women by 206 Runs" 
+        summary="Sadaf and Gull scoring centuries in a record opening stand." 
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -437,6 +437,22 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
+               <Link 
+                 to="/news/babar-azam-injured-1st-bangladesh-test-2026"
+                 className="flex items-center justify-between p-4 bg-red-500/5 border border-red-500/20 rounded-2xl group hover:bg-red-500/10 hover:border-red-500/40 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-black transition-colors">
+                       <AlertTriangle className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-red-500 uppercase tracking-widest leading-none mb-1">Breaking News</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-red-500 transition-colors capitalize">Babar Ruled Out of Dhaka Test</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-red-500 transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/bangladesh-cricket-team-2026-analysis"
                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all"

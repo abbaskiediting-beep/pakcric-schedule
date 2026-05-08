@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Info
 } from 'lucide-react';
+import { BlogShare } from '../components/BlogShare';
 
 const PakistanVsAustraliaIPLBlog = () => {
   return (
@@ -202,12 +203,11 @@ const PakistanVsAustraliaIPLBlog = () => {
         </div>
       </section>
 
-      {/* Floating Share */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button className="w-14 h-14 rounded-3xl bg-amber-500 text-black flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-amber-500/40 group relative">
-          <Share2 className="w-6 h-6" />
-        </button>
-      </div>
+      {/* Social Share */}
+      <BlogShare 
+        title="IPL First, Pakistan Later: Australian Players to Skip ODI Series" 
+        summary="Australian stars favor IPL playoffs over Pakistan tour." 
+      />
     </div>
   );
 };

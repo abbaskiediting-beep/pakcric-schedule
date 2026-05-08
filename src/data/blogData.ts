@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock, Newspaper } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock, Newspaper, AlertTriangle } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -647,6 +647,17 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/news/pak-vs-ban-2026-test-trophy-reveal',
     icon: Trophy,
     color: 'text-pak-green',
+    authorId: 'sarfraz-khan'
+  },
+  {
+    id: 'babar-azam-injured-1st-bangladesh-test-2026',
+    title: 'Babar Azam Ruled Out of 1st Bangladesh Test With Left Knee Injury',
+    summary: 'Pakistan\'s biggest batting blow: Babar Azam ruled out of the Dhaka Test starting May 8 due to a left knee injury. Full details and reshuffle options.',
+    date: 'May 7, 2026',
+    category: 'Breaking News',
+    path: '/news/babar-azam-injured-1st-bangladesh-test-2026',
+    icon: AlertTriangle,
+    color: 'text-red-500',
     authorId: 'sarfraz-khan'
   },
 ];

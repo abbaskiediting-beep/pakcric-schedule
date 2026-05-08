@@ -18,6 +18,7 @@ import {
   Clock,
   Info
 } from 'lucide-react';
+import { BlogShare } from '../components/BlogShare';
 
 const PakVsBanTrophyRevealBlog = () => {
   return (
@@ -227,12 +228,11 @@ const PakVsBanTrophyRevealBlog = () => {
         </div>
       </section>
 
-      {/* Floating Share */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button className="w-14 h-14 rounded-3xl bg-pak-green text-black flex items-center justify-center hover:scale-110 transition-transform shadow-2xl shadow-pak-green/40 group relative">
-          <Share2 className="w-6 h-6" />
-        </button>
-      </div>
+      {/* Social Share */}
+      <BlogShare 
+        title="PAK vs BAN 2026 Test Series Trophy Revealed" 
+        summary="Masood and Shanto unveil the prize in Dhaka." 
+      />
     </div>
   );
 };
