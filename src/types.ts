@@ -44,6 +44,7 @@ export interface PlayingXIPlayer {
   role: string;
   isCaptain?: boolean;
   isWicketkeeper?: boolean;
+  isDebutant?: boolean;
 }
 
 export interface PlayingXI {

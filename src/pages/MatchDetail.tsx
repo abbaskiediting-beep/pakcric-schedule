@@ -11,6 +11,9 @@ import {
 import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
+import { PlayerModal } from '../components/PlayerModal';
+import { PLAYER_STATS } from '../playerData';
+import { Player } from '../types';
 
 import { LinkText } from '../components/LinkText';
 
@@ -19,6 +22,16 @@ export default function MatchDetail() {
   const match = [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS].find(m => m.id === id);
   const [reminderSet, setReminderSet] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openPlayerModal = (playerName: string) => {
+    const player = PLAYER_STATS[playerName];
+    if (player) {
+      setSelectedPlayer(player);
+      setIsModalOpen(true);
+    }
+  };
 
   const handleSetReminder = () => {
     if (reminderSet) return;
@@ -269,7 +282,11 @@ export default function MatchDetail() {
                     
                     <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
                       {teamXI.players.map((player, pIdx) => (
-                        <div key={pIdx} className="flex items-center justify-between p-3 sm:p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-pak-green/5 hover:border-pak-green/20 transition-all group">
+                        <div 
+                          key={pIdx} 
+                          onClick={() => openPlayerModal(player.name)}
+                          className={`flex items-center justify-between p-3 sm:p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-pak-green/5 hover:border-pak-green/20 transition-all group ${PLAYER_STATS[player.name] ? 'cursor-pointer' : ''}`}
+                        >
                           <div className="flex items-center gap-3 sm:gap-4">
                             <span className="text-[9px] sm:text-[10px] font-black text-white/20 w-4 sm:w-5">{(pIdx + 1).toString().padStart(2, '0')}</span>
                             <div>
@@ -280,6 +297,7 @@ export default function MatchDetail() {
                                 <div className="flex gap-1">
                                   {player.isCaptain && <span className="text-[7px] sm:text-[8px] px-1.5 py-0.5 bg-pak-green text-white font-black rounded uppercase">Capt</span>}
                                   {player.isWicketkeeper && <span className="text-[7px] sm:text-[8px] px-1.5 py-0.5 bg-amber-500 text-black font-black rounded uppercase">Wk</span>}
+                                  {player.isDebutant && <span className="text-[7px] sm:text-[8px] px-1.5 py-0.5 bg-emerald-500 text-black font-black rounded uppercase shadow-[0_0_10px_rgba(16,185,129,0.3)]">New</span>}
                                 </div>
                               </div>
                               <p className="text-[8px] sm:text-[9px] font-bold text-white/30 uppercase tracking-widest mt-0.5">{player.role}</p>
@@ -633,6 +651,12 @@ export default function MatchDetail() {
       </div>
 
       <InternalLinkSection />
+
+      <PlayerModal 
+        player={selectedPlayer}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

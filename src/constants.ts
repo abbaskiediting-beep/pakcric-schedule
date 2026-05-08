@@ -16,9 +16,9 @@ export const PAKISTAN_SCHEDULE: Match[] = [
       {
         team: 'Pakistan',
         players: [
-          { name: 'Azan Awais', role: 'Left-Handed Batsman' },
+          { name: 'Azan Awais', role: 'Left-Handed Batsman', isDebutant: true },
           { name: 'Imam-ul-Haq', role: 'Left-Handed Batsman' },
-          { name: 'Abdullah Fazal', role: 'Left-Handed Batsman' },
+          { name: 'Abdullah Fazal', role: 'Left-Handed Batsman', isDebutant: true },
           { name: 'Shan Masood', role: 'Left-Handed Batsman', isCaptain: true },
           { name: 'Saud Shakeel', role: 'Left-Handed Batsman' },
           { name: 'Muhammad Rizwan', role: 'Right-Handed Batsman', isWicketkeeper: true },

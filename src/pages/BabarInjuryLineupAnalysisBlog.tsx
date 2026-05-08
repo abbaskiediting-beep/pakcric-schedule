@@ -102,21 +102,21 @@ const BabarInjuryLineupAnalysisBlog = () => {
               </p>
 
               <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight flex items-center gap-3">
-                <Layout className="w-8 h-8 text-pak-green" /> The Reshuffled XI
+                <Layout className="w-8 h-8 text-pak-green" /> The "Left-Handed Fortress" XI
               </h2>
 
               <p>
-                Team management has indicated that instead of a like-for-like middle-order replacement, they might restructure the top order to maintain balance. Here is the projected batting order for May 8:
+                In a bold tactical move, Pakistan has opted for a top order almost entirely comprised of left-handers. The logic is simple: disrupt the rhythm of Bangladesh's premier off-spinner, Mehidy Hasan Miraz, who thrives on the traditional off-break to right-handers. By fielding five left-handers in the top five, Pakistan is forcing Mehidy to change his line and length continuously.
               </p>
 
               <div className="space-y-4">
                   {[
-                      { role: 'Opener', name: 'Imam-ul-Haq', status: 'Anchor' },
-                      { role: 'Opener', name: 'Abdullah Fazal / Azan Awais', status: 'DEBUTANT' },
-                      { role: 'No. 3', name: 'Shan Masood (c)', status: 'Aggressor' },
-                      { role: 'No. 4', name: 'Saud Shakeel', status: 'Anchor' },
-                      { role: 'No. 5', name: 'Mohammad Rizwan (wk)', status: 'Engine Room' },
-                      { role: 'No. 6', name: 'Salman Ali Agha', status: 'All-rounder' },
+                      { role: 'Opener', name: 'Azan Awais', status: 'DEBUTANT' },
+                      { role: 'Opener', name: 'Imam-ul-Haq', status: 'LHB / Anchor' },
+                      { role: 'No. 3', name: 'Abdullah Fazal', status: 'DEBUTANT' },
+                      { role: 'No. 4', name: 'Shan Masood (c)', status: 'LHB / Aggressor' },
+                      { role: 'No. 5', name: 'Saud Shakeel', status: 'LHB / Anchor' },
+                      { role: 'No. 6', name: 'Mohammad Rizwan (wk)', status: 'RHB / Engine Room' },
                   ].map((player, i) => (
                       <div key={i} className="flex items-center justify-between p-6 bg-[#0A0A0A] border border-white/5 rounded-2xl group hover:border-pak-green/30 transition-all">
                           <div className="flex items-center gap-6">
@@ -126,14 +126,14 @@ const BabarInjuryLineupAnalysisBlog = () => {
                                   <div className="text-xl font-bold text-white group-hover:text-pak-green transition-colors">{player.name}</div>
                               </div>
                           </div>
-                          <span className={`px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest ${player.status === 'DEBUTANT' ? 'bg-red-500/20 text-red-500 border border-red-500/20' : 'bg-white/5 text-white/40 border border-white/10'}`}>
+                          <span className={`px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest ${player.status.includes('DEBUTANT') ? 'bg-emerald-500/20 text-emerald-500 border border-emerald-500/20' : 'bg-white/5 text-white/40 border border-white/10'}`}>
                               {player.status}
                           </span>
                       </div>
                   ))}
               </div>
 
-              <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">The Debutant Dilemma: Awais vs Fazal</h2>
+              <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">The Debutant Impact: Awais and Fazal</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="p-8 bg-white/[0.02] border border-white/10 rounded-[32px] space-y-6">
@@ -142,15 +142,15 @@ const BabarInjuryLineupAnalysisBlog = () => {
                           <h3 className="text-xl font-bold uppercase tracking-tight">Azan Awais</h3>
                       </div>
                       <p className="text-sm leading-relaxed text-white/50">
-                          The 21-year-old is the "pure" talent. With 10 domestic centuries and an average of 48.60, he is built for the long haul. 
+                          The 21-year-old takes the most pressurized slot in Asian cricket—opening on a Dhaka dustbowl. His domestic numbers (avg 48.60) suggest a temperament that can handle the long grind. Expect him to play the "Block and Burn" role.
                       </p>
                       <div className="space-y-2">
                           <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                              <span>Technique</span>
-                              <span className="text-pak-green">9/10</span>
+                              <span>Temperament</span>
+                              <span className="text-pak-green">9.5/10</span>
                           </div>
                           <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                              <div className="h-full bg-pak-green w-[90%]" />
+                              <div className="h-full bg-pak-green w-[95%]" />
                           </div>
                       </div>
                   </div>
@@ -161,24 +161,118 @@ const BabarInjuryLineupAnalysisBlog = () => {
                           <h3 className="text-xl font-bold uppercase tracking-tight">Abdullah Fazal</h3>
                       </div>
                       <p className="text-sm leading-relaxed text-white/50">
-                          The left-handed advantage. At 23, Fazal offers a different angle that could disrupt Bangladesh's off-spin heavy attack.
+                          Fazal at No. 3 is the surprise element. Traditionally an opener, his inclusion at one-down is a clear signal that Shan Masood wants to drop down to No. 4 to provide more stability in the middle in Babar's absence.
                       </p>
                       <div className="space-y-2">
                           <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                              <span>Left-Hand Utility</span>
-                              <span className="text-red-500">MAX</span>
+                              <span>Aggression</span>
+                              <span className="text-red-500">8/10</span>
                           </div>
                           <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                              <div className="h-full bg-red-500 w-full" />
+                              <div className="h-full bg-red-500 w-[80%]" />
                           </div>
                       </div>
                   </div>
               </div>
 
-              <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Tactical Shift: From Anchor to Attack</h2>
+              <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight flex items-center gap-3">
+                <Target className="w-8 h-8 text-pak-green" /> The Void Fillers: Who Must Step Up?
+              </h2>
+
               <p>
-                Babar Azam's presence allows others to play freely. Without him, the collective responsibility shifts. Captain <span className="text-white font-bold">Shan Masood</span> moving to No.3 signals a desire to put the pressure back on Bangladesh early.
+                Replacing Babar Azam's 50+ average is impossible with a single player. Instead, Pakistan's success hinges on four specific roles being executed to perfection:
               </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-[32px] space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-pak-green/10 rounded-2xl flex items-center justify-center text-pak-green">
+                      <ShieldCheck className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white uppercase tracking-tight">Saud Shakeel</h4>
+                      <p className="text-[10px] font-black text-pak-green uppercase tracking-widest">The "Lynchpin"</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/50 leading-relaxed font-medium">
+                    Saud is now the most technically sound batter in the lineup. His role shifts from a middle-order accumulator to the side's primary anchor. He must replicate Babar's ability to play long, grinding innings that frustrate the spinners.
+                  </p>
+                </div>
+
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-[32px] space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-500">
+                      <Zap className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white uppercase tracking-tight">Mohammad Rizwan</h4>
+                      <p className="text-[10px] font-black text-red-500 uppercase tracking-widest">The "Enforcer"</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/50 leading-relaxed font-medium">
+                    With a debutant-heavy top order, Rizwan's experience at No. 6 is vital. He needs to play his natural counter-attacking game to ensure the scoreboard doesn't stagnate if the top order collapses under spin pressure.
+                  </p>
+                </div>
+
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-[32px] space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-500">
+                      <TrendingUp className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white uppercase tracking-tight">Shan Masood</h4>
+                      <p className="text-[10px] font-black text-yellow-500 uppercase tracking-widest">The "Tactician"</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/50 leading-relaxed font-medium">
+                    Moving to No. 4 is a statement of intent. Shan has to provide the "Captain's Knock"—a high-impact innings that sets the tone for the rest of the team. His leadership from the middle will be as important as his runs.
+                  </p>
+                </div>
+
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-[32px] space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500">
+                      <GanttChart className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white uppercase tracking-tight">The Openers</h4>
+                      <p className="text-[10px] font-black text-blue-500 uppercase tracking-widest">The "Buffer"</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/50 leading-relaxed font-medium">
+                    Imam-ul-Haq and Azan Awais must see off the first 25-30 overs. If the new ball causes early damage, the unprotected middle order will be exposed to the turning ball far too early in the day.
+                  </p>
+                </div>
+              </div>
+
+              <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">The "Babar Vacuum" Effect</h2>
+              <p>
+                Babar Azam's greatest contribution wasn't just his runs; it was the <span className="text-white font-bold">Rotation of Strike</span>. He rarely allowed bowlers like Taijul to settle into a rhythm of six dot balls. In his absence, the pressure on Saud Shakeel to find gaps is immense. If Saud gets "stuck" by the spin duo, the debutants might feel the scoreboard pressure and commit technical errors.
+              </p>
+
+              <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight flex items-center gap-3">
+                <ShieldCheck className="w-8 h-8 text-pak-green" /> The Bowling Burden: Precision over Pace
+              </h2>
+
+              <p>
+                When the batting lineup loses its most consistent run-scorer, the bowling unit's margin for error shrinks significantly. In Dhaka, the role of Pakistan's bowlers isn't just to take wickets, but to manage the game's tempo:
+              </p>
+
+              <div className="space-y-6">
+                <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+                  <h4 className="text-lg font-bold text-white uppercase tracking-tight mb-2">Shaheen Shah Afridi: The Early Strike Specialist</h4>
+                  <p className="text-sm text-white/50 leading-relaxed">
+                    Shaheen must provide the "Psychological Uppercut" in the first 5 overs. If he can remove Bangladesh's openers cheaply, it alleviates the pressure on Pakistan's untried batting order, allowing them to start their innings with a scoreboard advantage.
+                  </p>
+                </div>
+
+                <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+                  <h4 className="text-lg font-bold text-white uppercase tracking-tight mb-2">Noman Ali & Abrar Ahmed: The "Squeeze" Operators</h4>
+                  <p className="text-sm text-white/50 leading-relaxed">
+                    On a pitch expected to assist spinners, Noman and Abrar cannot afford to leak runs. Their role is to keep the run rate below 2.5, forcing the Bangladeshi batters into taking risks. A low-scoring game favors a Babar-less Pakistan more than a high-scoring shootout.
+                  </p>
+                </div>
+              </div>
 
               <blockquote className="p-8 bg-pak-green/10 border-l-4 border-pak-green rounded-2xl italic text-white/90">
                 "We aren't just replacing runs; we're replacing oversight. Babar reads the game from non-striker's end better than anyone. Now, Saud and Rizwan must be the senior voices."

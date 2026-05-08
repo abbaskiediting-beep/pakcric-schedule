@@ -7,14 +7,23 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
+import { PlayerModal } from '../components/PlayerModal';
+import { Player } from '../types';
 
 export default function AllPlayersStats() {
   const [searchQuery, setSearchQuery] = useState('');
   const [roleFilter, setRoleFilter] = useState('All');
   const [sortKey, setSortKey] = useState<'runs' | 'wickets' | 'avg' | 'name'>('runs');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+  const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const roles = ['All', 'Batter', 'Bowler', 'All-rounder', 'Wicketkeeper Batter'];
+
+  const openPlayerModal = (player: Player) => {
+    setSelectedPlayer(player);
+    setIsModalOpen(true);
+  };
 
   const players = useMemo(() => {
     let result = Object.values(PLAYER_STATS);
@@ -122,7 +131,8 @@ export default function AllPlayersStats() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
-            className={`bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-5 md:p-6 relative overflow-hidden group ${idx === 2 ? 'md:hidden lg:block' : ''}`}
+            onClick={() => openPlayerModal(player)}
+            className={`bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-5 md:p-6 relative overflow-hidden group cursor-pointer ${idx === 2 ? 'md:hidden lg:block' : ''}`}
           >
             <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
               <Trophy className="w-16 h-16 md:w-24 md:h-24" />
@@ -137,14 +147,29 @@ export default function AllPlayersStats() {
                 </span>
                 <h3 className="text-base md:text-lg font-display font-bold text-white uppercase truncate leading-tight group-hover:text-pak-green transition-colors">{player.name}</h3>
                 <div className="flex gap-4 mt-1 sm:mt-2">
-                  <div>
-                    <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Runs</p>
-                    <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.runs || '—'}</p>
-                  </div>
-                  <div>
-                    <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Avg</p>
-                    <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.avg}</p>
-                  </div>
+                  {(player.role.toLowerCase().includes('bowler') || (player.role.toLowerCase().includes('all-rounder') && player.stats.wickets && player.stats.wickets > (player.stats.runs || 0) / 20)) ? (
+                    <>
+                      <div>
+                        <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Wickets</p>
+                        <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.wickets || '—'}</p>
+                      </div>
+                      <div>
+                        <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Avg</p>
+                        <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.avg}</p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Runs</p>
+                        <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.runs || '—'}</p>
+                      </div>
+                      <div>
+                        <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase">Avg</p>
+                        <p className="text-xs md:text-sm font-bold text-white tabular-nums">{player.stats.avg}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -204,7 +229,7 @@ export default function AllPlayersStats() {
         {/* Mobile-only Card List */}
         <div className="md:hidden divide-y divide-card-border">
           {players.map((player, idx) => (
-            <div key={player.name} className="p-4 flex flex-col gap-4">
+            <div key={player.name} className="p-4 flex flex-col gap-4" onClick={() => openPlayerModal(player)}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 overflow-hidden shrink-0">
@@ -289,7 +314,7 @@ export default function AllPlayersStats() {
                     className="hover:bg-pak-green/[0.02] transition-colors group/row"
                   >
                     <td className="px-8 py-6">
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-4 cursor-pointer" onClick={() => openPlayerModal(player)}>
                         <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 overflow-hidden shrink-0">
                           {player.imgUrl ? <img src={player.imgUrl} alt="" referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-4 h-4 text-white/20" />}
                         </div>
@@ -450,25 +475,31 @@ export default function AllPlayersStats() {
       {/* Summary Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12">
         {[
-          { label: 'Highest Average', player: 'Babar Azam', value: '56.72', icon: <TrendingUp className="w-4 h-4 text-green-400" /> },
-          { label: 'Fastest SR', player: 'Mohammad Rizwan', value: '129.12', icon: <Zap className="w-4 h-4 text-pak-green" /> },
-          { label: 'Top Wickets', player: 'Shaheen Afridi', value: '139', icon: <Target className="w-4 h-4 text-blue-400" /> },
-          { label: 'Consistent', player: 'Noman Ali', value: '24.52', icon: <Activity className="w-4 h-4 text-purple-400" /> }
+          { label: 'Highest Average', player: PLAYER_STATS['Babar Azam'], value: '56.72', icon: <TrendingUp className="w-4 h-4 text-green-400" /> },
+          { label: 'Fastest SR', player: PLAYER_STATS['Mohammad Rizwan'], value: '129.12', icon: <Zap className="w-4 h-4 text-pak-green" /> },
+          { label: 'Top Wickets', player: PLAYER_STATS['Shaheen Shah Afridi'], value: '139', icon: <Target className="w-4 h-4 text-blue-400" /> },
+          { label: 'Consistent', player: PLAYER_STATS['Noman Ali'], value: '24.52', icon: <Activity className="w-4 h-4 text-purple-400" /> }
         ].map((feat, i) => (
-          <div key={i} className="bg-card-bg border border-card-border p-4 md:p-6 rounded-[24px] md:rounded-[32px]">
+          <div key={i} className="bg-card-bg border border-card-border p-4 md:p-6 rounded-[24px] md:rounded-[32px] cursor-pointer" onClick={() => openPlayerModal(feat.player)}>
              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4 md:mb-6">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
                   {feat.icon}
                 </div>
                 <div className="min-w-0">
                   <p className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest leading-none mb-1">{feat.label}</p>
-                  <p className="text-[10px] md:text-xs font-bold text-white truncate leading-none">{feat.player}</p>
+                  <p className="text-[10px] md:text-xs font-bold text-white truncate leading-none">{feat.player.name}</p>
                 </div>
              </div>
              <p className="text-xl md:text-3xl font-display font-bold text-white tabular-nums leading-none">{feat.value}</p>
           </div>
         ))}
       </div>
+
+      <PlayerModal 
+        player={selectedPlayer}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

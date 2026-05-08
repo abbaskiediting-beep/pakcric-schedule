@@ -208,23 +208,54 @@ export default function PlayerStats() {
         {/* Top Ad for Player Profile */}
         <AdPlaceholder type="banner" className="my-8" />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
-          {[
-            { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-            { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-            { label: 'Average', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-            { label: 'Strike Rate', value: player.stats.sr || '—', icon: <Zap className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-          ].map((stat, i) => (
-            <div key={i} className="bg-card-bg border border-card-border p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] hover:border-white/10 transition-colors">
-              <div className="flex items-center gap-2 mb-2 text-neutral-500">
-                {stat.icon}
-                <span className="text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-widest leading-none">{stat.label}</span>
-              </div>
-              <p className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white tabular-nums leading-none tracking-tighter">
-                {stat.value}
-              </p>
-            </div>
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
+          {(player.role.toLowerCase().includes('bowler') || player.role.toLowerCase().includes('all-rounder')) ? (
+            <>
+              {[
+                { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Wickets', value: player.stats.wickets || '—', icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Bowling Avg', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { 
+                  label: 'Economy', 
+                  value: (player.stats.avg && player.stats.sr && player.stats.sr > 0) 
+                    ? (6 * player.stats.avg / player.stats.sr).toFixed(2) 
+                    : '—', 
+                  icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> 
+                },
+                { label: 'Best Bowling', value: player.stats.bestBowling || '—', icon: <Award className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+              ].map((stat, i) => (
+                <div key={i} className="bg-card-bg border border-card-border p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] hover:border-white/10 transition-colors">
+                  <div className="flex items-center gap-2 mb-2 text-neutral-500">
+                    {stat.icon}
+                    <span className="text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-widest leading-none">{stat.label}</span>
+                  </div>
+                  <p className="text-xl sm:text-2xl md:text-4xl font-display font-bold text-white tabular-nums leading-none tracking-tighter">
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              {[
+                { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Batting Avg', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Strike Rate', value: player.stats.sr || '—', icon: <Zap className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Hi Score', value: player.stats.highestScore || '—', icon: <Award className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+              ].map((stat, i) => (
+                <div key={i} className="bg-card-bg border border-card-border p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] hover:border-white/10 transition-colors">
+                  <div className="flex items-center gap-2 mb-2 text-neutral-500">
+                    {stat.icon}
+                    <span className="text-[8px] sm:text-[10px] md:text-[11px] font-black uppercase tracking-widest leading-none">{stat.label}</span>
+                  </div>
+                  <p className="text-xl sm:text-2xl md:text-4xl font-display font-bold text-white tabular-nums leading-none tracking-tighter">
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
+            </>
+          )}
         </div>
 
         {/* Mid-page ad after summary */}
@@ -314,14 +345,31 @@ export default function PlayerStats() {
                 );
               }
 
+              const isPlayerBowler = player.role.toLowerCase().includes('bowler') || player.role.toLowerCase().includes('all-rounder');
+              
               const metrics = [
                 { label: 'Matches', value: formatStats.matches, icon: <Activity className="w-3.5 h-3.5" /> },
                 { label: 'Innings', value: formatStats.innings, icon: <FileText className="w-3.5 h-3.5" /> },
                 { label: 'Runs', value: formatStats.runs, icon: <Target className="w-3.5 h-3.5" /> },
-                { label: 'Avg', value: formatStats.avg, icon: <TrendingUp className="w-3.5 h-3.5" /> },
-                { label: 'SR', value: formatStats.sr, icon: <Zap className="w-3.5 h-3.5" /> },
+                { 
+                  label: (!formatStats.runs && formatStats.wickets) ? 'Bowl Avg' : 'Bat Avg', 
+                  value: formatStats.avg, 
+                  icon: <TrendingUp className="w-3.5 h-3.5" /> 
+                },
+                { 
+                  label: (!formatStats.runs && formatStats.wickets) ? 'Bowl SR' : 'Bat SR', 
+                  value: formatStats.sr, 
+                  icon: <Zap className="w-3.5 h-3.5" /> 
+                },
                 { label: 'Highest', value: formatStats.highestScore, icon: <Award className="w-3.5 h-3.5" /> },
                 { label: 'Wickets', value: formatStats.wickets, icon: <Target className="w-3.5 h-3.5" /> },
+                { 
+                  label: 'Economy', 
+                  value: (formatStats.wickets && formatStats.avg && formatStats.sr && formatStats.sr > 0) 
+                    ? (6 * formatStats.avg / formatStats.sr).toFixed(2) 
+                    : undefined, 
+                  icon: <Activity className="w-3.5 h-3.5" /> 
+                },
                 { label: 'Best', value: formatStats.bestBowling, icon: <Award className="w-3.5 h-3.5" /> },
                 { label: '100s', value: formatStats.centuries, icon: <Star className="w-3.5 h-3.5" /> },
                 { label: '50s', value: formatStats.fifties, icon: <TrendingUp className="w-3.5 h-3.5" /> },
