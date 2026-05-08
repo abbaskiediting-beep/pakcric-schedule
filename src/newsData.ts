@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'babar-azam-injury-batting-lineup-analysis-2026',
+    title: 'How Babar\'s Absence Reshuffles Pakistan\'s Batting Order: Full Analysis',
+    date: 'May 7, 2026',
+    tag: 'Tactical Analysis',
+    summary: 'Dhaka: A deep dive into Pakistan\'s likely XI without Babar Azam. Who takes the No. 3 spot? Will Azan Awais debut? Expert analysis on the Dhaka Test reshuffle.'
+  },
+  {
     id: 'babar-azam-injured-1st-bangladesh-test-2026',
     title: 'Babar Azam Ruled Out of 1st Test vs Bangladesh With Knee Injury',
     date: 'May 7, 2026',

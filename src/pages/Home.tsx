@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle, Layout } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -437,6 +437,22 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
+               <Link 
+                 to="/news/babar-azam-injury-batting-lineup-analysis-2026"
+                 className="flex items-center justify-between p-4 bg-pak-green/5 border border-pak-green/20 rounded-2xl group hover:bg-pak-green/10 hover:border-pak-green/40 transition-all"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-black transition-colors">
+                       <Layout className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Tactical Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Babar's Absence: Lineup Reshuffle</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/babar-azam-injured-1st-bangladesh-test-2026"
                  className="flex items-center justify-between p-4 bg-red-500/5 border border-red-500/20 rounded-2xl group hover:bg-red-500/10 hover:border-red-500/40 transition-all"

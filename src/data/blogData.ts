@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock, Newspaper, AlertTriangle } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock, Newspaper, AlertTriangle, Layout } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -659,5 +659,16 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: AlertTriangle,
     color: 'text-red-500',
     authorId: 'sarfraz-khan'
+  },
+  {
+    id: 'babar-azam-injury-batting-lineup-analysis-2026',
+    title: 'The Babar Vacuum: How Pakistan Reshuffles for the 1st Test',
+    summary: 'Tactical analysis of Pakistan\'s batting order without Babar Azam. Comparing Azan Awais and Abdullah Fazal as potential debutants in Dhaka.',
+    date: 'May 7, 2026',
+    category: 'Tactical Analysis',
+    path: '/news/babar-azam-injury-batting-lineup-analysis-2026',
+    icon: Layout,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
   },
 ];

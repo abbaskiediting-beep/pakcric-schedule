@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import Markdown from 'react-markdown';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { MATCH_RESULTS } from '../matchResultsData';
 import { 
