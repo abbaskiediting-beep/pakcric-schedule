@@ -145,7 +145,7 @@ export default function WTCStandings() {
                   <td className="p-6">
                     <div className="flex items-center gap-3">
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs ${team.team === 'Pakistan' ? 'bg-pak-green text-white shadow-lg shadow-pak-green/20' : 'bg-card-bg border border-card-border text-ink/40'}`}>
-                        {team.team.substring(0, 2).toUpperCase()}
+                        {team.team?.substring(0, 2).toUpperCase() || ''}
                       </div>
                       <span className={`font-bold uppercase tracking-tight ${team.team === 'Pakistan' ? 'text-pak-green' : 'text-ink/80'}`}>
                         {team.team}

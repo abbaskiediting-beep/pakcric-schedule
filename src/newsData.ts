@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pak-vs-ban-1st-test-day-1-report-2026',
+    title: 'Bangladesh 301/4 at Stumps — Shanto\'s Brilliant Century Frustrates Pakistan on Day 1',
+    date: 'May 8, 2026',
+    tag: 'Match Report',
+    summary: 'Mirpur: Najmul Hossain Shanto scores 101, Mominul Haque falls on 91, and Babar Azam sits out injured — Bangladesh firmly in control after a dominant Day 1 of the 1st Test.'
+  },
+  {
     id: 'babar-azam-injury-batting-lineup-analysis-2026',
     title: 'How Babar\'s Absence Reshuffles Pakistan\'s Batting Order: Full Analysis',
     date: 'May 7, 2026',

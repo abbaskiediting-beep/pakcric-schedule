@@ -139,7 +139,7 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
       >
         {(match.status === 'Upcoming' || match.status === 'Today') && (
           <div className={`absolute top-0 left-0 right-0 ${match.status === 'Today' ? 'bg-red-600' : 'bg-pak-green'} text-white text-center py-1 sm:py-1.5 text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[3px] shadow-inner z-20`}>
-            {match.status.toUpperCase()}
+            {match.status?.toUpperCase() || ''}
           </div>
         )}
 

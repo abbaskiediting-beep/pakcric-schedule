@@ -293,9 +293,9 @@ export default function Blogs() {
       
       const currentKeywords = keywords[seriesFilter] || [];
       seriesMatch = currentKeywords.some(kw => 
-        post.title.toUpperCase().includes(kw) || 
-        post.summary.toUpperCase().includes(kw) ||
-        post.category.toUpperCase().includes(kw)
+        (post.title?.toUpperCase() || '').includes(kw) || 
+        (post.summary?.toUpperCase() || '').includes(kw) ||
+        (post.category?.toUpperCase() || '').includes(kw)
       );
     }
 
@@ -308,8 +308,8 @@ export default function Blogs() {
     // popular: sort by popularity keywords for demo
     filteredPosts.sort((a, b) => {
       const popularKeywords = ['BABAR', 'CHAMPIONS', 'FINAL', 'RECORD', 'WIN', 'CENTURIES'];
-      const aPopular = popularKeywords.some(kw => a.title.toUpperCase().includes(kw)) ? 1 : 0;
-      const bPopular = popularKeywords.some(kw => b.title.toUpperCase().includes(kw)) ? 1 : 0;
+      const aPopular = popularKeywords.some(kw => (a.title?.toUpperCase() || '').includes(kw)) ? 1 : 0;
+      const bPopular = popularKeywords.some(kw => (b.title?.toUpperCase() || '').includes(kw)) ? 1 : 0;
       
       if (aPopular !== bPopular) return bPopular - aPopular;
       // If both equally popular, keep chronological

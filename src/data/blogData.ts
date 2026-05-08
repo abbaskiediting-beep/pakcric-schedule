@@ -73,6 +73,14 @@ export const AUTHORS: Author[] = [
       twitter: 'https://twitter.com/syedabbas_cric'
     },
     avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Syed'
+  },
+  {
+    id: 'sarfraz-khan',
+    name: 'Sarfraz Khan',
+    role: 'Match Correspondent',
+    specialization: 'Live Reporting & Press Box Insights',
+    bio: 'Sarfraz provides real-time updates from ground zero. Known for his quick reports and direct observations from the press box, he ensures fans get the facts first.',
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarfraz'
   }
 ];
 

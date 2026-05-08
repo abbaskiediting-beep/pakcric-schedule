@@ -88,6 +88,7 @@ const BabarAzamInjuryBlog = lazy(() => import('./pages/BabarAzamInjuryBlog'));
 const BabarInjuryLineupAnalysisBlog = lazy(() => import('./pages/BabarInjuryLineupAnalysisBlog'));
 const PakistanVsAustraliaIPLBlog = lazy(() => import('./pages/PakistanVsAustraliaIPLBlog'));
 const PakVsBanTrophyRevealBlog = lazy(() => import('./pages/PakVsBanTrophyRevealBlog'));
+const PakVsBan1stTestDay1Report = lazy(() => import('./pages/PakVsBan1stTestDay1Report'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
 const About = lazy(() => import('./pages/About'));
@@ -171,6 +172,35 @@ export default function App() {
               <Route path="/rankings/test-bowling" element={<TestBowling />} />
               <Route path="/rankings/test-allrounder" element={<TestAllrounder />} />
               <Route path="/news" element={<Blogs />} />
+              <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
+              <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
+              <Route path="/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />
+              <Route path="/news/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
+              <Route path="/news/babar-azam-6-runs-away-zalmi-record" element={<BabarZalmiRecordBlog />} />
+              <Route path="/news/psl-2026-eliminator-2-hyderabad-kingsmen-match-report" element={<PSLEliminator2Report />} />
+              <Route path="/news/hunain-shah-last-over-dramatic-finish-psl-2026" element={<HunainShahLastOverBlog />} />
+              <Route path="/news/hyderabad-kingsmen-psl-2026-journey-review" element={<HyderabadKingsmenJourneyBlog />} />
+              <Route path="/news/psl-2026-final-full-campaign-pz-vs-hyk" element={<PSL2026FinalCampaignBlog />} />
+              <Route path="/news/babar-azam-world-odi-xi-podcast-blog" element={<BabarAzamWorldODIXIBlog />} />
+              <Route path="/news/yasir-shah-birthday-tribute-blog-2026" element={<YasirShahBirthdayBlog />} />
+              <Route path="/news/babar-azam-vs-usman-khan-comparison-2026" element={<BabarAzamVsUsmanKhanBlog />} />
+              <Route path="/news/psl-11-final-starting-time-guide-2026" element={<PSL11FinalTimeGuideBlog />} />
+              <Route path="/news/babar-azam-psl-finals-from-player-to-captain" element={<BabarAzamPSLFinalsCaptainBlog />} />
+              <Route path="/news/psl-2026-final-toss-result-hyk-vs-pz" element={<PSL2026FinalTossResultBlog />} />
+              <Route path="/news/peshawar-zalmi-psl-2026-champions-match-report" element={<PSL2026FinalReportBlog />} />
+              <Route path="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027" element={<PakVsBanWTCAnalysisBlog />} />
+              <Route path="/news/shaheen-shah-afridi-bangladesh-interview-2026" element={<ShaheenBangladeshInterviewBlog />} />
+              <Route path="/news/taiul-mehidy-spin-duo-analysis-2026" element={<TaijulMehidyAnalysisBlog />} />
+              <Route path="/news/pakistan-women-vs-zimbabwe-women-2nd-odi-2026-report" element={<PakWvsZimW2ndODIBlog />} />
+              <Route path="/news/pakistan-women-vs-zimbabwe-women-1st-odi-2026-report" element={<PakWvsZimW1stODIBlog />} />
+              <Route path="/news/australia-players-skip-pakistan-odi-series-ipl-2026" element={<PakistanVsAustraliaIPLBlog />} />
+              <Route path="/news/babar-azam-injury-batting-lineup-analysis-2026" element={<BabarInjuryLineupAnalysisBlog />} />
+              <Route path="/news/babar-azam-injured-1st-bangladesh-test-2026" element={<BabarAzamInjuryBlog />} />
+              <Route path="/news/bangladesh-cricket-team-2026-analysis" element={<BangladeshTeamAnalysisBlog />} />
+              <Route path="/news/pak-vs-ban-1st-test-day-1-report-2026" element={<PakVsBan1stTestDay1Report />} />
+              <Route path="/news/pak-vs-ban-2026-test-trophy-reveal" element={<PakVsBanTrophyRevealBlog />} />
+              <Route path="/news/babar-azam-psl-2026-complete-story-comeback" element={<BabarAzamPSL2026StoryBlog />} />
+              <Route path="/news/aaron-hardie-psl-2026-final-all-rounder-masterclass" element={<AaronHardiePSL2026FinalBlog />} />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/player/:name" element={<PlayerStats />} />
               <Route path="/author/:authorId" element={<AuthorProfile />} />
@@ -181,11 +211,9 @@ export default function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/series/:id" element={<SeriesDetail />} />
               <Route path="/match/:id" element={<MatchDetail />} />
-              <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
               <Route path="/news/squad-selection-intelligence" element={<SquadIntelligence />} />
               <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
               <Route path="/pakistan-vs-australia-2026-schedule-odi" element={<PakistanVsAustralia2026Schedule />} />
-              <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
               <Route path="/pakistan-tour-bangladesh-test-2026" element={<PakistanTourBangladeshTestBlog />} />
               <Route path="/pakistan-tour-bangladesh-squad-2026" element={<PakistanTourBangladeshSquadBlog />} />
@@ -228,6 +256,7 @@ export default function App() {
               <Route path="/news/babar-azam-injury-batting-lineup-analysis-2026" element={<BabarInjuryLineupAnalysisBlog />} />
               <Route path="/news/babar-azam-injured-1st-bangladesh-test-2026" element={<BabarAzamInjuryBlog />} />
               <Route path="/news/bangladesh-cricket-team-2026-analysis" element={<BangladeshTeamAnalysisBlog />} />
+              <Route path="/news/pak-vs-ban-1st-test-day-1-report-2026" element={<PakVsBan1stTestDay1Report />} />
               <Route path="/news/pak-vs-ban-2026-test-trophy-reveal" element={<PakVsBanTrophyRevealBlog />} />
               <Route path="/news/babar-azam-psl-2026-complete-story-comeback" element={<BabarAzamPSL2026StoryBlog />} />
               <Route path="/news/aaron-hardie-psl-2026-final-all-rounder-masterclass" element={<AaronHardiePSL2026FinalBlog />} />

@@ -1,5 +1,7 @@
 
 export const getTeamLogo = (teamName: string): string => {
+  if (!teamName) return `https://api.dicebear.com/7.x/initials/svg?seed=TEAM&backgroundColor=00662e`;
+  
   const normalizedTeam = teamName.toUpperCase().trim();
   
   const nationalLogos: Record<string, string> = {
