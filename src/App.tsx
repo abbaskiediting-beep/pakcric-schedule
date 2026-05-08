@@ -89,6 +89,7 @@ const BabarInjuryLineupAnalysisBlog = lazy(() => import('./pages/BabarInjuryLine
 const PakistanVsAustraliaIPLBlog = lazy(() => import('./pages/PakistanVsAustraliaIPLBlog'));
 const PakVsBanTrophyRevealBlog = lazy(() => import('./pages/PakVsBanTrophyRevealBlog'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
+const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -221,6 +222,7 @@ export default function App() {
               <Route path="/news/peshawar-zalmi-psl-2026-champions-match-report" element={<PSL2026FinalReportBlog />} />
               <Route path="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027" element={<PakVsBanWTCAnalysisBlog />} />
               <Route path="/news/shaheen-shah-afridi-bangladesh-interview-2026" element={<ShaheenBangladeshInterviewBlog />} />
+              <Route path="/news/taiul-mehidy-spin-duo-analysis-2026" element={<TaijulMehidyAnalysisBlog />} />
               <Route path="/news/pakistan-women-vs-zimbabwe-women-2nd-odi-2026-report" element={<PakWvsZimW2ndODIBlog />} />
               <Route path="/news/australia-players-skip-pakistan-odi-series-ipl-2026" element={<PakistanVsAustraliaIPLBlog />} />
               <Route path="/news/babar-azam-injury-batting-lineup-analysis-2026" element={<BabarInjuryLineupAnalysisBlog />} />

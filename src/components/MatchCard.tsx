@@ -138,17 +138,17 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
         id={`match-${effectiveId}`}
       >
         {(match.status === 'Upcoming' || match.status === 'Today') && (
-          <div className={`absolute top-0 left-0 right-0 ${match.status === 'Today' ? 'bg-red-600' : 'bg-pak-green'} text-white text-center py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-[3px] shadow-inner z-20`}>
+          <div className={`absolute top-0 left-0 right-0 ${match.status === 'Today' ? 'bg-red-600' : 'bg-pak-green'} text-white text-center py-1 sm:py-1.5 text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[3px] shadow-inner z-20`}>
             {match.status.toUpperCase()}
           </div>
         )}
 
-        <div className={`flex flex-col h-full ${(match.status === 'Upcoming' || match.status === 'Today') ? 'pt-5' : ''}`}>
+        <div className={`flex flex-col h-full ${(match.status === 'Upcoming' || match.status === 'Today') ? 'pt-4 sm:pt-5' : ''}`}>
           <div>
-            <div className="flex justify-between items-start mb-6">
-              <div className="flex flex-col gap-1.5 text-left">
-                <div className="flex items-center flex-wrap gap-2">
-                  <span className="text-[9px] sm:text-[10px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[2px] sm:tracking-[3px] transition-colors">{match.series}</span>
+            <div className="flex justify-between items-start mb-4 sm:mb-6">
+              <div className="flex flex-col gap-1 sm:gap-1.5 text-left">
+                <div className="flex items-center flex-wrap gap-1.5 sm:gap-2">
+                  <span className="text-[8px] sm:text-[10px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[1.5px] sm:tracking-[3px] transition-colors">{match.series}</span>
                   {match.blogUrl && (
                     <div className="flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 bg-yellow-500/10 text-yellow-500 rounded-lg text-[7px] sm:text-[8px] font-black uppercase tracking-widest border border-yellow-500/20 transition-all">
                       <Newspaper className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
@@ -263,8 +263,8 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
               {/* Background Glow for Matchup */}
               <div className="absolute inset-0 bg-gradient-to-r from-pak-green/5 via-transparent to-red-500/5 blur-3xl opacity-50 pointer-events-none" />
 
-              <div className="flex flex-col items-center gap-3 basis-[40%] relative z-10">
-                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-2 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
+              <div className="flex flex-col items-center gap-1.5 sm:gap-3 basis-[38%] relative z-10 shrink">
+                <div className={`w-11 h-11 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-1.5 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
                   match.status === 'Live' ? 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]' : 'border-white/5 group-hover:border-pak-green/30'
                 }`}>
                   <img 
@@ -275,28 +275,29 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                     className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
                   />
                   {match.status === 'Live' && (
-                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full animate-ping" />
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-3 sm:h-3 bg-red-600 rounded-full animate-ping" />
                   )}
                 </div>
-                <span className={`text-[10px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-tight ${
+                <span className={`text-[8px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[0.5px] xs:tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-none ${
                   match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-white/40 group-hover:text-white'
                 }`}>{match.teamA || "PAK"}</span>
               </div>
 
-              <div className="flex flex-col items-center gap-1.5 px-1 basis-[20%] relative z-10">
-                <div className={`h-px w-4 xs:w-6 sm:w-10 transition-colors ${
+              {/* VS Divider */}
+              <div className="flex flex-col items-center gap-0.5 sm:gap-1 px-1 basis-[24%] relative z-10 shrink-0">
+                <div className={`h-[0.5px] w-2.5 xs:w-6 sm:w-10 transition-colors ${
                   match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
                 }`} />
-                <div className={`text-[10px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
+                <div className={`text-[8px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
                   match.status === 'Live' ? 'text-red-500' : 'text-white/10 group-hover:text-pak-green group-hover:scale-110'
                 }`}>VS</div>
-                <div className={`h-px w-4 xs:w-6 sm:w-10 transition-colors ${
+                <div className={`h-[0.5px] w-2.5 xs:w-6 sm:w-10 transition-colors ${
                   match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
                 }`} />
               </div>
 
-              <div className="flex flex-col items-center gap-3 basis-[40%] relative z-10">
-                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-2 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
+              <div className="flex flex-col items-center gap-1.5 sm:gap-3 basis-[38%] relative z-10 shrink">
+                <div className={`w-11 h-11 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-1.5 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
                   match.status === 'Live' ? 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]' : 'border-white/5 group-hover:border-pak-green/30'
                 }`}>
                   <img 
@@ -307,10 +308,10 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                     className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] transition-transform duration-500"
                   />
                   {match.status === 'Live' && (
-                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full animate-ping" />
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-3 sm:h-3 bg-red-600 rounded-full animate-ping" />
                   )}
                 </div>
-                <span className={`text-[10px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-tight ${
+                <span className={`text-[8px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[0.5px] xs:tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-none ${
                   match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-white/40 group-hover:text-white'
                 }`}>{match.opponent}</span>
               </div>

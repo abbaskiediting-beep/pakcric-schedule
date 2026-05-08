@@ -9,6 +9,7 @@ import { MATCH_RESULTS } from '../matchResultsData';
 import { BLOG_POSTS, AUTHORS } from '../data/blogData';
 import AdPlaceholder from '../components/AdPlaceholder';
 import MatchCard from '../components/MatchCard';
+import SpecialMatchCard from '../components/SpecialMatchCard';
 import { LinkText } from '../components/LinkText';
 
 import InternalLinkSection from '../components/InternalLinkSection';
@@ -249,64 +250,10 @@ export default function Home() {
       <AdPlaceholder type="banner" className="mb-12" />
 
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-        {/* Featured Hero Match Section */}
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:col-span-4 relative bg-gradient-to-br from-[#042111] via-pak-green to-[#001a08] rounded-[24px] md:rounded-[32px] p-4 md:p-6 flex flex-col justify-center overflow-hidden border border-white/5 shadow-xl min-h-[300px] md:min-h-[340px] group text-white"
-        >
-          {/* Subtle Background Text */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none select-none flex items-center justify-center">
-            <span className="text-[120px] md:text-[200px] font-black font-display tracking-tighter">PAK</span>
-          </div>
-
-          <div className="relative z-10 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 bg-white text-pak-green rounded-full text-[8px] font-black uppercase tracking-wider">NEXT MATCH</span>
-              <span className="px-2.5 py-0.5 bg-black/40 rounded-full text-[8px] font-bold uppercase tracking-wider text-white/60 border border-white/10 uppercase">{nextMatch.series}</span>
-            </div>
-            
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-6">
-              <div className="space-y-4">
-                <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none">
-                  PAK <span className="text-pak-green">VS</span> {nextMatch.opponent.substring(0, 3)}
-                </h2>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold text-white/70 uppercase tracking-widest">
-                    <MapPin className="w-3.5 h-3.5 text-pak-green" /> {nextMatch.venue}
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2 text-[10px] md:text-xs font-black text-white uppercase tracking-widest">
-                      <Calendar className="w-3.5 h-3.5 text-pak-green" /> {nextMatch.date}
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] md:text-xs font-black text-white uppercase tracking-widest">
-                      <Timer className="w-3.5 h-3.5 text-pak-green" /> {nextMatch.time}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center md:justify-end gap-6 md:gap-8">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl border-2 border-pak-green/30 p-1 bg-black/40 backdrop-blur-md shadow-2xl">
-                  <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-xl" />
-                </div>
-                <div className="text-2xl font-display font-black text-white/10 uppercase italic">VS</div>
-                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl border-2 border-white/10 p-1 bg-black/40 backdrop-blur-md shadow-2xl">
-                  <img src={nextMatch.flagUrl} alt={nextMatch.opponent} referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-xl" />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
-               <Link to={`/match/${nextMatch.id}`} className="w-full sm:w-auto px-8 py-3.5 bg-white text-black rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all shadow-xl text-center">
-                  View Full Details
-               </Link>
-               <button className="w-full sm:w-auto px-8 py-3.5 bg-white/5 text-white border border-white/10 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white/10 transition-all text-center">
-                  Get Tickets
-               </button>
-            </div>
-          </div>
-        </motion.section>
+        {/* Featured Special Match Card Section */}
+        <div className="md:col-span-4">
+          <SpecialMatchCard match={nextMatch} />
+        </div>
 
         <motion.section 
           initial={{ opacity: 0, x: 20 }}
@@ -437,6 +384,22 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
+               <Link 
+                 to="/news/taiul-mehidy-spin-duo-analysis-2026"
+                 className="flex items-center justify-between p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl group hover:bg-emerald-500/10 hover:border-emerald-500/40 transition-all font-bold"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                       <Zap className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Spin Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors capitalize">Taijul & Mehidy: The Twin Nightmare</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/babar-azam-injury-batting-lineup-analysis-2026"
                  className="flex items-center justify-between p-4 bg-pak-green/5 border border-pak-green/20 rounded-2xl group hover:bg-pak-green/10 hover:border-pak-green/40 transition-all"

@@ -234,6 +234,67 @@ export default function MatchDetail() {
            </div>
         </motion.div>
 
+        {/* Playing XI Section */}
+        {match.playingXI && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="md:col-span-3 bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 sm:p-8 md:p-12 overflow-hidden shadow-2xl relative"
+          >
+            <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
+              <Users className="w-32 h-32 md:w-48 md:h-48" />
+            </div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-8 md:mb-10">
+                <Users className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                <h2 className="text-lg md:text-2xl font-display font-bold uppercase tracking-tight text-white leading-tight">Match Playing XI</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                {match.playingXI.map((teamXI, teamIdx) => (
+                  <div key={teamIdx} className="space-y-6">
+                    <div className="flex items-center gap-4 border-b border-white/10 pb-4 relative overflow-hidden">
+                       <img 
+                         src={teamXI.team === 'Pakistan' ? 'https://flagcdn.com/pk.svg' : match.flagUrl} 
+                         alt={teamXI.team} 
+                         className="w-10 h-6 sm:w-12 sm:h-8 object-cover rounded shadow-sm" 
+                       />
+                       <div>
+                         <h3 className="text-xl sm:text-2xl font-display font-black text-white uppercase tracking-wider">{teamXI.team}</h3>
+                         <div className="h-0.5 w-12 bg-pak-green mt-1" />
+                       </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
+                      {teamXI.players.map((player, pIdx) => (
+                        <div key={pIdx} className="flex items-center justify-between p-3 sm:p-4 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-pak-green/5 hover:border-pak-green/20 transition-all group">
+                          <div className="flex items-center gap-3 sm:gap-4">
+                            <span className="text-[9px] sm:text-[10px] font-black text-white/20 w-4 sm:w-5">{(pIdx + 1).toString().padStart(2, '0')}</span>
+                            <div>
+                               <div className="flex items-center flex-wrap gap-2">
+                                <p className="text-sm sm:text-base font-bold text-white group-hover:text-pak-green transition-colors">
+                                  {player.name}
+                                </p>
+                                <div className="flex gap-1">
+                                  {player.isCaptain && <span className="text-[7px] sm:text-[8px] px-1.5 py-0.5 bg-pak-green text-white font-black rounded uppercase">Capt</span>}
+                                  {player.isWicketkeeper && <span className="text-[7px] sm:text-[8px] px-1.5 py-0.5 bg-amber-500 text-black font-black rounded uppercase">Wk</span>}
+                                </div>
+                              </div>
+                              <p className="text-[8px] sm:text-[9px] font-bold text-white/30 uppercase tracking-widest mt-0.5">{player.role}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         {/* Mid-content ad after header info */}
         <div className="md:col-span-3">
           <AdPlaceholder type="native" className="mb-8" label="Popular Tours in 2026" />

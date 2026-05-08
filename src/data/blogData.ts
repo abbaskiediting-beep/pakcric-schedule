@@ -671,4 +671,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'hassan-tariq'
   },
+  {
+    id: 'taiul-mehidy-spin-duo-analysis-2026',
+    title: 'The Twin Spin Threat: Taijul vs Mehidy and the Pakistan Batting Challenge',
+    summary: 'A tactical breakdown of Bangladesh\'s spin duo, Taijul Islam and Mehidy Hasan Miraz. Analyzes their strengths against different batting types and how a Babar-less Pakistan top order must adapt.',
+    date: 'May 8, 2026',
+    category: 'Tactical Analysis',
+    path: '/news/taiul-mehidy-spin-duo-analysis-2026',
+    icon: Target,
+    color: 'text-emerald-500',
+    authorId: 'hassan-tariq'
+  },
 ];

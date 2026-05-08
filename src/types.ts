@@ -39,6 +39,18 @@ export interface VenueInsights {
   pitchCondition: string;
 }
 
+export interface PlayingXIPlayer {
+  name: string;
+  role: string;
+  isCaptain?: boolean;
+  isWicketkeeper?: boolean;
+}
+
+export interface PlayingXI {
+  team: string;
+  players: PlayingXIPlayer[];
+}
+
 export interface Match {
   id: string;
   opponent: string;
@@ -62,6 +74,7 @@ export interface Match {
   blogUrl?: string;
   teamA?: string;
   teamAFlag?: string;
+  playingXI?: PlayingXI[];
 }
 
 export interface Achievement {
