@@ -9,18 +9,18 @@ export const NEWS_DATA: NewsItem[] = [
     summary: 'Mirpur: Najmul Hossain Shanto scores 101, Mominul Haque falls on 91, and Babar Azam sits out injured — Bangladesh firmly in control after a dominant Day 1 of the 1st Test.'
   },
   {
+    id: 'taiul-mehidy-spin-duo-analysis-2026',
+    title: 'Taijul & Mehidy: The Spin Duo That Could Break Pakistan\'s Batting Order',
+    date: 'May 8, 2026',
+    tag: 'Tactical Analysis',
+    summary: 'Dhaka: A tactical breakdown of how Taijul Islam and Mehidy Hasan Miraz use the Mirpur surface. Can Pakistan survive the spin trap without Babar Azam?'
+  },
+  {
     id: 'babar-azam-injury-batting-lineup-analysis-2026',
     title: 'How Babar\'s Absence Reshuffles Pakistan\'s Batting Order: Full Analysis',
     date: 'May 7, 2026',
     tag: 'Tactical Analysis',
     summary: 'Dhaka: A deep dive into Pakistan\'s likely XI without Babar Azam. Who takes the No. 3 spot? Will Azan Awais debut? Expert analysis on the Dhaka Test reshuffle.'
-  },
-  {
-    id: 'babar-azam-injured-1st-bangladesh-test-2026',
-    title: 'Babar Azam Ruled Out of 1st Test vs Bangladesh With Knee Injury',
-    date: 'May 7, 2026',
-    tag: 'Breaking News',
-    summary: 'Dhaka: Pakistan\'s biggest batting hope Babar Azam has been ruled out of tomorrow\'s 1st Test against Bangladesh due to a left knee injury sustained during practice.'
   },
   {
     id: 'bangladesh-cricket-team-2026-analysis',

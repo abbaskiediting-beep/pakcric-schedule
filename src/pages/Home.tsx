@@ -376,8 +376,8 @@ export default function Home() {
                        <Zap className="w-5 h-5" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Spin Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors capitalize">Taijul & Mehidy: The Twin Nightmare</h5>
+                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Tactical Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors capitalize">Taijul & Mehidy: The Spin Trap</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
@@ -392,8 +392,8 @@ export default function Home() {
                        <Layout className="w-5 h-5" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Tactical Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Babar's Absence: Lineup Reshuffle</h5>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Lineup Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Babar Azam's Absence: Reshuffle</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
@@ -401,7 +401,7 @@ export default function Home() {
 
                <Link 
                  to="/news/babar-azam-injured-1st-bangladesh-test-2026"
-                 className="flex items-center justify-between p-4 bg-red-500/5 border border-red-500/20 rounded-2xl group hover:bg-red-500/10 hover:border-red-500/40 transition-all"
+                 className="flex items-center justify-between p-4 bg-red-500/5 border border-red-500/20 rounded-2xl group hover:bg-red-500/10 hover:border-red-500/40 transition-all font-bold"
                >
                  <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-black transition-colors">
@@ -409,7 +409,7 @@ export default function Home() {
                     </div>
                     <div>
                        <p className="text-[10px] font-black text-red-500 uppercase tracking-widest leading-none mb-1">Breaking News</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-red-500 transition-colors capitalize">Babar Ruled Out of Dhaka Test</h5>
+                       <h5 className="text-sm font-bold text-white group-hover:text-red-500 transition-colors capitalize">Babar Ruled Out of 1st Test</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-red-500 transition-colors" />
