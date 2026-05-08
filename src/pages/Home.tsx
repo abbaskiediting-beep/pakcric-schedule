@@ -2,7 +2,7 @@ import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, M
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { NEWS_DATA } from '../newsData';
 import { MATCH_RESULTS } from '../matchResultsData';
@@ -22,6 +22,7 @@ const FanClubSection = lazy(() => import('../components/FanClubSection'));
 export default function Home() {
   const nextMatch = PAKISTAN_SCHEDULE[0];
   const navigate = useNavigate();
+  const [showMoreTactical, setShowMoreTactical] = useState(false);
   
   // Get only the Bangladesh series for the home page preview
   const bangladeshSeriesName = 'Pakistan Tour of Bangladesh (Test Series)';
@@ -417,24 +418,32 @@ export default function Home() {
 
                <Link 
                  to="/news/bangladesh-cricket-team-2026-analysis"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
-                       <Shield className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Team Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors">Bangladesh Team Profile: Ready for Pak?</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
-               </Link>
+                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                        <Shield className="w-5 h-5" />
+                     </div>
+                     <div>
+                        <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Team Analysis</p>
+                        <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors">Bangladesh Team Profile: Ready for Pak?</h5>
+                     </div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
+                </Link>
 
-               <Link 
-                 to="/news/pak-vs-ban-2026-test-trophy-reveal"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
+                {showMoreTactical && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4 pt-4 overflow-hidden"
+                  >
+                    <Link 
+                      to="/news/pak-vs-ban-2026-test-trophy-reveal"
+                      className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+                    >
                  <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
                        <Trophy className="w-5 h-5" />
@@ -542,28 +551,31 @@ export default function Home() {
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
                </Link>
+                 </motion.div>
+               )}
 
-               <Link 
-                 to="/news/babar-azam-psl-2026-complete-story-comeback"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
+               <motion.button 
+                 whileHover={{ scale: 1.01 }}
+                 whileTap={{ scale: 0.99 }}
+                 onClick={() => setShowMoreTactical(!showMoreTactical)}
+                 className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/5 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold"
                >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <HistoryIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Season Special</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Babar Azam: The Season of Redemption</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
+                 <span className="text-xs font-black uppercase tracking-[2px] text-white/40 group-hover:text-pak-green">
+                   {showMoreTactical ? 'Show Less Analysis' : 'Show More Tactical News'}
+                 </span>
+                 <motion.div
+                   animate={{ rotate: showMoreTactical ? 180 : 0 }}
+                   transition={{ type: 'spring', stiffness: 200 }}
+                 >
+                   <ChevronRight className="w-4 h-4 text-pak-green" />
+                 </motion.div>
+               </motion.button>
             </div>
           </div>
         </motion.section>
 
         {/* Featured News / Social Widget */}
-        <Suspense fallback={<div className="md:col-span-2 h-[400px] bg-white/5 animate-pulse rounded-[40px]" />}>
+        <Suspense fallback={<div className="md:col-span-2 self-start h-32 bg-white/5 animate-pulse rounded-2xl" />}>
           <FanClubSection />
         </Suspense>
       </div>

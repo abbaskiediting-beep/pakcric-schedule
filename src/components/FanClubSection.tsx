@@ -7,7 +7,7 @@ export default function FanClubSection() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.2 }}
-      className="md:col-span-2 bg-white rounded-2xl p-4 md:p-5 flex flex-col items-center justify-center text-black overflow-hidden relative group shadow-xl shadow-white/10"
+      className="md:col-span-2 self-start bg-white rounded-2xl p-4 md:p-5 flex flex-col items-center justify-center text-black overflow-hidden relative group shadow-xl shadow-white/10"
     >
       <div className="relative z-10 text-center w-full">
         <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tighter mb-1.5 leading-none">The Fan Club</h3>
