@@ -8,6 +8,41 @@ import InternalLinkSection from '../components/InternalLinkSection';
 import { LinkText } from '../components/LinkText';
 
 const ARTICLES: Record<string, any> = {
+  'pak-vs-ban-1st-test-day-1-report-2026': {
+    title: "Bangladesh 301/4 at Stumps — Shanto’s Brilliant Century Frustrates Pakistan on Day 1",
+    date: "May 8, 2026",
+    tag: "Match Report",
+    author: "Sarfraz Khan",
+    image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1200&auto=format&fit=crop",
+    infographic: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop",
+    content: `
+Najmul Hossain Shanto scores 101 off 129 balls, Mominul Haque falls agonisingly on 91, and Babar Azam sits out injured — Bangladesh firmly in control after a dominant Day 1 of the 1st Test in Mirpur.
+
+# Day 1 Summary
+Bangladesh ended Day 1 at a commanding 301/4 after 85 overs. After Pakistan won the toss and surprisingly chose to field first on a Mirpur track that looked dry, the Bangladesh openers and middle order made them pay.
+
+# Shanto’s Captain's Knock
+Najmul Hossain Shanto was the star of the show, scoring a blistering 101 off just 129 balls. His innings was filled with aggressive intent, putting the Pakistan pacers on the backfoot from the start. He dominated the spinners and reached his century with a boundary before eventually falling to Shaheen Shah Afridi.
+
+# Mominul Haque's Heartbreak
+Mominul Haque played the perfect anchor role, batting with immense patience. He scored 91 off 200 balls and looked set for a well-deserved century before a lapse in concentration saw him caught behind. His partnership with Shanto was the backbone of the Bangladesh innings.
+
+# Pakistan's Struggles
+Pakistan’s bowling attack looked toothless in the absence of Babar Azam (who missed the match due to a knee injury). Shaheen Shah Afridi picked up two wickets but was expensive. The spin duo of Sajid Khan and Noman Ali failed to extract much purchase from the Day 1 surface, allowing the Bangladesh batters to dictate terms.
+
+# Match Info
+📅 8 May 2026
+📍 Shere Bangla National Stadium, Mirpur
+🏏 WTC 2025-27 · 1st Test
+
+# Current Score
+Bangladesh: 301/4 (85 overs)
+Mushfiqur Rahim*: 48 (104b)
+Litton Das*: 8 (35b)
+
+Bangladesh clearly "won the day" and will look to push towards a 450+ total on Day 2.
+    `
+  },
   'babar-azam-3rd-century-psl-history': {
     title: "Long Live the King: Babar Azam is Still the Undisputed Face of the PSL",
     date: "April 20, 2026",

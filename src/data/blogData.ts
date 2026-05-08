@@ -690,4 +690,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-emerald-500',
     authorId: 'hassan-tariq'
   },
+  {
+    id: 'pak-vs-ban-1st-test-day-1-report-2026',
+    title: 'Bangladesh 301/4 at Stumps — Shanto Century Puts Pakistan on the Backfoot',
+    summary: 'Captain Najmul Hossain Shanto hits 101, Mominul Haque falls on 91 as Bangladesh dominate Day 1 in Mirpur. Pakistan pacers struggle to find breakthroughs on opening day.',
+    date: 'May 8, 2026',
+    category: 'Match Report',
+    path: '/news/pak-vs-ban-1st-test-day-1-report-2026',
+    icon: Newspaper,
+    color: 'text-pak-green',
+    authorId: 'sarfraz-khan'
+  },
 ];
