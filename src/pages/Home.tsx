@@ -211,40 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dynamic Scoreboard Row */}
-      <section id="match-center" className="mb-14 md:mb-24 overflow-hidden scroll-mt-24 px-0">
-        <div className="mb-8 md:mb-12 text-center md:text-left px-4 md:px-0">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-4 md:mb-6">
-            <LinkText text="Pakistan Upcoming Matches & Fixtures" />
-          </h2>
-          <p className="text-xs sm:text-sm md:text-base text-ink/40 font-bold uppercase tracking-[2px] md:tracking-widest leading-relaxed max-w-2xl mx-auto md:mx-0">
-            <LinkText text="Stay ahead of every game with our list of Pakistan’s upcoming matches. We provide the latest match dates and updates for every series. Check our Pakistan cricket schedule 2026 for venues, timings, and player stats." />
-          </p>
-        </div>
-        <div className="flex items-center justify-between mb-6 md:mb-8 px-4 md:px-0">
-          <div className="flex items-center gap-3">
-            <Activity className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
-            <h2 className="text-xs md:text-base font-black uppercase tracking-[3px] text-white">Match Center</h2>
-          </div>
-          <Link to="/schedule" className="text-[10px] md:text-xs font-black uppercase text-ink/30 hover:text-white transition-colors tracking-widest">
-            View All Fixtures
-          </Link>
-        </div>
-
-        <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth">
-          {MATCH_RESULTS.length > 0 ? (
-            MATCH_RESULTS.map((match, index) => (
-              <div key={match.id} className="min-w-[280px] sm:min-w-[320px] md:min-w-0 md:flex-1 snap-start first:ml-0">
-                <MatchCard match={match} index={index} matchId={match.id} />
-              </div>
-            ))
-          ) : (
-            <div className="flex-1 min-h-[140px] flex items-center justify-center bg-white/5 border border-dashed border-card-border rounded-[32px]">
-              <p className="text-[10px] font-bold uppercase tracking-[3px] text-white/20">No active or recent matches</p>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* Live Match Feed removed as requested */}
 
       {/* Ad after Upcoming Matches - High CTR placement */}
       <AdPlaceholder type="banner" className="mb-12" />
