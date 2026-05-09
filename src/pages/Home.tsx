@@ -143,52 +143,52 @@ export default function Home() {
         </script>
       </Helmet>
       {/* High Conversion Hero Section */}
-      <section className="mb-8 md:mb-20 mt-1 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
+      <section className="mb-8 md:mb-20 mt-4 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-black/60 border border-white/10 rounded-full mb-4 md:mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-black/60 border border-white/10 rounded-full mb-6 md:mb-8 backdrop-blur-md">
             <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[7px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
+            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-8 transition-all">
-            Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black drop-shadow-[0_0_15px_rgba(0,102,46,0.3)]">Never Miss a Match</span>
+          <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-6 md:mb-8 transition-all">
+            Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black drop-shadow-[0_0_15px_rgba(0,102,46,0.3)] italic">Never Miss a Match</span>
           </h1>
           
-          <p className="text-sm sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-2 transition-all">
-            <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated and never miss a match." />
+          <p className="text-sm sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10 px-2 transition-all">
+            <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated." />
           </p>
-          <p className="text-[9px] md:text-sm text-ink/40 font-bold uppercase tracking-[1.5px] md:tracking-widest leading-relaxed max-w-2xl mx-auto mb-8 md:mb-14 px-4 transition-all">
+          <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-[1.5px] md:tracking-widest leading-relaxed max-w-2xl mx-auto mb-10 md:mb-14 px-4 transition-all">
             <LinkText text="Follow the national team journey through the ICC Champions Trophy, bilateral tours, and home series. Our PakCric Schedule is updated in real-time to ensure fans have the best experience." />
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-12 mb-8 md:mb-16">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-12 mb-10 md:mb-16">
             {[
               { icon: '✔', label: 'Updated Daily' },
               { icon: '✔', label: 'Accurate PKT Timings' },
               { icon: '✔', label: 'Full Series' }
             ].map((trust, i) => (
-              <div key={i} className="flex items-center gap-1.5 md:gap-3">
+              <div key={i} className="flex items-center gap-2 md:gap-3">
                 <span className="text-pak-green font-black text-sm md:text-xl">{trust.icon}</span>
-                <span className="text-[7px] sm:text-[10px] md:text-xs font-black uppercase tracking-[1.5px] text-white/70">{trust.label}</span>
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[1.5px] text-white/70">{trust.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-10 md:mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-12 md:mb-16">
             <Link 
               to="/schedule" 
-              className="w-full sm:w-auto px-10 py-4 md:px-12 md:py-5 bg-pak-green text-white rounded-2xl text-[10px] md:text-sm font-black uppercase tracking-[2px] md:tracking-[3px] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-3.5 md:px-12 md:py-5 bg-pak-green text-white rounded-xl md:rounded-2xl text-[11px] md:text-sm font-black uppercase tracking-[2px] md:tracking-[3px] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-pak-green/40 flex items-center justify-center gap-3"
             >
-              View Full Schedule <ArrowRight className="w-5 h-5" />
+              Full Schedule <ArrowRight className="w-5 h-5" />
             </Link>
             <button 
               onClick={() => {
                 const element = document.getElementById('match-center');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="w-full sm:w-auto px-10 py-4 md:px-12 md:py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] md:text-sm font-black uppercase tracking-[2px] md:tracking-[3px] hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-10 py-3.5 md:px-12 md:py-5 bg-white/5 text-white border border-white/10 rounded-xl md:rounded-2xl text-[11px] md:text-sm font-black uppercase tracking-[2px] md:tracking-[3px] hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-3"
             >
-              Check Next Match <Timer className="w-5 h-5" />
+              Next Match <Timer className="w-5 h-5" />
             </button>
           </div>
 
@@ -219,17 +219,17 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
         {/* Featured Special Match Card Section */}
-        <div id="match-center" className="md:col-span-4 space-y-6">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-[0_0_20px_rgba(0,102,46,0.4)]">
+          <div id="match-center" className="md:col-span-4 space-y-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-[0_0_20px_rgba(0,102,46,0.4)]">
               <Timer className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                <p className="text-[10px] md:text-xs text-pak-green font-black uppercase tracking-[3px]">Never Miss a Match</p>
+                <p className="text-[10px] md:text-xs text-pak-green font-black uppercase tracking-[3px]">Next Event</p>
               </div>
-              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white leading-none">Next Match Analysis</h2>
+              <h2 className="text-xl md:text-4xl font-display font-black uppercase tracking-tight text-white leading-none">Match Analysis</h2>
             </div>
           </div>
           <div className="relative group/card transition-all duration-500">
@@ -300,20 +300,20 @@ export default function Home() {
           </Link>
         </motion.section>
 
-        {/* Latest Cricket News */}
+        {/* Latest Cricket News Section Header */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="md:col-span-4 bg-card-bg border border-card-border rounded-[28px] md:rounded-[40px] p-6 md:p-10 overflow-hidden shadow-xl"
+          className="md:col-span-4 bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-5 md:p-10 overflow-hidden shadow-xl"
         >
           <div className="flex flex-wrap justify-between items-center mb-8 gap-4">
             <div className="flex items-center gap-3">
-              <Newspaper className="w-6 h-6 text-white" />
-              <h3 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight">Latest Cricket News</h3>
+              <Newspaper className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <h3 className="text-lg md:text-2xl font-display font-black uppercase tracking-tight italic">Latest <span className="text-pak-green">News Hub</span></h3>
             </div>
-            <Link to="/news" className="text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
-              Read All News <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            <Link to="/news" className="text-[9px] font-black uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
+              Read More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -597,22 +597,22 @@ export default function Home() {
       </div>
 
       {/* Latest News Section - Full Width */}
-      <section className="mt-24 md:mt-32">
+      <section className="mt-20 md:mt-32">
         <div className="flex flex-wrap justify-between items-center mb-8 md:mb-12 gap-4">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green shadow-lg">
-              <Zap className="w-6 h-6" />
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green shadow-lg">
+              <Zap className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <div>
-              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white leading-none mb-2">Latest Cricket News & Analysis</h2>
-              <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-widest">In-depth analysis, tactical previews & exclusive stories</p>
+              <h2 className="text-xl md:text-4xl font-display font-black uppercase tracking-tight text-white leading-none mb-1 md:mb-2">News & Analysis</h2>
+              <p className="text-[8px] md:text-sm text-ink/40 font-black uppercase tracking-widest italic">Tactical reviews & exclusive stories</p>
             </div>
           </div>
           <Link 
             to="/news" 
-            className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all group flex items-center gap-2"
+            className="px-6 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-all group flex items-center gap-2"
           >
-            Explore All News <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -628,22 +628,22 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => navigate(blog.path)}
-                className="bg-card-bg border border-card-border rounded-[32px] p-6 sm:p-8 flex flex-col h-full group hover:bg-white/[0.02] hover:border-pak-green/30 transition-all cursor-pointer shadow-xl relative overflow-hidden active:scale-[0.98]"
+                className="bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] p-6 sm:p-8 flex flex-col h-full group hover:bg-white/[0.02] hover:border-pak-green/30 transition-all cursor-pointer shadow-xl relative overflow-hidden active:scale-[0.98]"
               >
                 {/* Visual Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-pak-green/10 transition-all" />
                 
-                <div className="flex items-center justify-between mb-6 relative z-10">
-                  <span className="px-3 py-1 bg-pak-green/10 text-pak-green rounded-full text-[9px] font-black uppercase tracking-widest border border-pak-green/10 group-hover:bg-pak-green group-hover:text-white transition-all">
+                <div className="flex items-center justify-between mb-4 md:mb-6 relative z-10">
+                  <span className="px-3 py-1 bg-pak-green/10 text-pak-green rounded-full text-[8.5px] font-black uppercase tracking-widest border border-pak-green/10 group-hover:bg-pak-green group-hover:text-white transition-all">
                     {blog.category}
                   </span>
-                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-ink/40 group-hover:text-white transition-colors uppercase tracking-widest">
-                    <Calendar className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-1.5 text-[9px] md:text-[10px] font-black text-ink/40 group-hover:text-white transition-colors uppercase tracking-widest">
+                    <Calendar className="w-3 h-3 md:w-3.5 md:h-3.5" />
                     {blog.date}
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-4 leading-[1.2] group-hover:text-pak-green transition-colors line-clamp-3 relative z-10">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-display font-black text-white mb-3 md:mb-4 leading-[1.2] group-hover:text-pak-green transition-colors line-clamp-3 relative z-10 italic">
                   {blog.title}
                 </h3>
                 
@@ -700,42 +700,42 @@ export default function Home() {
         {/* Why Choose Section */}
         <section className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div>
-              <h3 className="text-3xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-6">
-                Why <span className="text-pak-green">PakCric Schedule</span> is Different
+            <div className="text-left">
+              <h3 className="text-xl md:text-4xl font-display font-black uppercase tracking-tight text-white mb-4 md:mb-6 italic">
+                Why <span className="text-pak-green">PakCric Schedule</span>?
               </h3>
-              <p className="text-ink/60 font-medium leading-relaxed mb-8">
-                There are plenty of cricket websites out there, but most of them are either cluttered or outdated. We focus on what really matters—accuracy and speed. This platform is built specifically for fans who want quick, reliable, and distraction-free cricket information.
+              <p className="text-xs md:text-base text-ink/60 font-medium leading-relaxed mb-6 md:mb-8">
+                Most platforms are cluttered. We focus on accuracy and speed, built specifically for fans who want reliable and distraction-free information.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {[
                   'Clean and simple schedule layout',
                   'Fast updates after verified announcements',
-                  'Accurate match timings for Pakistan users',
+                  'Accurate match timings for PKT',
                   'Easy navigation for quick access'
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-pak-green/20 flex items-center justify-center border border-pak-green/20">
-                      <div className="w-1.5 h-1.5 rounded-full bg-pak-green"></div>
+                    <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-pak-green/20 flex items-center justify-center border border-pak-green/20">
+                      <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-pak-green"></div>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">{item}</span>
+                    <span className="text-[9px] md:text-xs font-black uppercase tracking-widest text-white/80">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-white/5 border border-white/5 rounded-3xl p-8 flex items-center justify-center">
+            <div className="hidden md:flex bg-white/5 border border-white/5 rounded-3xl p-8 items-center justify-center">
               <Trophy className="w-32 h-32 text-pak-green/20" />
             </div>
           </div>
         </section>
 
         {/* Full Year Schedule Section */}
-        <section className="text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tight text-white mb-6">
-            Pakistan Cricket <span className="text-pak-green">Full Schedule 2026</span>
+        <section className="text-center max-w-4xl mx-auto py-8">
+          <h3 className="text-xl md:text-5xl font-display font-black uppercase tracking-tight text-white mb-4 md:mb-6 italic">
+            Full <span className="text-pak-green">Fixture Hub 2026</span>
           </h3>
-          <p className="text-ink/60 font-medium leading-relaxed mb-10">
-            The 2026 season is packed with exciting tours and tournaments. From bilateral series to global events, Pakistan has a busy cricket calendar. On this website, you can explore complete yearly fixtures, series-wise match breakdown, and <Link to="/schedule" className="text-pak-green hover:underline">tournament schedules</Link>. Everything is structured to help you find exactly what you're looking for within seconds.
+          <p className="text-xs md:text-base text-ink/60 font-medium leading-relaxed mb-8 md:mb-10 px-4">
+            The 2026 season is packed with exciting tours. From bilateral series to global events, we've got you covered with structured Fixtures.
           </p>
           
           {/* Native Ad Block - Looks like content */}

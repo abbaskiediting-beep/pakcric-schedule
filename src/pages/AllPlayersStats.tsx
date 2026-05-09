@@ -66,7 +66,7 @@ export default function AllPlayersStats() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-8 md:py-12 px-4 sm:px-6">
+    <div className="max-w-7xl mx-auto py-6 md:py-12 px-4 sm:px-6">
       <Helmet>
         <title>Pakistan Players Stats 2026 – Batting, Bowling & All Format Records</title>
         <meta name="description" content="Explore Pakistan cricket players stats 2026 including runs, wickets, averages, and performance in Test, ODI, and T20 formats." />
@@ -74,14 +74,14 @@ export default function AllPlayersStats() {
       </Helmet>
 
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 mb-10 md:mb-12">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-          <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] mb-4">Statistics Hub</span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 md:mb-6 text-white leading-tight">
-            Pakistan Players Stats – <span className="text-pak-green">Batting, Bowling & Records</span>
+          <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] mb-3 md:mb-4">Statistics Hub</span>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-3 md:mb-6 text-white leading-tight">
+            Pakistan Players Stats – <span className="text-pak-green">Records & Analytics</span>
           </h1>
-          <div className="max-w-3xl space-y-4 mb-6 md:mb-8">
-            <p className="text-sm md:text-lg text-ink/70 font-medium leading-relaxed">
+          <div className="max-w-3xl space-y-3 md:space-y-4 mb-5 md:mb-8">
+            <p className="text-xs md:text-lg text-ink/70 font-medium leading-relaxed">
               If you want to understand how the Pakistan cricket team is performing, player statistics are the best place to start.
             </p>
             <p className="hidden md:block text-ink/50 font-medium leading-relaxed">
@@ -91,20 +91,20 @@ export default function AllPlayersStats() {
               Check recent performances in one place.
             </p>
           </div>
-          <p className="text-ink/40 font-bold uppercase tracking-widest text-[8px] md:text-[10px] border-l-2 border-pak-green pl-4">
+          <p className="text-ink/40 font-bold uppercase tracking-widest text-[8px] md:text-[10px] border-l-2 border-pak-green pl-3 md:pl-4">
             Comprehensive data covering {players.length} active squad members
           </p>
         </motion.div>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center">
           <div className="relative group w-full md:w-64">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 md:w-4 md:h-4 text-neutral-500 group-focus-within:text-pak-green transition-colors" />
             <input 
               type="text" 
               placeholder="Search player name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-12 pr-6 text-[10px] md:text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink shadow-sm"
+              className="bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-11 md:pl-12 pr-6 text-[10px] md:text-xs font-bold uppercase tracking-wide focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink shadow-sm"
             />
           </div>
           <div className="relative w-full md:w-56">
@@ -112,7 +112,7 @@ export default function AllPlayersStats() {
             <select
               value={roleFilter}
               onChange={(e) => setRoleFilter(e.target.value)}
-              className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-12 pr-10 text-[9px] md:text-[10px] font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink cursor-pointer"
+              className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-11 md:pl-12 pr-10 text-[9px] md:text-[10px] font-black uppercase tracking-widest focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink cursor-pointer"
             >
               {roles.map(role => <option key={role} value={role}>{role}</option>)}
             </select>
@@ -124,7 +124,7 @@ export default function AllPlayersStats() {
       <AdPlaceholder type="leaderboard" className="mb-12" />
 
       {/* Top 3 High Performers */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 mb-12 md:mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
         {players.slice(0, 3).map((player, idx) => (
           <motion.div 
             key={player.name}
@@ -132,17 +132,17 @@ export default function AllPlayersStats() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
             onClick={() => openPlayerModal(player)}
-            className={`bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-5 md:p-6 relative overflow-hidden group cursor-pointer ${idx === 2 ? 'md:hidden lg:block' : ''}`}
+            className={`bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-5 md:p-6 relative overflow-hidden group cursor-pointer active:scale-[0.98] transition-transform ${idx === 2 ? 'md:hidden lg:block' : ''}`}
           >
             <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
               <Trophy className="w-16 h-16 md:w-24 md:h-24" />
             </div>
             <div className="flex items-center gap-4 md:gap-6 relative z-10">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-2">
-                {player.imgUrl ? <img src={player.imgUrl} alt={player.name} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-8 h-8 md:w-10 md:h-10 text-white/20" />}
+              <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-1.5 md:p-2 shadow-inner">
+                {player.imgUrl ? <img src={player.imgUrl} alt={player.name} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-6 h-6 md:w-10 md:h-10 text-white/20" />}
               </div>
               <div className="min-w-0">
-                <span className={`text-[7px] md:text-[8px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-1 sm:mb-2 inline-block ${idx === 0 ? 'bg-amber-500 text-black' : 'bg-pak-green/20 text-pak-green'}`}>
+                <span className={`text-[7px] md:text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full mb-1 sm:mb-2 inline-block ${idx === 0 ? 'bg-amber-500 text-black' : 'bg-pak-green/20 text-pak-green'}`}>
                   {idx === 0 ? 'Top Performer' : player.role}
                 </span>
                 <h3 className="text-base md:text-lg font-display font-bold text-white uppercase truncate leading-tight group-hover:text-pak-green transition-colors">{player.name}</h3>
@@ -225,41 +225,41 @@ export default function AllPlayersStats() {
       </div>
 
       {/* Main Stats Table */}
-      <div className="bg-card-bg border border-card-border rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl">
+      <div className="bg-card-bg border border-card-border rounded-2xl md:rounded-[40px] overflow-hidden shadow-2xl mb-12">
         {/* Mobile-only Card List */}
         <div className="md:hidden divide-y divide-card-border">
           {players.map((player, idx) => (
-            <div key={player.name} className="p-4 flex flex-col gap-4" onClick={() => openPlayerModal(player)}>
+            <div key={player.name} className="p-5 flex flex-col gap-4 active:bg-white/[0.02]" onClick={() => openPlayerModal(player)}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 overflow-hidden shrink-0">
-                    {player.imgUrl ? <img src={player.imgUrl} alt="" referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-4 h-4 text-white/20" />}
+                  <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 overflow-hidden shrink-0 shadow-inner">
+                    {player.imgUrl ? <img src={player.imgUrl} alt="" referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-contain" /> : <User className="w-5 h-5 text-white/20" />}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">{player.name}</h4>
-                    <span className="text-[8px] font-bold text-neutral-500 uppercase tracking-widest">{player.role}</span>
+                    <h4 className="text-sm font-black text-white leading-tight">{player.name}</h4>
+                    <span className="text-[8.5px] font-bold text-neutral-500 uppercase tracking-widest">{player.role}</span>
                   </div>
                 </div>
                 <Link 
                   to={`/player/${player.name.toLowerCase().replace(/ /g, '-')}`}
-                  className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-pak-green"
+                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-pak-green"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-6 h-6" />
                 </Link>
               </div>
               
-              <div className="grid grid-cols-3 gap-2">
-                <div className="bg-white/[0.02] p-2 rounded-xl border border-white/5">
-                  <p className="text-[7px] font-bold text-neutral-500 uppercase mb-1">Runs</p>
-                  <p className="text-xs font-bold text-white tabular-nums">{player.stats.runs || '—'}</p>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="bg-white/[0.02] p-2.5 rounded-2xl border border-white/5 text-center">
+                  <p className="text-[7.5px] font-black text-neutral-500 uppercase mb-1 tracking-wider">Runs</p>
+                  <p className="text-xs font-black text-white tabular-nums">{player.stats.runs || '—'}</p>
                 </div>
-                <div className="bg-white/[0.02] p-2 rounded-xl border border-white/5">
-                  <p className="text-[7px] font-bold text-neutral-500 uppercase mb-1">Wickets</p>
-                  <p className="text-xs font-bold text-white tabular-nums">{player.stats.wickets || '—'}</p>
+                <div className="bg-white/[0.02] p-2.5 rounded-2xl border border-white/5 text-center">
+                  <p className="text-[7.5px] font-black text-neutral-500 uppercase mb-1 tracking-wider">Wickets</p>
+                  <p className="text-xs font-black text-white tabular-nums">{player.stats.wickets || '—'}</p>
                 </div>
-                <div className="bg-white/[0.02] p-2 rounded-xl border border-white/5">
-                  <p className="text-[7px] font-bold text-neutral-500 uppercase mb-1">Avg</p>
-                  <p className={`text-xs font-bold tabular-nums ${player.stats.avg >= 45 ? 'text-green-400' : 'text-white'}`}>{player.stats.avg}</p>
+                <div className="bg-white/[0.02] p-2.5 rounded-2xl border border-white/5 text-center">
+                  <p className="text-[7.5px] font-black text-neutral-500 uppercase mb-1 tracking-wider">Avg</p>
+                  <p className={`text-xs font-black tabular-nums ${player.stats.avg >= 45 ? 'text-green-400' : 'text-white'}`}>{player.stats.avg}</p>
                 </div>
               </div>
             </div>

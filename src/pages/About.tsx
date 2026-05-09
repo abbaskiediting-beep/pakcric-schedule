@@ -4,20 +4,20 @@ import { LinkText } from '../components/LinkText';
 
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto py-12 px-6">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-        <h1 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
+    <div className="max-w-4xl mx-auto py-8 md:py-12 px-4 md:px-6">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8 md:mb-12">
+        <h1 className="text-2xl sm:text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">
           About <span className="text-white">PakCric Schedule</span>
         </h1>
-        <p className="text-ink/60 font-medium">Your definitive source for Pakistan National Team schedule, squads and rankings.</p>
+        <p className="text-xs md:text-base text-ink/60 font-medium">Your definitive source for Pakistan National Team schedule, squads and rankings.</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-8 mb-16">
-        <div className="bg-card-bg border border-card-border rounded-[40px] p-10 md:p-16">
-          <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-6">
+      <div className="grid grid-cols-1 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-16">
+          <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-4 md:mb-6">
             The Ultimate <span className="text-pak-green">Pakistan Cricket Resource</span>
           </h2>
-          <div className="space-y-6 text-ink/60 font-medium leading-relaxed text-lg">
+          <div className="space-y-4 md:space-y-6 text-ink/60 font-medium leading-relaxed text-sm md:text-lg">
             <p>
               <LinkText text="PakCric Schedule was born out of a simple need: to provide passionate fans with a fast, reliable, and distraction-free way to stay connected with the Pakistan National Cricket Team. In a digital world filled with cluttered sports websites that are hard to navigate on mobile devices, we wanted to build something different—something that puts the fans first." />
             </p>

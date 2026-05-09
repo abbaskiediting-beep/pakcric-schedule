@@ -27,8 +27,8 @@ const AzanAwaisDebutBlog = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Helmet>
-        <title>Azan Awais Test Debut 80+ vs Bangladesh 2026 | Pakistan's Youngest Star Shines in Mirpur</title>
-        <meta name="description" content="Azan Awais, 21, scores 80+ on Test debut vs Bangladesh in Mirpur May 9 2026. 106-run opening stand with Imam, survived DRS review, calm under pressure." />
+        <title>Azan Awais Test Debut 85* vs Bangladesh 2026 | Pakistan's Youngest Star Shines in Mirpur</title>
+        <meta name="description" content="Azan Awais, 21, scores 85* on Test debut vs Bangladesh in Mirpur May 9 2026. 106-run opening stand with Imam, survived DRS review, calm under pressure." />
       </Helmet>
 
       {/* Hero Section */}
@@ -63,13 +63,13 @@ const AzanAwaisDebutBlog = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed max-w-3xl pt-4">
-                Pakistan's 21-year-old sensation lights up Test debut with an 80+ masterclass in Dhaka, silencing critics and steadying the ship.
+                Pakistan's 21-year-old sensation lights up Test debut with an 85* masterclass in Dhaka, silencing critics and steadying the ship.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 bg-white/[0.02] p-8 rounded-[32px] border border-white/10">
                  <div className="space-y-1">
                     <div className="text-[10px] font-black uppercase tracking-widest text-white/40">Debut Score</div>
-                    <div className="text-2xl font-display font-bold text-pak-green">80* <span className="text-sm font-normal text-white/20">UNBEATEN</span></div>
+                    <div className="text-2xl font-display font-bold text-pak-green">85* <span className="text-sm font-normal text-white/20">UNBEATEN</span></div>
                  </div>
                  <div className="space-y-1">
                     <div className="text-[10px] font-black uppercase tracking-widest text-white/40">Partnership</div>
@@ -173,7 +173,7 @@ const AzanAwaisDebutBlog = () => {
                   { phase: 'The Start', context: 'Cautious, watching carefully, leaving well outside off.', score: '18 (23)' },
                   { phase: 'The DRS Scare', context: 'Survives a review by Shanto/Miraz. Settles nerves.', score: 'Survived' },
                   { phase: 'The Milestone', context: 'Brought up fifty in 66 balls with clinical strokeplay.', score: '50 (66)' },
-                  { phase: 'Session End', context: 'Anchoring with debutant Abdullah Fazal after Imam falls.', score: '80* (120)' }
+                  { phase: 'Session End', context: 'Anchoring with debutant Abdullah Fazal after Imam falls.', score: '85* (133)' }
                 ].map((step, i) => (
                   <div key={i} className="flex gap-6 p-6 rounded-2xl bg-white/[0.02] border border-white/5 group hover:bg-white/[0.04] transition-colors">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-pak-green/10 flex items-center justify-center text-pak-green font-black">
@@ -243,8 +243,8 @@ const AzanAwaisDebutBlog = () => {
 
       {/* Social Share */}
       <BlogShare 
-        title="Azan Awais Debut Masterclass: 80+ in Dhaka" 
-        summary="Pakistan's 21-year-old sensation scores 80+ on Test debut vs Bangladesh. A star is born in Mirpur." 
+        title="Azan Awais Debut Masterclass: 85* in Dhaka" 
+        summary="Pakistan's 21-year-old sensation scores 85* on Test debut vs Bangladesh. A star is born in Mirpur." 
       />
     </div>
   );

@@ -16,14 +16,14 @@ type SortKey = 'date' | 'opponent' | 'series';
 
 function MatchDetailExpanded({ match }: { match: Match }) {
   return (
-    <div className="bg-white/[0.03] border-t border-card-border p-5 md:p-10 animate-in fade-in slide-in-from-top-4 duration-500">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
+    <div className="bg-white/[0.03] border-t border-card-border p-4 md:p-10 animate-in fade-in slide-in-from-top-4 duration-500">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-12">
         {/* Left Column: Stats & Summary */}
         <div className="space-y-6 md:space-y-8">
           {match.status === 'Completed' && match.stats && (
-            <div className="space-y-5 md:space-y-6">
-              <div className="flex items-center gap-3 mb-1.5 md:mb-2">
-                <Trophy className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+            <div className="space-y-4 md:space-y-6">
+              <div className="flex items-center gap-2 mb-1.5 md:mb-2">
+                <Trophy className="w-3.5 h-3.5 md:w-5 md:h-5 text-pak-green" />
                 <h3 className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white">Match Performance</h3>
               </div>
               
@@ -262,15 +262,15 @@ export default function MatchSchedulePage() {
       </Helmet>
 
       {/* Header Section */}
-      <div className="mb-6 md:mb-12">
+      <div className="mb-6 md:mb-12 pt-4 md:pt-0">
         <motion.div 
           initial={{ opacity: 0, x: -20 }} 
           animate={{ opacity: 1, x: 0 }}
         >
-          <Link to="/" className="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-3 md:mb-6">
+          <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/50 hover:text-pak-green transition-colors mb-4 md:mb-6">
             <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Back to Dashboard
           </Link>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-5 md:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5 md:mb-8 text-center sm:text-left">
             <h1 className="text-2xl sm:text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white leading-tight">
               Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
             </h1>
@@ -288,9 +288,9 @@ export default function MatchSchedulePage() {
                   alert('Link copied to clipboard!');
                 }
               }}
-              className="flex items-center justify-center gap-2 px-5 py-3 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:border-pak-green/20 transition-all w-full sm:w-fit"
+              className="flex items-center justify-center gap-2 px-6 py-4 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:border-pak-green/20 transition-all w-full sm:w-fit"
             >
-              <Share2 className="w-3.5 h-3.5 md:w-4 md:h-4" /> <span>Share Schedule</span>
+              <Share2 className="w-4 h-4" /> <span>Share Schedule</span>
             </button>
           </div>
           <div className="max-w-3xl space-y-4 md:space-y-6 mb-8 md:mb-10 px-1">

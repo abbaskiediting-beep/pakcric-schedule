@@ -42,7 +42,7 @@ export default function Series() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto py-8 md:py-16 px-4 md:px-6">
+    <div className="max-w-6xl mx-auto py-6 md:py-16 px-4 md:px-6">
       <Helmet>
         <title>Pakistan Cricket Series – Full Tours, Fixtures & Updates 2026</title>
         <meta name="description" content="Complete guide to Pakistan cricket series 2026. Explore upcoming tours, squad updates, and recent results for the Green Shirts." />
@@ -53,16 +53,16 @@ export default function Series() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-10 md:mb-20 text-center"
+        className="mb-8 md:mb-20 text-center"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-pak-green/10 border border-pak-green/20 rounded-full mb-5 md:mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-pak-green/10 border border-pak-green/20 rounded-full mb-4 md:mb-6">
           <Trophy className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green" />
-          <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-pak-green">Series Hub</span>
+          <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-pak-green">Series Hub</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 leading-tight md:leading-none">
+        <h1 className="text-2xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 leading-tight md:leading-none">
           Pakistan Cricket <span className="text-pak-green">Series</span>
         </h1>
-        <p className="text-base md:text-xl text-neutral-500 max-w-3xl mx-auto font-medium italic leading-relaxed px-2">
+        <p className="text-sm md:text-xl text-neutral-500 max-w-3xl mx-auto font-medium italic leading-relaxed px-2">
           <LinkText text="Welcome to PakCric Schedule’s Series Hub — your complete source for all Pakistan cricket series, including upcoming tours and recently completed series." />
         </p>
       </motion.div>
@@ -79,38 +79,38 @@ export default function Series() {
               <LinkText text="Stay ahead with deep analytical reports for all upcoming Pakistan cricket series. Click on a series to view head-to-head records, venue history, and predicted playing XIs." />
             </p>
             
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {upcomingSeries.map((series, idx) => (
                 <motion.div 
                   key={idx}
                   whileHover={{ x: 10 }}
-                  className="bg-card-bg border border-card-border p-5 md:p-6 rounded-2xl md:rounded-[32px] group transition-all"
+                  className="bg-card-bg border border-card-border p-4 md:p-6 rounded-xl md:rounded-[32px] group transition-all active:scale-[0.98]"
                 >
                   <Link to={series.path || `/series-intelligence/${series.id}`} className="block">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 md:gap-6">
-                      <div className="flex gap-4">
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
+                      <div className="flex gap-3 md:gap-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors shrink-0">
                           {series.icon}
                         </div>
                         <div>
-                          <h3 className="text-lg md:text-xl font-bold italic mb-0.5 md:mb-1 group-hover:text-pak-green transition-colors">
+                          <h3 className="text-base md:text-xl font-bold italic mb-0.5 md:mb-1 group-hover:text-pak-green transition-colors leading-tight">
                             {series.title}
                           </h3>
-                          <p className="text-[10px] md:text-xs font-bold text-neutral-500 uppercase tracking-widest">{series.format} • {series.matches}</p>
+                          <p className="text-[9px] md:text-xs font-black text-ink/30 uppercase tracking-widest leading-none">{series.format} • {series.matches}</p>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between md:justify-end gap-5 md:gap-6 border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
+                      <div className="flex items-center justify-between md:justify-end gap-5 md:gap-6 border-t md:border-t-0 border-white/5 pt-3 md:pt-0">
                         <div className="text-left">
-                          <p className="text-[9px] md:text-[10px] font-black uppercase text-neutral-500 tracking-widest mb-0.5 md:mb-1">Venue</p>
-                          <p className="text-xs md:text-sm font-bold text-white italic">{series.venue}</p>
+                          <p className="text-[8px] md:text-[10px] font-black uppercase text-neutral-500 tracking-widest mb-0.5 md:mb-1">Venue</p>
+                          <p className="text-[11px] md:text-sm font-bold text-white italic">{series.venue}</p>
                         </div>
                         <div className="flex flex-col items-end gap-1.5 md:gap-2">
-                          <span className={`px-3 md:px-4 py-0.5 md:py-1 rounded-full text-[8px] md:text-[9px] font-black uppercase tracking-widest ${
+                          <span className={`px-2.5 md:px-4 py-0.5 md:py-1 rounded-full text-[7.5px] md:text-[9px] font-black uppercase tracking-widest ${
                             series.status === 'Upcoming' ? 'bg-pak-green/20 text-pak-green' : 'bg-yellow-500/10 text-yellow-500 border border-yellow-500/20'
                           }`}>
                             {series.status}
                           </span>
-                          <span className="text-[8px] font-black text-pak-green group-hover:underline uppercase tracking-tighter">View Intel Report →</span>
+                          <span className="text-[8px] font-black text-pak-green group-hover:underline uppercase tracking-widest">Report →</span>
                         </div>
                       </div>
                     </div>
@@ -188,36 +188,36 @@ export default function Series() {
           </section>
 
           {/* Featured & Recent Series Section */}
-          <section className="bg-white/5 rounded-3xl md:rounded-[48px] p-6 md:p-12 border border-white/10 relative overflow-hidden">
+          <section className="bg-white/5 rounded-2xl md:rounded-[48px] p-5 md:p-12 border border-white/10 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12 pointer-events-none">
               <HistoryIcon className="w-64 h-64" />
             </div>
             <div className="relative z-10">
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
                 <Trophy className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
-                <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tighter italic">Recent Series Archive</h2>
+                <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tighter italic">Recent Series Archive</h2>
               </div>
-              <p className="text-ink/60 text-sm md:text-base mb-6 md:mb-8 italic">
+              <p className="text-ink/60 text-xs md:text-base mb-6 md:mb-8 italic">
                 <LinkText text="Explore completed series results and tournament reviews. This section ensures you stay updated with match results and comprehensive season analysis." />
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 {recentSeries.map((series, idx) => (
                   <Link 
                     key={idx}
                     to={series.path}
-                    className="bg-black/20 border border-white/5 p-5 rounded-2xl flex items-center justify-between group hover:border-pak-green/40 transition-all"
+                    className="bg-black/20 border border-white/5 p-4 md:p-5 rounded-xl md:rounded-2xl flex items-center justify-between group hover:border-pak-green/40 transition-all active:scale-[0.98]"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-all">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-all shrink-0">
                         {series.icon}
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white italic leading-none mb-1 group-hover:text-pak-green transition-colors">{series.title}</h4>
-                        <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{series.matches}</p>
+                        <h4 className="text-[13px] md:text-sm font-bold text-white italic leading-tight mb-1 group-hover:text-pak-green transition-colors">{series.title}</h4>
+                        <p className="text-[9px] md:text-[10px] font-black text-ink/30 uppercase tracking-widest">{series.matches}</p>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-neutral-600 group-hover:text-pak-green group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-3.5 h-3.5 text-neutral-600 group-hover:text-pak-green group-hover:translate-x-1 transition-all" />
                   </Link>
                 ))}
               </div>
@@ -265,39 +265,39 @@ export default function Series() {
         </div>
 
         {/* Sidebar */}
-        <div className="space-y-8">
-          <div className="bg-pak-green p-8 rounded-[40px] text-white sticky top-24">
-            <h3 className="text-2xl font-display font-bold uppercase mb-6 italic leading-tight">Why Use This Page?</h3>
-            <ul className="space-y-4 list-none p-0 m-0">
+        <div className="space-y-6 md:space-y-8">
+          <div className="bg-pak-green p-6 md:p-8 rounded-3xl md:rounded-[40px] text-white lg:sticky lg:top-24">
+            <h3 className="text-xl md:text-2xl font-display font-bold uppercase mb-4 md:mb-6 italic leading-tight">Why Use This Page?</h3>
+            <ul className="space-y-3 list-none p-0 m-0">
               {[
                 "All Pakistan series in one place",
                 "Regularly updated information",
                 "Easy navigation for users",
                 "Accurate fixtures and match details"
               ].map((benefit, i) => (
-                <li key={i} className="flex gap-3 text-sm font-bold italic">
-                  <ShieldCheck className="w-5 h-5 shrink-0" />
+                <li key={i} className="flex gap-3 text-sm font-medium italic">
+                  <ShieldCheck className="w-4.5 h-4.5 shrink-0" />
                   <span>{benefit}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 pt-8 border-t border-white/20">
-               <Link to="/schedule" className="group flex items-center justify-between w-full p-4 bg-white/10 hover:bg-white/20 rounded-2xl transition-all">
-                  <span className="text-xs font-black uppercase tracking-widest">Full Schedule</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            <div className="mt-6 pt-6 border-t border-white/20">
+               <Link to="/schedule" className="group flex items-center justify-between w-full p-3.5 bg-white/10 hover:bg-white/20 rounded-xl md:rounded-2xl transition-all">
+                  <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">Full Schedule</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform" />
                </Link>
             </div>
           </div>
 
-          <div className="p-8 bg-card-bg border border-card-border rounded-[40px]">
-            <h3 className="text-xl font-display font-bold uppercase mb-6 italic">Quick Links</h3>
-            <div className="flex flex-col gap-4">
+          <div className="p-6 md:p-8 bg-card-bg border border-card-border rounded-3xl md:rounded-[40px]">
+            <h3 className="text-lg md:text-xl font-display font-bold uppercase mb-4 md:mb-6 italic">Quick Links</h3>
+            <div className="flex flex-col gap-3">
                {[
                  { name: "Match Schedule", path: "/schedule" },
                  { name: "Next Match", path: "/match/pk-bd-test-1-2026" },
                  { name: "Squad Details", path: "/squads" }
                ].map(l => (
-                 <Link key={l.path} to={l.path} className="text-xs font-bold uppercase tracking-widest text-neutral-500 hover:text-pak-green transition-colors flex items-center gap-2">
+                 <Link key={l.path} to={l.path} className="text-[10px] md:text-xs font-black uppercase tracking-widest text-neutral-500 hover:text-pak-green transition-colors flex items-center gap-2">
                    <div className="w-1 h-1 bg-pak-green rounded-full" /> {l.name}
                  </Link>
                ))}
@@ -307,30 +307,30 @@ export default function Series() {
       </div>
 
       {/* FAQs */}
-      <section className="mt-20 pt-20 border-t border-card-border">
-        <div className="flex items-center gap-4 mb-10">
-          <Info className="w-8 h-8 text-pak-green" />
-          <h2 className="text-3xl font-display font-bold uppercase tracking-tighter italic">Series FAQs</h2>
+      <section className="mt-12 md:mt-20 pt-12 md:pt-20 border-t border-card-border">
+        <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10">
+          <Info className="w-6 h-6 md:w-8 md:h-8 text-pak-green" />
+          <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tighter italic">Series FAQs</h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <h4 className="text-lg font-bold text-white mb-3 italic">What is a cricket series?</h4>
-              <p className="text-neutral-500 text-sm leading-relaxed italic">
+              <h4 className="text-base md:text-lg font-bold text-white mb-2 md:mb-3 italic">What is a cricket series?</h4>
+              <p className="text-neutral-500 text-xs md:text-sm leading-relaxed italic">
                 <LinkText text="A cricket series is a group of matches played between two teams or within a tournament across different formats like Test, ODI, or T20." />
               </p>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-white mb-3 italic">How often is this page updated?</h4>
-              <p className="text-neutral-500 text-sm leading-relaxed italic">
+              <h4 className="text-base md:text-lg font-bold text-white mb-2 md:mb-3 italic">How often is this page updated?</h4>
+              <p className="text-neutral-500 text-xs md:text-sm leading-relaxed italic">
                 <LinkText text="We update series information regularly as soon as verified announcements are made by the PCB or participating boards." />
               </p>
             </div>
           </div>
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <h4 className="text-lg font-bold text-white mb-3 italic">Can I find all Pakistan tours here?</h4>
-              <p className="text-neutral-500 text-sm leading-relaxed italic">
+              <h4 className="text-base md:text-lg font-bold text-white mb-2 md:mb-3 italic">Can I find all Pakistan tours here?</h4>
+              <p className="text-neutral-500 text-xs md:text-sm leading-relaxed italic">
                 <LinkText text="Yes, this page includes all major Pakistan tours, tournaments, and triangular series scheduled in the ICC FTP." />
               </p>
             </div>
@@ -339,11 +339,11 @@ export default function Series() {
       </section>
 
       {/* Final Words */}
-      <div className="mt-20 p-12 bg-neutral-900 rounded-[48px] text-center border border-white/5">
-        <p className="text-xl text-neutral-300 font-medium italic italic mb-8 max-w-2xl mx-auto">
+      <div className="mt-12 md:mt-20 p-8 md:p-12 bg-neutral-900 rounded-3xl md:rounded-[48px] text-center border border-white/5">
+        <p className="text-base md:text-xl text-neutral-300 font-medium italic mb-6 md:mb-8 max-w-2xl mx-auto">
           "The Pakistan Cricket Series page on PakCric Schedule is designed to keep fans informed with the latest fixtures, squads, and updates."
         </p>
-        <p className="text-[10px] font-black uppercase text-pak-green tracking-[0.4em]">Bookmark this page – Stay Updated</p>
+        <p className="text-[9px] md:text-[10px] font-black uppercase text-pak-green tracking-[0.4em]">Bookmark this page – Stay Updated</p>
       </div>
     </div>
   );

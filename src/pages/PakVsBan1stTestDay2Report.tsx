@@ -23,24 +23,24 @@ import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 
 const bowlingData = [
-  { name: 'Mohammad Abbas', overs: 34, maidens: 4, runs: 92, wickets: 5 },
-  { name: 'Shaheen Afridi', overs: 29.1, maidens: 2, runs: 113, wickets: 3 },
-  { name: 'Hasan Ali', overs: 19, maidens: 1, runs: 78, wickets: 1 },
-  { name: 'Khurram Shahzad', overs: 20, maidens: 3, runs: 66, wickets: 1 },
-  { name: 'Noman Ali', overs: 20, maidens: 2, runs: 92, wickets: 1 },
+  { name: 'Mohammad Abbas', overs: 34, maidens: 9, runs: 92, wickets: 5 },
+  { name: 'Shaheen Afridi', overs: 27, maidens: 2, runs: 113, wickets: 3 },
+  { name: 'Noman Ali', overs: 24, maidens: 2, runs: 82, wickets: 1 },
+  { name: 'Hasan Ali', overs: 24, maidens: 1, runs: 89, wickets: 1 },
+  { name: 'Salman Agha', overs: 8, maidens: 0, runs: 37, wickets: 0 },
 ];
 
 export default function PakVsBan1stTestDay2Report() {
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-pak-green selection:text-white">
       <Helmet>
-        <title>Pakistan Fight Back in Dhaka: Abbas’s Fifer and Azan Awais’s Gritty Debut Define Day 2</title>
-        <meta name="description" content="Pakistan fights back on Day 2 in Dhaka! Mohammad Abbas takes 5 wickets to restrict Bangladesh to 413, while debutant Azan Awais scores a brilliant unbeaten 72. Read the full 1500-word match report and analysis." />
-        <meta name="keywords" content="PAK vs BAN 1st Test Day 2 2026, Mohammad Abbas 5 wickets, Mushfiqur Rahim 71, Azan Awais debut 72*, Pakistan test score stumps" />
+        <title>Pakistan vs Bangladesh 1st Test Day 2 Report 2026 | Abbas Fifer, Azan Awais Debut Heroics</title>
+        <meta name="description" content="Abbas takes 5/92 as Bangladesh make 413. Debutant Azan Awais shines with 85* as Pakistan finish Day 2 at 179/1, trailing by 234." />
+        <meta name="keywords" content="PAK vs BAN 1st Test Day 2 2026, Mohammad Abbas 5 wickets, Mushfiqur Rahim 71, Azan Awais debut 85*, Pakistan test score stumps" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Pakistan Fight Back in Dhaka: Abbas’s Fifer and Azan Awais’s Gritty Debut Define Day 2" />
-        <meta property="og:description" content="Pakistan fights back on Day 2 in Dhaka! Mohammad Abbas takes 5 wickets to restrict Bangladesh to 413, while debutant Azan Awais scores a brilliant unbeaten 72." />
+        <meta property="og:title" content="Pakistan vs Bangladesh 1st Test Day 2 Report 2026 — Abbas Fifer, Azan Awais Debut Heroics" />
+        <meta property="og:description" content="Abbas takes 5/92 as Bangladesh make 413. Debutant Azan Awais shines with 85* as Pakistan finish Day 2 at 179/1, trailing by 234." />
       </Helmet>
 
       {/* Hero Section */}
@@ -59,7 +59,7 @@ export default function PakVsBan1stTestDay2Report() {
             </div>
             
             <h1 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tighter leading-none max-w-5xl">
-              Abbas <span className="text-pak-green italic">Five-For</span> Fires Pakistan Comeback
+              Abbas <span className="text-pak-green italic">Five-For</span>, Azan Awais <br /> <span className="text-emerald-500">Debut Heroics</span>
             </h1>
 
             <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-4">
@@ -82,7 +82,7 @@ export default function PakVsBan1stTestDay2Report() {
               
               <div className="prose prose-invert prose-lg max-w-none space-y-8 text-white/70 font-medium leading-relaxed">
                 <p className="text-xl md:text-2xl text-white font-display font-bold italic leading-snug">
-                  Pakistan fought back spiritedly in Dhaka as Mohammad Abbas claimed his sixth Test five-wicket haul (5/92) to bowl Bangladesh out for 413. Debutant Azan Awais then stole the spotlight with a gritty unbeaten 72, guiding Pakistan to 142/1 at stumps.
+                  Pakistan fought back spiritedly in Dhaka as Mohammad Abbas claimed his sixth Test five-wicket haul (5/92) to bowl Bangladesh out for 413. Debutant Azan Awais then stole the spotlight with a sensational unbeaten 85, guiding Pakistan to 179/1 at stumps.
                 </p>
 
                 <div className="overflow-x-auto bg-[#0A0A0A] border border-white/5 rounded-[40px] p-8 mt-8 mb-12">
@@ -107,14 +107,15 @@ export default function PakVsBan1stTestDay2Report() {
                        </tr>
                        <tr>
                          <td className="py-4 text-lg font-bold text-white uppercase italic">Pakistan 1st</td>
-                         <td className="py-4 text-lg font-bold text-pak-green">142/1</td>
-                         <td className="py-4 text-lg font-bold text-white/60 text-center">34.0</td>
+                         <td className="py-4 text-lg font-bold text-pak-green">179/1</td>
+                         <td className="py-4 text-lg font-bold text-white/60 text-center">46.0</td>
                          <td className="py-4 text-lg font-bold text-white text-right font-sans text-xs uppercase">STUMPS - DAY 2</td>
                        </tr>
                      </tbody>
                    </table>
-                   <div className="mt-6 pt-6 border-t border-white/5 flex justify-between items-center">
-                     <p className="text-[10px] font-black uppercase tracking-[2px] text-neutral-500">Pakistan trail by <span className="text-white">271 Runs</span></p>
+                   <div className="mt-6 pt-6 border-t border-white/5 flex justify-between items-center text-[10px] font-black uppercase tracking-[2px] text-neutral-500">
+                     <p>Pakistan trail by <span className="text-white">234 Runs</span></p>
+                     <p className="text-white/20">9 Wickets in Hand</p>
                    </div>
                 </div>
 
@@ -124,48 +125,67 @@ export default function PakVsBan1stTestDay2Report() {
 
                 <div className="space-y-6">
                   <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl relative group">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[10px] font-black uppercase tracking-widest">Morning Session (BAN Bat)</span>
+                    <div className="flex items-center justify-between mb-4 text-[10px] font-black uppercase tracking-widest">
+                      <span className="px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full">Morning Session (BAN Bat)</span>
                       <span className="text-lg font-bold text-white tabular-nums">112 Runs | 6 Wkts</span>
                     </div>
-                    <p className="text-sm">Abbas 5-for brilliance helped bowl Bangladesh out for 413. Shaheen Afridi removed Mushfiqur Rahim for 71 on his birthday with a sharp delivery that crashed into the stumps.</p>
+                    <p className="text-sm">Bangladesh resumed from overnight 301/4. Mushfiqur Rahim completed his record-breaking fifty (71 off 179 balls) before being bowled by Shaheen Afridi. Taskin Ahmed chipped in with a quickfire 21 (22b) as Bangladesh reached 413.</p>
                   </div>
 
                   <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl relative group">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[10px] font-black uppercase tracking-widest">Post-Lunch Persistence</span>
+                    <div className="flex items-center justify-between mb-4 text-[10px] font-black uppercase tracking-widest">
+                      <span className="px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full">Afternoon Session (PAK Bat)</span>
                       <span className="text-lg font-bold text-white tabular-nums">50/0 (10.0 ov)</span>
                     </div>
-                    <p className="text-sm">Pakistan openers gave a solid start, reaching tea unscathed. Azan Awais looked comfortable on debut, surviving an early review.</p>
+                    <p className="text-sm">Mohammad Abbas was ruthless with the old ball, removing the tail in quick succession. Pakistan's openers walked out and survived till tea, setting a positive tone.</p>
                   </div>
 
                   <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl relative group">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[10px] font-black uppercase tracking-widest">Evening Session (PAK Bat)</span>
-                      <span className="text-lg font-bold text-white tabular-nums">92 Runs | 1 Wkt</span>
+                    <div className="flex items-center justify-between mb-4 text-[10px] font-black uppercase tracking-widest">
+                      <span className="px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full">Evening Session (PAK Bat)</span>
+                      <span className="text-lg font-bold text-white tabular-nums">129 Runs | 1 Wkt</span>
                     </div>
-                    <p className="text-sm">Azan Awais reached his maiden Test fifty off 66 balls. The 106-run opening stand was broken by Mehidy Hasan Miraz who dismissed Imam-ul-Haq for 45.</p>
+                    <p className="text-sm">Azan Awais and Imam-ul-Haq posted a 106-run opening stand. After Imam fell for 57, Azan (85*) and Abdullah Fazal (37*) added 73 unbeaten runs to put Pakistan in control at stumps.</p>
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Mohammad Abbas: The Wrecker-in-Chief</h2>
+                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Mohammad Abbas: The Quiet Assassin</h2>
                 <p>
-                  Abbas dismantle the Bangladeshi middle and lower order with signature discipline. Relying on "old-school" Test principles—bowling tirelessly in the channel just outside off-stump—he forced the batters into errors. He provided the initial strike of the day by dismissing Litton Das (33), breaking a dangerous 62-run partnership. He finished with clinical figures of 5/92 from 34 overs.
+                  Mohammad Abbas produced a classical Test bowling performance to claim 5/92 off 34 overs. Disciplined lines, relentless lengths, and the patience of a monk — Abbas was everything Pakistan needed their senior bowler to be. He removed Litton Das, Mehidy Hasan Miraz, and Taijul Islam in quick succession to help seal Bangladesh's innings before lunch on Day 2.
                 </p>
 
                 <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Mushfiqur’s Record-Breaking Resilience</h2>
                 <p>
-                  Despite the collapse at the other end, Mushfiqur Rahim stood like a rock. He etched his name into history by surpassing Tamim Iqbal to become the Bangladeshi batter with the most 50-plus scores (42) across all formats. His resistance ended shortly after lunch when Shaheen Shah Afridi rattled his stumps for 71.
+                  Mushfiqur Rahim completed his fifty — his 42nd fifty-plus score in Tests for Bangladesh, breaking Tamim Iqbal's all-time national record. He batted on for a gritty 71 off 179 balls before being bowled by Shaheen Shah Afridi.
                 </p>
 
                 <div className="p-10 bg-pak-green/10 border-l-4 border-pak-green rounded-[32px] italic text-white/90 text-2xl font-display font-medium leading-tight my-12">
-                  "By the close of play on Saturday, Pakistan reached 142/1, trailing Bangladesh’s total of 413 by 271 runs. Day 3 promises a defining chapter."
+                  "Pakistan ends Day 2 at 179/1, in an incredibly strong position, trailing by 234 runs with nine wickets in hand."
                 </div>
 
-                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Azan Awais: A Star is Born</h2>
+                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Azan Awais — A Star is Born</h2>
                 <p>
-                  Opening alongside the experienced Imam-ul-Haq, 21-year-old Azan Awais showed no signs of debut nerves. He reached his maiden Test half-century off just 66 balls. His innings was characterized by elegant cover drives and a solid defensive technique against the spinners. By stumps, Awais remained unbeaten on 72 from 96 balls.
+                  Azan Awais built a strong foundation for Pakistan's innings with a 106-run opening stand alongside Imam-ul-Haq. The 21-year-old from Sialkot handled the Mirpur cauldron with incredible maturity, surviving an early DRS review and playing elegant cover drives. He ended the day unbeaten on 85 off 133 balls — just 15 runs away from a debut century.
                 </p>
+
+                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Abdullah Fazal — The Supporting Act</h2>
+                <p>
+                  The 23-year-old from Karachi, Abdullah Fazal, played exactly the innings his team needed on Test debut — cautious and correct. He forged an unbeaten 73-run stand with Azan Awais to end the day, finishing on 37* off 78 balls.
+                </p>
+
+                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Imam-ul-Haq's Solid Return</h2>
+                <p>
+                  Imam-ul-Haq returned to Pakistan's Test XI and delivered with a composed 57 off 75 balls. His dismissal briefly brought nerves, but the two debutants quickly steadied the ship.
+                </p>
+
+                <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 my-10">
+                  <h3 className="text-xl font-display font-bold text-white uppercase mb-4 flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-500" /> The No-Ball Problem
+                  </h3>
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    One of the stranger subplots has been the no-ball epidemic. Pakistan bowled 9 no-balls in Bangladesh's innings, while Bangladesh conceded 7 in Pakistan's reply. Both coaching staffs will have firm words about the popping crease.
+                  </p>
+                </div>
 
                 <Link 
                   to="/news/azan-awais-pakistan-test-debut-masterclass-dhaka"
@@ -221,9 +241,9 @@ export default function PakVsBan1stTestDay2Report() {
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">The 271-Run Trail</h2>
+                <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight">Day 3 Preview — Momentum Shift</h2>
                 <p>
-                  Pakistan face a significant but manageable deficit of 271 runs. With 9 wickets in hand and the pitch starting to offer assistance to the spinners, Day 3 will be crucial. The middle order, including captain Shan Masood and Babar Azam, will need to capitalize on the foundation laid by the openers.
+                  Pakistan trail by only 234 runs with nine wickets in hand, and momentum has completely shifted to the visitors. With Shan Masood, Saud Shakeel, and Mohammad Rizwan still to come, Pakistan are perfectly placed. If Azan Awais completes his debut century tomorrow, Mirpur might officially become his favourite workplace forever.
                 </p>
               </div>
             </div>
@@ -248,9 +268,9 @@ export default function PakVsBan1stTestDay2Report() {
                   <div className="flex justify-between items-end">
                     <div>
                       <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Pakistan 1st</p>
-                      <h4 className="text-5xl font-display font-bold text-pak-green tabular-nums tracking-tighter italic">142/1</h4>
+                      <h4 className="text-5xl font-display font-bold text-pak-green tabular-nums tracking-tighter italic">179/1</h4>
                     </div>
-                    <p className="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">(34.0 ov)</p>
+                    <p className="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">(46.0 ov)</p>
                   </div>
 
                   <div className="space-y-3 pt-6 border-t border-white/5 text-[10px] font-black uppercase tracking-widest text-neutral-500">
@@ -258,11 +278,11 @@ export default function PakVsBan1stTestDay2Report() {
                      <div className="space-y-2">
                         <div className="flex justify-between text-white">
                            <span>Azan Awais*</span>
-                           <span>72 (96)</span>
+                           <span>85 (133)</span>
                         </div>
                         <div className="flex justify-between text-white">
                            <span>Abdullah Fazal*</span>
-                           <span>14 (25)</span>
+                           <span>37 (78)</span>
                         </div>
                      </div>
                   </div>
@@ -271,12 +291,12 @@ export default function PakVsBan1stTestDay2Report() {
                      <p>BAN Bowling (1st Innings)</p>
                      <div className="space-y-2">
                         <div className="flex justify-between text-pak-green">
-                           <span>Mohammad Abbas</span>
-                           <span>5/92</span>
+                           <span>Azan Awais</span>
+                           <span>85* (133)</span>
                         </div>
                         <div className="flex justify-between text-white">
-                           <span>Shaheen Afridi</span>
-                           <span>3/113</span>
+                           <span>Imam-ul-Haq</span>
+                           <span>57 (75)</span>
                         </div>
                      </div>
                   </div>
@@ -290,15 +310,15 @@ export default function PakVsBan1stTestDay2Report() {
                  <div className="space-y-8 text-[11px] font-bold uppercase tracking-widest text-white/40 leading-relaxed">
                     <div className="flex gap-4">
                        <span className="text-pak-green">01</span>
-                       <p>Abbas's 5/92 is his <span className="text-white">Sixth Five-For</span> in Test Cricket.</p>
+                       <p>Abbas's 5/92 is his <span className="text-white">Sixth Five-For</span> in Tests.</p>
                     </div>
                     <div className="flex gap-4">
                        <span className="text-pak-green">02</span>
-                       <p>Mushfiqur surpassed <span className="text-white">Tamim Iqbal</span> for most 50+ scores for BAN.</p>
+                       <p>Azan Awais is unbeaten on <span className="text-white">85*</span> on Test Debut.</p>
                     </div>
                     <div className="flex gap-4">
                        <span className="text-pak-green">03</span>
-                       <p>Azan Awais scored his <span className="text-white">Maiden Test Fifty</span> on debut (72*).</p>
+                       <p>Pakistan trail by only <span className="text-white">234 runs</span> at Stumps.</p>
                     </div>
                  </div>
               </div>

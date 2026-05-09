@@ -703,8 +703,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'pak-vs-ban-1st-test-day-2-report-2026',
-    title: 'Pakistan Fight Back in Dhaka: Abbas’s Fifer and Azan Awais’s Gritty Debut Define Day 2',
-    summary: 'Pakistan fights back on Day 2! Mohammad Abbas takes 5 wickets to restrict Bangladesh to 413, while debutant Azan Awais scores a brilliant unbeaten 72.',
+    title: 'Pakistan vs Bangladesh 1st Test Day 2 Report 2026: Abbas Fifer, Azan Awais Debut Heroics',
+    summary: 'Abbas takes 5/92 as Bangladesh make 413. Debutant Azan Awais shines with 85* as Pakistan finish Day 2 at 179/1, trailing by 234.',
     date: 'May 9, 2026',
     category: 'Match Report',
     path: '/news/pak-vs-ban-1st-test-day-2-report-2026',

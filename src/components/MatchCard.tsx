@@ -75,7 +75,7 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
           damping: 25,
           delay: index * 0.05
         }}
-        className={`bg-card-bg border rounded-2xl p-4 sm:p-5 md:p-6 h-full flex flex-col justify-between cursor-pointer transition-all duration-300 group relative overflow-hidden ${
+        className={`bg-card-bg border rounded-2xl p-5 sm:p-5 md:p-6 h-full flex flex-col justify-between cursor-pointer transition-all duration-300 group relative overflow-hidden ${
           match.status === 'Live' 
             ? 'border-red-500/50 shadow-[0_0_20px_-10px_rgba(239,68,68,0.5)] hover:border-red-500 hover:shadow-[0_12px_40px_-12px_rgba(239,68,68,0.4)]' 
             : 'border-card-border hover:border-pak-green/50 hover:shadow-[0_12px_40px_-12px_rgba(0,102,46,0.3)]'
@@ -83,20 +83,20 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
         id={`match-${effectiveId}`}
       >
         {(match.status === 'Upcoming' || match.status === 'Today') && (
-          <div className={`absolute top-0 left-0 right-0 ${match.status === 'Today' ? 'bg-red-600' : 'bg-pak-green'} text-white text-center py-1 sm:py-1.5 text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[3px] shadow-inner z-20`}>
+          <div className={`absolute top-0 left-0 right-0 ${match.status === 'Today' ? 'bg-red-600' : 'bg-pak-green'} text-white text-center py-1.5 sm:py-2 text-[8px] sm:text-[10px] font-black uppercase tracking-[2.5px] sm:tracking-[3px] shadow-inner z-20`}>
             {match.status?.toUpperCase() || ''}
           </div>
         )}
 
-        <div className={`flex flex-col h-full ${(match.status === 'Upcoming' || match.status === 'Today') ? 'pt-4 sm:pt-5' : ''}`}>
+        <div className={`flex flex-col h-full ${(match.status === 'Upcoming' || match.status === 'Today') ? 'pt-6 sm:pt-5' : ''}`}>
           <div>
-            <div className="flex justify-between items-start mb-4 sm:mb-6">
-              <div className="flex flex-col gap-1 sm:gap-1.5 text-left">
-                <div className="flex items-center flex-wrap gap-1.5 sm:gap-2">
-                  <span className="text-[8px] sm:text-[10px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[1.5px] sm:tracking-[3px] transition-colors">{match.series}</span>
+            <div className="flex justify-between items-start mb-6 sm:mb-6">
+              <div className="flex flex-col gap-1.5 sm:gap-1.5 text-left">
+                <div className="flex items-center flex-wrap gap-2 sm:gap-2">
+                  <span className="text-[9px] sm:text-[10px] font-black text-ink/30 group-hover:text-pak-green uppercase tracking-[2px] sm:tracking-[3px] transition-colors">{match.series}</span>
                   {match.blogUrl && (
-                    <div className="flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 bg-yellow-500/10 text-yellow-500 rounded-lg text-[7px] sm:text-[8px] font-black uppercase tracking-widest border border-yellow-500/20 transition-all">
-                      <Newspaper className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-yellow-500/10 text-yellow-500 rounded-lg text-[7.5px] sm:text-[8px] font-black uppercase tracking-widest border border-yellow-500/20 transition-all">
+                      <Newspaper className="w-3 h-3" />
                       Report
                     </div>
                   )}
@@ -105,33 +105,33 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                   <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex items-center gap-1.5 sm:gap-2 bg-red-500/10 border border-red-500/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full w-fit"
+                    className="flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded-full w-fit"
                   >
-                    <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-red-500 rounded-full animate-pulse" />
-                    <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-widest text-red-500">Live Match</span>
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                    <span className="text-[8px] font-black uppercase tracking-widest text-red-500">Live Match</span>
                   </motion.div>
                 )}
                 {(match.status === 'Upcoming' || match.status === 'Today') && (
                   <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className={`flex items-center gap-1.5 sm:gap-2 ${match.status === 'Today' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/10 border-pak-green/20'} px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full w-fit`}
+                    className={`flex items-center gap-2 ${match.status === 'Today' ? 'bg-red-500/10 border-red-500/20' : 'bg-pak-green/10 border-pak-green/20'} px-2.5 py-1 rounded-full w-fit`}
                   >
-                    <span className={`w-1 h-1 sm:w-1.5 sm:h-1.5 ${match.status === 'Today' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'bg-pak-green shadow-[0_0_8px_rgba(0,102,46,0.5)]'} rounded-full`} />
-                    <span className={`text-[7px] sm:text-[8px] font-black uppercase tracking-widest ${match.status === 'Today' ? 'text-red-500' : 'text-pak-green'}`}>{match.status}</span>
+                    <span className={`w-1.5 h-1.5 ${match.status === 'Today' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'bg-pak-green shadow-[0_0_8px_rgba(0,102,46,0.5)]'} rounded-full`} />
+                    <span className={`text-[8px] font-black uppercase tracking-widest ${match.status === 'Today' ? 'text-red-500' : 'text-pak-green'}`}>{match.status}</span>
                   </motion.div>
                 )}
                 {match.granularStatus && (
                   <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full w-fit"
+                    className="flex items-center gap-2 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full w-fit"
                   >
-                    <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-widest text-pak-green">{match.granularStatus}</span>
+                    <span className="text-[8px] font-black uppercase tracking-widest text-pak-green">{match.granularStatus}</span>
                   </motion.div>
                 )}
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 relative">
+              <div className="flex items-center gap-2 relative">
                 <ShareButton 
                   title={shareTitle}
                   text={shareText}
@@ -139,18 +139,18 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                   variant="icon"
                 />
                 
-                <span className={`px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[8px] sm:text-[9px] font-black uppercase tracking-widest border ${formatColor} transition-all group-hover:scale-105 shadow-sm`}>
+                <span className={`px-2.5 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest border ${formatColor} transition-all group-hover:scale-105 shadow-sm`}>
                   {match.format}
                 </span>
               </div>
             </div>
 
-            <div className="flex items-center justify-between mb-8 md:mb-10 px-1 relative">
+            <div className="flex items-center justify-between mb-10 md:mb-10 px-1 relative">
               {/* Background Glow for Matchup */}
               <div className="absolute inset-0 bg-gradient-to-r from-pak-green/5 via-transparent to-red-500/5 blur-3xl opacity-50 pointer-events-none" />
 
-              <div className="flex flex-col items-center gap-1.5 sm:gap-3 basis-[38%] relative z-10 shrink">
-                <div className={`w-11 h-11 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-1.5 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
+              <div className="flex flex-col items-center gap-3 sm:gap-3 basis-[38%] relative z-10 shrink">
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-2.5 xs:p-3 sm:p-4 shadow-xl shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-2deg] ${
                   match.status === 'Live' ? 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]' : 'border-white/5 group-hover:border-pak-green/30'
                 }`}>
                   <img 
@@ -161,29 +161,29 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                     className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
                   />
                   {match.status === 'Live' && (
-                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-3 sm:h-3 bg-red-600 rounded-full animate-ping" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full animate-ping" />
                   )}
                 </div>
-                <span className={`text-[8px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[0.5px] xs:tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-none ${
+                <span className={`text-[10px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[1.5px] xs:tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-none ${
                   match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-white/40 group-hover:text-white'
                 }`}>{match.teamA || "PAK"}</span>
               </div>
 
               {/* VS Divider */}
-              <div className="flex flex-col items-center gap-0.5 sm:gap-1 px-1 basis-[24%] relative z-10 shrink-0">
-                <div className={`h-[0.5px] w-2.5 xs:w-6 sm:w-10 transition-colors ${
+              <div className="flex flex-col items-center gap-1 sm:gap-1 px-1 basis-[24%] relative z-10 shrink-0">
+                <div className={`h-[0.5px] w-6 xs:w-6 sm:w-10 transition-colors ${
                   match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
                 }`} />
-                <div className={`text-[8px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
+                <div className={`text-[12px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
                   match.status === 'Live' ? 'text-red-500' : 'text-white/10 group-hover:text-pak-green group-hover:scale-110'
                 }`}>VS</div>
-                <div className={`h-[0.5px] w-2.5 xs:w-6 sm:w-10 transition-colors ${
+                <div className={`h-[0.5px] w-6 xs:w-6 sm:w-10 transition-colors ${
                   match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
                 }`} />
               </div>
 
-              <div className="flex flex-col items-center gap-1.5 sm:gap-3 basis-[38%] relative z-10 shrink">
-                <div className={`w-11 h-11 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-1.5 xs:p-3 sm:p-4 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[2deg] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${
+              <div className="flex flex-col items-center gap-3 sm:gap-3 basis-[38%] relative z-10 shrink">
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl border flex items-center justify-center bg-[#0A0A0A] p-2.5 xs:p-3 sm:p-4 shadow-xl shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[2deg] ${
                   match.status === 'Live' ? 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]' : 'border-white/5 group-hover:border-pak-green/30'
                 }`}>
                   <img 
@@ -194,10 +194,10 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                     className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] transition-transform duration-500"
                   />
                   {match.status === 'Live' && (
-                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-3 sm:h-3 bg-red-600 rounded-full animate-ping" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-600 rounded-full animate-ping" />
                   )}
                 </div>
-                <span className={`text-[8px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[0.5px] xs:tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-none ${
+                <span className={`text-[10px] xs:text-[11px] sm:text-[13px] font-black uppercase tracking-[1.5px] xs:tracking-[2px] sm:tracking-[3px] transition-colors text-center leading-none ${
                   match.status === 'Live' ? 'text-red-400 group-hover:text-red-300' : 'text-white/40 group-hover:text-white'
                 }`}>{match.opponent}</span>
               </div>
@@ -209,42 +209,42 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
               <Link 
                 to={`/series-intelligence/${intelId}`}
                 onClick={(e) => e.stopPropagation()}
-                className="w-full flex items-center justify-center gap-2 py-2.5 sm:py-3 mb-5 bg-pak-green/5 hover:bg-pak-green text-pak-green hover:text-white rounded-xl text-[10px] sm:text-[11px] font-black uppercase tracking-[2px] border border-pak-green/20 hover:border-pak-green transition-all duration-300 group/intel shadow-sm active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2.5 py-4 mb-6 bg-pak-green/5 hover:bg-pak-green text-pak-green hover:text-white rounded-2xl text-[11px] font-black uppercase tracking-[2.5px] border border-pak-green/20 hover:border-pak-green transition-all duration-300 group/intel shadow-sm active:scale-[0.98]"
               >
-                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current group-hover:animate-bounce" />
+                <Zap className="w-4 h-4 fill-current group-hover:animate-bounce" />
                 Intelligence Report
               </Link>
             )}
 
-            <div className={`pt-4 border-t transition-colors ${
+            <div className={`pt-6 border-t transition-colors ${
               match.status === 'Live' ? 'border-red-500/20' : 'border-card-border/30'
             }`}>
             <div 
-              className="flex flex-col xs:flex-row xs:items-center xs:justify-between gap-y-2 gap-x-4 mb-4 cursor-help group/time"
+              className="flex flex-col xs:flex-row xs:items-center xs:justify-between gap-y-3 gap-x-4 mb-5 cursor-help group/time text-center xs:text-left"
               title={`Full Schedule: ${match.date} at ${match.time} Pakistan Standard Time (PKT)`}
             >
-              <div className={`flex items-center gap-2 sm:gap-2.5 transition-colors ${
+              <div className={`flex items-center justify-center xs:justify-start gap-2.5 transition-colors ${
                 match.status === 'Live' ? 'text-red-400 group-hover/time:text-red-300' : 'text-ink/40 group-hover/time:text-pak-green'
               }`}>
-                <Calendar className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${
+                <Calendar className={`w-4 h-4 ${
                   match.status === 'Live' ? 'text-red-500' : 'text-pak-green'
                 }`} />
-                <span className="text-[10px] font-black uppercase tracking-widest leading-none">{match.date}</span>
+                <span className="text-[11px] font-black uppercase tracking-[1.5px] leading-none">{match.date}</span>
               </div>
-              <div className={`flex items-center gap-2 sm:gap-2.5 transition-colors xs:justify-end ${
+              <div className={`flex items-center justify-center xs:justify-end gap-2.5 transition-colors ${
                 match.status === 'Live' ? 'text-red-400 group-hover/time:text-red-300' : 'text-ink/40 group-hover/time:text-pak-green'
               }`}>
-                <Clock className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${
+                <Clock className={`w-4 h-4 ${
                   match.status === 'Live' ? 'text-red-500' : 'text-pak-green'
                 }`} />
-                <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap leading-none">{match.time} PKT</span>
+                <span className="text-[11px] font-black uppercase tracking-[1.5px] whitespace-nowrap leading-none">{match.time} PKT</span>
               </div>
             </div>
-            <div className={`flex items-center gap-2 sm:gap-2.5 transition-colors ${
+            <div className={`flex items-center justify-center xs:justify-start gap-2.5 transition-colors ${
               match.status === 'Live' ? 'text-red-500/60 group-hover:text-red-500' : 'text-ink/40 group-hover:text-ink/60'
             }`} title={match.venue}>
-              <MapPin className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
-              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-tight truncate leading-none">{match.venue}</span>
+              <MapPin className={`w-4 h-4 ${match.status === 'Live' ? 'text-red-500' : 'text-pak-green'}`} />
+              <span className="text-[11px] font-black uppercase tracking-tight truncate leading-none text-center">{match.venue}</span>
             </div>
           </div>
         </div>

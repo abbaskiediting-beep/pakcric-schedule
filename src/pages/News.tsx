@@ -67,42 +67,42 @@ export default function News() {
             className="group relative cursor-pointer overflow-hidden rounded-2xl md:rounded-[40px] bg-card-bg border border-card-border"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative h-40 sm:h-64 lg:h-auto border-b lg:border-b-0 lg:border-r border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent flex items-center justify-center overflow-hidden">
-                <Newspaper className="w-16 h-16 sm:w-32 sm:h-32 text-white/5 absolute -right-4 -bottom-4 sm:-right-8 sm:-bottom-8 rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+              <div className="relative h-44 sm:h-64 lg:h-auto border-b lg:border-b-0 lg:border-r border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent flex items-center justify-center overflow-hidden">
+                <Newspaper className="w-20 h-20 sm:w-32 sm:h-32 text-white/5 absolute -right-4 -bottom-4 sm:-right-8 sm:-bottom-8 rotate-12 group-hover:rotate-0 transition-transform duration-700" />
                 <div className="text-center relative z-10 px-6 md:px-8">
-                   <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-6 group-hover:bg-white transition-colors duration-500">
-                      <Newspaper className="w-5 h-5 sm:w-8 sm:h-8 text-white group-hover:text-black transition-colors duration-500" />
+                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-6 group-hover:bg-white transition-colors duration-500 shadow-lg">
+                      <Newspaper className="w-6 h-6 sm:w-8 sm:h-8 text-white group-hover:text-black transition-colors duration-500" />
                    </div>
-                   <p className="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.5em] text-neutral-500">Field Briefing</p>
+                   <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-neutral-500">Editorial Pick</p>
                 </div>
               </div>
-              <div className="p-5 sm:p-8 lg:p-14 flex flex-col justify-center">
-                <div className="flex items-center gap-2.5 md:gap-3 mb-3 md:mb-6">
-                  <span className="px-2 py-0.5 rounded-full bg-pak-green text-white text-[7px] md:text-[9px] font-bold uppercase tracking-widest leading-none outline outline-white/10">{featuredNews.tag}</span>
+              <div className="p-6 sm:p-8 lg:p-14 flex flex-col justify-center">
+                <div className="flex items-center gap-2.5 md:gap-3 mb-4 md:mb-6">
+                  <span className="px-2.5 py-1 rounded-lg bg-pak-green text-white text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-none shadow-[0_0_15px_rgba(1,65,28,0.3)]">{featuredNews.tag}</span>
                   <div className="flex items-center gap-1.5 text-ink/40">
-                    <Calendar className="w-2.5 h-2.5 md:w-3 md:h-3" />
-                    <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-widest">{featuredNews.date}</span>
+                    <Calendar className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                    <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest">{featuredNews.date}</span>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tight leading-tight md:leading-none mb-3 md:mb-6 group-hover:text-white transition-colors">
+                <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tight leading-tight md:leading-none mb-4 md:mb-6 group-hover:text-pak-green transition-colors">
                   {featuredNews.title}
                 </h2>
-                <p className="text-[11px] md:text-lg text-ink/60 font-medium leading-relaxed mb-5 md:mb-8 max-w-lg line-clamp-3 md:line-clamp-none">
-                  {featuredNews.summary}
+                <p className="text-xs md:text-lg text-ink/60 font-medium leading-relaxed mb-6 md:mb-8 max-w-lg line-clamp-3 md:line-clamp-none italic border-l-2 border-pak-green/20 pl-4">
+                  "{featuredNews.summary}"
                 </p>
-                <div className="flex items-center gap-2 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-white transition-all leading-none">
-                  Read Full Report <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <div className="flex items-center gap-2.5 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-pak-green group-hover:text-white transition-all leading-none">
+                  Read Full Briefing <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </div>
             </div>
             
             {/* Corner Accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           </motion.div>
         )}
 
         {/* Ad after featured post */}
-        <AdPlaceholder type="banner" className="my-12" />
+        <AdPlaceholder type="banner" className="my-10" />
 
         {/* Other News Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -119,34 +119,34 @@ export default function News() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + idx * 0.1 }}
                 onClick={() => navigate(`/news/${item.id}`)}
-                className="group relative flex flex-col bg-card-bg border border-card-border rounded-xl md:rounded-[32px] overflow-hidden hover:border-white/30 transition-all cursor-pointer"
+                className="group relative flex flex-col bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] overflow-hidden hover:border-pak-green/30 transition-all cursor-pointer shadow-lg active:scale-[0.98]"
               >
-                <div className="h-28 sm:h-40 relative flex items-center justify-center bg-gradient-to-br from-white/[0.01] to-transparent border-b border-white/5">
-                  <Newspaper className="w-10 h-10 md:w-16 md:h-16 text-white/[0.03] group-hover:text-pak-green/10 transition-colors duration-500" />
-                  <div className="absolute top-4 md:top-6 left-4 md:left-6">
-                     <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                        <Newspaper className="w-3 h-3 md:w-4 md:h-4 text-white/40" />
+                <div className="h-32 sm:h-40 relative flex items-center justify-center bg-gradient-to-br from-white/[0.01] to-transparent border-b border-white/5">
+                  <Newspaper className="w-12 h-12 md:w-16 md:h-16 text-white/[0.03] group-hover:text-pak-green/10 transition-colors duration-500" />
+                  <div className="absolute top-5 md:top-6 left-5 md:left-6">
+                     <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                        <Newspaper className="w-3.5 h-3.5 md:w-4 md:h-4 text-white/40 group-hover:text-pak-green transition-colors" />
                      </div>
                   </div>
                 </div>
-                <div className="p-5 md:p-8 relative z-10">
-                  <div className="flex items-center gap-3 mb-2.5 md:mb-4">
-                    <span className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-neutral-500 border border-white/10 px-1.5 py-0.5 rounded leading-none">{item.tag}</span>
-                    <span className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-neutral-700 leading-none">{item.date}</span>
+                <div className="p-6 md:p-8 relative z-10">
+                  <div className="flex items-center gap-3 mb-3 md:mb-4">
+                    <span className="text-[7.5px] md:text-[8px] font-black uppercase tracking-widest text-pak-green border border-pak-green/20 bg-pak-green/5 px-2 py-1 rounded leading-none">{item.tag}</span>
+                    <span className="text-[7.5px] md:text-[8px] font-black uppercase tracking-widest text-ink/30 leading-none">{item.date}</span>
                   </div>
-                  <h3 className="text-base md:text-xl font-display font-bold uppercase tracking-tight group-hover:text-white transition-colors mb-2 md:mb-4 leading-tight min-h-[40px] md:min-h-[50px] line-clamp-2 md:line-clamp-none">
+                  <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight group-hover:text-pak-green transition-colors mb-3 md:mb-4 leading-tight min-h-[40px] md:min-h-[50px] line-clamp-2 md:line-clamp-none">
                     {item.title}
                   </h3>
-                  <p className="text-ink/60 text-[10px] md:text-xs font-medium line-clamp-2 leading-relaxed mb-5 md:mb-6 italic">
+                  <p className="text-ink/60 text-[10px] md:text-xs font-medium line-clamp-2 leading-relaxed mb-6 md:mb-6 italic border-l border-white/10 pl-3">
                     "{item.summary}"
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 group-hover:gap-4 transition-all">
-                      <div className="h-px w-3 md:w-4 bg-white/20 group-hover:w-8 group-hover:bg-white transition-all" />
-                      <span className="text-[7px] md:text-[8px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-all cursor-pointer leading-none">Explore</span>
+                      <div className="h-[2px] w-4 md:w-4 bg-white/10 group-hover:w-8 group-hover:bg-pak-green transition-all" />
+                      <span className="text-[8px] font-black uppercase tracking-[0.3em] md:tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-all cursor-pointer leading-none">View Report</span>
                     </div>
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-white/20 group-hover:bg-white/5 transition-all">
-                      <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-pak-green/50 group-hover:bg-pak-green/5 group-hover:text-pak-green transition-all">
+                      <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </div>
                   </div>
                 </div>

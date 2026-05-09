@@ -233,30 +233,30 @@ export default function Squads() {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
       `}} />
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 md:mb-16">
-        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
-          Pakistan Cricket Team <span className="text-pak-green underline decoration-pak-green/20 underline-offset-8">Squad 2026</span>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8 md:mb-16">
+        <h1 className="text-2xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
+          Pakistan Cricket <span className="text-pak-green">Squad 2026</span>
         </h1>
         
-        <div className="max-w-3xl space-y-4 md:space-y-6 mb-8 md:mb-12">
-          <p className="text-lg sm:text-xl text-ink/80 font-medium leading-relaxed">
-            Finding the <Link to="/squads" className="text-pak-green hover:underline">latest Pakistan Cricket Team Squad 2026</Link> can be challenging, especially when selections change from one series to another. That’s why this page brings everything together in one place.
+        <div className="max-w-3xl space-y-3 md:space-y-6 mb-8 md:mb-12">
+          <p className="text-base sm:text-xl text-ink/80 font-medium leading-relaxed">
+            Finding the <Link to="/squads" className="text-pak-green hover:underline">latest Pakistan Cricket Team Squad 2026</Link> is easier than ever. This page brings everything together in one place.
           </p>
-          <p className="text-sm sm:text-base text-ink/60 font-medium leading-relaxed">
-            Here, you’ll find the latest <Link to="/squads" className="text-pak-green hover:underline">Pakistan Squad 2026</Link> player details, roles, and <Link to="/news" className="text-pak-green hover:underline">squad updates</Link> for <Link to="/schedule" className="text-pak-green hover:underline">upcoming matches and series</Link>. Whether you're looking for the <Link to="/squads" className="text-pak-green hover:underline">confirmed lineup</Link> or just want to see who’s been selected, this page makes it simple.
+          <p className="text-xs sm:text-base text-ink/60 font-medium leading-relaxed hidden sm:block">
+            Here, you’ll find the latest <Link to="/squads" className="text-pak-green hover:underline">Pakistan Squad 2026</Link> player details, roles, and <Link to="/news" className="text-pak-green hover:underline">squad updates</Link> for <Link to="/schedule" className="text-pak-green hover:underline">upcoming matches</Link>.
           </p>
         </div>
 
         {/* Top Banner on Squads */}
         <AdPlaceholder type="leaderboard" className="mb-8 md:mb-12" />
 
-      <div className="space-y-6 md:space-y-8 bg-white/[0.02] border border-card-border rounded-3xl md:rounded-[40px] p-5 md:p-12 shadow-2xl">
+      <div className="space-y-4 md:space-y-8 bg-white/[0.02] border border-card-border rounded-2xl md:rounded-[40px] p-4 md:p-12 shadow-2xl">
         <div className="flex items-center gap-3 md:gap-4 mb-1 md:mb-4">
            <div className="h-1 md:h-2 w-6 md:w-12 bg-pak-green rounded-full" />
-           <h2 className="text-lg md:text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
+           <h2 className="text-sm md:text-2xl font-display font-bold uppercase tracking-tight">Interactive Squad Explorer</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
           {/* Search Bar */}
           <div className="relative group">
             <input
@@ -264,14 +264,14 @@ export default function Squads() {
               placeholder="SEARCH PLAYER..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white/5 border border-card-border rounded-xl md:rounded-3xl py-3.5 md:py-5 pl-11 md:pl-14 pr-4 md:pr-6 text-[10px] md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
+              className="w-full bg-white/5 border border-card-border rounded-xl md:rounded-3xl py-3 md:py-5 pl-10 md:pl-14 pr-4 md:pr-6 text-[9px] md:text-sm font-black uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
             />
-            <Search className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-6 md:h-6 text-pak-green" />
+            <Search className="absolute left-3.5 md:left-5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 md:w-6 md:h-6 text-pak-green" />
             <button 
               onClick={() => setShowFilters(!showFilters)}
-              className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-lg transition-all ${showFilters ? 'bg-pak-green text-white' : 'bg-white/10 text-white/40 hover:text-white'}`}
+              className={`absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-lg transition-all ${showFilters ? 'bg-pak-green text-white' : 'bg-white/10 text-white/40 hover:text-white'}`}
             >
-              <TrendingUp className="w-4 h-4" />
+              <TrendingUp className="w-3.5 h-3.5" />
             </button>
           </div>
 
@@ -281,9 +281,9 @@ export default function Squads() {
                <button
                  key={f}
                  onClick={() => setFilterFormat(f)}
-                 className={`min-w-[70px] md:min-w-[80px] flex-1 py-2.5 md:py-4 rounded-lg md:rounded-2xl text-[8px] md:text-[10px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] transition-all flex items-center justify-center ${
+                 className={`min-w-[60px] md:min-w-[80px] flex-1 py-2 md:py-4 rounded-lg md:rounded-2xl text-[8px] md:text-[10px] font-black uppercase tracking-[0.1em] md:tracking-[0.15em] transition-all flex items-center justify-center ${
                    filterFormat === f 
-                   ? 'bg-pak-green text-white shadow-xl scale-105' 
+                   ? 'bg-pak-green text-white shadow-xl scale-[1.03]' 
                    : 'text-neutral-500 hover:text-white hover:bg-white/5'
                  }`}
                >
@@ -420,30 +420,30 @@ export default function Squads() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card-bg border border-card-border rounded-[24px] md:rounded-[32px] p-6 md:p-8 hover:border-pak-green/40 transition-all group"
+              className="bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] p-5 md:p-8 hover:border-pak-green/40 transition-all group"
             >
-              <div className="text-2xl md:text-3xl mb-3 md:mb-4 group-hover:scale-110 transition-transform block">{cat.icon}</div>
+              <div className="text-xl md:text-3xl mb-3 md:mb-4 group-hover:scale-110 transition-transform block">{cat.icon}</div>
               <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1">{cat.role}</h3>
-              <p className="text-[9px] md:text-[10px] font-bold text-pak-green uppercase tracking-widest mb-5 md:mb-6">{cat.desc}</p>
+              <p className="text-[8px] md:text-[10px] font-black text-pak-green uppercase tracking-widest mb-4 md:mb-6">{cat.desc}</p>
               
               <div className="space-y-1.5 md:space-y-2">
                 {cat.players.map(p => (
                   <button 
                     key={p} 
                     onClick={() => handlePlayerClick(p)}
-                    className="flex flex-col w-full text-left p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/40 hover:bg-white/[0.08] transition-all group/item"
+                    className="flex flex-col w-full text-left p-3 md:p-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/40 hover:bg-white/[0.08] transition-all group/item active:scale-[0.98]"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-[10px] md:text-[11px] font-black uppercase tracking-widest text-ink group-hover/item:text-white transition-colors">
+                      <span className="text-[10px] md:text-[11px] font-black uppercase tracking-tight text-ink group-hover/item:text-white transition-colors">
                         {p}
                       </span>
                       <ChevronRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-pak-green" />
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest">
+                      <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest whitespace-nowrap overflow-hidden text-ellipsis mr-2">
                         {PLAYER_STATS[p]?.role || 'Team Member'}
                       </span>
-                      <div className="flex gap-0.5">
+                      <div className="flex gap-0.5 shrink-0">
                         {PLAYER_STATS[p]?.stats?.recentForm?.slice(0, 3).map((score, idx) => (
                           <div key={idx} className={`w-1 h-1 rounded-full ${getFormColor(score, PLAYER_STATS[p]?.role || 'Batter')}`} />
                         ))}

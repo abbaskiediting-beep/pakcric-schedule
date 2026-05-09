@@ -76,20 +76,20 @@ export default function SeriesDetail() {
           <SeriesSummaryComponent summary={summary} />
         </motion.div>
 
-        {/* Related News / Analysis section for this series */}
+      {/* Related News / Analysis section for this series */}
         {relevantBlogs.length > 0 && (
-          <section className="mt-16 sm:mt-24">
-            <div className="flex items-center justify-between mb-8 sm:mb-12">
+          <section className="mt-12 sm:mt-24">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-12 gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-pak-green/10 flex items-center justify-center text-pak-green shadow-lg border border-pak-green/20">
                   <Newspaper className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                   <h3 className="text-xl sm:text-2xl font-display font-black text-white uppercase italic tracking-tighter leading-none mb-2">Series Intelligence & News</h3>
-                   <p className="text-[9px] sm:text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-none">In-depth previews, interviews & tactical reports</p>
+                   <h3 className="text-lg sm:text-2xl font-display font-black text-white uppercase italic tracking-tighter leading-tight mb-1 sm:mb-2">Intel & Insights</h3>
+                   <p className="text-[9px] sm:text-[10px] font-bold text-ink/40 uppercase tracking-widest leading-none">Previews & tactical reports</p>
                 </div>
               </div>
-              <Link to="/news" className="text-[9px] sm:text-[10px] font-bold text-pak-green hover:underline uppercase tracking-widest flex items-center gap-2">
+              <Link to="/news" className="text-[9px] sm:text-[10px] font-black text-pak-green hover:underline uppercase tracking-widest flex items-center gap-2 self-end sm:self-auto">
                 Explore All <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
@@ -105,7 +105,7 @@ export default function SeriesDetail() {
                 >
                   <Link 
                     to={blog.path}
-                    className="flex flex-col sm:flex-row gap-4 p-5 sm:p-6 bg-white/[0.03] border border-white/10 rounded-[32px] hover:bg-white/[0.06] hover:border-pak-green/30 transition-all group h-full"
+                    className="flex flex-col sm:flex-row gap-4 p-5 sm:p-6 bg-white/[0.03] border border-white/10 rounded-2xl md:rounded-[32px] hover:bg-white/[0.06] hover:border-pak-green/30 transition-all group h-full active:scale-[0.98]"
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-3">
@@ -135,40 +135,40 @@ export default function SeriesDetail() {
         )}
 
         {/* Disclaimer */}
-        <div className="mt-12 p-8 bg-white/5 border border-white/10 rounded-[32px] flex gap-6 items-start opacity-60">
+        <div className="mt-12 p-6 md:p-8 bg-white/5 border border-white/10 rounded-2xl md:rounded-[32px] flex flex-col sm:flex-row gap-4 sm:gap-6 items-start opacity-60">
            <Info className="w-6 h-6 text-white/40 shrink-0 mt-1" />
-           <div className="text-sm leading-relaxed text-white/60 font-medium italic">
-             <strong>Note on Intelligence Reports:</strong> Predicted Playing XIs are based on current team form, fitness updates, and local pitch conditions. Final lineups will be confirmed 30 minutes before the toss. Head-to-head records include all official fixtures as of April 2026.
+           <div className="text-xs md:text-sm leading-relaxed text-white/60 font-medium italic">
+             <strong>Note on Intelligence Reports:</strong> Predicted Playing XIs are based on current team form, fitness updates, and local pitch conditions. Final lineups will be confirmed 30 minutes before the toss.
            </div>
         </div>
 
         {/* Series Navigation */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {prevSummary ? (
             <Link 
               to={`/series-intelligence/${prevSummary.id}`}
-              className="flex flex-col gap-2 p-6 bg-white/5 border border-white/10 rounded-[32px] hover:bg-white/[0.08] hover:border-pak-green/30 transition-all group"
+              className="flex flex-col gap-2 p-4 md:p-6 bg-white/5 border border-white/10 rounded-2xl md:rounded-[32px] hover:bg-white/[0.08] hover:border-pak-green/30 transition-all group active:scale-[0.98]"
             >
-              <div className="flex items-center gap-2 text-[10px] font-black text-pak-green uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-[9px] md:text-[10px] font-black text-pak-green uppercase tracking-widest">
                 <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
                 Previous Report
               </div>
-              <div className="text-lg font-display font-black uppercase italic truncate">{prevSummary.seriesName}</div>
+              <div className="text-base md:text-lg font-display font-black uppercase italic truncate">{prevSummary.seriesName}</div>
             </Link>
           ) : <div />}
 
-          {nextSummary && (
+          {nextSummary ? (
             <Link 
               to={`/series-intelligence/${nextSummary.id}`}
-              className="flex flex-col items-end gap-2 p-6 bg-white/5 border border-white/10 rounded-[32px] hover:bg-white/[0.08] hover:border-pak-green/30 transition-all group text-right"
+              className="flex flex-col items-end gap-2 p-4 md:p-6 bg-white/5 border border-white/10 rounded-2xl md:rounded-[32px] hover:bg-white/[0.08] hover:border-pak-green/30 transition-all group text-right active:scale-[0.98]"
             >
-              <div className="flex items-center gap-2 text-[10px] font-black text-pak-green uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-[9px] md:text-[10px] font-black text-pak-green uppercase tracking-widest">
                 Next Report
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
               </div>
-              <div className="text-lg font-display font-black uppercase italic truncate">{nextSummary.seriesName}</div>
+              <div className="text-base md:text-lg font-display font-black uppercase italic truncate">{nextSummary.seriesName}</div>
             </Link>
-          )}
+          ) : <div />}
         </div>
       </main>
     </div>

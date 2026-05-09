@@ -45,43 +45,43 @@ export default function Rankings() {
         <meta property="twitter:image" content="/favicon.svg" />
       </Helmet>
       
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10 md:mb-16">
-        <span className="inline-block px-3 md:px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[3px] md:tracking-[4px] mb-4 md:mb-6 shadow-sm">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8 md:mb-16">
+        <span className="inline-block px-3 md:px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[8.5px] md:text-[10px] font-black uppercase tracking-[3px] md:tracking-[4px] mb-4 md:mb-6 shadow-sm">
           World Standings 2026
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-6 md:mb-8 text-white leading-tight">
-          Pakistan ICC Rankings – <span className="text-pak-green">T20, ODI & Test</span>
+        <h1 className="text-2xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
+          Pakistan ICC Rankings – <span className="text-pak-green">World Status</span>
         </h1>
-        <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
-          <p className="text-lg md:text-xl text-ink/80 font-medium leading-relaxed">
-            Cricket rankings give a clear picture of how teams are performing on the international stage. For Pakistan fans, keeping track of the <Link to="/rankings" className="text-pak-green hover:underline">Pakistan ICC Rankings</Link> across formats is just as important as following <Link to="/schedule" className="text-pak-green hover:underline">match results</Link>.
+        <div className="max-w-3xl mx-auto space-y-3 md:space-y-6">
+          <p className="text-base md:text-xl text-ink/80 font-medium leading-relaxed">
+            Cricket rankings give a clear picture of how teams are performing on the international stage. For Pakistan fans, keeping track of the <Link to="/rankings" className="text-pak-green hover:underline">Pakistan ICC Rankings</Link> is essential.
           </p>
-          <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed">
-            On this page, you’ll find the latest <Link to="/rankings" className="text-pak-green hover:underline">world rankings</Link> for 2026, including detailed insights into <strong>T20, ODI & Test</strong> standings. Everything is presented in a simple format so you can quickly understand where Pakistan stands globally compared to other teams.
+          <p className="text-xs md:text-base text-ink/60 font-medium leading-relaxed hidden sm:block">
+            On this page, you’ll find the latest <Link to="/rankings" className="text-pak-green hover:underline">world rankings</Link> for 2026, including detailed insights into <strong>T20, ODI & Test</strong> standings.
           </p>
         </div>
       </motion.div>
 
       {/* Overview Section */}
-      <section className="mb-16 md:mb-24">
-        <div className="bg-white/[0.02] border border-white/5 rounded-3xl md:rounded-[40px] p-6 md:p-12 mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-4 md:mb-6">
-            <Link to="/rankings" className="hover:text-pak-green">Pakistan Team <span className="text-pak-green">Rankings Overview</span></Link>
+      <section className="mb-10 md:mb-24">
+        <div className="bg-white/[0.02] border border-white/5 rounded-2xl md:rounded-[40px] p-5 md:p-12 mb-10 md:mb-16">
+          <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tight text-white mb-4 md:mb-6">
+            <Link to="/rankings" className="hover:text-pak-green">Team <span className="text-pak-green">Rankings Overview</span></Link>
           </h2>
-          <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed max-w-4xl mb-8 md:mb-10">
-            Pakistan competes in all three formats of international cricket, and <Link to="/rankings" className="text-pak-green hover:underline">rankings</Link> vary depending on performance in each format. This gives a quick snapshot of how the team is doing overall across the <Link to="/schedule" className="text-pak-green hover:underline">cricket season</Link>.
+          <p className="text-xs md:text-base text-ink/60 font-medium leading-relaxed max-w-4xl mb-6 md:mb-10">
+            Pakistan competes in all three formats, and <Link to="/rankings" className="text-pak-green hover:underline">rankings</Link> vary depending on performance in each format.
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
             {[
               { format: 'T20', rank: '#6', trend: 'Steady', color: 'text-purple-400' },
               { format: 'ODI', rank: '#4', trend: 'Rising', color: 'text-blue-400' },
               { format: 'Test', rank: '#7', trend: 'Consistent', color: 'text-orange-400' }
             ].map((item) => (
-              <div key={item.format} className="p-5 md:p-6 bg-black/40 border border-white/5 rounded-2xl md:rounded-3xl text-center">
-                <span className="text-[9px] md:text-[10px] font-bold text-ink/40 uppercase tracking-[2px] md:tracking-[3px] mb-2 block">{item.format} Ranking</span>
-                <span className={`text-3xl md:text-4xl font-display font-bold mb-2 block ${item.color}`}>{item.rank}</span>
-                <span className="text-[8px] md:text-[9px] font-bold text-pak-green uppercase tracking-[1px] md:tracking-[2px]">{item.trend} Performance</span>
+              <div key={item.format} className="p-4 md:p-6 bg-black/40 border border-white/5 rounded-xl md:rounded-3xl text-center">
+                <span className="text-[8px] md:text-[10px] font-black text-ink/40 uppercase tracking-[2px] md:tracking-[3px] mb-1 md:mb-2 block">{item.format} Ranking</span>
+                <span className={`text-2xl md:text-4xl font-display font-bold mb-1 md:mb-2 block ${item.color}`}>{item.rank}</span>
+                <span className="text-[7.5px] md:text-[9px] font-black text-pak-green uppercase tracking-[1px] md:tracking-[2px]">{item.trend} Result</span>
               </div>
             ))}
           </div>
@@ -104,48 +104,48 @@ export default function Rankings() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-16">
           {rankingCards.map((card, idx) => (
             <Link to={`/icc-${card.type.toLowerCase()}-ranking-2026`} key={card.type} className="block h-full">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className={`bg-gradient-to-br ${card.color} border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-8 relative overflow-hidden shadow-2xl group cursor-pointer hover:border-pak-green/40 transition-all h-full flex flex-col`}
+                className={`bg-gradient-to-br ${card.color} border border-card-border rounded-2xl md:rounded-[40px] p-5 md:p-8 relative overflow-hidden shadow-2xl group cursor-pointer hover:border-pak-green/40 transition-all h-full flex flex-col active:scale-[0.98]`}
               >
                 <div className="relative z-10 flex-1">
                   <div className="flex justify-between items-center mb-4 md:mb-6 border-b border-white/10 pb-3 md:pb-4">
-                    <h2 className="text-xl md:text-2xl font-display font-bold text-white uppercase">Pakistan {card.type} Ranking</h2>
+                    <h2 className="text-lg md:text-2xl font-display font-bold text-white uppercase">{card.type} Rankings</h2>
                     <Trophy className="w-5 h-5 text-pak-green" />
                   </div>
-                  <p className="text-[10px] md:text-[11px] text-white/50 font-medium mb-4 md:mb-6 leading-relaxed">
-                    {card.type === 'T20' ? 'T20 cricket is fast-paced and highly competitive, where even small performances can impact rankings. Position compared to other top teams varies with every series.' : 
-                     card.type === 'ODI' ? 'ODI cricket requires a balance between batting and bowling. This format often reflects consistency over time and series performance.' : 
-                     'Test cricket is considered the most challenging format. Rankings are based on long-term performance and home and away consistency.'}
+                  <p className="text-[10px] md:text-[11px] text-white/50 font-medium mb-4 md:mb-6 leading-relaxed hidden sm:block">
+                    {card.type === 'T20' ? 'T20 cricket is fast-paced and highly competitive, where even small performances can impact rankings.' : 
+                     card.type === 'ODI' ? 'ODI cricket requires a balance between batting and bowling. This format often reflects consistency.' : 
+                     'Test cricket is considered the most challenging format. Rankings are based on long-term performance.'}
                   </p>
                   <div className="space-y-2 md:space-y-3">
                     {card.teams.slice(0, 5).map((team, rankIdx) => (
                       <div 
                         key={team} 
-                        className={`flex items-center justify-between p-2 sm:p-3 rounded-lg sm:rounded-2xl border transition-all ${
+                        className={`flex items-center justify-between p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border transition-all ${
                           team === 'Pakistan' 
                             ? 'bg-pak-green/40 border-white shadow-lg' 
                             : 'bg-black/20 border-white/5 group-hover:bg-black/40'
                         }`}
                       >
-                        <div className="flex items-center gap-2 sm:gap-4">
-                          <span className={`text-[9px] sm:text-xs font-bold w-4 md:w-5 ${team === 'Pakistan' ? 'text-white' : 'text-neutral-500'}`}>
+                        <div className="flex items-center gap-3 md:gap-4">
+                          <span className={`text-xs font-black w-4 md:w-5 ${team === 'Pakistan' ? 'text-white' : 'text-neutral-500'}`}>
                             {rankIdx + 1}
                           </span>
-                          <span className={`text-[9px] sm:text-[11px] font-bold uppercase tracking-tight ${team === 'Pakistan' ? 'text-white' : 'text-white/80'}`}>
+                          <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-tight ${team === 'Pakistan' ? 'text-white' : 'text-white/80'}`}>
                             {team}
                           </span>
                         </div>
-                        {team === 'Pakistan' && <Star className="w-2 sm:w-3 h-2 sm:h-3 text-white fill-white" />}
+                        {team === 'Pakistan' && <Star className="w-3 h-3 text-white fill-white" />}
                       </div>
                     ))}
-                    <div className="text-[9px] md:text-[10px] font-bold text-center pt-3 md:pt-4 text-pak-green uppercase tracking-[3px] md:tracking-[4px] group-hover:tracking-[6px] transition-all">
-                      View Full Ranking <ChevronRight className="inline w-3 h-3" />
+                    <div className="text-[9px] md:text-[10px] font-black text-center pt-4 md:pt-4 text-pak-green uppercase tracking-[3px] md:tracking-[4px] group-hover:tracking-[6px] transition-all">
+                      Full Standings <ChevronRight className="inline w-3 h-3" />
                     </div>
                   </div>
                 </div>

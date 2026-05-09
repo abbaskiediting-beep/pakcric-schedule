@@ -17,30 +17,30 @@ function BlogCard({ post, idx }: { post: BlogPost; idx: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: (idx % 2) * 0.1 }}
       viewport={{ once: true }}
-      className="group bg-card-bg border border-card-border rounded-3xl md:rounded-[48px] overflow-hidden hover:border-pak-green/30 transition-all flex flex-col h-full shadow-2xl relative"
+      className="group bg-card-bg border border-card-border rounded-2xl md:rounded-[48px] overflow-hidden hover:border-pak-green/30 transition-all flex flex-col h-full shadow-xl relative"
     >
-      <div className="p-6 sm:p-10 flex flex-col h-full relative z-10">
-        <div className="flex items-center justify-between mb-5 md:mb-10">
+      <div className="p-5 sm:p-7 md:p-10 flex flex-col h-full relative z-10">
+        <div className="flex items-center justify-between mb-4 md:mb-10">
           <div className="flex items-center gap-3 md:gap-4">
-            <div className={`p-2.5 md:p-4 rounded-xl md:rounded-3xl bg-black/40 border border-white/5 ${post.color}`}>
-              <post.icon className="w-4 h-4 md:w-6 md:h-6" />
+            <div className={`p-2 md:p-4 rounded-xl md:rounded-3xl bg-black/40 border border-white/5 ${post.color}`}>
+              <post.icon className="w-3.5 h-3.5 md:w-6 md:h-6" />
             </div>
             <div>
-              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40 block mb-0.5 md:mb-1">{post.date}</span>
-              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[4px] text-pak-green block">{post.category}</span>
+              <span className="text-[7px] md:text-[10px] font-bold uppercase tracking-widest text-ink/40 block mb-0.5 md:mb-1">{post.date}</span>
+              <span className="text-[7.5px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[4px] text-pak-green block">{post.category}</span>
             </div>
           </div>
-          <div className="w-9 h-9 md:w-12 md:h-12 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover:bg-pak-green group-hover:text-white group-hover:border-pak-green transition-all duration-500">
-            <ArrowUpRight className="w-4 h-4 md:w-6 md:h-6" />
+          <div className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover:bg-pak-green group-hover:text-white group-hover:border-pak-green transition-all duration-500">
+            <ArrowUpRight className="w-3.5 h-3.5 md:w-6 md:h-6" />
           </div>
         </div>
         
-        <h2 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-6 group-hover:text-pak-green transition-colors text-white leading-tight">
+        <h2 className="text-lg md:text-3xl font-display font-bold uppercase tracking-tighter mb-3 md:mb-6 group-hover:text-pak-green transition-colors text-white leading-tight">
           {post.title}
         </h2>
 
-        <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-          <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-pak-green/20 border border-pak-green/20 overflow-hidden">
+        <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-6">
+          <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-pak-green/20 border border-pak-green/20 overflow-hidden">
             <img 
               src={AUTHORS.find(a => a.id === post.authorId)?.avatarUrl} 
               alt="" 
@@ -51,22 +51,22 @@ function BlogCard({ post, idx }: { post: BlogPost; idx: number }) {
           <div className="flex flex-col">
             <Link 
               to={`/author/${post.authorId}`} 
-              className="text-[8px] md:text-[10px] font-bold text-white/40 hover:text-pak-green transition-colors uppercase tracking-widest"
+              className="text-[7px] md:text-[10px] font-bold text-white/40 hover:text-pak-green transition-colors uppercase tracking-widest"
             >
               By {AUTHORS.find(a => a.id === post.authorId)?.name}
             </Link>
           </div>
         </div>
         
-        <p className="text-ink/60 text-xs md:text-base font-medium leading-relaxed mb-6 md:mb-12 line-clamp-3 italic flex-grow border-l-2 border-pak-green/20 pl-4 md:pl-6">
+        <p className="text-ink/60 text-[10px] md:text-base font-medium leading-relaxed mb-4 md:mb-12 line-clamp-3 italic flex-grow border-l-2 border-pak-green/20 pl-3 md:pl-6">
           "{post.summary}"
         </p>
         
         <Link 
           to={post.path}
-          className="inline-flex items-center gap-3 md:gap-4 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em] md:tracking-[0.5em] text-pak-green hover:tracking-[0.4em] md:hover:tracking-[0.7em] transition-all"
+          className="inline-flex items-center gap-2 md:gap-4 text-[7.5px] md:text-[10px] font-bold uppercase tracking-[0.25em] md:tracking-[0.5em] text-pak-green hover:tracking-[0.4em] md:hover:tracking-[0.7em] transition-all"
         >
-          Read More <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Read More <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
         </Link>
       </div>
       {/* Subtle Background Glow */}
@@ -328,28 +328,28 @@ export default function Blogs() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
-        className="mb-10 md:mb-20 text-center"
+        className="mb-8 md:mb-20 text-center"
       >
-        <span className="inline-block px-3 md:px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[3px] md:tracking-[4px] mb-4 md:mb-8">
+        <span className="inline-block px-3 md:px-4 py-1 bg-pak-green/10 text-pak-green border border-pak-green/20 rounded-full text-[8.5px] md:text-[10px] font-black uppercase tracking-[3px] md:tracking-[4px] mb-4 md:mb-8">
           The News & Analysis Hub
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-4 md:mb-8 text-white leading-tight">
-          Pakistan Cricket <span className="text-pak-green">News & Analysis</span>
+        <h1 className="text-2xl sm:text-4xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 md:mb-8 text-white leading-[1.1] md:leading-tight">
+          Pakistan Cricket <span className="text-pak-green italic">News Hub</span>
         </h1>
-        <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
-          <p className="text-lg md:text-xl text-ink/80 font-medium leading-relaxed italic">
+        <div className="max-w-3xl mx-auto space-y-3 md:space-y-6">
+          <p className="text-base md:text-xl text-ink/80 font-medium leading-relaxed italic">
             <LinkText text="If you enjoy going beyond just match schedules and scores, this is where things get interesting." />
           </p>
-          <p className="text-sm md:text-base text-ink/60 font-medium leading-relaxed">
-            <LinkText text="The news and analysis section on PakCric Schedule is designed for fans who want deeper insights into Pakistan cricket — from match analysis to player performances and upcoming predictions. Everything here is written in a simple, clear, and engaging way." />
+          <p className="text-xs md:text-base text-ink/60 font-medium leading-relaxed px-4 md:px-0">
+            <LinkText text="Deep dives into Pakistan cricket — from match analysis to player performances and upcoming tactical overviews." />
           </p>
         </div>
       </motion.div>
 
       {/* Dropdown Explorer Bar */}
-      <div className="mb-12 md:mb-20 flex flex-wrap items-center justify-center gap-4 md:gap-8 bg-white/[0.02] border border-white/5 rounded-[40px] p-5 md:p-8 backdrop-blur-xl shadow-2xl shadow-black/20">
+      <div className="mb-8 md:mb-20 flex flex-wrap items-center justify-center gap-2 md:gap-8 bg-white/[0.02] border border-white/5 rounded-2xl md:rounded-[40px] p-2 md:p-8 backdrop-blur-xl shadow-2xl shadow-black/20">
         <SimpleDropdown 
-          label="News Archive" 
+          label="Archive" 
           icon={Calendar}
           activeValue={selectedMonth}
           onSelect={(val) => setSelectedMonth(val)}
@@ -360,19 +360,21 @@ export default function Blogs() {
           ]} 
         />
         
-        <HoverDropdown 
-          label="Featured Series" 
-          items={[
-            { name: 'PAK vs BAN 2026', path: '/news?series=pak-vs-ban', icon: Target, desc: 'Complete Tour Coverage' },
-            { name: 'WTC Analysis (PAK vs BAN)', path: '/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027', icon: BarChart3, desc: 'Qualification Scenarios' },
-            { name: 'PSL 11 Finals', path: '/news?series=psl-11', icon: Trophy, desc: 'Season Review' },
-            { name: 'PAK vs AUS 2026', path: '/news?series=pak-vs-aus', icon: Shield, desc: 'Upcoming 3 ODIs' }
-          ]} 
-        />
+        <div className="hidden sm:block">
+          <HoverDropdown 
+            label="Featured" 
+            items={[
+              { name: 'PAK vs BAN 2026', path: '/news?series=pak-vs-ban', icon: Target, desc: 'Complete Tour Coverage' },
+              { name: 'WTC Analysis', path: '/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027', icon: BarChart3, desc: 'Qualification Scenarios' },
+              { name: 'PSL 11 Finals', path: '/news?series=psl-11', icon: Trophy, desc: 'Season Review' },
+              { name: 'PAK vs AUS 2026', path: '/news?series=pak-vs-aus', icon: Shield, desc: 'Upcoming 3 ODIs' }
+            ]} 
+          />
+        </div>
 
         <MegaMenu />
 
-        <div className="h-10 w-px bg-white/10 hidden md:block mx-4" />
+        <div className="h-8 w-px bg-white/10 hidden md:block mx-2" />
 
         <ClickDropdown currentSort={sortBy} onSortChange={setSortBy} />
       </div>
@@ -412,18 +414,18 @@ export default function Blogs() {
       <AdPlaceholder type="leaderboard" className="mb-12 md:mb-20" />
 
       {/* Unified News Feed Section */}
-      <section className="mb-16 md:mb-32">
+      <section className="mb-12 md:mb-32 px-1 text-left">
         <div>
-          <div className="flex items-center justify-between mb-12 border-l-4 border-pak-green pl-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 md:mb-12 border-l-4 border-pak-green pl-4 md:pl-6 gap-4">
             <div>
-              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-2">
-                {seriesFilter !== 'all' ? 'Series' : selectedMonth !== 'all' ? 'Archive' : 'Insights'}: <span className="text-pak-green">
+              <h2 className="text-lg md:text-4xl font-display font-black uppercase tracking-tight text-white mb-1 md:mb-2 leading-tight">
+                {seriesFilter !== 'all' ? 'Series' : selectedMonth !== 'all' ? 'Archive' : 'Insights'}: <span className="text-pak-green italic">
                   {seriesFilter !== 'all' ? seriesFilter.replace(/-/g, ' ').toUpperCase() : 
                    selectedMonth !== 'all' ? `${selectedMonth} 2026` : 
-                   sortBy === 'popular' ? 'Most Popular' : 'News Hub'}
+                   sortBy === 'popular' ? 'Popular' : 'The Feed'}
                 </span>
               </h2>
-              <p className="text-xs md:text-sm text-ink/40 font-medium uppercase tracking-widest">Showing {filteredPosts.length} stories found</p>
+              <p className="text-[9px] md:text-sm text-ink/40 font-bold uppercase tracking-widest">Found {filteredPosts.length} matches</p>
             </div>
             {(selectedMonth !== 'all' || seriesFilter !== 'all' || sortBy !== 'latest') && (
               <button 
@@ -433,9 +435,9 @@ export default function Blogs() {
                   searchParams.delete('series');
                   setSearchParams(searchParams);
                 }}
-                className="text-[10px] font-bold text-pak-green uppercase tracking-widest hover:underline"
+                className="text-[9px] md:text-[10px] font-black text-pak-green uppercase tracking-widest hover:underline self-start sm:self-auto"
               >
-                Reset All Filters
+                Reset Filters
               </button>
             )}
           </div>
@@ -455,22 +457,22 @@ export default function Blogs() {
       </section>
 
       {/* Our Experts Section */}
-      <section className="mb-16 md:mb-32">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 md:mb-16">
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-pak-green flex items-center justify-center text-white shadow-lg shadow-pak-green/20 shrink-0">
-            <Users className="w-6 h-6 md:w-8 md:h-8" />
+      <section className="mb-12 md:mb-32">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 mb-8 md:mb-16">
+          <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-3xl bg-pak-green flex items-center justify-center text-white shadow-lg shadow-pak-green/20 shrink-0">
+            <Users className="w-5 h-5 md:w-8 md:h-8" />
           </div>
           <div>
-            <h2 className="text-xl md:text-4xl font-display font-bold uppercase tracking-tight text-white mb-1 md:mb-2 leading-tight">
-              Meet Our <span className="text-pak-green italic">Editorial Experts</span>
+            <h2 className="text-lg md:text-4xl font-display font-black uppercase tracking-tight text-white mb-1 md:mb-2 leading-none text-left">
+              Editorial <span className="text-pak-green italic">Board</span>
             </h2>
-            <p className="text-[8px] md:text-[10px] font-bold text-ink/40 uppercase tracking-[2px] md:tracking-[6px]">
-              The voices behind Pakistan's top cricket analysis
+            <p className="text-[7.5px] md:text-[10px] font-black text-ink/40 uppercase tracking-[2px] md:tracking-[6px] text-left">
+              Top voices behind Pakistan's cricket analysis
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {AUTHORS.map((author, idx) => (
             <motion.div
               key={author.id}
@@ -478,33 +480,33 @@ export default function Blogs() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.05 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] border border-white/5 rounded-3xl md:rounded-[40px] p-6 md:p-10 hover:bg-pak-green/5 hover:border-pak-green/20 transition-all group"
+              className="bg-white/[0.02] border border-white/5 rounded-2xl md:rounded-[40px] p-5 md:p-10 hover:bg-pak-green/5 hover:border-pak-green/20 transition-all group active:scale-[0.98] text-left"
             >
               <div className="flex items-center gap-4 md:gap-6 mb-5 md:mb-8">
-                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-pak-green/10 border border-pak-green/20 overflow-hidden p-1 group-hover:border-pak-green/40 transition-colors">
+                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-pak-green/10 border border-pak-green/20 overflow-hidden p-1 group-hover:border-pak-green/40 transition-colors shadow-lg">
                   <img src={author.avatarUrl} alt={author.name} loading="lazy" className="w-full h-full object-cover rounded-xl md:rounded-2xl" />
                 </div>
                 <div>
-                  <h3 className="text-base md:text-xl font-display font-bold text-white uppercase mb-1 md:mb-1.5 group-hover:text-pak-green transition-colors leading-tight">
+                  <h3 className="text-base md:text-xl font-display font-black text-white uppercase mb-1 md:mb-1.5 group-hover:text-pak-green transition-colors leading-tight italic">
                     {author.name}
                   </h3>
-                  <div className="px-3 py-1 bg-white/5 border border-white/5 rounded-full text-[7px] md:text-[9px] font-black text-pak-green uppercase tracking-widest inline-block mb-1">
+                  <div className="px-3 py-1 bg-white/5 border border-white/5 rounded-full text-[7px] md:text-[9px] font-black text-pak-green uppercase tracking-widest inline-block">
                     {author.role}
                   </div>
                 </div>
               </div>
-              <div className="mb-5 md:mb-8">
-                <p className="text-[9px] md:text-[11px] font-bold text-ink/30 uppercase tracking-[1px] md:tracking-[3px] mb-1.5 md:mb-3">Specialization</p>
-                <p className="text-white/80 font-bold text-xs md:text-sm tracking-tight">{author.specialization}</p>
+              <div className="mb-4 md:mb-8">
+                <p className="text-[8px] md:text-[11px] font-black text-ink/30 uppercase tracking-[2px] md:tracking-[3px] mb-1.5 md:mb-3">Expertise</p>
+                <p className="text-white/80 font-black text-[11px] md:text-sm tracking-tight italic">{author.specialization}</p>
               </div>
               <p className="text-ink/60 text-[11px] md:text-[13px] font-medium leading-relaxed mb-6 md:mb-8 line-clamp-3">
                 {author.bio}
               </p>
               <Link 
                 to={`/author/${author.id}`}
-                className="flex items-center justify-between py-3 md:py-4 px-5 md:px-6 bg-white/5 rounded-xl md:rounded-2xl text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] md:tracking-[3px] text-white/40 group-hover:bg-pak-green group-hover:text-white transition-all transform group-hover:translate-y-[-4px]"
+                className="flex items-center justify-between py-3.5 md:py-4 px-5 md:px-6 bg-white/5 rounded-xl md:rounded-2xl text-[8px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] text-white/40 group-hover:bg-pak-green group-hover:text-white transition-all transform group-hover:translate-y-[-4px]"
               >
-                View Profile <ChevronRight className="w-4 h-4" />
+                View Insights <ChevronRight className="w-4 h-4" />
               </Link>
             </motion.div>
           ))}
@@ -637,18 +639,18 @@ export default function Blogs() {
       <InternalLinkSection />
 
       {/* Final CTA */}
-      <section className="mb-16 md:mb-20">
-        <div className="bg-card-bg border border-card-border rounded-[40px] md:rounded-[56px] p-8 md:p-20 text-center shadow-3xl">
-          <h2 className="text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-6 md:mb-8 leading-tight">
-            Explore More <span className="text-pak-green italic">Insights</span>
+      <section className="mb-12 md:mb-20">
+        <div className="bg-card-bg border border-card-border rounded-3xl md:rounded-[56px] p-8 md:p-20 text-center shadow-3xl">
+          <h2 className="text-2xl md:text-6xl font-display font-black uppercase tracking-tighter text-white mb-6 md:mb-8 leading-tight">
+            Dive <span className="text-pak-green italic">Deeper</span>
           </h2>
-          <p className="text-sm md:text-lg text-ink/60 font-medium max-w-xl mx-auto mb-10 md:mb-12 leading-relaxed">
-            Everything you need about Pakistan cricket in one place. From schedules to squads.
+          <p className="text-xs md:text-lg text-ink/60 font-medium max-w-xl mx-auto mb-8 md:mb-12 leading-relaxed">
+            Everything you need about Pakistan cricket in one place. From schedules to in-depth analysis.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-            <Link to="/schedule" className="w-full sm:w-auto px-10 py-4 bg-white/5 border border-white/10 text-white rounded-2xl text-[10px] md:text-[11px] font-bold uppercase tracking-[3px] md:tracking-[4px] hover:bg-white hover:text-black transition-all text-center">Match Schedule</Link>
-            <Link to="/squads" className="w-full sm:w-auto px-10 py-4 bg-white/5 border border-white/10 text-white rounded-2xl text-[10px] md:text-[11px] font-bold uppercase tracking-[3px] md:tracking-[4px] hover:bg-white hover:text-black transition-all text-center">Team Squads</Link>
-            <Link to="/rankings" className="w-full sm:w-auto px-10 py-4 bg-white/5 border border-white/10 text-white rounded-2xl text-[10px] md:text-[11px] font-bold uppercase tracking-[3px] md:tracking-[4px] hover:bg-white hover:text-black transition-all text-center text-center">Stats & Rankings</Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-6">
+            <Link to="/schedule" className="w-full sm:w-auto px-10 py-3.5 bg-white/5 border border-white/10 text-white rounded-xl md:rounded-2xl text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] hover:bg-white hover:text-black transition-all text-center">Schedule</Link>
+            <Link to="/squads" className="w-full sm:w-auto px-10 py-3.5 bg-white/5 border border-white/10 text-white rounded-xl md:rounded-2xl text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] hover:bg-white hover:text-black transition-all text-center">Squads</Link>
+            <Link to="/rankings" className="w-full sm:w-auto px-10 py-3.5 bg-white/5 border border-white/10 text-white rounded-xl md:rounded-2xl text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] hover:bg-white hover:text-black transition-all text-center">Rankings</Link>
           </div>
         </div>
       </section>

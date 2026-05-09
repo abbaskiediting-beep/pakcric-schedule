@@ -264,59 +264,54 @@ export default function App() {
           </Suspense>
         </main>
 
-        <footer className="container mx-auto px-4 md:px-6 py-12 flex flex-col gap-12 border-t border-card-border mt-12 bg-card-bg/30">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
-            <div className="flex flex-col gap-6">
-               <span className="text-white text-lg font-display font-bold">PAKCRIC SCHEDULE</span>
-               <p className="text-neutral-500 text-[11px] font-medium leading-relaxed uppercase tracking-[1px] max-w-xs">
-                 Your ultimate destination for Pakistan cricket schedules, rankings, and in-depth analysis. Stay connected with the Green Shirts.
+        <footer className="container mx-auto px-4 md:px-6 py-12 md:py-20 flex flex-col gap-12 border-t border-card-border mt-12 md:mt-32 bg-card-bg/30">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 text-left">
+            <div className="flex flex-col gap-6 items-start">
+               <span className="text-white text-xl md:text-2xl font-display font-black tracking-tight italic">PAKCRIC <span className="text-pak-green">HUB</span></span>
+               <p className="text-neutral-500 text-[10px] md:text-[11px] font-black leading-relaxed uppercase tracking-[1px] max-w-xs">
+                 The ultimate destination for Pakistan cricket schedules, rankings, and analysis.
                </p>
-               <span className="text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">© 2026 Independent Fan Portal</span>
+               <span className="text-neutral-600 text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">© 2026 Independent Fan Portal</span>
             </div>
 
-            <div className="flex flex-col gap-5 sm:gap-6">
-              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Internal Links</span>
-              <div className="grid grid-cols-2 gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
+            <div className="flex flex-col gap-5 md:gap-6">
+              <span className="text-white text-[11px] md:text-[12px] font-black uppercase tracking-[3px] border-b border-white/5 pb-2 inline-block">Directory</span>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3 md:gap-4 text-neutral-500 text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">
                 <Link to="/schedule" className="hover:text-pak-green transition-colors">Schedule</Link>
-                <Link to="/pakistan-cricket-series" className="hover:text-pak-green transition-colors">Series Hub</Link>
-                <Link to="/rankings" className="hover:text-pak-green transition-colors">ICC Rankings</Link>
-                <Link to="/icc-wtc-projections-2026" className="hover:text-pak-green transition-colors">WTC Standings</Link>
+                <Link to="/rankings" className="hover:text-pak-green transition-colors">Rankings</Link>
                 <Link to="/squads" className="hover:text-pak-green transition-colors">Squads</Link>
-                <Link to="/news" className="hover:text-pak-green transition-colors">Latest News</Link>
-                <Link to="/about" className="hover:text-pak-green transition-colors">About Us</Link>
+                <Link to="/news" className="hover:text-pak-green transition-colors">News</Link>
+                <Link to="/about" className="hover:text-pak-green transition-colors">About</Link>
                 <Link to="/contact" className="hover:text-pak-green transition-colors">Contact</Link>
+                <Link to="/privacy" className="hover:text-pak-green transition-colors">Privacy</Link>
+                <Link to="/terms" className="hover:text-pak-green transition-colors">Terms</Link>
               </div>
             </div>
 
-            <div className="flex flex-col gap-5 sm:gap-6">
-              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Featured Series</span>
-              <div className="flex flex-col gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
-                <Link to="/pakistan-vs-bangladesh-2026-schedule" className="hover:text-pak-green transition-colors">Pakistan vs Bangladesh 2026 Schedule</Link>
-                <Link to="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027" className="hover:text-pak-green transition-colors">WTC Prediction & Scenarios</Link>
-                <Link to="/news/peshawar-zalmi-psl-2026-champions-match-report" className="hover:text-pak-green transition-colors">PSL 2026 Review</Link>
-                <Link to="/pakistan-vs-australia-2026-schedule-odi" className="hover:text-pak-green transition-colors">Australia Tour of Pakistan 2026 ODI Series</Link>
-                <Link to="/the-evolution-of-the-shaheens-2026-strategy" className="hover:text-pak-green transition-colors">Evolution Analysis</Link>
-                <Link to="/pakistan-icc-rankings-april-2026-analysis" className="hover:text-pak-green transition-colors">Rankings Analysis</Link>
+            <div className="flex flex-col gap-5 md:gap-6">
+              <span className="text-white text-[11px] md:text-[12px] font-black uppercase tracking-[3px] border-b border-white/5 pb-2 inline-block">Top Series</span>
+              <div className="flex flex-col gap-2.5 md:gap-3 text-neutral-500 text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">
+                <Link to="/pakistan-vs-bangladesh-2026-schedule" className="hover:text-pak-green transition-colors">PAK vs BAN 2026</Link>
+                <Link to="/pakistan-vs-australia-2026-schedule-odi" className="hover:text-pak-green transition-colors">Australia Tour</Link>
+                <Link to="/news/peshawar-zalmi-psl-2026-champions-match-report" className="hover:text-pak-green transition-colors">PSL 11 Review</Link>
+                <Link to="/pakistan-cricket-series" className="hover:text-pak-green transition-colors">Global Events</Link>
               </div>
             </div>
 
-            <div className="flex flex-col gap-5 sm:gap-6">
-              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Cricket Resources</span>
-              <div className="grid grid-cols-2 gap-4 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
-                <a href="https://www.espncricinfo.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">ESPNcricinfo</a>
+            <div className="flex flex-col gap-5 md:gap-6">
+              <span className="text-white text-[11px] md:text-[12px] font-black uppercase tracking-[3px] border-b border-white/5 pb-2 inline-block">Official Hubs</span>
+              <div className="flex flex-col gap-2.5 md:gap-3 text-neutral-500 text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">
+                <a href="https://www.pcb.com.pk" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">PCB Official</a>
+                <a href="https://www.espncricinfo.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">Cricinfo</a>
                 <a href="https://www.cricbuzz.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">Cricbuzz</a>
-                <a href="https://www.pcb.com.pk" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">PCB Portal</a>
-                <a href="https://www.icc-cricket.com" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">ICC Portal</a>
               </div>
             </div>
 
-            <div className="flex flex-col gap-5 sm:gap-6">
-              <span className="text-white text-[12px] font-bold uppercase tracking-[3px]">Follow Us</span>
-              <div className="flex flex-wrap gap-6 text-neutral-600 text-[10px] font-bold uppercase tracking-[2px]">
-                <a href="https://x.com/Pakcric76933" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">X (Twitter)</a>
+            <div className="flex flex-col gap-5 md:gap-6">
+              <span className="text-white text-[11px] md:text-[12px] font-black uppercase tracking-[3px] border-b border-white/5 pb-2 inline-block">Connect</span>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-neutral-500 text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">
+                <a href="https://x.com/Pakcric76933" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">X / Twitter</a>
                 <a href="https://www.facebook.com/profile.php?id=61588688469344" target="_blank" rel="noopener noreferrer" className="hover:text-pak-green transition-colors">Facebook</a>
-                <a href="#" className="hover:text-pak-green transition-colors">Instagram</a>
-                <a href="#" className="hover:text-pak-green transition-colors">YouTube</a>
               </div>
             </div>
           </div>

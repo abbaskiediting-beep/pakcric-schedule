@@ -15,8 +15,8 @@ export default function Header() {
             <div className="bg-pak-green p-1 md:p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
               <Trophy className="w-4 h-4 md:w-6 md:h-6 text-[#F8FAF9]" aria-hidden="true" />
             </div>
-            <h1 className="font-display text-[14px] xs:text-base sm:text-2xl tracking-tighter uppercase font-bold text-ink leading-none">
-              PAKCRIC <span className="text-pak-green group-hover:text-pak-green/80 transition-colors">SCHEDULE</span>
+            <h1 className="font-display text-[14px] xs:text-base sm:text-2xl tracking-tighter uppercase font-black text-ink leading-none">
+              PAKCRIC <span className="text-pak-green group-hover:text-pak-green/80 transition-colors italic">SCHEDULE</span>
             </h1>
           </Link>
         </motion.div>

@@ -146,83 +146,83 @@ export default function MatchDetail() {
         <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
-           className="md:col-span-3 bg-gradient-to-br from-[#0a4d2e] via-pak-green to-black rounded-3xl md:rounded-[48px] p-6 sm:p-10 md:p-16 text-center border border-white/10 relative overflow-hidden shadow-3xl"
+           className="md:col-span-3 bg-gradient-to-br from-[#0a4d2e] via-pak-green to-black rounded-[32px] md:rounded-[48px] p-6 sm:p-10 md:p-16 text-center border border-white/10 relative overflow-hidden shadow-3xl"
         >
           <div className="absolute inset-0 opacity-[0.03] sm:opacity-[0.05] flex items-center justify-center pointer-events-none select-none mix-blend-soft-light">
-             <span className="text-[100px] sm:text-[200px] md:text-[300px] font-display font-black italic tracking-tighter">
+             <span className="text-[80px] sm:text-[150px] md:text-[300px] font-display font-black italic tracking-tighter">
                {match.status === 'Live' ? 'LIVE' : 'VS'}
              </span>
           </div>
           
           <div className="relative z-10">
-             <div className="flex flex-col items-center gap-4 mb-8 md:mb-10">
-               <span className="px-4 py-1.5 bg-pak-green text-white rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] shadow-lg shadow-pak-green/20">{match.series}</span>
+             <div className="flex flex-col items-center gap-3 md:gap-4 mb-8 md:mb-10">
+               <span className="px-3 py-1 md:px-4 md:py-1.5 bg-pak-green text-white rounded-full text-[8px] md:text-[11px] font-black uppercase tracking-[2px] md:tracking-[4px] shadow-lg shadow-pak-green/20">{match.series}</span>
                {match.status === 'Live' && (
-                 <div className="flex items-center gap-2.5 px-4 py-1.5 bg-red-600/20 text-red-100 rounded-full text-[9px] font-black uppercase tracking-widest border border-red-500/30 animate-pulse backdrop-blur-sm">
-                   <div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                 <div className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 bg-red-600/20 text-red-100 rounded-full text-[8px] md:text-[9px] font-black uppercase tracking-widest border border-red-500/30 animate-pulse backdrop-blur-sm">
+                   <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
                    Match in Progress
                  </div>
                )}
                {match.granularStatus && (
-                 <div className="flex items-center gap-2.5 px-4 py-1.5 bg-white/10 text-white rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-widest border border-white/20 backdrop-blur-sm">
+                 <div className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 bg-white/10 text-white rounded-full text-[8px] md:text-[11px] font-black uppercase tracking-widest border border-white/20 backdrop-blur-sm">
                    {match.granularStatus}
                  </div>
                )}
              </div>
              
-             <div className="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-10 md:gap-20 mb-10 md:mb-14">
+             <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-20 mb-8 md:mb-14">
                 <div className="flex flex-col items-center">
-                   <div className="relative mb-5 md:mb-6">
-                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-pak-green rounded-md text-[9px] md:text-[10px] font-black text-white">PAK</div>
+                   <div className="relative mb-3 md:mb-6">
+                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-2xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-pak-green rounded-md text-[8px] md:text-[10px] font-black text-white">PAK</div>
                    </div>
-                   <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-widest uppercase">PAKISTAN</h2>
+                   <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-[0.1em] uppercase">PAKISTAN</h2>
                    {match.scorePAK && (
-                     <div className="mt-3 text-4xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
+                     <div className="mt-2 text-3xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
                    )}
                 </div>
 
-                <div className="text-4xl sm:text-5xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic leading-none my-2 md:my-0">
+                <div className="text-3xl sm:text-5xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic leading-none my-1 md:my-0">
                   {match.status === 'Live' || match.status === 'Completed' ? '-' : 'VS'}
                 </div>
 
                 <div className="flex flex-col items-center">
-                   <div className="relative mb-5 md:mb-6">
-                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-pak-green rounded-md text-[9px] md:text-[10px] font-black text-white">{match.opponent.substring(0, 3)}</div>
+                   <div className="relative mb-3 md:mb-6">
+                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-2xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-pak-green rounded-md text-[8px] md:text-[10px] font-black text-white">{match.opponent.substring(0, 3)}</div>
                    </div>
-                   <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white uppercase tracking-widest leading-none">{match.opponent}</h2>
+                   <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-[0.1em] leading-none uppercase">{match.opponent}</h2>
                    {match.scoreOpponent && (
-                     <div className="mt-3 text-4xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
+                     <div className="mt-2 text-3xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
                    )}
                 </div>
              </div>
 
              {match.status === 'Live' && (
-               <div className="flex items-center justify-center gap-3 mb-14 text-white font-black uppercase tracking-[0.3em] text-lg bg-white/5 py-3 px-6 rounded-2xl border border-white/10 inline-flex">
-                 <Timer className="w-6 h-6 text-pak-green" /> {match.overs} Overs
+               <div className="flex items-center justify-center gap-2 mb-10 text-white font-black uppercase tracking-[0.2em] text-sm md:text-lg bg-white/5 py-2 px-4 md:py-3 md:px-6 rounded-xl md:rounded-2xl border border-white/10 inline-flex">
+                 <Timer className="w-4 h-4 md:w-6 md:h-6 text-pak-green" /> {match.overs} Overs
                </div>
              )}
 
              {match.status === 'Completed' && match.result && (
-               <div className="mb-14 p-6 md:p-10 bg-white/10 rounded-[32px] md:rounded-[48px] border border-white/20 inline-block shadow-2xl backdrop-blur-xl">
-                 <p className="text-xl md:text-3xl font-display font-black text-white uppercase tracking-tight">{match.result}</p>
+               <div className="mb-10 p-5 md:p-10 bg-white/10 rounded-3xl md:rounded-[48px] border border-white/20 inline-block shadow-2xl backdrop-blur-xl max-w-[90%]">
+                 <p className="text-lg md:text-3xl font-display font-black text-white uppercase tracking-tight leading-tight">{match.result}</p>
                </div>
              )}
 
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
-                <div className="inline-flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 p-5 sm:p-6 md:p-6 bg-black/40 rounded-[28px] md:rounded-[32px] border border-white/10 backdrop-blur-xl shadow-2xl w-full md:w-auto">
-                   <div className="flex items-center gap-3">
-                      <Calendar className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
-                      <span className="text-[9px] md:text-xs font-black uppercase tracking-[2px]">{match.date}</span>
+              <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-4">
+                <div className="inline-flex flex-col md:flex-row items-center justify-center gap-3 md:gap-12 p-4 sm:p-6 md:p-6 bg-black/40 rounded-2xl md:rounded-[32px] border border-white/10 backdrop-blur-xl shadow-2xl w-full md:w-auto">
+                   <div className="flex items-center gap-2 md:gap-3">
+                      <Calendar className="w-3.5 h-3.5 md:w-5 md:h-5 text-pak-green" />
+                      <span className="text-[8px] md:text-xs font-black uppercase tracking-[1.5px] md:tracking-[2px]">{match.date}</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                       <Clock className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
-                       <span className="text-[9px] md:text-xs font-black uppercase tracking-[2px]">{match.time} PKT</span>
+                    <div className="flex items-center gap-2 md:gap-3">
+                       <Clock className="w-3.5 h-3.5 md:w-5 md:h-5 text-pak-green" />
+                       <span className="text-[8px] md:text-xs font-black uppercase tracking-[1.5px] md:tracking-[2px]">{match.time} PKT</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                       <MapPin className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
-                       <span className="text-[9px] md:text-xs font-black uppercase tracking-[2px] truncate max-w-[200px] md:max-w-none">{match.venue}</span>
+                    <div className="flex items-center gap-2 md:gap-3">
+                       <MapPin className="w-3.5 h-3.5 md:w-5 md:h-5 text-pak-green" />
+                       <span className="text-[8px] md:text-xs font-black uppercase tracking-[1.5px] md:tracking-[2px] truncate max-w-[150px] md:max-w-none">{match.venue}</span>
                     </div>
                 </div>
 
