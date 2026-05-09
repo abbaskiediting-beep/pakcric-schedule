@@ -1,10 +1,32 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Search as SearchIcon, X, User, Calendar, Trophy as TrophyIcon, ArrowRight, Filter, Globe2, Zap } from 'lucide-react';
+import { Search as SearchIcon, X, User, Calendar, Trophy as TrophyIcon, ArrowRight, Filter, Globe2, Zap, Clock, TrendingUp } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { ALL_SQUADS } from '../squadData';
 import { PLAYER_STATS } from '../playerData';
+
+const HighlightText = ({ text, highlight }: { text: string; highlight: string }) => {
+  if (!highlight.trim()) {
+    return <span>{text}</span>;
+  }
+  const regex = new RegExp(`(${highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  const parts = text.split(regex);
+
+  return (
+    <span>
+      {parts.map((part, i) => 
+        part.toLowerCase() === highlight.toLowerCase() ? (
+          <span key={i} className="text-pak-green font-black">
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </span>
+  );
+};
 
 interface SearchResult {
   id: string;
@@ -22,8 +44,27 @@ export default function Search() {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>('All');
   const [formFilter, setFormFilter] = useState<'All' | 'Hot'>('All');
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const saved = localStorage.getItem('recentSearches');
+    if (saved) {
+      try {
+        setRecentSearches(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to parse recent searches');
+      }
+    }
+  }, []);
+
+  const addToRecent = (term: string) => {
+    if (!term.trim()) return;
+    const newRecent = [term, ...recentSearches.filter(s => s !== term)].slice(0, 5);
+    setRecentSearches(newRecent);
+    localStorage.setItem('recentSearches', JSON.stringify(newRecent));
+  };
 
   const countries = useMemo(() => {
     const set = new Set<string>(['All']);
@@ -141,6 +182,7 @@ export default function Search() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') setIsOpen(false);
     if (e.key === 'Enter' && results.length > 0) {
+      addToRecent(query || results[0].title);
       navigate(results[0].link);
       setIsOpen(false);
     }
@@ -230,11 +272,18 @@ export default function Search() {
               <div className="max-h-[calc(100vh-140px)] sm:max-h-[60vh] overflow-y-auto p-4 sm:p-8 custom-scrollbar">
                 {results.length > 0 ? (
                   <div className="space-y-2">
+                    <div className="flex items-center justify-between mb-4 px-4">
+                      <p className="text-[10px] font-black text-neutral-500 uppercase tracking-[4px]">Search Results</p>
+                      <p className="text-[10px] font-black text-pak-green uppercase tracking-[2px]">{results.length} Found</p>
+                    </div>
                     {results.map((result) => (
                       <Link
                         key={result.id}
                         to={result.link}
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          addToRecent(result.title);
+                          setIsOpen(false);
+                        }}
                         className="flex items-center gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group"
                       >
                         <div className="w-12 h-12 rounded-xl bg-pak-green/10 flex items-center justify-center shrink-0 text-pak-green group-hover:scale-110 transition-transform">
@@ -244,14 +293,16 @@ export default function Search() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-ink font-bold truncate tracking-tight">
-                            {result.title}
+                            <HighlightText text={result.title} highlight={query} />
                             {result.isInForm && (
                               <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-pak-green/20 text-[8px] text-pak-green uppercase font-black tracking-tighter align-middle">
                                 <Zap className="w-2 h-2 fill-pak-green" /> Hot
                               </span>
                             )}
                           </p>
-                          <p className="text-xs text-neutral-500 truncate uppercase tracking-widest">{result.subtitle}</p>
+                          <p className="text-xs text-neutral-500 truncate uppercase tracking-widest">
+                            <HighlightText text={result.subtitle} highlight={query} />
+                          </p>
                         </div>
                         <ArrowRight className="w-4 h-4 text-neutral-700 group-hover:text-pak-green group-hover:translate-x-1 transition-all" />
                       </Link>
@@ -259,21 +310,81 @@ export default function Search() {
                   </div>
                 ) : query.trim() ? (
                   <div className="p-12 text-center">
+                    <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <X className="w-8 h-8 text-neutral-700" />
+                    </div>
                     <p className="text-neutral-500">No results found for "<span className="text-ink font-bold">{query}</span>"</p>
+                    <button 
+                      onClick={() => setQuery('')}
+                      className="mt-6 px-6 py-2 bg-pak-green text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-pak-green/20"
+                    >
+                      Clear Search
+                    </button>
                   </div>
                 ) : (
-                  <div className="p-12 text-center text-neutral-500">
-                    <p className="text-xs uppercase tracking-[4px] mb-6">Quick Suggestions</p>
-                    <div className="flex flex-wrap justify-center gap-3">
-                      {['Babar Azam', 'Test Matches', 'ODI Series', 'T20I', 'England Tour', 'Bangladesh Series'].map(tag => (
-                        <button
-                          key={tag}
-                          onClick={() => setQuery(tag)}
-                          className="px-4 py-2 rounded-xl bg-card-bg border border-card-border hover:border-pak-green hover:text-pak-green transition-all text-xs font-bold"
-                        >
-                          {tag}
-                        </button>
-                      ))}
+                  <div className="p-4 sm:p-0 space-y-12">
+                    {recentSearches.length > 0 && (
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2 text-neutral-500 mb-2">
+                          <Clock className="w-4 h-4" />
+                          <p className="text-[10px] uppercase tracking-[4px] font-black leading-none">Recent Searches</p>
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                          {recentSearches.map(term => (
+                            <button
+                              key={term}
+                              onClick={() => setQuery(term)}
+                              className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 hover:border-pak-green hover:text-pak-green transition-all text-xs font-bold"
+                            >
+                              {term}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-2 text-neutral-500">
+                        <TrendingUp className="w-4 h-4" />
+                        <p className="text-[10px] uppercase tracking-[4px] font-black leading-none">Trending Hub</p>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {[
+                          { title: 'Babar Azam', type: 'Player', count: '98K' },
+                          { title: 'vs England 2026', type: 'Match', count: '45K' },
+                          { title: 'WTC Rankings', type: 'Stats', count: '12K' },
+                          { title: 'Shaheen Afridi', type: 'Player', count: '33K' }
+                        ].map(trend => (
+                          <button
+                            key={trend.title}
+                            onClick={() => setQuery(trend.title)}
+                            className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/30 group transition-all"
+                          >
+                            <div className="text-left">
+                              <p className="text-sm font-bold text-ink group-hover:text-pak-green transition-colors">{trend.title}</p>
+                              <p className="text-[8px] font-black text-neutral-600 uppercase tracking-widest">{trend.type}</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-[10px] font-black text-neutral-500">{trend.count}</p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <p className="text-[10px] uppercase tracking-[4px] font-black text-neutral-500 text-center">Quick Categories</p>
+                      <div className="flex flex-wrap justify-center gap-3">
+                        {['Test Matches', 'ODI Series', 'T20I', 'Tour Schedule', 'Squad Details'].map(tag => (
+                          <button
+                            key={tag}
+                            onClick={() => setQuery(tag)}
+                            className="px-4 py-2 rounded-xl bg-card-bg border border-card-border hover:border-pak-green hover:text-pak-green transition-all text-[10px] font-black uppercase tracking-widest"
+                          >
+                            {tag}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}

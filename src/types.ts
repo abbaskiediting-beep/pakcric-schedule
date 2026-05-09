@@ -62,6 +62,7 @@ export interface Match {
   venue: string;
   series: string;
   status: 'Upcoming' | 'Live' | 'Completed' | 'Scheduled' | 'High Voltage' | 'Today';
+  granularStatus?: string;
   result?: string;
   flagUrl?: string;
   scorePAK?: string;

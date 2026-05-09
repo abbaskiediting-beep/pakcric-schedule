@@ -6,7 +6,7 @@ import { MATCH_RESULTS } from '../matchResultsData';
 import { 
   ChevronLeft, MapPin, Clock, Calendar, Ticket, 
   Trophy, Timer, Zap, Target, Users, Bell, CheckCircle2,
-  Newspaper, ArrowRight, BarChart3, Activity, Info
+  Newspaper, ArrowRight, BarChart3, Activity, Info, Share2
 } from 'lucide-react';
 import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -14,6 +14,7 @@ import InternalLinkSection from '../components/InternalLinkSection';
 import { PlayerModal } from '../components/PlayerModal';
 import { PLAYER_STATS } from '../playerData';
 import { Player } from '../types';
+import ShareButton from '../components/ShareButton';
 
 import { LinkText } from '../components/LinkText';
 
@@ -162,6 +163,11 @@ export default function MatchDetail() {
                    Match in Progress
                  </div>
                )}
+               {match.granularStatus && (
+                 <div className="flex items-center gap-2.5 px-4 py-1.5 bg-white/10 text-white rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-widest border border-white/20 backdrop-blur-sm">
+                   {match.granularStatus}
+                 </div>
+               )}
              </div>
              
              <div className="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-10 md:gap-20 mb-10 md:mb-14">
@@ -221,27 +227,48 @@ export default function MatchDetail() {
                 </div>
 
                 {match.status !== 'Completed' && (
-                  <button 
-                    onClick={handleSetReminder}
-                    disabled={reminderSet}
-                    className={`px-6 py-4 rounded-3xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-3 backdrop-blur-md border border-white/10 ${
-                      reminderSet 
-                        ? 'bg-white/10 text-white cursor-default' 
-                        : 'bg-white text-pak-green hover:scale-105 active:scale-95 shadow-xl shadow-black/20'
-                    }`}
-                  >
-                    {reminderSet ? (
-                      <>
-                        <CheckCircle2 className="w-4 h-4" /> 
-                        <span>Active</span>
-                      </>
-                    ) : (
-                      <>
-                        <Bell className="w-4 h-4" /> 
-                        <span>Remind</span>
-                      </>
-                    )}
-                  </button>
+                  <div className="flex gap-4 w-full md:w-auto">
+                    <button 
+                      onClick={handleSetReminder}
+                      disabled={reminderSet}
+                      className={`flex-1 md:flex-none px-6 py-4 rounded-3xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-3 backdrop-blur-md border border-white/10 ${
+                        reminderSet 
+                          ? 'bg-white/10 text-white cursor-default' 
+                          : 'bg-white text-pak-green hover:scale-105 active:scale-95 shadow-xl shadow-black/20'
+                      }`}
+                    >
+                      {reminderSet ? (
+                        <>
+                          <CheckCircle2 className="w-4 h-4" /> 
+                          <span>Active</span>
+                        </>
+                      ) : (
+                        <>
+                          <Bell className="w-4 h-4" /> 
+                          <span>Remind</span>
+                        </>
+                      )}
+                    </button>
+                    
+                    <ShareButton 
+                      title={`${match.series}: Pakistan vs ${match.opponent}`}
+                      text={`Check out the match details: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`}
+                      url={window.location.href}
+                      variant="outline"
+                      className="flex-1 md:flex-none"
+                    />
+                  </div>
+                )}
+
+                {match.status === 'Completed' && (
+                  <div className="flex justify-center w-full">
+                    <ShareButton 
+                      title={`${match.series}: Pakistan vs ${match.opponent}`}
+                      text={`Match result: Pakistan vs ${match.opponent}. ${match.result}. ${match.date} at ${match.venue}`}
+                      url={window.location.href}
+                      variant="filled"
+                    />
+                  </div>
                 )}
               </div>
            </div>

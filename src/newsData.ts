@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pak-vs-ban-1st-test-day-2-report-2026',
+    title: 'Pakistan Fight Back in Dhaka: Abbas’s Fifer and Azan Awais’s Gritty Debut Define Day 2',
+    date: 'May 9, 2026',
+    tag: 'Match Report',
+    summary: 'Pakistan fights back on Day 2 in Dhaka! Mohammad Abbas takes 5 wickets to restrict Bangladesh to 413, while debutant Azan Awais scores a brilliant unbeaten 72.'
+  },
+  {
     id: 'pak-vs-ban-1st-test-day-1-report-2026',
     title: 'Bangladesh 301/4 at Stumps — Shanto\'s Brilliant Century Frustrates Pakistan on Day 1',
     date: 'May 8, 2026',

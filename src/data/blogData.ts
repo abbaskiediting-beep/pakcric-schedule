@@ -701,4 +701,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'sarfraz-khan'
   },
+  {
+    id: 'pak-vs-ban-1st-test-day-2-report-2026',
+    title: 'Pakistan Fight Back in Dhaka: Abbas’s Fifer and Azan Awais’s Gritty Debut Define Day 2',
+    summary: 'Pakistan fights back on Day 2! Mohammad Abbas takes 5 wickets to restrict Bangladesh to 413, while debutant Azan Awais scores a brilliant unbeaten 72.',
+    date: 'May 9, 2026',
+    category: 'Match Report',
+    path: '/news/pak-vs-ban-1st-test-day-2-report-2026',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'sarfraz-khan'
+  },
 ];

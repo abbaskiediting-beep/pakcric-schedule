@@ -32,6 +32,10 @@ function StatBox({ label, value }: { label: string; value: any }) {
 export default function Squads() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterFormat, setFilterFormat] = useState<MatchFormat | 'All'>('All');
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
+  const [minAvg, setMinAvg] = useState<string>('');
+  const [minSR, setMinSR] = useState<string>('');
+  const [showFilters, setShowFilters] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [comparisonPlayer, setComparisonPlayer] = useState<Player | null>(null);
   const [isSelectingComparison, setIsSelectingComparison] = useState(false);
@@ -126,14 +130,39 @@ export default function Squads() {
     return ALL_SQUADS
       .map(squad => ({
         ...squad,
-        players: squad.players.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        players: squad.players.filter(p => {
+          const stats = PLAYER_STATS[p.name];
+          
+          // Basic search
+          const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+          if (!matchesSearch) return false;
+
+          const hasStatsFilters = selectedRoles.length > 0 || minAvg || minSR;
+          if (!stats && hasStatsFilters) return false;
+          
+          if (stats) {
+            // Role filter (multiple roles)
+            if (selectedRoles.length > 0) {
+              const matchesRole = selectedRoles.some(role => 
+                stats.role.toLowerCase().includes(role.toLowerCase())
+              );
+              if (!matchesRole) return false;
+            }
+
+            // Performance filters
+            if (minAvg && stats.stats.avg < parseFloat(minAvg)) return false;
+            if (minSR && stats.stats.sr < parseFloat(minSR)) return false;
+          }
+
+          return true;
+        })
       }))
       .filter(squad => {
         const matchesFormat = filterFormat === 'All' || squad.format === filterFormat;
         const hasPlayers = squad.players.length > 0;
         return matchesFormat && hasPlayers;
       });
-  }, [searchTerm, filterFormat]);
+  }, [searchTerm, filterFormat, selectedRoles, minAvg, minSR]);
 
   const handlePlayerClick = (playerName: string) => {
     const stats = PLAYER_STATS[playerName];
@@ -238,6 +267,12 @@ export default function Squads() {
               className="w-full bg-white/5 border border-card-border rounded-xl md:rounded-3xl py-3.5 md:py-5 pl-11 md:pl-14 pr-4 md:pr-6 text-[10px] md:text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-pak-green transition-all shadow-2xl focus:ring-4 focus:ring-pak-green/10"
             />
             <Search className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-6 md:h-6 text-pak-green" />
+            <button 
+              onClick={() => setShowFilters(!showFilters)}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-lg transition-all ${showFilters ? 'bg-pak-green text-white' : 'bg-white/10 text-white/40 hover:text-white'}`}
+            >
+              <TrendingUp className="w-4 h-4" />
+            </button>
           </div>
 
           {/* Format Filters */}
@@ -257,6 +292,83 @@ export default function Squads() {
              ))}
           </div>
         </div>
+
+        {/* Advanced Filters */}
+        <AnimatePresence>
+          {showFilters && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-white/5 mt-6">
+                {/* Role Chips */}
+                <div className="space-y-4">
+                  <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Select Roles</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Batter', 'Bowler', 'All-rounder', 'Wicketkeeper'].map(role => (
+                      <button
+                        key={role}
+                        onClick={() => setSelectedRoles(prev => 
+                          prev.includes(role) ? prev.filter(r => r !== role) : [...prev, role]
+                        )}
+                        className={`px-3 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-wider transition-all border ${
+                          selectedRoles.includes(role)
+                          ? 'bg-pak-green border-pak-green text-white shadow-lg shadow-pak-green/20'
+                          : 'bg-white/5 border-white/10 text-neutral-400 hover:text-white hover:bg-white/10'
+                        }`}
+                      >
+                        {role}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Metric Filters */}
+                <div className="space-y-4">
+                  <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Performance Metrics</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="relative">
+                      <input
+                        type="number"
+                        placeholder="MIN AVG"
+                        value={minAvg}
+                        onChange={(e) => setMinAvg(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-[10px] font-bold focus:outline-none focus:border-pak-green transition-all"
+                      />
+                    </div>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        placeholder="MIN SR"
+                        value={minSR}
+                        onChange={(e) => setMinSR(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-[10px] font-bold focus:outline-none focus:border-pak-green transition-all"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reset Actions */}
+                <div className="flex flex-col justify-end gap-3">
+                  <button
+                    onClick={() => {
+                      setSearchTerm('');
+                      setSelectedRoles([]);
+                      setMinAvg('');
+                      setMinSR('');
+                      setFilterFormat('All');
+                    }}
+                    className="w-full py-3 rounded-xl border border-red-500/30 text-red-500 text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all flex items-center justify-center gap-2"
+                  >
+                    <X className="w-4 h-4" /> Reset All Filters
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       </motion.div>
 

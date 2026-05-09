@@ -89,6 +89,7 @@ const BabarInjuryLineupAnalysisBlog = lazy(() => import('./pages/BabarInjuryLine
 const PakistanVsAustraliaIPLBlog = lazy(() => import('./pages/PakistanVsAustraliaIPLBlog'));
 const PakVsBanTrophyRevealBlog = lazy(() => import('./pages/PakVsBanTrophyRevealBlog'));
 const PakVsBan1stTestDay1Report = lazy(() => import('./pages/PakVsBan1stTestDay1Report'));
+const PakVsBan1stTestDay2Report = lazy(() => import('./pages/PakVsBan1stTestDay2Report'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
 const About = lazy(() => import('./pages/About'));
@@ -173,6 +174,7 @@ export default function App() {
               <Route path="/rankings/test-allrounder" element={<TestAllrounder />} />
               <Route path="/news" element={<Blogs />} />
               <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
+              <Route path="/news/pak-vs-ban-1st-test-day-2-report-2026" element={<PakVsBan1stTestDay2Report />} />
               <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />
               <Route path="/news/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />

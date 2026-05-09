@@ -219,8 +219,24 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
         {/* Featured Special Match Card Section */}
-        <div className="md:col-span-4">
-          <SpecialMatchCard match={nextMatch} />
+        <div id="match-center" className="md:col-span-4 space-y-6">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 rounded-2xl bg-pak-green flex items-center justify-center text-white shadow-[0_0_20px_rgba(0,102,46,0.4)]">
+              <Timer className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <p className="text-[10px] md:text-xs text-pak-green font-black uppercase tracking-[3px]">Never Miss a Match</p>
+              </div>
+              <h2 className="text-2xl md:text-4xl font-display font-bold uppercase tracking-tight text-white leading-none">Next Match Analysis</h2>
+            </div>
+          </div>
+          <div className="relative group/card transition-all duration-500">
+            {/* Glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-pak-green/20 via-pak-green/40 to-pak-green/20 rounded-[36px] blur-xl opacity-50 group-hover/card:opacity-100 transition-opacity duration-500" />
+            <SpecialMatchCard match={nextMatch} />
+          </div>
         </div>
 
         <motion.section 
