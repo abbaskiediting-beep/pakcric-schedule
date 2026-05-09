@@ -281,7 +281,7 @@ export default function Blogs() {
   const seriesFilter = searchParams.get('series') || 'all';
 
   const filteredPosts = [...BLOG_POSTS].filter(post => {
-    const monthMatch = selectedMonth === 'all' || post.date.toLowerCase().includes(selectedMonth.toLowerCase());
+    const monthMatch = selectedMonth === 'all' || (post.date || '').toLowerCase().includes(selectedMonth.toLowerCase());
     
     let seriesMatch = true;
     if (seriesFilter !== 'all') {
