@@ -20,13 +20,6 @@
   --card-border: #1D2520;
 }
 
-:root.light {
-  --bg: #F8FAF9;
-  --ink: #050806;
-  --card-bg: #FFFFFF;
-  --card-border: #E5E7EB;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -34,7 +27,7 @@
   }
   
   body {
-    @apply bg-bg text-ink antialiased transition-colors duration-300;
+    @apply bg-bg text-ink antialiased;
     text-rendering: optimizeLegibility;
     font-synthesis: none;
     -webkit-font-smoothing: antialiased;

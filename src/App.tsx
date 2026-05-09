@@ -1,6 +1,6 @@
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { useState, useEffect, Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Nav from './components/Nav';
@@ -90,6 +90,7 @@ const PakistanVsAustraliaIPLBlog = lazy(() => import('./pages/PakistanVsAustrali
 const PakVsBanTrophyRevealBlog = lazy(() => import('./pages/PakVsBanTrophyRevealBlog'));
 const PakVsBan1stTestDay1Report = lazy(() => import('./pages/PakVsBan1stTestDay1Report'));
 const PakVsBan1stTestDay2Report = lazy(() => import('./pages/PakVsBan1stTestDay2Report'));
+const AzanAwaisDebutBlog = lazy(() => import('./pages/AzanAwaisDebutBlog'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
 const About = lazy(() => import('./pages/About'));
@@ -126,25 +127,12 @@ const PageLoader = () => (
 );
 
 export default function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-    }
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
-
   return (
     <>
       <SEO />
       <ScrollToTop />
-      <div className="min-h-screen bg-bg text-ink flex flex-col font-sans transition-colors duration-300 pb-16 md:pb-0">
-        <Header theme={theme} onToggleTheme={toggleTheme} />
+      <div className="min-h-screen bg-bg text-ink flex flex-col font-sans pb-16 md:pb-0">
+        <Header />
         <Nav />
         
         <main className="flex-grow">
@@ -175,6 +163,7 @@ export default function App() {
               <Route path="/news" element={<Blogs />} />
               <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
               <Route path="/news/pak-vs-ban-1st-test-day-2-report-2026" element={<PakVsBan1stTestDay2Report />} />
+              <Route path="/news/azan-awais-pakistan-test-debut-masterclass-dhaka" element={<AzanAwaisDebutBlog />} />
               <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />
               <Route path="/news/darren-sammy-psl-11-final-invitation-official" element={<DarrenSammyFinalInvitationBlog />} />
@@ -263,6 +252,7 @@ export default function App() {
               <Route path="/news/babar-azam-psl-2026-complete-story-comeback" element={<BabarAzamPSL2026StoryBlog />} />
               <Route path="/news/aaron-hardie-psl-2026-final-all-rounder-masterclass" element={<AaronHardiePSL2026FinalBlog />} />
               <Route path="/news/pakistan-women-vs-zimbabwe-women-1st-odi-2026-report" element={<PakWvsZimW1stODIBlog />} />
+              <Route path="/news/azan-awais-pakistan-test-debut-masterclass-dhaka" element={<AzanAwaisDebutBlog />} />
               <Route path="/series-intelligence/:slug" element={<SeriesDetail />} />
               <Route path="/pakistan-upcoming-series-full-schedule" element={<UpcomingSeriesArticle />} />
               <Route path="/the-evolution-of-the-shaheens-2026-strategy" element={<EvolutionShaheensBlog />} />

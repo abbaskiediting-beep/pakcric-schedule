@@ -283,7 +283,7 @@ export default function BabarZalmiRecordBlog() {
 
               <Link 
                 to="/psl-2026-final-preview-peshawar-zalmi-vs-hyderabad-kingsmen"
-                className="block p-8 bg-white text-black rounded-[40px] hover:bg-pak-green hover:text-white transition-all transform hover:scale-[1.02]"
+                className="block p-8 bg-card-bg border border-card-border text-white rounded-[40px] hover:border-pak-green hover:bg-pak-green/5 transition-all transform hover:scale-[1.02]"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[10px] font-black uppercase tracking-widest opacity-40">Next Big Event</span>

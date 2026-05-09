@@ -78,7 +78,7 @@ export default function News() {
               </div>
               <div className="p-5 sm:p-8 lg:p-14 flex flex-col justify-center">
                 <div className="flex items-center gap-2.5 md:gap-3 mb-3 md:mb-6">
-                  <span className="px-2 py-0.5 rounded-full bg-white text-black text-[7px] md:text-[9px] font-bold uppercase tracking-widest leading-none">{featuredNews.tag}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-pak-green text-white text-[7px] md:text-[9px] font-bold uppercase tracking-widest leading-none outline outline-white/10">{featuredNews.tag}</span>
                   <div className="flex items-center gap-1.5 text-ink/40">
                     <Calendar className="w-2.5 h-2.5 md:w-3 md:h-3" />
                     <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-widest">{featuredNews.date}</span>

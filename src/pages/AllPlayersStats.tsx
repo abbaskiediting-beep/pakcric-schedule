@@ -463,8 +463,8 @@ export default function AllPlayersStats() {
             Stay connected with everything related to Pakistan cricket — from schedules to squads, all in one place.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-             <Link to="/schedule" className="px-8 py-3 bg-white text-black rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all">Full Schedule</Link>
-             <Link to="/squads" className="px-8 py-3 border border-white/20 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">View Squads</Link>
+             <Link to="/schedule" className="px-8 py-3 bg-pak-green text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20">Full Schedule</Link>
+             <Link to="/squads" className="px-8 py-3 border border-white/20 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition-all">View Squads</Link>
              <Link to="/news" className="px-8 py-1.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-ink/40 hover:text-pak-green transition-colors mt-4 w-full justify-center">Read Latest News <ChevronRight className="w-3 h-3" /></Link>
           </div>
         </div>

@@ -295,7 +295,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Link to="/schedule" className="mt-8 w-full py-4 bg-pak-green hover:bg-white hover:text-black text-white rounded-2xl text-[10px] font-bold uppercase tracking-[2px] transition-all text-center border border-white/5">
+          <Link to="/schedule" className="mt-8 w-full py-4 bg-pak-green hover:bg-emerald-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-[2px] transition-all text-center border border-white/5">
              View Full Schedule
           </Link>
         </motion.section>

@@ -167,6 +167,21 @@ export default function PakVsBan1stTestDay2Report() {
                   Opening alongside the experienced Imam-ul-Haq, 21-year-old Azan Awais showed no signs of debut nerves. He reached his maiden Test half-century off just 66 balls. His innings was characterized by elegant cover drives and a solid defensive technique against the spinners. By stumps, Awais remained unbeaten on 72 from 96 balls.
                 </p>
 
+                <Link 
+                  to="/news/azan-awais-pakistan-test-debut-masterclass-dhaka"
+                  className="group flex flex-col md:flex-row items-center gap-6 p-8 bg-pak-green/5 border border-pak-green/20 rounded-[32px] hover:bg-pak-green/10 transition-all"
+                >
+                  <div className="w-16 h-16 rounded-full bg-pak-green flex items-center justify-center shrink-0 shadow-lg shadow-pak-green/20">
+                    <Star className="w-8 h-8 text-white fill-white" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-[3px] text-pak-green mb-1 block">Detailed Breakdown</span>
+                    <h3 className="text-xl font-display font-bold text-white uppercase group-hover:text-pak-green transition-colors">Azan Awais: The 21-Year-Old Sensation's Masterclass in Dhaka</h3>
+                    <p className="text-sm text-white/40 mt-1">Read the full profile and innings analysis of Pakistan's newest Test star.</p>
+                  </div>
+                  <ChevronRight className="w-8 h-8 text-pak-green ml-auto group-hover:translate-x-2 transition-transform" />
+                </Link>
+
                 <h2 className="text-3xl font-display font-bold text-white pt-8 uppercase tracking-tight flex items-center gap-3">
                   <Target className="w-8 h-8 text-pak-green" /> Bowling Audit
                 </h2>

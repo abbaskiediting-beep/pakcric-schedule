@@ -100,7 +100,7 @@ export default function PlayerRankingsDetail({ title, category, format, data, th
          <h3 className="text-xl font-display font-bold uppercase tracking-tight mb-2">Want more stats?</h3>
          <p className="text-ink/40 text-xs font-medium mb-6">Explore rankings for all formats and categories to stay updated with the world of cricket.</p>
          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/rankings" className="px-8 py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all">
+            <Link to="/rankings" className="px-8 py-4 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20">
                All World Rankings
             </Link>
          </div>

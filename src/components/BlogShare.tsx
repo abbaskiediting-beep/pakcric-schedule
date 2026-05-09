@@ -117,7 +117,7 @@ export const BlogShare: React.FC<BlogShareProps> = ({ title, summary }) => {
       <button 
         onClick={() => setShowMenu(!showMenu)}
         className={`w-14 h-14 rounded-3xl flex items-center justify-center hover:scale-110 transition-transform shadow-2xl relative group ${
-          showMenu ? 'bg-white text-black' : 'bg-pak-green text-black'
+          showMenu ? 'bg-pak-green text-white' : 'bg-white/5 text-white'
         }`}
       >
         <Share2 className={`w-6 h-6 transition-transform ${showMenu ? 'rotate-12' : ''}`} />

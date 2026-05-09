@@ -43,8 +43,8 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
   const getShareInfo = () => {
     const sharePath = match.blogUrl || `/match/${effectiveId}`;
     const shareUrl = window.location.origin + sharePath;
-    const title = `Pakistan vs ${match.opponent} - ${match.series}`;
-    const text = `Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`;
+    const title = `${match.series}: Pakistan vs ${match.opponent}`;
+    const text = `Check out the match details: Pakistan vs ${match.opponent} in the ${match.series} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}.`;
     return { shareUrl, title, text };
   };
 

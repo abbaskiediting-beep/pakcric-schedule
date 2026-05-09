@@ -443,7 +443,7 @@ export default function NewsDetail() {
                    placeholder="ADD A COMMENT..."
                    className="flex-1 bg-black/40 border border-white/10 rounded-xl px-5 md:px-6 py-3 text-[9px] md:text-[10px] font-normal uppercase tracking-widest focus:outline-none focus:border-white transition-colors"
                  />
-                 <button className="px-6 py-3 bg-white text-black rounded-xl text-[9px] md:text-[10px] font-normal uppercase tracking-widest hover:scale-105 transition-all text-center">
+                 <button className="px-6 py-3 bg-pak-green text-white rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all text-center shadow-lg shadow-pak-green/20">
                    Post
                  </button>
                </div>

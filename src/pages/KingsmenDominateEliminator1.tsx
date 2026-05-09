@@ -151,7 +151,7 @@ export default function KingsmenDominateEliminator1() {
                 With 160 runs to chase, Hyderabad Kingsmen now have the upper hand. However, knockout matches are unpredictable, and Multan Sultans still have experienced bowlers who can turn the game around.
              </p>
              <div className="flex justify-center gap-4">
-                <Link to="/blogs" className="px-8 py-3 bg-white text-black rounded-full text-xs font-black uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all">Latest News</Link>
+                <Link to="/blogs" className="px-8 py-3 bg-pak-green text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20">Latest News</Link>
                 <Link to="/" className="px-8 py-3 bg-white/5 text-white border border-white/20 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all">Back Home</Link>
              </div>
           </div>

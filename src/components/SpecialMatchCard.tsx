@@ -10,7 +10,7 @@ interface SpecialMatchCardProps {
 
 export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
   const shareTitle = `${match.series}: Pakistan vs ${match.opponent}`;
-  const shareText = `Check out the big match: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`;
+  const shareText = `Check out the big match: Pakistan vs ${match.opponent} in the ${match.series} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}.`;
   const shareUrl = `${window.location.origin}/match/${match.id}`;
 
   return (
@@ -127,7 +127,7 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link to={`/match/${match.id}`} className="flex-[2] px-8 py-5 bg-pak-green text-white rounded-2xl text-[12px] font-black uppercase tracking-[3px] hover:bg-white hover:text-black hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-3">
+          <Link to={`/match/${match.id}`} className="flex-[2] px-8 py-5 bg-pak-green text-white rounded-2xl text-[12px] font-black uppercase tracking-[3px] hover:bg-emerald-600 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-3">
             Match Center <ArrowRight className="w-5 h-5" />
           </Link>
           <div className="flex-[1] flex gap-4">

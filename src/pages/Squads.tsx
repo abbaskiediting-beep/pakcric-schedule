@@ -13,9 +13,9 @@ import React from 'react';
 
 function StatCard({ label, value, highlight }: { label: string; value: any; highlight?: boolean }) {
   return (
-    <div className={`p-4 rounded-2xl border transition-all ${highlight ? 'bg-white border-white' : 'bg-white/5 border-white/5 hover:bg-white/10'}`}>
-      <p className={`text-[9px] font-bold uppercase tracking-[0.1em] mb-1.5 ${highlight ? 'text-black/60' : 'text-neutral-500'}`}>{label}</p>
-      <p className={`text-xl md:text-2xl font-display font-bold tabular-nums ${highlight ? 'text-black' : 'text-white'}`}>{value}</p>
+    <div className={`p-4 rounded-2xl border transition-all ${highlight ? 'bg-pak-green border-pak-green' : 'bg-white/5 border-white/5 hover:bg-white/10'}`}>
+      <p className={`text-[9px] font-bold uppercase tracking-[0.1em] mb-1.5 ${highlight ? 'text-white/80' : 'text-neutral-500'}`}>{label}</p>
+      <p className={`text-xl md:text-2xl font-display font-bold tabular-nums ${highlight ? 'text-white' : 'text-white'}`}>{value}</p>
     </div>
   );
 }
@@ -283,7 +283,7 @@ export default function Squads() {
                  onClick={() => setFilterFormat(f)}
                  className={`min-w-[70px] md:min-w-[80px] flex-1 py-2.5 md:py-4 rounded-lg md:rounded-2xl text-[8px] md:text-[10px] font-bold uppercase tracking-[0.1em] md:tracking-[0.15em] transition-all flex items-center justify-center ${
                    filterFormat === f 
-                   ? 'bg-white text-black shadow-xl scale-105' 
+                   ? 'bg-pak-green text-white shadow-xl scale-105' 
                    : 'text-neutral-500 hover:text-white hover:bg-white/5'
                  }`}
                >

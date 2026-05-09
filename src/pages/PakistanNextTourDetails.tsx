@@ -225,7 +225,7 @@ export default function PakistanNextTourDetails() {
             href="https://www.pcb.com.pk/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block px-10 py-4 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-pak-green hover:text-white transition-all transform hover:scale-105"
+            className="inline-block px-10 py-4 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-emerald-600 transition-all transform hover:scale-105 shadow-xl shadow-pak-green/20"
           >
             Join the Fan Community
           </a>

@@ -712,4 +712,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'sarfraz-khan'
   },
+  {
+    id: 'azan-awais-test-debut-dhaka-sensational-80-2026',
+    title: "Azan Awais: Pakistan's 21-Year-Old Sensation Lights Up Test Debut With 80+ Masterclass in Dhaka",
+    summary: "Azan Awais, 21, scores 80+ on Test debut vs Bangladesh in Mirpur May 9 2026. 106-run opening stand with Imam, survived DRS review, calm under pressure. Profile, domestic record, U19 heroics and full innings breakdown.",
+    date: 'May 9, 2026',
+    category: 'Analysis',
+    path: '/news/azan-awais-pakistan-test-debut-masterclass-dhaka',
+    icon: Star,
+    color: 'text-pak-green',
+    authorId: 'bilal-ahmed'
+  },
 ];

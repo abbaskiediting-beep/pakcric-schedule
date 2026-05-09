@@ -2,7 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { seriesSummaries } from '../data/seriesData';
 import SeriesSummaryComponent from '../components/SeriesSummaryComponent';
-import { ArrowLeft, Share2, Info, ArrowRight, Newspaper, ChevronRight, Calendar } from 'lucide-react';
+import { ArrowLeft, Info, ArrowRight, Newspaper, ChevronRight, Calendar } from 'lucide-react';
+import ShareButton from '../components/ShareButton';
 import { motion } from 'motion/react';
 import { BLOG_POSTS } from '../data/blogData';
 
@@ -55,10 +56,13 @@ export default function SeriesDetail() {
             <span className="text-[10px] font-black uppercase tracking-widest">Back to Schedule</span>
           </Link>
           <div className="flex items-center gap-4 w-full sm:w-auto">
-             <button className="flex items-center justify-center gap-2 px-6 py-2.5 bg-pak-green rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20 w-full sm:w-auto">
-                <Share2 className="w-4 h-4" />
-                Share Report
-             </button>
+             <ShareButton 
+               title={`${summary.seriesName} - Series Intelligence Report`}
+               text={`Check out the full intelligence report for ${summary.seriesName} on PakCric Intelligence! Head to head, venue history, and predicted playing XIs.`}
+               url={window.location.href}
+               variant="filled"
+               className="w-full sm:w-auto"
+             />
           </div>
         </div>
       </div>

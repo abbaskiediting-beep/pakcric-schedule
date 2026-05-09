@@ -389,7 +389,7 @@ export default function PlayerStats() {
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-8">
                       <div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[3px] border ${
-                        format === 'test' ? 'bg-white text-black border-white' : 
+                        format === 'test' ? 'bg-pak-green text-white border-pak-green shadow-lg shadow-pak-green/20' : 
                         format === 'odi' ? 'bg-pak-green text-white border-pak-green' : 
                         'bg-blue-600 text-white border-blue-600'
                       }`}>
@@ -597,7 +597,7 @@ export default function PlayerStats() {
           </p>
           <button 
             onClick={() => window.print()}
-            className="w-full sm:w-auto px-8 py-3 bg-white text-black rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl"
+            className="w-full sm:w-auto px-8 py-3 bg-pak-green text-white rounded-xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-xl shadow-pak-green/20"
           >
             Export Stats Sheet (PDF)
           </button>

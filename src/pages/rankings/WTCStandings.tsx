@@ -200,7 +200,7 @@ export default function WTCStandings() {
         </div>
         <Link 
           to="/blogs/red-ball-resilience-overview-2026"
-          className="px-8 py-3 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all shadow-xl shadow-black/20"
+          className="px-8 py-3 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-xl shadow-pak-green/20"
         >
           View Full WTC Roadmap
         </Link>

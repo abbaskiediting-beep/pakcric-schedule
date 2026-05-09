@@ -156,7 +156,7 @@ export default function MatchDetail() {
           
           <div className="relative z-10">
              <div className="flex flex-col items-center gap-4 mb-8 md:mb-10">
-               <span className="px-4 py-1.5 bg-white text-black rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] shadow-lg">{match.series}</span>
+               <span className="px-4 py-1.5 bg-pak-green text-white rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[3px] md:tracking-[4px] shadow-lg shadow-pak-green/20">{match.series}</span>
                {match.status === 'Live' && (
                  <div className="flex items-center gap-2.5 px-4 py-1.5 bg-red-600/20 text-red-100 rounded-full text-[9px] font-black uppercase tracking-widest border border-red-500/30 animate-pulse backdrop-blur-sm">
                    <div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
@@ -174,7 +174,7 @@ export default function MatchDetail() {
                 <div className="flex flex-col items-center">
                    <div className="relative mb-5 md:mb-6">
                       <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-white rounded-md text-[9px] md:text-[10px] font-black text-black">PAK</div>
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-pak-green rounded-md text-[9px] md:text-[10px] font-black text-white">PAK</div>
                    </div>
                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-widest uppercase">PAKISTAN</h2>
                    {match.scorePAK && (
@@ -189,7 +189,7 @@ export default function MatchDetail() {
                 <div className="flex flex-col items-center">
                    <div className="relative mb-5 md:mb-6">
                       <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-3xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-white rounded-md text-[9px] md:text-[10px] font-black text-black">{match.opponent.substring(0, 3)}</div>
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-1 md:px-3 md:py-1 bg-pak-green rounded-md text-[9px] md:text-[10px] font-black text-white">{match.opponent.substring(0, 3)}</div>
                    </div>
                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-white uppercase tracking-widest leading-none">{match.opponent}</h2>
                    {match.scoreOpponent && (
@@ -233,8 +233,8 @@ export default function MatchDetail() {
                       disabled={reminderSet}
                       className={`flex-1 md:flex-none px-6 py-4 rounded-3xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-3 backdrop-blur-md border border-white/10 ${
                         reminderSet 
-                          ? 'bg-white/10 text-white cursor-default' 
-                          : 'bg-white text-pak-green hover:scale-105 active:scale-95 shadow-xl shadow-black/20'
+                          ? 'bg-pak-green/20 text-pak-green border border-pak-green/30' 
+                          : 'bg-pak-green text-white hover:scale-105 active:scale-95 shadow-xl shadow-pak-green/20'
                       }`}
                     >
                       {reminderSet ? (
@@ -252,7 +252,7 @@ export default function MatchDetail() {
                     
                     <ShareButton 
                       title={`${match.series}: Pakistan vs ${match.opponent}`}
-                      text={`Check out the match details: Pakistan vs ${match.opponent} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}`}
+                      text={`Check out the match details: Pakistan vs ${match.opponent} in the ${match.series} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}.`}
                       url={window.location.href}
                       variant="outline"
                       className="flex-1 md:flex-none"
@@ -264,7 +264,7 @@ export default function MatchDetail() {
                   <div className="flex justify-center w-full">
                     <ShareButton 
                       title={`${match.series}: Pakistan vs ${match.opponent}`}
-                      text={`Match result: Pakistan vs ${match.opponent}. ${match.result}. ${match.date} at ${match.venue}`}
+                      text={`Match result: Pakistan vs ${match.opponent} in the ${match.series}. Result: ${match.result}. ${match.date} at ${match.venue}.`}
                       url={window.location.href}
                       variant="filled"
                     />
@@ -424,7 +424,7 @@ export default function MatchDetail() {
               <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white mb-3">Tickets</h3>
               <p className="text-[11px] md:text-xs text-ink/40 font-medium mb-6">Experience the action live from the stadium. Premium seating available.</p>
            </div>
-           <button className="w-full py-3.5 bg-white text-black rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all flex items-center justify-center gap-2">
+           <button className="w-full py-3.5 bg-pak-green text-white rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-pak-green/20">
               <Ticket className="w-4 h-4" /> Book Tickets
            </button>
         </motion.div>

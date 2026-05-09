@@ -231,7 +231,7 @@ export default function RedBallResilienceBlog() {
           <h3 className="text-xl font-display font-bold uppercase mb-4 text-ink">Full Squad Breakdown</h3>
           <p className="text-xs text-ink/60 mb-6">Would you like a breakdown of the head-to-head records or a look at the uncapped players' domestic stats?</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/squads" className="px-8 py-3 bg-white text-black rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-pak-green hover:text-white transition-all">
+            <Link to="/squads" className="px-8 py-3 bg-pak-green text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20">
               View Player Stats
             </Link>
             <Link to="/pakistan-tour-bangladesh-squad-2026" className="px-8 py-3 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:border-white transition-all">

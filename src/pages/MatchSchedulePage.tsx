@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import React, { useState, useMemo } from 'react';
 import { Match } from '../types';
+import ShareButton from '../components/ShareButton';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import ExternalResourcesSection from '../components/ExternalResourcesSection';
@@ -521,6 +522,12 @@ export default function MatchSchedulePage() {
                   </div>
 
                   <div className="flex gap-3 pt-2">
+                    <ShareButton 
+                      title={match.title || `PAK vs ${match.opponent} - ${match.series}`}
+                      text={`Pakistan vs ${match.opponent} in the ${match.series} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}.`}
+                      url={`${window.location.origin}/match/${match.id}`}
+                      variant="icon"
+                    />
                     <span className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
                       match.status === 'Live' ? 'bg-red-600 text-white animate-pulse shadow-xl shadow-red-600/20' :
                       match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/10' :
@@ -530,6 +537,11 @@ export default function MatchSchedulePage() {
                       {match.status === 'Live' && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
                       {match.status}
                     </span>
+                    {match.granularStatus && (
+                      <span className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest bg-white/5 text-pak-green border border-white/10">
+                        {match.granularStatus}
+                      </span>
+                    )}
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
@@ -688,12 +700,23 @@ export default function MatchSchedulePage() {
                             {match.status === 'Live' && <span className="w-1 h-1 rounded-full bg-white animate-ping" />}
                             {match.status}
                           </div>
+                          {match.granularStatus && (
+                            <div className="w-fit px-2.5 py-1 rounded-lg text-[8px] font-black uppercase tracking-widest bg-white/5 text-pak-green border border-white/10 mt-1">
+                              {match.granularStatus}
+                            </div>
+                          )}
                         </div>
                       </td>
 
                       {/* Action Column */}
                       <td className="px-6 py-5 text-right">
                          <div className="flex items-center justify-end gap-3">
+                           <ShareButton 
+                             title={match.title || `PAK vs ${match.opponent} - ${match.series}`}
+                             text={`Pakistan vs ${match.opponent} in the ${match.series} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}.`}
+                             url={`${window.location.origin}/match/${match.id}`}
+                             variant="icon"
+                           />
                            <button 
                              className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${expandedId === match.id ? 'bg-pak-green text-white shadow-lg shadow-pak-green/20' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white border border-white/5 hover:border-white/10'}`}
                            >

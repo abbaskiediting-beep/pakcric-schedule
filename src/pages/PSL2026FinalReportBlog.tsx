@@ -206,7 +206,7 @@ const PSL2026FinalReportBlog = () => {
                      <Link to="/news/babar-azam-psl-finals-from-player-to-captain" className="px-8 py-3 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform">
                         Backstory: Player to Captain
                      </Link>
-                     <Link to="/news/psl-2026-final-toss-result-hyk-vs-pz" className="px-8 py-3 bg-white text-black rounded-full text-xs font-black uppercase tracking-widest border border-black/10 hover:scale-105 transition-transform">
+                     <Link to="/news/psl-2026-final-toss-result-hyk-vs-pz" className="px-8 py-3 bg-pak-green text-white rounded-full text-xs font-black uppercase tracking-widest border border-white/10 hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20">
                         Full Toss & Lineups
                      </Link>
                   </div>

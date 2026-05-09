@@ -280,7 +280,7 @@ export default function PSLEliminator1Report() {
                        <span className="text-xs font-bold text-white/70 uppercase tracking-widest">Gaddafi, Lahore</span>
                     </div>
                  </div>
-                 <Link to="/schedule" className="block w-full py-4 bg-white text-black text-center text-[10px] font-black uppercase tracking-widest rounded-2xl hover:bg-black hover:text-white transition-colors">
+                 <Link to="/schedule" className="block w-full py-4 bg-pak-green text-white text-center text-[10px] font-black uppercase tracking-widest rounded-2xl hover:bg-emerald-600 transition-all shadow-lg shadow-pak-green/20">
                     View Full Schedule
                  </Link>
               </div>

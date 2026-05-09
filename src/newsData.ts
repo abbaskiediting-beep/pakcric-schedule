@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'azan-awais-pakistan-test-debut-masterclass-dhaka',
+    title: "Azan Awais: Pakistan's 21-Year-Old Sensation Masterclass in Dhaka",
+    date: 'May 9, 2026',
+    tag: 'Test Debut',
+    summary: "Azan Awais, 21, scores 80+ on Test debut vs Bangladesh in Mirpur. 106-run opening stand with Imam, survived DRS review, calm under pressure."
+  },
+  {
     id: 'pak-vs-ban-1st-test-day-2-report-2026',
     title: 'Pakistan Fight Back in Dhaka: Abbas’s Fifer and Azan Awais’s Gritty Debut Define Day 2',
     date: 'May 9, 2026',
