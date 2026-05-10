@@ -723,4 +723,15 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'bilal-ahmed'
   },
+  {
+    id: 'pak-vs-ban-1st-test-day-3-session-1-report-2026',
+    title: 'PAK vs BAN Day 3 Session 1: 4 Wickets Fall, PAK 251/5 at Lunch',
+    summary: 'Bangladesh struck 4 times in Day 3 morning session vs Pakistan. Azan Awais 85 dismissed, Fazal 60 out, Shan Masood 56 falls, Saud Shakeel 0. Pakistan 251/5 at lunch — trail Bangladesh by 162 runs.',
+    date: 'May 10, 2026',
+    category: 'Match Report',
+    path: '/news/pak-vs-ban-1st-test-day-3-session-1-report-2026',
+    icon: Newspaper,
+    color: 'text-pak-green',
+    authorId: 'sarfraz-khan'
+  },
 ];
