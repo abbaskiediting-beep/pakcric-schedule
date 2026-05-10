@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { 
@@ -12,13 +12,56 @@ import {
   Clock,
   Timer,
   Star,
-  Users
+  Users,
+  ChevronUp,
+  ChevronDown,
+  ArrowUpDown
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 
+const battingStats = [
+  { name: 'Azan Awais', runs: 85, balls: 145, fours: 9, sixes: 0, sr: 58.62, status: 'c Litton b Mehidy' },
+  { name: 'Abdullah Fazal', runs: 60, balls: 120, fours: 7, sixes: 0, sr: 50.00, status: 'c Mehidy b Taskin' },
+  { name: 'Shan Masood', runs: 56, balls: 90, fours: 6, sixes: 1, sr: 62.22, status: 'c & b Mehidy' },
+  { name: 'Saud Shakeel', runs: 0, balls: 1, fours: 0, sixes: 0, sr: 0.00, status: 'lbw b Mehidy' },
+  { name: 'Salman Ali Agha', runs: 12, balls: 30, fours: 1, sixes: 0, sr: 40.00, status: 'not out' },
+  { name: 'Mohammad Rizwan', runs: 8, balls: 25, fours: 1, sixes: 0, sr: 32.00, status: 'not out' },
+];
+
 export default function PakVsBan1stTestDay3Session1Report() {
+  const [sortConfig, setSortConfig] = useState<{ key: string, direction: 'asc' | 'desc' | null }>({ key: 'runs', direction: 'desc' });
+
+  const sortedStats = useMemo(() => {
+    let sortableItems = [...battingStats];
+    if (sortConfig.key !== null && sortConfig.direction !== null) {
+      sortableItems.sort((a: any, b: any) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === 'asc' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortableItems;
+  }, [sortConfig]);
+
+  const requestSort = (key: string) => {
+    let direction: 'asc' | 'desc' = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const getSortIcon = (key: string) => {
+    if (sortConfig.key !== key) return <ArrowUpDown className="w-3 h-3 opacity-30" />;
+    return sortConfig.direction === 'asc' ? <ChevronUp className="w-3 h-3 text-pak-green" /> : <ChevronDown className="w-3 h-3 text-pak-green" />;
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-pak-green selection:text-white">
       <Helmet>
@@ -154,10 +197,13 @@ export default function PakVsBan1stTestDay3Session1Report() {
 
                 <h2 className="text-3xl font-display font-black text-white pt-8 uppercase tracking-tight italic">Mehidy Hasan: The Man Who <span className="text-pak-green">Broke Pakistan</span></h2>
                 <p>
-                  The morning session's bowling hero was undoubtedly <strong>Mehidy Hasan Miraz</strong>. Bangladesh's vice-captain and premier off-spinner led from the front, demonstrating the tactical maturity expected of a senior leader. His off-spin wasn't just about flight and turn; it was a masterclass in hitting his lengths with surgical precision, making Pakistan's middle order look thoroughly uncomfortable on a surface that is beginning to show more bite.
+                  The morning session's bowling hero was undoubtedly <strong>Mehidy Hasan Miraz</strong>. As Bangladesh's <strong>vice-captain</strong>, Mehidy took full responsibility for the tactical adjustments needed on a third-day surface. He led the spin department with immense composure, constantly communicating with his fielders and his bowling partner, Taskin Ahmed, to ensure the pressure remained relentless. This wasn't just a standard spell; it was a masterclass in hitting his lengths with surgical precision, exploiting the natural variations of the Mirpur pitch to make Pakistan's middle order look thoroughly uncomfortable.
                 </p>
                 <p>
-                  As a standout performer, his ability to read the pitch and the batter's mind was second to none. His role as a leader in this attack was evident as he orchestrated the collapse step by step. Perhaps the most telling moment of the entire morning—and potentially the match—was his dismissal of <strong>Saud Shakeel</strong> for a golden duck. Shakeel, widely regarded as Pakistan's most technically sound batter against spin, was tempted into an early sweep and beaten by the sheer accuracy of Mehidy's angle from around the wicket. Finishing the session with figures of 3/60, Mehidy proved why he is the undisputed engine of this bowling unit.
+                  Mehidy's performance solidified his status as the <strong>standout performer</strong> of the innings so far. His ability to read the batter's intentions was a step ahead of Pakistan’s response. Perhaps the most telling moment of the entire morning—and potentially the match—was his dismissal of <strong>Saud Shakeel</strong> for a golden duck. 
+                </p>
+                <p>
+                  Shakeel, widely regarded as Pakistan's most technically sound batter against spin, was greeted with a delivery that combined clever drift with a sharp turn. Tempted into an early sweep before his eyes were properly in, Shakeel was beaten by the sheer accuracy and dip of Mehidy's angle from around the wicket. The roar from the Bangladesh camp told the story: they had removed the linchpin. Finishing the session with figures of 3/60, Mehidy proved why he is the undisputed engine of this bowling unit.
                 </p>
                 <p>
                   However, the pressure was a two-pronged assault. <strong>Taskin Ahmed</strong> played a key role in providing the early breakthroughs with the new ball, utilizing the morning moisture and bounce to keep the set batters on their toes. His partnership with Mehidy Hasan Miraz was particularly potent, as Taskin's aggressive pace from one end complemented Mehidy's tactical spin from the other, leaving Pakistan with no room to breathe.
@@ -205,6 +251,48 @@ export default function PakVsBan1stTestDay3Session1Report() {
                    </div>
                 </div>
 
+                <div className="bg-[#0A0A0A] border border-white/5 rounded-[40px] p-8 md:p-12 mb-12 overflow-hidden overflow-x-auto">
+                   <h3 className="text-xl font-display font-black text-pak-green uppercase mb-8">Player Statistics (Session 1)</h3>
+                   <table className="w-full text-left">
+                      <thead>
+                        <tr className="border-b border-white/10">
+                          <th onClick={() => requestSort('name')} className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 cursor-pointer hover:text-white transition-colors">
+                            <div className="flex items-center gap-2">Batter {getSortIcon('name')}</div>
+                          </th>
+                          <th className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500">Status</th>
+                          <th onClick={() => requestSort('runs')} className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-center cursor-pointer hover:text-white transition-colors">
+                            <div className="flex items-center justify-center gap-2">R {getSortIcon('runs')}</div>
+                          </th>
+                          <th onClick={() => requestSort('balls')} className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-center cursor-pointer hover:text-white transition-colors">
+                            <div className="flex items-center justify-center gap-2">B {getSortIcon('balls')}</div>
+                          </th>
+                          <th onClick={() => requestSort('fours')} className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-center cursor-pointer hover:text-white transition-colors">
+                            <div className="flex items-center justify-center gap-2">4s {getSortIcon('fours')}</div>
+                          </th>
+                          <th onClick={() => requestSort('sixes')} className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-center cursor-pointer hover:text-white transition-colors">
+                            <div className="flex items-center justify-center gap-2">6s {getSortIcon('sixes')}</div>
+                          </th>
+                          <th onClick={() => requestSort('sr')} className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-right cursor-pointer hover:text-white transition-colors">
+                            <div className="flex items-center justify-end gap-2">SR {getSortIcon('sr')}</div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-white/5 font-display">
+                        {sortedStats.map((player, idx) => (
+                           <tr key={idx} className="group hover:bg-white/[0.02] transition-colors">
+                             <td className="py-4 text-sm font-bold text-white uppercase italic">{player.name}</td>
+                             <td className="py-4 text-xs text-white/40">{player.status}</td>
+                             <td className="py-4 text-sm font-bold text-pak-green text-center">{player.runs}</td>
+                             <td className="py-4 text-sm font-bold text-white/60 text-center">{player.balls}</td>
+                             <td className="py-4 text-sm font-bold text-white/40 text-center">{player.fours}</td>
+                             <td className="py-4 text-sm font-bold text-white/40 text-center">{player.sixes}</td>
+                             <td className="py-4 text-sm font-black text-rose-500 text-right">{player.sr.toFixed(2)}</td>
+                           </tr>
+                        ))}
+                      </tbody>
+                   </table>
+                </div>
+
                 <div className="space-y-6">
                    <h2 className="text-3xl font-display font-black text-white pt-8 uppercase tracking-tight flex items-center gap-3">
                      <Star className="w-8 h-8 text-pak-green" /> Session Verdict
@@ -216,7 +304,7 @@ export default function PakVsBan1stTestDay3Session1Report() {
                      The standout factor was the impact of <strong>Mehidy Hasan Miraz</strong>. His off-spin on a wearing Mirpur surface proved too much for Pakistan's middle order. By hitting consistent lengths and using the natural variations of the pitch, he forced errors from seasoned batters like Saud Shakeel and Shan Masood.
                    </p>
                    <p>
-                     The pitch itself is starting to play its part. As Day 3 progresses, the surface is deteriorating, with puffs of dust emerging and the ball starting to stay low or turn sharply. This makes the afternoon session even more challenging for the visitors as they look to close the massive deficit.
+                     The pitch itself is starting to play its part. As Day 3 progresses, the surface is deteriorating, with puffs of dust emerging and the ball starting to stay low or turn sharply. This makes the afternoon session even more challenging for the visitors as they look to close the massive deficit. With the afternoon sun beating down, expect the pitch to dry out even further, potentially opening up wider cracks and providing the spinners with even more unplayable turn as the game moves into the business end of Day 3.
                    </p>
                 </div>
 
