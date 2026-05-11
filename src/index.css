@@ -7,6 +7,12 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-pak-green: #01411C;
   
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; filter: brightness(1.2); }
+    50% { opacity: 0.8; filter: brightness(0.9); }
+  }
+  --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
   --color-bg: var(--bg);
   --color-ink: var(--ink);
   --color-card-bg: var(--card-bg);

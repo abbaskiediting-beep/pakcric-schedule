@@ -25,6 +25,7 @@ import {
 import { Link } from 'react-router-dom';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
+import DetailedScorecard from '../components/DetailedScorecard';
 
 export default function PakVsBan1stTestDay4Report() {
   const scoreboardHeaders = ["", "Score", "Status"];
@@ -171,32 +172,13 @@ export default function PakVsBan1stTestDay4Report() {
                    </p>
                 </div>
 
-                {/* Scorecard table */}
-                <div className="bg-[#0A0A0A] border border-white/5 rounded-[40px] p-8 md:p-12 mb-12 overflow-hidden overflow-x-auto">
-                   <h3 className="text-xl font-display font-black text-pak-green uppercase mb-8">Pakistan 1st Innings Scorecard</h3>
-                   <table className="w-full text-left">
-                      <thead>
-                        <tr className="border-b border-white/10">
-                          <th className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500">Batsman</th>
-                          <th className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-center">R</th>
-                          <th className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-center">B</th>
-                          <th className="pb-4 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-right">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-white/5 font-display">
-                        {pakStats.map((player, idx) => (
-                           <tr key={idx} className="group hover:bg-white/[0.02] transition-colors">
-                             <td className={`py-5 text-sm font-bold uppercase italic ${player.highlight ? 'text-pak-green' : 'text-white'}`}>{player.name}</td>
-                             <td className="py-5 text-sm font-black text-white text-center italic">{player.runs}</td>
-                             <td className="py-5 text-xs text-white/40 text-center italic">{player.balls}</td>
-                             <td className="py-5 text-[10px] font-black uppercase tracking-widest text-neutral-500 text-right">
-                               {player.status}
-                             </td>
-                           </tr>
-                        ))}
-                      </tbody>
-                   </table>
-                </div>
+                {/* Scorecard Component */}
+                <DetailedScorecard 
+                  title="Pakistan 1st Innings Scorecard" 
+                  batters={pakStats} 
+                  bowlers={banBowling}
+                  teamName="PAK vs BAN"
+                />
 
                 <div className="space-y-6">
                    <h2 className="text-3xl font-display font-black text-white pt-8 uppercase tracking-tight flex items-center gap-3">
@@ -259,26 +241,6 @@ export default function PakVsBan1stTestDay4Report() {
                    <p>
                      However, Mominul Haque (37*) and Najmul Hossain Shanto (34*) rebuilt with an unbroken 70-run stand, extending the lead to 120 by lunch. A dropped catch by Rizwan off Mominul proved to be a costly miss for the visitors.
                    </p>
-                </div>
-
-                <div className="bg-[#111111] border border-white/10 rounded-[40px] p-8 md:p-10 mb-12">
-                   <h3 className="text-sm font-black uppercase tracking-widest text-neutral-500 mb-8 flex items-center gap-2">
-                     <Zap className="w-4 h-4 text-pak-green" /> BOWLING HONOURS (PAK INNINGS)
-                   </h3>
-                   <div className="space-y-6">
-                      {banBowling.map((bowler, i) => (
-                        <div key={i} className="flex items-center justify-between group">
-                           <div className="flex items-center gap-4">
-                              <div className="w-1.5 h-1.5 rounded-full bg-pak-green shadow-[0_0_10px_rgba(1,65,30,1)] group-hover:scale-150 transition-transform" />
-                              <div>
-                                <p className={`text-sm font-bold uppercase italic ${bowler.color}`}>{bowler.name}</p>
-                                <p className="text-[10px] text-neutral-500 uppercase font-black tracking-widest">{bowler.description}</p>
-                              </div>
-                           </div>
-                           <p className="text-base font-display font-black text-white italic">{bowler.figures}</p>
-                        </div>
-                      ))}
-                   </div>
                 </div>
 
                 <div className="bg-[#0A0A0A] border border-white/5 rounded-[40px] p-8 md:p-12 mb-12">

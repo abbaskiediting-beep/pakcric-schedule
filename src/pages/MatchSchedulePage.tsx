@@ -497,6 +497,13 @@ export default function MatchSchedulePage() {
                     <Link to={`/match/${match.id}`} onClick={(e) => e.stopPropagation()} className="text-lg font-display font-bold text-white uppercase tracking-tighter leading-none hover:text-pak-green transition-colors line-clamp-1">
                       {match.title || `PAK vs ${match.opponent}`}
                     </Link>
+                    {(match.status === 'Live' || match.status === 'Completed') && (match.scorePAK || match.scoreOpponent) && (
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className={`text-sm font-display font-black tracking-tighter italic ${match.status === 'Live' ? 'text-emerald-400' : 'text-white'}`}>{match.scorePAK}</span>
+                        <span className="text-[10px] text-white/20 font-black">/</span>
+                        <span className={`text-sm font-display font-black tracking-tighter italic ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/40'}`}>{match.scoreOpponent}</span>
+                      </div>
+                    )}
                     {match.status === 'Live' && (
                       <div className="ml-auto">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_15px_rgba(220,38,38,1)]" />
@@ -663,6 +670,13 @@ export default function MatchSchedulePage() {
                             >
                               {match.title || `PAK vs ${match.opponent}`}
                             </Link>
+                            {(match.status === 'Live' || match.status === 'Completed') && (match.scorePAK || match.scoreOpponent) && (
+                              <div className="flex items-center gap-1.5 mt-2.5 bg-white/[0.03] border border-white/5 rounded-lg px-2.5 py-1.5 w-fit">
+                                <span className={`text-[13px] font-display font-black tracking-tight italic leading-none drop-shadow-[0_0_8px_rgba(52,211,153,0.3)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white'}`}>{match.scorePAK}</span>
+                                <span className="text-[10px] text-white/10 font-black italic">VS</span>
+                                <span className={`text-[13px] font-display font-black tracking-tight italic leading-none drop-shadow-[0_0_8px_rgba(52,211,153,0.2)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/40'}`}>{match.scoreOpponent}</span>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </td>

@@ -169,17 +169,46 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
                 }`}>{match.teamA || "PAK"}</span>
               </div>
 
-              {/* VS Divider */}
-              <div className="flex flex-col items-center gap-1 sm:gap-1 px-1 basis-[24%] relative z-10 shrink-0">
-                <div className={`h-[0.5px] w-6 xs:w-6 sm:w-10 transition-colors ${
-                  match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
-                }`} />
-                <div className={`text-[12px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
-                  match.status === 'Live' ? 'text-red-500' : 'text-white/10 group-hover:text-pak-green group-hover:scale-110'
-                }`}>VS</div>
-                <div className={`h-[0.5px] w-6 xs:w-6 sm:w-10 transition-colors ${
-                  match.status === 'Live' ? 'bg-red-500/30 group-hover:bg-red-500/50' : 'bg-white/10 group-hover:bg-pak-green/30'
-                }`} />
+              {/* VS Divider or Score */}
+              <div className={`flex flex-col items-center gap-1 sm:gap-1 px-1 relative z-10 shrink-0 transition-all duration-500 ${match.scorePAK ? 'basis-[44%] -mx-3' : 'basis-[24%]'}`}>
+                {match.status === 'Live' || match.status === 'Completed' ? (
+                  <div className="flex flex-col items-center w-full group/card-score">
+                    {match.scorePAK && match.scoreOpponent ? (
+                      <div className="flex flex-col items-center w-full gap-1">
+                        <div className="bg-pak-green/[0.07] border border-pak-green/20 px-3 py-2.5 rounded-2xl flex flex-col items-center w-full shadow-lg backdrop-blur-md group-hover:bg-pak-green/[0.12] group-hover:border-pak-green/30 transition-all border-dashed relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-pak-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                          
+                          <div className="flex items-center justify-center gap-2.5 w-full relative z-10">
+                             <div className={`text-[12px] sm:text-[18px] font-display font-black leading-none tracking-tighter drop-shadow-[0_0_8px_rgba(52,211,153,0.2)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white'}`}>
+                               {match.scorePAK}
+                             </div>
+                             <div className="text-[10px] text-white/10 font-black italic">VS</div>
+                             <div className={`text-[12px] sm:text-[18px] font-display font-black leading-none tracking-tighter drop-shadow-[0_0_8px_rgba(52,211,153,0.1)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/60'}`}>
+                               {match.scoreOpponent}
+                             </div>
+                          </div>
+                          
+                          {match.status === 'Live' && (
+                            <div className="mt-1.5 flex items-center gap-1.5 text-[7px] sm:text-[8px] font-black text-emerald-400 uppercase tracking-[2px] animate-pulse relative z-10">
+                              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,1)]" />
+                              Live Status
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className={`text-[12px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic ${
+                        match.status === 'Live' ? 'text-rose-500' : 'text-white/10 group-hover:text-pak-green group-hover:scale-110'
+                      }`}>-</div>
+                    )}
+                  </div>
+                ) : (
+                  <>
+                    <div className="h-[0.5px] w-6 xs:w-6 sm:w-10 transition-colors bg-white/10 group-hover:bg-pak-green/30" />
+                    <div className="text-[12px] xs:text-[12px] sm:text-[16px] font-black transition-all tracking-tighter italic text-white/10 group-hover:text-pak-green group-hover:scale-110">VS</div>
+                    <div className="h-[0.5px] w-6 xs:w-6 sm:w-10 transition-colors bg-white/10 group-hover:bg-pak-green/30" />
+                  </>
+                )}
               </div>
 
               <div className="flex flex-col items-center gap-3 sm:gap-3 basis-[38%] relative z-10 shrink">

@@ -129,6 +129,7 @@ export interface PlayerStats {
 export interface Squad {
   series: string;
   format: MatchFormat;
+  team?: string;
   players: {
     name: string;
     description?: string;

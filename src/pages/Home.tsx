@@ -12,12 +12,11 @@ import MatchCard from '../components/MatchCard';
 import SpecialMatchCard from '../components/SpecialMatchCard';
 import { LinkText } from '../components/LinkText';
 
-import InternalLinkSection from '../components/InternalLinkSection';
-import ExternalResourcesSection from '../components/ExternalResourcesSection';
-
 // Lazy load non-critical sections to speed up initial mobile paint
 const CommonQuestions = lazy(() => import('../components/CommonQuestions'));
 const FanClubSection = lazy(() => import('../components/FanClubSection'));
+const ExternalResourcesSection = lazy(() => import('../components/ExternalResourcesSection'));
+const InternalLinkSection = lazy(() => import('../components/InternalLinkSection'));
 
 export default function Home() {
   const nextMatch = PAKISTAN_SCHEDULE[0];
@@ -143,25 +142,22 @@ export default function Home() {
         </script>
       </Helmet>
       {/* High Conversion Hero Section */}
-      <section className="mb-8 md:mb-20 mt-4 md:mt-8 text-center max-w-5xl mx-auto px-4 md:px-6">
+      <section className="mb-6 md:mb-20 mt-2 md:mt-8 text-center max-w-5xl mx-auto px-2 md:px-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-black/60 border border-white/10 rounded-full mb-6 md:mb-8 backdrop-blur-md">
-            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-black/60 border border-white/10 rounded-full mb-4 md:mb-8 backdrop-blur-md">
+            <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-6 md:mb-8 transition-all">
+          <h1 className="text-xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-8 transition-all">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black drop-shadow-[0_0_15px_rgba(0,102,46,0.3)] italic">Never Miss a Match</span>
           </h1>
           
-          <p className="text-sm sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10 px-2 transition-all">
-            <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings so you can stay updated." />
-          </p>
-          <p className="text-[10px] md:text-sm text-ink/40 font-bold uppercase tracking-[1.5px] md:tracking-widest leading-relaxed max-w-2xl mx-auto mb-10 md:mb-14 px-4 transition-all">
-            <LinkText text="Follow the national team journey through the ICC Champions Trophy, bilateral tours, and home series. Our PakCric Schedule is updated in real-time to ensure fans have the best experience." />
+          <p className="text-[13px] sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-4 transition-all">
+            <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings." />
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-12 mb-10 md:mb-16">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-12 mb-8 md:mb-16 scale-90 md:scale-100">
             {[
               { icon: '✔', label: 'Updated Daily' },
               { icon: '✔', label: 'Accurate PKT Timings' },
@@ -654,7 +650,7 @@ export default function Home() {
                 <div className="mt-auto pt-8 border-t border-white/5 flex items-center justify-between relative z-10">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl border-2 border-white/10 overflow-hidden bg-white/5 group-hover:border-pak-green transition-colors">
-                      <img src={author?.avatarUrl} alt={author?.name} className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform" />
+                      <img src={author?.avatarUrl} alt={author?.name} loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-xs sm:text-sm font-black text-white group-hover:text-pak-green transition-colors tracking-tight">{author?.name}</span>
@@ -780,9 +776,13 @@ export default function Home() {
           </div>
         </section>
 
-        <ExternalResourcesSection />
+        <Suspense fallback={<div className="h-64 bg-card-bg/20 animate-pulse rounded-[40px]" />}>
+          <ExternalResourcesSection />
+        </Suspense>
 
-        <InternalLinkSection />
+        <Suspense fallback={<div className="h-48 bg-card-bg/10 animate-pulse rounded-[40px]" />}>
+          <InternalLinkSection />
+        </Suspense>
 
         {/* CTA Section */}
         <section className="relative overflow-hidden bg-white/5 border border-white/5 rounded-3xl md:rounded-[40px] p-8 md:p-20 text-center">

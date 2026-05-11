@@ -98,10 +98,14 @@ export default function Squads() {
         const stats = PLAYER_STATS[name];
         if (stats) return stats;
         
+        // Find if player belongs to a specific squad to determine country
+        const playerSquad = ALL_SQUADS.find(s => s.players.some(p => p.name === name));
+        const country = playerSquad?.team || 'Pakistan';
+
         // Fallback for players without detailed stats yet
         const fallbackPlayer: Player = {
           name,
-          country: 'Pakistan',
+          country,
           role: 'Stats Not Available',
           stats: {
             matches: 0,
@@ -164,7 +168,7 @@ export default function Squads() {
       });
   }, [searchTerm, filterFormat, selectedRoles, minAvg, minSR]);
 
-  const handlePlayerClick = (playerName: string) => {
+  const handlePlayerClick = (playerName: string, squadTeam?: string) => {
     const stats = PLAYER_STATS[playerName];
     if (stats) {
       setSelectedPlayer(stats);
@@ -173,7 +177,7 @@ export default function Squads() {
       // Fallback for players without detailed stats yet
       setSelectedPlayer({
         name: playerName,
-        country: 'Pakistan',
+        country: squadTeam || 'Pakistan',
         role: 'Stats Not Available',
         stats: {
           matches: 0,
@@ -377,14 +381,14 @@ export default function Squads() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-12">
           <div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold uppercase tracking-tight mb-3 text-white">
-              Pakistan Latest Squad <span className="text-pak-green">(2026)</span>
+              International Cricket <span className="text-pak-green">Squads (2026)</span>
             </h2>
             <p className="text-sm md:text-base text-ink/60 font-medium max-w-2xl">
-              Below is the most recent Pakistan cricket squad announced for the current or upcoming series. Each squad is updated as soon as confirmed announcements are made.
+              Below are the latest squads announced for current or upcoming series involving Pakistan and their opponents. Each list is updated as soon as confirmed announcements are made.
             </p>
           </div>
           <div className="self-start md:self-auto px-4 md:px-6 py-2 rounded-full bg-pak-green/10 border border-pak-green/20 text-pak-green text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
-            Last Updated: April 2026
+            Last Updated: May 2026
           </div>
         </div>
 
@@ -604,18 +608,23 @@ export default function Squads() {
               >
                 <div className="min-w-0 flex-grow pr-4">
                   <h2 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1 truncate">{squad.series}</h2>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className={`px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border ${
-                      squad.format === 'Test' ? 'border-orange-500/30 text-orange-400 bg-orange-500/5' :
-                      squad.format === 'ODI' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
-                      'border-purple-500/30 text-purple-400 bg-purple-500/5'
-                    }`}>
-                      {squad.format}
-                    </span>
-                    <p className="text-[9px] md:text-[10px] font-bold text-white uppercase tracking-widest shrink-0">
-                      {searchTerm ? `${squad.players.length} Found` : `${squad.players.length} Players`}
-                    </p>
-                  </div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className={`px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border ${
+                          squad.format === 'Test' ? 'border-orange-500/30 text-orange-400 bg-orange-500/5' :
+                          squad.format === 'ODI' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
+                          'border-purple-500/30 text-purple-400 bg-purple-500/5'
+                        }`}>
+                          {squad.format}
+                        </span>
+                        {squad.team && (
+                          <span className="px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border border-pak-green/30 text-pak-green bg-pak-green/5">
+                            {squad.team}
+                          </span>
+                        )}
+                        <p className="text-[9px] md:text-[10px] font-bold text-white uppercase tracking-widest shrink-0">
+                          {searchTerm ? `${squad.players.length} Found` : `${squad.players.length} Players`}
+                        </p>
+                      </div>
                 </div>
                 <div className="flex items-center gap-2 md:gap-3 shrink-0">
                   <div className="bg-white/5 p-2 md:p-3 rounded-xl md:rounded-2xl border border-white/10 hidden sm:block">
@@ -640,7 +649,7 @@ export default function Squads() {
                       {(searchTerm || expandedSeries.includes(squad.series) ? squad.players : squad.players.slice(0, 8)).map((player, pIdx) => (
                         <button 
                           key={pIdx} 
-                          onClick={() => handlePlayerClick(player.name)}
+                          onClick={() => handlePlayerClick(player.name, squad.team)}
                           className="w-full flex items-center justify-between p-3 md:p-3.5 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
                         >
                             <div className="flex items-center gap-2.5 md:gap-3">

@@ -10,8 +10,10 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     time: '09:00 AM PKT',
     venue: 'Sher-e-Bangla National Stadium, Dhaka',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
-    status: 'Today',
-    granularStatus: 'Stumps - Day 2',
+    status: 'Live',
+    granularStatus: 'Day 4: Afternoon Session',
+    scorePAK: '386',
+    scoreOpponent: '413 & 93/2',
     flagUrl: 'https://flagcdn.com/bd.svg',
     playingXI: [
       {

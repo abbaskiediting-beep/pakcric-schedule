@@ -46,40 +46,88 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 mb-8 sm:mb-14">
           {/* Team A */}
-          <div className="flex flex-row md:flex-col items-center gap-4 sm:gap-6 text-left md:text-center w-full md:w-auto group/team-a">
+          <div className="flex flex-row md:flex-col items-center gap-3 sm:gap-6 text-left md:text-center w-full md:w-auto group/team-a">
             <div className="relative">
               <div className="absolute -inset-2 bg-pak-green/20 rounded-[40px] blur-lg opacity-0 group-hover/team-a:opacity-100 transition-opacity duration-500" />
-              <div className="w-16 h-16 sm:w-28 md:w-36 rounded-2xl sm:rounded-[40px] border-2 md:border-4 border-pak-green/30 p-1 bg-black/60 backdrop-blur-xl shadow-2xl relative z-10 transition-transform duration-500 group-hover/team-a:scale-110 shrink-0">
-                <img src="https://flagcdn.com/pk.svg" alt="PAK" className="w-full h-full object-cover rounded-xl md:rounded-[32px]" />
+              <div className="w-14 h-14 sm:w-28 md:w-36 rounded-2xl sm:rounded-[40px] border-2 md:border-4 border-pak-green/30 p-1 bg-black/60 backdrop-blur-xl shadow-2xl relative z-10 transition-transform duration-500 group-hover/team-a:scale-110 shrink-0">
+                <img src="https://flagcdn.com/pk.svg" alt="PAK" loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-xl md:rounded-[32px]" />
               </div>
             </div>
             <div className="relative z-10 min-w-0">
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">Pakistan</h3>
-              <p className="text-[8px] sm:text-[11px] font-black text-pak-green uppercase tracking-[2px] md:tracking-[3px]">Shaheen's Men</p>
+              <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">Pakistan</h3>
+              <p className="text-[7px] sm:text-[11px] font-black text-pak-green uppercase tracking-[2px] md:tracking-[3px]">Shaheen's Men</p>
             </div>
           </div>
 
-          {/* VS Divider - Enhanced */}
-          <div className="flex flex-row md:flex-col items-center gap-4 md:gap-4 relative px-4">
-             <div className="h-px w-10 sm:w-24 bg-gradient-to-r from-transparent via-pak-green/40 to-transparent hidden md:block" />
-             <div className="relative">
-                <div className="absolute -inset-4 bg-pak-green/10 blur-xl rounded-full animate-pulse" />
-                <span className="text-3xl sm:text-6xl font-display font-black text-white/5 italic relative z-10 select-none">VS</span>
-             </div>
-             <div className="h-px w-10 sm:w-24 bg-gradient-to-r from-transparent via-red-500/40 to-transparent hidden md:block" />
+          {/* VS Divider - Enhanced or Score */}
+          <div className="flex flex-col items-center gap-4 relative px-4 min-w-[140px] md:min-w-[220px]">
+             {match.status === 'Live' || match.status === 'Completed' ? (
+                <div className="flex flex-col items-center gap-4">
+                   {match.scorePAK && match.scoreOpponent ? (
+                      <div className="flex flex-col items-center gap-5">
+                         <div className="relative group/score">
+                            {/* Glass background with theme glow */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-pak-green/40 to-emerald-500/40 blur-xl opacity-20 group-hover/score:opacity-40 transition-opacity duration-700" />
+                            
+                            <div className="flex items-center justify-center gap-4 md:gap-10 bg-black/40 backdrop-blur-2xl border border-white/10 px-8 py-5 md:px-12 md:py-7 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10 overflow-hidden">
+                               <div className="absolute inset-0 bg-gradient-to-br from-pak-green/5 via-transparent to-pak-green/5" />
+                               
+                               <div className="flex flex-col items-center relative z-10">
+                                 <span className="text-[10px] md:text-[11px] font-black text-emerald-500/50 uppercase tracking-[4px] mb-2">PAK</span>
+                                 <div className={`text-3xl sm:text-5xl md:text-7xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(52,211,153,0.3)] ${match.status === 'Live' ? 'text-emerald-400 animate-pulse-slow' : 'text-white'}`}>
+                                    {match.scorePAK}
+                                 </div>
+                               </div>
+                               
+                               <div className="flex flex-col items-center gap-2 relative z-10 opacity-30">
+                                 <div className="h-6 md:h-10 w-[2px] bg-white/20 rounded-full" />
+                                 <span className="text-xs font-black text-white italic">VS</span>
+                                 <div className="h-6 md:h-10 w-[2px] bg-white/20 rounded-full" />
+                               </div>
+   
+                               <div className="flex flex-col items-center relative z-10">
+                                 <span className="text-[10px] md:text-[11px] font-black text-white/20 uppercase tracking-[4px] mb-2">{match.opponent.substring(0, 3).toUpperCase()}</span>
+                                 <div className={`text-3xl sm:text-5xl md:text-7xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/80'}`}>
+                                    {match.scoreOpponent}
+                                 </div>
+                               </div>
+                            </div>
+                         </div>
+                         
+                         {match.status === 'Live' && (
+                            <div className="flex items-center gap-3 px-6 py-2.5 bg-pak-green text-white rounded-full text-[10px] font-black uppercase tracking-[5px] shadow-[0_10px_30px_rgba(1,65,30,0.4)] animate-pulse border border-pak-green/50 hover:scale-105 transition-transform cursor-default">
+                               <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shadow-[0_0_10px_rgba(52,211,153,1)]" />
+                               Live Feed
+                            </div>
+                         )}
+                      </div>
+                   ) : (
+                      <span className="text-3xl sm:text-6xl font-display font-black text-white/5 italic relative z-10 select-none">-</span>
+                   )}
+                </div>
+             ) : (
+                <>
+                   <div className="h-px w-10 sm:w-24 bg-gradient-to-r from-transparent via-pak-green/40 to-transparent hidden md:block" />
+                   <div className="relative">
+                      <div className="absolute -inset-4 bg-pak-green/10 blur-xl rounded-full animate-pulse" />
+                      <span className="text-3xl sm:text-6xl font-display font-black text-white/5 italic relative z-10 select-none">VS</span>
+                   </div>
+                   <div className="h-px w-10 sm:w-24 bg-gradient-to-r from-transparent via-red-500/40 to-transparent hidden md:block" />
+                </>
+             )}
           </div>
 
           {/* Team B */}
-          <div className="flex flex-row-reverse md:flex-col items-center gap-4 sm:gap-6 text-right md:text-center w-full md:w-auto group/team-b">
+          <div className="flex flex-row-reverse md:flex-col items-center gap-3 sm:gap-6 text-right md:text-center w-full md:w-auto group/team-b">
             <div className="relative">
               <div className="absolute -inset-2 bg-red-500/20 rounded-[40px] blur-lg opacity-0 group-hover/team-b:opacity-100 transition-opacity duration-500" />
-              <div className="w-16 h-16 sm:w-28 md:w-36 rounded-2xl sm:rounded-[40px] border-2 md:border-4 border-red-500/30 p-1 bg-black/60 backdrop-blur-xl shadow-2xl relative z-10 transition-transform duration-500 group-hover/team-b:scale-110 shrink-0">
-                <img src={match.flagUrl} alt={match.opponent} className="w-full h-full object-cover rounded-xl md:rounded-[32px]" />
+              <div className="w-14 h-14 sm:w-28 md:w-36 rounded-2xl sm:rounded-[40px] border-2 md:border-4 border-red-500/30 p-1 bg-black/60 backdrop-blur-xl shadow-2xl relative z-10 transition-transform duration-500 group-hover/team-b:scale-110 shrink-0">
+                <img src={match.flagUrl} alt={match.opponent} loading="lazy" referrerPolicy="no-referrer" className="w-full h-full object-cover rounded-xl md:rounded-[32px]" />
               </div>
             </div>
             <div className="relative z-10 min-w-0">
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">{match.opponent}</h3>
-              <p className="text-[8px] sm:text-[11px] font-black text-red-500 uppercase tracking-[2px] md:tracking-[3px]">The Tigers</p>
+              <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">{match.opponent}</h3>
+              <p className="text-[7px] sm:text-[11px] font-black text-red-500 uppercase tracking-[2px] md:tracking-[3px]">The Tigers</p>
             </div>
           </div>
         </div>

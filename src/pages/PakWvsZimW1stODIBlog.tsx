@@ -19,7 +19,30 @@ import {
   Heart
 } from 'lucide-react';
 
+import DetailedScorecard from '../components/DetailedScorecard';
+
 const PakWvsZimW1stODIBlog = () => {
+  const pakBatting = [
+    { name: 'Sadaf Shamas', runs: 98, balls: 130, status: 'c & b Ndhlovu', highlight: true },
+    { name: 'Gull Feroza', runs: 50, balls: 60, status: 'lbw b Marange' },
+    { name: 'Sidra Amin', runs: 67, balls: 59, status: 'Run Out' },
+    { name: 'Najiha Alvi', runs: '56*', balls: 30, status: 'Not Out', highlight: true },
+    { name: 'Ayesha Zafar', runs: 8, balls: 11, status: 'c Biza b Sibanda' }
+  ];
+
+  const zimBatting = [
+    { name: 'Beloved Biza', runs: 53, balls: 53, status: 'c Alvi b Fatima', highlight: true },
+    { name: 'Kelis Ndhlovu', runs: 31, balls: 47, status: 'Run Out' },
+    { name: 'Precious Marange', runs: 12, balls: 24, status: 'lbw b Aroob' },
+    { name: 'Christine Mutasa', runs: 0, balls: 4, status: 'b Fatima' }
+  ];
+
+  const pakBowling = [
+    { name: 'Syeda Aroob Shah', figures: '2/38', description: '9 overs, controlled flight' },
+    { name: 'Fatima Sana', figures: '2/25', description: '6 overs, early breakthrough' },
+    { name: 'Nashra Sandhu', figures: '1/30', description: '8 overs, very economical' }
+  ];
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Helmet>
@@ -163,76 +186,20 @@ const PakWvsZimW1stODIBlog = () => {
               <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000&auto=format&fit=crop" alt="Bowling" className="w-full aspect-video object-cover rounded-3xl" />
             </div>
 
-            {/* Scorecard Sections */}
-            <div className="space-y-12">
-               <div className="bg-[#0A0A0A] border border-white/10 rounded-[40px] overflow-hidden">
-                  <div className="p-8 border-b border-white/10 bg-pak-green/5 flex items-center justify-between">
-                     <h3 className="text-xl font-display font-bold">Pakistan Batting Scorecard</h3>
-                     <span className="text-xs font-black uppercase tracking-[3px] text-pak-green">330/5 (50.0)</span>
-                  </div>
-                  <div className="p-8 overflow-x-auto">
-                     <table className="w-full text-left">
-                        <thead>
-                           <tr className="text-white/40 uppercase text-[10px] tracking-widest border-b border-white/5 pb-4">
-                              <th className="pb-4">Batter</th>
-                              <th className="pb-4 text-center">Score</th>
-                              <th className="pb-4 text-center">SR</th>
-                              <th className="pb-4 text-right">Dismissal</th>
-                           </tr>
-                        </thead>
-                        <tbody className="divide-y divide-white/5">
-                           {[
-                              { name: 'Sadaf Shamas', runs: '98 (130)', sr: '75.38', desc: 'Out 33.3 ov' },
-                              { name: 'Gull Feroza', runs: '50 (60)', sr: '83.33', desc: 'Out 28.2 ov' },
-                              { name: 'Sidra Amin', runs: '67 (59)', sr: '113.5', desc: 'Out 48.5 ov' },
-                              { name: 'Najiha Alvi', runs: '56* (30)', sr: '186.6', desc: 'Not Out' },
-                              { name: 'Ayesha Zafar', runs: '8 (11)', sr: '72.7', desc: 'Out 35.6 ov' }
-                           ].map((b, i) => (
-                              <tr key={i} className="text-sm group">
-                                 <td className="py-4 font-bold group-hover:text-pak-green transition-colors">{b.name}</td>
-                                 <td className="py-4 text-center font-mono text-white/60">{b.runs}</td>
-                                 <td className="py-4 text-center text-white/40">{b.sr}</td>
-                                 <td className="py-4 text-right text-[10px] uppercase font-bold text-white/30">{b.desc}</td>
-                              </tr>
-                           ))}
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
+            {/* Scorecard Component Sections */}
+            <div className="space-y-8">
+               <DetailedScorecard 
+                 title="Pakistan Women Batting"
+                 batters={pakBatting}
+                 teamName="330/5 (50.0)"
+               />
 
-               <div className="bg-[#0A0A0A] border border-white/10 rounded-[40px] overflow-hidden">
-                  <div className="p-8 border-b border-white/10 bg-white/[0.02] flex items-center justify-between">
-                     <h3 className="text-xl font-display font-bold">Zimbabwe Batting Scorecard</h3>
-                     <span className="text-xs font-black uppercase tracking-[3px] text-white/40">162 ALL OUT (36.4)</span>
-                  </div>
-                  <div className="p-8 overflow-x-auto">
-                     <table className="w-full text-left">
-                        <thead>
-                           <tr className="text-white/40 uppercase text-[10px] tracking-widest border-b border-white/5 pb-4">
-                              <th className="pb-4">Batter</th>
-                              <th className="pb-4 text-center">Score</th>
-                              <th className="pb-4 text-center">SR</th>
-                              <th className="pb-4 text-right">FOW</th>
-                           </tr>
-                        </thead>
-                        <tbody className="divide-y divide-white/5">
-                           {[
-                              { name: 'Beloved Biza', runs: '53 (53)', sr: '100', fow: '7-134' },
-                              { name: 'Kelis Ndhlovu', runs: '31 (47)', sr: '65.9', fow: '3-66' },
-                              { name: 'Precious Marange', runs: '12 (24)', sr: '50.0', fow: '—' },
-                              { name: 'Christine Mutasa', runs: '0 (4)', sr: '0', fow: '1-6' }
-                           ].map((b, i) => (
-                              <tr key={i} className="text-sm group">
-                                 <td className="py-4 font-bold">{b.name}</td>
-                                 <td className="py-4 text-center font-mono text-white/60">{b.runs}</td>
-                                 <td className="py-4 text-center text-white/40">{b.sr}</td>
-                                 <td className="py-4 text-right text-[10px] uppercase font-bold text-white/30">{b.fow}</td>
-                              </tr>
-                           ))}
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
+               <DetailedScorecard 
+                 title="Zimbabwe Women Batting"
+                 batters={zimBatting}
+                 bowlers={pakBowling}
+                 teamName="162 ALL OUT (36.4)"
+               />
             </div>
 
             {/* Awards & Stats */}

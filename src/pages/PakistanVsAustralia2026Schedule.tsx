@@ -170,15 +170,23 @@ export default function PakistanVsAustralia2026Schedule() {
               </div>
 
               <section className="p-10 bg-white/5 border border-white/10 rounded-[3rem]">
-                <div className="flex items-center gap-3 mb-8">
-                  <Users className="w-6 h-6 text-pak-green" />
-                  <h2 className="text-xl font-display font-black uppercase tracking-tight italic">Squad Anticipation</h2>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-3">
+                    <Users className="w-6 h-6 text-pak-green" />
+                    <h2 className="text-xl font-display font-black uppercase tracking-tight italic">Squad Details</h2>
+                  </div>
+                  <Link 
+                    to="/news/australia-odi-squad-pakistan-tour-2026-announcement"
+                    className="text-[10px] font-black text-pak-green uppercase tracking-widest border-b border-pak-green/30 hover:border-pak-green transition-all"
+                  >
+                    View Full Australia Squad
+                  </Link>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                   <div>
-                    <h4 className="text-[10px] font-black uppercase tracking-[3px] text-white/30 mb-4">Pakistan Core</h4>
+                    <h4 className="text-[10px] font-black uppercase tracking-[3px] text-white/30 mb-4">Pakistan Core (Expected)</h4>
                     <ul className="space-y-3">
-                      {['Babar Azam (C)', 'Mohammad Rizwan', 'Shaheen Afridi', 'Naseem Shah', 'Saim Ayub'].map((player, idx) => (
+                      {['Babar Azam', 'Mohammad Rizwan', 'Shaheen Afridi', 'Naseem Shah', 'Saim Ayub'].map((player, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-sm font-bold text-white/70">
                           <div className="w-1.5 h-1.5 rounded-full bg-pak-green" />
                           {player}
@@ -187,15 +195,18 @@ export default function PakistanVsAustralia2026Schedule() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black uppercase tracking-[3px] text-white/30 mb-4">Expected Aus Stars</h4>
+                    <h4 className="text-[10px] font-black uppercase tracking-[3px] text-white/30 mb-4">Australia Announced Squad</h4>
                     <ul className="space-y-3">
-                      {['Mitchell Marsh', 'Travis Head', 'Pat Cummins', 'Adam Zampa', 'Steve Smith'].map((player, idx) => (
+                      {['Mitchell Marsh (C)', 'Alex Carey', 'Cameron Green', 'Adam Zampa', 'Matt Short'].map((player, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-sm font-bold text-white/70">
                           <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
                           {player}
                         </li>
                       ))}
                     </ul>
+                    <p className="mt-4 text-[9px] text-white/40 font-medium">
+                      *Top stars Pat Cummins and Mitchell Starc to miss series due to IPL commitments.
+                    </p>
                   </div>
                 </div>
               </section>

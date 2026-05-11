@@ -170,30 +170,41 @@ export default function MatchDetail() {
                )}
              </div>
              
-             <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-20 mb-8 md:mb-14">
-                <div className="flex flex-col items-center">
-                   <div className="relative mb-3 md:mb-6">
-                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-2xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-pak-green rounded-md text-[8px] md:text-[10px] font-black text-white">PAK</div>
+             <div className="flex flex-col md:flex-row items-center justify-center gap-10 sm:gap-14 md:gap-24 mb-10 md:mb-20 px-4">
+                <div className="flex flex-col items-center flex-1 w-full md:w-auto">
+                   <div className="relative mb-6 md:mb-8 group/flag">
+                      <div className="absolute inset-0 bg-pak-green/40 blur-3xl rounded-full scale-125 opacity-0 group-hover/flag:opacity-100 transition-opacity duration-700" />
+                      <img src="https://flagcdn.com/pk.svg" alt="PAK" referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full border-4 md:border-[10px] border-white/10 p-1.5 md:p-3 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-black/40 backdrop-blur-md transition-all duration-700 relative z-10 group-hover/flag:scale-105 group-hover/flag:border-pak-green/40" />
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1.5 md:px-6 md:py-2 bg-pak-green rounded-full text-[10px] md:text-[12px] font-black text-white shadow-2xl z-20 border border-white/20 whitespace-nowrap">TEAM PAKISTAN</div>
                    </div>
-                   <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-[0.1em] uppercase">PAKISTAN</h2>
+                   <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white/20 tracking-[0.3em] uppercase mb-4 pointer-events-none">PAKISTAN</h2>
                    {match.scorePAK && (
-                     <div className="mt-2 text-3xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scorePAK}</div>
+                     <div className="mt-2 text-5xl sm:text-7xl md:text-[100px] font-display font-black text-emerald-400 drop-shadow-[0_0_50px_rgba(52,211,153,0.4)] italic animate-pulse-slow leading-none">
+                        {match.scorePAK}
+                     </div>
                    )}
                 </div>
 
-                <div className="text-3xl sm:text-5xl md:text-8xl font-display font-black text-white/10 uppercase tracking-tighter italic leading-none my-1 md:my-0">
-                  {match.status === 'Live' || match.status === 'Completed' ? '-' : 'VS'}
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="text-4xl sm:text-6xl md:text-8xl font-display font-black text-white/5 uppercase tracking-tighter italic leading-none my-2 md:my-0 select-none opacity-20">
+                    VS
+                  </div>
+                  {(match.status === 'Live' || match.status === 'Completed') && (
+                    <div className="h-20 md:h-32 w-[1px] bg-gradient-to-b from-transparent via-pak-green/30 to-transparent hidden md:block mt-8" />
+                  )}
                 </div>
 
-                <div className="flex flex-col items-center">
-                   <div className="relative mb-3 md:mb-6">
-                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-20 h-20 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full border-4 md:border-[6px] border-white/20 p-1 md:p-2 shadow-2xl bg-black/30 backdrop-blur-sm transition-transform duration-500" />
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 py-0.5 md:px-3 md:py-1 bg-pak-green rounded-md text-[8px] md:text-[10px] font-black text-white">{match.opponent.substring(0, 3)}</div>
+                <div className="flex flex-col items-center flex-1 w-full md:w-auto">
+                   <div className="relative mb-6 md:mb-8 group/flag-opp">
+                      <div className="absolute inset-0 bg-white/10 blur-3xl rounded-full scale-125 opacity-0 group-hover/flag-opp:opacity-100 transition-opacity duration-700" />
+                      <img src={match.flagUrl} alt={match.opponent} referrerPolicy="no-referrer" loading="lazy" className="w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full border-4 md:border-[10px] border-white/10 p-1.5 md:p-3 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-black/40 backdrop-blur-md transition-all duration-700 relative z-10 group-hover/flag-opp:scale-105 group-hover/flag-opp:border-white/20" />
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1.5 md:px-6 md:py-2 bg-neutral-800 rounded-full text-[10px] md:text-[12px] font-black text-white/60 shadow-2xl z-20 border border-white/10 whitespace-nowrap uppercase">{match.opponent}</div>
                    </div>
-                   <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-black text-white tracking-[0.1em] leading-none uppercase">{match.opponent}</h2>
+                   <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white/20 tracking-[0.3em] leading-none uppercase mb-4 pointer-events-none">{match.opponent}</h2>
                    {match.scoreOpponent && (
-                     <div className="mt-2 text-3xl sm:text-5xl md:text-6xl font-display font-black text-pak-green drop-shadow-xl">{match.scoreOpponent}</div>
+                     <div className={`mt-2 text-5xl sm:text-7xl md:text-[100px] font-display font-black italic drop-shadow-[0_0_50px_rgba(52,211,153,0.3)] leading-none ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/80'}`}>
+                        {match.scoreOpponent}
+                     </div>
                    )}
                 </div>
              </div>
