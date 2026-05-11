@@ -2,6 +2,20 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pak-vs-ban-1st-test-day-4-report-2026',
+    title: 'PAK vs BAN 1st Test Day 4: Awais 103, Mehidy 5/102, BAN 93/2 Lead 120',
+    date: 'May 11, 2026',
+    tag: 'Match Report',
+    summary: 'Azan Awais scored 103 on debut as Pakistan posted 386. Mehidy Hasan Miraz took 5/102. Bangladesh 93/2 at lunch lead by 120 as rain looms.'
+  },
+  {
+    id: 'australia-odi-squad-pakistan-tour-2026-announcement',
+    title: 'Australia Announce ODI Squad for Pakistan Series: No Cummins, No Starc, No Hazlewood — Mitchell Marsh Leads',
+    date: 'May 11, 2026',
+    tag: 'Squad Update',
+    summary: 'Australia propose a 15-member ODI squad for Pakistan series May 30–June 4. Pat Cummins, Mitchell Starc, and Josh Hazlewood are among major names missing due to IPL 2026 conflict.'
+  },
+  {
     id: 'azan-awais-pakistan-test-debut-masterclass-dhaka',
     title: "Azan Awais: Pakistan's 21-Year-Old Sensation Masterclass in Dhaka",
     date: 'May 9, 2026',

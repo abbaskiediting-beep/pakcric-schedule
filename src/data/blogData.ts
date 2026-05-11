@@ -86,6 +86,28 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'pakistna-vs-bangladesh-1st-test-day-4-report-2026',
+    title: 'PAK vs BAN 1st Test Day 4: Azan Awais Century, Mehidy 5-For, Rain Threat Looms',
+    summary: "Azan Awais scored 103 on debut, Rizwan 59, Agha 58 as Pakistan posted 386. Mehidy Hasan Miraz took 5/102. Bangladesh lead by 120 runs at lunch on Day 4.",
+    date: 'May 11, 2026',
+    category: 'Match Report',
+    path: '/news/pak-vs-ban-1st-test-day-4-report-2026',
+    icon: Newspaper,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'australia-odi-squad-pakistan-tour-2026-report',
+    title: 'Australia Announce ODI Squad for Pakistan Series: No Big Three, Mitchell Marsh Leads New-Look Side',
+    summary: "Australia's 15-member ODI squad for Pakistan series May 30–June 4 announced. No Cummins, Starc, Hazlewood, Head or Maxwell. Uncapped Ollie Peake, Billy Stanlake return. Detailed player analysis and series schedule.",
+    date: 'May 11, 2026',
+    category: 'Squad Announcement',
+    path: '/news/australia-odi-squad-pakistan-tour-2026-announcement',
+    icon: Newspaper,
+    color: 'text-amber-500',
+    authorId: 'omar-farooq'
+  },
+  {
     id: 'the-evolution-of-the-shaheens-2026-strategy',
     title: 'The Evolution of the Shaheens: A Closer Look at Pakistan’s 2026 Squad Strategy',
     summary: 'A deep dive into Pakistan\'s cricket strategy for 2026. Explore the new Test, ODI, and T20I squad dynamics and the vision for the future of Pakistan cricket.',
