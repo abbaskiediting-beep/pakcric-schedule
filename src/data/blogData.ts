@@ -756,4 +756,26 @@ export const BLOG_POSTS: BlogPost[] = [
     color: 'text-pak-green',
     authorId: 'sarfraz-khan'
   },
+  {
+    id: 'rizwan-59-vs-bangladesh-1st-test-day-3-2026',
+    title: "Mohammad Rizwan's Crucial 59 Keeps Pakistan's Hope Alive in Mirpur Test",
+    summary: "Rizwan scores a crucial 59 and adds 50+ stand with Salman Agha as Pakistan post 386 vs Bangladesh in Mirpur 1st Test 2026.",
+    date: 'May 10, 2026',
+    category: 'Match Analysis',
+    path: '/news/mohammad-rizwan-59-vs-bangladesh-1st-test-day-3-2026',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'salman-agha-58-vs-bangladesh-1st-test-day-3-2026',
+    title: "Salman Agha's Gritty 58 and the No-Ball That Changed Everything",
+    summary: "Salman Ali Agha scores 58 and survives a no-ball to stitch a match-saving 119-run partnership with Mohammad Rizwan in Mirpur.",
+    date: 'May 10, 2026',
+    category: 'Match Analysis',
+    path: '/news/salman-agha-58-vs-bangladesh-1st-test-day-3-2026',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
 ];

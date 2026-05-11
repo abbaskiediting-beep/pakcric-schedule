@@ -176,10 +176,10 @@ export default function PakistanVsAustralia2026Schedule() {
                     <h2 className="text-xl font-display font-black uppercase tracking-tight italic">Squad Details</h2>
                   </div>
                   <Link 
-                    to="/news/australia-odi-squad-pakistan-tour-2026-announcement"
+                    to="/squad/australia-odi-2026"
                     className="text-[10px] font-black text-pak-green uppercase tracking-widest border-b border-pak-green/30 hover:border-pak-green transition-all"
                   >
-                    View Full Australia Squad
+                    View Official Australia Squad
                   </Link>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">

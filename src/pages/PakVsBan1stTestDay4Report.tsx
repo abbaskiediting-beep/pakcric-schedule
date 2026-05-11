@@ -326,6 +326,14 @@ export default function PakVsBan1stTestDay4Report() {
                         <p className="text-[10px] font-black text-pak-green uppercase tracking-widest mb-2">Masterclass</p>
                         <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">Azan Awais: Debut Century Deep Dive</h5>
                      </Link>
+                     <Link to="/news/mohammad-rizwan-59-vs-bangladesh-1st-test-day-3-2026" className="block group">
+                        <p className="text-[10px] font-black text-pak-green uppercase tracking-widest mb-2">Day 3 High</p>
+                        <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">Mohammad Rizwan's Crucial 59 Analysis</h5>
+                     </Link>
+                     <Link to="/news/salman-agha-58-vs-bangladesh-1st-test-day-3-2026" className="block group">
+                        <p className="text-[10px] font-black text-pak-green uppercase tracking-widest mb-2">Turning Point</p>
+                        <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">Salman Agha's 58 & No-Ball Drama</h5>
+                     </Link>
                      <Link to="/news/pak-vs-ban-1st-test-day-3-session-1-report-2026" className="block group">
                         <p className="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-2">Session Review</p>
                         <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">How Day 3 Redefined the Test</h5>

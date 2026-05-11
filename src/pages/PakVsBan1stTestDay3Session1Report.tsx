@@ -363,6 +363,14 @@ export default function PakVsBan1stTestDay3Session1Report() {
                <div className="bg-white/[0.02] border border-white/5 rounded-[40px] p-10 space-y-8">
                   <h4 className="text-[10px] font-black uppercase tracking-[3px] text-neutral-500">Related Highlights</h4>
                   <div className="space-y-8">
+                     <Link to="/news/mohammad-rizwan-59-vs-bangladesh-1st-test-day-3-2026" className="block group">
+                        <p className="text-[10px] font-black text-pak-green uppercase tracking-widest mb-2">Full Day Report</p>
+                        <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">Mohammad Rizwan's Crucial 59 Keeps Pakistan Alive</h5>
+                     </Link>
+                     <Link to="/news/salman-agha-58-vs-bangladesh-1st-test-day-3-2026" className="block group">
+                        <p className="text-[10px] font-black text-pak-green uppercase tracking-widest mb-2">Turning Point</p>
+                        <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">Salman Agha's 58 & No-Ball Drama</h5>
+                     </Link>
                      <Link to="/news/pak-vs-ban-1st-test-day-2-sessions-blog" className="block group">
                         <p className="text-[10px] font-black text-pak-green uppercase tracking-widest mb-2">Day 2 Report</p>
                         <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors leading-relaxed">Abbas Fifer & Azan Awais' Debut Masterclass</h5>
