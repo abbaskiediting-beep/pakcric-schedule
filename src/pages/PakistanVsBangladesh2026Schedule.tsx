@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ChevronLeft, Calendar, MapPin, Trophy, Users, Clock, Info, HelpCircle, TrendingUp, Globe } from 'lucide-react';
+import { ChevronLeft, Calendar, MapPin, Trophy, Users, Clock, Info, HelpCircle, TrendingUp, Globe, Download, CloudOff, CheckCircle2, Bell } from 'lucide-react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { LinkText } from '../components/LinkText';
+import SaveForOfflineButton from '../components/SaveForOfflineButton';
+import ShareButton from '../components/ShareButton';
+import SetReminderButton from '../components/SetReminderButton';
+import MatchCard from '../components/MatchCard';
 
 export default function PakistanVsBangladesh2026Schedule() {
   return (
@@ -28,9 +32,26 @@ export default function PakistanVsBangladesh2026Schedule() {
           <span className="px-4 py-1.5 bg-pak-green text-white rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[3px] mb-4 inline-block">
             Match Guide
           </span>
-          <h1 className="text-3xl md:text-6xl font-display font-bold text-white uppercase tracking-tighter leading-tight mb-6">
-            Pakistan vs Bangladesh 2026 – Complete Match Guide
-          </h1>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <h1 className="text-3xl md:text-6xl font-display font-bold text-white uppercase tracking-tighter leading-tight flex-grow">
+              Pakistan vs Bangladesh 2026 – Complete Match Guide
+            </h1>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+              <SaveForOfflineButton 
+                id="pak-vs-ban-2026-test" 
+                label="Save Offline" 
+                className="w-full sm:w-fit px-8 py-4"
+              />
+              <ShareButton 
+                title="Pakistan vs Bangladesh 2026 Schedule"
+                text="Complete match guide for Pakistan's Test tour of Bangladesh 2026."
+                url={window.location.href}
+                variant="outline"
+                className="w-full sm:w-fit"
+              />
+            </div>
+          </div>
           
           <div className="prose prose-invert max-w-none">
             <p className="text-xl text-ink/80 leading-relaxed font-medium italic border-l-4 border-pak-green pl-6 mb-8">
@@ -41,6 +62,21 @@ export default function PakistanVsBangladesh2026Schedule() {
             </p>
           </div>
         </header>
+
+        <section className="mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-white uppercase tracking-tight mb-8 flex items-center gap-3">
+            <Bell className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />
+            <LinkText text="Set Match Reminders" />
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PAKISTAN_SCHEDULE
+              .filter(m => m.series.includes('Bangladesh'))
+              .map((match, idx) => (
+                <MatchCard key={match.id} match={match} index={idx} />
+              ))
+            }
+          </div>
+        </section>
 
         <section className="mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white uppercase tracking-tight mb-8 flex items-center gap-3">

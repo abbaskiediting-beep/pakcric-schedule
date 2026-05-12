@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import MobileTabBar from './components/MobileTabBar';
+import OfflineIndicator from './components/OfflineIndicator';
 
 // Lazy load pages for better bundle splitting and initial load time
 import SEO from './components/SEO';
@@ -95,6 +96,8 @@ const AzanAwaisDebutBlog = lazy(() => import('./pages/AzanAwaisDebutBlog'));
 const MohammadRizwan59vsBanBlog = lazy(() => import('./pages/MohammadRizwan59vsBanBlog'));
 const SalmanAgha58vsBanBlog = lazy(() => import('./pages/SalmanAgha58vsBanBlog'));
 const PakVsBan1stTestDay4Report = lazy(() => import('./pages/PakVsBan1stTestDay4Report'));
+const PakVsBan1stTestFullReport = lazy(() => import('./pages/PakVsBan1stTestFullReport'));
+const NahidRana5WicketsBlog = lazy(() => import('./pages/NahidRana5WicketsBlog'));
 const AusOdiSquadPak2026 = lazy(() => import('./pages/AusOdiSquadPak2026'));
 const AustraliaOdiSquadPage = lazy(() => import('./pages/AustraliaOdiSquadPage'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
@@ -140,6 +143,7 @@ export default function App() {
       <div className="min-h-screen bg-bg text-ink flex flex-col font-sans pb-16 md:pb-0">
         <Header />
         <Nav />
+        <OfflineIndicator />
         
         <main className="flex-grow">
           <Suspense fallback={<PageLoader />}>
@@ -175,6 +179,8 @@ export default function App() {
               <Route path="/news/salman-agha-58-vs-bangladesh-1st-test-day-3-2026" element={<SalmanAgha58vsBanBlog />} />
               <Route path="/news/pak-vs-ban-1st-test-day-3-session-1-report-2026" element={<PakVsBan1stTestDay3Session1Report />} />
               <Route path="/news/pak-vs-ban-1st-test-day-4-report-2026" element={<PakVsBan1stTestDay4Report />} />
+              <Route path="/news/pak-vs-ban-1st-test-full-match-report-2026" element={<PakVsBan1stTestFullReport />} />
+              <Route path="/news/nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026" element={<NahidRana5WicketsBlog />} />
               <Route path="/news/azan-awais-pakistan-test-debut-masterclass-dhaka" element={<AzanAwaisDebutBlog />} />
               <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />

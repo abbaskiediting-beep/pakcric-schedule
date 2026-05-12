@@ -1,8 +1,13 @@
-import { Calendar, Clock, MapPin, Trophy, History, Info, ChevronRight, ArrowLeft, Star, Target, Users } from 'lucide-react';
+import { Calendar, Clock, MapPin, Trophy, History, Info, ChevronRight, ArrowLeft, Star, Target, Users, Download, CloudOff, CheckCircle2, Bell } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { LinkText } from '../components/LinkText';
+import React from 'react';
+import SaveForOfflineButton from '../components/SaveForOfflineButton';
+import ShareButton from '../components/ShareButton';
+import MatchCard from '../components/MatchCard';
+import { PAKISTAN_SCHEDULE } from '../constants';
 
 export default function PakistanVsAustralia2026Schedule() {
   const seriesTitle = "Australia Tour of Pakistan 2026: ODI Series Schedule";
@@ -74,15 +79,32 @@ export default function PakistanVsAustralia2026Schedule() {
               </p>
             </div>
             
-            <div className="flex items-center gap-4 border border-white/10 bg-white/5 p-6 rounded-[2rem] backdrop-blur-sm">
-              <div className="text-center px-4">
-                 <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Previous ODI Series</p>
-                 <p className="text-2xl font-display font-black text-pak-green">PAK 2-1 AUS</p>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4 border border-white/10 bg-white/5 p-6 rounded-[2rem] backdrop-blur-sm">
+                <div className="text-center px-4">
+                   <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Previous ODI Series</p>
+                   <p className="text-2xl font-display font-black text-pak-green">PAK 2-1 AUS</p>
+                </div>
+                <div className="w-px h-10 bg-white/10" />
+                <div className="text-center px-4">
+                   <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Format</p>
+                   <p className="text-2xl font-display font-black">ODI (50 Over)</p>
+                </div>
               </div>
-              <div className="w-px h-10 bg-white/10" />
-              <div className="text-center px-4">
-                 <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Format</p>
-                 <p className="text-2xl font-display font-black">ODI (50 Over)</p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <SaveForOfflineButton 
+                  id="pak-vs-aus-2026-odi" 
+                  label="Save Full ODI Schedule" 
+                  className="w-full sm:w-fit py-4 md:py-2 text-[10px]"
+                />
+                <ShareButton 
+                  title={seriesTitle}
+                  text={`Check out the official schedule for the ${seriesTitle}.`}
+                  url={window.location.href}
+                  variant="outline"
+                  className="w-full sm:w-fit"
+                />
               </div>
             </div>
           </div>
@@ -94,6 +116,20 @@ export default function PakistanVsAustralia2026Schedule() {
           
           {/* Main Content: Schedule */}
           <div className="lg:col-span-8">
+            <div className="flex items-center gap-3 mb-10">
+              <Bell className="w-6 h-6 text-amber-500" />
+              <h2 className="text-2xl font-display font-black uppercase tracking-tight italic">Set Reminders</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+              {PAKISTAN_SCHEDULE
+                .filter(m => m.series.includes('Australia'))
+                .map((match, idx) => (
+                  <MatchCard key={match.id} match={match} index={idx} />
+                ))
+              }
+            </div>
+
             <div className="flex items-center gap-3 mb-10">
               <Calendar className="w-6 h-6 text-pak-green" />
               <h2 className="text-2xl font-display font-black uppercase tracking-tight italic">Match Fixtures</h2>

@@ -10,11 +10,45 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     time: '09:00 AM PKT',
     venue: 'Sher-e-Bangla National Stadium, Dhaka',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
-    status: 'Live',
-    granularStatus: 'Day 4: Afternoon Session',
-    scorePAK: '386',
-    scoreOpponent: '413 & 93/2',
+    status: 'Completed',
+    result: 'Bangladesh won by 104 runs',
+    postMatchSummary: 'Bangladesh defeated Pakistan by 104 runs in the 1st Test at Mirpur. Najmul Hossain Shanto (101 & 81) and Mominul Haque (56 & 88) were the stars with the bat, while Nahid Rana dismantled Pakistan with 5/40 in the second innings. Azan Awais scored a brilliant 103 on debut for Pakistan.',
+    scorePAK: '386 & 163',
+    scoreOpponent: '413 & 240/9d',
+    blogUrl: '/news/pak-vs-ban-1st-test-full-match-report-2026',
     flagUrl: 'https://flagcdn.com/bd.svg',
+    stats: {
+      topScorers: [
+        { name: 'Najmul Hossain Shanto', runs: '101 & 81', balls: '-' },
+        { name: 'Azan Awais', runs: '103', balls: '165' },
+        { name: 'Mominul Haque', runs: '56 & 88', balls: '-' }
+      ],
+      leadingWicketTakers: [
+        { name: 'Nahid Rana', wickets: '5', runs: '40', overs: '9.5' },
+        { name: 'Mohammad Abbas', wickets: '5', runs: '92', overs: '-' },
+        { name: 'Mehidy Hasan Miraz', wickets: '5', runs: '102', overs: '-' }
+      ],
+      secondInningsBowling: [
+        {
+          team: 'Bangladesh',
+          figures: [
+            { name: 'Nahid Rana', wickets: '5', runs: '40', overs: '9.5' },
+            { name: 'Taijul Islam', wickets: '2', runs: '38', overs: '15' },
+            { name: 'Taskin Ahmed', wickets: '2', runs: '42', overs: '12' },
+            { name: 'Mehidy Hasan Miraz', wickets: '1', runs: '43', overs: '16' }
+          ]
+        },
+        {
+          team: 'Pakistan',
+          figures: [
+            { name: 'Noman Ali', wickets: '4', runs: '72', overs: '28' },
+            { name: 'Hasan Ali', wickets: '2', runs: '45', overs: '14' },
+            { name: 'Shaheen Afridi', wickets: '1', runs: '32', overs: '10' },
+            { name: 'Mohammad Abbas', wickets: '1', runs: '41', overs: '15' }
+          ]
+        }
+      ]
+    },
     playingXI: [
       {
         team: 'Pakistan',

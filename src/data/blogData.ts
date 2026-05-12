@@ -86,6 +86,28 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026',
+    title: "Nahid Rana's Devastating 5/40 — Bangladesh's Youngest Hero Destroys Pakistan to Win 1st Test",
+    summary: "Nahid Rana takes maiden Test five-for with 5/40 in 9.5 overs as Bangladesh beat Pakistan by 104 runs in 1st Test Mirpur 2026. Full bowling report.",
+    date: 'May 12, 2026',
+    category: 'Analysis',
+    path: '/news/nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pak-vs-ban-1st-test-full-match-report-2026',
+    title: 'Bangladesh Beat Pakistan by 104 Runs in 1st Test — Shanto 101, Awais 103 on Debut, Nahid Rana 5/40',
+    summary: "Bangladesh defeated Pakistan by 104 runs in the 1st Test at Mirpur May 8-12 2026. Complete 5-day match report — Shanto 101, Mominul 56+88, Awais debut 103, Abbas 5/92, Mehidy 5/102, Nahid Rana 5/40.",
+    date: 'May 12, 2026',
+    category: 'Match Report',
+    path: '/news/pak-vs-ban-1st-test-full-match-report-2026',
+    icon: Newspaper,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
     id: 'pakistna-vs-bangladesh-1st-test-day-4-report-2026',
     title: 'PAK vs BAN 1st Test Day 4: Azan Awais Century, Mehidy 5-For, Rain Threat Looms',
     summary: "Azan Awais scored 103 on debut, Rizwan 59, Agha 58 as Pakistan posted 386. Mehidy Hasan Miraz took 5/102. Bangladesh lead by 120 runs at lunch on Day 4.",

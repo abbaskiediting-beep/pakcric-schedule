@@ -30,6 +30,10 @@ export interface MatchStats {
   topScorers?: TopScorer[];
   leadingWicketTakers?: WicketTaker[];
   keyPartnerships?: KeyPartnership[];
+  secondInningsBowling?: {
+    team: string;
+    figures: WicketTaker[];
+  }[];
 }
 
 export interface VenueInsights {

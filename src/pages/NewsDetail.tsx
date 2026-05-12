@@ -6,6 +6,8 @@ import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag } from 'lucide-react'
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import { LinkText } from '../components/LinkText';
+import ShareButton from '../components/ShareButton';
+import SaveForOfflineButton from '../components/SaveForOfflineButton';
 
 const ARTICLES: Record<string, any> = {
   'pak-vs-ban-1st-test-day-1-report-2026': {
@@ -378,10 +380,18 @@ export default function NewsDetail() {
                 <span className="text-[9px] md:text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.author}</span>
               </div>
             </div>
-            <div className="flex items-center gap-2 sm:ml-auto">
-              <button className="p-2 md:p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/10 flex items-center justify-center">
-                <Share2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              </button>
+            <div className="flex items-center gap-3 ml-auto">
+              <SaveForOfflineButton 
+                id={`news-${id || 'default'}`} 
+                label="Save News" 
+                variant="icon"
+              />
+              <ShareButton 
+                title={article.title}
+                text={article.metaDescription || article.title}
+                url={window.location.href}
+                variant="icon"
+              />
             </div>
           </div>
 

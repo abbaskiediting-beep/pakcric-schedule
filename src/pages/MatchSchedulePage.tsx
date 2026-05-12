@@ -11,6 +11,7 @@ import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import ExternalResourcesSection from '../components/ExternalResourcesSection';
 import { LinkText } from '../components/LinkText';
+import SaveForOfflineButton from '../components/SaveForOfflineButton';
 
 type SortKey = 'date' | 'opponent' | 'series';
 
@@ -149,6 +150,7 @@ export default function MatchSchedulePage() {
   const [filterVenue, setFilterVenue] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [showSavedOnly, setShowSavedOnly] = useState(false);
 
   const allMatches = useMemo(() => [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS], []);
 
@@ -158,6 +160,12 @@ export default function MatchSchedulePage() {
 
   const filteredAndSortedMatches = useMemo(() => {
     let result = [...allMatches];
+
+    // Saved Offline Filter
+    if (showSavedOnly) {
+      const savedSchedules = JSON.parse(localStorage.getItem('saved_schedules') || '[]');
+      result = result.filter(m => savedSchedules.includes(m.id));
+    }
 
     // Search
     if (searchQuery) {
@@ -274,24 +282,20 @@ export default function MatchSchedulePage() {
             <h1 className="text-2xl sm:text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white leading-tight">
               Pakistan Cricket Schedule 2026 – <span className="text-pak-green">Complete Match Details</span>
             </h1>
-            <button 
-              onClick={() => {
-                const shareData = {
-                  title: 'Pakistan Cricket Schedule 2026',
-                  text: 'Check out the complete Pakistan cricket schedule for the 2026 season!',
-                  url: window.location.href
-                };
-                if (navigator.share) {
-                  navigator.share(shareData);
-                } else {
-                  navigator.clipboard.writeText(window.location.href);
-                  alert('Link copied to clipboard!');
-                }
-              }}
-              className="flex items-center justify-center gap-2 px-6 py-4 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-pak-green hover:border-pak-green/20 transition-all w-full sm:w-fit"
-            >
-              <Share2 className="w-4 h-4" /> <span>Share Schedule</span>
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-fit">
+              <SaveForOfflineButton 
+                id="full-pak-schedule-2026" 
+                label="Save Hub for Offline" 
+                className="w-full sm:w-fit py-4 md:py-2"
+              />
+              <ShareButton 
+                title="Pakistan Cricket Schedule 2026"
+                text="Check out the complete Pakistan cricket schedule for the 2026 season!"
+                url={window.location.href}
+                variant="outline"
+                className="w-full sm:w-fit"
+              />
+            </div>
           </div>
           <div className="max-w-3xl space-y-4 md:space-y-6 mb-8 md:mb-10 px-1">
             <p className="text-base sm:text-lg md:text-xl text-ink/70 font-medium leading-relaxed italic">
@@ -426,7 +430,7 @@ export default function MatchSchedulePage() {
             key={f}
             onClick={() => setFilterFormat(f)}
             className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 ${
-              filterFormat === f 
+              filterFormat === f && !showSavedOnly
                 ? 'bg-pak-green text-white shadow-pak-green/40 shadow-lg scale-105' 
                 : 'text-neutral-500 hover:text-ink hover:bg-white/5'
             }`}
@@ -434,6 +438,21 @@ export default function MatchSchedulePage() {
             {f}
           </button>
         ))}
+        <div className="w-px h-8 bg-white/10 mx-2 hidden md:block" />
+        <button
+          onClick={() => {
+            setShowSavedOnly(!showSavedOnly);
+            if (!showSavedOnly) setFilterFormat('All');
+          }}
+          className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 flex items-center gap-2 ${
+            showSavedOnly 
+              ? 'bg-amber-500 text-black shadow-amber-500/40 shadow-lg scale-105' 
+              : 'text-neutral-500 hover:text-ink hover:bg-white/5'
+          }`}
+        >
+          <Target className="w-3.5 h-3.5" />
+          Saved Offline
+        </button>
       </div>
 
       {/* SEO Optimized Table Header Note */}

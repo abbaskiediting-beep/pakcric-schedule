@@ -1,9 +1,10 @@
-import { Calendar, Clock, MapPin, Zap, Newspaper } from 'lucide-react';
+import { Calendar, Clock, MapPin, Zap, Newspaper, Bell } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Match } from '../types';
 import { getTeamLogo } from '../lib/teamLogos';
 import ShareButton from './ShareButton';
+import SetReminderButton from './SetReminderButton';
 
 interface MatchCardProps {
   match: Match;
@@ -276,6 +277,17 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
               <span className="text-[11px] font-black uppercase tracking-tight truncate leading-none text-center">{match.venue}</span>
             </div>
           </div>
+          
+          {(match.status === 'Upcoming' || match.status === 'Today') && (
+            <div className="mt-6" onClick={(e) => e.stopPropagation()}>
+              <SetReminderButton 
+                matchId={effectiveId}
+                matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+                matchTime={match.time}
+                matchDate={match.date}
+              />
+            </div>
+          )}
         </div>
       </div>
     </motion.div>

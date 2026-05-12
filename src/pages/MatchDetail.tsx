@@ -6,7 +6,7 @@ import { MATCH_RESULTS } from '../matchResultsData';
 import { 
   ChevronLeft, MapPin, Clock, Calendar, Ticket, 
   Trophy, Timer, Zap, Target, Users, Bell, CheckCircle2,
-  Newspaper, ArrowRight, BarChart3, Activity, Info, Share2
+  Newspaper, ArrowRight, BarChart3, Activity, Info, Share2, Star
 } from 'lucide-react';
 import { useState } from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -15,14 +15,13 @@ import { PlayerModal } from '../components/PlayerModal';
 import { PLAYER_STATS } from '../playerData';
 import { Player } from '../types';
 import ShareButton from '../components/ShareButton';
+import SetReminderButton from '../components/SetReminderButton';
 
 import { LinkText } from '../components/LinkText';
 
 export default function MatchDetail() {
   const { id } = useParams();
   const match = [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS].find(m => m.id === id);
-  const [reminderSet, setReminderSet] = useState(false);
-  const [showToast, setShowToast] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -32,21 +31,6 @@ export default function MatchDetail() {
       setSelectedPlayer(player);
       setIsModalOpen(true);
     }
-  };
-
-  const handleSetReminder = () => {
-    if (reminderSet) return;
-    
-    setReminderSet(true);
-    setShowToast(true);
-    
-    // Auto-hide toast after 3 seconds
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
-
-    // In a real app, this could trigger a browser notification or a calendar API
-    console.log(`Reminder set for match: ${match?.series} - ${match?.opponent}`);
   };
 
   if (!match) return <div className="p-12 text-center text-ink/60">Match not found</div>;
@@ -110,26 +94,6 @@ export default function MatchDetail() {
           `}
         </script>
       </Helmet>
-      {/* Toast Notification */}
-      <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed bottom-12 left-0 right-0 z-50 flex justify-center px-6 pointer-events-none"
-          >
-            <div className="bg-pak-green text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-md border border-white/20">
-              <CheckCircle2 className="w-5 h-5" />
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest leading-none mb-1">Success</p>
-                <p className="text-xs font-medium opacity-80">Reminder set for {match.opponent} series!</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">
         <ChevronLeft className="w-4 h-4" /> Back to Home
       </Link>
@@ -239,27 +203,13 @@ export default function MatchDetail() {
 
                 {match.status !== 'Completed' && (
                   <div className="flex gap-4 w-full md:w-auto">
-                    <button 
-                      onClick={handleSetReminder}
-                      disabled={reminderSet}
-                      className={`flex-1 md:flex-none px-6 py-4 rounded-3xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-3 backdrop-blur-md border border-white/10 ${
-                        reminderSet 
-                          ? 'bg-pak-green/20 text-pak-green border border-pak-green/30' 
-                          : 'bg-pak-green text-white hover:scale-105 active:scale-95 shadow-xl shadow-pak-green/20'
-                      }`}
-                    >
-                      {reminderSet ? (
-                        <>
-                          <CheckCircle2 className="w-4 h-4" /> 
-                          <span>Active</span>
-                        </>
-                      ) : (
-                        <>
-                          <Bell className="w-4 h-4" /> 
-                          <span>Remind</span>
-                        </>
-                      )}
-                    </button>
+                    <SetReminderButton 
+                      matchId={match.id}
+                      matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+                      matchTime={match.time}
+                      matchDate={match.date}
+                      className="flex-1 md:flex-none"
+                    />
                     
                     <ShareButton 
                       title={`${match.series}: Pakistan vs ${match.opponent}`}
@@ -272,13 +222,22 @@ export default function MatchDetail() {
                 )}
 
                 {match.status === 'Completed' && (
-                  <div className="flex justify-center w-full">
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
                     <ShareButton 
                       title={`${match.series}: Pakistan vs ${match.opponent}`}
                       text={`Match result: Pakistan vs ${match.opponent} in the ${match.series}. Result: ${match.result}. ${match.date} at ${match.venue}.`}
                       url={window.location.href}
                       variant="filled"
+                      className="w-full sm:w-auto"
                     />
+                    {match.blogUrl && (
+                      <Link 
+                        to={match.blogUrl}
+                        className="w-full sm:w-auto px-8 py-3.5 bg-pak-green text-white rounded-3xl text-[10px] font-bold uppercase tracking-widest hover:bg-emerald-600 transition-all flex items-center justify-center gap-2 shadow-xl shadow-pak-green/20"
+                      >
+                        <Newspaper className="w-4 h-4" /> View Full Report
+                      </Link>
+                    )}
                   </div>
                 )}
               </div>
@@ -429,6 +388,90 @@ export default function MatchDetail() {
           </motion.div>
         )}
 
+        {/* Second Innings Bowling Figures */}
+        {match.status === 'Completed' && match.stats?.secondInningsBowling && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="md:col-span-3 bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-8 md:p-12 shadow-2xl relative overflow-hidden"
+          >
+             <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
+                <Target className="w-32 h-32 md:w-48 md:h-48" />
+             </div>
+
+             <div className="relative z-10">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-white/10 pb-6">
+                   <div className="flex items-center gap-3">
+                      <BarChart3 className="w-5 h-5 text-pak-green" />
+                      <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white leading-tight">2nd Innings Bowling Figures</h2>
+                   </div>
+                   <div className="flex items-center gap-2 px-4 py-1.5 bg-yellow-500 text-black rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-yellow-500/20 italic">
+                      <Zap className="w-3 h-3 fill-current" /> Fast & Furious: Nahid Rana
+                   </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                   {match.stats.secondInningsBowling.map((inning, idx) => (
+                      <div key={idx} className="space-y-6">
+                         <div className="flex items-center justify-between border-l-4 border-pak-green pl-4">
+                            <h3 className="text-xl font-display font-black text-white uppercase tracking-wider">{inning.team} Bowling</h3>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-neutral-500 italic">2nd Innings</span>
+                         </div>
+
+                         <div className="space-y-3">
+                            <div className="grid grid-cols-12 gap-4 text-[10px] font-black text-neutral-500 uppercase tracking-widest px-4">
+                               <div className="col-span-6">Bowler</div>
+                               <div className="col-span-2 text-center">O</div>
+                               <div className="col-span-2 text-center">R</div>
+                               <div className="col-span-2 text-center text-white">W</div>
+                            </div>
+                            
+                            {inning.figures.map((bowler, bIdx) => {
+                               const isNahid = bowler.name === 'Nahid Rana' && inning.team === 'Bangladesh';
+                               const isTaijul = bowler.name === 'Taijul Islam' && inning.team === 'Bangladesh';
+                               const isHighlighted = isNahid || isTaijul;
+
+                               return (
+                                  <div 
+                                    key={bIdx} 
+                                    className={`grid grid-cols-12 gap-4 p-4 rounded-2xl border transition-all ${
+                                      isHighlighted 
+                                        ? 'bg-pak-green/10 border-pak-green/30 shadow-lg shadow-pak-green/10' 
+                                        : 'bg-white/[0.02] border-white/5'
+                                    }`}
+                                  >
+                                     <div className="col-span-6 flex items-center gap-3">
+                                        <span className={`text-sm font-bold ${isHighlighted ? 'text-white' : 'text-white/70'}`}>{bowler.name}</span>
+                                        {isNahid && (
+                                           <div className="flex items-center gap-1">
+                                              <Zap className="w-3 h-3 text-yellow-500 fill-current" />
+                                              <span className="text-[7px] font-black uppercase tracking-tighter text-yellow-500">MVP</span>
+                                           </div>
+                                        )}
+                                        {isTaijul && (
+                                           <div className="flex items-center gap-1">
+                                              <Star className="w-3 h-3 text-pak-green fill-current" />
+                                              <span className="text-[7px] font-black uppercase tracking-tighter text-pak-green">STIFLING</span>
+                                           </div>
+                                        )}
+                                     </div>
+                                     <div className="col-span-2 text-center text-ink/40 font-mono text-sm">{bowler.overs}</div>
+                                     <div className="col-span-2 text-center text-ink/40 font-mono text-sm">{bowler.runs}</div>
+                                     <div className={`col-span-2 text-center font-display font-black text-lg ${isHighlighted ? 'text-pak-green' : 'text-white/80'}`}>
+                                        {bowler.wickets}
+                                     </div>
+                                  </div>
+                               );
+                            })}
+                         </div>
+                      </div>
+                   ))}
+                </div>
+             </div>
+          </motion.div>
+        )}
+
         {/* Action Widgets */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-card-bg border border-card-border rounded-3xl md:rounded-[32px] p-6 md:p-8 flex flex-col justify-between">
            <div>
@@ -459,29 +502,17 @@ export default function MatchDetail() {
         </motion.div>
 
         {match.status !== 'Completed' && (
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-pak-green rounded-3xl md:rounded-[32px] p-6 md:p-8 text-white relative overflow-hidden group">
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-pak-green rounded-3xl md:rounded-[32px] p-6 md:p-8 text-white relative overflow-hidden group border border-white/10">
              <div className="relative z-10">
-               <h3 className="text-base md:text-lg font-display font-bold uppercase tracking-tight mb-2">Live Stream</h3>
+               <h3 className="text-base md:text-lg font-display font-bold uppercase tracking-tight mb-2 italic">Live Stream</h3>
                <p className="text-[9px] md:text-[10px] font-bold opacity-70 uppercase tracking-widest mb-6">Watch the match live in HD on PCB Digital & PTV Sports.</p>
-               <button 
-                onClick={handleSetReminder}
-                disabled={reminderSet}
-                className={`px-6 md:px-8 py-3 rounded-xl md:rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 ${
-                  reminderSet 
-                    ? 'bg-pak-green border border-white/30 text-white cursor-default' 
-                    : 'bg-white text-pak-green hover:scale-105 active:scale-95'
-                }`}
-               >
-                  {reminderSet ? (
-                    <>
-                      <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4" /> Reminder Set
-                    </>
-                  ) : (
-                    <>
-                      <Bell className="w-3.5 h-3.5 md:w-4 md:h-4" /> Set Reminder
-                    </>
-                  )}
-               </button>
+               <SetReminderButton 
+                matchId={match.id}
+                matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+                matchTime={match.time}
+                matchDate={match.date}
+                className="w-full md:w-fit"
+               />
              </div>
              
              {/* Background Decoration */}
