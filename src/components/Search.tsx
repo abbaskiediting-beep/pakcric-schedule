@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Search as SearchIcon, X, User, Calendar, Trophy as TrophyIcon, ArrowRight, Filter, Globe2, Zap, Clock, TrendingUp } from 'lucide-react';
+import { Search as SearchIcon, X, User, Calendar, Trophy as TrophyIcon, ArrowRight, Filter, Globe2, Zap, Clock, TrendingUp, TrendingDown, Snowflake } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
@@ -35,7 +35,7 @@ interface SearchResult {
   subtitle: string;
   link: string;
   country?: string;
-  isInForm?: boolean;
+  formStatus?: 'Hot' | 'Cold' | 'Normal';
 }
 
 export default function Search() {
@@ -43,7 +43,7 @@ export default function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>('All');
-  const [formFilter, setFormFilter] = useState<'All' | 'Hot'>('All');
+  const [formFilter, setFormFilter] = useState<'All' | 'Hot' | 'Cold'>('All');
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -72,21 +72,35 @@ export default function Search() {
     return Array.from(set);
   }, []);
 
-  const isPlayerInForm = (name: string) => {
+  const getPlayerForm = (name: string): 'Hot' | 'Cold' | 'Normal' => {
     const player = PLAYER_STATS[name];
-    if (!player) return false;
+    if (!player) return 'Normal';
     
-    return player.stats.recentForm.some(perf => {
-      // Check for scores >= 50
+    const recent = player.stats.recentForm;
+    
+    // Check for "Hot" form
+    const isHot = recent.some(perf => {
       const scoreMatch = perf.match(/^(\d+)\*?$/);
       if (scoreMatch && parseInt(scoreMatch[1]) >= 50) return true;
-      
-      // Check for wickets >= 3
       const wicketMatch = perf.match(/^(\d+)\/\d+$/);
       if (wicketMatch && parseInt(wicketMatch[1]) >= 3) return true;
-      
       return false;
     });
+
+    if (isHot) return 'Hot';
+
+    // Check for "Cold" form (3+ low scores or no wickets in 3+ games)
+    let lowPerfCount = 0;
+    recent.forEach(perf => {
+      const scoreMatch = perf.match(/^(\d+)\*?$/);
+      if (scoreMatch && parseInt(scoreMatch[1]) < 20) lowPerfCount++;
+      const wicketMatch = perf.match(/^(\d+)\/\d+$/);
+      if (wicketMatch && parseInt(wicketMatch[1]) === 0) lowPerfCount++;
+    });
+
+    if (lowPerfCount >= 3) return 'Cold';
+    
+    return 'Normal';
   };
 
   useEffect(() => {
@@ -106,10 +120,10 @@ export default function Search() {
 
     // Search Players from PLAYER_STATS for more metadata
     Object.values(PLAYER_STATS).forEach(player => {
-      const matchesQuery = player.name.toLowerCase().includes(q);
+      const matchesQuery = player.name.toLowerCase().includes(q) || player.country.toLowerCase().includes(q) || player.role.toLowerCase().includes(q);
       const matchesCountry = selectedCountry === 'All' || player.country === selectedCountry;
-      const isInForm = isPlayerInForm(player.name);
-      const matchesForm = formFilter === 'All' || (formFilter === 'Hot' && isInForm);
+      const formStatus = getPlayerForm(player.name);
+      const matchesForm = formFilter === 'All' || formFilter === formStatus;
 
       if (matchesQuery && matchesCountry && matchesForm) {
         searchResults.push({
@@ -119,7 +133,7 @@ export default function Search() {
           subtitle: `${player.country} • ${player.role}`,
           link: `/player/${player.name.toLowerCase().replace(/\s+/g, '-')}`,
           country: player.country,
-          isInForm: isInForm
+          formStatus: formStatus
         });
       }
     });
@@ -250,7 +264,19 @@ export default function Search() {
                       }`}
                     >
                       <Zap className={`w-3.5 h-3.5 ${formFilter === 'Hot' ? 'fill-pak-green' : ''}`} />
-                      <span className="text-[10px] font-black uppercase tracking-widest">In Form</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest">Hot</span>
+                    </button>
+
+                    <button
+                      onClick={() => setFormFilter(formFilter === 'Cold' ? 'All' : 'Cold')}
+                      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border transition-all ${
+                        formFilter === 'Cold' 
+                          ? 'bg-blue-500/20 border-blue-500 text-blue-400' 
+                          : 'bg-white/5 border-white/5 text-neutral-500 hover:text-ink'
+                      }`}
+                    >
+                      <Snowflake className="w-3.5 h-3.5" />
+                      <span className="text-[10px] font-black uppercase tracking-widest">Cold</span>
                     </button>
                   </div>
 
@@ -294,9 +320,14 @@ export default function Search() {
                         <div className="flex-1 min-w-0">
                           <p className="text-ink font-bold truncate tracking-tight">
                             <HighlightText text={result.title} highlight={query} />
-                            {result.isInForm && (
-                              <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-pak-green/20 text-[8px] text-pak-green uppercase font-black tracking-tighter align-middle">
+                            {result.formStatus === 'Hot' && (
+                              <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-pak-green/20 text-[8px] text-pak-green uppercase font-black tracking-tighter align-middle border border-pak-green/20">
                                 <Zap className="w-2 h-2 fill-pak-green" /> Hot
+                              </span>
+                            )}
+                            {result.formStatus === 'Cold' && (
+                              <span className="ml-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-blue-500/20 text-[8px] text-blue-400 uppercase font-black tracking-tighter align-middle border border-blue-500/20">
+                                <Snowflake className="w-2 h-2 fill-blue-400" /> Cold
                               </span>
                             )}
                           </p>

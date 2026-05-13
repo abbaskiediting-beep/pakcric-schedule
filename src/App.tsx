@@ -98,6 +98,11 @@ const SalmanAgha58vsBanBlog = lazy(() => import('./pages/SalmanAgha58vsBanBlog')
 const PakVsBan1stTestDay4Report = lazy(() => import('./pages/PakVsBan1stTestDay4Report'));
 const PakVsBan1stTestFullReport = lazy(() => import('./pages/PakVsBan1stTestFullReport'));
 const NahidRana5WicketsBlog = lazy(() => import('./pages/NahidRana5WicketsBlog'));
+const WhyPakistanLost1stTestBlog = lazy(() => import('./pages/WhyPakistanLost1stTestBlog'));
+const PakistanCollapse2ndInningsBlog = lazy(() => import('./pages/PakistanCollapse2ndInningsBlog'));
+const PakistanWTCStandingsBlog = lazy(() => import('./pages/PakistanWTCStandingsBlog'));
+const BangladeshHomeDominanceBlog = lazy(() => import('./pages/BangladeshHomeDominanceBlog'));
+const BabarAzamFit2ndTestBlog = lazy(() => import('./pages/BabarAzamFit2ndTestBlog'));
 const AusOdiSquadPak2026 = lazy(() => import('./pages/AusOdiSquadPak2026'));
 const AustraliaOdiSquadPage = lazy(() => import('./pages/AustraliaOdiSquadPage'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
@@ -181,6 +186,11 @@ export default function App() {
               <Route path="/news/pak-vs-ban-1st-test-day-4-report-2026" element={<PakVsBan1stTestDay4Report />} />
               <Route path="/news/pak-vs-ban-1st-test-full-match-report-2026" element={<PakVsBan1stTestFullReport />} />
               <Route path="/news/nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026" element={<NahidRana5WicketsBlog />} />
+              <Route path="/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis" element={<WhyPakistanLost1stTestBlog />} />
+              <Route path="/news/pakistan-wtc-2025-27-standings-after-bangladesh-loss-report" element={<PakistanWTCStandingsBlog />} />
+              <Route path="/news/why-bangladesh-are-unbeatable-at-home-test-cricket-report" element={<BangladeshHomeDominanceBlog />} />
+              <Route path="/news/pakistan-2nd-innings-collapse-163-all-out-bangladesh-2026-report" element={<PakistanCollapse2ndInningsBlog />} />
+              <Route path="/news/babar-azam-declared-fit-for-2nd-test-vs-bangladesh-2026" element={<BabarAzamFit2ndTestBlog />} />
               <Route path="/news/azan-awais-pakistan-test-debut-masterclass-dhaka" element={<AzanAwaisDebutBlog />} />
               <Route path="/news/pakistan-vs-australia-2026-analysis" element={<PakistanVsAustraliaBlog />} />
               <Route path="/news/psl-2026-eliminator-2-preview-islamabad-vs-hyderabad" element={<PSLEliminator2PreviewBlog />} />

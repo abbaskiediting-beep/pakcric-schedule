@@ -340,5 +340,102 @@ export const PLAYER_STATS: Record<string, Player> = {
         t20i: { matches: 37, wickets: 120, avg: 19.50, sr: 15.4, bestBowling: '5/44', fiveWickets: 1 }
       }
     }
+  },
+  'Najmul Hossain Shanto': {
+    name: 'Najmul Hossain Shanto',
+    country: 'Bangladesh',
+    role: 'Batter',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/321800/321868.png',
+    stats: {
+      matches: 120,
+      runs: 4500,
+      wickets: 2,
+      avg: 35.80,
+      sr: 82.40,
+      highestScore: '163',
+      recentForm: ['101', '87', '12', '4', '67'],
+      formats: {
+        test: { matches: 28, runs: 1650, avg: 31.50, sr: 52.4, centuries: 4, fifties: 5 },
+        odi: { matches: 45, runs: 1850, avg: 38.20, sr: 88.5, centuries: 3, fifties: 9 },
+        t20i: { matches: 42, runs: 950, avg: 26.50, sr: 125.40, fifties: 4 }
+      }
+    }
+  },
+  'Mehidy Hasan Miraz': {
+    name: 'Mehidy Hasan Miraz',
+    country: 'Bangladesh',
+    role: 'All-rounder',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/321800/321884.png',
+    stats: {
+      matches: 155,
+      runs: 3850,
+      wickets: 245,
+      avg: 28.50,
+      sr: 45.2,
+      bestBowling: '7/58',
+      recentForm: ['5/102', '2/34', '89', '1/45', '45'],
+      formats: {
+        test: { matches: 45, wickets: 168, avg: 32.40, sr: 55.4, fiveWickets: 9 },
+        odi: { matches: 85, wickets: 102, avg: 30.15, sr: 30.2 },
+        t20i: { matches: 25, wickets: 18, avg: 28.50, sr: 18.5 }
+      }
+    }
+  },
+  'Nahid Rana': {
+    name: 'Nahid Rana',
+    country: 'Bangladesh',
+    role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/376400/376451.png',
+    stats: {
+      matches: 12,
+      runs: 45,
+      wickets: 48,
+      avg: 21.50,
+      sr: 32.4,
+      bestBowling: '5/40',
+      recentForm: ['5/40', '2/33', '3/45', '1/22', '0/15'],
+      formats: {
+        test: { matches: 4, wickets: 18, avg: 19.50, sr: 32.4, fiveWickets: 1 },
+        odi: { matches: 5, wickets: 25, avg: 18.20, sr: 28.5 },
+        t20i: { matches: 3, wickets: 5, avg: 22.40, sr: 18.2 }
+      }
+    }
+  },
+  'Mitchell Marsh': {
+    name: 'Mitchell Marsh',
+    country: 'Australia',
+    role: 'All-rounder',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/322800/322889.png',
+    stats: {
+      matches: 280,
+      runs: 8500,
+      wickets: 155,
+      avg: 38.40,
+      sr: 125.40,
+      recentForm: ['89', '12', '4', '8', '21'], // Cold form example
+      formats: {
+        test: { matches: 40, runs: 2010, avg: 29.50, sr: 55.4 },
+        odi: { matches: 120, runs: 4500, avg: 41.20, sr: 95.5 },
+        t20i: { matches: 120, runs: 1990, avg: 32.40, sr: 135.20 }
+      }
+    }
+  },
+  'Adam Zampa': {
+    name: 'Adam Zampa',
+    country: 'Australia',
+    role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/322800/322896.png',
+    stats: {
+      matches: 220,
+      wickets: 310,
+      avg: 22.40,
+      sr: 28.50,
+      recentForm: ['4/35', '3/22', '2/45', '0/33', '1/15'],
+      formats: {
+        test: { matches: 0, wickets: 0, avg: 0, sr: 0 },
+        odi: { matches: 110, wickets: 155, avg: 28.50, sr: 28.5 },
+        t20i: { matches: 110, wickets: 155, avg: 21.20, sr: 16.5 }
+      }
+    }
   }
 };

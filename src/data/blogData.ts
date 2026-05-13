@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, Clock, Newspaper, AlertTriangle, Layout } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, TrendingDown, Clock, Newspaper, AlertTriangle, Layout } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -85,6 +85,61 @@ export const AUTHORS: Author[] = [
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'why-bangladesh-are-unbeatable-at-home-test-cricket-2026',
+    title: "Why Bangladesh Are Almost Unbeatable at Home in Test Cricket",
+    summary: "Bangladesh have beaten Pakistan, India, England, Australia and South Africa at home. Here is why Bangladesh's home Test record is one of cricket's most feared.",
+    date: 'May 13, 2026',
+    category: 'Analysis',
+    path: '/news/why-bangladesh-are-unbeatable-at-home-test-cricket-report',
+    icon: Shield,
+    color: 'text-emerald-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pakistan-wtc-2025-27-standings-after-bangladesh-loss',
+    title: "Pakistan Drop to 7th in WTC 2025-27 Table After Shock Bangladesh Loss",
+    summary: "Pakistan drop to 7th in WTC 2025-27 table with 33.33% points after Bangladesh beat them by 104 runs in 1st Test Mirpur 2026. Full standings and analysis inside.",
+    date: 'May 12, 2026',
+    category: 'Analysis',
+    path: '/news/pakistan-wtc-2025-27-standings-after-bangladesh-loss-report',
+    icon: TrendingDown,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'pakistan-shocking-2nd-innings-collapse-163-all-out-2026',
+    title: "Pakistan's Shocking 2nd Innings Collapse — 163 All Out, Bangladesh Win by 104 Runs",
+    summary: "Pakistan collapse to 163 all out chasing 268 vs Bangladesh in 1st Test Mirpur 2026. Nahid Rana 5/40 destroys Pakistan middle order as Bangladesh win by 104 runs.",
+    date: 'May 12, 2026',
+    category: 'Match Report',
+    path: '/news/pakistan-2nd-innings-collapse-163-all-out-bangladesh-2026-report',
+    icon: AlertTriangle,
+    color: 'text-red-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'babar-azam-declared-fit-2nd-test-vs-bangladesh-2026-sylhet',
+    title: "Babar Azam Declared Fit for 2nd Test vs Bangladesh — The King Returns to Sylhet After Knee Injury Scare",
+    summary: "Babar Azam declared fit and available for Pakistan's 2nd Test vs Bangladesh in Sylhet on May 16 2026. Full injury timeline, training update, and what his return means for Pakistan's must-win match.",
+    date: 'May 13, 2026',
+    category: 'Breaking News',
+    path: '/news/babar-azam-declared-fit-for-2nd-test-vs-bangladesh-2026',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis',
+    title: "Why Pakistan Lost the 1st Test Against Bangladesh 2026 — 7 Brutal Reasons That Cost Them the Mirpur Match",
+    summary: "Pakistan lost to Bangladesh by 104 runs in Mirpur's 1st Test May 2026. Babar absent, Saud golden duck, Rizwan drop, Noman underused, 2nd innings 163 collapse — 7 key reasons analyzed.",
+    date: 'May 12, 2026',
+    category: 'Analysis',
+    path: '/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis',
+    icon: AlertTriangle,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
   {
     id: 'nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026',
     title: "Nahid Rana's Devastating 5/40 — Bangladesh's Youngest Hero Destroys Pakistan to Win 1st Test",

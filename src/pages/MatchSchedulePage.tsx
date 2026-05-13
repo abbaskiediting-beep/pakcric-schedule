@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import React, { useState, useMemo } from 'react';
 import { Match } from '../types';
 import ShareButton from '../components/ShareButton';
+import SetReminderButton from '../components/SetReminderButton';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import ExternalResourcesSection from '../components/ExternalResourcesSection';
@@ -554,15 +555,24 @@ export default function MatchSchedulePage() {
                       url={`${window.location.origin}/match/${match.id}`}
                       variant="icon"
                     />
-                    <span className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                      match.status === 'Live' ? 'bg-red-600 text-white animate-pulse shadow-xl shadow-red-600/20' :
-                      match.status === 'Upcoming' ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/10' :
-                      match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
-                      'bg-white/5 text-ink/40 border border-white/5'
-                    }`}>
-                      {match.status === 'Live' && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
-                      {match.status}
-                    </span>
+                    {(match.status === 'Upcoming' || match.status === 'Today') ? (
+                      <SetReminderButton 
+                        matchId={match.id}
+                        matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+                        matchTime={match.time}
+                        matchDate={match.date}
+                        className="flex-1"
+                      />
+                    ) : (
+                      <span className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                        match.status === 'Live' ? 'bg-red-600 text-white animate-pulse shadow-xl shadow-red-600/20' :
+                        match.status === 'Scheduled' ? 'bg-emerald-600 text-white' :
+                        'bg-white/5 text-ink/40 border border-white/5'
+                      }`}>
+                        {match.status === 'Live' && <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
+                        {match.status}
+                      </span>
+                    )}
                     {match.granularStatus && (
                       <span className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest bg-white/5 text-pak-green border border-white/10">
                         {match.granularStatus}
@@ -744,6 +754,15 @@ export default function MatchSchedulePage() {
                       {/* Action Column */}
                       <td className="px-6 py-5 text-right">
                          <div className="flex items-center justify-end gap-3">
+                           {(match.status === 'Upcoming' || match.status === 'Today') && (
+                             <SetReminderButton 
+                               matchId={match.id}
+                               matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+                               matchTime={match.time}
+                               matchDate={match.date}
+                               className="w-40"
+                             />
+                           )}
                            <ShareButton 
                              title={match.title || `PAK vs ${match.opponent} - ${match.series}`}
                              text={`Pakistan vs ${match.opponent} in the ${match.series} on ${match.date} at ${match.time} PKT. Venue: ${match.venue}.`}

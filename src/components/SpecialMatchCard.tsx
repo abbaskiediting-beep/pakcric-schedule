@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
-import { Calendar, MapPin, Clock, Zap, AlertTriangle, ArrowRight, Share2 } from 'lucide-react';
+import { Calendar, MapPin, Clock, Zap, AlertTriangle, ArrowRight, Share2, Bell } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Match } from '../types';
 import ShareButton from './ShareButton';
+import SetReminderButton from './SetReminderButton';
 
 interface SpecialMatchCardProps {
   match: Match;
@@ -179,9 +180,19 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
             Match Center <ArrowRight className="w-5 h-5" />
           </Link>
           <div className="flex-[1] flex gap-4">
-            <Link to="/news/babar-azam-injured-1st-bangladesh-test-2026" className="flex-1 px-4 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-[2px] hover:bg-white/10 hover:border-white/30 transition-all text-center flex items-center justify-center">
-              Injury Update
-            </Link>
+            {(match.status === 'Upcoming' || match.status === 'Today') ? (
+              <SetReminderButton 
+                matchId={match.id}
+                matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+                matchTime={match.time}
+                matchDate={match.date}
+                className="flex-1"
+              />
+            ) : (
+              <Link to="/news/babar-azam-injured-1st-bangladesh-test-2026" className="flex-1 px-4 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-[2px] hover:bg-white/10 hover:border-white/30 transition-all text-center flex items-center justify-center">
+                Injury Update
+              </Link>
+            )}
             <ShareButton 
               title={shareTitle}
               text={shareText}
