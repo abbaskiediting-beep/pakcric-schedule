@@ -15,17 +15,18 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
   const shareUrl = `${window.location.origin}/match/${match.id}`;
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="relative w-full bg-gradient-to-br from-[#0A1A0F] to-[#050C07] border border-pak-green/40 rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group"
-    >
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pak-green/10 blur-[120px] rounded-full -mr-64 -mt-64" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pak-green/5 blur-[120px] rounded-full -ml-64 -mb-64" />
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] pointer-events-none" />
+    <div className="relative">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative w-full bg-gradient-to-br from-[#0A1A0F] to-[#050C07] border border-pak-green/40 rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group"
+      >
+        {/* Dynamic Background Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pak-green/10 blur-[120px] rounded-full -mr-64 -mt-64" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pak-green/5 blur-[120px] rounded-full -ml-64 -mb-64" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] pointer-events-none" />
 
-      <div className="relative z-10 p-5 sm:p-12">
+        <div className="relative z-10 p-5 sm:p-12">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-10">
           <div className="flex flex-wrap items-center gap-2 md:gap-3">
             <div className={`px-3 py-1.5 md:px-4 md:py-2 ${match.status === 'Today' || match.status === 'Live' ? 'bg-red-600' : 'bg-pak-green'} text-white rounded-xl text-[8px] md:text-[11px] font-black uppercase tracking-[2px] md:tracking-[3px] animate-pulse shadow-lg shadow-red-600/40`}>
@@ -164,35 +165,14 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
           </div>
         </div>
 
-        {/* Breaking News Sticker */}
-        <div className="mb-8 sm:mb-10 bg-red-600/10 border border-red-600/30 p-4 sm:p-5 rounded-2xl flex items-start gap-3 sm:gap-4">
-          <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500 shrink-0" />
-          <div>
-            <h4 className="text-[10px] sm:text-xs font-black text-red-500 uppercase tracking-widest mb-1 leading-none">Major Blow for Pakistan</h4>
-            <p className="text-[10px] sm:text-xs text-white/60 leading-relaxed uppercase font-bold tracking-tight">
-              Babar Azam has been ruled out of the 1st Test in Dhaka due to a left knee injury. Reshuffled batting order analysis is now live.
-            </p>
-          </div>
-        </div>
-
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to={`/match/${match.id}`} className="flex-[2] px-8 py-5 bg-pak-green text-white rounded-2xl text-[12px] font-black uppercase tracking-[3px] hover:bg-emerald-600 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-3">
             Match Center <ArrowRight className="w-5 h-5" />
           </Link>
           <div className="flex-[1] flex gap-4">
-            {(match.status === 'Upcoming' || match.status === 'Today') ? (
-              <SetReminderButton 
-                matchId={match.id}
-                matchTitle={match.title || `Pakistan vs ${match.opponent}`}
-                matchTime={match.time}
-                matchDate={match.date}
-                className="flex-1"
-              />
-            ) : (
-              <Link to="/news/babar-azam-injured-1st-bangladesh-test-2026" className="flex-1 px-4 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-[2px] hover:bg-white/10 hover:border-white/30 transition-all text-center flex items-center justify-center">
-                Injury Update
-              </Link>
-            )}
+            <Link to="/schedule" className="flex-1 px-4 py-5 bg-white/5 text-white border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-[2px] hover:bg-white/10 hover:border-white/30 transition-all text-center flex items-center justify-center">
+              Full Schedule
+            </Link>
             <ShareButton 
               title={shareTitle}
               text={shareText}
@@ -202,7 +182,21 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
             />
           </div>
         </div>
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Reminder button below the card */}
+      {(match.status === 'Upcoming' || match.status === 'Today') && (
+        <div className="mt-4 px-2">
+          <SetReminderButton 
+            matchId={match.id}
+            matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+            matchTime={match.time}
+            matchDate={match.date}
+            className="w-full"
+          />
+        </div>
+      )}
+    </div>
   );
 }

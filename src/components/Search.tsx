@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Search as SearchIcon, X, User, Calendar, Trophy as TrophyIcon, ArrowRight, Filter, Globe2, Zap, Clock, TrendingUp, TrendingDown, Snowflake } from 'lucide-react';
+import { Search as SearchIcon, X, User, Calendar, Trophy as TrophyIcon, ArrowRight, Filter, Globe2, Zap, Clock, TrendingUp, TrendingDown, Snowflake, Newspaper } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { ALL_SQUADS } from '../squadData';
 import { PLAYER_STATS } from '../playerData';
+import { BLOG_POSTS } from '../data/blogData';
+import { seriesSummaries } from '../data/seriesData';
 
 const HighlightText = ({ text, highlight }: { text: string; highlight: string }) => {
   if (!highlight.trim()) {
@@ -30,12 +32,13 @@ const HighlightText = ({ text, highlight }: { text: string; highlight: string })
 
 interface SearchResult {
   id: string;
-  type: 'player' | 'match' | 'series';
+  type: 'player' | 'match' | 'series' | 'news';
   title: string;
   subtitle: string;
   link: string;
   country?: string;
   formStatus?: 'Hot' | 'Cold' | 'Normal';
+  category?: string;
 }
 
 export default function Search() {
@@ -138,6 +141,35 @@ export default function Search() {
       }
     });
 
+    // Search Series from seriesSummaries
+    seriesSummaries.forEach(series => {
+      const seriesSearchText = `${series.seriesName} ${series.opponent} ${series.format}`.toLowerCase();
+      if (seriesSearchText.includes(q)) {
+        searchResults.push({
+          id: `series-summary-${series.id}`,
+          type: 'series',
+          title: series.seriesName,
+          subtitle: `${series.format} Analysis • vs ${series.opponent}`,
+          link: `/series-analysis/${series.id}`
+        });
+      }
+    });
+
+    // Search Blog Posts
+    BLOG_POSTS.forEach(post => {
+      const postSearchText = `${post.title} ${post.summary} ${post.category}`.toLowerCase();
+      if (postSearchText.includes(q)) {
+        searchResults.push({
+          id: `news-${post.id}`,
+          type: 'news',
+          title: post.title,
+          subtitle: `${post.category} • ${post.date}`,
+          link: post.path,
+          category: post.category
+        });
+      }
+    });
+
     // Fallback to ALL_SQUADS for players not in PLAYER_STATS (though hopefully rare)
     if (selectedCountry === 'All' && formFilter === 'All') {
       ALL_SQUADS.forEach(squad => {
@@ -158,13 +190,13 @@ export default function Search() {
     // Search Matches (only if no specific player filters or if they match)
     if (selectedCountry === 'All' && formFilter === 'All') {
       PAKISTAN_SCHEDULE.forEach(match => {
-        const matchSearchText = `${match.opponent} ${match.venue} ${match.format} ${match.series}`.toLowerCase();
+        const matchSearchText = `${match.opponent} ${match.venue} ${match.format} ${match.series} ${match.date} ${match.title || ''}`.toLowerCase();
         if (matchSearchText.includes(q)) {
           searchResults.push({
             id: `match-${match.id}`,
             type: 'match',
-            title: `vs ${match.opponent}`,
-            subtitle: `${match.format} • ${match.series} • ${match.date}`,
+            title: match.title || `vs ${match.opponent}`,
+            subtitle: `${match.format} • ${match.venue} • ${match.date}`,
             link: `/match/${match.id}`
           });
         }
@@ -316,6 +348,7 @@ export default function Search() {
                           {result.type === 'player' && <User className="w-5 h-5" />}
                           {result.type === 'match' && <Calendar className="w-5 h-5" />}
                           {result.type === 'series' && <TrophyIcon className="w-5 h-5" />}
+                          {result.type === 'news' && <Newspaper className="w-5 h-5" />}
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-ink font-bold truncate tracking-tight">

@@ -132,7 +132,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis',
     title: "Why Pakistan Lost the 1st Test Against Bangladesh 2026 — 7 Brutal Reasons That Cost Them the Mirpur Match",
-    summary: "Pakistan lost to Bangladesh by 104 runs in Mirpur's 1st Test May 2026. Babar absent, Saud golden duck, Rizwan drop, Noman underused, 2nd innings 163 collapse — 7 key reasons analyzed.",
+    summary: "Pakistan lost to Bangladesh by 104 runs in Mirpur's 1st Test May 2026. Top order failure, Saud golden duck, Rizwan drop, Noman underused, 2nd innings 163 collapse — key reasons analyzed.",
     date: 'May 12, 2026',
     category: 'Analysis',
     path: '/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis',
@@ -769,8 +769,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'babar-azam-injury-batting-lineup-analysis-2026',
-    title: 'The Babar Vacuum: How Pakistan Reshuffles for the 1st Test',
-    summary: 'Tactical analysis of Pakistan\'s batting order without Babar Azam. Comparing Azan Awais and Abdullah Fazal as potential debutants in Dhaka.',
+    title: "The Babar Factor: How Pakistan Plans for the 2nd Test",
+    summary: "Tactical analysis of Pakistan's batting strategy for the 2nd Test. Comparing Azan Awais and Abdullah Fazal as key contributors in Chattogram.",
     date: 'May 7, 2026',
     category: 'Tactical Analysis',
     path: '/news/babar-azam-injury-batting-lineup-analysis-2026',

@@ -107,7 +107,7 @@ export default function PakistanVsBangladesh2026Schedule() {
                 <tr className="hover:bg-white/5 transition-colors">
                   <td className="px-6 py-4">2nd Test</td>
                   <td className="px-6 py-4">16 May – 20 May 2026</td>
-                  <td className="px-6 py-4">Sylhet International Cricket Stadium, Sylhet</td>
+                  <td className="px-6 py-4">Zahur Ahmed Chowdhury Stadium, Chattogram</td>
                   <td className="px-6 py-4">9:00 AM</td>
                 </tr>
               </tbody>

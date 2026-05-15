@@ -919,7 +919,7 @@ export default function MatchSchedulePage() {
             {[
               {
                 q: "When is Pakistan’s next match in 2026?",
-                a: "Pakistan’s next match is scheduled in May 2026 against Bangladesh during their overseas tour."
+                a: "Pakistan’s next match is scheduled for May 16, 2026, against Bangladesh in the 2nd Test at Chattogram."
               },
               {
                 q: "Where can I check Pakistan cricket schedule 2026?",

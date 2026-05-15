@@ -277,20 +277,21 @@ export default function MatchCard({ match, index, matchId }: MatchCardProps) {
               <span className="text-[11px] font-black uppercase tracking-tight truncate leading-none text-center">{match.venue}</span>
             </div>
           </div>
-          
-          {(match.status === 'Upcoming' || match.status === 'Today') && (
-            <div className="mt-6" onClick={(e) => e.stopPropagation()}>
-              <SetReminderButton 
-                matchId={effectiveId}
-                matchTitle={match.title || `Pakistan vs ${match.opponent}`}
-                matchTime={match.time}
-                matchDate={match.date}
-              />
-            </div>
-          )}
+          </div>
         </div>
-      </div>
-    </motion.div>
-  </div>
+      </motion.div>
+
+      {/* Reminder button below the card */}
+      {(match.status === 'Upcoming' || match.status === 'Today') && (
+        <div className="mt-3 px-1" onClick={(e) => e.stopPropagation()}>
+          <SetReminderButton 
+            matchId={effectiveId}
+            matchTitle={match.title || `Pakistan vs ${match.opponent}`}
+            matchTime={match.time}
+            matchDate={match.date}
+          />
+        </div>
+      )}
+    </div>
   );
 }

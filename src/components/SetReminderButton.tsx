@@ -27,13 +27,17 @@ export default function SetReminderButton({
 
   const toggleReminder = () => {
     const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
+    const savedSchedules = JSON.parse(localStorage.getItem('saved_schedules') || '[]');
     let newReminders;
+    let newSchedules;
 
     if (isReminderSet) {
       newReminders = savedReminders.filter((id: string) => id !== matchId);
+      newSchedules = savedSchedules.filter((id: string) => id !== matchId);
       setIsReminderSet(false);
     } else {
       newReminders = [...savedReminders, matchId];
+      newSchedules = Array.from(new Set([...savedSchedules, matchId]));
       setIsReminderSet(true);
       setShowFeedback(true);
       
@@ -53,6 +57,7 @@ export default function SetReminderButton({
     }
 
     localStorage.setItem('match_reminders', JSON.stringify(newReminders));
+    localStorage.setItem('saved_schedules', JSON.stringify(newSchedules));
   };
 
   return (

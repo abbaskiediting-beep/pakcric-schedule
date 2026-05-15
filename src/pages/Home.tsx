@@ -197,7 +197,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                Next: Pak vs Ban – May 8, 2026
+                Next: Pak vs Ban – May 16, 2026
               </span>
             </motion.div>
             
@@ -397,35 +397,35 @@ export default function Home() {
                </Link>
 
                <Link 
-                 to="/news/babar-azam-injury-batting-lineup-analysis-2026"
-                 className="flex items-center justify-between p-4 bg-pak-green/5 border border-pak-green/20 rounded-2xl group hover:bg-pak-green/10 hover:border-pak-green/40 transition-all"
+                 to="/pakistan-tour-bangladesh-squad-2026"
+                 className="flex items-center justify-between p-4 bg-pak-green/5 border border-pak-green/20 rounded-2xl group hover:bg-pak-green/10 hover:border-pak-green/40 transition-all font-bold"
                >
                  <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-black transition-colors">
-                       <Layout className="w-5 h-5" />
+                       <Users className="w-5 h-5" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Lineup Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Babar Azam's Absence: Reshuffle</h5>
+                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Squad Intelligence</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Official 16-Member Test Squad</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
                </Link>
 
                <Link 
-                 to="/news/babar-azam-injured-1st-bangladesh-test-2026"
-                 className="flex items-center justify-between p-4 bg-red-500/5 border border-red-500/20 rounded-2xl group hover:bg-red-500/10 hover:border-red-500/40 transition-all font-bold"
+                 to="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027"
+                 className="flex items-center justify-between p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl group hover:bg-emerald-500/10 hover:border-emerald-500/40 transition-all font-bold"
                >
                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-black transition-colors">
-                       <AlertTriangle className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                       <Target className="w-5 h-5" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-red-500 uppercase tracking-widest leading-none mb-1">Breaking News</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-red-500 transition-colors capitalize">Babar Ruled Out of 1st Test</h5>
+                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">WTC Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors capitalize">PAK vs BAN: WTC Scenarios 2027</h5>
                     </div>
                  </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-red-500 transition-colors" />
+                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
                </Link>
 
                <Link 
