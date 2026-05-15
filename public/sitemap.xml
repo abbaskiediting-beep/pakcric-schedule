@@ -71,6 +71,41 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://pakcric-schedule.online/news/why-bangladesh-are-unbeatable-at-home-test-cricket-report</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pakcric-schedule.online/news/pakistan-wtc-2025-27-standings-after-bangladesh-loss-report</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pakcric-schedule.online/news/pakistan-2nd-innings-collapse-163-all-out-bangladesh-2026-report</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pakcric-schedule.online/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pakcric-schedule.online/news/babar-azam-declared-fit-for-2nd-test-vs-bangladesh-2026</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pakcric-schedule.online/news/nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pakcric-schedule.online/news/azan-awais-pakistan-test-debut-masterclass-dhaka</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pakcric-schedule.online/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
