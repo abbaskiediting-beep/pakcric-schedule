@@ -13,16 +13,39 @@ import { Player } from '../types';
 export default function AllPlayersStats() {
   const [searchQuery, setSearchQuery] = useState('');
   const [roleFilter, setRoleFilter] = useState('All');
-  const [sortKey, setSortKey] = useState<'runs' | 'wickets' | 'avg' | 'name'>('runs');
+  const [sortKey, setSortKey] = useState<'runs' | 'wickets' | 'avg' | 'name' | 'testAvg' | 'odiAvg' | 't20iAvg' | 'highestScore' | 'bestBowling'>('runs');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const roles = ['All', 'Batter', 'Bowler', 'All-rounder', 'Wicketkeeper Batter'];
+  const sortOptions = [
+    { label: 'Overall Runs', value: 'runs' },
+    { label: 'Overall Wickets', value: 'wickets' },
+    { label: 'Overall Average', value: 'avg' },
+    { label: 'Test Average', value: 'testAvg' },
+    { label: 'ODI Average', value: 'odiAvg' },
+    { label: 'T20I Average', value: 't20iAvg' },
+    { label: 'Highest Score', value: 'highestScore' },
+    { label: 'Best Bowling', value: 'bestBowling' },
+    { label: 'Player Name', value: 'name' }
+  ];
 
   const openPlayerModal = (player: Player) => {
     setSelectedPlayer(player);
     setIsModalOpen(true);
+  };
+
+  const parseScore = (score: string | undefined): number => {
+    if (!score) return 0;
+    return parseInt(score.replace('*', '')) || 0;
+  };
+
+  const parseBowling = (bowling: string | undefined): number => {
+    if (!bowling || !bowling.includes('/')) return 0;
+    const [w, r] = bowling.split('/').map(n => parseInt(n) || 0);
+    // Sort by wickets first, then by lower runs
+    return w * 1000 + (1000 - r);
   };
 
   const players = useMemo(() => {
@@ -43,9 +66,24 @@ export default function AllPlayersStats() {
       if (sortKey === 'name') {
         valA = a.name.toLowerCase();
         valB = b.name.toLowerCase();
+      } else if (sortKey === 'testAvg') {
+        valA = a.stats.formats?.test?.avg || 0;
+        valB = b.stats.formats?.test?.avg || 0;
+      } else if (sortKey === 'odiAvg') {
+        valA = a.stats.formats?.odi?.avg || 0;
+        valB = b.stats.formats?.odi?.avg || 0;
+      } else if (sortKey === 't20iAvg') {
+        valA = a.stats.formats?.t20i?.avg || 0;
+        valB = b.stats.formats?.t20i?.avg || 0;
+      } else if (sortKey === 'highestScore') {
+        valA = parseScore(a.stats.highestScore);
+        valB = parseScore(b.stats.highestScore);
+      } else if (sortKey === 'bestBowling') {
+        valA = parseBowling(a.stats.bestBowling);
+        valB = parseBowling(b.stats.bestBowling);
       } else {
-        valA = a.stats[sortKey] || 0;
-        valB = b.stats[sortKey] || 0;
+        valA = (a.stats as any)[sortKey] || 0;
+        valB = (b.stats as any)[sortKey] || 0;
       }
 
       if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
@@ -114,7 +152,21 @@ export default function AllPlayersStats() {
               onChange={(e) => setRoleFilter(e.target.value)}
               className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-11 md:pl-12 pr-10 text-[9px] md:text-[10px] font-black uppercase tracking-widest focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink cursor-pointer"
             >
-              {roles.map(role => <option key={role} value={role}>{role}</option>)}
+              <optgroup label="Role Filter">
+                {roles.map(role => <option key={role} value={role}>{role}</option>)}
+              </optgroup>
+            </select>
+          </div>
+          <div className="relative w-full md:w-56">
+            <ArrowUpDown className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+            <select
+              value={sortKey}
+              onChange={(e) => toggleSort(e.target.value as any)}
+              className="appearance-none bg-card-bg border border-card-border rounded-xl md:rounded-2xl py-3.5 md:py-4 pl-11 md:pl-12 pr-10 text-[9px] md:text-[10px] font-black uppercase tracking-widest focus:outline-none focus:border-pak-green/30 transition-all w-full text-ink cursor-pointer text-pak-green"
+            >
+              <optgroup label="Sort Players By">
+                {sortOptions.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
+              </optgroup>
             </select>
           </div>
         </div>

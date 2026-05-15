@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   X, 
@@ -12,7 +12,10 @@ import {
   Calendar,
   User,
   Star,
-  Info
+  Info,
+  Edit3,
+  Save,
+  CheckCircle2
 } from 'lucide-react';
 import { Player } from '../types';
 
@@ -23,17 +26,39 @@ interface PlayerModalProps {
 }
 
 export const PlayerModal: React.FC<PlayerModalProps> = ({ player, isOpen, onClose }) => {
+  const [notes, setNotes] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(false);
+
   // Prevent scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Load notes if player exists
+      if (player) {
+        const savedNotes = localStorage.getItem(`player_notes_${player.name.toLowerCase().replace(/\s+/g, '_')}`);
+        setNotes(savedNotes || '');
+      }
     } else {
       document.body.style.overflow = 'unset';
+      setSaveSuccess(false);
     }
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [isOpen, player]);
+
+  const handleSaveNotes = () => {
+    if (!player) return;
+    setIsSaving(true);
+    
+    setTimeout(() => {
+      localStorage.setItem(`player_notes_${player.name.toLowerCase().replace(/\s+/g, '_')}`, notes);
+      setIsSaving(false);
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 3000);
+    }, 600);
+  };
 
   if (!player) return null;
 
@@ -233,6 +258,53 @@ export const PlayerModal: React.FC<PlayerModalProps> = ({ player, isOpen, onClos
                             Data represents the most recent performances recorded in domestic and international fixtures for 2026.
                           </p>
                        </div>
+                    </div>
+                  </section>
+                </div>
+
+                {/* Scouting Notes Section */}
+                <div className="p-8 md:p-12 pt-0">
+                  <section className="bg-gradient-to-br from-white/[0.03] to-transparent border border-white/10 rounded-[40px] p-8 md:p-12 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-12 opacity-[0.02] pointer-events-none">
+                       <Edit3 className="w-64 h-64 text-white" />
+                    </div>
+
+                    <div className="flex items-center gap-4 mb-8">
+                      <Edit3 className="w-6 h-6 text-pak-green" />
+                      <h3 className="text-xl font-display font-bold uppercase tracking-tight text-white italic">Scouting Notes</h3>
+                      <div className="h-px flex-1 bg-white/10" />
+                    </div>
+
+                    <p className="text-[10px] font-black uppercase tracking-[4px] text-white/30 mb-6 leading-none">Personal Observation & Technical Tracking</p>
+                    
+                    <textarea
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                      placeholder="Add strategic notes, technical weaknesses, or personal tracking for this player..."
+                      className="w-full h-48 bg-black/40 border border-white/10 rounded-2xl p-6 text-white/70 text-sm font-medium focus:ring-1 focus:ring-pak-green/50 focus:border-pak-green/50 outline-none transition-all placeholder:text-white/10 resize-none custom-scrollbar"
+                    />
+
+                    <div className="flex justify-end mt-6">
+                      <button 
+                        onClick={handleSaveNotes}
+                        disabled={isSaving}
+                        className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-3 active:scale-95 disabled:opacity-50 ${
+                          saveSuccess 
+                            ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20' 
+                            : 'bg-pak-green text-black shadow-lg shadow-pak-green/20 hover:scale-105'
+                        }`}
+                      >
+                        {saveSuccess ? (
+                          <>
+                            <CheckCircle2 className="w-4 h-4" /> Observation Logged
+                          </>
+                        ) : (
+                          <>
+                            <Save className={`w-4 h-4 ${isSaving ? 'animate-spin' : ''}`} /> 
+                            {isSaving ? 'Logging...' : 'Save Observation'}
+                          </>
+                        )}
+                      </button>
                     </div>
                   </section>
                 </div>
