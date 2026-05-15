@@ -107,6 +107,7 @@ const AusOdiSquadPak2026 = lazy(() => import('./pages/AusOdiSquadPak2026'));
 const AustraliaOdiSquadPage = lazy(() => import('./pages/AustraliaOdiSquadPage'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
+const PakistanPlayingXIPrediction2ndTestBlog = lazy(() => import('./pages/PakistanPlayingXIPrediction2ndTestBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -189,6 +190,7 @@ export default function App() {
               <Route path="/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis" element={<WhyPakistanLost1stTestBlog />} />
               <Route path="/news/pakistan-wtc-2025-27-standings-after-bangladesh-loss-report" element={<PakistanWTCStandingsBlog />} />
               <Route path="/news/why-bangladesh-are-unbeatable-at-home-test-cricket-report" element={<BangladeshHomeDominanceBlog />} />
+              <Route path="/news/pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026" element={<PakistanPlayingXIPrediction2ndTestBlog />} />
               <Route path="/news/pakistan-2nd-innings-collapse-163-all-out-bangladesh-2026-report" element={<PakistanCollapse2ndInningsBlog />} />
               <Route path="/news/babar-azam-declared-fit-for-2nd-test-vs-bangladesh-2026" element={<BabarAzamFit2ndTestBlog />} />
               <Route path="/news/azan-awais-pakistan-test-debut-masterclass-dhaka" element={<AzanAwaisDebutBlog />} />

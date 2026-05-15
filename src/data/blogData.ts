@@ -97,6 +97,17 @@ export const BLOG_POSTS: BlogPost[] = [
     authorId: 'omar-farooq'
   },
   {
+    id: 'pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026',
+    title: "Pakistan Playing XI Prediction — 2nd Test vs Bangladesh, Sylhet 2026",
+    summary: "Babar Azam returns, Shaheen Afridi may be dropped — Pakistan predicted playing XI for 2nd Test vs Bangladesh at Sylhet, May 16, 2026. Full analysis inside.",
+    date: 'May 15, 2026',
+    category: 'Tactical Analysis',
+    path: '/news/pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026',
+    icon: Target,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'pakistan-wtc-2025-27-standings-after-bangladesh-loss',
     title: "Pakistan Drop to 7th in WTC 2025-27 Table After Shock Bangladesh Loss",
     summary: "Pakistan drop to 7th in WTC 2025-27 table with 33.33% points after Bangladesh beat them by 104 runs in 1st Test Mirpur 2026. Full standings and analysis inside.",

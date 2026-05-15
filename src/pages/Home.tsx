@@ -365,6 +365,22 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
+                 to="/news/pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-pak-green border border-pak-green rounded-2xl group hover:bg-pak-green/90 transition-all font-bold shadow-[0_10px_30px_rgba(0,102,46,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Zap className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Big Reshuffle</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Pakistan Playing XI Prediction 2nd Test</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
                  to="/news/pak-vs-ban-1st-test-day-1-report-2026"
                  className="flex items-center justify-between p-4 bg-pak-green/10 border border-pak-green/30 rounded-2xl group hover:bg-pak-green/20 hover:border-pak-green/50 transition-all font-bold"
                >

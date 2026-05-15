@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026',
+    title: 'Pakistan Playing XI Prediction — 2nd Test vs Bangladesh, Sylhet 2026',
+    date: 'May 15, 2026',
+    tag: 'Tactical Analysis',
+    summary: 'Babar Azam returns, Shaheen Afridi may be dropped — Pakistan predicted playing XI for 2nd Test vs Bangladesh at Sylhet. Full analysis inside.'
+  },
+  {
     id: 'pak-vs-ban-1st-test-day-4-report-2026',
     title: 'PAK vs BAN 1st Test Day 4: Awais 103, Mehidy 5/102, BAN 93/2 Lead 120',
     date: 'May 11, 2026',
