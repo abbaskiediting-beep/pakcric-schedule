@@ -76,6 +76,19 @@ async function startServer() {
     app.use(express.static(distPath, { index: false }));
   }
 
+  // Redirect trailing slashes (except root) and index.html
+  app.use((req, res, next) => {
+    if (req.path === '/index.html') {
+      return res.redirect(301, '/');
+    }
+    if (req.path !== '/' && req.path.endsWith('/')) {
+      const query = req.url.slice(req.path.length);
+      const safepath = req.path.slice(0, -1).replace(/\/+/g, '/');
+      return res.redirect(301, safepath + query);
+    }
+    next();
+  });
+
   // Handle SPA fallback with Meta Injection
   app.get('*', async (req, res, next) => {
     const url = req.originalUrl;
