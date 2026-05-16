@@ -97,6 +97,28 @@ export const BLOG_POSTS: BlogPost[] = [
     authorId: 'omar-farooq'
   },
   {
+    id: 'pak-vs-ban-2nd-test-toss-report-sylhet-2026',
+    title: "PAK vs BAN 2nd Test Toss Update: Pakistan Win Toss, Elect to Bowl — Babar Azam Returns!",
+    summary: "Pakistan won the toss and elected to bowl in 2nd Test Sylhet. Babar Azam returns. Mohammad Abbas takes 1st over wicket. Bangladesh 79/3 in Session 1.",
+    date: 'May 16, 2026',
+    category: 'Live Match',
+    path: '/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026',
+    icon: Zap,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'fatima-sana-world-record-fastest-fifty-womens-t20i-2026',
+    title: "Fatima Sana Breaks World Record — Fastest Fifty in Women's T20I History",
+    summary: "Pakistan captain Fatima Sana broke the world record for fastest fifty in women's T20Is — 15 balls vs Zimbabwe on May 15 2026. Full story inside.",
+    date: 'May 15, 2026',
+    category: 'World Record',
+    path: '/news/fatima-sana-world-record-fastest-fifty-womens-t20i-2026',
+    icon: Trophy,
+    color: 'text-yellow-500',
+    authorId: 'omar-farooq'
+  },
+  {
     id: 'pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026',
     title: "Pakistan Playing XI Prediction — 2nd Test vs Bangladesh, Sylhet 2026",
     summary: "Babar Azam returns, Shaheen Afridi may be dropped — Pakistan predicted playing XI for 2nd Test vs Bangladesh at Sylhet, May 16, 2026. Full analysis inside.",
@@ -865,5 +887,16 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: Trophy,
     color: 'text-pak-green',
     authorId: 'omar-farooq'
+  },
+  {
+    id: 'pakistan-women-t20-world-cup-2026-squad-analysis',
+    title: "Pakistan Women’s T20 World Cup 2026 Squad — Full Analysis & Expectations",
+    summary: "Pakistan Women announce their T20 World Cup 2026 squad led by Fatima Sana. Full squad analysis, player breakdown, strengths, weaknesses, and tournament expectations.",
+    date: 'May 16, 2026',
+    category: 'Squad Analysis',
+    path: '/news/pakistan-women-t20-world-cup-2026-squad-analysis',
+    icon: Users,
+    color: 'text-emerald-500',
+    authorId: 'syed-abbas'
   },
 ];

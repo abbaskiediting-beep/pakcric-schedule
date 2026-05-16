@@ -104,6 +104,9 @@ const PakistanWTCStandingsBlog = lazy(() => import('./pages/PakistanWTCStandings
 const BangladeshHomeDominanceBlog = lazy(() => import('./pages/BangladeshHomeDominanceBlog'));
 const BabarAzamFit2ndTestBlog = lazy(() => import('./pages/BabarAzamFit2ndTestBlog'));
 const AusOdiSquadPak2026 = lazy(() => import('./pages/AusOdiSquadPak2026'));
+const PakVsBan2ndTestTossReport = lazy(() => import('./pages/PakVsBan2ndTestTossReport'));
+const PakWomenT20WCSquadBlog = lazy(() => import('./pages/PakWomenT20WCSquadBlog'));
+const FatimaSanaWorldRecordBlog = lazy(() => import('./pages/FatimaSanaWorldRecordBlog'));
 const AustraliaOdiSquadPage = lazy(() => import('./pages/AustraliaOdiSquadPage'));
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
@@ -187,6 +190,9 @@ export default function App() {
               <Route path="/news/pak-vs-ban-1st-test-day-4-report-2026" element={<PakVsBan1stTestDay4Report />} />
               <Route path="/news/pak-vs-ban-1st-test-full-match-report-2026" element={<PakVsBan1stTestFullReport />} />
               <Route path="/news/nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026" element={<NahidRana5WicketsBlog />} />
+              <Route path="/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026" element={<PakVsBan2ndTestTossReport />} />
+              <Route path="/news/pakistan-women-t20-world-cup-2026-squad-analysis" element={<PakWomenT20WCSquadBlog />} />
+              <Route path="/news/fatima-sana-world-record-fastest-fifty-womens-t20i-2026" element={<FatimaSanaWorldRecordBlog />} />
               <Route path="/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis" element={<WhyPakistanLost1stTestBlog />} />
               <Route path="/news/pakistan-wtc-2025-27-standings-after-bangladesh-loss-report" element={<PakistanWTCStandingsBlog />} />
               <Route path="/news/why-bangladesh-are-unbeatable-at-home-test-cricket-report" element={<BangladeshHomeDominanceBlog />} />

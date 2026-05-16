@@ -2,6 +2,27 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pakistan-women-t20-world-cup-2026-squad-analysis',
+    title: "Pakistan Women’s T20 World Cup 2026 Squad — Full Analysis & Expectations",
+    date: 'May 16, 2026',
+    tag: 'Squad analysis',
+    summary: 'Pakistan Women announce their T20 World Cup 2026 squad led by Fatima Sana. Full squad analysis, player breakdown, strengths, weaknesses, and tournament expectations.'
+  },
+  {
+    id: 'pak-vs-ban-2nd-test-toss-report-sylhet-2026',
+    title: 'PAK vs BAN 2nd Test Toss: Pakistan Win Toss, Elect to Bowl — Babar Returns!',
+    date: 'May 16, 2026',
+    tag: 'Live Update',
+    summary: 'Pakistan won the toss and elected to bowl in 2nd Test Sylhet. Babar Azam returns. Mohammad Abbas takes 1st over wicket. Bangladesh 79/3 in Session 1.'
+  },
+  {
+    id: 'fatima-sana-world-record-fastest-fifty-womens-t20i-2026',
+    title: 'Fatima Sana Breaks World Record — Fastest Fifty in Women\'s T20I History: 15 Balls',
+    date: 'May 15, 2026',
+    tag: 'World Record',
+    summary: 'Pakistan captain Fatima Sana broke the world record for fastest fifty in women\'s T20Is — 15 balls vs Zimbabwe. She scored 62 off 19 balls.'
+  },
+  {
     id: 'pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026',
     title: 'Pakistan Playing XI Prediction — 2nd Test vs Bangladesh, Sylhet 2026',
     date: 'May 15, 2026',

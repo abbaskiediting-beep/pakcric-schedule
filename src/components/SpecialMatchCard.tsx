@@ -71,25 +71,25 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
                             {/* Glass background with theme glow */}
                             <div className="absolute -inset-1 bg-gradient-to-r from-pak-green/40 to-emerald-500/40 blur-xl opacity-20 group-hover/score:opacity-40 transition-opacity duration-700" />
                             
-                            <div className="flex items-center justify-center gap-4 md:gap-10 bg-black/40 backdrop-blur-2xl border border-white/10 px-8 py-5 md:px-12 md:py-7 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10 overflow-hidden">
+                            <div className="flex items-center justify-center gap-4 md:gap-6 bg-black/40 backdrop-blur-2xl border border-white/10 px-6 py-4 md:px-8 md:py-5 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10 overflow-hidden">
                                <div className="absolute inset-0 bg-gradient-to-br from-pak-green/5 via-transparent to-pak-green/5" />
                                
                                <div className="flex flex-col items-center relative z-10">
-                                 <span className="text-[10px] md:text-[11px] font-black text-emerald-500/50 uppercase tracking-[4px] mb-2">PAK</span>
-                                 <div className={`text-3xl sm:text-5xl md:text-7xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(52,211,153,0.3)] ${match.status === 'Live' ? 'text-emerald-400 animate-pulse-slow' : 'text-white'}`}>
+                                 <span className="text-[9px] md:text-[10px] font-black text-emerald-500/50 uppercase tracking-[4px] mb-2">PAK</span>
+                                 <div className={`text-2xl sm:text-4xl md:text-5xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(52,211,153,0.3)] ${match.status === 'Live' ? 'text-emerald-400 animate-pulse-slow' : 'text-white'}`}>
                                     {match.scorePAK}
                                  </div>
                                </div>
                                
                                <div className="flex flex-col items-center gap-2 relative z-10 opacity-30">
-                                 <div className="h-6 md:h-10 w-[2px] bg-white/20 rounded-full" />
-                                 <span className="text-xs font-black text-white italic">VS</span>
-                                 <div className="h-6 md:h-10 w-[2px] bg-white/20 rounded-full" />
+                                 <div className="h-4 md:h-8 w-[2px] bg-white/20 rounded-full" />
+                                 <span className="text-[10px] font-black text-white italic">VS</span>
+                                 <div className="h-4 md:h-8 w-[2px] bg-white/20 rounded-full" />
                                </div>
    
                                <div className="flex flex-col items-center relative z-10">
-                                 <span className="text-[10px] md:text-[11px] font-black text-white/20 uppercase tracking-[4px] mb-2">{match.opponent.substring(0, 3).toUpperCase()}</span>
-                                 <div className={`text-3xl sm:text-5xl md:text-7xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/80'}`}>
+                                 <span className="text-[9px] md:text-[10px] font-black text-white/20 uppercase tracking-[4px] mb-2">{match.opponent.substring(0, 3).toUpperCase()}</span>
+                                 <div className={`text-2xl sm:text-4xl md:text-5xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/80'}`}>
                                     {match.scoreOpponent}
                                  </div>
                                </div>

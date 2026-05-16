@@ -8,10 +8,48 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     title: 'Pak vs Ban 2nd Test Match',
     date: 'May 16–20, 2026',
     time: '09:00 AM PKT',
-    venue: 'Zahur Ahmed Chowdhury Stadium, Chattogram',
+    venue: 'Sylhet International Cricket Stadium, Sylhet',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
-    status: 'Upcoming',
+    status: 'Live',
+    granularStatus: 'BAN: 79/3 (20.0)',
     flagUrl: 'https://flagcdn.com/bd.svg',
+    scorePAK: 'BOWL',
+    scoreOpponent: '79/3',
+    overs: '20.0',
+    playingXI: [
+      {
+        team: 'Pakistan',
+        players: [
+          { name: 'Azan Awais', role: 'Opening Batter' },
+          { name: 'Shan Masood', role: 'Opening Batter', isCaptain: true },
+          { name: 'Babar Azam', role: 'Batter' },
+          { name: 'Abdullah Fazal', role: 'Batter' },
+          { name: 'Saud Shakeel', role: 'Batter' },
+          { name: 'Mohammad Rizwan', role: 'Wicket-keeper', isWicketkeeper: true },
+          { name: 'Salman Ali Agha', role: 'All-rounder' },
+          { name: 'Khurram Shahzad', role: 'Fast Bowler' },
+          { name: 'Sajid Khan', role: 'Spinner' },
+          { name: 'Hasan Ali', role: 'Fast Bowler' },
+          { name: 'Mohammad Abbas', role: 'Fast Bowler' }
+        ]
+      },
+      {
+        team: 'Bangladesh',
+        players: [
+          { name: 'Zakir Hasan', role: 'Opening Batter' },
+          { name: 'Tanzid Hasan', role: 'Opening Batter' },
+          { name: 'Najmul Hossain Shanto', role: 'Batter', isCaptain: true },
+          { name: 'Mominul Haque', role: 'Batter' },
+          { name: 'Mushfiqur Rahim', role: 'Batter' },
+          { name: 'Litton Kumer Das', role: 'Wicket-keeper', isWicketkeeper: true },
+          { name: 'Mehidy Hasan Miraz', role: 'All-rounder' },
+          { name: 'Taijul Islam', role: 'Spinner' },
+          { name: 'Nayeem Hasan', role: 'Spinner' },
+          { name: 'Taskin Ahmed', role: 'Fast Bowler' },
+          { name: 'Nahid Rana', role: 'Fast Bowler' }
+        ]
+      }
+    ],
     preMatchAnalysis: `
 ### Series Context
 The second Test in Chattogram often favors batsmen early on before becoming a spin minefield. Pakistan will look to consolidate their position in the series here.

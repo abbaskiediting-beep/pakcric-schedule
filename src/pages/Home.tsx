@@ -365,6 +365,54 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
+                 to="/news/pakistan-women-t20-world-cup-2026-squad-analysis"
+                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Shield className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Squad Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Pak Women T20 WC 2026 Squad</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/fatima-sana-world-record-fastest-fifty-womens-t20i-2026"
+                 className="flex items-center justify-between p-4 bg-yellow-500 border border-yellow-600 rounded-2xl group hover:bg-yellow-400 transition-all font-bold shadow-[0_10px_30px_rgba(234,179,8,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Trophy className="w-5 h-5 animate-bounce" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">World Record Alert</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Fatima Sana: 15-Ball Fifty vs Zim</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Zap className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Live from Sylhet</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK vs BAN 2nd Test Toss Update</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
                  to="/news/pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026"
                  className="flex items-center justify-between p-4 bg-pak-green border border-pak-green rounded-2xl group hover:bg-pak-green/90 transition-all font-bold shadow-[0_10px_30px_rgba(0,102,46,0.3)]"
                >
