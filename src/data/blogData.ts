@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, TrendingDown, Clock, Newspaper, AlertTriangle, Layout } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, TrendingDown, Clock, Newspaper, AlertTriangle, Layout, Globe } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -103,6 +103,28 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'May 16, 2026',
     category: 'Live Match',
     path: '/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026',
+    icon: Zap,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation',
+    title: "Mohsin Naqvi Invited to ICC Board Meeting in India — Will PCB Chief Travel to Ahmedabad?",
+    summary: "PCB Chairman Mohsin Naqvi has received a historic invitation for the ICC Board meeting and IPL Final in Ahmedabad. PM Shehbaz Sharif will decide if he crosses the border.",
+    date: 'May 16, 2026',
+    category: 'Cricket Politics',
+    path: '/news/mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation',
+    icon: Globe,
+    color: 'text-blue-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pak-vs-ban-2nd-test-day-1-live-score-report-sylhet-2026',
+    title: "PAK vs BAN 2nd Test Day 1 Report: Bangladesh 168/6 at Tea, Hasan Ali Stretchered Off",
+    summary: "Bangladesh 168/6 after 2 sessions on Day 1 of 2nd Test Sylhet 2026. Hasan Ali stretchered off. Pakistan fight back after early BAN recovery.",
+    date: 'May 16, 2026',
+    category: 'Live Match',
+    path: '/news/pak-vs-ban-2nd-test-day-1-live-score-report-sylhet-2026',
     icon: Zap,
     color: 'text-red-500',
     authorId: 'hassan-tariq'

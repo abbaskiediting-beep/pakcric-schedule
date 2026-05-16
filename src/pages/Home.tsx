@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle, Layout } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle, Layout, Globe } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -365,6 +365,38 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
+                 to="/news/mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation"
+                 className="flex items-center justify-between p-4 bg-blue-600 border border-blue-500 rounded-2xl group hover:bg-blue-500 transition-all font-bold shadow-[0_10px_30px_rgba(37,99,235,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Globe className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">ICC Governance</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Naqvi Invited to India for ICC Meeting</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/pak-vs-ban-2nd-test-day-1-live-score-report-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Zap className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Live from Sylhet</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK vs BAN: BAN 168/6 at Tea</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
                  to="/news/pakistan-women-t20-world-cup-2026-squad-analysis"
                  className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
                >
@@ -391,22 +423,6 @@ export default function Home() {
                     <div>
                        <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">World Record Alert</p>
                        <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Fatima Sana: 15-Ball Fifty vs Zim</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Zap className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Live from Sylhet</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK vs BAN 2nd Test Toss Update</h5>
                     </div>
                  </div>
                  <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
