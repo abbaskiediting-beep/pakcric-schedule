@@ -365,6 +365,22 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
+                 to="/news/pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Activity className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Live from Sylhet</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK vs BAN: Babar 37* Fights back</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
                  to="/news/mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation"
                  className="flex items-center justify-between p-4 bg-blue-600 border border-blue-500 rounded-2xl group hover:bg-blue-500 transition-all font-bold shadow-[0_10px_30px_rgba(37,99,235,0.3)]"
                >

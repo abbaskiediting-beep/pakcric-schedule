@@ -1,4 +1,4 @@
-import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, TrendingDown, Clock, Newspaper, AlertTriangle, Layout, Globe } from 'lucide-react';
+import { Target, Users, Shield, Trophy, Calendar, Zap, Medal, History as HistoryIcon, BarChart3, Star, TrendingUp, TrendingDown, Clock, Newspaper, AlertTriangle, Layout, Globe, Activity } from 'lucide-react';
 import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
@@ -106,6 +106,17 @@ export const BLOG_POSTS: BlogPost[] = [
     icon: Zap,
     color: 'text-red-500',
     authorId: 'hassan-tariq'
+  },
+  {
+    id: 'pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026',
+    title: "PAK vs BAN 2nd Test Day 2 Session 1: Babar Azam 37* Holds Firm — Pakistan 96/4",
+    summary: "Pakistan Day 2 Session 1 — Babar Azam 37* off 58 balls holding firm after 4 quick wickets. Pakistan 96/4 trail by 182 runs. Full session report.",
+    date: 'May 17, 2026',
+    category: 'Live Match',
+    path: '/news/pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026',
+    icon: Activity,
+    color: 'text-emerald-500',
+    authorId: 'syed-abbas'
   },
   {
     id: 'mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation',

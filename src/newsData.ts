@@ -9,6 +9,13 @@ export const NEWS_DATA: NewsItem[] = [
     summary: 'Pakistan Women announce their T20 World Cup 2026 squad led by Fatima Sana. Full squad analysis, player breakdown, strengths, weaknesses, and tournament expectations.'
   },
   {
+    id: 'pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026',
+    title: 'PAK vs BAN 2nd Test Day 2: Babar 37* Fights, PAK 96/4 Trail by 182',
+    date: 'May 17, 2026',
+    tag: 'Live Report',
+    summary: 'Pakistan Day 2 Session 1 — Babar Azam 37* off 58 balls holding firm after 4 quick wickets. Pakistan 96/4 trail by 182. Full session report.'
+  },
+  {
     id: 'mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation',
     title: 'PCB Chairman Mohsin Naqvi Invited to India for ICC Board Meeting',
     date: 'May 16, 2026',

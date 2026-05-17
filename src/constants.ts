@@ -11,11 +11,11 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     venue: 'Sylhet International Cricket Stadium, Sylhet',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
     status: 'Live',
-    granularStatus: 'BAN: 168/6 (54.0) TEA',
+    granularStatus: 'PAK: 96/4 (30.0) Trail by 182',
     flagUrl: 'https://flagcdn.com/bd.svg',
-    scorePAK: 'BOWL',
-    scoreOpponent: '168/6',
-    overs: '54.0',
+    scorePAK: '96/4',
+    scoreOpponent: '278',
+    overs: '30.0',
     playingXI: [
       {
         team: 'Pakistan',
