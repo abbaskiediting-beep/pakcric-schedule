@@ -2,11 +2,25 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'can-pakistan-chase-437-runs-vs-bangladesh-2026',
+    title: 'Can Pakistan Chase 437 Runs vs Bangladesh? Full Match Analysis',
+    date: 'May 18, 2026',
+    tag: 'Match Analysis',
+    summary: 'Pakistan faces a massive challenge needing 437 runs to win the 2nd Test in Sylhet. Bangladesh in control after Mushfiqur’s 137. Full Day 4 preview & analysis.'
+  },
+  {
     id: 'pakistan-women-t20-world-cup-2026-squad-analysis',
     title: "Pakistan Women’s T20 World Cup 2026 Squad — Full Analysis & Expectations",
     date: 'May 16, 2026',
     tag: 'Squad analysis',
     summary: 'Pakistan Women announce their T20 World Cup 2026 squad led by Fatima Sana. Full squad analysis, player breakdown, strengths, weaknesses, and tournament expectations.'
+  },
+  {
+    id: 'mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record',
+    title: 'Mushfiqur Rahim Century: 137 Runs vs Pakistan in 2nd Test',
+    date: 'May 18, 2026',
+    tag: 'Breaking News',
+    summary: 'Bangladesh experienced batter Mushfiqur Rahim scores a brilliant 137 against Pakistan in the second innings of the Sylhet Test.'
   },
   {
     id: 'bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026',

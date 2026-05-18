@@ -108,6 +108,28 @@ export const BLOG_POSTS: BlogPost[] = [
     authorId: 'hassan-tariq'
   },
   {
+    id: 'can-pakistan-chase-437-runs-vs-bangladesh-2026',
+    title: "Can Pakistan Chase 437 Runs Against Bangladesh? Full Match Analysis",
+    summary: "Pakistan faces a massive challenge needing 437 runs to win in Sylhet. Bangladesh in control after Mushfiqur's 137. Full Day 4 preview & analysis.",
+    date: 'May 18, 2026',
+    category: 'Analysis',
+    path: '/news/can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis',
+    icon: Target,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record',
+    title: "Mushfiqur Rahim ki Shaandaar Century ne Pakistan ko Mushkil Mein Daal Diya",
+    summary: "Bangladesh ke experienced wicketkeeper-batsman Mushfiqur Rahim ne Pakistan ke khilaf 2nd Test mein 137 runs ki brilliant innings kheli.",
+    date: 'May 18, 2026',
+    category: 'Match Report',
+    path: '/news/mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record',
+    icon: Trophy,
+    color: 'text-emerald-500',
+    authorId: 'omar-farooq'
+  },
+  {
     id: 'bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026',
     title: "Bangladesh's Ruthless Bowling Display Puts Pakistan Under Massive Pressure in Sylhet",
     summary: "Nahid Rana, Taijul Islam and Mehidy Hasan Miraz lead Bangladesh’s brilliant bowling effort as Pakistan collapse for 219 in Sylhet.",

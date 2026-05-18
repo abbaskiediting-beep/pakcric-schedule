@@ -197,7 +197,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                Next: Pak vs Ban – May 16, 2026
+                PAK vs BAN: Target 437 | Day 4 Starts Soon
               </span>
             </motion.div>
             
@@ -364,6 +364,38 @@ export default function Home() {
             </div>
             
             <div className="space-y-4">
+               <Link 
+                 to="/news/can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis"
+                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Target className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Match Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Can Pakistan Chase 437 vs Bangladesh?</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record"
+                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Trophy className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Breaking News</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Mushfiqur Rahim's 137 Puts PAK in Trouble</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026"
                  className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
