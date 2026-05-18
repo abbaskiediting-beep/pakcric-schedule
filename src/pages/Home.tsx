@@ -296,7 +296,7 @@ export default function Home() {
           </Link>
         </motion.section>
 
-        {/* Latest Cricket News Section Header */}
+        {/* Featured News Consolidation */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -306,156 +306,86 @@ export default function Home() {
           <div className="flex flex-wrap justify-between items-center mb-8 gap-4">
             <div className="flex items-center gap-3">
               <Newspaper className="w-5 h-5 md:w-6 md:h-6 text-white" />
-              <h3 className="text-lg md:text-2xl font-display font-black uppercase tracking-tight italic">Latest <span className="text-pak-green">News Hub</span></h3>
+              <h3 className="text-lg md:text-2xl font-display font-black uppercase tracking-tight italic">Featured <span className="text-pak-green">Tactical News</span></h3>
             </div>
             <Link to="/news" className="text-[9px] font-black uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
-              Read More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+              See More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {NEWS_DATA.slice(0, 4).map((item, idx) => (
-              <motion.div
-                key={item.id || idx}
-                whileHover={{ y: -5 }}
-                onClick={() => {
-                  if (item.id === 'psl-2026-eliminator-1-full-match-report-analysis') {
-                    navigate('/psl-2026-eliminator-1-full-match-report-analysis');
-                  } else if (item.id === 'multan-sultans-psl-2026-full-season-journey-review') {
-                    navigate('/multan-sultans-psl-2026-full-season-journey-review');
-                  } else if (item.id === 'maaz-sadaqat-psl-2026-season-review-stats') {
-                    navigate('/maaz-sadaqat-psl-2026-season-review-stats');
-                  } else if (item.id === 'usman-khan-psl-2026-season-review-records') {
-                    navigate('/usman-khan-psl-2026-season-review-records');
-                  } else {
-                    navigate(`/news/${item.id}`);
-                  }
-                }}
-                className="bg-white/5 border border-white/5 rounded-3xl p-6 group hover:border-white/30 transition-all cursor-pointer"
+          <div className="space-y-4">
+            {[
+              {
+                id: "khurram-shahzad-4-wickets-vs-bangladesh-2026",
+                title: "Khurram Shahzad's Brilliant 4-Wicket Spell",
+                tag: "Player Spotlight",
+                icon: <Star className="w-5 h-5" />,
+                color: "bg-red-600",
+                borderColor: "border-red-500"
+              },
+              {
+                id: "pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026",
+                title: "PAK Bowling Analysis: Effort vs Control",
+                tag: "Bowling Report",
+                icon: <Shield className="w-5 h-5" />,
+                color: "bg-red-600",
+                borderColor: "border-red-500"
+              },
+              {
+                id: "can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis",
+                title: "Can Pakistan Chase 437 vs Bangladesh?",
+                tag: "Match Analysis",
+                icon: <Target className="w-5 h-5" />,
+                color: "bg-red-600",
+                borderColor: "border-red-500"
+              },
+              {
+                id: "mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record",
+                title: "Mushfiqur Rahim's 137 Puts PAK in Trouble",
+                tag: "Breaking News",
+                icon: <Trophy className="w-5 h-5" />,
+                color: "bg-emerald-600",
+                borderColor: "border-emerald-500"
+              },
+              {
+                id: "bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026",
+                title: "BAN Bowlers Crush Pakistan in Sylhet",
+                tag: "Match Report",
+                icon: <Shield className="w-5 h-5" />,
+                color: "bg-emerald-600",
+                borderColor: "border-emerald-500"
+              }
+            ].map((news) => (
+              <Link 
+                key={news.id}
+                to={`/news/${news.id}`}
+                className={`flex items-center justify-between p-4 ${news.color} border ${news.borderColor} rounded-2xl group hover:opacity-90 transition-all font-bold shadow-lg`}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <span className="px-3 py-1 bg-pak-green/20 rounded-full text-[8px] font-bold text-white uppercase tracking-widest border border-white/10">
-                    {item.tag}
-                  </span>
-                  <span className="text-[9px] font-bold text-ink/40 uppercase">{item.date}</span>
+                <div className="flex items-center gap-4">
+                   <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                      {news.icon}
+                   </div>
+                   <div>
+                      <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">{news.tag}</p>
+                      <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">{news.title}</h5>
+                   </div>
                 </div>
-                <h4 className="text-lg font-display font-bold uppercase tracking-tight mb-2 group-hover:text-white transition-colors line-clamp-2">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-ink/60 font-medium line-clamp-3">
-                  {item.summary}
-                </p>
-                <div className="mt-4 flex items-center gap-1 text-[9px] font-bold uppercase text-white opacity-0 group-hover:opacity-100 transition-all">
-                  Read More <ArrowRight className="w-3 h-3" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-12 pt-10 border-t border-white/5">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-pak-green" />
-                <h4 className="text-xs font-black uppercase tracking-[2px] text-white">Featured Tactical News</h4>
-              </div>
-              <Link to="/news" className="text-[9px] font-bold text-pak-green hover:underline uppercase tracking-widest">
-                See More
+                <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
               </Link>
-            </div>
-            
-            <div className="space-y-4">
-                <Link 
-                  to="/news/khurram-shahzad-4-wickets-vs-bangladesh-2026"
-                  className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
-                >
-                  <div className="flex items-center gap-4">
-                     <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                        <Star className="w-5 h-5 animate-pulse" />
-                     </div>
-                     <div>
-                        <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Player Spotlight</p>
-                        <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Khurram Shahzad's Brilliant 4-Wicket Spell</h5>
-                     </div>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-                </Link>
+            ))}
 
-               <Link 
-                 to="/news/pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Shield className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Bowling Report</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK Bowling Analysis: Effort vs Control</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis"
-                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Target className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Match Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Can Pakistan Chase 437 vs Bangladesh?</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record"
-                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Trophy className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Breaking News</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Mushfiqur Rahim's 137 Puts PAK in Trouble</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Shield className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Match Report</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">BAN Bowlers Crush Pakistan in Sylhet</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-                <Link 
-                  to="/news"
-                  className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/5 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold shadow-lg"
-                >
-                  <span className="text-xs font-black uppercase tracking-[2px] text-white/40 group-hover:text-pak-green">
-                    See More
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-pak-green transition-transform group-hover:translate-x-1" />
-                </Link>
-            </div>
+            <Link 
+              to="/news"
+              className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/5 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold shadow-lg"
+            >
+              <span className="text-xs font-black uppercase tracking-[2px] text-white/40 group-hover:text-pak-green">
+                See More
+              </span>
+              <ChevronRight className="w-4 h-4 text-pak-green transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </motion.section>
+        
         {/* Featured News / Social Widget */}
         <Suspense fallback={<div className="md:col-span-2 self-start h-32 bg-white/5 animate-pulse rounded-2xl" />}>
           <FanClubSection />
