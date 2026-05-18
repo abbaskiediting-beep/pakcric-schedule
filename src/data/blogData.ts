@@ -108,6 +108,39 @@ export const BLOG_POSTS: BlogPost[] = [
     authorId: 'hassan-tariq'
   },
   {
+    id: 'bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026',
+    title: "Bangladesh's Ruthless Bowling Display Puts Pakistan Under Massive Pressure in Sylhet",
+    summary: "Nahid Rana, Taijul Islam and Mehidy Hasan Miraz lead Bangladesh’s brilliant bowling effort as Pakistan collapse for 219 in Sylhet.",
+    date: 'May 18, 2026',
+    category: 'Match Analysis',
+    path: '/news/bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026',
+    icon: Shield,
+    color: 'text-emerald-500',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'pakistan-1st-innings-collapse-analysis-2nd-test-sylhet-2026',
+    title: "Pakistan Collapse Despite Babar Azam's Fighting Fifty in 2nd Test",
+    summary: "Babar Azam scores 68 but Pakistan struggle in the 1st innings of the 2nd Test vs Bangladesh. Full batting analysis from Sylhet.",
+    date: 'May 17, 2026',
+    category: 'Match Report',
+    path: '/news/pakistan-1st-innings-collapse-analysis-2nd-test-sylhet-2026',
+    icon: AlertTriangle,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'babar-azam-68-vs-bangladesh-2nd-test-sylhet-2026-report',
+    title: "Babar Azam's 68 vs Bangladesh — The King Returns But Pakistan Collapse Again",
+    summary: "Babar Azam scored 68 off 84 balls on return from injury in 2nd Test Sylhet. Pakistan 232 all out, trail Bangladesh 278 by 46 runs. Full analysis.",
+    date: 'May 17, 2026',
+    category: 'Live Match',
+    path: '/news/babar-azam-68-vs-bangladesh-2nd-test-sylhet-2026-report',
+    icon: Star,
+    color: 'text-yellow-500',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026',
     title: "PAK vs BAN 2nd Test Day 2 Session 1: Babar Azam 37* Holds Firm — Pakistan 96/4",
     summary: "Pakistan Day 2 Session 1 — Babar Azam 37* off 58 balls holding firm after 4 quick wickets. Pakistan 96/4 trail by 182 runs. Full session report.",

@@ -365,6 +365,54 @@ export default function Home() {
             
             <div className="space-y-4">
                <Link 
+                 to="/news/bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Shield className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Match Report</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">BAN Bowlers Crush Pakistan in Sylhet</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/pakistan-1st-innings-collapse-analysis-2nd-test-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <AlertTriangle className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Critical Analysis</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Pakistan 1st Innings Collapse Report</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
+                 to="/news/babar-azam-68-vs-bangladesh-2nd-test-sylhet-2026-report"
+                 className="flex items-center justify-between p-4 bg-yellow-500 border border-yellow-400 rounded-2xl group hover:bg-yellow-400 transition-all font-bold shadow-[0_10px_30px_rgba(234,179,8,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Star className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">The King Returns</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Babar Azam's 68 vs Bangladesh Report</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
+               <Link 
                  to="/news/pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026"
                  className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
                >
