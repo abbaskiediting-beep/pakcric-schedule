@@ -108,6 +108,28 @@ export const BLOG_POSTS: BlogPost[] = [
     authorId: 'hassan-tariq'
   },
   {
+    id: 'khurram-shahzad-4-wickets-vs-bangladesh-2026',
+    title: "Khurram Shahzad’s Match-Winning Bowling Performance: Full Analysis",
+    summary: "Pakistan fast bowler Khurram Shahzad delivered a brilliant bowling spell for his 4/86. Analysis of his accuracy, control, and wicket-taking ability.",
+    date: 'May 18, 2026',
+    category: 'Analysis',
+    path: '/news/khurram-shahzad-4-wickets-vs-bangladesh-2026',
+    icon: Star,
+    color: 'text-red-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026',
+    title: "Pakistan's Bowling in Bangladesh's 2nd Innings — Effort Without Control",
+    summary: "Pakistan leak 390 runs in Bangladesh's 2nd innings as Mushfiqur hits 137. Analysis of Khurram Shahzad's 4 wickets and 10 no-balls.",
+    date: 'May 18, 2026',
+    category: 'Analysis',
+    path: '/news/pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026',
+    icon: Shield,
+    color: 'text-red-500',
+    authorId: 'omar-farooq'
+  },
+  {
     id: 'can-pakistan-chase-437-runs-vs-bangladesh-2026',
     title: "Can Pakistan Chase 437 Runs Against Bangladesh? Full Match Analysis",
     summary: "Pakistan faces a massive challenge needing 437 runs to win in Sylhet. Bangladesh in control after Mushfiqur's 137. Full Day 4 preview & analysis.",

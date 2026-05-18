@@ -2,11 +2,25 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'khurram-shahzad-4-wickets-vs-bangladesh-2026',
+    title: "Khurram Shahzad’s Brilliant 4-Wicket Performance: Full Report",
+    date: 'May 18, 2026',
+    tag: 'Player Spotlight',
+    summary: 'Pakistan fast bowler Khurram Shahzad delivered a brilliant bowling spell with 4/86, showcasing accuracy and control in Sylhet.'
+  },
+  {
     id: 'can-pakistan-chase-437-runs-vs-bangladesh-2026',
     title: 'Can Pakistan Chase 437 Runs vs Bangladesh? Full Match Analysis',
     date: 'May 18, 2026',
     tag: 'Match Analysis',
     summary: 'Pakistan faces a massive challenge needing 437 runs to win the 2nd Test in Sylhet. Bangladesh in control after Mushfiqur’s 137. Full Day 4 preview & analysis.'
+  },
+  {
+    id: 'pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026',
+    title: "Pakistan's Bowling in Bangladesh 2nd Innings: Full Analysis",
+    date: 'May 18, 2026',
+    tag: 'Match Analysis',
+    summary: 'Khurram Shahzad takes 4 wickets but Pakistan leak 390 runs in Bangladesh 2nd innings. Highlights of Pakistan’s bowling effort in Sylhet.'
   },
   {
     id: 'pakistan-women-t20-world-cup-2026-squad-analysis',

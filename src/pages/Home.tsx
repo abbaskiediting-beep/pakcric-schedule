@@ -197,7 +197,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                PAK vs BAN: Target 437 | Day 4 Starts Soon
+                PAK vs BAN: 0/0 (2.0) | Target 437 | Day 3 Stumps
               </span>
             </motion.div>
             
@@ -359,11 +359,43 @@ export default function Home() {
                 <h4 className="text-xs font-black uppercase tracking-[2px] text-white">Featured Tactical News</h4>
               </div>
               <Link to="/news" className="text-[9px] font-bold text-pak-green hover:underline uppercase tracking-widest">
-                View All News
+                See More
               </Link>
             </div>
             
             <div className="space-y-4">
+                <Link 
+                  to="/news/khurram-shahzad-4-wickets-vs-bangladesh-2026"
+                  className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
+                >
+                  <div className="flex items-center gap-4">
+                     <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                        <Star className="w-5 h-5 animate-pulse" />
+                     </div>
+                     <div>
+                        <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Player Spotlight</p>
+                        <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Khurram Shahzad's Brilliant 4-Wicket Spell</h5>
+                     </div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+                </Link>
+
+               <Link 
+                 to="/news/pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026"
+                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
+               >
+                 <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                       <Shield className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div>
+                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Bowling Report</p>
+                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK Bowling Analysis: Effort vs Control</h5>
+                    </div>
+                 </div>
+                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+               </Link>
+
                <Link 
                  to="/news/can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis"
                  className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
@@ -412,356 +444,18 @@ export default function Home() {
                  <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
                </Link>
 
-               <Link 
-                 to="/news/pakistan-1st-innings-collapse-analysis-2nd-test-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <AlertTriangle className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Critical Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Pakistan 1st Innings Collapse Report</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/babar-azam-68-vs-bangladesh-2nd-test-sylhet-2026-report"
-                 className="flex items-center justify-between p-4 bg-yellow-500 border border-yellow-400 rounded-2xl group hover:bg-yellow-400 transition-all font-bold shadow-[0_10px_30px_rgba(234,179,8,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Star className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">The King Returns</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Babar Azam's 68 vs Bangladesh Report</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Activity className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Live from Sylhet</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK vs BAN: Babar 37* Fights back</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/mohsin-naqvi-pcb-chairman-icc-board-meeting-india-ahmedabad-invitation"
-                 className="flex items-center justify-between p-4 bg-blue-600 border border-blue-500 rounded-2xl group hover:bg-blue-500 transition-all font-bold shadow-[0_10px_30px_rgba(37,99,235,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Globe className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">ICC Governance</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Naqvi Invited to India for ICC Meeting</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pak-vs-ban-2nd-test-day-1-live-score-report-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-red-600 border border-red-500 rounded-2xl group hover:bg-red-500 transition-all font-bold shadow-[0_10px_30px_rgba(220,38,38,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Zap className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Live from Sylhet</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">PAK vs BAN: BAN 168/6 at Tea</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pakistan-women-t20-world-cup-2026-squad-analysis"
-                 className="flex items-center justify-between p-4 bg-emerald-600 border border-emerald-500 rounded-2xl group hover:bg-emerald-500 transition-all font-bold shadow-[0_10px_30px_rgba(16,185,129,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Shield className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Squad Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Pak Women T20 WC 2026 Squad</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/fatima-sana-world-record-fastest-fifty-womens-t20i-2026"
-                 className="flex items-center justify-between p-4 bg-yellow-500 border border-yellow-600 rounded-2xl group hover:bg-yellow-400 transition-all font-bold shadow-[0_10px_30px_rgba(234,179,8,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Trophy className="w-5 h-5 animate-bounce" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">World Record Alert</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Fatima Sana: 15-Ball Fifty vs Zim</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026"
-                 className="flex items-center justify-between p-4 bg-pak-green border border-pak-green rounded-2xl group hover:bg-pak-green/90 transition-all font-bold shadow-[0_10px_30px_rgba(0,102,46,0.3)]"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
-                       <Zap className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">Big Reshuffle</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">Pakistan Playing XI Prediction 2nd Test</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pak-vs-ban-1st-test-day-1-report-2026"
-                 className="flex items-center justify-between p-4 bg-pak-green/10 border border-pak-green/30 rounded-2xl group hover:bg-pak-green/20 hover:border-pak-green/50 transition-all font-bold"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/20 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Newspaper className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Match Report</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Day 1 Report: Bangladesh in Control</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/taiul-mehidy-spin-duo-analysis-2026"
-                 className="flex items-center justify-between p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl group hover:bg-emerald-500/10 hover:border-emerald-500/40 transition-all font-bold"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
-                       <Zap className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Tactical Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors capitalize">Taijul & Mehidy: The Spin Trap</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/pakistan-tour-bangladesh-squad-2026"
-                 className="flex items-center justify-between p-4 bg-pak-green/5 border border-pak-green/20 rounded-2xl group hover:bg-pak-green/10 hover:border-pak-green/40 transition-all font-bold"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-black transition-colors">
-                       <Users className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Squad Intelligence</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors capitalize">Official 16-Member Test Squad</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027"
-                 className="flex items-center justify-between p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl group hover:bg-emerald-500/10 hover:border-emerald-500/40 transition-all font-bold"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
-                       <Target className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">WTC Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors capitalize">PAK vs BAN: WTC Scenarios 2027</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/bangladesh-cricket-team-2026-analysis"
-                  className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all"
+                <Link 
+                  to="/news"
+                  className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/5 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold shadow-lg"
                 >
-                  <div className="flex items-center gap-4">
-                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
-                        <Shield className="w-5 h-5" />
-                     </div>
-                     <div>
-                        <p className="text-[10px] font-black text-emerald-500 uppercase tracking-widest leading-none mb-1">Team Analysis</p>
-                        <h5 className="text-sm font-bold text-white group-hover:text-emerald-500 transition-colors">Bangladesh Team Profile: Ready for Pak?</h5>
-                     </div>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-emerald-500 transition-colors" />
+                  <span className="text-xs font-black uppercase tracking-[2px] text-white/40 group-hover:text-pak-green">
+                    See More
+                  </span>
+                  <ChevronRight className="w-4 h-4 text-pak-green transition-transform group-hover:translate-x-1" />
                 </Link>
-
-                {showMoreTactical && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="space-y-4 pt-4 overflow-hidden"
-                  >
-                    <Link 
-                      to="/news/pak-vs-ban-2026-test-trophy-reveal"
-                      className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-                    >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Trophy className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Trophy News</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Trophy Unveiled in Dhaka</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/australia-players-skip-pakistan-odi-series-ipl-2026"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-amber-500/5 hover:border-amber-500/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-colors">
-                       <ShieldAlert className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-amber-500 uppercase tracking-widest leading-none mb-1">Breaking News</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-amber-500 transition-colors">IPL First: Aussies Skip Pakistan ODIs</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-amber-500 transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pakistan-women-vs-zimbabwe-women-2nd-odi-2026-report"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Trophy className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Latest Results</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Pak Women Crush Zimbabwe by 206 Runs</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/shaheen-shah-afridi-bangladesh-interview-2026"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Star className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Latest Interview</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Shaheen Afridi: Pace is our Identity</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Zap className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">WTC Analysis</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">PAK vs BAN: WTC Scenarios 2027</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-               
-               <Link 
-                 to="/pakistan-tour-bangladesh-squad-2026"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Users className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">Squad Intelligence</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Official 16-Member Test Squad</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-
-               <Link 
-                 to="/news/peshawar-zalmi-psl-2026-champions-match-report"
-                 className="flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-2xl group hover:bg-pak-green/5 hover:border-pak-green/20 transition-all"
-               >
-                 <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-pak-green/10 flex items-center justify-center text-pak-green group-hover:bg-pak-green group-hover:text-white transition-colors">
-                       <Trophy className="w-5 h-5" />
-                    </div>
-                    <div>
-                       <p className="text-[10px] font-black text-pak-green uppercase tracking-widest leading-none mb-1">PSL 2026 Result</p>
-                       <h5 className="text-sm font-bold text-white group-hover:text-pak-green transition-colors">Zalmi Crowned PSL 11 Kings</h5>
-                    </div>
-                 </div>
-                 <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-pak-green transition-colors" />
-               </Link>
-                 </motion.div>
-               )}
-
-               <motion.button 
-                 whileHover={{ scale: 1.01 }}
-                 whileTap={{ scale: 0.99 }}
-                 onClick={() => setShowMoreTactical(!showMoreTactical)}
-                 className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/5 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold"
-               >
-                 <span className="text-xs font-black uppercase tracking-[2px] text-white/40 group-hover:text-pak-green">
-                   {showMoreTactical ? 'Show Less Analysis' : 'Show More Tactical News'}
-                 </span>
-                 <motion.div
-                   animate={{ rotate: showMoreTactical ? 180 : 0 }}
-                   transition={{ type: 'spring', stiffness: 200 }}
-                 >
-                   <ChevronRight className="w-4 h-4 text-pak-green" />
-                 </motion.div>
-               </motion.button>
             </div>
           </div>
         </motion.section>
-
         {/* Featured News / Social Widget */}
         <Suspense fallback={<div className="md:col-span-2 self-start h-32 bg-white/5 animate-pulse rounded-2xl" />}>
           <FanClubSection />
