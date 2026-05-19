@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
-import { ArrowLeft, Users, Shield, TrendingUp, UserPlus, Info, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, Users, Shield, TrendingUp, UserPlus, Info, Calendar, Clock, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import ShareButton from '../components/ShareButton';
 
 export default function SquadIntelligence() {
   const players = [
@@ -28,9 +29,17 @@ export default function SquadIntelligence() {
         className="bg-card-bg border border-card-border rounded-3xl md:rounded-[48px] overflow-hidden shadow-2xl p-6 md:p-16"
       >
         <header className="mb-10 md:mb-16">
-          <div className="flex items-center gap-3 mb-4 md:mb-6">
-            <Users className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
-            <span className="text-[10px] md:text-[10px] font-black uppercase tracking-[3px] md:tracking-[4px] text-pak-green">Selection Intelligence</span>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 md:mb-12">
+            <div className="flex items-center gap-3">
+              <Users className="w-5 h-5 md:w-6 md:h-6 text-pak-green" />
+              <span className="text-[10px] md:text-[10px] font-black uppercase tracking-[3px] md:tracking-[4px] text-pak-green">Selection Intelligence</span>
+            </div>
+            <ShareButton 
+              title="Squad Intelligence: Pakistan selection strategy 2026"
+              text="In-depth analysis of Pakistan's Test selection for the 2026 Bangladesh tour. Why domestic form was prioritized and tactical roles of the new call-ups."
+              url={window.location.href}
+              variant="outline"
+            />
           </div>
           <h1 className="text-3xl md:text-7xl font-display font-bold text-white uppercase tracking-tighter leading-[1.1] mb-6 md:mb-8">
              Beyond the <span className="italic text-pak-green">Names</span>: Selection Strategy 2026

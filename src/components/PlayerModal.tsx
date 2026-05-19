@@ -15,9 +15,11 @@ import {
   Info,
   Edit3,
   Save,
-  CheckCircle2
+  CheckCircle2,
+  Share2
 } from 'lucide-react';
 import { Player } from '../types';
+import ShareButton from './ShareButton';
 
 interface PlayerModalProps {
   player: Player | null;
@@ -80,13 +82,22 @@ export const PlayerModal: React.FC<PlayerModalProps> = ({ player, isOpen, onClos
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             className="relative w-full max-w-5xl bg-[#0A0A0A] border border-white/10 rounded-[32px] md:rounded-[48px] overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
           >
-            {/* Close Button */}
-            <button 
-              onClick={onClose}
-              className="absolute top-6 right-6 z-50 p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-white/60 hover:text-white transition-all active:scale-95"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            {/* Close & Share Buttons */}
+            <div className="absolute top-6 right-6 z-50 flex items-center gap-3">
+              <ShareButton 
+                title={`${player.name} - Pakistan Cricket Stats 2026`}
+                text={`Check out ${player.name}'s latest cricket stats and records for the 2026 season!`}
+                url={`${window.location.origin}/player/${player.name.toLowerCase().replace(/ /g, '-')}`}
+                variant="icon"
+                className="!bg-white/5 border border-white/10"
+              />
+              <button 
+                onClick={onClose}
+                className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-white/60 hover:text-white transition-all active:scale-95"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
             <div className="flex-1 overflow-y-auto custom-scrollbar">
               {/* Profile Hero Header */}
@@ -284,7 +295,14 @@ export const PlayerModal: React.FC<PlayerModalProps> = ({ player, isOpen, onClos
                       className="w-full h-48 bg-black/40 border border-white/10 rounded-2xl p-6 text-white/70 text-sm font-medium focus:ring-1 focus:ring-pak-green/50 focus:border-pak-green/50 outline-none transition-all placeholder:text-white/10 resize-none custom-scrollbar"
                     />
 
-                    <div className="flex justify-end mt-6">
+                    <div className="flex justify-end items-center gap-3 mt-6">
+                      <ShareButton 
+                        title={`Scouting Notes: ${player.name}`}
+                        text={`My Scouting Notes for ${player.name}:\n"${notes.trim()}"\n\nFull stats and records:`}
+                        url={`${window.location.origin}/player/${player.name.toLowerCase().replace(/ /g, '-')}`}
+                        variant="icon"
+                        className={`!p-3 !bg-white/5 border border-white/10 ${!notes.trim() ? 'opacity-30 pointer-events-none' : ''}`}
+                      />
                       <button 
                         onClick={handleSaveNotes}
                         disabled={isSaving}

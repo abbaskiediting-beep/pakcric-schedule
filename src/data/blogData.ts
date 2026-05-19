@@ -86,6 +86,50 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'shan-masood-71-vs-bangladesh-2nd-test-2026-report',
+    title: "Shan Masood’s Fighting 71 Shows Leadership Under Pressure in Sylhet Test",
+    summary: "Shan Masood scores a fighting 71 runs in Pakistan’s second innings against Bangladesh during the Sylhet Test 2026. Full analysis of the captain’s innings under pressure.",
+    date: 'May 19, 2026',
+    category: 'Match Analysis',
+    path: '/news/shan-masood-71-vs-bangladesh-2nd-test-2026-report',
+    icon: Shield,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'mohammad-rizwan-75-unbeaten-sylhet-heroics-2026',
+    title: "Mohammad Rizwan’s Unbeaten Fight Keeps Pakistan Alive in Sylhet Test",
+    summary: "Mohammad Rizwan plays a fighting unbeaten 75 runs in Pakistan’s second innings against Bangladesh in the Sylhet Test 2026. Full analysis of his brave knock under pressure.",
+    date: 'May 19, 2026',
+    category: 'Player Feature',
+    path: '/news/mohammad-rizwan-75-unbeaten-sylhet-heroics-2026',
+    icon: Star,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'pak-vs-ban-2nd-test-day-4-report-sylhet-2026',
+    title: "PAK vs BAN 2nd Test Day 4 Report: Pakistan Need 121 with 3 Wickets in Historic Chase",
+    summary: "Pakistan close Day 4 at 316/7 chasing 437 vs Bangladesh in Sylhet. Masood 71, Rizwan 75*, Agha 71. Full Day 4 match report and Day 5 preview.",
+    date: 'May 19, 2026',
+    category: 'Match Report',
+    path: '/news/pak-vs-ban-2nd-test-day-4-report-sylhet-2026',
+    icon: Newspaper,
+    color: 'text-pak-green',
+    authorId: 'omar-farooq'
+  },
+  {
+    id: 'salman-ali-agha-71-vs-bangladesh-2nd-test-2026-report',
+    title: "Salman Ali Agha Stands Tall During Pakistan’s Tough Chase Against Bangladesh",
+    summary: "Salman Ali Agha scores a fighting 71 runs in Pakistan’s second innings against Bangladesh during the Sylhet Test 2026. Full analysis of his crucial knock under pressure.",
+    date: 'May 19, 2026',
+    category: 'Match Report',
+    path: '/news/salman-ali-agha-71-vs-bangladesh-2nd-test-2026-report',
+    icon: Shield,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'why-bangladesh-are-unbeatable-at-home-test-cricket-2026',
     title: "Why Bangladesh Are Almost Unbeatable at Home in Test Cricket",
     summary: "Bangladesh have beaten Pakistan, India, England, Australia and South Africa at home. Here is why Bangladesh's home Test record is one of cricket's most feared.",

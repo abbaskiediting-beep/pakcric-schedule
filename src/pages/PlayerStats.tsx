@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet-async';
 import { PLAYER_STATS } from '../playerData';
 import { 
   ChevronLeft, User, TrendingUp, Award, Star, 
-  Target, Zap, Activity, Info, FileText, Save, Trash2, ArrowUpRight,
-  Share2, Check
+  Target, Zap, Activity, Info, FileText, Save, Trash2, ArrowUpRight
 } from 'lucide-react';
+import ShareButton from '../components/ShareButton';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 
@@ -17,7 +17,6 @@ export default function PlayerStats() {
   const [notes, setNotes] = useState('');
   const [isSaving, setIsSaving] = useState(false);
   const [showSavedMsg, setShowSavedMsg] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
   
   // Find player by name (handling slug)
   const playerName = name?.replace(/-/g, ' ');
@@ -52,36 +51,6 @@ export default function PlayerStats() {
     if (window.confirm('Are you sure you want to delete your notes for this player?')) {
       setNotes('');
       localStorage.removeItem(`scouting_notes_${player.name}`);
-    }
-  };
-
-  const handleShare = async (includeNotes = false) => {
-    if (!player) return;
-    
-    let shareText = `Check out ${player.name}'s latest cricket stats and records for the 2026 season!`;
-    if (includeNotes && notes.trim()) {
-      shareText = `My Scouting Notes for ${player.name}:\n"${notes.trim()}"\n\nFull stats and records:`;
-    }
-
-    const shareData = {
-      title: `${player.name} - Pakistan Cricket Stats 2026`,
-      text: shareText,
-      url: window.location.href,
-    };
-
-    try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-      } else {
-        const textToCopy = includeNotes ? `${shareText} ${window.location.href}` : window.location.href;
-        await navigator.clipboard.writeText(textToCopy);
-        setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 2000);
-      }
-    } catch (err) {
-      if ((err as Error).name !== 'AbortError') {
-        console.error('Error sharing:', err);
-      }
     }
   };
 
@@ -178,22 +147,12 @@ export default function PlayerStats() {
                 <span className="px-3 sm:px-4 py-1 bg-white/5 border border-white/10 text-white rounded-full text-[8px] sm:text-[10px] font-black uppercase tracking-[2px] sm:tracking-[4px] inline-block w-fit mx-auto md:mx-0">
                   {player.country}
                 </span>
-                <button 
-                  onClick={() => handleShare()}
-                  className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-ink/40 hover:text-pak-green hover:border-pak-green/30 hover:bg-pak-green/10 transition-all w-fit mx-auto md:mx-0 group/share"
-                >
-                  {isCopied ? (
-                    <>
-                      <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-pak-green" />
-                      <span className="text-pak-green">Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Share2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 group-hover/share:scale-110 transition-transform" />
-                      <span>Share Profile</span>
-                    </>
-                  )}
-                </button>
+                <ShareButton 
+                  title={`${player.name} - Pakistan Cricket Stats 2026`}
+                  text={`Check out ${player.name}'s latest cricket stats and records for the 2026 season!`}
+                  url={window.location.href}
+                  variant="icon"
+                />
               </div>
               <h1 className="text-2xl sm:text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter text-white mb-2 sm:mb-4 break-words leading-none italic">
                 {player.name.split(' ')[0]} <br className="sm:hidden" /><span className="text-pak-green">{player.name.split(' ')[1]}</span>
@@ -500,14 +459,13 @@ export default function PlayerStats() {
               </p>
             </div>
             <div className="flex gap-2">
-              <button 
-                onClick={() => handleShare(true)}
-                disabled={!notes.trim()}
-                className="p-3 bg-white/5 border border-white/10 rounded-xl text-neutral-400 hover:text-pak-green hover:border-pak-green/20 transition-all flex items-center justify-center shrink-0 disabled:opacity-30"
-                title="Share Notes"
-              >
-                <Share2 className="w-4 h-4" />
-              </button>
+              <ShareButton 
+                title={`Scouting Notes: ${player.name}`}
+                text={`My Scouting Notes for ${player.name}:\n"${notes.trim()}"\n\nFull stats and records:`}
+                url={window.location.href}
+                variant="icon"
+                className={!notes.trim() ? 'opacity-30 pointer-events-none' : ''}
+              />
               <button 
                 onClick={handleClearNotes}
                 className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 hover:bg-red-500 active:text-white transition-all flex items-center justify-center shrink-0 group/btn"

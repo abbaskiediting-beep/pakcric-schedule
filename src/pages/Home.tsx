@@ -197,7 +197,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                PAK vs BAN: 101/2 (30.0) | Target 437 | Lunch Day 4
+                PAK vs BAN: 316/7 (86.0) | Need 121 More | Stumps Day 4
               </span>
             </motion.div>
             
@@ -316,44 +316,44 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
-                id: "babar-azam-68-and-47-fighting-innings-sylhet-2026",
-                title: "Babar's Fighting 68 & 47: Last Hope in Sylhet",
+                id: "shan-masood-71-vs-bangladesh-2nd-test-2026-report",
+                title: "Shan Masood's Brave 71 as Captain",
+                tag: "Captain's Grit",
+                icon: <Shield className="w-5 h-5" />,
+                color: "bg-pak-green",
+                borderColor: "border-pak-green"
+              },
+              {
+                id: "mohammad-rizwan-75-unbeaten-sylhet-heroics-2026",
+                title: "Rizwan's Unbeaten 75 Stuns BAN",
                 tag: "Player Feature",
                 icon: <Star className="w-5 h-5" />,
                 color: "bg-pak-green",
                 borderColor: "border-pak-green"
               },
               {
-                id: "pak-vs-ban-2nd-test-day-4-session-1-report-sylhet-2026",
-                title: "PAK 101/2 at Lunch: Masood & Babar Rescue Effort",
-                tag: "Live Report",
-                icon: <Zap className="w-5 h-5" />,
-                color: "bg-red-600",
-                borderColor: "border-red-500"
+                id: "pak-vs-ban-2nd-test-day-4-report-sylhet-2026",
+                title: "Pakistan Need 121 with 3 Wickets",
+                tag: "Match Report",
+                icon: <Activity className="w-5 h-5" />,
+                color: "bg-pak-green",
+                borderColor: "border-pak-green"
               },
               {
-                id: "khurram-shahzad-4-wickets-vs-bangladesh-2nd-test-2026",
-                title: "Khurram Shahzad's Brilliant 4-Wicket Spell",
-                tag: "Player Spotlight",
-                icon: <Star className="w-5 h-5" />,
-                color: "bg-red-600",
-                borderColor: "border-red-500"
-              },
-              {
-                id: "can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis",
-                title: "Can Pakistan Chase 437 vs Bangladesh?",
+                id: "salman-ali-agha-71-vs-bangladesh-2nd-test-2026-report",
+                title: "Salman Agha's Fighting 71 Gives Hope",
                 tag: "Match Analysis",
-                icon: <Target className="w-5 h-5" />,
-                color: "bg-red-600",
-                borderColor: "border-red-500"
+                icon: <Shield className="w-5 h-5" />,
+                color: "bg-pak-green",
+                borderColor: "border-pak-green"
               },
               {
-                id: "mushfiqur-rahim-137-runs-vs-pakistan-2nd-test-record",
-                title: "Mushfiqur Rahim's 137 Puts PAK in Trouble",
-                tag: "Breaking News",
-                icon: <Trophy className="w-5 h-5" />,
-                color: "bg-emerald-600",
-                borderColor: "border-emerald-500"
+                id: "babar-azam-68-and-47-fighting-innings-sylhet-2026",
+                title: "Babar's Fighting 68 & 47: Last Hope",
+                tag: "Player Feature",
+                icon: <Star className="w-5 h-5" />,
+                color: "bg-pak-green",
+                borderColor: "border-pak-green"
               }
             ].map((news) => (
               <Link 

@@ -64,42 +64,68 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
           {/* VS Divider - Enhanced or Score */}
           <div className="flex flex-col items-center gap-4 relative px-4 min-w-[140px] md:min-w-[220px]">
              {match.status === 'Live' || match.status === 'Completed' ? (
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-4 w-full">
                    {match.scorePAK && match.scoreOpponent ? (
-                      <div className="flex flex-col items-center gap-5">
-                         <div className="relative group/score">
+                      <div className="flex flex-col items-center gap-5 w-full">
+                         <div className="relative group/score w-full">
                             {/* Glass background with theme glow */}
                             <div className="absolute -inset-1 bg-gradient-to-r from-pak-green/40 to-emerald-500/40 blur-xl opacity-20 group-hover/score:opacity-40 transition-opacity duration-700" />
                             
-                            <div className="flex items-center justify-center gap-4 md:gap-6 bg-black/40 backdrop-blur-2xl border border-white/10 px-6 py-4 md:px-8 md:py-5 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10 overflow-hidden">
+                            <div className="flex flex-col gap-3 bg-black/40 backdrop-blur-2xl border border-white/10 px-6 py-4 md:px-10 md:py-8 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative z-10 overflow-hidden">
                                <div className="absolute inset-0 bg-gradient-to-br from-pak-green/5 via-transparent to-pak-green/5" />
                                
-                               <div className="flex flex-col items-center relative z-10">
-                                 <span className="text-[9px] md:text-[10px] font-black text-emerald-500/50 uppercase tracking-[4px] mb-2">PAK</span>
-                                 <div className={`text-2xl sm:text-4xl md:text-5xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(52,211,153,0.3)] ${match.status === 'Live' ? 'text-emerald-400 animate-pulse-slow' : 'text-white'}`}>
-                                    {match.scorePAK}
+                               {/* 1st Innings Row */}
+                               <div className="flex items-center justify-between gap-4 md:gap-10 relative z-10">
+                                 <div className="flex flex-col items-center flex-1">
+                                    <div className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white">
+                                       {match.scorePAK.includes('&') ? match.scorePAK.split('&')[0].trim() : match.scorePAK}
+                                    </div>
+                                 </div>
+                                 
+                                 <div className="px-2 py-1 bg-white/5 rounded-lg border border-white/10 shrink-0">
+                                    <span className="text-[8px] md:text-[10px] font-black text-white/40 uppercase tracking-widest">1st</span>
+                                 </div>
+
+                                 <div className="flex flex-col items-center flex-1">
+                                    <div className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white/80">
+                                       {match.scoreOpponent.includes('&') ? match.scoreOpponent.split('&')[0].trim() : match.scoreOpponent}
+                                    </div>
                                  </div>
                                </div>
+
+                               {/* 2nd Innings Row (if applicable) */}
+                               {(match.scorePAK.includes('&') || match.scoreOpponent.includes('&')) && (
+                                 <div className="flex items-center justify-between gap-4 md:gap-10 relative z-10 pt-3 border-t border-white/5">
+                                    <div className="flex flex-col items-center flex-1">
+                                       <div className={`text-xl sm:text-2xl md:text-3xl font-display font-black leading-none tracking-tighter ${match.status === 'Live' ? 'text-emerald-400 animate-pulse-slow' : 'text-white'}`}>
+                                          {match.scorePAK.includes('&') ? match.scorePAK.split('&')[1].trim() : '-'}
+                                       </div>
+                                    </div>
+                                    
+                                    <div className="px-2 py-1 bg-pak-green/20 rounded-lg border border-pak-green/20 shrink-0">
+                                       <span className="text-[8px] md:text-[10px] font-black text-pak-green uppercase tracking-widest">2nd</span>
+                                    </div>
+
+                                    <div className="flex flex-col items-center flex-1">
+                                       <div className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white/80 leading-none">
+                                          {match.scoreOpponent.includes('&') ? match.scoreOpponent.split('&')[1].trim() : '-'}
+                                       </div>
+                                    </div>
+                                 </div>
+                               )}
                                
-                               <div className="flex flex-col items-center gap-2 relative z-10 opacity-30">
-                                 <div className="h-4 md:h-8 w-[2px] bg-white/20 rounded-full" />
-                                 <span className="text-[10px] font-black text-white italic">VS</span>
-                                 <div className="h-4 md:h-8 w-[2px] bg-white/20 rounded-full" />
-                               </div>
-   
-                               <div className="flex flex-col items-center relative z-10">
-                                 <span className="text-[9px] md:text-[10px] font-black text-white/20 uppercase tracking-[4px] mb-2">{match.opponent.substring(0, 3).toUpperCase()}</span>
-                                 <div className={`text-2xl sm:text-4xl md:text-5xl font-display font-black leading-none tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${match.status === 'Live' ? 'text-emerald-400' : 'text-white/80'}`}>
-                                    {match.scoreOpponent}
+                               {match.overs && (
+                                 <div className="text-center mt-2">
+                                    <span className="text-[9px] font-black text-pak-green/60 uppercase tracking-[3px]">({match.overs} Overs)</span>
                                  </div>
-                               </div>
+                               )}
                             </div>
                          </div>
                          
                          {match.status === 'Live' && (
                             <div className="flex items-center gap-3 px-6 py-2.5 bg-pak-green text-white rounded-full text-[10px] font-black uppercase tracking-[5px] shadow-[0_10px_30px_rgba(1,65,30,0.4)] animate-pulse border border-pak-green/50 hover:scale-105 transition-transform cursor-default">
                                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shadow-[0_0_10px_rgba(52,211,153,1)]" />
-                               Live Feed
+                               Live Updates
                             </div>
                          )}
                       </div>

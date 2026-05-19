@@ -2,6 +2,34 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'shan-masood-71-vs-bangladesh-2nd-test-2026-report',
+    title: "Shan Masood’s Fighting 71 Shows Leadership Under Pressure in Sylhet Test",
+    date: 'May 19, 2026',
+    tag: 'Match Analysis',
+    summary: "Shan Masood scores a fighting 71 runs in Pakistan’s second innings against Bangladesh during the Sylhet Test 2026. Read full analysis of the captain’s innings."
+  },
+  {
+    id: 'mohammad-rizwan-75-unbeaten-sylhet-heroics-2026',
+    title: "Mohammad Rizwan’s Unbeaten Fight Keeps Pakistan Alive in Sylhet Test",
+    date: 'May 19, 2026',
+    tag: 'Player Feature',
+    summary: "Mohammad Rizwan plays a fighting unbeaten 75 runs in Pakistan’s second innings against Bangladesh in the Sylhet Test 2026. Full analysis of his brave knock."
+  },
+  {
+    id: 'pak-vs-ban-2nd-test-day-4-report-sylhet-2026',
+    title: "Pakistan vs Bangladesh 2nd Test Day 4 — Pakistan Need 121 with 3 Wickets",
+    date: 'May 19, 2026',
+    tag: 'Match Report',
+    summary: "Pakistan close Day 4 at 316/7 chasing 437 vs Bangladesh in Sylhet. Masood 71, Rizwan 75*, Agha 71. Need 121 more with 3 wickets. Full Day 4 report."
+  },
+  {
+    id: 'salman-ali-agha-71-vs-bangladesh-2nd-test-2026-report',
+    title: "Salman Ali Agha’s Fighting 71 Gives Pakistan Hope in Sylhet Test Chase",
+    date: 'May 19, 2026',
+    tag: 'Match Analysis',
+    summary: "Salman Ali Agha scores a fighting 71 runs in Pakistan’s second innings against Bangladesh during the Sylhet Test 2026. Full analysis of his crucial knock."
+  },
+  {
     id: 'babar-azam-68-and-47-fighting-innings-sylhet-2026',
     title: "Babar Azam's Fighting 68 and Counter-Attacking 47 — Pakistan's Last Hope in Sylhet",
     date: 'May 19, 2026',

@@ -1,14 +1,14 @@
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { PLAYER_STATS } from '../playerData';
-import { TrendingUp, User, Search, Filter, ArrowUpDown, ChevronRight, Trophy, Zap, Target, Activity } from 'lucide-react';
-import { useState, useMemo } from 'react';
+import { TrendingUp, User, Search, Filter, ArrowUpDown, ChevronRight, Trophy, Zap, Target, Activity, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import React from 'react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import { PlayerModal } from '../components/PlayerModal';
 import { Player } from '../types';
+import ShareButton from '../components/ShareButton';
 
 export default function AllPlayersStats() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -113,8 +113,16 @@ export default function AllPlayersStats() {
 
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
-        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-          <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[2px] mb-3 md:mb-4">Statistics Hub</span>
+        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex-1">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
+            <span className="inline-block px-3 py-1 bg-pak-green text-white rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-[2px]">Statistics Hub</span>
+            <ShareButton 
+              title="Pakistan Players Stats 2026 – Complete Records"
+              text="Explore the latest Pakistan cricket players stats for 2026 across all formats. Comprehensive data, records, and analytics."
+              url={window.location.href}
+              variant="outline"
+            />
+          </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-3 md:mb-6 text-white leading-tight">
             Pakistan Players Stats – <span className="text-pak-green">Records & Analytics</span>
           </h1>
