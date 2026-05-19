@@ -191,12 +191,12 @@ const PakVsBan2ndTestDay4Session1Report = () => {
               </p>
 
               <p>
-                Day 4 of the 2nd Test at Sylhet International Cricket Stadium began with Pakistan facing one of the most daunting chases in their recent Test history — <strong>437 runs to win</strong>, on a surface that had increasingly deteriorated over three and a half days of Test cricket.
+                Day 4 of the 2nd Test at Sylhet International Cricket Stadium began with Pakistan facing one of the most daunting chases in their recent Test history — <strong>437 runs to win</strong>, on a surface that had increasingly deteriorated over three and a half days of Test cricket. You can read our <Link to="/news/pakistan-playing-xi-prediction-2nd-test-bangladesh-sylhet-2026" className="text-pak-green hover:underline">full series preview and tactical analysis</Link> for more context on the Sylhet pitch.
               </p>
 
               <h2 className="text-4xl font-display font-bold text-white uppercase tracking-tight pt-8 italic">The Overnight Context</h2>
               <p>
-                Pakistan had survived the final 6 overs of Day 3 without losing a wicket — ending the third day at 0/0 with Awais (0*) and Fazal (0*) at the crease after bad light stopped play early. Both openers had shown patience in the most testing conditions.
+                Pakistan had survived the final 6 overs of Day 3 without losing a wicket — ending the third day at 0/0 with Awais (0*) and Fazal (0*) at the crease after bad light stopped play early. This followed a <Link to="/news/pak-vs-ban-2nd-test-day-2-session-1-report-sylhet-2026" className="text-pak-green hover:underline">disciplined opening stand on Day 2</Link> and a <Link to="/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026" className="text-pak-green hover:underline">fruitful toss result</Link> for the visitors.
               </p>
 
               <h2 className="text-4xl font-display font-bold text-white uppercase tracking-tight pt-8 italic">Early Blows: Fazal & Awais Out</h2>
@@ -237,7 +237,7 @@ const PakVsBan2ndTestDay4Session1Report = () => {
 
               <h2 className="text-4xl font-display font-bold text-white uppercase tracking-tight pt-8 italic text-pak-green drop-shadow-[0_0_10px_rgba(0,102,46,0.3)]">The Recovery Partnership</h2>
               <p>
-                After both openers fell cheaply, the two most experienced batters in Pakistan's lineup — captain Shan Masood and the returning Babar Azam — came together. They provided the calm heads required.
+                After both openers fell cheaply, the two most experienced batters in Pakistan's lineup — captain Shan Masood and the <Link to="/news/babar-azam-68-vs-bangladesh-2nd-test-sylhet-2026-report" className="text-pak-green hover:underline">returning Babar Azam (who scored 68 in the first innings)</Link> — came together. They provided the calm heads required.
               </p>
               
               <div className="space-y-6">
@@ -284,12 +284,15 @@ const PakVsBan2ndTestDay4Session1Report = () => {
                         </ul>
                     </div>
                     <div className="flex flex-col justify-center">
-                       <p className="text-xs font-medium text-white/60 italic leading-relaxed">
+                       <p className="text-xs font-medium text-white/60 italic leading-relaxed text-center">
                           "Acceleration from 3.37 to 5.60 per over is not realistic on this surface. The goal is to bat long and make Bangladesh bowl 60+ overs."
                        </p>
-                       <div className="mt-6 flex items-center gap-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-pak-green" />
-                          <span className="text-[9px] font-black uppercase text-white/40 tracking-[2px]">Tactical Analyst Room</span>
+                       <div className="mt-4 flex flex-col items-center gap-3">
+                          <Link to="/news/why-pakistan-lost-1st-test-vs-bangladesh-2026-analysis" className="text-[10px] font-black uppercase text-red-500 hover:underline tracking-[1px]">Why Pakistan Lost the 1st Test →</Link>
+                          <div className="flex items-center gap-2">
+                             <div className="w-1.5 h-1.5 rounded-full bg-pak-green" />
+                             <span className="text-[9px] font-black uppercase text-white/40 tracking-[2px]">Tactical Analyst Room</span>
+                          </div>
                        </div>
                     </div>
                  </div>

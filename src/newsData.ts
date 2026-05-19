@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'babar-azam-68-and-47-fighting-innings-sylhet-2026',
+    title: "Babar Azam's Fighting 68 and Counter-Attacking 47 — Pakistan's Last Hope in Sylhet",
+    date: 'May 19, 2026',
+    tag: 'Player Feature',
+    summary: "Babar Azam top scores with 68 in 1st innings and attacks with 47 in 2nd innings vs Bangladesh 2nd Test Sylhet 2026. Full innings analysis and match report."
+  },
+  {
     id: 'pak-vs-ban-2nd-test-day-4-session-1-report-sylhet-2026',
     title: "PAK vs BAN 2nd Test Day 4 Session 1: PAK 101/2 at Lunch, Masood-Babar Unbeaten 60 Partnership",
     date: 'May 19, 2026',
@@ -9,14 +16,14 @@ export const NEWS_DATA: NewsItem[] = [
     summary: 'Pakistan Day 4 Session 1 chasing 437 vs Bangladesh — Fazal out for 6 (Nahid Rana), Awais 32 out, Masood 20* & Babar 10* unbeaten 60-run stand at lunch.'
   },
   {
-    id: 'khurram-shahzad-4-wickets-vs-bangladesh-2026',
+    id: 'khurram-shahzad-4-wickets-vs-bangladesh-2nd-test-2026',
     title: "Khurram Shahzad’s Brilliant 4-Wicket Performance: Full Report",
     date: 'May 18, 2026',
     tag: 'Player Spotlight',
     summary: 'Pakistan fast bowler Khurram Shahzad delivered a brilliant bowling spell with 4/86, showcasing accuracy and control in Sylhet.'
   },
   {
-    id: 'can-pakistan-chase-437-runs-vs-bangladesh-2026',
+    id: 'can-pakistan-chase-437-runs-vs-bangladesh-2nd-test-analysis',
     title: 'Can Pakistan Chase 437 Runs vs Bangladesh? Full Match Analysis',
     date: 'May 18, 2026',
     tag: 'Match Analysis',

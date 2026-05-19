@@ -104,6 +104,7 @@ const PakistanWTCStandingsBlog = lazy(() => import('./pages/PakistanWTCStandings
 const BangladeshHomeDominanceBlog = lazy(() => import('./pages/BangladeshHomeDominanceBlog'));
 const BabarAzamFit2ndTestBlog = lazy(() => import('./pages/BabarAzamFit2ndTestBlog'));
 const AusOdiSquadPak2026 = lazy(() => import('./pages/AusOdiSquadPak2026'));
+const BabarAzam68And47SylhetBlog = lazy(() => import('./pages/BabarAzam68And47SylhetBlog'));
 const PakVsBan2ndTestDay4Session1Report = lazy(() => import('./pages/PakVsBan2ndTestDay4Session1Report'));
 const PakVsBan2ndTestTossReport = lazy(() => import('./pages/PakVsBan2ndTestTossReport'));
 const PakVsBan2ndTestDay1Report = lazy(() => import('./pages/PakVsBan2ndTestDay1Report'));
@@ -201,6 +202,7 @@ export default function App() {
               <Route path="/news/pak-vs-ban-1st-test-day-4-report-2026" element={<PakVsBan1stTestDay4Report />} />
               <Route path="/news/pak-vs-ban-1st-test-full-match-report-2026" element={<PakVsBan1stTestFullReport />} />
               <Route path="/news/nahid-rana-5-wickets-vs-pakistan-1st-test-mirpur-2026" element={<NahidRana5WicketsBlog />} />
+              <Route path="/news/babar-azam-68-and-47-fighting-innings-sylhet-2026" element={<BabarAzam68And47SylhetBlog />} />
               <Route path="/news/pak-vs-ban-2nd-test-day-4-session-1-report-sylhet-2026" element={<PakVsBan2ndTestDay4Session1Report />} />
               <Route path="/news/pak-vs-ban-2nd-test-toss-report-sylhet-2026" element={<PakVsBan2ndTestTossReport />} />
               <Route path="/news/pak-vs-ban-2nd-test-day-1-live-score-report-sylhet-2026" element={<PakVsBan2ndTestDay1Report />} />

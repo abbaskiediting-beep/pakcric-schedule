@@ -316,6 +316,14 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "babar-azam-68-and-47-fighting-innings-sylhet-2026",
+                title: "Babar's Fighting 68 & 47: Last Hope in Sylhet",
+                tag: "Player Feature",
+                icon: <Star className="w-5 h-5" />,
+                color: "bg-pak-green",
+                borderColor: "border-pak-green"
+              },
+              {
                 id: "pak-vs-ban-2nd-test-day-4-session-1-report-sylhet-2026",
                 title: "PAK 101/2 at Lunch: Masood & Babar Rescue Effort",
                 tag: "Live Report",
@@ -324,18 +332,10 @@ export default function Home() {
                 borderColor: "border-red-500"
               },
               {
-                id: "khurram-shahzad-4-wickets-vs-bangladesh-2026",
+                id: "khurram-shahzad-4-wickets-vs-bangladesh-2nd-test-2026",
                 title: "Khurram Shahzad's Brilliant 4-Wicket Spell",
                 tag: "Player Spotlight",
                 icon: <Star className="w-5 h-5" />,
-                color: "bg-red-600",
-                borderColor: "border-red-500"
-              },
-              {
-                id: "pakistan-bowling-bangladesh-2nd-innings-2nd-test-sylhet-2026",
-                title: "PAK Bowling Analysis: Effort vs Control",
-                tag: "Bowling Report",
-                icon: <Shield className="w-5 h-5" />,
                 color: "bg-red-600",
                 borderColor: "border-red-500"
               },
