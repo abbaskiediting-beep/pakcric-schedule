@@ -197,7 +197,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                PAK vs BAN: 0/0 (2.0) | Target 437 | Day 3 Stumps
+                PAK vs BAN: 101/2 (30.0) | Target 437 | Lunch Day 4
               </span>
             </motion.div>
             
@@ -316,6 +316,14 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "pak-vs-ban-2nd-test-day-4-session-1-report-sylhet-2026",
+                title: "PAK 101/2 at Lunch: Masood & Babar Rescue Effort",
+                tag: "Live Report",
+                icon: <Zap className="w-5 h-5" />,
+                color: "bg-red-600",
+                borderColor: "border-red-500"
+              },
+              {
                 id: "khurram-shahzad-4-wickets-vs-bangladesh-2026",
                 title: "Khurram Shahzad's Brilliant 4-Wicket Spell",
                 tag: "Player Spotlight",
@@ -344,14 +352,6 @@ export default function Home() {
                 title: "Mushfiqur Rahim's 137 Puts PAK in Trouble",
                 tag: "Breaking News",
                 icon: <Trophy className="w-5 h-5" />,
-                color: "bg-emerald-600",
-                borderColor: "border-emerald-500"
-              },
-              {
-                id: "bangladesh-bowlers-crush-pakistan-2nd-test-sylhet-2026",
-                title: "BAN Bowlers Crush Pakistan in Sylhet",
-                tag: "Match Report",
-                icon: <Shield className="w-5 h-5" />,
                 color: "bg-emerald-600",
                 borderColor: "border-emerald-500"
               }

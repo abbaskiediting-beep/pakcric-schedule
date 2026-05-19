@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pak-vs-ban-2nd-test-day-4-session-1-report-sylhet-2026',
+    title: "PAK vs BAN 2nd Test Day 4 Session 1: PAK 101/2 at Lunch, Masood-Babar Unbeaten 60 Partnership",
+    date: 'May 19, 2026',
+    tag: 'Live Report',
+    summary: 'Pakistan Day 4 Session 1 chasing 437 vs Bangladesh — Fazal out for 6 (Nahid Rana), Awais 32 out, Masood 20* & Babar 10* unbeaten 60-run stand at lunch.'
+  },
+  {
     id: 'khurram-shahzad-4-wickets-vs-bangladesh-2026',
     title: "Khurram Shahzad’s Brilliant 4-Wicket Performance: Full Report",
     date: 'May 18, 2026',
