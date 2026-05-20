@@ -10,12 +10,12 @@ export const PAKISTAN_SCHEDULE: Match[] = [
     time: '09:00 AM PKT',
     venue: 'Sylhet International Cricket Stadium, Sylhet',
     series: 'Pakistan Tour of Bangladesh (Test Series)',
-    status: 'Live',
-    granularStatus: 'PAK need 121 runs in 96 overs to win • End of Day 4',
+    status: 'Completed',
+    granularStatus: 'BAN won by 78 runs • Series complete (2-0)',
     flagUrl: 'https://flagcdn.com/bd.svg',
-    scorePAK: '232 & 316/7',
+    scorePAK: '232 & 358',
     scoreOpponent: '278 & 390',
-    overs: '86.0',
+    overs: '98.3',
     playingXI: [
       {
         team: 'Pakistan',
@@ -50,6 +50,8 @@ export const PAKISTAN_SCHEDULE: Match[] = [
         ]
       }
     ],
+    result: 'Bangladesh won by 78 runs',
+    blogUrl: '/news/bangladesh-complete-historic-2-0-series-sweep-sylhet-2026',
     preMatchAnalysis: `
 ### Series Context
 The second Test in Chattogram often favors batsmen early on before becoming a spin minefield. Pakistan will look to consolidate their position in the series here.
@@ -58,6 +60,57 @@ The second Test in Chattogram often favors batsmen early on before becoming a sp
 * **Reverse Swing:** The dry conditions in Chattogram often provide reverse swing, making Naseem Shah a key weapon.
 * **Middle Order Stability:** Saud Shakeel and Mohammad Rizwan will be pivotal in holding the innings together if the top order struggles against the new ball.
     `,
+    postMatchSummary: `
+### Historical Series Sweep Secured by Bangladesh
+
+In an absolute thriller that went down to the absolute wire on Day 5, Bangladesh beat Pakistan by 78 runs in Sylhet to complete a historic first-ever 2-0 Test series sweep over Pakistan.
+
+#### The Epic Run-Chase
+Chasing an unprecedented target of 437 runs in Bangladesh, Pakistan put up an extraordinary fight. Captain **Shan Masood** led with a masterful **71** (105 balls, 6 fours) and shared a fluid **50-run** partnership off 51 balls with **Babar Azam** (47). 
+
+Following their dismissals, **Salman Ali Agha** (71) and **Mohammad Rizwan** (91) built a resilient **134-run** partnership under tremendous pressure. They frustrated the Bangladeshi spin attack deep into Day 4, concluding the day at 316/7.
+
+#### Day 5 Wicket-Taking Thrills
+But on the final morning, veteran spinner **Taijul Islam** took the defining wickets, ending Rizwan's magnificent fight at 91 (highest test score for him) with a stifling spell. Combined with **Nahid Rana's** raw pace, Bangladesh wrapped up Pakistan's tail at 358 runs, clinching the match and sealing a famous 2-0 sweep on home soil.
+    `,
+    stats: {
+      topScorers: [
+        { name: 'Mushfiqur Rahim', runs: '137', balls: '233' },
+        { name: 'Litton Kumer Das', runs: '126', balls: '187' },
+        { name: 'Mohammad Rizwan', runs: '91', balls: '150' },
+        { name: 'Shan Masood', runs: '71', balls: '105' },
+        { name: 'Salman Ali Agha', runs: '71', balls: '120' }
+      ],
+      leadingWicketTakers: [
+        { name: 'Taijul Islam', wickets: '4', runs: '113', overs: '36.3' },
+        { name: 'Khurram Shahzad', wickets: '4', runs: '92', overs: '28' },
+        { name: 'Nahid Rana', wickets: '3', runs: '82', overs: '22' }
+      ],
+      keyPartnerships: [
+        { players: 'Mohammad Rizwan & Salman Ali Agha', runs: '134', balls: '240' },
+        { players: 'Mahmudul Hasan Joy & Najmul Hossain Shanto', runs: '76', balls: '132' }
+      ],
+      secondInningsBowling: [
+        {
+          team: 'Bangladesh',
+          figures: [
+            { name: 'Taijul Islam', wickets: '4', runs: '113', overs: '36.3' },
+            { name: 'Nahid Rana', wickets: '3', runs: '82', overs: '22' },
+            { name: 'Mehidy Hasan Miraz', wickets: '1', runs: '74', overs: '23' },
+            { name: 'Taskin Ahmed', wickets: '1', runs: '51', overs: '15' },
+            { name: 'Shoriful Islam', wickets: '1', runs: '38', overs: '12' }
+          ]
+        },
+        {
+          team: 'Pakistan',
+          figures: [
+            { name: 'Khurram Shahzad', wickets: '4', runs: '92', overs: '28' },
+            { name: 'Mohammad Abbas', wickets: '1', runs: '68', overs: '25' },
+            { name: 'Sajid Khan', wickets: '1', runs: '112', overs: '31.2' }
+          ]
+        }
+      ]
+    },
     playersToWatch: [
       { name: 'Naseem Shah', role: 'Bowler', reason: 'Exceptional control with reverse swing on abrasive surfaces.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Naseem' },
       { name: 'Shakib Al Hasan', role: 'All-rounder', reason: 'The veteran remains the most dangerous threat with his clever changes of pace.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shakib' }

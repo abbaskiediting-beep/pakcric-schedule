@@ -98,6 +98,7 @@ const SalmanAgha58vsBanBlog = lazy(() => import('./pages/SalmanAgha58vsBanBlog')
 const SalmanAgha71vsBanBlog = lazy(() => import('./pages/SalmanAgha71vsBanBlog'));
 const MohammadRizwan75UnbeatenSylhetBlog = lazy(() => import('./pages/MohammadRizwan75UnbeatenSylhetBlog'));
 const ShanMasood71vsBanBlog = lazy(() => import('./pages/ShanMasood71vsBanBlog'));
+const BangalseshCompleteHistoricSeriesSweepBlog = lazy(() => import('./pages/BangalseshCompleteHistoricSeriesSweepBlog'));
 const PakVsBan1stTestDay4Report = lazy(() => import('./pages/PakVsBan1stTestDay4Report'));
 const PakVsBan1stTestFullReport = lazy(() => import('./pages/PakVsBan1stTestFullReport'));
 const NahidRana5WicketsBlog = lazy(() => import('./pages/NahidRana5WicketsBlog'));
@@ -199,6 +200,7 @@ export default function App() {
               <Route path="/news/australia-odi-squad-pakistan-tour-2026-announcement" element={<AusOdiSquadPak2026 />} />
               <Route path="/squad/australia-odi-2026" element={<AustraliaOdiSquadPage />} />
               <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
+              <Route path="/news/bangladesh-complete-historic-2-0-series-sweep-sylhet-2026" element={<BangalseshCompleteHistoricSeriesSweepBlog />} />
               <Route path="/news/shan-masood-71-vs-bangladesh-2nd-test-2026-report" element={<ShanMasood71vsBanBlog />} />
               <Route path="/news/salman-ali-agha-71-vs-bangladesh-2nd-test-2026-report" element={<SalmanAgha71vsBanBlog />} />
               <Route path="/news/mohammad-rizwan-75-unbeaten-sylhet-heroics-2026" element={<MohammadRizwan75UnbeatenSylhetBlog />} />

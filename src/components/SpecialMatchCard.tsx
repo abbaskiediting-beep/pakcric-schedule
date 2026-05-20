@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Calendar, MapPin, Clock, Zap, AlertTriangle, ArrowRight, Share2, Bell } from 'lucide-react';
+import { Calendar, MapPin, Clock, Zap, AlertTriangle, ArrowRight, Share2, Bell, Trophy, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Match } from '../types';
 import ShareButton from './ShareButton';
@@ -190,6 +190,80 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
             </div>
           </div>
         </div>
+
+        {match.status === 'Completed' && (
+          <div className="mt-8 pt-6 sm:pt-8 border-t border-white/5 space-y-6">
+            <div className="flex items-center gap-2">
+              <Trophy className="w-5 h-5 text-yellow-500" />
+              <h3 className="text-xs font-black text-white uppercase tracking-[3px]">Series Victory & Top Performers</h3>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 shrink-0">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-[9px] font-black text-white/30 uppercase tracking-widest leading-none mb-1">Player of the Match</p>
+                  <p className="text-sm font-bold text-white uppercase tracking-tight">Mohammad Rizwan</p>
+                  <p className="text-[10px] font-medium text-emerald-400">91 & 16 (Day 4/5 heroics)</p>
+                </div>
+              </div>
+              
+              <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+                  <Trophy className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-[9px] font-black text-white/30 uppercase tracking-widest leading-none mb-1">Player of the Series</p>
+                  <p className="text-sm font-bold text-white uppercase tracking-tight">Taijul Islam</p>
+                  <p className="text-[10px] font-medium text-emerald-400">Most series wickets spinner</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Micro Scorecard */}
+            <div className="bg-black/30 border border-white/5 rounded-2xl p-4 sm:p-5 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 pb-2">
+                <span className="text-[9px] font-black text-neutral-400 uppercase tracking-widest">Innings Top Scorers</span>
+                <span className="text-[9px] font-semibold text-emerald-400 px-2 py-0.5 bg-emerald-500/15 rounded-full uppercase tracking-wider">Historical Series 2-0 Sweep</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div className="space-y-2">
+                  <div className="text-[9px] font-black text-white/20 uppercase tracking-wider pb-1">Pakistan Battings</div>
+                  <div className="flex justify-between items-center bg-white/[0.01] p-1.5 rounded-lg">
+                    <span className="font-bold text-white/80">M. Rizwan</span>
+                    <span className="font-mono text-emerald-400 font-bold">91 (150) & 16</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-white/[0.01] p-1.5 rounded-lg">
+                    <span className="font-bold text-white/80">S. Masood</span>
+                    <span className="font-mono text-white">71 (105) & 21</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-white/[0.01] p-1.5 rounded-lg">
+                    <span className="font-bold text-white/80">Salman Agha</span>
+                    <span className="font-mono text-white">71 (120) & 21</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="text-[9px] font-black text-white/20 uppercase tracking-wider pb-1">Bangladesh Battings</div>
+                  <div className="flex justify-between items-center bg-white/[0.01] p-1.5 rounded-lg">
+                    <span className="font-bold text-white/80">M. Rahim</span>
+                    <span className="font-mono text-emerald-400 font-bold">137 (233)</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-white/[0.01] p-1.5 rounded-lg">
+                    <span className="font-bold text-white/80">L. Das</span>
+                    <span className="font-mono text-white">126 & 60</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-white/[0.01] p-1.5 rounded-lg">
+                    <span className="font-bold text-white/80">M. Joy</span>
+                    <span className="font-mono text-white">65</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to={`/match/${match.id}`} className="flex-[2] px-8 py-5 bg-pak-green text-white rounded-2xl text-[12px] font-black uppercase tracking-[3px] hover:bg-emerald-600 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pak-green/20 text-center flex items-center justify-center gap-3">

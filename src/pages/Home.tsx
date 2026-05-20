@@ -197,7 +197,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                PAK vs BAN: 316/7 (86.0) | Need 121 More | Stumps Day 4
+                PAK vs BAN: BAN won by 78 runs • Historic 2-0 Series Sweep
               </span>
             </motion.div>
             
@@ -315,6 +315,14 @@ export default function Home() {
 
           <div className="space-y-4">
             {[
+              {
+                id: "bangladesh-complete-historic-2-0-series-sweep-sylhet-2026",
+                title: "BAN Complete Historic 2-0 Series Sweep",
+                tag: "Historic Sweep",
+                icon: <Trophy className="w-5 h-5 text-white" />,
+                color: "bg-red-600",
+                borderColor: "border-red-600"
+              },
               {
                 id: "shan-masood-71-vs-bangladesh-2nd-test-2026-report",
                 title: "Shan Masood's Brave 71 as Captain",

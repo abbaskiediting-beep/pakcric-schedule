@@ -86,6 +86,17 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'bangladesh-complete-historic-2-0-series-sweep-sylhet-2026',
+    title: "Bangladesh Complete Historic 2-0 Series Sweep vs Pakistan — Taijul 4/113, Masood 71, Rizwan 75*, Agha 71 Not Enough in Sylhet Thriller",
+    summary: "Bangladesh beat Pakistan by 78 runs in the 2nd Test in Sylhet to secure a historic first-ever 2-0 Test series sweep over Pakistan. Full report and final scorecard.",
+    date: 'May 20, 2026',
+    category: 'Match Report',
+    path: '/news/bangladesh-complete-historic-2-0-series-sweep-sylhet-2026',
+    icon: Trophy,
+    color: 'text-pak-green',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'shan-masood-71-vs-bangladesh-2nd-test-2026-report',
     title: "Shan Masood’s Fighting 71 Shows Leadership Under Pressure in Sylhet Test",
     summary: "Shan Masood scores a fighting 71 runs in Pakistan’s second innings against Bangladesh during the Sylhet Test 2026. Full analysis of the captain’s innings under pressure.",
