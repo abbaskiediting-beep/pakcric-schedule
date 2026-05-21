@@ -28,20 +28,20 @@ export default function Rankings() {
   return (
     <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6">
       <Helmet>
-        <title>Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings</title>
-        <meta name="description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
+        <title>Pakistan ICC Cricket Rankings 2026 — Test ODI T20 Latest</title>
+        <meta name="description" content="Latest ICC cricket rankings for Pakistan in Test, ODI and T20I formats 2026. Check Pakistan's current world ranking, rating points and position after every series." />
         <meta name="keywords" content="Pakistan ICC rankings, Pakistan team ranking 2026, ICC cricket standings, T20 ODI Test rankings Pakistan" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings" />
-        <meta property="og:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
+        <meta property="og:title" content="Pakistan ICC Cricket Rankings 2026 — Test ODI T20 Latest" />
+        <meta property="og:description" content="Latest ICC cricket rankings for Pakistan in Test, ODI and T20I formats 2026. Check Pakistan's current world ranking, rating points and position after every series." />
         <meta property="og:image" content="/favicon.svg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Pakistan ICC Rankings 2026 – T20, ODI & Test Team Rankings" />
-        <meta property="twitter:description" content="Check Pakistan cricket team ICC rankings 2026 in T20, ODI, and Test formats with latest updates and full rankings overview." />
+        <meta property="twitter:title" content="Pakistan ICC Cricket Rankings 2026 — Test ODI T20 Latest" />
+        <meta property="twitter:description" content="Latest ICC cricket rankings for Pakistan in Test, ODI and T20I formats 2026. Check Pakistan's current world ranking, rating points and position after every series." />
         <meta property="twitter:image" content="/favicon.svg" />
       </Helmet>
       

@@ -5,6 +5,9 @@ export default function Nav() {
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Schedule', path: '/schedule' },
+    { name: 'Home Series', path: '/home-series' },
+    { name: 'Away Tours', path: '/away-tours' },
+    { name: 'Venues', path: '/venues' },
     { name: 'Next Match 🔴', path: '/match/1', highlight: true },
     { name: 'Series', path: '/pakistan-cricket-series' },
     { name: 'Squad', path: '/squads' },

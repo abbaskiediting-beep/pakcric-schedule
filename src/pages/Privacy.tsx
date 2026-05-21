@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function Privacy() {
   return (
@@ -10,7 +11,7 @@ export default function Privacy() {
         <p className="text-ink/60 font-medium">Last updated: April 18, 2026</p>
       </motion.div>
 
-      <div className="bg-card-bg border border-card-border rounded-[32px] p-8 space-y-8">
+      <div className="bg-card-bg border border-card-border rounded-[32px] p-8 space-y-8 mb-16">
         <section>
            <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-3">1. Data Collection</h3>
            <p className="text-xs text-ink/80 leading-relaxed font-medium">
@@ -29,6 +30,10 @@ export default function Privacy() {
              Our site contains links to verified PCB social media and ticketing partners. We are not responsible for the privacy practices of external sites.
            </p>
         </section>
+      </div>
+
+      <div className="mt-16 border-t border-white/5 pt-16">
+        <InternalLinkSection />
       </div>
     </div>
   );

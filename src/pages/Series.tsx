@@ -3,6 +3,7 @@ import { Trophy, Calendar, MapPin, Users, History as HistoryIcon, ArrowRight, Sh
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { LinkText } from '../components/LinkText';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function Series() {
   const upcomingSeries = [
@@ -339,11 +340,15 @@ export default function Series() {
       </section>
 
       {/* Final Words */}
-      <div className="mt-12 md:mt-20 p-8 md:p-12 bg-neutral-900 rounded-3xl md:rounded-[48px] text-center border border-white/5">
+      <div className="mt-12 md:mt-20 p-8 md:p-12 bg-neutral-900 rounded-3xl md:rounded-[48px] text-center border border-white/5 mb-20">
         <p className="text-base md:text-xl text-neutral-300 font-medium italic mb-6 md:mb-8 max-w-2xl mx-auto">
           "The Pakistan Cricket Series page on PakCric Schedule is designed to keep fans informed with the latest fixtures, squads, and updates."
         </p>
         <p className="text-[9px] md:text-[10px] font-black uppercase text-pak-green tracking-[0.4em]">Bookmark this page – Stay Updated</p>
+      </div>
+
+      <div className="mt-16 border-t border-white/5 pt-16">
+        <InternalLinkSection />
       </div>
     </div>
   );

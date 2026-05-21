@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { LinkText } from '../components/LinkText';
+import InternalLinkSection from '../components/InternalLinkSection';
 
 export default function About() {
   return (
@@ -34,7 +35,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div className="bg-card-bg border border-card-border rounded-[32px] p-8">
            <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-4">Our Mission</h3>
            <p className="text-xs text-ink/80 leading-relaxed font-medium">
@@ -48,6 +49,10 @@ export default function About() {
            </div>
            <div className="absolute top-0 right-0 p-4 text-[100px] font-bold italic opacity-5 rotate-12 group-hover:rotate-0 transition-transform">PCB</div>
         </div>
+      </div>
+
+      <div className="mt-16 border-t border-white/5 pt-16">
+        <InternalLinkSection />
       </div>
     </div>
   );

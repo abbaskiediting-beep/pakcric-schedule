@@ -35,20 +35,20 @@ export default function Home() {
       {/* Top Leaderboard - Above the fold, below navbar */}
       <AdPlaceholder type="leaderboard" className="mb-8" />
       <Helmet>
-        <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Match Dates & Updates | PakCric Schedule</title>
-        <meta name="description" content="Stay updated with the Pakistan cricket schedule 2026. Get full fixtures, match dates, venues, timings, and latest updates on PakCric Schedule." />
+        <title>Pakistan Cricket Schedule 2026 — All Matches & Fixtures</title>
+        <meta name="description" content="Complete Pakistan cricket schedule 2026 with Test, ODI & T20 match dates, venues, PST timings and squad updates. Never miss a Pakistan match again. Updated daily." />
         <meta name="keywords" content="Pakistan cricket schedule 2026, Pakistan matches 2026, Pakistan fixtures, upcoming matches Pakistan, cricket schedule updates, PakCric Schedule" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Match Dates & Updates | PakCric Schedule" />
-        <meta property="og:description" content="Stay updated with the Pakistan cricket schedule 2026. Get full fixtures, match dates, venues, timings, and latest updates on PakCric Schedule." />
+        <meta property="og:title" content="Pakistan Cricket Schedule 2026 — All Matches & Fixtures" />
+        <meta property="og:description" content="Complete Pakistan cricket schedule 2026 with Test, ODI & T20 match dates, venues, PST timings and squad updates. Never miss a Pakistan match again. Updated daily." />
         <meta property="og:image" content="/favicon.svg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Pakistan Cricket Schedule 2026 | Fixtures, Matches & Updates" />
-        <meta property="twitter:description" content="Check Pakistan cricket schedule 2026 with full fixtures, upcoming matches, match timings, venues and latest updates." />
+        <meta property="twitter:title" content="Pakistan Cricket Schedule 2026 — All Matches & Fixtures" />
+        <meta property="twitter:description" content="Complete Pakistan cricket schedule 2026 with Test, ODI & T20 match dates, venues, PST timings and squad updates. Never miss a Pakistan match again. Updated daily." />
         <meta property="twitter:image" content="/favicon.svg" />
 
         <script type="application/ld+json">
@@ -250,6 +250,20 @@ export default function Home() {
             
             <div className="space-y-4">
                {[
+                 {
+                   name: "Pakistan Home Series 2026",
+                   path: "/home-series",
+                   matches: "West Indies, Zimbabwe, Aus, SL",
+                   icon: <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                   color: "bg-emerald-600"
+                 },
+                 {
+                   name: "Pakistan Away Tours 2026",
+                   path: "/away-tours",
+                   matches: "BAN, WI, ENG, SL, RSA",
+                   icon: <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                   color: "bg-blue-600"
+                 },
                  {
                    name: "Pakistan vs Bangladesh 2026",
                    path: "/pakistan-vs-bangladesh-2026-schedule",

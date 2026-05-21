@@ -19,6 +19,96 @@ import SetReminderButton from '../components/SetReminderButton';
 
 import { LinkText } from '../components/LinkText';
 
+function getISOTime(timeStr: string): string {
+  const clean = timeStr.replace(/(pkt|gmt|pst|ist|utc)/i, '').trim();
+  const isPM = clean.toUpperCase().includes('PM');
+  const isAM = clean.toUpperCase().includes('AM');
+  
+  const digits = clean.replace(/(am|pm)/i, '').trim();
+  const [hStr, mStr] = digits.split(':');
+  let h = parseInt(hStr || '9', 10);
+  const m = mStr ? mStr.substring(0, 2).padStart(2, '0') : '00';
+  
+  if (isPM && h < 12) h += 12;
+  if (isAM && h === 12) h = 0;
+  
+  return `${String(h).padStart(2, '0')}:${m}:00`;
+}
+
+function getISOStartDate(dateStr: string, timeStr: string): string {
+  try {
+    const yearMatch = dateStr.match(/\b202\d\b/);
+    const year = yearMatch ? yearMatch[0] : "2026";
+    
+    let startPart = dateStr.split(/[–-]/)[0].trim();
+    if (!startPart.includes(year)) {
+      startPart = `${startPart}, ${year}`;
+    }
+    
+    const parsedDate = new Date(startPart);
+    if (isNaN(parsedDate.getTime())) {
+      const months = {
+        jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
+        jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12'
+      };
+      const monthRegex = /(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i;
+      const mMatch = dateStr.match(monthRegex);
+      const mStr = mMatch ? mMatch[0].toLowerCase() : 'may';
+      const monthNum = months[mStr as keyof typeof months] || '05';
+      
+      const dayMatch = startPart.match(/\b\d{1,2}\b/);
+      const dayStr = dayMatch ? dayMatch[0].padStart(2, '0') : '16';
+      
+      return `${year}-${monthNum}-${dayStr}T${getISOTime(timeStr)}`;
+    }
+    
+    const yyyy = parsedDate.getFullYear();
+    const mm = String(parsedDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(parsedDate.getDate()).padStart(2, '0');
+    
+    return `${yyyy}-${mm}-${dd}T${getISOTime(timeStr)}`;
+  } catch (e) {
+    return `2026-05-16T09:00:00`;
+  }
+}
+
+function getISOEndDate(dateStr: string, timeStr: string): string | undefined {
+  try {
+    const yearMatch = dateStr.match(/\b202\d\b/);
+    const year = yearMatch ? yearMatch[0] : "2026";
+    
+    const parts = dateStr.split(/[–-]/);
+    if (parts.length < 2) return undefined;
+    
+    let endPart = parts[1].trim();
+    const monthRegex = /(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i;
+    const endHasMonth = monthRegex.test(endPart);
+    if (!endHasMonth) {
+      const matchMonth = parts[0].match(monthRegex);
+      if (matchMonth) {
+        endPart = `${matchMonth[0]} ${endPart}`;
+      }
+    }
+    
+    if (!endPart.includes(year)) {
+      endPart = `${endPart}, ${year}`;
+    }
+    
+    const parsedDate = new Date(endPart);
+    if (isNaN(parsedDate.getTime())) {
+      return undefined;
+    }
+    
+    const yyyy = parsedDate.getFullYear();
+    const mm = String(parsedDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(parsedDate.getDate()).padStart(2, '0');
+    
+    return `${yyyy}-${mm}-${dd}T18:00:00`;
+  } catch (e) {
+    return undefined;
+  }
+}
+
 export default function MatchDetail() {
   const { id } = useParams();
   const match = [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS].find(m => m.id === id);
@@ -45,6 +135,45 @@ export default function MatchDetail() {
     .filter(m => m.format === match.format && m.id !== match.id)
     .slice(0, 3);
 
+  const startDateISO = getISOStartDate(match.date, match.time);
+  const endDateISO = getISOEndDate(match.date, match.time);
+
+  const venueCountry = match.series.toLowerCase().includes('bangladesh') || match.opponent === 'BAN' ? 'Bangladesh' :
+                       match.series.toLowerCase().includes('england') || match.opponent === 'ENG' ? 'United Kingdom' :
+                       match.series.toLowerCase().includes('west indies') || match.opponent === 'WI' ? 'Trinidad and Tobago' :
+                       'Pakistan';
+
+  const schemaObject = {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": match.title || `Pakistan vs ${match.opponent} ${match.format || 'Cricket Match'}`,
+    "startDate": startDateISO,
+    ...(endDateISO ? { "endDate": endDateISO } : {}),
+    "location": {
+      "@type": "Place",
+      "name": match.venue.split(',')[0]?.trim() || 'TBA',
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": match.venue.split(',')[1]?.trim() || 'TBA',
+        "addressCountry": venueCountry
+      }
+    },
+    "competitor": [
+      {
+        "@type": "SportsTeam",
+        "name": "Pakistan",
+        "logo": "https://flagcdn.com/pk.svg"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": match.opponent,
+        "logo": match.flagUrl
+      }
+    ],
+    "sport": "Cricket",
+    "description": `Live coverage, match schedule, kickoff times and updates for ${match.title || `Pakistan vs ${match.opponent}`}.`
+  };
+
   return (
     <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-6">
       <Helmet>
@@ -65,33 +194,7 @@ export default function MatchDetail() {
         <meta property="twitter:image" content={match.flagUrl} />
 
         <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "SportsEvent",
-              "name": "Pakistan vs ${match.opponent} ${match.format || 'Cricket Match'}",
-              "startDate": "2026-${match.date.includes('May') ? '05' : '01'}-08T09:00",
-              "location": {
-                "@type": "Place",
-                "name": "${match.venue.split(',')[0]}",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "${match.venue.split(',')[1] || 'TBA'}",
-                  "addressCountry": "TBA"
-                }
-              },
-              "competitor": [
-                {
-                  "@type": "SportsTeam",
-                  "name": "Pakistan"
-                },
-                {
-                  "@type": "SportsTeam",
-                  "name": "${match.opponent}"
-                }
-              ]
-            }
-          `}
+          {JSON.stringify(schemaObject)}
         </script>
       </Helmet>
       <Link to="/" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:translate-x-[-4px] transition-transform mb-8">

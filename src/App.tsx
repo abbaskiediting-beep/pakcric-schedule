@@ -29,6 +29,8 @@ const TestAllrounder = lazy(() => import('./pages/rankings/TestAllrounder'));
 const SeriesDetail = lazy(() => import('./pages/SeriesDetail'));
 const MatchDetail = lazy(() => import('./pages/MatchDetail'));
 const Blogs = lazy(() => import('./pages/Blogs'));
+const PakistanHomeSeries = lazy(() => import('./pages/PakistanHomeSeries'));
+const PakistanAwayTours = lazy(() => import('./pages/PakistanAwayTours'));
 const PakistanVsBangladesh2026Schedule = lazy(() => import('./pages/PakistanVsBangladesh2026Schedule'));
 const PakistanVsAustralia2026Schedule = lazy(() => import('./pages/PakistanVsAustralia2026Schedule'));
 const PakistanVsAustraliaBlog = lazy(() => import('./pages/PakistanVsAustraliaBlog'));
@@ -133,6 +135,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Venues = lazy(() => import('./pages/Venues'));
 
 // Loading component
 const PageLoader = () => (
@@ -273,6 +276,10 @@ export default function App() {
               <Route path="/series/:id" element={<SeriesDetail />} />
               <Route path="/match/:id" element={<MatchDetail />} />
               <Route path="/news/squad-selection-intelligence" element={<SquadIntelligence />} />
+              <Route path="/home-series" element={<PakistanHomeSeries />} />
+              <Route path="/pakistan-home-series-2026" element={<PakistanHomeSeries />} />
+              <Route path="/away-tours" element={<PakistanAwayTours />} />
+              <Route path="/pakistan-away-tours-2026" element={<PakistanAwayTours />} />
               <Route path="/pakistan-vs-bangladesh-2026-schedule" element={<PakistanVsBangladesh2026Schedule />} />
               <Route path="/pakistan-vs-australia-2026-schedule-odi" element={<PakistanVsAustralia2026Schedule />} />
               <Route path="/red-ball-resilience-overview-2026" element={<RedBallResilienceBlog />} />
@@ -329,6 +336,8 @@ export default function App() {
               <Route path="/pakistan-icc-rankings-april-2026-analysis" element={<RankingsAnalysisBlog />} />
               <Route path="/pakistan-cricket-series" element={<Series />} />
               <Route path="/pakistan-next-tour-details" element={<PakistanNextTourDetails />} />
+              <Route path="/venues" element={<Venues />} />
+              <Route path="/venues-stadiums-2026" element={<Venues />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
@@ -351,6 +360,7 @@ export default function App() {
                 <Link to="/rankings" className="hover:text-pak-green transition-colors">Rankings</Link>
                 <Link to="/squads" className="hover:text-pak-green transition-colors">Squads</Link>
                 <Link to="/news" className="hover:text-pak-green transition-colors">News</Link>
+                <Link to="/venues" className="hover:text-pak-green transition-colors">Venues</Link>
                 <Link to="/about" className="hover:text-pak-green transition-colors">About</Link>
                 <Link to="/contact" className="hover:text-pak-green transition-colors">Contact</Link>
                 <Link to="/privacy" className="hover:text-pak-green transition-colors">Privacy</Link>

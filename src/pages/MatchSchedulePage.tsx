@@ -233,13 +233,13 @@ export default function MatchSchedulePage() {
       {/* Top Banner Placement */}
       <AdPlaceholder type="leaderboard" className="mb-8 md:mb-10" />
       <Helmet>
-        <title>Pakistan Cricket Schedule 2026 – Full Fixtures, Dates, Venues & Timings</title>
-        <meta name="description" content="Check the complete Pakistan cricket schedule 2026 with full fixtures, match dates, venues, and timings. Stay updated with upcoming Pakistan matches." />
+        <title>Pakistan Cricket Fixtures 2026 — Test ODI T20 Schedule</title>
+        <meta name="description" content="Full Pakistan cricket fixtures 2026 including Test matches, ODIs and T20Is. Match dates, venues and timings in Pakistan Standard Time. Updated after every series." />
         <meta name="keywords" content="Pakistan cricket schedule 2026, Pakistan upcoming matches, Pakistan full fixtures, cricket match dates, Pakistan vs India 2026, Asia Cup 2026 schedule" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Pakistan Cricket Schedule 2026 – Full Fixtures, Dates, Venues & Timings" />
-        <meta property="og:description" content="Check the complete Pakistan cricket schedule 2026 with full fixtures, match dates, venues, and timings. Stay updated with upcoming Pakistan matches." />
+        <meta property="og:title" content="Pakistan Cricket Fixtures 2026 — Test ODI T20 Schedule" />
+        <meta property="og:description" content="Full Pakistan cricket fixtures 2026 including Test matches, ODIs and T20Is. Match dates, venues and timings in Pakistan Standard Time. Updated after every series." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/favicon.svg" />
 

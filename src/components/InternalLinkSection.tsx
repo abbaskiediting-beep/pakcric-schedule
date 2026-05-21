@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, LayoutGrid } from 'lucide-react';
 
 const INTERNAL_LINKS = [
+  { name: 'PakCric Home', path: '/', desc: 'Go to home page for latest feeds, scores & articles' },
   { name: 'Full Schedule 2026', path: '/schedule', desc: 'Complete match fixtures and venues' },
   { name: 'Squad Details', path: '/squads', desc: 'Pakistan team selection and analysis' },
   { name: 'ICC Rankings', path: '/rankings', desc: 'Latest player and team standings' },
   { name: 'WTC Projections', path: '/icc-wtc-projections-2026', desc: 'World Test Championship updates' },
   { name: 'Latest News', path: '/news', desc: 'Daily updates from the cricket world' },
-  { name: 'Expert News', path: '/news', desc: 'Tactical analysis and match previews' },
   { name: 'Player Stats', path: '/players-stats', desc: 'In-depth performance metrics' },
+  { name: 'Match Venues', path: '/venues', desc: 'Stadium capacities and pitch conditions guide' },
   { name: 'About PakCric', path: '/about', desc: 'Learn more about our portal' },
 ];
 

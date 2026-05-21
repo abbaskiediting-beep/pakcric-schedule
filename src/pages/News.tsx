@@ -16,13 +16,19 @@ export default function News() {
   return (
     <div className="max-w-6xl mx-auto py-8 md:py-12 px-4 md:px-6">
       <Helmet>
-        <title>Pakistan Cricket News 2026 – Latest Updates, Squad News & Match Reports</title>
-        <meta name="description" content="Stay updated with Pakistan cricket news 2026 including squad announcements, match previews, injuries, and latest team updates." />
-        <meta name="keywords" content="Pakistan cricket news, Pakistan team updates, Pakistan squad news, cricket news 2026, PCB news" />
+        <title>Pakistan Cricket News 2026 — Latest Match Updates</title>
+        <meta name="description" content="Latest Pakistan cricket news 2026 — match reports, player injuries, squad changes, ICC rankings and series updates. Daily cricket news for Pakistan fans." />
+        <meta name="keywords" content="Pakistan cricket news 2026 latest, Pakistan cricket match report today, Pakistan cricket updates 2026, Pakistan cricket news, Pakistan team updates, Pakistan squad news, PCB news" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Pakistan Cricket News 2026 – Latest Updates, Squad News & Match Reports" />
-        <meta property="og:description" content="Stay updated with Pakistan cricket news 2026 including squad announcements, match previews, injuries, and latest team updates." />
+        <meta property="og:title" content="Pakistan Cricket News 2026 — Latest Match Updates" />
+        <meta property="og:description" content="Latest Pakistan cricket news 2026 — match reports, player injuries, squad changes, ICC rankings and series updates. Daily cricket news for Pakistan fans." />
+        <meta property="og:image" content="/favicon.svg" />
+
+        {/* Twitter */}
+        <meta property="twitter:title" content="Pakistan Cricket News 2026 — Latest Match Updates" />
+        <meta property="twitter:description" content="Latest Pakistan cricket news 2026 — match reports, player injuries, squad changes, ICC rankings and series updates. Daily cricket news for Pakistan fans." />
+        <meta property="twitter:image" content="/favicon.svg" />
       </Helmet>
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 

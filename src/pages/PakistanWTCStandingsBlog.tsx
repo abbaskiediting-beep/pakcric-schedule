@@ -29,8 +29,8 @@ import SaveForOfflineButton from '../components/SaveForOfflineButton';
 import ShareButton from '../components/ShareButton';
 
 export default function PakistanWTCStandingsBlog() {
-  const pageTitle = "Pakistan Drop to 7th in WTC 2025-27 Table After Shock Bangladesh Loss";
-  const metaDescription = "Pakistan drop to 7th in WTC 2025-27 table with 33.33% points after Bangladesh beat them by 104 runs in 1st Test Mirpur 2026. Full standings and analysis inside.";
+  const pageTitle = "Pakistan WTC 2025-27 Standings — Points Table Updated";
+  const metaDescription = "Pakistan WTC 2025-27 points table updated after every Test match. Check Pakistan's win percentage, points and position in ICC World Test Championship standings.";
 
   const wtcData = [
     { pos: 1, team: 'Australia', flag: '🇦🇺', m: 8, w: 7, l: 1, d: 0, pts: 84, pct: '87.50%', trend: 'neutral' },

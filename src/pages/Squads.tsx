@@ -215,20 +215,20 @@ export default function Squads() {
   return (
     <div className="max-w-5xl mx-auto py-8 sm:py-12 px-4 sm:px-6">
       <Helmet>
-        <title>Pakistan Squad 2026 – Full Team Players List & Updates</title>
-        <meta name="description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
+        <title>Pakistan Cricket Squad 2026 — Full Team & Player List</title>
+        <meta name="description" content="Official Pakistan cricket squad 2026 with player names, roles and selection updates for Test, ODI and T20I series. Check who is in and out of the Pakistan team." />
         <meta name="keywords" content="Pakistan squad 2026, Pakistan players list, cricket team Pakistan, Pakistan cricket team roster, Pakistan team players list" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
-        <meta property="og:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
+        <meta property="og:title" content="Pakistan Cricket Squad 2026 — Full Team & Player List" />
+        <meta property="og:description" content="Official Pakistan cricket squad 2026 with player names, roles and selection updates for Test, ODI and T20I series. Check who is in and out of the Pakistan team." />
         <meta property="og:image" content="/favicon.svg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Pakistan Squad 2026 – Full Team Players List & Updates" />
-        <meta property="twitter:description" content="Check the latest Pakistan cricket team squad 2026 with full players list, roles, and updates for upcoming series and matches." />
+        <meta property="twitter:title" content="Pakistan Cricket Squad 2026 — Full Team & Player List" />
+        <meta property="twitter:description" content="Official Pakistan cricket squad 2026 with player names, roles and selection updates for Test, ODI and T20I series. Check who is in and out of the Pakistan team." />
         <meta property="twitter:image" content="/favicon.svg" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: `

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
@@ -17,6 +17,7 @@ export default function PlayerStats() {
   const [notes, setNotes] = useState('');
   const [isSaving, setIsSaving] = useState(false);
   const [showSavedMsg, setShowSavedMsg] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overall' | 'test' | 'odi' | 't20i'>('overall');
   
   // Find player by name (handling slug)
   const playerName = name?.replace(/-/g, ' ');
@@ -84,6 +85,48 @@ export default function PlayerStats() {
       return 'bg-red-500';
     }
   };
+
+  const currentStats = useMemo(() => {
+    if (activeTab === 'overall') {
+      return {
+        matches: player.stats.matches,
+        runs: player.stats.runs || '—',
+        wickets: player.stats.wickets || '—',
+        avg: player.stats.avg || '—',
+        sr: player.stats.sr || '—',
+        bestBowling: player.stats.bestBowling || '—',
+        highestScore: player.stats.highestScore || '—',
+        economy: (player.stats.avg && player.stats.sr && player.stats.sr > 0)
+          ? (6 * player.stats.avg / player.stats.sr).toFixed(2)
+          : '—'
+      };
+    }
+    const formatStats = player.stats.formats?.[activeTab];
+    if (!formatStats) {
+      return {
+        matches: '—',
+        runs: '—',
+        wickets: '—',
+        avg: '—',
+        sr: '—',
+        bestBowling: '—',
+        highestScore: '—',
+        economy: '—'
+      };
+    }
+    return {
+      matches: formatStats.matches !== undefined ? formatStats.matches : '—',
+      runs: formatStats.runs !== undefined ? formatStats.runs : '—',
+      wickets: formatStats.wickets !== undefined ? formatStats.wickets : '—',
+      avg: formatStats.avg !== undefined ? formatStats.avg : '—',
+      sr: formatStats.sr !== undefined ? formatStats.sr : '—',
+      bestBowling: formatStats.bestBowling !== undefined ? formatStats.bestBowling : '—',
+      highestScore: formatStats.highestScore !== undefined ? formatStats.highestScore : '—',
+      economy: (formatStats.avg && formatStats.sr && typeof formatStats.avg === 'number' && typeof formatStats.sr === 'number' && formatStats.sr > 0)
+        ? (6 * formatStats.avg / formatStats.sr).toFixed(2)
+        : '—'
+    };
+  }, [player, activeTab]);
 
   return (
     <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 sm:px-6">
@@ -167,21 +210,59 @@ export default function PlayerStats() {
         {/* Top Ad for Player Profile */}
         <AdPlaceholder type="banner" className="my-8" />
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
+        {/* Dynamic Format Selector Header */}
+        <div className="player-stats-header bg-card-bg border border-card-border rounded-[24px] sm:rounded-3xl p-4 sm:p-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 className="text-xs sm:text-xs font-black text-white uppercase tracking-[2px] mb-1">Quick Select Format Stats</h3>
+            <p className="text-[10px] sm:text-[11px] text-ink/40 font-semibold uppercase tracking-wider">
+              {activeTab === 'overall' ? 'Displaying Overall Career stats' : `Displaying ${activeTab.toUpperCase()} specific stats`}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-1.5 bg-black/40 p-1.5 rounded-xl border border-white/5 w-full sm:w-auto">
+            {([
+              { id: 'overall', name: 'Overall' },
+              { id: 'test', name: 'Test' },
+              { id: 'odi', name: 'ODI' },
+              { id: 't20i', name: 'T20I' }
+            ] as const).map((tab) => {
+              const isActive = activeTab === tab.id;
+              const hasData = tab.id === 'overall' || !!(player.stats.formats?.[tab.id as keyof typeof player.stats.formats]);
+              
+              return (
+                <button
+                  key={tab.id}
+                  disabled={!hasData}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex-1 sm:flex-initial px-4 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
+                    !hasData
+                      ? 'opacity-25 cursor-not-allowed text-white/25'
+                      : isActive
+                        ? 'bg-pak-green text-white shadow-lg shadow-pak-green/20'
+                        : 'text-ink/65 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {tab.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <motion.div 
+          key={activeTab}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8"
+        >
           {(player.role.toLowerCase().includes('bowler') || player.role.toLowerCase().includes('all-rounder')) ? (
             <>
               {[
-                { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { label: 'Wickets', value: player.stats.wickets || '—', icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { label: 'Bowling Avg', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { 
-                  label: 'Economy', 
-                  value: (player.stats.avg && player.stats.sr && player.stats.sr > 0) 
-                    ? (6 * player.stats.avg / player.stats.sr).toFixed(2) 
-                    : '—', 
-                  icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> 
-                },
-                { label: 'Best Bowling', value: player.stats.bestBowling || '—', icon: <Award className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Matches', value: currentStats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Wickets', value: currentStats.wickets, icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Bowling Avg', value: currentStats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Economy', value: currentStats.economy, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Best Bowling', value: currentStats.bestBowling, icon: <Award className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
               ].map((stat, i) => (
                 <div key={i} className="bg-card-bg border border-card-border p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] hover:border-white/10 transition-colors">
                   <div className="flex items-center gap-2 mb-2 text-neutral-500">
@@ -197,11 +278,11 @@ export default function PlayerStats() {
           ) : (
             <>
               {[
-                { label: 'Matches', value: player.stats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { label: 'Runs', value: player.stats.runs || '—', icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { label: 'Batting Avg', value: player.stats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { label: 'Strike Rate', value: player.stats.sr || '—', icon: <Zap className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
-                { label: 'Hi Score', value: player.stats.highestScore || '—', icon: <Award className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Matches', value: currentStats.matches, icon: <Activity className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Runs', value: currentStats.runs, icon: <Target className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Batting Avg', value: currentStats.avg, icon: <TrendingUp className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Strike Rate', value: currentStats.sr, icon: <Zap className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
+                { label: 'Hi Score', value: currentStats.highestScore, icon: <Award className="w-3.5 h-3.5 md:w-5 md:h-5" /> },
               ].map((stat, i) => (
                 <div key={i} className="bg-card-bg border border-card-border p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] hover:border-white/10 transition-colors">
                   <div className="flex items-center gap-2 mb-2 text-neutral-500">
@@ -215,7 +296,7 @@ export default function PlayerStats() {
               ))}
             </>
           )}
-        </div>
+        </motion.div>
 
         {/* Mid-page ad after summary */}
         <AdPlaceholder type="native" className="my-8" label="Promoted for Fans" />
