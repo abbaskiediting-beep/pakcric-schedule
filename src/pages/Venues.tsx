@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, Users, Calendar, Trophy, Search, ChevronRight, Filter, Compass } from 'lucide-react';
 import InternalLinkSection from '../components/InternalLinkSection';
+import StadiumMap from '../components/StadiumMap';
+import StadiumGallery from '../components/StadiumGallery';
 
 interface Venue {
   name: string;
@@ -463,6 +465,16 @@ export default function Venues() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Interactive Stadium Map */}
+              <div className="mb-6">
+                <StadiumMap venueName={currentActiveVenue.name} />
+              </div>
+
+              {/* High-Resolution Stadium Photo Gallery */}
+              <div className="mb-6">
+                <StadiumGallery stadiumName={currentActiveVenue.name} />
               </div>
 
               {/* Detailed Pitch Analysis */}

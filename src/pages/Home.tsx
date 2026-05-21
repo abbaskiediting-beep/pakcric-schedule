@@ -19,7 +19,7 @@ const ExternalResourcesSection = lazy(() => import('../components/ExternalResour
 const InternalLinkSection = lazy(() => import('../components/InternalLinkSection'));
 
 export default function Home() {
-  const nextMatch = PAKISTAN_SCHEDULE[0];
+  const nextMatch = PAKISTAN_SCHEDULE.find(m => m.status === 'Upcoming') || PAKISTAN_SCHEDULE[0];
   const navigate = useNavigate();
   const [showMoreTactical, setShowMoreTactical] = useState(false);
   

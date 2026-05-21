@@ -1,11 +1,13 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import MobileTabBar from './components/MobileTabBar';
 import OfflineIndicator from './components/OfflineIndicator';
+import KeyboardNavigation from './components/KeyboardNavigation';
+import PushNotificationManager from './components/PushNotificationManager';
 
 // Lazy load pages for better bundle splitting and initial load time
 import SEO from './components/SEO';
@@ -165,14 +167,18 @@ const PageLoader = () => (
 );
 
 export default function App() {
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+
   return (
     <>
       <SEO />
       <ScrollToTop />
       <div className="min-h-screen bg-bg text-ink flex flex-col font-sans pb-16 md:pb-0">
-        <Header />
+        <Header onOpenNotifications={() => setIsNotificationsOpen(true)} />
         <Nav />
         <OfflineIndicator />
+        <KeyboardNavigation />
+        <PushNotificationManager isOpen={isNotificationsOpen} onClose={() => setIsNotificationsOpen(false)} />
         
         <main className="flex-grow">
           <Suspense fallback={<PageLoader />}>

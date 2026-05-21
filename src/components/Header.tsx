@@ -1,9 +1,13 @@
-import { Trophy } from 'lucide-react';
+import { Trophy, Bell } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import Search from './Search';
 
-export default function Header() {
+interface HeaderProps {
+  onOpenNotifications?: () => void;
+}
+
+export default function Header({ onOpenNotifications }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-bg/80 backdrop-blur-md text-ink border-b border-card-border">
       <div className="container mx-auto px-4 sm:px-6 h-14 sm:h-20 flex items-center justify-between">
@@ -23,6 +27,16 @@ export default function Header() {
         </motion.div>
         
         <div className="flex items-center gap-2 sm:gap-4">
+          <button 
+            onClick={onOpenNotifications}
+            className="w-10 h-10 sm:h-11 sm:w-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-pak-green/30 transition-all cursor-pointer relative group"
+            title="Open Alerts & Reminders Center"
+            aria-label="Open Alerts & Reminders Center"
+          >
+            <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:text-pak-green transition-colors" />
+            <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-amber-500 rounded-full animate-pulse border-2 border-bg" />
+          </button>
+
           <div className="h-10 w-10 sm:h-11 sm:w-11 flex items-center justify-center">
             <Search />
           </div>
