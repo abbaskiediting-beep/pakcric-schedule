@@ -376,90 +376,6 @@ export default function Squads() {
       </div>
       </motion.div>
 
-      {/* Latest Squad Categorized List Section */}
-      <section className="mb-16 md:mb-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-12">
-          <div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold uppercase tracking-tight mb-3 text-white">
-              International Cricket <span className="text-pak-green">Squads (2026)</span>
-            </h2>
-            <p className="text-sm md:text-base text-ink/60 font-medium max-w-2xl">
-              Below are the latest squads announced for current or upcoming series involving Pakistan and their opponents. Each list is updated as soon as confirmed announcements are made.
-            </p>
-          </div>
-          <div className="self-start md:self-auto px-4 md:px-6 py-2 rounded-full bg-pak-green/10 border border-pak-green/20 text-pak-green text-[9px] md:text-[10px] font-bold uppercase tracking-widest">
-            Last Updated: May 2026
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {[
-            { 
-              role: 'Batsmen', 
-              players: ['Babar Azam', 'Shan Masood', 'Saud Shakeel', 'Abdullah Fazal', 'Azan Awais', 'Imam-ul-Haq'],
-              icon: '🏏',
-              desc: 'Top & middle-order anchors'
-            },
-            { 
-              role: 'Bowlers', 
-              players: ['Shaheen Shah Afridi', 'Noman Ali', 'Sajid Khan', 'Mohammad Abbas', 'Hasan Ali', 'Khurram Shahzad'],
-              icon: '⚡',
-              desc: 'Pace attack & spin maestros'
-            },
-            { 
-              role: 'All-rounders', 
-              players: ['Salman Ali Agha', 'Amad Butt'],
-              icon: '🔄',
-              desc: 'Versatile dual-impact players'
-            },
-            { 
-              role: 'Wicketkeepers', 
-              players: ['Mohammad Rizwan', 'Muhammad Ghazi Ghori'],
-              icon: '🧤',
-              desc: 'Reliable behind the stumps'
-            }
-          ].map((cat, i) => (
-            <motion.div 
-              key={cat.role}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] p-5 md:p-8 hover:border-pak-green/40 transition-all group"
-            >
-              <div className="text-xl md:text-3xl mb-3 md:mb-4 group-hover:scale-110 transition-transform block">{cat.icon}</div>
-              <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1">{cat.role}</h3>
-              <p className="text-[8px] md:text-[10px] font-black text-pak-green uppercase tracking-widest mb-4 md:mb-6">{cat.desc}</p>
-              
-              <div className="space-y-1.5 md:space-y-2">
-                {cat.players.map(p => (
-                  <button 
-                    key={p} 
-                    onClick={() => handlePlayerClick(p)}
-                    className="flex flex-col w-full text-left p-3 md:p-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/5 hover:border-pak-green/40 hover:bg-white/[0.08] transition-all group/item active:scale-[0.98]"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-[10px] md:text-[11px] font-black uppercase tracking-tight text-ink group-hover/item:text-white transition-colors">
-                        {p}
-                      </span>
-                      <ChevronRight className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all text-pak-green" />
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest whitespace-nowrap overflow-hidden text-ellipsis mr-2">
-                        {PLAYER_STATS[p]?.role || 'Team Member'}
-                      </span>
-                      <div className="flex gap-0.5 shrink-0">
-                        {PLAYER_STATS[p]?.stats?.recentForm?.slice(0, 3).map((score, idx) => (
-                          <div key={idx} className={`w-1 h-1 rounded-full ${getFormColor(score, PLAYER_STATS[p]?.role || 'Batter')}`} />
-                        ))}
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* Squad Breakdown Section */}
       <section className="mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center bg-white/[0.03] border border-card-border rounded-3xl md:rounded-[48px] p-8 md:p-20 relative overflow-hidden">
@@ -572,10 +488,11 @@ export default function Squads() {
         {filteredSquads.length > 1 && (
           <button 
             onClick={() => {
+              const allKeys = filteredSquads.map(s => s.team ? `${s.series}-${s.team}` : s.series);
               if (collapsedSeries.length === filteredSquads.length) {
                 setCollapsedSeries([]);
               } else {
-                setCollapsedSeries(filteredSquads.map(s => s.series));
+                setCollapsedSeries(allKeys);
               }
             }}
             className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-pak-green hover:bg-pak-green/10 px-3 md:px-4 py-2 rounded-lg md:rounded-xl transition-all border border-pak-green/20 shrink-0"
@@ -586,128 +503,134 @@ export default function Squads() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24">
-          {filteredSquads.map((squad, idx) => (
-            <React.Fragment key={squad.series}>
-              {/* Mid-grid ad placement */}
-              {idx > 0 && idx % 2 === 0 && (
-                <div className="md:col-span-2">
-                  <AdPlaceholder type="native" className="mb-4" />
-                </div>
-              )}
-              <motion.div 
-              key={squad.series}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className={`bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] overflow-hidden transition-all duration-500 ${collapsedSeries.includes(squad.series) ? 'h-fit' : 'min-h-full'}`}
-            >
-              <button 
-                onClick={() => toggleSectionCollapse(squad.series)}
-                className="w-full flex justify-between items-start p-6 md:p-8 text-left hover:bg-white/[0.02] transition-colors"
-                aria-expanded={!collapsedSeries.includes(squad.series)}
-              >
-                <div className="min-w-0 flex-grow pr-4">
-                  <h2 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1 truncate">{squad.series}</h2>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className={`px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border ${
-                          squad.format === 'Test' ? 'border-orange-500/30 text-orange-400 bg-orange-500/5' :
-                          squad.format === 'ODI' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
-                          'border-purple-500/30 text-purple-400 bg-purple-500/5'
-                        }`}>
-                          {squad.format}
-                        </span>
-                        {squad.team && (
-                          <span className="px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border border-pak-green/30 text-pak-green bg-pak-green/5">
-                            {squad.team}
-                          </span>
-                        )}
-                        <p className="text-[9px] md:text-[10px] font-bold text-white uppercase tracking-widest shrink-0">
-                          {searchTerm ? `${squad.players.length} Found` : `${squad.players.length} Players`}
-                        </p>
-                      </div>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 shrink-0">
-                  <div className="bg-white/5 p-2 md:p-3 rounded-xl md:rounded-2xl border border-white/10 hidden sm:block">
-                    <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />
+          {filteredSquads.map((squad, idx) => {
+            const squadKey = squad.team ? `${squad.series}-${squad.team}` : squad.series;
+            const isCollapsed = collapsedSeries.includes(squadKey);
+            const isExpanded = expandedSeries.includes(squadKey);
+
+            return (
+              <React.Fragment key={squadKey}>
+                {/* Mid-grid ad placement */}
+                {idx > 0 && idx % 2 === 0 && (
+                  <div className="md:col-span-2">
+                    <AdPlaceholder type="native" className="mb-4" />
                   </div>
-                  <div className={`p-1.5 md:p-2 rounded-full transition-transform duration-300 ${collapsedSeries.includes(squad.series) ? '' : 'rotate-180'}`}>
-                    <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
-                  </div>
-                </div>
-              </button>
-
-              <AnimatePresence>
-                {(!collapsedSeries.includes(squad.series) || searchTerm) && (
-                  <motion.div
-                    initial={searchTerm ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="px-8 pb-8"
-                  >
-                    <div className="space-y-2.5 mb-6">
-                      {(searchTerm || expandedSeries.includes(squad.series) ? squad.players : squad.players.slice(0, 8)).map((player, pIdx) => (
-                        <button 
-                          key={pIdx} 
-                          onClick={() => handlePlayerClick(player.name, squad.team)}
-                          className="w-full flex items-center justify-between p-3 md:p-3.5 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
-                        >
-                            <div className="flex items-center gap-2.5 md:gap-3">
-                              <div className="w-7 h-7 md:w-9 md:h-9 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
-                                {PLAYER_STATS[player.name]?.imgUrl ? (
-                                  <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-5 h-5 md:w-6 md:h-6 object-contain" />
-                                ) : (
-                                  <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green/40" />
-                                )}
-                              </div>
-                              <div className="min-w-0">
-                                 <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-tight block truncate group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
-                                   {player.name}
-                                 </span>
-                                 <div className="flex items-center gap-1.5 mt-0.5">
-                                   <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
-                                   <StickyNote className={`w-2 h-2 md:w-2.5 md:h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
-                                 </div>
-                              </div>
-                           </div>
-
-                           <div className="flex items-center gap-2 md:gap-4 shrink-0">
-                             {/* Form Dots */}
-                             <div className="hidden sm:flex gap-1">
-                               {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
-                                 <div 
-                                   key={i} 
-                                   className={`w-1.5 h-1.5 rounded-full border border-black/20 shadow-sm ${getFormColor(result, PLAYER_STATS[player.name]?.role || 'Batter')}`}
-                                   title={result}
-                                 />
-                               ))}
-                             </div>
-                             {player.description && (
-                               <span className="text-[7px] md:text-[8px] font-bold bg-pak-green/20 text-pak-green px-1.5 md:px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
-                             )}
-                             <ChevronRight className="w-3 md:w-4 h-3 md:h-4 text-pak-green md:opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
-                           </div>
-                        </button>
-                      ))}
-                      {!searchTerm && !expandedSeries.includes(squad.series) && squad.players.length > 8 && (
-                        <p className="text-[9px] font-bold text-neutral-500 uppercase pt-2 px-2 text-center italic">And {squad.players.length - 8} more elite athletes...</p>
-                      )}
-                    </div>
-
-                    {squad.players.length > 8 && !searchTerm && (
-                      <button 
-                        onClick={() => toggleSeries(squad.series)}
-                        className="w-full py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
-                      >
-                        {expandedSeries.includes(squad.series) ? 'Show Less' : 'View Full Squad List'} <ChevronRight className={`w-4 h-4 transition-transform ${expandedSeries.includes(squad.series) ? 'rotate-90' : ''}`} />
-                      </button>
-                    )}
-                  </motion.div>
                 )}
-              </AnimatePresence>
-            </motion.div>
-            </React.Fragment>
-          ))}
+                <motion.div 
+                key={squadKey}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className={`bg-card-bg border border-card-border rounded-2xl md:rounded-[32px] overflow-hidden transition-all duration-500 ${isCollapsed ? 'h-fit' : 'min-h-full'}`}
+              >
+                <button 
+                  onClick={() => toggleSectionCollapse(squadKey)}
+                  className="w-full flex justify-between items-start p-6 md:p-8 text-left hover:bg-white/[0.02] transition-colors"
+                  aria-expanded={!isCollapsed}
+                >
+                  <div className="min-w-0 flex-grow pr-4">
+                    <h2 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight mb-1 truncate">{squad.series}</h2>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className={`px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border ${
+                            squad.format === 'Test' ? 'border-orange-500/30 text-orange-400 bg-orange-500/5' :
+                            squad.format === 'ODI' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
+                            'border-purple-500/30 text-purple-400 bg-purple-500/5'
+                          }`}>
+                            {squad.format}
+                          </span>
+                          {squad.team && (
+                            <span className="px-2 py-0.5 rounded text-[7px] md:text-[8px] font-bold uppercase border border-pak-green/30 text-pak-green bg-pak-green/5">
+                              {squad.team}
+                            </span>
+                          )}
+                          <p className="text-[9px] md:text-[10px] font-bold text-white uppercase tracking-widest shrink-0">
+                            {searchTerm ? `${squad.players.length} Found` : `${squad.players.length} Players`}
+                          </p>
+                        </div>
+                  </div>
+                  <div className="flex items-center gap-2 md:gap-3 shrink-0">
+                    <div className="bg-white/5 p-2 md:p-3 rounded-xl md:rounded-2xl border border-white/10 hidden sm:block">
+                      <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    </div>
+                    <div className={`p-1.5 md:p-2 rounded-full transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`}>
+                      <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-pak-green" />
+                    </div>
+                  </div>
+                </button>
+
+                <AnimatePresence>
+                  {(!isCollapsed || searchTerm) && (
+                    <motion.div
+                      initial={searchTerm ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="px-8 pb-8"
+                    >
+                      <div className="space-y-2.5 mb-6">
+                        {(searchTerm || isExpanded ? squad.players : squad.players.slice(0, 8)).map((player, pIdx) => (
+                          <button 
+                            key={pIdx} 
+                            onClick={() => handlePlayerClick(player.name, squad.team)}
+                            className="w-full flex items-center justify-between p-3 md:p-3.5 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl hover:border-pak-green/30 hover:bg-white/[0.08] transition-all group/row text-left shadow-sm"
+                          >
+                              <div className="flex items-center gap-2.5 md:gap-3">
+                                <div className="w-7 h-7 md:w-9 md:h-9 rounded-lg bg-pak-green/10 border border-pak-green/20 flex items-center justify-center shrink-0">
+                                  {PLAYER_STATS[player.name]?.imgUrl ? (
+                                    <img src={PLAYER_STATS[player.name].imgUrl} alt="" className="w-5 h-5 md:w-6 md:h-6 object-contain" />
+                                  ) : (
+                                    <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-pak-green/40" />
+                                  )}
+                                </div>
+                                <div className="min-w-0">
+                                   <span className={`text-[10px] md:text-[11px] font-black uppercase tracking-tight block truncate group-hover/row:text-white transition-colors ${searchTerm && player.name.toLowerCase().includes(searchTerm.toLowerCase()) ? 'text-white' : 'text-white/80'}`}>
+                                     {player.name}
+                                   </span>
+                                   <div className="flex items-center gap-1.5 mt-0.5">
+                                     <span className="text-[7px] md:text-[8px] font-bold text-neutral-500 uppercase tracking-widest">{PLAYER_STATS[player.name]?.role || 'Player'}</span>
+                                     <StickyNote className={`w-2 h-2 md:w-2.5 md:h-2.5 ${playerNotes[player.name] ? 'text-green-400' : 'text-white/10'}`} />
+                                   </div>
+                                </div>
+                             </div>
+
+                             <div className="flex items-center gap-2 md:gap-4 shrink-0">
+                               {/* Form Dots */}
+                               <div className="hidden sm:flex gap-1">
+                                 {PLAYER_STATS[player.name]?.stats?.recentForm?.slice(0, 5).map((result, i) => (
+                                   <div 
+                                     key={i} 
+                                     className={`w-1.5 h-1.5 rounded-full border border-black/20 shadow-sm ${getFormColor(result, PLAYER_STATS[player.name]?.role || 'Batter')}`}
+                                     title={result}
+                                   />
+                                 ))}
+                               </div>
+                               {player.description && (
+                                 <span className="text-[7px] md:text-[8px] font-bold bg-pak-green/20 text-pak-green px-1.5 md:px-2 py-0.5 rounded-md uppercase border border-pak-green/10">{player.description}</span>
+                               )}
+                               <ChevronRight className="w-3 md:w-4 h-3 md:h-4 text-pak-green md:opacity-0 group-hover/row:opacity-100 group-hover/row:translate-x-1 transition-all" />
+                             </div>
+                          </button>
+                        ))}
+                        {!searchTerm && !isExpanded && squad.players.length > 8 && (
+                          <p className="text-[9px] font-bold text-neutral-500 uppercase pt-2 px-2 text-center italic">And {squad.players.length - 8} more elite athletes...</p>
+                        )}
+                      </div>
+
+                      {squad.players.length > 8 && !searchTerm && (
+                        <button 
+                          onClick={() => toggleSeries(squadKey)}
+                          className="w-full py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
+                        >
+                          {isExpanded ? 'Show Less' : 'View Full Squad List'} <ChevronRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                        </button>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+              </React.Fragment>
+            );
+          })}
       </div>
       
       {filteredSquads.length === 0 && (

@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pakistan-announce-16-member-odi-squad-vs-australia-2026',
+    title: "Pakistan Announce 16-Member ODI Squad vs Australia 2026 — Babar, Naseem & Haris Rauf Return, Rizwan Dropped, 3 Uncapped Players",
+    date: 'May 30, 2026',
+    tag: 'Squad Announcement',
+    summary: "Pakistan PCB announces the official 16-member ODI squad for the home series against Australia running May 30 - June 4, 2026. Babar Azam, Naseem Shah and Haris Rauf return while Mohammad Rizwan is left out and three uncapped talents receive maiden call-ups."
+  },
+  {
     id: 'bangladesh-complete-historic-2-0-series-sweep-sylhet-2026',
     title: "Bangladesh Complete Historic 2-0 Series Sweep vs Pakistan — Taijul 4/113, Masood 71, Rizwan 75*, Agha 71 Not Enough in Sylhet Thriller",
     date: 'May 20, 2026',

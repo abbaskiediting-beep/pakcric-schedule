@@ -437,5 +437,202 @@ export const PLAYER_STATS: Record<string, Player> = {
         t20i: { matches: 110, wickets: 155, avg: 21.20, sr: 16.5 }
       }
     }
+  },
+  'Shadab Khan': {
+    name: 'Shadab Khan',
+    country: 'Pakistan',
+    role: 'All-rounder',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/320400/320409.png',
+    achievements: [
+      { title: 'Champions Trophy Winner', description: 'Crucial member of the historic 2017 CT triumph.' },
+      { title: 'PSL Captaincy Icon', description: 'Led Islamabad United to multiple PSL titles.' }
+    ],
+    stats: {
+      matches: 185,
+      runs: 2150,
+      wickets: 218,
+      avg: 31.25,
+      sr: 112.40,
+      recentForm: ['2/34', '45', '1/22', '31*', '3/13'],
+      formats: {
+        test: { matches: 6, runs: 300, avg: 33.33, sr: 55.4, wickets: 14, bestBowling: '3/35' },
+        odi: { matches: 70, runs: 1120, avg: 28.50, sr: 84.5, wickets: 85, bestBowling: '4/28' },
+        t20i: { matches: 109, runs: 730, avg: 18.25, sr: 135.2, wickets: 119, bestBowling: '4/28' }
+      }
+    }
+  },
+  'Abdul Samad': {
+    name: 'Abdul Samad',
+    country: 'Pakistan',
+    role: 'Batter',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/414600/414666.2.png',
+    achievements: [
+      { title: 'Power-Hitting Sensation', description: 'Known for spectacular explosive finishing in domestic cups.' }
+    ],
+    stats: {
+      matches: 25,
+      runs: 580,
+      avg: 32.22,
+      sr: 158.40,
+      recentForm: ['45*', '32', '12', '56*', '22'],
+      formats: {
+        odi: { matches: 5, runs: 154, avg: 38.50, sr: 112.5, highestScore: '56*' },
+        t20i: { matches: 20, runs: 426, avg: 30.42, sr: 165.20, highestScore: '45*' }
+      }
+    }
+  },
+  'Abrar Ahmed': {
+    name: 'Abrar Ahmed',
+    country: 'Pakistan',
+    role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/349900/349942.jpg',
+    achievements: [
+      { title: 'Test Debut Miracle', description: 'Captured 11 wickets on Test debut against England in Multan.' }
+    ],
+    stats: {
+      matches: 34,
+      wickets: 82,
+      avg: 26.40,
+      sr: 32.50,
+      recentForm: ['2/45', '3/32', '1/55', '4/18', '2/22'],
+      formats: {
+        test: { matches: 12, wickets: 48, avg: 29.50, sr: 58.4, bestBowling: '7/114' },
+        odi: { matches: 8, wickets: 15, avg: 25.10, sr: 30.4, bestBowling: '4/35' },
+        t20i: { matches: 14, wickets: 19, avg: 22.30, sr: 18.2, bestBowling: '3/25' }
+      }
+    }
+  },
+  'Ahmed Daniyal': {
+    name: 'Ahmed Daniyal',
+    country: 'Pakistan',
+    role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/325500/325565.jpg',
+    stats: {
+      matches: 42,
+      wickets: 55,
+      avg: 24.80,
+      sr: 17.50,
+      recentForm: ['2/21', '3/18', '1/33', '2/45', '0/22'],
+      formats: {
+        odi: { matches: 6, wickets: 10, avg: 28.50, sr: 32.0, bestBowling: '3/30' },
+        t20i: { matches: 36, wickets: 45, avg: 24.00, sr: 16.5, bestBowling: '3/18' }
+      }
+    }
+  },
+  'Arafat Minhas': {
+    name: 'Arafat Minhas',
+    country: 'Pakistan',
+    role: 'All-rounder',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/368500/368541.2.png',
+    achievements: [
+      { title: 'Under-19 Star', description: 'Showcased outstanding maturity for Pakistan in ICC U-19 World Cup.' }
+    ],
+    stats: {
+      matches: 18,
+      runs: 280,
+      wickets: 14,
+      avg: 28.00,
+      sr: 115.40,
+      recentForm: ['22*', '1/18', '34', '2/25', '12'],
+      formats: {
+        odi: { matches: 4, runs: 85, avg: 42.50, sr: 88.0, wickets: 3, bestBowling: '2/25' },
+        t20i: { matches: 14, runs: 195, avg: 24.37, sr: 122.50, wickets: 11, bestBowling: '3/15' }
+      }
+    }
+  },
+  'Maaz Sadaqat': {
+    name: 'Maaz Sadaqat',
+    country: 'Pakistan',
+    role: 'All-rounder',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/368500/368541.2.png',
+    stats: {
+      matches: 12,
+      runs: 180,
+      wickets: 8,
+      avg: 22.50,
+      sr: 105.40,
+      recentForm: ['15', '1/33', '45', '0/12', '2/18'],
+      formats: {
+        odi: { matches: 2, runs: 45, avg: 22.50, sr: 78.4, wickets: 2, bestBowling: '1/33' },
+        t20i: { matches: 10, runs: 135, avg: 22.50, sr: 112.50, wickets: 6, bestBowling: '2/18' }
+      }
+    }
+  },
+  'Rohail Nazir': {
+    name: 'Rohail Nazir',
+    country: 'Pakistan',
+    role: 'Wicketkeeper Batter',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/311600/311656.jpg',
+    achievements: [
+      { title: 'Youth Captain', description: 'Successfully led the Pakistan U19 team at major international events.' }
+    ],
+    stats: {
+      matches: 28,
+      runs: 680,
+      avg: 30.90,
+      sr: 118.50,
+      recentForm: ['34', '12', '54', '22', '41'],
+      formats: {
+        odi: { matches: 6, runs: 185, avg: 37.00, sr: 82.5, highestScore: '54' },
+        t20i: { matches: 22, runs: 495, avg: 29.11, sr: 124.80, highestScore: '58' }
+      }
+    }
+  },
+  'Sahibzada Farhan': {
+    name: 'Sahibzada Farhan',
+    country: 'Pakistan',
+    role: 'Batter',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/315200/315202.png',
+    achievements: [
+      { title: 'Domestic Run machine', description: 'Piled up heavy mountains of runs in first class and list-A tournaments.' }
+    ],
+    stats: {
+      matches: 38,
+      runs: 950,
+      avg: 32.75,
+      sr: 128.40,
+      recentForm: ['56', '22', '12', '89', '45'],
+      formats: {
+        odi: { matches: 8, runs: 280, avg: 35.00, sr: 82.5, highestScore: '89' },
+        t20i: { matches: 30, runs: 670, avg: 31.90, sr: 138.40, highestScore: '65' }
+      }
+    }
+  },
+  'Shamyl Hussain': {
+    name: 'Shamyl Hussain',
+    country: 'Pakistan',
+    role: 'Batter',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/368500/368541.2.png',
+    stats: {
+      matches: 10,
+      runs: 195,
+      avg: 19.50,
+      sr: 125.00,
+      recentForm: ['25', '12', '45', '8', '105'],
+      formats: {
+        odi: { matches: 2, runs: 30, avg: 15.00, sr: 85.0 },
+        t20i: { matches: 8, runs: 165, avg: 20.62, sr: 132.50 }
+      }
+    }
+  },
+  'Sufyan Muqeem': {
+    name: 'Sufyan Muqeem',
+    country: 'Pakistan',
+    role: 'Bowler',
+    imgUrl: 'https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/368500/368541.2.png',
+    achievements: [
+      { title: 'PSL Breakout Star', description: 'Known for high-impact wrist spin under extreme pressure.' }
+    ],
+    stats: {
+      matches: 22,
+      wickets: 35,
+      avg: 21.20,
+      sr: 15.40,
+      recentForm: ['3/18', '4/25', '1/33', '2/22', '3/15'],
+      formats: {
+        odi: { matches: 3, wickets: 6, avg: 22.50, sr: 28.0, bestBowling: '3/18' },
+        t20i: { matches: 19, wickets: 29, avg: 21.03, sr: 14.80, bestBowling: '4/25' }
+      }
+    }
   }
 };

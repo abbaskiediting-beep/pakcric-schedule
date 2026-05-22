@@ -10,6 +10,168 @@ import ShareButton from '../components/ShareButton';
 import SaveForOfflineButton from '../components/SaveForOfflineButton';
 
 const ARTICLES: Record<string, any> = {
+  'pakistan-announce-16-member-odi-squad-vs-australia-2026': {
+    title: "Pakistan Announce 16-Member ODI Squad vs Australia 2026 — Babar, Naseem & Haris Rauf Return, Rizwan Dropped, 3 Uncapped Players",
+    metaTitle: "Pakistan ODI Squad vs Australia 2026 | Babar Returns, Rizwan Dropped, 3 Uncapped | May 30 Series",
+    metaDescription: "Pakistan's official 16-member ODI squad for Australia series May 30–June 4 2026. Shaheen captain, Babar back, Haris Rauf & Naseem recalled, Rizwan dropped, Saim Ayub injured. Ahmed Daniyal, Arafat Minhas, Rohail Nazir uncapped. Full squad analysis.",
+    date: "May 22, 2026",
+    tag: "Squad Announcement",
+    author: "PCB Editorial Team",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
+    content: `The Pakistan Cricket Board (PCB) has named a 16-member squad for the upcoming three-match ODI series against Australia, scheduled from May 30 to June 4, 2026, in Rawalpindi and Lahore. The national selection committee confirmed the squad will be led by captain Shaheen Shah Afridi, with Salman Ali Agha serving as vice-captain.
+
+# Official Pakistan Squad — Australia ODI Series 2026
+
+The official 16-member squad selected for the home ODI series is:
+
+• Shaheen Shah Afridi (C) — Left-arm fast / Captain (Senior)
+• Salman Ali Agha (VC) — Right-arm off-spin allrounder (Vice-captain)
+• Abdul Samad — Left-hand bat / Lower-order power (Regular member)
+• Abrar Ahmed — Right-arm mystery spin (Regular member)
+• Ahmed Daniyal — Right-arm fast (Uncapped — debut call-up)
+• Arafat Minhas — Right-arm fast (Uncapped — debut call-up)
+• Babar Azam — Right-hand bat (Recalled after Bangladesh Test)
+• Haris Rauf — Right-arm fast (Recalled after Bangladesh absence)
+• Maaz Sadaqat — Left-hand bat (PSL 2026 star — Hyderabad Kingsmen)
+• Muhammad Ghazi Ghori (WK) — Right-hand bat / WK (Regular member)
+• Naseem Shah — Right-arm fast (Recalled after Bangladesh absence)
+• Rohail Nazir (WK) — Right-hand bat / WK (Uncapped — debut call-up)
+• Sahibzada Farhan — Right-hand bat / aggressive (PSL 2026 star — Multan Sultans)
+• Shadab Khan — Right-arm leg-spin allrounder (Senior — returning)
+• Shamyl Hussain — Right-arm fast-medium (Regular member)
+• Sufyan Moqim — Left-arm wrist spin (Regular member)
+
+# Official Series Schedule (May 30 – June 4, 2026)
+
+The schedule for the three-match ODI series runs as follows:
+
+• 1st ODI — Saturday, May 30, 2026 at Rawalpindi Cricket Stadium - 4:30 PM PKT
+• 2nd ODI — Tuesday, June 2, 2026 at Gaddafi Stadium, Lahore - 4:30 PM PKT
+• 3rd ODI — Thursday, June 4, 2026 at Gaddafi Stadium, Lahore - 4:30 PM PKT
+
+Toss takes place at 4:00 PM PKT for all matches. Online ticket booking kicked off on May 22, 2026 via tcs.com.pk, and physical tickets are available from designated outlets starting on the same date.
+
+# Introduction: Pakistan Go Big For Australia — Experience + Youth
+
+Pakistan's 16-member ODI squad for the Australia series tells three stories simultaneously: a homecoming, a changing of the guard, and a bold look toward the 2027 ICC ODI World Cup.
+
+Star batter Babar Azam and pacers Haris Rauf and Naseem Shah have been recalled after missing the previous away series against Bangladesh. Mohammad Rizwan has been left out, with wicketkeeping options now including Muhammad Ghazi Ghori and uncapped Rohail Nazir.
+
+The squad is a confident blend of Pakistan's most experienced match-winners — Babar, Shaheen, Naseem, Haris, Shadab — alongside the exciting new generation led by PSL 2026's breakout stars Maaz Sadaqat (Hyderabad Kingsmen) and Sahibzada Farhan (Multan Sultans).
+
+Ahmed Daniyal, Arafat Minhas, and Rohail Nazir are the three players selected in the squad who are yet to represent Pakistan in ODI cricket.
+
+# The Big Returns: Babar, Naseem, and Haris Rauf Back
+
+# ⭐ Babar Azam — The King Returns to White Ball
+
+After missing the Bangladesh Test series opener with a knee injury and returning to score 68 and 47 across both Tests in the 2nd Test at Sylhet, Babar Azam is back in the ODI squad and firing. Babar Azam has been recalled after missing the previous away series against Bangladesh.
+
+His PSL 2026 season — 588 runs, two centuries, a world record for T20 centuries as captain — means he enters this Australia series in the best white-ball form of his career. In ODI cricket at home against Australia, Babar's record is excellent. His smooth, classical batting against pace bowling on Pakistan's hard, bouncy tracks will be a key weapon for Shaheen's team.
+
+# ⭐ Naseem Shah — The Express Threat Returns
+
+Naseem Shah has been recalled after missing the Bangladesh series. Naseem was not selected for the Bangladesh Tests — a combination of workload management and the selection of a spin-heavy attack for Dhaka and Sylhet's turning surfaces. But for Australian batting, facing 148+ kmph Naseem Shah with reverse swing at Rawalpindi is a completely different challenge. His recall for a home series against a pace-heavy opposition is both expected and necessary.
+
+# ⭐ Haris Rauf — The Death-Overs Specialist Back
+
+Haris Rauf brings the most explosive ODI pace Pakistan possess. His ability to bowl at 148-150 kmph consistently in death overs — combined with his natural variations (slower ball, bouncer, full yorker) — makes him Pakistan's most dangerous wicket-taker in white-ball cricket. His recall after Bangladesh was inevitable for an Australia ODI series.
+
+# The Dropped: Mohammad Rizwan Out
+
+This is the biggest selection surprise in the squad. Mohammad Rizwan — Pakistan's most consistent ODI batter across 2023-2025, and the man who scored 75* in the 2nd Test against Bangladesh — has been left out of the ODI squad entirely.
+
+The message from the selectors is clear: the future wicketkeeper is Ghazi Ghori, and Rohail Nazir is being given an opportunity to stake his claim. Rizwan's exclusion may also reflect the selectors wanting to build a distinct ODI identity separate from the Test team — using more aggressive top-order options in white-ball cricket.
+
+Other notable absences: Saim Ayub and Fakhar Zaman remain unavailable due to injuries and are transitioning through rehabilitation under the supervision of the PCB medical panel.
+
+# The 3 Uncapped Players: Pakistan's Future
+
+# 🆕 Ahmed Daniyal — Right-Arm Fast (Uncapped)
+
+Ahmed Daniyal is a right-arm fast bowler who earned his call-up through consistent performances in the NCA White-Ball Camp and domestic cricket. His ability to generate pace and swing at domestic level caught the selectors' attention ahead of an Australia series where pace bowling is at a premium.
+
+# 🆕 Arafat Minhas — Right-Arm Fast (Uncapped)
+
+Arafat Minhas — who played for Multan Sultans in PSL 2026 with considerable impact — gets his maiden ODI call-up. The right-arm fast bowler showed in PSL 2026 that he has the skills to trouble quality batters with his line, length and pace variations. Pakistan selectors have been monitoring him since his impressive PSL 2026 campaign.
+
+# 🆕 Rohail Nazir (WK) — Wicketkeeper-Batter (Uncapped)
+
+Rohail Nazir represents the next generation of Pakistan wicketkeepers. His inclusion alongside Ghazi Ghori — who played in the Bangladesh Tests — gives Pakistan two fresh keeping options as they plan for the future beyond Rizwan in the 50-over format.
+
+# PSL 2026 Stars in the Squad
+
+# ⭐ Maaz Sadaqat — The PSL 2026 Sensation
+
+Maaz Sadaqat was one of PSL 2026's biggest stories — the 20-year-old left-hander from Peshawar who scored 64* in the PSL Eliminator 1 as Hyderabad Kingsmen beat Multan, was named Player of the Match, and played the joint-fastest fifty (19 balls) in PSL history. His inclusion in Pakistan's ODI squad is a reward for consistent domestic and PSL performances — and his left-hand angle and fearless batting style make him the perfect ODI batter for the modern game.
+
+# ⭐ Sahibzada Farhan — The T20 World Cup Record-Breaker
+
+Sahibzada Farhan came into the Bangladesh ODI series earlier this year as Pakistan's most explosive top-order batter — having broken Virat Kohli's record for most runs in a single T20 World Cup edition (383 runs at a strike rate of 160). In PSL 2026, he scored 106* off 57 balls against Hyderabad Kingsmen — the 9th century of his T20 career. His inclusion in the ODI squad against Australia is essential — his strike rate and boundary-hitting ability make him Pakistan's most dangerous powerplay option.
+
+# Coaching Staff
+
+The coaching staff includes elite guides to oversee the squad for this massive home tournament:
+
+• Manager — Naveed Akram Cheema
+• Head Coach — Mike Hesson
+• Bowling Coach — Ashley Noffke
+• Batting Coach — Hanif Malik
+• Fielding Coach — Shane McDermott
+
+# Key Omissions Analysis
+
+A breakdown of key players and why they missed the selection:
+
+• Mohammad Rizwan — Dropped (selectors building towards Ghori and Nazir as future WKs)
+• Saim Ayub — Injured (undergoing PCB medical rehabilitation)
+• Fakhar Zaman — Injured (undergoing PCB medical rehabilitation)
+• Imam-ul-Haq — Not selected (ODI focus on younger, fast-scoring openers)
+• Iftikhar Ahmed — Dropped (fringe player losing ground)
+• Mohammad Nawaz — Under PCB investigation (drug test issue)
+
+# Pakistan vs Australia Head-to-Head in ODIs
+
+With the ICC ODI World Cup coming up next year, the series presents a fantastic opportunity for both teams to build on team combinations and form in the white-ball format.
+
+Pakistan's last ODI series against Australia at home was in 2022 — Pakistan won 2-1. Since then, Australia won the 2023 ODI World Cup (beating India in the final) and are the reigning world champions. This series is the first bilateral ODI meeting between the two sides since that World Cup.
+
+Pakistan hold the advantage at home — their pace attack (Shaheen, Naseem, Haris) on the hard Rawalpindi and Lahore tracks will test Australia's depleted batting lineup.
+
+# Pakistan's Likely Playing XI for 1st ODI
+
+Based on squad balance and Rawalpindi pitches, Pakistan are expected to line up as:
+
+1. Sahibzada Farhan (Right-hand opener)
+2. Maaz Sadaqat (Left-hand opener)
+3. Babar Azam (Right-hand No.3)
+4. Shaheen Shah Afridi (c) (Captain / Lower order)
+5. Salman Ali Agha (vc) (Allrounder No.5)
+6. Abdul Samad (Right-hand finisher)
+7. Shadab Khan (Leg-spin allrounder)
+8. Muhammad Ghazi Ghori (wk) (Wicketkeeper)
+9. Naseem Shah (Right-arm fast)
+10. Haris Rauf (Right-arm fast)
+11. Sufyan Moqim / Abrar Ahmed (Spin option)
+
+# Series Prediction
+
+The Australian team will be without their frontline members as they will be away for the Indian Premier League — Mitchell Marsh and Cameron Green are in the squad alongside Marnus Labuschagne, Josh Inglis and Adam Zampa.
+
+Pakistan — with Babar, Farhan, Naseem, and Haris all back — are strong favorites against a depleted Australia side missing Cummins, Starc, Hazlewood, and Travis Head because of IPL commitments. The home advantage at Rawalpindi and Lahore, combined with Pakistan's full-strength white-ball squad, makes them heavy favorites.
+
+Prediction: Pakistan to win the series 3-0.
+
+# Conclusion: Pakistan Mean Business Against Australia
+
+This squad sends a clear message: Pakistan are taking this Australia series seriously, and they are looking toward the 2027 ODI World Cup with a clear plan.
+
+The senior stars are back — Babar, Naseem, Haris, Shadab. The exciting youth is included — Maaz Sadaqat, Sahibzada Farhan, and the three uncapped players. The future wicketkeeper is being built — Ghori and Nazir over Rizwan.
+
+For Pakistan fans — still processing the 0-2 series defeat to Bangladesh in Tests — this Australia ODI series is an immediate opportunity to reset, rebuild and remind the cricket world that Pakistan's white-ball cricket is a different beast from their current Test team challenges.
+
+Shaheen Shah Afridi leads. Babar Azam bats at his best. Naseem Shah and Haris Rauf bowl at 148+ kmph. Let's go!`
+  },
   'pak-vs-ban-1st-test-day-1-report-2026': {
     title: "Bangladesh 301/4 at Stumps — Shanto’s Brilliant Century Frustrates Pakistan on Day 1",
     date: "May 8, 2026",
