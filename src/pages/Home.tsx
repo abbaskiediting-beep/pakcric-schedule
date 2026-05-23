@@ -149,11 +149,11 @@ export default function Home() {
             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[3px] text-white">Live 2026 Season Coverage</span>
           </div>
 
-          <h1 className="text-xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-8 transition-all">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold uppercase tracking-tighter leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-8 transition-all">
             Pakistan Cricket Schedule 2026 – <span className="text-pak-green font-black drop-shadow-[0_0_15px_rgba(0,102,46,0.3)] italic">Never Miss a Match</span>
           </h1>
           
-          <p className="text-[13px] sm:text-xl md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-4 transition-all">
+          <p className="text-sm sm:text-lg md:text-2xl text-ink/60 font-medium leading-relaxed max-w-3xl mx-auto mb-6 md:mb-10 px-4 transition-all">
             <LinkText text="Get the full Pakistan cricket schedule 2026 for all formats in one place. We bring you complete match dates, venues, and timings." />
           </p>
 

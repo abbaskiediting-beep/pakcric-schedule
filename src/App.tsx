@@ -1,5 +1,5 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import { Suspense, lazy, useState } from 'react';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Suspense, lazy, useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
@@ -168,12 +168,92 @@ const PageLoader = () => (
 
 export default function App() {
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const swipeStartX = useRef<number>(0);
+  const swipeStartY = useRef<number>(0);
+  const isScrollableRef = useRef<boolean>(false);
+
+  const CORE_TABS = ["/", "/schedule", "/rankings", "/news"];
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (window.innerWidth >= 768 || !CORE_TABS.includes(location.pathname)) {
+      swipeStartX.current = 0;
+      return;
+    }
+
+    const touch = e.touches[0];
+    swipeStartX.current = touch.clientX;
+    swipeStartY.current = touch.clientY;
+
+    const checkScrollable = (element: HTMLElement | null): boolean => {
+      if (!element) return false;
+      
+      const style = window.getComputedStyle(element);
+      if (
+        style.overflowX === 'auto' || 
+        style.overflowX === 'scroll' || 
+        element.scrollWidth > element.clientWidth
+      ) {
+        return true;
+      }
+      
+      if (
+        element.tagName === 'TABLE' || 
+        element.tagName === 'TBODY' || 
+        element.tagName === 'THEAD' || 
+        element.tagName === 'TR' || 
+        element.tagName === 'TH' || 
+        element.tagName === 'TD'
+      ) {
+        return true;
+      }
+
+      const classes = element.className;
+      if (typeof classes === 'string' && (classes.includes('overflow-x-auto') || classes.includes('scrollbar-hide') || classes.includes('overflow-x-scroll'))) {
+        return true;
+      }
+
+      return checkScrollable(element.parentElement);
+    };
+
+    isScrollableRef.current = checkScrollable(e.target as HTMLElement);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (swipeStartX.current === 0 || isScrollableRef.current) return;
+
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - swipeStartX.current;
+    const deltaY = touch.clientY - swipeStartY.current;
+
+    const minSwipeDistance = 75; 
+    const maxOppositeDistance = 50; 
+
+    if (Math.abs(deltaX) > minSwipeDistance && Math.abs(deltaY) < maxOppositeDistance) {
+      const currentIndex = CORE_TABS.indexOf(location.pathname);
+      if (currentIndex !== -1) {
+        if (deltaX > 0) {
+          const prevIndex = (currentIndex - 1 + CORE_TABS.length) % CORE_TABS.length;
+          navigate(CORE_TABS[prevIndex]);
+        } else {
+          const nextIndex = (currentIndex + 1) % CORE_TABS.length;
+          navigate(CORE_TABS[nextIndex]);
+        }
+      }
+    }
+    swipeStartX.current = 0;
+  };
 
   return (
     <>
       <SEO />
       <ScrollToTop />
-      <div className="min-h-screen bg-bg text-ink flex flex-col font-sans pb-16 md:pb-0">
+      <div 
+        className="min-h-screen bg-bg text-ink flex flex-col font-sans pb-16 md:pb-0"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <Header onOpenNotifications={() => setIsNotificationsOpen(true)} />
         <Nav />
         <OfflineIndicator />

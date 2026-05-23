@@ -18,7 +18,7 @@ export default function MobileTabBar() {
             key={tab.path}
             to={tab.path}
             className={({ isActive }) => 
-              `flex flex-col items-center justify-center gap-1.5 w-full h-full transition-all active:scale-95 touch-none relative ${
+              `flex flex-col items-center justify-center gap-1.5 w-full h-full transition-all active:scale-95 relative ${
                 isActive ? 'text-pak-green' : 'text-neutral-500 hover:text-neutral-400'
               }`
             }

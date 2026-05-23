@@ -153,6 +153,53 @@ export default function MatchSchedulePage() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showSavedOnly, setShowSavedOnly] = useState(false);
 
+  // Pull-to-refresh states
+  const [pullY, setPullY] = useState(0);
+  const [startY, setStartY] = useState(0);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [showRefreshSuccess, setShowRefreshSuccess] = useState(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (window.scrollY === 0 && !isRefreshing) {
+      setStartY(e.touches[0].clientY);
+      setShowRefreshSuccess(false);
+    } else {
+      setStartY(0);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (startY === 0 || isRefreshing) return;
+    const currentY = e.touches[0].clientY;
+    const diff = currentY - startY;
+    if (diff > 0) {
+      const resistance = Math.min(diff * 0.35, 90);
+      setPullY(resistance);
+      if (resistance > 10 && e.cancelable) {
+        e.preventDefault();
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (startY === 0 || isRefreshing) return;
+    if (pullY >= 50) {
+      setIsRefreshing(true);
+      setPullY(45);
+      
+      // Simulate/Trigger Refresh of matches
+      setTimeout(() => {
+        setIsRefreshing(false);
+        setPullY(0);
+        setShowRefreshSuccess(true);
+        setTimeout(() => setShowRefreshSuccess(false), 2500);
+      }, 1500);
+    } else {
+      setPullY(0);
+    }
+    setStartY(0);
+  };
+
   const allMatches = useMemo(() => [...PAKISTAN_SCHEDULE, ...MATCH_RESULTS], []);
 
   // Extract all available formats and venues
@@ -229,7 +276,42 @@ export default function MatchSchedulePage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6">
+    <div 
+      className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 relative"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Pull-to-refresh Indicator */}
+      <div 
+        className="w-full flex justify-center overflow-hidden transition-all duration-300" 
+        style={{ height: pullY > 0 || isRefreshing ? `${Math.max(pullY, isRefreshing ? 55 : 0)}px` : 0 }}
+      >
+        <div className="flex items-center gap-2 py-2.5 px-4 bg-pak-green/10 border border-pak-green/20 rounded-full text-pak-green text-[10px] uppercase font-bold tracking-wider leading-none my-1.5 shadow-lg shadow-black/25">
+          <motion.div
+            animate={{ rotate: isRefreshing ? 360 : 0 }}
+            transition={isRefreshing ? { repeat: Infinity, duration: 1, ease: "linear" } : {}}
+          >
+            <Clock className="w-3.5 h-3.5" />
+          </motion.div>
+          <span>{isRefreshing ? 'Refreshing matches...' : pullY >= 50 ? 'Release to update' : 'Pull down to refresh'}</span>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {showRefreshSuccess && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2.5 py-3 px-5 bg-pak-green text-white rounded-full text-[10px] uppercase font-bold tracking-widest shadow-xl shadow-pak-green/30 border border-white/10"
+          >
+            <Trophy className="w-3.5 h-3.5 text-white animate-bounce" />
+            <span>Match schedules compiled & refreshed!</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Top Banner Placement */}
       <AdPlaceholder type="leaderboard" className="mb-8 md:mb-10" />
       <Helmet>
@@ -425,7 +507,7 @@ export default function MatchSchedulePage() {
 
 
       {/* Format Filter Bar - Sticky on Mobile */}
-      <div className="sticky top-[80px] md:top-[124px] z-30 flex overflow-x-auto pb-1 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-bg/80 backdrop-blur-xl border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-0 snap-x snap-mandatory">
+      <div className="sticky top-[96px] md:top-[144px] z-30 flex overflow-x-auto pb-1 md:pb-0 md:flex-wrap items-center gap-2 mb-8 bg-bg/85 backdrop-blur-xl border border-card-border p-2 md:p-3 rounded-2xl md:rounded-[32px] w-full md:w-fit shadow-lg shadow-black/20 scrollbar-hide -mx-4 px-4 md:mx-0 snap-x snap-mandatory">
         {formats.map(f => (
           <button
             key={f}
