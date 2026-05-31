@@ -127,12 +127,35 @@ But on the final morning, veteran spinner **Taijul Islam** took the defining wic
     opponent: 'AUS',
     format: 'ODI',
     title: 'Pak vs Aus 1st One Day',
-    date: 'May 31, 2026',
+    date: 'May 30, 2026',
     time: '14:30 PKT',
-    venue: 'Gaddafi Stadium, Lahore',
+    venue: 'Rawalpindi Cricket Stadium, Rawalpindi',
     series: 'Australia Tour of Pakistan (ODI Series)',
-    status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/au.svg'
+    status: 'Completed',
+    granularStatus: 'PAK won by 5 wickets • PAK lead 1-0',
+    flagUrl: 'https://flagcdn.com/au.svg',
+    scorePAK: '201/5',
+    scoreOpponent: '200',
+    overs: '42.3',
+    blogUrl: '/news/arafat-minhas-5-32-odi-debut-vs-australia-pakistan-2026',
+    result: 'Pakistan won by 5 wickets',
+    stats: {
+      topScorers: [
+        { name: 'Babar Azam', runs: '69', balls: '94' },
+        { name: 'Ghazi Ghori', runs: '65', balls: '92' },
+        { name: 'Matthew Renshaw', runs: '61', balls: '63' },
+        { name: 'Matthew Short', runs: '55', balls: '76' }
+      ],
+      leadingWicketTakers: [
+        { name: 'Arafat Minhas', wickets: '5', runs: '32', overs: '10' },
+        { name: 'Abrar Ahmed', wickets: '2', runs: '44', overs: '10' },
+        { name: 'Nathan Ellis', wickets: '2', runs: '36', overs: '8' }
+      ]
+    },
+    playersToWatch: [
+      { name: 'Arafat Minhas', role: 'All-rounder', reason: 'Young slow left-arm orthodox. Sensation on ODI debut.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Arafat' },
+      { name: 'Babar Azam', role: 'Batter', reason: 'Back in supreme form after a dominant class-filled 69 in the 1st ODI.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Babar' }
+    ]
   },
   {
     id: 'aus-odi-2',
@@ -140,11 +163,12 @@ But on the final morning, veteran spinner **Taijul Islam** took the defining wic
     format: 'ODI',
     title: 'Pak vs Aus 2nd One Day',
     date: 'June 2, 2026',
-    time: '14:30 PKT',
+    time: '16:30 PKT',
     venue: 'Gaddafi Stadium, Lahore',
     series: 'Australia Tour of Pakistan (ODI Series)',
     status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/au.svg'
+    flagUrl: 'https://flagcdn.com/au.svg',
+    blogUrl: '/news/pakistan-vs-australia-2nd-odi-lahore-preview-june-2-2026'
   },
   {
     id: 'aus-odi-3',

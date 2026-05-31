@@ -57,7 +57,7 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
             </div>
             <div className="relative z-10 min-w-0">
               <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">Pakistan</h3>
-              <p className="text-[7px] sm:text-[11px] font-black text-pak-green uppercase tracking-[2px] md:tracking-[3px]">Shaheen's Men</p>
+              <p className="text-[7px] sm:text-[11px] font-black text-pak-green uppercase tracking-[2px] md:tracking-[3px]">{match.opponent === 'AUS' ? "Babar's Men" : "Shaheen's Men"}</p>
             </div>
           </div>
 
@@ -155,7 +155,7 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
             </div>
             <div className="relative z-10 min-w-0">
               <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">{match.opponent}</h3>
-              <p className="text-[7px] sm:text-[11px] font-black text-red-500 uppercase tracking-[2px] md:tracking-[3px]">The Tigers</p>
+              <p className="text-[7px] sm:text-[11px] font-black text-red-500 uppercase tracking-[2px] md:tracking-[3px]">{match.opponent === 'AUS' ? 'The Aussies' : match.opponent === 'BAN' ? 'The Tigers' : 'The Opponent'}</p>
             </div>
           </div>
         </div>

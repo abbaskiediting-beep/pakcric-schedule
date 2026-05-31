@@ -2,6 +2,34 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pakistan-vs-australia-2nd-odi-lahore-preview-june-2-2026',
+    title: "Pakistan vs Australia 2nd ODI — Lahore Preview, Pitch Report & Match Prediction",
+    date: 'May 31, 2026',
+    tag: 'Series Preview',
+    summary: "Pakistan vs Australia 2nd ODI at Gaddafi Stadium Lahore on June 2 2026. Pakistan lead 1-0. Pitch report, predicted XI, key players and match prediction inside."
+  },
+  {
+    id: 'arafat-minhas-5-32-odi-debut-vs-australia-pakistan-2026',
+    title: "Arafat Minhas — Pakistan's New Spin Sensation Makes History on ODI Debut",
+    date: 'May 31, 2026',
+    tag: 'Player Spotlight',
+    summary: "Arafat Minhas becomes first Pakistan bowler to take 5 wickets on ODI debut — his 5/32 vs Australia at Rawalpindi destroys Australia for 200. Full profile inside."
+  },
+  {
+    id: 'babar-azam-69-vs-australia-1st-odi-rawalpindi-2026',
+    title: "Babar Azam's Classy 69 Guides Pakistan to 5-Wicket Win Against Australia — 1st ODI Rawalpindi 2026",
+    date: 'May 31, 2026',
+    tag: 'Player Feature',
+    summary: "Babar Azam scores 69 off 94 balls vs Australia in 1st ODI Rawalpindi 2026. His 127-run stand with Ghazi Ghori steers Pakistan to a dominant 5-wicket win."
+  },
+  {
+    id: 'pakistan-beat-australia-by-5-wickets-1st-odi-2026',
+    title: "Pakistan Beat Australia by 5 Wickets in 1st ODI — Arafat Minhas 5/32 on Debut, Babar 69, Ghori 65 Seal Historic Win",
+    date: 'May 30, 2026',
+    tag: 'Match Report',
+    summary: "Pakistan beats Australia by 5 wickets in the 1st ODI at Rawalpindi. Debutant Arafat Minhas shines with historic 5/32, while Babar Azam (69) and Muhammad Ghazi Ghori (65) compile a match-winning 127-run partnership."
+  },
+  {
     id: 'pakistan-announce-16-member-odi-squad-vs-australia-2026',
     title: "Pakistan Announce 16-Member ODI Squad vs Australia 2026 — Babar, Naseem & Haris Rauf Return, Rizwan Dropped, 3 Uncapped Players",
     date: 'May 30, 2026',
