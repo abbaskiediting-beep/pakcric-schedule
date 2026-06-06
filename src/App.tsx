@@ -132,6 +132,9 @@ const AustraliaOdiSquadPage = lazy(() => import('./pages/AustraliaOdiSquadPage')
 const ShaheenBangladeshInterviewBlog = lazy(() => import('./pages/ShaheenBangladeshInterviewBlog'));
 const TaijulMehidyAnalysisBlog = lazy(() => import('./pages/TaijulMehidyAnalysisBlog'));
 const PakistanPlayingXIPrediction2ndTestBlog = lazy(() => import('./pages/PakistanPlayingXIPrediction2ndTestBlog'));
+const HighestOdiBattingAverageAtHomeBlog = lazy(() => import('./pages/HighestOdiBattingAverageAtHomeBlog'));
+const BabarAzamVsShubmanGillCenturiesBlog = lazy(() => import('./pages/BabarAzamVsShubmanGillCenturiesBlog'));
+const BabarAzamChasing7000RunsBlog = lazy(() => import('./pages/BabarAzamChasing7000RunsBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -286,6 +289,9 @@ export default function App() {
               <Route path="/rankings/test-bowling" element={<TestBowling />} />
               <Route path="/rankings/test-allrounder" element={<TestAllrounder />} />
               <Route path="/news" element={<Blogs />} />
+              <Route path="/news/highest-odi-batting-average-at-home-top-5-all-time" element={<HighestOdiBattingAverageAtHomeBlog />} />
+              <Route path="/news/babar-azam-vs-shubman-gill-test-centuries-2022-vs-2026-comparison" element={<BabarAzamVsShubmanGillCenturiesBlog />} />
+              <Route path="/news/babar-azam-fastest-7000-odi-runs-record-2026-analysis" element={<BabarAzamChasing7000RunsBlog />} />
               <Route path="/news/australia-odi-squad-pakistan-tour-2026-announcement" element={<AusOdiSquadPak2026 />} />
               <Route path="/squad/australia-odi-2026" element={<AustraliaOdiSquadPage />} />
               <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />

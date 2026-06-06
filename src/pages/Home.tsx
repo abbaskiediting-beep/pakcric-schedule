@@ -19,7 +19,7 @@ const ExternalResourcesSection = lazy(() => import('../components/ExternalResour
 const InternalLinkSection = lazy(() => import('../components/InternalLinkSection'));
 
 export default function Home() {
-  const nextMatch = PAKISTAN_SCHEDULE.find(m => m.status === 'Upcoming') || PAKISTAN_SCHEDULE[0];
+  const nextMatch = PAKISTAN_SCHEDULE.find(m => m.id === '8') || PAKISTAN_SCHEDULE.find(m => m.status === 'Upcoming') || PAKISTAN_SCHEDULE[0];
   const navigate = useNavigate();
   const [showMoreTactical, setShowMoreTactical] = useState(false);
   
@@ -235,80 +235,119 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.section 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="md:col-span-2 bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl"
-        >
-          <div>
-            <div className="flex justify-between items-center mb-6 md:mb-8">
-               <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">Hot Series</h3>
-               <Link to="/schedule" className="text-[9px] md:text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
-                 See More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-               </Link>
-            </div>
-            
-            <div className="space-y-4">
-               {[
-                 {
-                   name: "Pakistan Home Series 2026",
-                   path: "/home-series",
-                   matches: "West Indies, Zimbabwe, Aus, SL",
-                   icon: <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />,
-                   color: "bg-emerald-600"
-                 },
-                 {
-                   name: "Pakistan Away Tours 2026",
-                   path: "/away-tours",
-                   matches: "BAN, WI, ENG, SL, RSA",
-                   icon: <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />,
-                   color: "bg-blue-600"
-                 },
-                 {
-                   name: "Pakistan vs Bangladesh 2026",
-                   path: "/pakistan-vs-bangladesh-2026-schedule",
-                   matches: "2 Test Matches",
-                   icon: <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />,
-                   color: "bg-pak-green"
-                 },
-                 {
-                   name: "PSL 11 - 2026",
-                   path: "/news/peshawar-zalmi-psl-2026-champions-match-report",
-                   matches: "Season Review",
-                   icon: <Zap className="w-4 h-4 md:w-5 md:h-5 text-white" />,
-                   color: "bg-yellow-600"
-                 },
-                 {
-                   name: "Pakistan vs Australia 2026",
-                   path: "/pakistan-vs-australia-2026-schedule-odi",
-                   matches: "3 ODI Series",
-                   icon: <Star className="w-4 h-4 md:w-5 md:h-5 text-white" />,
-                   color: "bg-rose-500"
-                 }
-               ].map((series, idx) => (
-                 <Link 
-                   key={idx}
-                   to={series.path}
-                   className="bg-white/5 rounded-2xl md:rounded-3xl p-4 md:p-5 border border-white/5 block group hover:border-white/30 transition-all hover:bg-white/[0.08]"
-                 >
-                    <div className="flex items-center gap-3 md:gap-4">
-                       <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl ${series.color} flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform`}>
-                          {series.icon}
-                       </div>
-                       <div className="min-w-0">
-                          <span className="text-[10px] md:text-xs font-bold uppercase tracking-tight block text-white truncate group-hover:text-pak-green transition-colors">{series.name}</span>
-                          <span className="text-[8px] md:text-[9px] text-ink/40 font-bold uppercase tracking-widest">{series.matches}</span>
-                       </div>
-                    </div>
+        <div className="md:col-span-2 space-y-6">
+          <motion.section 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-6 md:mb-8">
+                 <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">Hot Series</h3>
+                 <Link to="/schedule" className="text-[9px] md:text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
+                   See More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                  </Link>
-               ))}
+              </div>
+              
+              <div className="space-y-4">
+                 {[
+                   {
+                     name: "Pakistan Home Series 2026",
+                     path: "/home-series",
+                     matches: "West Indies, Zimbabwe, Aus, SL",
+                     icon: <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                     color: "bg-emerald-600"
+                   },
+                   {
+                     name: "Pakistan Away Tours 2026",
+                     path: "/away-tours",
+                     matches: "BAN, WI, ENG, SL, RSA",
+                     icon: <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                     color: "bg-blue-600"
+                   }
+                 ].map((series, idx) => (
+                   <Link 
+                     key={idx}
+                     to={series.path}
+                     className="bg-white/5 rounded-2xl md:rounded-3xl p-4 md:p-5 border border-white/5 block group hover:border-white/30 transition-all hover:bg-white/[0.08]"
+                   >
+                      <div className="flex items-center gap-3 md:gap-4">
+                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl ${series.color} flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform`}>
+                            {series.icon}
+                         </div>
+                         <div className="min-w-0">
+                            <span className="text-[10px] md:text-xs font-bold uppercase tracking-tight block text-white truncate group-hover:text-pak-green transition-colors">{series.name}</span>
+                            <span className="text-[8px] md:text-[9px] text-ink/40 font-bold uppercase tracking-widest">{series.matches}</span>
+                         </div>
+                      </div>
+                   </Link>
+                 ))}
+              </div>
             </div>
-          </div>
 
-          <Link to="/schedule" className="mt-8 w-full py-4 bg-pak-green hover:bg-emerald-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-[2px] transition-all text-center border border-white/5">
-             View Full Schedule
-          </Link>
-        </motion.section>
+            <Link to="/schedule" className="mt-8 w-full py-4 bg-pak-green hover:bg-emerald-600 text-white rounded-2xl text-[10px] font-bold uppercase tracking-[2px] transition-all text-center border border-white/5">
+               View Full Schedule
+            </Link>
+          </motion.section>
+
+          <motion.section 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-card-bg border border-card-border rounded-3xl md:rounded-[40px] p-6 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-6 md:mb-8">
+                 <h3 className="text-sm font-bold uppercase tracking-[2px] text-white">Recent Series</h3>
+                 <Link to="/news" className="text-[9px] md:text-[10px] font-bold uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
+                   See News <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                 </Link>
+              </div>
+              
+              <div className="space-y-4">
+                 {[
+                   {
+                     name: "Pakistan vs Bangladesh 2026",
+                     path: "/pakistan-vs-bangladesh-2026-schedule",
+                     matches: "2 Test Matches",
+                     icon: <Trophy className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                     color: "bg-pak-green"
+                   },
+                   {
+                     name: "PSL 11 - 2026",
+                     path: "/news/peshawar-zalmi-psl-2026-champions-match-report",
+                     matches: "Season Review",
+                     icon: <Zap className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                     color: "bg-yellow-600"
+                   },
+                   {
+                     name: "Pakistan vs Australia 2026",
+                     path: "/pakistan-vs-australia-2026-schedule-odi",
+                     matches: "3 ODI Series",
+                     icon: <Star className="w-4 h-4 md:w-5 md:h-5 text-white" />,
+                     color: "bg-rose-500"
+                   }
+                 ].map((series, idx) => (
+                   <Link 
+                     key={idx}
+                     to={series.path}
+                     className="bg-white/5 rounded-2xl md:rounded-3xl p-4 md:p-5 border border-white/5 block group hover:border-white/30 transition-all hover:bg-white/[0.08]"
+                   >
+                      <div className="flex items-center gap-3 md:gap-4">
+                         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl ${series.color} flex items-center justify-center shadow-lg shrink-0 group-hover:scale-110 transition-transform`}>
+                            {series.icon}
+                         </div>
+                         <div className="min-w-0">
+                            <span className="text-[10px] md:text-xs font-bold uppercase tracking-tight block text-white truncate group-hover:text-pak-green transition-colors">{series.name}</span>
+                            <span className="text-[8px] md:text-[9px] text-ink/40 font-bold uppercase tracking-widest">{series.matches}</span>
+                         </div>
+                      </div>
+                   </Link>
+                 ))}
+              </div>
+            </div>
+          </motion.section>
+        </div>
 
         {/* Featured News Consolidation */}
         <motion.section

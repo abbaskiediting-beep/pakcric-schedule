@@ -86,6 +86,39 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'babar-azam-chasing-fastest-7000-odi-runs-record-2026',
+    title: "Babar Azam is 374 Runs Away From Making History — Chasing Fastest to 7,000 ODI Runs Record",
+    summary: "Babar Azam needs 374 runs in 9 innings to reach 7000 ODI runs and can beat Hashim Amla and Virat Kohli's record in just 149 innings. Full milestone analysis.",
+    date: 'June 2026',
+    category: 'Record Alert',
+    path: '/news/babar-azam-fastest-7000-odi-runs-record-2026-analysis',
+    icon: Target,
+    color: 'text-pak-green',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'babar-azam-vs-shubman-gill-test-centuries-2022-vs-2026',
+    title: "From 9–1 to 9–11 in 3.5 Years — The Most Dramatic Reversal in Modern Test Cricket",
+    summary: "In Dec 2022 Babar led Gill 9-1 in Test centuries. By June 2026 Gill has overtaken 9-11. How Gill added 10 tons while Babar scored zero. Full analysis inside.",
+    date: 'June 2026',
+    category: 'Player Comparison',
+    path: '/news/babar-azam-vs-shubman-gill-test-centuries-2022-vs-2026-comparison',
+    icon: HistoryIcon,
+    color: 'text-rose-500',
+    authorId: 'zainab-rashid'
+  },
+  {
+    id: 'highest-odi-batting-average-at-home-top-5-all-time',
+    title: "Highest ODI Batting Average at Home — Top 5 All Time",
+    summary: "Desmond Haynes leads with 67.71 average at home in ODIs. Babar Azam and Shubman Gill tied at 60.37 among top 5 with min 1000 runs. Full stats and analysis.",
+    date: 'June 2026',
+    category: 'Cricket Stats',
+    path: '/news/highest-odi-batting-average-at-home-top-5-all-time',
+    icon: Medal,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
     id: 'bangladesh-complete-historic-2-0-series-sweep-sylhet-2026',
     title: "Bangladesh Complete Historic 2-0 Series Sweep vs Pakistan — Taijul 4/113, Masood 71, Rizwan 75*, Agha 71 Not Enough in Sylhet Thriller",
     summary: "Bangladesh beat Pakistan by 78 runs in the 2nd Test in Sylhet to secure a historic first-ever 2-0 Test series sweep over Pakistan. Full report and final scorecard.",
@@ -1062,6 +1095,17 @@ export const BLOG_POSTS: BlogPost[] = [
     path: '/news/pakistan-women-t20-world-cup-2026-squad-analysis',
     icon: Users,
     color: 'text-emerald-500',
+    authorId: 'syed-abbas'
+  },
+  {
+    id: 'pakistan-vs-australia-3rd-odi-lahore-preview-june-4-2026',
+    title: "Pakistan vs Australia 3rd ODI — Series Decider at Gaddafi Stadium, Lahore Preview",
+    summary: "Series tied 1-1 as Australia won 2nd ODI by 41 runs. Pakistan vs Australia 3rd ODI decider at Gaddafi Stadium Lahore on June 4. Pitch report, XI prediction and analysis.",
+    date: 'June 4, 2026',
+    category: 'Series Preview',
+    path: '/news/pakistan-vs-australia-3rd-odi-lahore-preview-june-4-2026',
+    icon: Zap,
+    color: 'text-amber-500',
     authorId: 'syed-abbas'
   },
 ];

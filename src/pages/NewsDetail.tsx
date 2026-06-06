@@ -248,6 +248,152 @@ He owns this record. Alone. Forever.
 
 For complete Pakistan vs Australia ODI series schedule, scorecards, and live match updates, visit pakcric-schedule.online`
   },
+  'pakistan-vs-australia-3rd-odi-lahore-preview-june-4-2026': {
+    title: "Pakistan vs Australia 3rd ODI — Series Decider at Gaddafi Stadium, Lahore Preview",
+    metaTitle: "Pakistan vs Australia 3rd ODI Decider Lahore Preview June 4 2026",
+    metaDescription: "Series tied 1-1 as Australia won 2nd ODI by 41 runs. Pakistan vs Australia 3rd ODI decider at Gaddafi Stadium Lahore on June 4. Pitch report, XI prediction and analysis.",
+    date: "June 4, 2026",
+    tag: "Series Decider",
+    author: "PCB Editorial Team & ESPNcricinfo",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
+    content: `Pakistan faces Australia in the high-stakes 3rd ODI series decider at Gaddafi Stadium in Lahore tonight. With the series currently level at 1-1, winner takes all.
+
+## Match Details
+• **Match**: Pakistan vs Australia — 3rd ODI (Series Decider)
+• **Date**: June 4, 2026 (Thursday)
+• **Venue**: Gaddafi Stadium, Lahore
+• **Start Time**: 4:30 PM Local (11:30 AM GMT)
+• **Series Status**: Tied 1-1
+
+---
+
+## Series Story So Far — One Win Each, Everything to Play For
+
+### 1st ODI — Rawalpindi — Pakistan Won by 5 Wickets
+Pakistan won the 1st ODI at Rawalpindi by five wickets with 45 balls to spare, chasing down 201 comfortably. Debutant Arafat Minhas took 5/32 and Babar Azam scored 69 to set up the win.
+
+### 2nd ODI — Lahore — Australia Won by 41 Runs
+Australia bounced back in the 2nd ODI at Lahore, posting 231/9 and then bowling Pakistan out for 190 in 44 overs — winning by 41 runs. Nathan Ellis was Player of the Match with 4/33, dismantling Pakistan's chase. Pakistan's chase fell apart in the middle overs — from 75/5 in 16 overs, the lower order could not rebuild. Ghazi Ghori top-scored with 37 but Pakistan were bowled out with 6 overs to spare.
+
+The series is level. The decider is tonight. Winner takes all.
+
+---
+
+## What Went Wrong for Pakistan in the 2nd ODI
+Nathan Ellis took 4/33 — including the crucial wicket of Babar Azam who survived a review at over 4.4 but was eventually dismissed. Pakistan collapsed from a competitive position to 190 all out, losing by 41 runs as Australia levelled the series 1-1.
+
+Three things went wrong for Pakistan:
+1. **Middle-order collapse**: Pakistan lost too many wickets in the powerplay 2 phase — 126 runs for 4 wickets between overs 10-40 simply was not good enough in a chase of 232.
+2. **Ghazi Ghori injury**: Rohail Nazir kept wickets in place of Ghazi Ghori from over 24.4 to 31.6 — a mid-innings wicketkeeping change suggesting Ghori picked up an injury during the chase. His potential absence for the decider is a major concern.
+3. **Nathan Ellis masterclass**: Ellis found reverse swing in the Lahore evening conditions and was unplayable. His 4/33 changed the game completely. Pakistan's batting lineup had no answer for his late movement.
+
+---
+
+## Australia's Recovery — What Changed
+Australia fought back with Josh Inglis, Cameron Green and Matthew Renshaw all contributing to their 231/9 total. The batter-friendly Gaddafi Stadium surface helped Australia post a more competitive total than Rawalpindi.
+
+Australia's key change was their approach against spin — they used their feet better in the 2nd ODI, targeted the boundaries more aggressively, and did not allow Arafat Minhas the same control he had at Rawalpindi. Minhas went for more runs in his 2nd ODI and took fewer wickets. The plan worked.
+
+---
+
+## The Venue — Gaddafi Stadium for the Third Time
+The series continues at the batter-friendly Gaddafi Stadium in Lahore — the ground that hosted the 2nd ODI and now hosts the decider on the same surface. 
+
+The Gaddafi Stadium pitch for this 3rd ODI will be the same venue — but a different strip. After two matches have already been played at this ground in this series, the outfield will be slower, the pitch could offer more variable bounce, and there may be more turn for the spinners later in the match. A total of 250-270 is likely competitive. First innings advantage could be significant.
+
+---
+
+## Key Storylines to Watch
+
+### Shaheen Afridi's Last Home ODI
+The 3rd ODI against Australia in Lahore will be Shaheen Shah Afridi's last at home — the Pakistan pace spearhead is expected to head to England later in the year. He is hoping to end his home ODI career with a series-winning performance on the biggest stage.
+
+This adds a deeply emotional dimension to tonight's match. Gaddafi Stadium is Shaheen's home ground — Lahore is his city. If Pakistan are to win this decider and take the series 2-1, Shaheen Afridi will want to be at the heart of it.
+
+### Jack Peake's Australia Debut
+Australia coach Andrew McDonald urged public patience with 19-year-old Jack Peake as he begins his international career in Pakistan. Peake was picked for a reason and the Australia coach is asking fans to give the youngster time to settle into international cricket.
+
+Peake's presence in the Australia squad adds an interesting subplot — a teenage debutant against one of the most experienced Pakistan batting lineups in the world. If he plays tonight, expect Pakistan to target him early.
+
+### Mitchell Marsh Out — Inglis to Captain Australia
+Mitchell Marsh is out of the Pakistan series with an ankle injury, with Josh Inglis set to captain Australia for the series.
+
+Losing Marsh is a significant blow for Australia. He is their best all-rounder — a 70-ball batter who can hit sixes at will and bowl useful medium pace. Without him, Australia's batting depth is thinner and their bowling options are fewer. His absence could be decisive in a series decider.
+
+### Pakistan's Injury Concern — Ghazi Ghori
+Ghazi Ghori's fitness is the biggest question mark for Pakistan heading into the decider. He was replaced mid-innings by Rohail Nazir in the 2nd ODI — suggesting a hand or groin injury. If Ghori cannot keep wickets tonight, Rohail Nazir steps in — and while Rohail is a competent keeper, he has not yet shown the same batting authority that Ghori displayed in his 65 in the 1st ODI.
+
+---
+
+## Predicted Playing XIs
+
+### Pakistan Predicted Playing XI
+1. **Babar Azam (c)** - Opener
+2. **Sahibzada Farhan** - Opener
+3. **Maaz Sadaqat** - No. 3
+4. **Ghazi Ghori / Rohail Nazir (wk)** - No. 4
+5. **Salman Agha** - All-rounder
+6. **Shadab Khan** - All-rounder
+7. **Arafat Minhas** - Spinner
+8. **Abrar Ahmed** - Leg-spinner
+9. **Shaheen Afridi** - Pacer
+10. **Haris Rauf** - Pacer
+11. **Mohammad Hasnain** - Pacer
+
+*Key changes: Pakistan may consider bringing in a third specialist pacer to counter Australia's batters who struggled against pace in the 1st ODI. Shaheen Afridi is almost certain to make a statement in his farewell match.*
+
+### Australia Predicted Playing XI
+1. **Matthew Short** - Opener
+2. **Matthew Renshaw** - Opener
+3. **Marnus Labuschagne** - No. 3
+4. **Steve Smith** - No. 4
+5. **Josh Inglis (c, wk)** - No. 5
+6. **Cameron Green** - All-rounder
+7. **Jack Peake** - Debutant
+8. **Pat Cummins** - Pacer
+9. **Mitchell Starc** - Pacer
+10. **Nathan Ellis** - Pacer
+11. **Adam Zampa** - Leg-spinner
+
+*Australia key concern: Zampa suffered groin tightness during the T20I series in Pakistan — his availability for the 3rd ODI is uncertain. Without Zampa, Australia are considerably weaker.*
+
+---
+
+## Head to Head in ODI Series Deciders
+Pakistan have historically been brilliant in decider ODIs at home. In the 2022 series, when the series was level at 1-1, Pakistan won the 3rd ODI by nine wickets in Lahore. The Gaddafi Stadium crowd, the home conditions, and the pressure of the big occasion have traditionally brought out the best in Pakistan's players.
+
+But Australia are not to be underestimated. They have the experience of Cummins, Starc, Smith, and Labuschagne — players who have been in high-pressure deciders before. Ellis is in the form of his life. And on a Lahore surface, their pace attack can be just as threatening as any spinner.
+
+---
+
+## 5 Key Battles — 3rd ODI Decider
+1. **Babar Azam vs Nathan Ellis**: Ellis has dismissed Babar twice in this series (once each match). Babar has scored 69 in the match he stayed in. If Babar survives Ellis's opening spell tonight, a big century could seal the series for Pakistan.
+2. **Shaheen Afridi vs Matthew Short**: Shaheen's last home ODI. Short has been Australia's most consistent batter in this series. If Shaheen removes Short early, Australia's top order could unravel.
+3. **Arafat Minhas vs Marnus Labuschagne**: After a golden duck in the 1st ODI, Labuschagne will be burning to score runs against Minhas in the decider. Minhas took fewer wickets in the 2nd ODI — can he bounce back in the most important match of all?
+4. **Cameron Green vs Pakistan's spinners**: Green scored 34 in the 2nd ODI — the best score against spin in the Australian lineup. If he can repeat that at No. 6 tonight, Australia could post a competitive total.
+5. **Toss and Pitch**: On this Lahore surface for the third match, the team batting second will face the most challenging conditions. Winning the toss and bowling first could be decisive.
+
+---
+
+## Series Summary Before Decider
+
+| Match | Venue | Winner | Margin |
+|---|---|---|---|
+| 1st ODI | Rawalpindi | Pakistan | 5 wickets |
+| 2nd ODI | Lahore | Australia | 41 runs |
+| 3rd ODI | Lahore | ? | **DECIDER** |
+
+---
+
+## Match Prediction
+Tonight's decider is a genuine 50-50. Pakistan have home advantage, a passionate Lahore crowd, and Shaheen Afridi's farewell motivation. Australia have Nathan Ellis in devastating form, a settled batting lineup, and the confidence of levelling the series.
+
+The pitch at Gaddafi Stadium is expected to be batting-friendly early but spin-assisting later — meaning the toss could be critical. If Pakistan win the toss and bat first, they have the batting depth to post 270-290. If they bowl first and dismiss Australia cheaply with their spinners, the chase should be straightforward.
+
+**Prediction: Pakistan win the 3rd ODI series decider — Shaheen Afridi's home farewell ends in a series victory.**
+
+For live score, full scorecard, and all Pakistan cricket updates from the 3rd ODI decider at Gaddafi Stadium, visit pakcric-schedule.online`
+  },
   'babar-azam-69-vs-australia-1st-odi-rawalpindi-2026': {
     title: "Babar Azam's Classy 69 Guides Pakistan to 5-Wicket Win Against Australia — 1st ODI Rawalpindi 2026",
     metaTitle: "Babar Azam 69 vs Australia 1st ODI Rawalpindi 2026",

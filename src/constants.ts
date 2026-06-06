@@ -166,33 +166,116 @@ But on the final morning, veteran spinner **Taijul Islam** took the defining wic
     time: '16:30 PKT',
     venue: 'Gaddafi Stadium, Lahore',
     series: 'Australia Tour of Pakistan (ODI Series)',
-    status: 'Upcoming',
+    status: 'Completed',
+    granularStatus: 'AUS won by 41 runs • Series tied 1-1',
     flagUrl: 'https://flagcdn.com/au.svg',
-    blogUrl: '/news/pakistan-vs-australia-2nd-odi-lahore-preview-june-2-2026'
+    scorePAK: '190',
+    scoreOpponent: '231/9',
+    overs: '44.0',
+    blogUrl: '/news/pakistan-vs-australia-2nd-odi-lahore-preview-june-2-2026',
+    result: 'Australia won by 41 runs',
+    stats: {
+      topScorers: [
+        { name: 'Ghazi Ghori', runs: '37', balls: '42' },
+        { name: 'Cameron Green', runs: '34', balls: '39' },
+        { name: 'Josh Inglis', runs: '36', balls: '45' }
+      ],
+      leadingWicketTakers: [
+        { name: 'Nathan Ellis', wickets: '4', runs: '33', overs: '9' }
+      ]
+    }
   },
   {
     id: 'aus-odi-3',
     opponent: 'AUS',
     format: 'ODI',
-    title: 'Pak vs Aus 3rd One Day',
+    title: 'Pak vs Aus 3rd One Day (Decider)',
     date: 'June 4, 2026',
-    time: '14:30 PKT',
+    time: '16:30 PKT',
     venue: 'Gaddafi Stadium, Lahore',
     series: 'Australia Tour of Pakistan (ODI Series)',
     status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/au.svg'
+    flagUrl: 'https://flagcdn.com/au.svg',
+    blogUrl: '/news/pakistan-vs-australia-3rd-odi-lahore-preview-june-4-2026',
+    preMatchAnalysis: `Pakistan vs Australia 3rd ODI decider at Gaddafi stadium Lahore June 4. The series is currently level at 1-1, winner takes all. 
+
+### What Went Wrong for Pakistan in the 2nd ODI
+Nathan Ellis took 4/33 — including the crucial wicket of Babar Azam. Pakistan collapsed from a competitive position to 190 all out, losing by 41 runs. 
+
+1. **Middle-order collapse**: Pakistan lost 4 wickets for 126 runs between overs 10-40.
+2. **Ghazi Ghori injury**: Rohail Nazir kept wickets after Ghori picked up an injury. 
+3. **Nathan Ellis masterclass**: Ellis found reverse swing in the evening to change the game.
+
+### Team Dynamics & Strategy
+Australia used their feet better in the 2nd ODI, targeting the boundaries more aggressively and taking away Arafat Minhas's control. Zampa's groin fitness remains a concern for the visitors. For Pakistan, Shaheen Afridi's farewell home match adds a deeply emotional spark tonight.`,
+    playingXI: [
+      {
+        team: 'Pakistan',
+        players: [
+          { name: 'Babar Azam', role: 'Opener (c)', isCaptain: true },
+          { name: 'Sahibzada Farhan', role: 'Opener' },
+          { name: 'Maaz Sadaqat', role: 'Batter' },
+          { name: 'Rohail Nazir', role: 'Wicketkeeper', isWicketkeeper: true },
+          { name: 'Salman Agha', role: 'All-rounder' },
+          { name: 'Shadab Khan', role: 'All-rounder' },
+          { name: 'Arafat Minhas', role: 'Spinner' },
+          { name: 'Abrar Ahmed', role: 'Leg-spinner' },
+          { name: 'Shaheen Afridi', role: 'Pacer' },
+          { name: 'Haris Rauf', role: 'Pacer' },
+          { name: 'Mohammad Hasnain', role: 'Pacer' }
+        ]
+      },
+      {
+        team: 'Australia',
+        players: [
+          { name: 'Matthew Short', role: 'Opener' },
+          { name: 'Matthew Renshaw', role: 'Opener' },
+          { name: 'Marnus Labuschagne', role: 'No. 3' },
+          { name: 'Steve Smith', role: 'No. 4' },
+          { name: 'Josh Inglis', role: 'Wicketkeeper (c)', isCaptain: true, isWicketkeeper: true },
+          { name: 'Cameron Green', role: 'All-rounder' },
+          { name: 'Jack Peake', role: 'Debutant', isDebutant: true },
+          { name: 'Pat Cummins', role: 'Pacer' },
+          { name: 'Mitchell Starc', role: 'Pacer' },
+          { name: 'Nathan Ellis', role: 'Pacer' },
+          { name: 'Adam Zampa', role: 'Leg-spinner' }
+        ]
+      }
+    ],
+    venueInsights: {
+      avgFirstInningsScore: 260,
+      winPercentageBattingFirst: 55,
+      winPercentageBattingSecond: 45,
+      pitchCondition: 'The Gaddafi Stadium pitch for this 3rd ODI will be on a different, fresh strip. After two matches have been played on the overall square, the outfield will be slightly slower, the pitch could offer more variable bounce, and there may be more turn for the spinners later in the match.'
+    },
+    playersToWatch: [
+      { name: 'Shaheen Afridi', role: 'Pacer', reason: 'His final home ODI, expects a highly motivated performance on his home turf.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shaheen' },
+      { name: 'Nathan Ellis', role: 'Pacer', reason: 'Unplayable with late reverse swing in the 2nd ODI, finishing with 4/33.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Nathan' }
+    ]
   },
   {
     id: '8',
     opponent: 'WI',
     format: 'Test',
-    title: 'Pak vs WI 1st Test Showdown',
-    date: '2026-07-21',
-    time: '20:00 PKT',
-    venue: 'Kensington Oval, Barbados',
-    series: 'Pakistan Tour of West Indies',
+    title: 'West Indies vs Pakistan, 1st Test Match',
+    date: 'July 25–30, 2026',
+    time: '07:00 PM PKT',
+    venue: 'Brian Lara Stadium, Tarouba, Trinidad',
+    series: 'Pakistan Tour of West Indies (Test Series)',
     status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/bb.svg'
+    flagUrl: 'https://flagcdn.com/tt.svg'
+  },
+  {
+    id: '14',
+    opponent: 'WI',
+    format: 'Test',
+    title: 'West Indies vs Pakistan, 2nd Test Match',
+    date: 'August 02–07, 2026',
+    time: '07:00 PM PKT',
+    venue: 'Brian Lara Stadium, Tarouba, Trinidad',
+    series: 'Pakistan Tour of West Indies (Test Series)',
+    status: 'Upcoming',
+    flagUrl: 'https://flagcdn.com/tt.svg'
   },
   {
     id: '9',
