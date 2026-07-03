@@ -86,6 +86,17 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'ben-stokes-retires-from-international-cricket-2026',
+    title: "Ben Stokes Retires From International Cricket — The End of England's Greatest Modern Era",
+    summary: "Ben Stokes announced retirement from international cricket on June 28 2026 during 3rd Test vs New Zealand at Trent Bridge. 122 Tests, 7243 runs, 14 centuries, 200+ wickets, ODI World Cup 2019, T20 World Cup 2022, Headingley 135*. Full career tribute, stats and legacy.",
+    date: 'June 2026',
+    category: 'Retirement Tribute',
+    path: '/news/ben-stokes-retires-from-international-cricket-2026',
+    icon: Trophy,
+    color: 'text-rose-500',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'babar-azam-chasing-fastest-7000-odi-runs-record-2026',
     title: "Babar Azam is 374 Runs Away From Making History — Chasing Fastest to 7,000 ODI Runs Record",
     summary: "Babar Azam needs 374 runs in 9 innings to reach 7000 ODI runs and can beat Hashim Amla and Virat Kohli's record in just 149 innings. Full milestone analysis.",
