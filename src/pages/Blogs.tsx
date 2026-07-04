@@ -303,7 +303,11 @@ export default function Blogs() {
   });
 
   if (sortBy === 'latest') {
-    filteredPosts.reverse();
+    filteredPosts.sort((a, b) => {
+      const timeA = new Date(a.date).getTime();
+      const timeB = new Date(b.date).getTime();
+      return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
+    });
   } else {
     // popular: sort by popularity keywords for demo
     filteredPosts.sort((a, b) => {
@@ -312,8 +316,10 @@ export default function Blogs() {
       const bPopular = popularKeywords.some(kw => (b.title?.toUpperCase() || '').includes(kw)) ? 1 : 0;
       
       if (aPopular !== bPopular) return bPopular - aPopular;
-      // If both equally popular, keep chronological
-      return BLOG_POSTS.indexOf(b) - BLOG_POSTS.indexOf(a);
+      // If both equally popular, keep chronological based on date
+      const timeA = new Date(a.date).getTime();
+      const timeB = new Date(b.date).getTime();
+      return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
     });
   }
 

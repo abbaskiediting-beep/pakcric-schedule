@@ -86,6 +86,28 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'vaibhav-sooryavanshi-youngest-debut-sachin-record-2026',
+    title: "Historic Debut: 15-Year-Old Sensation Vaibhav Sooryavanshi Shatters Sachin Tendulkar’s Record Against England",
+    summary: "History was written at Old Trafford as India's 15-year-old batting prodigy Vaibhav Sooryavanshi made his senior international debut, eclipsing Sachin Tendulkar's 36-year-old record as India's youngest debutant.",
+    date: 'July 2026',
+    category: 'Breaking News',
+    path: '/news/vaibhav-sooryavanshi-youngest-debut-sachin-record-2026',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'bilal-ahmed'
+  },
+  {
+    id: 'babar-azam-returns-as-pakistan-test-captain-2026',
+    title: "Babar Azam Set to Return as Pakistan Test Captain — PCB Chairman Mohsin Naqvi Approves the Move",
+    summary: "PCB Chairman Mohsin Naqvi has approved Babar Azam's return as Pakistan Test captain, replacing Shan Masood. Formal announcement expected within days. Babar's 3rd captaincy spell, Test record as captain 10W-5L in 20 matches. Full details, background and reaction.",
+    date: 'July 2026',
+    category: 'Breaking News',
+    path: '/news/babar-azam-returns-as-pakistan-test-captain-2026',
+    icon: Zap,
+    color: 'text-yellow-500',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'ben-stokes-retires-from-international-cricket-2026',
     title: "Ben Stokes Retires From International Cricket — The End of England's Greatest Modern Era",
     summary: "Ben Stokes announced retirement from international cricket on June 28 2026 during 3rd Test vs New Zealand at Trent Bridge. 122 Tests, 7243 runs, 14 centuries, 200+ wickets, ODI World Cup 2019, T20 World Cup 2022, Headingley 135*. Full career tribute, stats and legacy.",

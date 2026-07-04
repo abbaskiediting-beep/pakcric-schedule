@@ -28,7 +28,13 @@ export default function Home() {
   const bangladeshMatches = PAKISTAN_SCHEDULE.filter(m => m.series === bangladeshSeriesName);
   
   // Get latest 3 blogs
-  const latestBlogs = [...BLOG_POSTS].reverse().slice(0, 3);
+  const latestBlogs = [...BLOG_POSTS]
+    .sort((a, b) => {
+      const timeA = new Date(a.date).getTime();
+      const timeB = new Date(b.date).getTime();
+      return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
+    })
+    .slice(0, 3);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -359,7 +365,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-between items-center mb-8 gap-4">
             <div className="flex items-center gap-3">
               <Newspaper className="w-5 h-5 md:w-6 md:h-6 text-white" />
-              <h3 className="text-lg md:text-2xl font-display font-black uppercase tracking-tight italic">Featured <span className="text-pak-green">Tactical News</span></h3>
+              <h3 className="text-lg md:text-2xl font-display font-black uppercase tracking-tight italic">Latest <span className="text-pak-green">News</span></h3>
             </div>
             <Link to="/news" className="text-[9px] font-black uppercase text-ink/40 hover:text-white transition-colors flex items-center gap-1 group">
               See More <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
@@ -368,6 +374,39 @@ export default function Home() {
 
           <div className="space-y-4">
             {[
+              {
+                id: "vaibhav-sooryavanshi-youngest-debut-sachin-record-2026",
+                title: "Vaibhav Sooryavanshi Shatters Sachin's Record",
+                tag: "Historic Debut",
+                icon: <Zap className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-amber-600/90 hover:bg-amber-600",
+                borderColor: "border-amber-500/30"
+              },
+              {
+                id: "babar-azam-returns-as-pakistan-test-captain-2026",
+                title: "Babar Azam Returns as Test Captain",
+                tag: "Breaking News",
+                icon: <Zap className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-yellow-600/90 hover:bg-yellow-600",
+                borderColor: "border-yellow-500/30"
+              },
+              {
+                id: "ben-stokes-retires-from-international-cricket-2026",
+                title: "Ben Stokes Retires From Cricket",
+                tag: "Retirement Tribute",
+                icon: <Trophy className="w-5 h-5 text-white" />,
+                color: "bg-rose-600/90 hover:bg-rose-600",
+                borderColor: "border-rose-500/30"
+              },
+              {
+                id: "babar-azam-chasing-fastest-7000-odi-runs-record-2026",
+                path: "/news/babar-azam-fastest-7000-odi-runs-record-2026-analysis",
+                title: "Babar Azam Chasing 7,000 ODI Runs",
+                tag: "Record Alert",
+                icon: <Target className="w-5 h-5" />,
+                color: "bg-pak-green",
+                borderColor: "border-pak-green"
+              },
               {
                 id: "bangladesh-complete-historic-2-0-series-sweep-sylhet-2026",
                 title: "BAN Complete Historic 2-0 Series Sweep",
@@ -391,35 +430,11 @@ export default function Home() {
                 icon: <Star className="w-5 h-5" />,
                 color: "bg-pak-green",
                 borderColor: "border-pak-green"
-              },
-              {
-                id: "pak-vs-ban-2nd-test-day-4-report-sylhet-2026",
-                title: "Pakistan Need 121 with 3 Wickets",
-                tag: "Match Report",
-                icon: <Activity className="w-5 h-5" />,
-                color: "bg-pak-green",
-                borderColor: "border-pak-green"
-              },
-              {
-                id: "salman-ali-agha-71-vs-bangladesh-2nd-test-2026-report",
-                title: "Salman Agha's Fighting 71 Gives Hope",
-                tag: "Match Analysis",
-                icon: <Shield className="w-5 h-5" />,
-                color: "bg-pak-green",
-                borderColor: "border-pak-green"
-              },
-              {
-                id: "babar-azam-68-and-47-fighting-innings-sylhet-2026",
-                title: "Babar's Fighting 68 & 47: Last Hope",
-                tag: "Player Feature",
-                icon: <Star className="w-5 h-5" />,
-                color: "bg-pak-green",
-                borderColor: "border-pak-green"
               }
             ].map((news) => (
               <Link 
                 key={news.id}
-                to={`/news/${news.id}`}
+                to={news.path || `/news/${news.id}`}
                 className={`flex items-center justify-between p-4 ${news.color} border ${news.borderColor} rounded-2xl group hover:opacity-90 transition-all font-bold shadow-lg`}
               >
                 <div className="flex items-center gap-4">

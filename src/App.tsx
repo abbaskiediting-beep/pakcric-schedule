@@ -8,6 +8,7 @@ import MobileTabBar from './components/MobileTabBar';
 import OfflineIndicator from './components/OfflineIndicator';
 import KeyboardNavigation from './components/KeyboardNavigation';
 import PushNotificationManager from './components/PushNotificationManager';
+import RelatedNews from './components/RelatedNews';
 
 // Lazy load pages for better bundle splitting and initial load time
 import SEO from './components/SEO';
@@ -136,6 +137,8 @@ const HighestOdiBattingAverageAtHomeBlog = lazy(() => import('./pages/HighestOdi
 const BabarAzamVsShubmanGillCenturiesBlog = lazy(() => import('./pages/BabarAzamVsShubmanGillCenturiesBlog'));
 const BabarAzamChasing7000RunsBlog = lazy(() => import('./pages/BabarAzamChasing7000RunsBlog'));
 const BenStokesRetirementBlog = lazy(() => import('./pages/BenStokesRetirementBlog'));
+const BabarAzamReturnTestCaptainBlog = lazy(() => import('./pages/BabarAzamReturnTestCaptainBlog'));
+const VaibhavSooryavanshiDebutBlog = lazy(() => import('./pages/VaibhavSooryavanshiDebutBlog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -294,6 +297,8 @@ export default function App() {
               <Route path="/news/babar-azam-vs-shubman-gill-test-centuries-2022-vs-2026-comparison" element={<BabarAzamVsShubmanGillCenturiesBlog />} />
               <Route path="/news/babar-azam-fastest-7000-odi-runs-record-2026-analysis" element={<BabarAzamChasing7000RunsBlog />} />
               <Route path="/news/ben-stokes-retires-from-international-cricket-2026" element={<BenStokesRetirementBlog />} />
+              <Route path="/news/babar-azam-returns-as-pakistan-test-captain-2026" element={<BabarAzamReturnTestCaptainBlog />} />
+              <Route path="/news/vaibhav-sooryavanshi-youngest-debut-sachin-record-2026" element={<VaibhavSooryavanshiDebutBlog />} />
               <Route path="/news/australia-odi-squad-pakistan-tour-2026-announcement" element={<AusOdiSquadPak2026 />} />
               <Route path="/squad/australia-odi-2026" element={<AustraliaOdiSquadPage />} />
               <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />
@@ -435,6 +440,7 @@ export default function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <RelatedNews />
         </main>
 
         <footer className="container mx-auto px-4 md:px-6 py-12 md:py-20 flex flex-col gap-12 border-t border-card-border mt-12 md:mt-32 bg-card-bg/30">
