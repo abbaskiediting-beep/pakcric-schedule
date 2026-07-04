@@ -9,6 +9,8 @@ import OfflineIndicator from './components/OfflineIndicator';
 import KeyboardNavigation from './components/KeyboardNavigation';
 import PushNotificationManager from './components/PushNotificationManager';
 import RelatedNews from './components/RelatedNews';
+import GlobalSocialShare from './components/GlobalSocialShare';
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 // Lazy load pages for better bundle splitting and initial load time
 import SEO from './components/SEO';
@@ -441,6 +443,8 @@ export default function App() {
             </Routes>
           </Suspense>
           <RelatedNews />
+          <GlobalSocialShare />
+          <ScrollProgressBar />
         </main>
 
         <footer className="container mx-auto px-4 md:px-6 py-12 md:py-20 flex flex-col gap-12 border-t border-card-border mt-12 md:mt-32 bg-card-bg/30">
