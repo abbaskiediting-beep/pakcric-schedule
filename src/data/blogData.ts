@@ -3,6 +3,36 @@ import { BlogPost, Author } from '../types';
 
 export const AUTHORS: Author[] = [
   {
+    id: 'ahsan-nagi',
+    name: 'Ahsan Iftikhar Nagi',
+    role: 'Pakistan Correspondent',
+    specialization: 'PCB & Team Selection',
+    bio: 'Ahsan is a senior cricket journalist and Pakistan correspondent, bringing insights directly from the team selection rooms.',
+    socials: {
+      twitter: 'https://twitter.com/ahsannagi'
+    },
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ahsan'
+  },
+  {
+    id: 'danyal-rasool',
+    name: 'Danyal Rasool',
+    role: 'Senior Pakistan Editor',
+    specialization: 'Analysis & Team Dynamics',
+    bio: 'Danyal Rasool covers Pakistan cricket with deep analytical insights, focusing on captaincy and structural transitions.',
+    socials: {
+      twitter: 'https://twitter.com/danyalrasool'
+    },
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Danyal'
+  },
+  {
+    id: 'cricinfo-staff',
+    name: 'Cricinfo staff',
+    role: 'Global Desk Correspondent',
+    specialization: 'Global Leagues & Match Coverage',
+    bio: 'Providing real-time breaking news, league summaries, and match updates from cricket leagues and international matches worldwide.',
+    avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Staff'
+  },
+  {
     id: 'hassan-tariq',
     name: 'Hassan Tariq',
     role: 'Senior Cricket Analyst',
@@ -86,25 +116,47 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: 'babar-azam-reappointed-test-captain-2026',
-    title: "The King Reclaims His Throne: Babar Azam Reappointed as Pakistan’s Test Captain for 2026 Tours",
-    summary: "In a massive development for Pakistan cricket, Babar Azam has officially returned to lead the national team in the longest format of the game. Reclaiming the reigns from Shan Masood for the upcoming West Indies and England Test tours.",
-    date: 'July 5, 2026',
-    category: 'Captaincy Alert',
-    path: '/news/babar-azam-reappointed-test-captain-2026',
-    icon: Trophy,
-    color: 'text-yellow-500',
-    authorId: 'hassan-tariq'
-  },
-  {
     id: 'pakistan-announce-test-squad-west-indies-england-2026',
-    title: "Pakistan Announce Test Squad for West Indies & England Tours — Babar Azam CAPTAIN, Shaheen OUT, Ubaid Shah Uncapped Debut, Saud Shakeel Fitness Doubt",
-    summary: "Pakistan announce a 16-member Test squad for the tours of West Indies and England. Babar Azam returns as captain, Shaheen Afridi is dropped, Ubaid Shah gets his maiden call-up, and Saud Shakeel has fitness concerns.",
-    date: 'July 5, 2026',
+    title: "Pakistan drop Shaheen, Hasan and Noman for West Indies and England Tests",
+    summary: "Saud Shakeel has been left out of the West Indies tour because of fitness issues, but Pakistan are expecting him to be back for the Tests in England",
+    date: '05-Jul-2026 • 1 hr ago',
     category: 'Squad Announcement',
     path: '/news/pakistan-announce-test-squad-west-indies-england-2026',
     icon: Shield,
     color: 'text-emerald-500',
+    authorId: 'ahsan-nagi'
+  },
+  {
+    id: 'babar-azam-reappointed-test-captain-2026',
+    title: "Babar Azam takes charge after Shan Masood is removed as Pakistan Test captain",
+    summary: "Babar Azam, in his second stint as Pakistan Test captain, will lead the side on their upcoming two-match Test series in the West Indies",
+    date: '05-Jul-2026 • 1 hr ago',
+    category: 'Captaincy Alert',
+    path: '/news/babar-azam-reappointed-test-captain-2026',
+    icon: Trophy,
+    color: 'text-yellow-500',
+    authorId: 'danyal-rasool'
+  },
+  {
+    id: 'pollard-bosch-star-mi-ny-2026',
+    title: "Pollard and Bosch star as MI NY leapfrog Freedom to reclaim No. 1 spot",
+    summary: "Jason Holder hammered 43 off 22 balls late in LAKR's innings but it wasn't enough for a win",
+    date: '05-Jul-2026 • 1 hr ago',
+    category: 'Major League Cricket',
+    path: '/news/pollard-bosch-star-mi-ny-2026',
+    icon: Zap,
+    color: 'text-blue-400',
+    authorId: 'cricinfo-staff'
+  },
+  {
+    id: 'meet-pakistans-new-test-debutants-2026-tours',
+    title: "Meet Pakistan’s New Test Debutants for 2026 Tours | Domestic & List A Records",
+    summary: "Discover the impressive domestic, U-19, and List A performance records of Pakistan's fresh Test squad call-ups, including Azan Awais, Ubaid Shah, and Ali Usman.",
+    date: 'July 5, 2026',
+    category: 'Player Spotlight',
+    path: '/news/meet-pakistans-new-test-debutants-2026-tours',
+    icon: Users,
+    color: 'text-emerald-400',
     authorId: 'hassan-tariq'
   },
   {

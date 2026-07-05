@@ -16,6 +16,13 @@ export const NEWS_DATA: NewsItem[] = [
     summary: "Pakistan announce 16-member Test squad for West Indies (July 25–Aug 6) and England (Aug 19–Sep 13) 2026. Babar Azam captain, Shaheen Shah Afridi dropped, Ubaid Shah uncapped, Saud Shakeel fitness concern. Full squad analysis, schedule and key talking points."
   },
   {
+    id: 'meet-pakistans-new-test-debutants-2026-tours',
+    title: "Meet Pakistan’s New Test Debutants for 2026 Tours | Domestic & List A Records",
+    date: 'July 5, 2026',
+    tag: 'Player Spotlight',
+    summary: "Discover the impressive domestic, U-19, and List A performance records of Pakistan's fresh Test squad call-ups, including Azan Awais, Ubaid Shah, and Ali Usman."
+  },
+  {
     id: 'pakistan-vs-australia-2nd-odi-lahore-preview-june-2-2026',
     title: "Pakistan vs Australia 2nd ODI — Lahore Preview, Pitch Report & Match Prediction",
     date: 'May 31, 2026',

@@ -143,6 +143,8 @@ const BabarAzamReturnTestCaptainBlog = lazy(() => import('./pages/BabarAzamRetur
 const VaibhavSooryavanshiDebutBlog = lazy(() => import('./pages/VaibhavSooryavanshiDebutBlog'));
 const PakistanTestSquad2026Blog = lazy(() => import('./pages/PakistanTestSquad2026Blog'));
 const BabarAzamReappointedCaptain2026Blog = lazy(() => import('./pages/BabarAzamReappointedCaptain2026Blog'));
+const PollardBoschStarMiNyBlog = lazy(() => import('./pages/PollardBoschStarMiNyBlog'));
+const PakistanNewTestDebutants2026Blog = lazy(() => import('./pages/PakistanNewTestDebutants2026Blog'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -305,6 +307,8 @@ export default function App() {
               <Route path="/news/vaibhav-sooryavanshi-youngest-debut-sachin-record-2026" element={<VaibhavSooryavanshiDebutBlog />} />
               <Route path="/news/babar-azam-reappointed-test-captain-2026" element={<BabarAzamReappointedCaptain2026Blog />} />
               <Route path="/news/pakistan-announce-test-squad-west-indies-england-2026" element={<PakistanTestSquad2026Blog />} />
+              <Route path="/news/pollard-bosch-star-mi-ny-2026" element={<PollardBoschStarMiNyBlog />} />
+              <Route path="/news/meet-pakistans-new-test-debutants-2026-tours" element={<PakistanNewTestDebutants2026Blog />} />
               <Route path="/news/australia-odi-squad-pakistan-tour-2026-announcement" element={<AusOdiSquadPak2026 />} />
               <Route path="/squad/australia-odi-2026" element={<AustraliaOdiSquadPage />} />
               <Route path="/news/match-preview-dhaka-test" element={<MatchPreviewBangladesh />} />

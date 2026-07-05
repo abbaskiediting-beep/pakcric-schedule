@@ -50,7 +50,7 @@ export default function BabarAzamReappointedCaptain2026Blog() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Helmet>
-        <title>The King Reclaims His Throne: Babar Azam Reappointed Test Captain | PakCric</title>
+        <title>Babar Azam takes charge after Shan Masood is removed as Pakistan Test captain | PakCric</title>
         <meta name="description" content="Official announcement: Babar Azam returns as Pakistan's Test captain for the 2026 West Indies and England tours, taking over from Shan Masood. Read full stats and career milestones." />
         <meta name="keywords" content="Babar Azam, Babar Azam captain, Pakistan Test Captain 2026, Babar Azam captaincy record, Pakistan cricket news" />
       </Helmet>
@@ -82,22 +82,22 @@ export default function BabarAzamReappointedCaptain2026Blog() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold leading-[0.95] tracking-tight uppercase">
-                The King Reclaims <br />
-                <span className="text-emerald-500 italic">His Throne</span>: Babar Reappointed
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] tracking-tight uppercase">
+                Babar Azam takes charge <br />
+                after <span className="text-emerald-500 italic">Shan Masood</span> is removed
               </h1>
               
               <p className="text-lg md:text-xl text-white/70 font-medium leading-relaxed max-w-3xl pt-4">
-                In a massive development for Pakistan cricket, Babar Azam has officially returned to lead the national team in the longest format of the game.
+                Babar Azam, in his second stint as Pakistan Test captain, will lead the side on their upcoming two-match Test series in the West Indies.
               </p>
 
               <div className="flex items-center gap-3 pt-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">
-                  HT
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm uppercase">
+                  dr
                 </div>
                 <div>
-                  <h5 className="text-sm font-bold text-white uppercase">Hassan Tariq</h5>
-                  <p className="text-xs text-white/40 font-medium uppercase tracking-wider">Senior Cricket Analyst</p>
+                  <h5 className="text-sm font-bold text-white uppercase">Danyal Rasool</h5>
+                  <p className="text-xs text-white/40 font-medium uppercase tracking-wider">Senior Pakistan Editor</p>
                 </div>
               </div>
             </motion.div>

@@ -148,8 +148,8 @@ const MegaMenu = () => (
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-pak-green/10 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left relative z-10">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-left relative z-10">
+        <div className="col-span-1 md:col-span-3">
           <h4 className="text-[10px] font-black uppercase tracking-[4px] text-pak-green mb-8 flex items-center gap-2">
             <Trophy className="w-3 h-3" /> Tournaments
           </h4>
@@ -170,9 +170,17 @@ const MegaMenu = () => (
               <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">Australia Tour</span>
               <span className="text-[8px] text-white/20 uppercase tracking-widest">3 ODIs • May/June</span>
             </Link>
+            <Link to="/news?series=pak-vs-wi" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">West Indies Tour</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Test Series • July/Aug</span>
+            </Link>
+            <Link to="/news?series=pak-vs-eng" className="group/link block">
+              <span className="text-[12px] font-bold text-white/50 group-hover/link:text-pak-green transition-colors uppercase block">England Tour</span>
+              <span className="text-[8px] text-white/20 uppercase tracking-widest">Test Series • Aug/Sept</span>
+            </Link>
           </div>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 md:col-span-3">
           <h4 className="text-[10px] font-black uppercase tracking-[4px] text-blue-500 mb-8 flex items-center gap-2">
             <Target className="w-3 h-3" /> Analysis Hub
           </h4>
@@ -191,18 +199,26 @@ const MegaMenu = () => (
             </Link>
           </div>
         </div>
-        <div className="col-span-2">
-          <div className="bg-white/[0.03] border border-white/5 rounded-[32px] p-8 h-full relative overflow-hidden group/card hover:border-pak-green/20 transition-all">
-             <div className="flex justify-between items-start mb-6">
-                <span className="px-3 py-1 bg-pak-green/20 text-pak-green rounded-full text-[8px] font-black uppercase tracking-widest">Hot Topic</span>
-                <Clock className="w-4 h-4 text-white/20" />
+        <div className="col-span-1 md:col-span-6">
+          <div className="bg-white/[0.03] border border-white/5 rounded-[28px] p-6 h-full relative overflow-hidden group/card hover:border-pak-green/20 transition-all flex flex-col justify-between">
+             <div>
+               <div className="flex justify-between items-start mb-4">
+                  <span className="px-3 py-1 bg-pak-green/20 text-pak-green rounded-full text-[8px] font-black uppercase tracking-widest">Hot Topic</span>
+                  <Clock className="w-4 h-4 text-white/20" />
+               </div>
+               <h4 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight text-white mb-2.5 leading-tight">
+                 The King Reclaims His Throne: Babar Azam Reappointed Captain
+               </h4>
+               <p className="text-[10px] md:text-[11px] text-ink/60 uppercase leading-relaxed mb-4 font-medium">
+                 Babar Azam has officially returned to lead Pakistan in the longest format of the game for the upcoming 2026 Test tours of the West Indies and England.
+               </p>
              </div>
-             <h4 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white mb-4">The New Red-Ball Era begins in Dhaka</h4>
-             <p className="text-[11px] text-ink/60 uppercase leading-relaxed mb-6 font-medium">How Pakistan's selection transition marks a pivotal shift in domestic-to-international tactical integration.</p>
-             <Link to="/news/match-preview-dhaka-test" className="inline-flex items-center gap-3 text-[10px] font-black text-pak-green uppercase tracking-[4px] group-hover/card:translate-x-2 transition-transform">
-               Explore Insight <ChevronRight className="w-4 h-4" />
-             </Link>
-             <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/10 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2" />
+             <div>
+               <Link to="/news/babar-azam-reappointed-test-captain-2026" className="inline-flex items-center gap-2 text-[9px] font-black text-pak-green uppercase tracking-[3px] group-hover/card:translate-x-1.5 transition-transform">
+                 Explore Insight <ChevronRight className="w-3.5 h-3.5" />
+               </Link>
+             </div>
+             <div className="absolute top-0 right-0 w-32 h-32 bg-pak-green/10 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
         </div>
       </div>
@@ -288,14 +304,17 @@ export default function Blogs() {
       const keywords: Record<string, string[]> = {
         'pak-vs-ban': ['BANGLADESH', 'BAN', 'DHAKA', 'CHATTOGRAM'],
         'psl-11': ['PSL', 'ZALMI', 'SULTANS', 'KINGSMEN', 'UNITED', 'GLADIATORS', 'BABAR', 'LAHORE', 'KARACHI'],
-        'pak-vs-aus': ['AUSTRALIA', 'AUS', 'ODI']
+        'pak-vs-aus': ['AUSTRALIA', 'AUS', 'ODI'],
+        'pak-vs-wi': ['WEST INDIES', 'WI', 'CARIBBEAN', 'DEBUTANTS'],
+        'pak-vs-eng': ['ENGLAND', 'ENG', 'LORD\'S', 'LONDONS', 'SOORYAVANSHI', 'BEN STOKES', 'DEBUTANTS']
       };
       
       const currentKeywords = keywords[seriesFilter] || [];
       seriesMatch = currentKeywords.some(kw => 
         (post.title?.toUpperCase() || '').includes(kw) || 
         (post.summary?.toUpperCase() || '').includes(kw) ||
-        (post.category?.toUpperCase() || '').includes(kw)
+        (post.category?.toUpperCase() || '').includes(kw) ||
+        (post.id?.toUpperCase() || '').includes(kw)
       );
     }
 
@@ -370,6 +389,8 @@ export default function Blogs() {
           activeValue={selectedMonth}
           onSelect={(val) => setSelectedMonth(val)}
           items={[
+            { name: 'July 2026', value: 'July' },
+            { name: 'June 2026', value: 'June' },
             { name: 'May 2026', value: 'May' },
             { name: 'April 2026', value: 'April' },
             { name: 'March 2026', value: 'March' }
@@ -380,10 +401,12 @@ export default function Blogs() {
           <HoverDropdown 
             label="Featured" 
             items={[
+              { name: 'PAK vs WI 2026', path: '/news?series=pak-vs-wi', icon: Target, desc: 'West Indies Tour' },
+              { name: 'PAK vs ENG 2026', path: '/news?series=pak-vs-eng', icon: Trophy, desc: 'England Tour' },
               { name: 'PAK vs BAN 2026', path: '/news?series=pak-vs-ban', icon: Target, desc: 'Complete Tour Coverage' },
               { name: 'WTC Analysis', path: '/news/pakistan-vs-bangladesh-wtc-analysis-2025-2027', icon: BarChart3, desc: 'Qualification Scenarios' },
               { name: 'PSL 11 Finals', path: '/news?series=psl-11', icon: Trophy, desc: 'Season Review' },
-              { name: 'PAK vs AUS 2026', path: '/news?series=pak-vs-aus', icon: Shield, desc: 'Upcoming 3 ODIs' }
+              { name: 'PAK vs AUS 2026', path: '/news?series=pak-vs-aus', icon: Shield, desc: 'Recent 3 ODIs' }
             ]} 
           />
         </div>
@@ -410,7 +433,9 @@ export default function Blogs() {
               Showing news for: <span className="text-pak-green text-sm ml-2">
                 {seriesFilter === 'pak-vs-ban' ? 'Pakistan vs Bangladesh 2026' : 
                  seriesFilter === 'psl-11' ? 'PSL 11 - 2026' : 
-                 seriesFilter === 'pak-vs-aus' ? 'Australia Tour 2026' : seriesFilter}
+                 seriesFilter === 'pak-vs-aus' ? 'Australia Tour 2026' : 
+                 seriesFilter === 'pak-vs-wi' ? 'West Indies Tour 2026' : 
+                 seriesFilter === 'pak-vs-eng' ? 'England Tour 2026' : seriesFilter}
               </span>
             </span>
           </div>
@@ -435,10 +460,17 @@ export default function Blogs() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 md:mb-12 border-l-4 border-pak-green pl-4 md:pl-6 gap-4">
             <div>
               <h2 className="text-lg md:text-4xl font-display font-black uppercase tracking-tight text-white mb-1 md:mb-2 leading-tight">
-                {seriesFilter !== 'all' ? 'Series' : selectedMonth !== 'all' ? 'Archive' : 'Insights'}: <span className="text-pak-green italic">
-                  {seriesFilter !== 'all' ? seriesFilter.replace(/-/g, ' ').toUpperCase() : 
+                {seriesFilter !== 'all' ? 'Series' : selectedMonth !== 'all' ? 'Archive' : 'Pakistan Cricket'}: <span className="text-pak-green italic">
+                  {seriesFilter !== 'all' ? (
+                     seriesFilter === 'pak-vs-ban' ? 'PAK VS BAN' :
+                     seriesFilter === 'psl-11' ? 'PSL 11' :
+                     seriesFilter === 'pak-vs-aus' ? 'PAK VS AUS' :
+                     seriesFilter === 'pak-vs-wi' ? 'PAK VS WI' :
+                     seriesFilter === 'pak-vs-eng' ? 'PAK VS ENG' :
+                     seriesFilter.replace(/-/g, ' ').toUpperCase()
+                   ) : 
                    selectedMonth !== 'all' ? `${selectedMonth} 2026` : 
-                   sortBy === 'popular' ? 'Popular' : 'The Feed'}
+                   sortBy === 'popular' ? 'Popular' : 'News'}
                 </span>
               </h2>
               <p className="text-[9px] md:text-sm text-ink/40 font-bold uppercase tracking-widest">Found {filteredPosts.length} matches</p>

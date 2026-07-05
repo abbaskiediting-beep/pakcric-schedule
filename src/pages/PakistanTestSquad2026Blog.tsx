@@ -77,8 +77,8 @@ export default function PakistanTestSquad2026Blog() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Helmet>
-        <title>Pakistan Test Squad West Indies England 2026 | Babar Captain, Shaheen Out | PakCric</title>
-        <meta name="description" content="Official squad announced: Pakistan announce 16-member Test squad for West Indies and England tours. Babar Azam appointed captain, Shaheen Shah Afridi dropped, Ubaid Shah uncapped debut. Complete squad analysis, schedules and analysis." />
+        <title>Pakistan drop Shaheen, Hasan and Noman for West Indies and England Tests | PakCric</title>
+        <meta name="description" content="Official squad announced: Pakistan announce 16-member Test squad for West Indies and England tours. Shaheen Shah Afridi dropped, Saud Shakeel fitness doubt. Complete squad analysis." />
         <meta name="keywords" content="Pakistan Test Squad 2026, Babar Azam Test Captain, Shaheen Shah Afridi dropped, Ubaid Shah debut, Saud Shakeel, Pakistan vs England 2026, Pakistan vs West Indies 2026" />
       </Helmet>
 
@@ -109,22 +109,22 @@ export default function PakistanTestSquad2026Blog() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold leading-[0.95] tracking-tight uppercase">
-                Pakistan <span className="text-emerald-500 italic">Test Squad</span> <br />
-                For WI & ENG Tours Announced
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] tracking-tight uppercase">
+                Pakistan drop <span className="text-emerald-500 italic">Shaheen, Hasan</span> <br />
+                and Noman for Tests
               </h1>
               
               <p className="text-lg md:text-xl text-white/70 font-medium leading-relaxed max-w-3xl pt-4">
-                Babar Azam is confirmed as Captain, Shaheen Shah Afridi is dropped in a historic decision, Naseem's younger brother Ubaid Shah earns a maiden call-up, and Saud Shakeel remains a fitness concern.
+                Saud Shakeel has been left out of the West Indies tour because of fitness issues, but Pakistan are expecting him to be back for the Tests in England.
               </p>
 
               <div className="flex items-center gap-3 pt-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">
-                  HT
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm uppercase">
+                  an
                 </div>
                 <div>
-                  <h5 className="text-sm font-bold text-white uppercase">Hassan Tariq</h5>
-                  <p className="text-xs text-white/40 font-medium uppercase tracking-wider">Senior Cricket Analyst</p>
+                  <h5 className="text-sm font-bold text-white uppercase">Ahsan Iftikhar Nagi</h5>
+                  <p className="text-xs text-white/40 font-medium uppercase tracking-wider">Pakistan Correspondent</p>
                 </div>
               </div>
             </motion.div>
