@@ -2,6 +2,20 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'babar-azam-reappointed-test-captain-2026',
+    title: "The King Reclaims His Throne: Babar Azam Reappointed as Pakistan’s Test Captain for 2026 Tours",
+    date: 'July 5, 2026',
+    tag: 'Captaincy Alert',
+    summary: "Babar Azam returns to lead Pakistan's Test side for the West Indies and England tours in 2026, reclaiming the captaincy from Shan Masood. View his captaincy record, milestones and squad dynamics."
+  },
+  {
+    id: 'pakistan-announce-test-squad-west-indies-england-2026',
+    title: "Pakistan Announce Test Squad for West Indies & England Tours — Babar Azam CAPTAIN, Shaheen OUT, Ubaid Shah Uncapped Debut, Saud Shakeel Fitness Doubt",
+    date: 'July 5, 2026',
+    tag: 'Squad Alert',
+    summary: "Pakistan announce 16-member Test squad for West Indies (July 25–Aug 6) and England (Aug 19–Sep 13) 2026. Babar Azam captain, Shaheen Shah Afridi dropped, Ubaid Shah uncapped, Saud Shakeel fitness concern. Full squad analysis, schedule and key talking points."
+  },
+  {
     id: 'pakistan-vs-australia-2nd-odi-lahore-preview-june-2-2026',
     title: "Pakistan vs Australia 2nd ODI — Lahore Preview, Pitch Report & Match Prediction",
     date: 'May 31, 2026',

@@ -47,8 +47,58 @@ export const AUSTRALIA_ODI_SQUAD_PAK_2026: Squad = {
   ]
 };
 
+export const PAKISTAN_TEST_SQUAD_WI_2026: Squad = {
+  series: 'Pakistan Tour of West Indies 2026 (Test Series)',
+  format: 'Test',
+  team: 'Pakistan',
+  players: [
+    { name: 'Babar Azam', description: 'Captain / Right-hand bat' },
+    { name: 'Aamir Jamal', description: 'Right-arm fast-medium allrounder' },
+    { name: 'Abdullah Fazal', description: 'Left-hand bat (opener)' },
+    { name: 'Ali Usman', description: 'Left-arm spin allrounder' },
+    { name: 'Azan Awais', description: 'Left-hand bat (opener)' },
+    { name: 'Imam-ul-Haq', description: 'Left-hand bat (opener)' },
+    { name: 'Khurram Shahzad', description: 'Right-arm fast' },
+    { name: 'Mohammad Abbas', description: 'Right-arm medium-fast' },
+    { name: 'Mohammad Ali', description: 'Right-arm fast' },
+    { name: 'Mohammad Rizwan', description: 'Wicketkeeper-Batter' },
+    { name: 'Muhammad Awais Zafar', description: 'Right-hand bat' },
+    { name: 'Muhammad Ghazi Ghori', description: 'Wicketkeeper-Batter' },
+    { name: 'Sajid Khan', description: 'Right-arm off-spin' },
+    { name: 'Salman Ali Agha', description: 'Right-hand bat / Off-spin' },
+    { name: 'Saud Shakeel', description: 'Left-hand bat' },
+    { name: 'Shan Masood', description: 'Left-hand bat (opener)' },
+    { name: 'Ubaid Shah', description: 'Right-arm fast' }
+  ]
+};
+
+export const PAKISTAN_TEST_SQUAD_ENG_2026: Squad = {
+  series: 'Pakistan Tour of England 2026 (Test Series)',
+  format: 'Test',
+  team: 'Pakistan',
+  players: [
+    { name: 'Babar Azam', description: 'Captain / Right-hand bat' },
+    { name: 'Aamir Jamal', description: 'Right-arm fast-medium allrounder' },
+    { name: 'Abdullah Fazal', description: 'Left-hand bat (opener)' },
+    { name: 'Ali Usman', description: 'Left-arm spin allrounder' },
+    { name: 'Azan Awais', description: 'Left-hand bat (opener)' },
+    { name: 'Imam-ul-Haq', description: 'Left-hand bat (opener)' },
+    { name: 'Khurram Shahzad', description: 'Right-arm fast' },
+    { name: 'Mohammad Abbas', description: 'Right-arm medium-fast' },
+    { name: 'Mohammad Ali', description: 'Right-arm fast' },
+    { name: 'Mohammad Rizwan', description: 'Wicketkeeper-Batter' },
+    { name: 'Muhammad Awais Zafar', description: 'Right-hand bat' },
+    { name: 'Muhammad Ghazi Ghori', description: 'Wicketkeeper-Batter' },
+    { name: 'Sajid Khan', description: 'Right-arm off-spin' },
+    { name: 'Salman Ali Agha', description: 'Right-hand bat / Off-spin' },
+    { name: 'Saud Shakeel', description: 'Left-hand bat (Subject to fitness)' },
+    { name: 'Shan Masood', description: 'Left-hand bat (opener)' },
+    { name: 'Ubaid Shah', description: 'Right-arm fast' }
+  ]
+};
+
 export const ALL_SQUADS: Squad[] = [
-  PAKISTAN_ODI_SQUAD_AUS_2026,
-  AUSTRALIA_ODI_SQUAD_PAK_2026
+  PAKISTAN_TEST_SQUAD_WI_2026,
+  PAKISTAN_TEST_SQUAD_ENG_2026
 ];
 

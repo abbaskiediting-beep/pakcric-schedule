@@ -86,6 +86,28 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'babar-azam-reappointed-test-captain-2026',
+    title: "The King Reclaims His Throne: Babar Azam Reappointed as Pakistan’s Test Captain for 2026 Tours",
+    summary: "In a massive development for Pakistan cricket, Babar Azam has officially returned to lead the national team in the longest format of the game. Reclaiming the reigns from Shan Masood for the upcoming West Indies and England Test tours.",
+    date: 'July 5, 2026',
+    category: 'Captaincy Alert',
+    path: '/news/babar-azam-reappointed-test-captain-2026',
+    icon: Trophy,
+    color: 'text-yellow-500',
+    authorId: 'hassan-tariq'
+  },
+  {
+    id: 'pakistan-announce-test-squad-west-indies-england-2026',
+    title: "Pakistan Announce Test Squad for West Indies & England Tours — Babar Azam CAPTAIN, Shaheen OUT, Ubaid Shah Uncapped Debut, Saud Shakeel Fitness Doubt",
+    summary: "Pakistan announce a 16-member Test squad for the tours of West Indies and England. Babar Azam returns as captain, Shaheen Afridi is dropped, Ubaid Shah gets his maiden call-up, and Saud Shakeel has fitness concerns.",
+    date: 'July 5, 2026',
+    category: 'Squad Announcement',
+    path: '/news/pakistan-announce-test-squad-west-indies-england-2026',
+    icon: Shield,
+    color: 'text-emerald-500',
+    authorId: 'hassan-tariq'
+  },
+  {
     id: 'vaibhav-sooryavanshi-youngest-debut-sachin-record-2026',
     title: "Historic Debut: 15-Year-Old Sensation Vaibhav Sooryavanshi Shatters Sachin Tendulkar’s Record Against England",
     summary: "History was written at Old Trafford as India's 15-year-old batting prodigy Vaibhav Sooryavanshi made his senior international debut, eclipsing Sachin Tendulkar's 36-year-old record as India's youngest debutant.",

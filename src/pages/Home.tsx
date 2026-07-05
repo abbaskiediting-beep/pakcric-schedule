@@ -375,10 +375,26 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "babar-azam-reappointed-test-captain-2026",
+                title: "Babar Azam Reappointed as Test Captain",
+                tag: "Captaincy Alert",
+                icon: <Trophy className="w-5 h-5 text-white animate-bounce" />,
+                color: "bg-yellow-600/90 hover:bg-yellow-600",
+                borderColor: "border-yellow-500/30"
+              },
+              {
+                id: "pakistan-announce-test-squad-west-indies-england-2026",
+                title: "Pakistan Test Squad for WI & ENG Tours Announced",
+                tag: "Squad Alert",
+                icon: <Shield className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-emerald-600/90 hover:bg-emerald-600",
+                borderColor: "border-emerald-500/30"
+              },
+              {
                 id: "vaibhav-sooryavanshi-youngest-debut-sachin-record-2026",
                 title: "Vaibhav Sooryavanshi Shatters Sachin's Record",
                 tag: "Historic Debut",
-                icon: <Zap className="w-5 h-5 text-white animate-pulse" />,
+                icon: <Zap className="w-5 h-5 text-white" />,
                 color: "bg-amber-600/90 hover:bg-amber-600",
                 borderColor: "border-amber-500/30"
               },
@@ -386,7 +402,7 @@ export default function Home() {
                 id: "babar-azam-returns-as-pakistan-test-captain-2026",
                 title: "Babar Azam Returns as Test Captain",
                 tag: "Breaking News",
-                icon: <Zap className="w-5 h-5 text-white animate-pulse" />,
+                icon: <Zap className="w-5 h-5 text-white" />,
                 color: "bg-yellow-600/90 hover:bg-yellow-600",
                 borderColor: "border-yellow-500/30"
               },
@@ -397,44 +413,11 @@ export default function Home() {
                 icon: <Trophy className="w-5 h-5 text-white" />,
                 color: "bg-rose-600/90 hover:bg-rose-600",
                 borderColor: "border-rose-500/30"
-              },
-              {
-                id: "babar-azam-chasing-fastest-7000-odi-runs-record-2026",
-                path: "/news/babar-azam-fastest-7000-odi-runs-record-2026-analysis",
-                title: "Babar Azam Chasing 7,000 ODI Runs",
-                tag: "Record Alert",
-                icon: <Target className="w-5 h-5" />,
-                color: "bg-pak-green",
-                borderColor: "border-pak-green"
-              },
-              {
-                id: "bangladesh-complete-historic-2-0-series-sweep-sylhet-2026",
-                title: "BAN Complete Historic 2-0 Series Sweep",
-                tag: "Historic Sweep",
-                icon: <Trophy className="w-5 h-5 text-white" />,
-                color: "bg-red-600",
-                borderColor: "border-red-600"
-              },
-              {
-                id: "shan-masood-71-vs-bangladesh-2nd-test-2026-report",
-                title: "Shan Masood's Brave 71 as Captain",
-                tag: "Captain's Grit",
-                icon: <Shield className="w-5 h-5" />,
-                color: "bg-pak-green",
-                borderColor: "border-pak-green"
-              },
-              {
-                id: "mohammad-rizwan-75-unbeaten-sylhet-heroics-2026",
-                title: "Rizwan's Unbeaten 75 Stuns BAN",
-                tag: "Player Feature",
-                icon: <Star className="w-5 h-5" />,
-                color: "bg-pak-green",
-                borderColor: "border-pak-green"
               }
             ].map((news) => (
               <Link 
                 key={news.id}
-                to={news.path || `/news/${news.id}`}
+                to={`/news/${news.id}`}
                 className={`flex items-center justify-between p-4 ${news.color} border ${news.borderColor} rounded-2xl group hover:opacity-90 transition-all font-bold shadow-lg`}
               >
                 <div className="flex items-center gap-4">
