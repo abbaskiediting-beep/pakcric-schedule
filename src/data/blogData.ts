@@ -116,6 +116,17 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'babar-azam-test-captaincy-record-stats-analysis',
+    title: "Babar Azam's Test Captaincy Record: Leadership, Statistics, and Legacy",
+    summary: "Explore Babar Azam's complete Test captaincy record, including matches, wins, batting average as captain, highest score, memorable victories, challenges, and his leadership legacy for Pakistan.",
+    date: '05-Jul-2026 • 2 hrs ago',
+    category: 'Stats & Analysis',
+    path: '/news/babar-azam-test-captaincy-record-stats-analysis',
+    icon: BarChart3,
+    color: 'text-yellow-500',
+    authorId: 'zainab-rashid'
+  },
+  {
     id: 'pakistan-announce-test-squad-west-indies-england-2026',
     title: "Pakistan drop Shaheen, Hasan and Noman for West Indies and England Tests",
     summary: "Saud Shakeel has been left out of the West Indies tour because of fitness issues, but Pakistan are expecting him to be back for the Tests in England",
