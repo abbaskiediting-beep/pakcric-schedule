@@ -11,45 +11,7 @@ export default defineConfig(({mode}) => {
       react(), 
       tailwindcss(),
       VitePWA({
-        registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
-        manifest: {
-          name: 'PakCric - Pakistan Cricket Schedule & Hub',
-          short_name: 'PakCric',
-          description: 'Official schedule, news and squad analysis for Pakistan Cricket.',
-          theme_color: '#01411e',
-          icons: [
-            {
-              src: 'pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
-            }
-          ]
-        },
-        workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-          runtimeCaching: [
-            {
-              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'google-fonts-cache',
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-                },
-                cacheableResponse: {
-                  statuses: [0, 200]
-                }
-              }
-            }
-          ]
-        }
+        selfDestroying: true
       })
     ],
     define: {

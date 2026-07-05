@@ -68,7 +68,7 @@ async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa",
+      appType: "custom",
     });
     app.use(vite.middlewares);
   } else {
