@@ -116,6 +116,17 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'babar-azam-reclaim-t20-captaincy-2026',
+    title: "The Ultimate U-Turn? Why Babar Azam is Set to Reclaim Pakistan’s T20I Captaincy",
+    summary: "Babar Azam is highly likely to be reappointed as the T20I captain of the national team, replacing Salman Ali Agha. Is this a step forward, or is Pakistan cricket moving backward?",
+    date: '08-Jul-2026 • Just now',
+    category: 'T20I',
+    path: '/news/babar-azam-reclaim-t20-captaincy-2026',
+    icon: Shield,
+    color: 'text-emerald-500',
+    authorId: 'syed-abbas'
+  },
+  {
     id: 'babar-azam-test-captaincy-record-stats-analysis',
     title: "Babar Azam's Test Captaincy Record: Leadership, Statistics, and Legacy",
     summary: "Explore Babar Azam's complete Test captaincy record, including matches, wins, batting average as captain, highest score, memorable victories, challenges, and his leadership legacy for Pakistan.",

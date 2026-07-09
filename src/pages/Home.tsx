@@ -27,14 +27,18 @@ export default function Home() {
   const bangladeshSeriesName = 'Pakistan Tour of Bangladesh (Test Series)';
   const bangladeshMatches = PAKISTAN_SCHEDULE.filter(m => m.series === bangladeshSeriesName);
   
-  // Get latest 3 blogs
+  // Get latest 5 blogs
   const latestBlogs = [...BLOG_POSTS]
     .sort((a, b) => {
-      const timeA = new Date(a.date).getTime();
-      const timeB = new Date(b.date).getTime();
-      return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
+      const getTimestamp = (dateStr: string) => {
+        if (!dateStr) return 0;
+        const clean = dateStr.split('•')[0].trim();
+        const t = new Date(clean).getTime();
+        return isNaN(t) ? 0 : t;
+      };
+      return getTimestamp(b.date) - getTimestamp(a.date);
     })
-    .slice(0, 3);
+    .slice(0, 5);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -471,7 +475,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {latestBlogs.map((blog, idx) => {
             const author = AUTHORS.find(a => a.id === blog.authorId);
             return (

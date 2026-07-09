@@ -3,6 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import compression from "compression";
 import { BLOG_POSTS } from "./src/data/blogData"; // Corrected import for TS fallback
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,6 +12,9 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const PORT = 3000;
+
+  // Use compression middleware to gzip static assets and HTML for fast mobile loads
+  app.use(compression());
 
   // Default SEO Meta Data
   const DEFAULT_META = {
@@ -73,7 +77,18 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath, { index: false }));
+    app.use(express.static(distPath, { 
+      index: false,
+      maxAge: '1d',
+      setHeaders: (res, filePath) => {
+        // Vite's built assets have unique hashes in their names, making them safe to cache long-term
+        if (filePath.includes('/assets/') || filePath.match(/\.(js|css|woff2?|eot|ttf|otf|png|jpe?g|gif|svg|webp|ico)$/i)) {
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        } else {
+          res.setHeader('Cache-Control', 'public, max-age=3600, must-revalidate');
+        }
+      }
+    }));
   }
 
   // Redirect trailing slashes (except root) and index.html

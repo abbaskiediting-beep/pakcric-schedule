@@ -323,9 +323,13 @@ export default function Blogs() {
 
   if (sortBy === 'latest') {
     filteredPosts.sort((a, b) => {
-      const timeA = new Date(a.date).getTime();
-      const timeB = new Date(b.date).getTime();
-      return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
+      const getTimestamp = (dateStr: string) => {
+        if (!dateStr) return 0;
+        const clean = dateStr.split('•')[0].trim();
+        const t = new Date(clean).getTime();
+        return isNaN(t) ? 0 : t;
+      };
+      return getTimestamp(b.date) - getTimestamp(a.date);
     });
   } else {
     // popular: sort by popularity keywords for demo
@@ -336,9 +340,13 @@ export default function Blogs() {
       
       if (aPopular !== bPopular) return bPopular - aPopular;
       // If both equally popular, keep chronological based on date
-      const timeA = new Date(a.date).getTime();
-      const timeB = new Date(b.date).getTime();
-      return (isNaN(timeB) ? 0 : timeB) - (isNaN(timeA) ? 0 : timeA);
+      const getTimestamp = (dateStr: string) => {
+        if (!dateStr) return 0;
+        const clean = dateStr.split('•')[0].trim();
+        const t = new Date(clean).getTime();
+        return isNaN(t) ? 0 : t;
+      };
+      return getTimestamp(b.date) - getTimestamp(a.date);
     });
   }
 
