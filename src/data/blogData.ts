@@ -116,6 +116,28 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'jofra-archer-reality-check-india-vaibhav-2026',
+    title: "\"Back to Normal Cricket\": Jofra Archer’s Reality Check for India and His Budding Rivalry with Vaibhav Sooryavanshi",
+    summary: "England's pace spearhead Jofra Archer highlights the stark differences between IPL batting paradises and international cricket in English conditions, opening up about his duel with 15-year-old Vaibhav Sooryavanshi.",
+    date: '09-Jul-2026 • Just now',
+    category: 'T20I Series',
+    path: '/news/jofra-archer-reality-check-india-vaibhav-2026',
+    icon: Newspaper,
+    color: 'text-rose-500',
+    authorId: 'sarfraz-khan'
+  },
+  {
+    id: 'vaibhav-sooryavanshi-debut-england-2026',
+    title: "The Teenager vs. The Cartel: Vaibhav Sooryavanshi’s Baptism of Fire in England",
+    summary: "At just 15 years old, Vaibhav Sooryavanshi made history as India's youngest-ever debutant, setting up a thrilling duel against Jofra Archer and facing England's hostile short-ball plan.",
+    date: '09-Jul-2026 • Just now',
+    category: 'T20I Series',
+    path: '/news/vaibhav-sooryavanshi-debut-england-2026',
+    icon: Star,
+    color: 'text-yellow-500',
+    authorId: 'sarfraz-khan'
+  },
+  {
     id: 'india-t20i-fortress-crumbled-2026',
     title: "Unwanted History: How India’s T20I Fortress Crumbled for the First Time Since 2018",
     summary: "Following a shocking defeat in Ireland and a brutal series loss in England, India has officially lost back-to-back T20I series for the first time since the 2018-19 season, surrendering their No. 1 ranking.",

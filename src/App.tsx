@@ -148,6 +148,8 @@ const BabarAzamReclaimT20CaptaincyBlog = lazy(() => import('./pages/BabarAzamRec
 const SarfarazBackingBabarTestReturnBlog = lazy(() => import('./pages/SarfarazBackingBabarTestReturnBlog'));
 const BristolBlitzBlog = lazy(() => import('./pages/BristolBlitzBlog'));
 const IndiaFortressCrumbledBlog = lazy(() => import('./pages/IndiaFortressCrumbledBlog'));
+const VaibhavSooryavanshiDebutEnglandBlog = lazy(() => import('./pages/VaibhavSooryavanshiDebutEnglandBlog'));
+const JofraArcherRealityCheckBlog = lazy(() => import('./pages/JofraArcherRealityCheckBlog'));
 const PollardBoschStarMiNyBlog = lazy(() => import('./pages/PollardBoschStarMiNyBlog'));
 const PakistanNewTestDebutants2026Blog = lazy(() => import('./pages/PakistanNewTestDebutants2026Blog'));
 const About = lazy(() => import('./pages/About'));
@@ -316,6 +318,8 @@ export default function App() {
               <Route path="/news/sarfaraz-backing-babar-test-return-2026" element={<SarfarazBackingBabarTestReturnBlog />} />
               <Route path="/news/bristol-blitz-eng-vs-ind-t20i-2026" element={<BristolBlitzBlog />} />
               <Route path="/news/india-t20i-fortress-crumbled-2026" element={<IndiaFortressCrumbledBlog />} />
+              <Route path="/news/vaibhav-sooryavanshi-debut-england-2026" element={<VaibhavSooryavanshiDebutEnglandBlog />} />
+              <Route path="/news/jofra-archer-reality-check-india-vaibhav-2026" element={<JofraArcherRealityCheckBlog />} />
               <Route path="/news/pakistan-announce-test-squad-west-indies-england-2026" element={<PakistanTestSquad2026Blog />} />
               <Route path="/news/pollard-bosch-star-mi-ny-2026" element={<PollardBoschStarMiNyBlog />} />
               <Route path="/news/meet-pakistans-new-test-debutants-2026-tours" element={<PakistanNewTestDebutants2026Blog />} />

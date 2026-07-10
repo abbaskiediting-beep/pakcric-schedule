@@ -21,8 +21,14 @@ export default function SetReminderButton({
   const [showFeedback, setShowFeedback] = useState(false);
 
   useEffect(() => {
-    const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
-    setIsReminderSet(savedReminders.includes(matchId));
+    const updateState = () => {
+      const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
+      setIsReminderSet(savedReminders.includes(matchId));
+    };
+    
+    updateState();
+    window.addEventListener('match_reminders_changed', updateState);
+    return () => window.removeEventListener('match_reminders_changed', updateState);
   }, [matchId]);
 
   const toggleReminder = () => {
@@ -74,6 +80,7 @@ export default function SetReminderButton({
 
     localStorage.setItem('match_reminders', JSON.stringify(newReminders));
     localStorage.setItem('saved_schedules', JSON.stringify(newSchedules));
+    window.dispatchEvent(new CustomEvent('match_reminders_changed', { detail: newReminders }));
   };
 
   return (

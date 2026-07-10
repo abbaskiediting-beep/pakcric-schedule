@@ -384,7 +384,8 @@ export default function Home() {
                 tag: "Captaincy Alert",
                 icon: <Trophy className="w-5 h-5 text-white animate-bounce" />,
                 color: "bg-yellow-600/90 hover:bg-yellow-600",
-                borderColor: "border-yellow-500/30"
+                borderColor: "border-yellow-500/30",
+                date: "July 5, 2026"
               },
               {
                 id: "pakistan-announce-test-squad-west-indies-england-2026",
@@ -392,7 +393,8 @@ export default function Home() {
                 tag: "Squad Alert",
                 icon: <Shield className="w-5 h-5 text-white animate-pulse" />,
                 color: "bg-emerald-600/90 hover:bg-emerald-600",
-                borderColor: "border-emerald-500/30"
+                borderColor: "border-emerald-500/30",
+                date: "July 5, 2026"
               },
               {
                 id: "vaibhav-sooryavanshi-youngest-debut-sachin-record-2026",
@@ -400,7 +402,8 @@ export default function Home() {
                 tag: "Historic Debut",
                 icon: <Zap className="w-5 h-5 text-white" />,
                 color: "bg-amber-600/90 hover:bg-amber-600",
-                borderColor: "border-amber-500/30"
+                borderColor: "border-amber-500/30",
+                date: "July 2026"
               },
               {
                 id: "babar-azam-returns-as-pakistan-test-captain-2026",
@@ -408,7 +411,8 @@ export default function Home() {
                 tag: "Breaking News",
                 icon: <Zap className="w-5 h-5 text-white" />,
                 color: "bg-yellow-600/90 hover:bg-yellow-600",
-                borderColor: "border-yellow-500/30"
+                borderColor: "border-yellow-500/30",
+                date: "July 2026"
               },
               {
                 id: "ben-stokes-retires-from-international-cricket-2026",
@@ -416,24 +420,35 @@ export default function Home() {
                 tag: "Retirement Tribute",
                 icon: <Trophy className="w-5 h-5 text-white" />,
                 color: "bg-rose-600/90 hover:bg-rose-600",
-                borderColor: "border-rose-500/30"
+                borderColor: "border-rose-500/30",
+                date: "June 2026"
               }
             ].map((news) => (
               <Link 
                 key={news.id}
                 to={`/news/${news.id}`}
-                className={`flex items-center justify-between p-4 ${news.color} border ${news.borderColor} rounded-2xl group hover:opacity-90 transition-all font-bold shadow-lg`}
+                className={`flex items-center justify-between p-4 ${news.color} border ${news.borderColor} rounded-2xl group hover:opacity-95 hover:scale-[1.01] transition-all font-bold shadow-lg`}
               >
                 <div className="flex items-center gap-4">
-                   <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                   <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white shrink-0">
                       {news.icon}
                    </div>
                    <div>
-                      <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1">{news.tag}</p>
-                      <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors">{news.title}</h5>
+                      <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span>{news.tag}</span>
+                        <span className="text-white/30 font-bold">•</span>
+                        <span className="text-white/70 font-semibold flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-white/60 shrink-0" />
+                          Published: {news.date}
+                        </span>
+                      </p>
+                      <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors mb-1.5">{news.title}</h5>
+                      <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
+                         Read Full Story <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
                    </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+                <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors shrink-0 ml-4" />
               </Link>
             ))}
 

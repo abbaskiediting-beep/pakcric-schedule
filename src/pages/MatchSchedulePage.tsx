@@ -1,4 +1,4 @@
-import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info, Share2, ChevronDown, ChevronUp, User, Target, Zap, Newspaper } from 'lucide-react';
+import { Trophy, ArrowLeft, ArrowUpDown, Filter, Search, ArrowRight, Calendar, MapPin, Clock, Globe, Info, Share2, ChevronDown, ChevronUp, User, Target, Zap, Newspaper, Bell, BellRing, Smartphone, Sparkles, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PAKISTAN_SCHEDULE } from '../constants';
 import { MATCH_RESULTS } from '../matchResultsData';
@@ -152,6 +152,111 @@ export default function MatchSchedulePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showSavedOnly, setShowSavedOnly] = useState(false);
+  const [showRemindersOnly, setShowRemindersOnly] = useState(false);
+
+  const [permission, setPermission] = useState<NotificationPermission>('default');
+  const [reminders, setReminders] = useState<string[]>(() => 
+    JSON.parse(localStorage.getItem('match_reminders') || '[]')
+  );
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    if ('Notification' in window) {
+      setPermission(Notification.permission);
+    }
+    const updateState = () => {
+      setReminders(JSON.parse(localStorage.getItem('match_reminders') || '[]'));
+    };
+    window.addEventListener('match_reminders_changed', updateState);
+    return () => window.removeEventListener('match_reminders_changed', updateState);
+  }, []);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 4000);
+  };
+
+  const requestNotificationPermission = async () => {
+    if (!('Notification' in window)) {
+      showToast("Web Notifications are not supported in your browser.");
+      return;
+    }
+
+    try {
+      const result = await Notification.requestPermission();
+      setPermission(result);
+      if (result === 'granted') {
+        showToast("🔔 Cricket notifications successfully enabled!");
+        try {
+          new Notification("🏏 Notification System Active!", {
+            body: "Awesome! You will receive alert notifications 30 minutes before Pakistan cricket matches start!",
+            icon: "https://flagcdn.com/pk.svg"
+          });
+        } catch (e) {
+          console.info("Notification shown successfully");
+        }
+      } else if (result === 'denied') {
+        showToast("⚠️ Notifications were blocked. Enable permissions in your browser URL panel.");
+      }
+    } catch (err) {
+      console.warn("Could not request notification permissions:", err);
+    }
+  };
+
+  const handleTestInstantPush = () => {
+    if (permission !== 'granted') {
+      requestNotificationPermission();
+      return;
+    }
+    if ('Notification' in window) {
+      try {
+        new Notification("🏏 TEST ALERT: Pakistan vs India", {
+          body: "High voltage clash! This is a test alert simulating a match starting in exactly 30 minutes!",
+          icon: 'https://flagcdn.com/pk.svg',
+          requireInteraction: true,
+          tag: 'pakcric-match-alert'
+        });
+      } catch (e) {
+        console.info("Fallback notification triggered");
+      }
+    }
+    showToast("🏏 Test alert dispatched! Check your device notifications.");
+  };
+
+  const toggleReminderInDashboard = (match: Match) => {
+    const isSet = reminders.includes(match.id);
+    let newReminders;
+    let newSchedules = JSON.parse(localStorage.getItem('saved_schedules') || '[]');
+
+    if (isSet) {
+      newReminders = reminders.filter(id => id !== match.id);
+      newSchedules = newSchedules.filter((id: string) => id !== match.id);
+      showToast(`Cancelled reminder for Pakistan vs ${match.opponent}`);
+    } else {
+      newReminders = [...reminders, match.id];
+      newSchedules = Array.from(new Set([...newSchedules, match.id]));
+      showToast(`Reminder set for Pakistan vs ${match.opponent}!`);
+      
+      if ('Notification' in window && Notification.permission === 'granted') {
+        try {
+          new Notification("🏏 Match Reminder Scheduled", {
+            body: `We will ping you 30 minutes before Pakistan vs ${match.opponent} starts!`,
+            icon: "https://flagcdn.com/pk.svg"
+          });
+        } catch (e) {
+          console.info("Notification shown successfully");
+        }
+      }
+    }
+
+    localStorage.setItem('match_reminders', JSON.stringify(newReminders));
+    localStorage.setItem('saved_schedules', JSON.stringify(newSchedules));
+    window.dispatchEvent(new CustomEvent('match_reminders_changed', { detail: newReminders }));
+  };
+
+  const nextThreeMatches = useMemo(() => {
+    return PAKISTAN_SCHEDULE.filter(m => m.status === 'Upcoming' || m.status === 'Today').slice(0, 3);
+  }, []);
 
   // Pull-to-refresh states
   const [pullY, setPullY] = useState(0);
@@ -213,6 +318,12 @@ export default function MatchSchedulePage() {
     if (showSavedOnly) {
       const savedSchedules = JSON.parse(localStorage.getItem('saved_schedules') || '[]');
       result = result.filter(m => savedSchedules.includes(m.id));
+    }
+
+    // Reminders Filter
+    if (showRemindersOnly) {
+      const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
+      result = result.filter(m => savedReminders.includes(m.id));
     }
 
     // Search
@@ -440,6 +551,151 @@ export default function MatchSchedulePage() {
         </div>
       </section>
 
+      {/* 🔔 Match Reminders Control Center */}
+      <section className="mb-16 bg-[#0E0E0E] border border-card-border rounded-3xl p-6 md:p-10 relative overflow-hidden group shadow-2xl">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-pak-green/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-amber-500/5 blur-[100px] rounded-full pointer-events-none" />
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+          {/* Left Block: Title, description, and Notification permission state */}
+          <div className="lg:col-span-5 space-y-5 md:space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-pak-green/10 border border-pak-green/20 flex items-center justify-center text-pak-green shadow-inner">
+                <BellRing className="w-6 h-6 animate-pulse" />
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-display font-bold uppercase tracking-tight text-white leading-tight">Reminders Control Hub</h3>
+                <p className="text-[10px] font-black text-pak-green uppercase tracking-widest">Active Match Alerts Center</p>
+              </div>
+            </div>
+
+            <p className="text-xs md:text-sm text-ink/70 leading-relaxed font-medium">
+              Toggle reminders instantly for specific matches. Our smart system fires device notifications <strong className="text-white">30 minutes before</strong> any match begins, keeping you in the game!
+            </p>
+
+            <div className="space-y-3 pt-2">
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                <span className="text-[10px] font-black uppercase tracking-wider text-ink/50">Push Status</span>
+                <span className={`px-2.5 py-1 rounded text-[9px] font-black uppercase tracking-widest border ${
+                  permission === 'granted' 
+                    ? 'bg-pak-green/10 text-pak-green border-pak-green/20' 
+                    : permission === 'denied' 
+                    ? 'bg-red-500/10 text-red-500 border-red-500/20' 
+                    : 'bg-white/5 text-ink/40 border-white/10'
+                }`}>
+                  {permission.toUpperCase()}
+                </span>
+              </div>
+
+              {permission !== 'granted' ? (
+                <button
+                  onClick={requestNotificationPermission}
+                  className="w-full py-3.5 bg-pak-green text-white font-extrabold text-[10px] uppercase tracking-widest rounded-xl hover:bg-emerald-600 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-pak-green/20 border-none"
+                >
+                  <Bell className="w-4 h-4" /> Enable Device Push Notifications
+                </button>
+              ) : (
+                <div className="flex gap-2.5 items-center p-3 bg-pak-green/5 border border-pak-green/10 rounded-xl text-pak-green">
+                  <Check className="w-4 h-4 shrink-0" />
+                  <span className="text-[9px] font-black uppercase tracking-widest">Active desktop signals allowed</span>
+                </div>
+              )}
+
+              {/* Simulation test triggers */}
+              <div className="grid grid-cols-2 gap-2.5 pt-1">
+                <button
+                  onClick={handleTestInstantPush}
+                  className="py-2.5 bg-white/5 hover:bg-white/10 border border-white/5 text-white rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-pak-green" /> Immediate Push Test
+                </button>
+                <button
+                  onClick={() => {
+                    const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
+                    if (savedReminders.length === 0) {
+                      showToast("Set reminders for matches first to see them here.");
+                      return;
+                    }
+                    setShowRemindersOnly(true);
+                    setFilterFormat('All');
+                    setShowSavedOnly(false);
+                    showToast("Showing your active reminders!");
+                  }}
+                  className="py-2.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-amber-500 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <Smartphone className="w-3.5 h-3.5 text-amber-500 animate-bounce" /> View My Reminders ({reminders.length})
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Block: Instant toggles list for next three upcoming matches */}
+          <div className="lg:col-span-7 space-y-4">
+            <h4 className="text-[10px] font-black uppercase tracking-wider text-ink/50 mb-1 flex items-center justify-between">
+              <span>Instant Toggle: Next 3 Upcoming Matches</span>
+              {reminders.length > 0 && (
+                <button 
+                  onClick={() => {
+                    localStorage.setItem('match_reminders', '[]');
+                    window.dispatchEvent(new CustomEvent('match_reminders_changed', { detail: [] }));
+                    showToast("Cleared all active reminders!");
+                  }}
+                  className="text-red-500 hover:underline hover:text-red-400 normal-case font-bold tracking-tight text-[10px] cursor-pointer bg-transparent border-none"
+                >
+                  Clear All Reminders
+                </button>
+              )}
+            </h4>
+
+            {nextThreeMatches.length > 0 ? (
+              <div className="space-y-3">
+                {nextThreeMatches.map((match) => {
+                  const isReminderActive = reminders.includes(match.id);
+                  return (
+                    <div 
+                      key={match.id}
+                      className={`flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white/[0.02] border rounded-2xl transition-all gap-4 ${
+                        isReminderActive ? 'border-amber-500/20 bg-amber-500/[0.02]' : 'border-white/5 hover:border-white/10'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-10 h-7 rounded overflow-hidden border border-white/5 shrink-0 bg-black/20">
+                          <img src={match.flagUrl} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-xs font-bold text-white block truncate uppercase tracking-tight">{match.title || `PAK vs ${match.opponent}`}</span>
+                          <span className="text-[10px] font-bold text-ink/40 block mt-0.5">{match.date} • {match.time} PKT • <span className="text-pak-green font-bold">{match.format}</span></span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-end gap-3.5">
+                        <button
+                          onClick={() => toggleReminderInDashboard(match)}
+                          className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all cursor-pointer flex items-center gap-1.5 border-none ${
+                            isReminderActive 
+                              ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' 
+                              : 'bg-white/5 hover:bg-white/10 text-white/70 hover:text-white border border-white/5'
+                          }`}
+                        >
+                          {isReminderActive ? <BellRing className="w-3.5 h-3.5 text-black" /> : <Bell className="w-3.5 h-3.5" />}
+                          {isReminderActive ? 'Reminder On' : 'Reminder Off'}
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="py-12 text-center bg-white/[0.01] border border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center">
+                <Trophy className="w-10 h-10 text-white/10 mb-2" />
+                <p className="text-[10px] font-bold uppercase tracking-widest text-ink/30">No Upcoming Matches Scheduled</p>
+                <p className="text-[9px] text-ink/20 font-semibold uppercase mt-1">Check back later for PCB fixture announcements.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Global Controls */}
       <div className="mb-10 md:mb-12 space-y-8 md:space-y-12 px-1">
         <div className="max-w-2xl">
@@ -511,9 +767,13 @@ export default function MatchSchedulePage() {
         {formats.map(f => (
           <button
             key={f}
-            onClick={() => setFilterFormat(f)}
+            onClick={() => {
+              setFilterFormat(f);
+              setShowSavedOnly(false);
+              setShowRemindersOnly(false);
+            }}
             className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 ${
-              filterFormat === f && !showSavedOnly
+              filterFormat === f && !showSavedOnly && !showRemindersOnly
                 ? 'bg-pak-green text-white shadow-pak-green/40 shadow-lg scale-105' 
                 : 'text-neutral-500 hover:text-ink hover:bg-white/5'
             }`}
@@ -524,8 +784,12 @@ export default function MatchSchedulePage() {
         <div className="w-px h-8 bg-white/10 mx-2 hidden md:block" />
         <button
           onClick={() => {
-            setShowSavedOnly(!showSavedOnly);
-            if (!showSavedOnly) setFilterFormat('All');
+            const nextVal = !showSavedOnly;
+            setShowSavedOnly(nextVal);
+            if (nextVal) {
+              setFilterFormat('All');
+              setShowRemindersOnly(false);
+            }
           }}
           className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 flex items-center gap-2 ${
             showSavedOnly 
@@ -535,6 +799,24 @@ export default function MatchSchedulePage() {
         >
           <Target className="w-3.5 h-3.5" />
           Saved Offline
+        </button>
+        <button
+          onClick={() => {
+            const nextVal = !showRemindersOnly;
+            setShowRemindersOnly(nextVal);
+            if (nextVal) {
+              setFilterFormat('All');
+              setShowSavedOnly(false);
+            }
+          }}
+          className={`whitespace-nowrap px-6 md:px-10 py-2.5 md:py-3 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-[2px] md:tracking-[3px] transition-all duration-300 snap-start shrink-0 flex items-center gap-2 ${
+            showRemindersOnly 
+              ? 'bg-amber-500 text-black shadow-amber-500/40 shadow-lg scale-105' 
+              : 'text-neutral-500 hover:text-ink hover:bg-white/5'
+          }`}
+        >
+          <Bell className="w-3.5 h-3.5 animate-pulse" />
+          Active Reminders ({reminders.length})
         </button>
       </div>
 
@@ -1077,6 +1359,24 @@ export default function MatchSchedulePage() {
           <button className="px-6 py-2.5 rounded-full bg-pak-green text-white text-[9px] font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">Export PDF</button>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="fixed bottom-24 right-4 sm:right-10 z-[140] bg-[#1a1a1b] border border-pak-green/30 text-white px-5 py-4 rounded-2xl shadow-3xl max-w-sm flex items-start gap-3.5 backdrop-blur-xl"
+          >
+            <Check className="w-5 h-5 text-pak-green mt-0.5 shrink-0" />
+            <div>
+              <p className="text-xs font-black tracking-wider uppercase text-pak-green mb-0.5">Reminders Center</p>
+              <p className="text-[11px] font-medium text-ink/80 leading-relaxed">{toastMessage}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

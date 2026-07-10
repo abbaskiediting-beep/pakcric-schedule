@@ -99,13 +99,18 @@ export default function PushNotificationManager({ isOpen = false, onClose }: Pus
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [simulatedMatch, setSimulatedMatch] = useState<{ id: string; title: string; triggerTimeUTC: number } | null>(null);
 
-  // Sync notification state on load
+  // Sync notification state on load and on change events
   useEffect(() => {
     if ('Notification' in window) {
       setPermission(Notification.permission);
     }
-    const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
-    setActiveReminders(savedReminders);
+    const updateState = () => {
+      const savedReminders = JSON.parse(localStorage.getItem('match_reminders') || '[]');
+      setActiveReminders(savedReminders);
+    };
+    updateState();
+    window.addEventListener('match_reminders_changed', updateState);
+    return () => window.removeEventListener('match_reminders_changed', updateState);
   }, [isOpen]);
 
   // Alert trigger checks running in background
@@ -413,6 +418,7 @@ export default function PushNotificationManager({ isOpen = false, onClose }: Pus
                               localStorage.setItem('match_reminders', JSON.stringify(updatedReminders));
                               localStorage.setItem('saved_schedules', JSON.stringify(updatedReminders));
                               setActiveReminders(updatedReminders);
+                              window.dispatchEvent(new CustomEvent('match_reminders_changed', { detail: updatedReminders }));
                               showToast("Removed reminder for match.");
                             }}
                             className="text-[9px] hover:text-red-500 font-bold uppercase tracking-wider bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5 cursor-pointer hover:bg-red-500/10 transition-colors"

@@ -85,9 +85,10 @@ export default function News() {
               <div className="p-6 sm:p-8 lg:p-14 flex flex-col justify-center">
                 <div className="flex items-center gap-2.5 md:gap-3 mb-4 md:mb-6">
                   <span className="px-2.5 py-1 rounded-lg bg-pak-green text-white text-[8px] md:text-[9px] font-black uppercase tracking-widest leading-none shadow-[0_0_15px_rgba(1,65,28,0.3)]">{featuredNews.tag}</span>
-                  <div className="flex items-center gap-1.5 text-ink/40">
-                    <Calendar className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                    <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest">{featuredNews.date}</span>
+                  <div className="flex items-center gap-1.5 text-white/50 bg-white/5 border border-white/5 rounded-lg px-2.5 py-1 text-[8px] md:text-[9px] font-bold tracking-widest">
+                    <Calendar className="w-3 h-3 md:w-3.5 md:h-3.5 text-pak-green" />
+                    <span className="text-white/40 font-bold uppercase">Published:</span>
+                    <span className="text-white/80 font-black">{featuredNews.date}</span>
                   </div>
                 </div>
                 <h2 className="text-xl sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tight leading-tight md:leading-none mb-4 md:mb-6 group-hover:text-pak-green transition-colors">
@@ -97,7 +98,7 @@ export default function News() {
                   "{featuredNews.summary}"
                 </p>
                 <div className="flex items-center gap-2.5 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-pak-green group-hover:text-white transition-all leading-none">
-                  Read Full Briefing <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  Read Full Story <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </div>
             </div>
