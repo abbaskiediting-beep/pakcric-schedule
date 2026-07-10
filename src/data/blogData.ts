@@ -116,6 +116,39 @@ export const AUTHORS: Author[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'india-t20i-fortress-crumbled-2026',
+    title: "Unwanted History: How India’s T20I Fortress Crumbled for the First Time Since 2018",
+    summary: "Following a shocking defeat in Ireland and a brutal series loss in England, India has officially lost back-to-back T20I series for the first time since the 2018-19 season, surrendering their No. 1 ranking.",
+    date: '09-Jul-2026 • Just now',
+    category: 'Analysis',
+    path: '/news/india-t20i-fortress-crumbled-2026',
+    icon: HistoryIcon,
+    color: 'text-red-500',
+    authorId: 'sarfraz-khan'
+  },
+  {
+    id: 'bristol-blitz-eng-vs-ind-t20i-2026',
+    title: "The Bristol Blitz: How England Demolished India to Seal the T20I Series",
+    summary: "England’s dominant nine-wicket victory over India in Bristol secures an unassailable 3-0 lead, claiming their first-ever bilateral T20I series win over the Men in Blue under Shreyas Iyer's leadership.",
+    date: '09-Jul-2026 • Just now',
+    category: 'T20I Series',
+    path: '/news/bristol-blitz-eng-vs-ind-t20i-2026',
+    icon: Zap,
+    color: 'text-amber-500',
+    authorId: 'sarfraz-khan'
+  },
+  {
+    id: 'sarfaraz-backing-babar-test-return-2026',
+    title: "Alignment at the Top: Sarfaraz Ahmed Throws Full Weight Behind Babar Azam’s Test Return",
+    summary: "Pakistan Test Head Coach Sarfaraz Ahmed reveals a productive sit-down with Babar Azam, throwing absolute support behind his leadership return ahead of West Indies and England Test tours.",
+    date: '09-Jul-2026 • Just now',
+    category: 'Test Cricket',
+    path: '/news/sarfaraz-backing-babar-test-return-2026',
+    icon: Users,
+    color: 'text-emerald-500',
+    authorId: 'ahsan-nagi'
+  },
+  {
     id: 'babar-azam-reclaim-t20-captaincy-2026',
     title: "The Ultimate U-Turn? Why Babar Azam is Set to Reclaim Pakistan’s T20I Captaincy",
     summary: "Babar Azam is highly likely to be reappointed as the T20I captain of the national team, replacing Salman Ali Agha. Is this a step forward, or is Pakistan cricket moving backward?",

@@ -145,6 +145,9 @@ const PakistanTestSquad2026Blog = lazy(() => import('./pages/PakistanTestSquad20
 const BabarAzamReappointedCaptain2026Blog = lazy(() => import('./pages/BabarAzamReappointedCaptain2026Blog'));
 const BabarTestCaptaincyRecordBlog = lazy(() => import('./pages/BabarTestCaptaincyRecordBlog'));
 const BabarAzamReclaimT20CaptaincyBlog = lazy(() => import('./pages/BabarAzamReclaimT20CaptaincyBlog'));
+const SarfarazBackingBabarTestReturnBlog = lazy(() => import('./pages/SarfarazBackingBabarTestReturnBlog'));
+const BristolBlitzBlog = lazy(() => import('./pages/BristolBlitzBlog'));
+const IndiaFortressCrumbledBlog = lazy(() => import('./pages/IndiaFortressCrumbledBlog'));
 const PollardBoschStarMiNyBlog = lazy(() => import('./pages/PollardBoschStarMiNyBlog'));
 const PakistanNewTestDebutants2026Blog = lazy(() => import('./pages/PakistanNewTestDebutants2026Blog'));
 const About = lazy(() => import('./pages/About'));
@@ -310,6 +313,9 @@ export default function App() {
               <Route path="/news/babar-azam-reappointed-test-captain-2026" element={<BabarAzamReappointedCaptain2026Blog />} />
               <Route path="/news/babar-azam-test-captaincy-record-stats-analysis" element={<BabarTestCaptaincyRecordBlog />} />
               <Route path="/news/babar-azam-reclaim-t20-captaincy-2026" element={<BabarAzamReclaimT20CaptaincyBlog />} />
+              <Route path="/news/sarfaraz-backing-babar-test-return-2026" element={<SarfarazBackingBabarTestReturnBlog />} />
+              <Route path="/news/bristol-blitz-eng-vs-ind-t20i-2026" element={<BristolBlitzBlog />} />
+              <Route path="/news/india-t20i-fortress-crumbled-2026" element={<IndiaFortressCrumbledBlog />} />
               <Route path="/news/pakistan-announce-test-squad-west-indies-england-2026" element={<PakistanTestSquad2026Blog />} />
               <Route path="/news/pollard-bosch-star-mi-ny-2026" element={<PollardBoschStarMiNyBlog />} />
               <Route path="/news/meet-pakistans-new-test-debutants-2026-tours" element={<PakistanNewTestDebutants2026Blog />} />
