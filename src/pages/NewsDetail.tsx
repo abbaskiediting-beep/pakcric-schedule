@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag } from 'lucide-react';
+import { Newspaper, Calendar, User, ArrowLeft, Share2, Tag, Clock, ArrowRight } from 'lucide-react';
 import AdPlaceholder from '../components/AdPlaceholder';
 import InternalLinkSection from '../components/InternalLinkSection';
 import { LinkText } from '../components/LinkText';
@@ -1189,6 +1189,71 @@ Batting Fragility: Without his runs, the burden on younger players increases exp
 
 Babar Azam remains the heartbeat of Pakistan's batting lineup. While the team possesses individual brilliance in its bowling attack, it is Babar's bat that provides the "oxygen" for the team to survive long innings and high-pressure chases. For Pakistan to remain a top-tier side in the 2025–2027 WTC cycle, a firing Babar Azam is not a luxury—it is a necessity.
     `
+  },
+  'icc-world-cup-formats-revamped-2027-2028': {
+    title: "ICC Approves Massive Structural Changes & Revamped Formats for 2027 ODI & 2028 T20 World Cups",
+    metaTitle: "ICC Revamped Formats for 2027 ODI and 2028 T20 World Cups",
+    metaDescription: "At its Annual General Meeting in Edinburgh, the ICC officially approved massive structural changes to both the 2027 ODI World Cup and the 2028 T20 World Cup, introducing multi-stage configurations designed to maximize high-stakes matches.",
+    date: "July 15, 2026",
+    tag: "ICC Announcement",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200",
+    content: `
+At its Annual General Meeting in Edinburgh, the International Cricket Council (ICC) officially approved massive structural changes to both the 2027 ODI World Cup and the 2028 T20 World Cup. These revamped formats are designed to ensure more high-stakes matches, eliminate dead rubbers, and increase competitiveness.
+
+The detailed breakdown of the new formats, rules, and stages is outlined below.
+
+# 1. The 2027 ICC Men's ODI World Cup (South Africa, Zimbabwe & Namibia)
+
+While the tournament is expanding from 10 to 14 teams, the ICC has introduced a three-stage format before the knockouts to elevate the level of competition.
+
+## Stage 1: The Super Series (Cut-throat Round)
+• **Who plays**: The three lowest-ranked qualified teams (ranked 12th, 13th, and 14th).
+• **The Format**: They will play a single round-robin group.
+• **The Catch**: Only the team that finishes at the top of the Super Series table advances to the main group stage. The other two teams are immediately eliminated from the World Cup.
+
+## Stage 2: The Group Stage (12 Teams)
+• **Who plays**: The top 11 ranked teams + the 1 winner from the Super Series.
+• **The Format**: The 12 teams will be split into two groups of six. Each team plays 5 matches in a round-robin format (30 total matches in this round).
+• **Who Advances**: The top three teams from each group, plus the next best-placed team overall across both groups, will qualify. This means 7 teams move on.
+
+## Stage 3: The "Super 7" Stage
+• **Who plays**: The 7 qualifying teams.
+• **The Format**: A massive, single round-robin league where all 7 teams play each other once (21 total matches).
+• **Who Advances**: The top four teams from the Super 7 standings progress to the Semi-Finals.
+
+## The Knockouts
+• **Semi-Final 1**: 1st placed team vs. 4th placed team.
+• **Semi-Final 2**: 2nd placed team vs. 3rd placed team.
+• **Final**: Winners of the semi-finals face off.
+
+*(Note: This format drastically increases the probability of high-revenue matches, meaning marquee rivals like India and Pakistan could realistically face each other up to three times during the tournament).*
+
+---
+
+# 2. The 2028 ICC Men's T20 World Cup (Australia & New Zealand)
+
+The tournament remains a 20-team event, but the ICC has completely overhauled how the groups are laid out and how teams reach the final four.
+
+## Stage 1: The Group Stage (20 Teams)
+• **The Format**: Instead of four groups of five, the 20 teams will now be split into five groups of four teams.
+• **Who Advances**: The top two teams from each of the five groups qualify for the next stage.
+
+## Stage 2: The "Super 10" Stage
+• **The Format**: The 10 qualifying teams will be split into two groups of five. Each group plays a round-robin league.
+• **Direct Semi-Finalists**: The winner of each Super 10 group qualifies directly for the semi-finals.
+
+## Stage 3: The "Eliminators" Round (New Addition)
+To fill the remaining two spots in the semi-finals, the ICC is introducing a high-drama play-off round:
+• **Eliminator 1**: 2nd placed team of Group A vs. 3rd placed team of Group B.
+• **Eliminator 2**: 2nd placed team of Group B vs. 3rd placed team of Group A.
+
+The winners of these two Eliminators will join the two group toppers in the Semi-Finals.
+
+## Qualification Rules for 2028 T20 World Cup:
+• **Automatic Qualifiers (12 Teams)**: Afghanistan, Australia, Bangladesh, England, India, Ireland, New Zealand, Pakistan, South Africa, Sri Lanka, West Indies, and Zimbabwe have already secured direct spots based on their rankings and 2026 T20 World Cup performance.
+• **The Global Qualifier (8 Teams)**: The remaining 8 slots will be determined through a 16-team Global Qualifier tournament. Eight teams from the 2026 World Cup that missed direct entry (including the USA, Nepal, Netherlands, and UAE) go straight to this Global Qualifier, while the remaining 8 spots are filled through regional finals.
+`
   }
 };
 
@@ -1210,6 +1275,39 @@ export default function NewsDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const article = ARTICLES[id || ''] || ARTICLES['pakistan-vs-bangladesh-test-series-2026'];
+
+  // Calculate dynamic reading time based on word count (average 225 words per minute)
+  const wordCount = article?.content ? article.content.trim().split(/\s+/).length : 0;
+  const readingTime = Math.max(1, Math.ceil(wordCount / 225));
+
+  // Find related articles based on category (tag) or similar title keywords
+  const currentId = id || 'pakistan-vs-bangladesh-test-series-2026';
+  const relatedArticles = Object.keys(ARTICLES)
+    .filter(key => key !== currentId) // Exclude current article
+    .map(key => ({ id: key, ...ARTICLES[key] }))
+    .map(item => {
+      let score = 0;
+      
+      // Exact tag match gets highest priority
+      if (item.tag && article.tag && item.tag.toLowerCase() === article.tag.toLowerCase()) {
+        score += 10;
+      }
+      
+      // Part of tag match
+      if (item.tag && article.tag && (item.tag.toLowerCase().includes(article.tag.toLowerCase()) || article.tag.toLowerCase().includes(item.tag.toLowerCase()))) {
+        score += 5;
+      }
+      
+      // Word matches in title
+      const articleTitleWords = article.title.toLowerCase().split(/\s+/).filter((w: string) => w.length > 3);
+      const itemTitleWords = item.title.toLowerCase().split(/\s+/).filter((w: string) => w.length > 3);
+      const commonWords = articleTitleWords.filter((w: string) => itemTitleWords.includes(w));
+      score += commonWords.length * 2;
+      
+      return { ...item, score };
+    })
+    .sort((a, b) => b.score - a.score) // Sort by descending similarity score
+    .slice(0, 3); // Take top 3
 
   return (
     <div className="max-w-4xl mx-auto py-6 md:py-12 px-4 md:px-6">
@@ -1294,18 +1392,24 @@ export default function NewsDetail() {
         </div>
 
         <div className="p-6 md:p-12">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6 mb-8 md:mb-10 pb-6 border-b border-white/5">
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
-                <span className="text-[9px] md:text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.date}</span>
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 md:gap-6 mb-8 md:mb-10 pb-6 border-b border-white/5">
+            <div className="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-3">
+              <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-[9px] md:text-[10px] font-bold tracking-wider">
+                <Calendar className="w-3.5 h-3.5 text-pak-green" />
+                <span className="text-white/40 font-bold uppercase">Published:</span>
+                <span className="text-white/90 font-extrabold">{article.date}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
-                <span className="text-[9px] md:text-[10px] font-normal uppercase tracking-widest text-neutral-400">{article.author}</span>
+              <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-[9px] md:text-[10px] font-bold tracking-wider">
+                <Clock className="w-3.5 h-3.5 text-pak-green" />
+                <span className="text-white/40 font-bold uppercase">Reading Time:</span>
+                <span className="text-white/90 font-extrabold">{readingTime} Min Read</span>
+              </div>
+              <div className="flex items-center gap-2 ml-1">
+                <User className="w-3.5 h-3.5 text-white/40" />
+                <span className="text-[9px] md:text-[10px] font-medium uppercase tracking-widest text-neutral-400">By {article.author}</span>
               </div>
             </div>
-            <div className="flex items-center gap-3 ml-auto">
+            <div className="flex items-center gap-3 lg:ml-auto">
               <SaveForOfflineButton 
                 id={`news-${id || 'default'}`} 
                 label="Save News" 
@@ -1553,6 +1657,68 @@ export default function NewsDetail() {
           </div>
         </div>
       </motion.article>
+
+      {/* Related Articles Section */}
+      {relatedArticles.length > 0 && (
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 md:mt-20"
+        >
+          <div className="flex items-center justify-between mb-6 md:mb-8 pb-4 border-b border-white/5">
+            <h3 className="text-xl md:text-3xl font-display font-bold uppercase tracking-tight text-white flex items-center gap-3">
+              <Newspaper className="w-5 h-5 md:w-6 md:h-6 text-pak-green shrink-0" />
+              Related <span className="text-pak-green">Articles</span>
+            </h3>
+            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-neutral-500 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1">
+              Based on {article.tag || 'similar topics'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {relatedArticles.map((item) => (
+              <Link
+                key={item.id}
+                to={`/news/${item.id}`}
+                className="group bg-card-bg border border-card-border hover:border-pak-green/30 rounded-2xl md:rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full active:scale-[0.98]"
+              >
+                <div className="h-40 relative overflow-hidden bg-gradient-to-br from-white/[0.01] to-transparent border-b border-white/5 flex items-center justify-center">
+                  {item.image ? (
+                    <>
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-pak-green/30 to-black/80" />
+                  )}
+                  <Newspaper className="w-10 h-10 text-white/5 group-hover:text-pak-green/10 absolute right-4 bottom-4 transition-colors duration-500" />
+                  <div className="absolute top-4 left-4">
+                     <span className="text-[7.5px] md:text-[8px] font-black uppercase tracking-widest text-white bg-pak-green border border-white/10 px-2 py-0.5 rounded shadow-md leading-none">{item.tag}</span>
+                  </div>
+                </div>
+                <div className="p-5 md:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-ink/30 mb-2 block">{item.date}</span>
+                    <h4 className="text-sm md:text-base font-bold text-white group-hover:text-pak-green transition-colors line-clamp-3 mb-4 leading-snug">
+                      {item.title}
+                    </h4>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white/40 group-hover:text-white transition-colors leading-none mt-auto pt-2 border-t border-white/5">
+                    Read Article <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      )}
 
       <InternalLinkSection />
     </div>

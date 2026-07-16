@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'icc-world-cup-formats-revamped-2027-2028',
+    title: "ICC Approves Massive Structural Changes & Revamped Formats for 2027 ODI & 2028 T20 World Cups",
+    date: 'July 15, 2026',
+    tag: 'ICC Announcement',
+    summary: "At its Annual General Meeting in Edinburgh, the ICC officially approved massive structural changes to both the 2027 ODI World Cup and the 2028 T20 World Cup, introducing multi-stage configurations designed to maximize high-stakes matches."
+  },
+  {
     id: 'babar-azam-reappointed-test-captain-2026',
     title: "The King Reclaims His Throne: Babar Azam Reappointed as Pakistan’s Test Captain for 2026 Tours",
     date: 'July 5, 2026',

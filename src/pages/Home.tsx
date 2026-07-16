@@ -379,6 +379,15 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "icc-world-cup-formats-revamped-2027-2028",
+                title: "ICC Revamps ODI & T20 World Cup Formats",
+                tag: "ICC Announcement",
+                icon: <Globe className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-teal-600/90 hover:bg-teal-600",
+                borderColor: "border-teal-500/30",
+                date: "July 15, 2026"
+              },
+              {
                 id: "babar-azam-reappointed-test-captain-2026",
                 title: "Babar Azam Reappointed as Test Captain",
                 tag: "Captaincy Alert",
