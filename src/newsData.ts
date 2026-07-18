@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'pakistan-tour-west-indies-warm-up-tarouba-2026',
+    title: "The Red-Ball Warm-Up: Pakistan Gear Up for the Windies Challenge in Tarouba",
+    date: 'July 17, 2026',
+    tag: 'Tour Warm-up',
+    summary: "The Pakistan men's cricket team gears up for their upcoming Test series with a four-day warm-up match against a West Indies Select XI at the Brian Lara Cricket Academy in Tarouba, Trinidad, running from July 18 to July 21, 2026."
+  },
+  {
     id: 'icc-world-cup-formats-revamped-2027-2028',
     title: "ICC Approves Massive Structural Changes & Revamped Formats for 2027 ODI & 2028 T20 World Cups",
     date: 'July 15, 2026',

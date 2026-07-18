@@ -379,6 +379,15 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "pakistan-tour-west-indies-warm-up-tarouba-2026",
+                title: "Pakistan Tour of WI: 4-Day Warm-up Prep",
+                tag: "Tour Warm-up",
+                icon: <MapPin className="w-5 h-5 text-white animate-bounce" />,
+                color: "bg-emerald-700/90 hover:bg-emerald-700",
+                borderColor: "border-emerald-500/30",
+                date: "July 17, 2026"
+              },
+              {
                 id: "icc-world-cup-formats-revamped-2027-2028",
                 title: "ICC Revamps ODI & T20 World Cup Formats",
                 tag: "ICC Announcement",

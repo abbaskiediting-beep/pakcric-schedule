@@ -1254,6 +1254,69 @@ The winners of these two Eliminators will join the two group toppers in the Semi
 • **Automatic Qualifiers (12 Teams)**: Afghanistan, Australia, Bangladesh, England, India, Ireland, New Zealand, Pakistan, South Africa, Sri Lanka, West Indies, and Zimbabwe have already secured direct spots based on their rankings and 2026 T20 World Cup performance.
 • **The Global Qualifier (8 Teams)**: The remaining 8 slots will be determined through a 16-team Global Qualifier tournament. Eight teams from the 2026 World Cup that missed direct entry (including the USA, Nepal, Netherlands, and UAE) go straight to this Global Qualifier, while the remaining 8 spots are filled through regional finals.
 `
+  },
+  'pakistan-tour-west-indies-warm-up-tarouba-2026': {
+    title: "The Red-Ball Warm-Up: Pakistan Gear Up for the Windies Challenge in Tarouba",
+    metaTitle: "Pakistan vs West Indies Warm-Up Match 2026 — Tarouba Preview",
+    metaDescription: "The long, grueling path of the ICC World Test Championship introduces a new chapter as the Pakistan men's cricket team lands in the Caribbean for a four-day warm-up match running from July 18 to July 21, 2026.",
+    date: "July 17, 2026",
+    tag: "Tour Warm-up",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1200",
+    content: `
+The long, grueling path of the ICC World Test Championship introduces a new chapter as the Pakistan men's cricket team lands in the Caribbean. For a team looking to assert its dominance in foreign conditions, red-ball cricket in the West Indies has historically been as unpredictable as it is captivating. The journey officially begins at the picturesque Brian Lara Cricket Academy in Tarouba, Trinidad, where Pakistan faces a West Indies Select XI in a four-day warm-up match running from July 18 to July 21, 2026.
+
+Warm-up matches are frequently dismissed as mere practice, but for modern touring sides, they are the vital bridge between jet lag and match fitness. This four-day encounter provides Shan Masood’s men their only real opportunity to adjust to the unique conditions of Trinidad before the official two-match Test series commences at the exact same venue on July 25.
+
+# The Crucial Art of Caribbean Acclimatization
+
+Playing cricket in the West Indies is a multidimensional challenge. Pitch conditions across the islands vary wildly—shifting from the sluggish, spin-friendly surfaces often seen in Trinidad to the quicker, bounce-heavy tracks found elsewhere. At the Brian Lara Cricket Academy, teams generally anticipate a surface that offers decent carry early on but gradually slows down, encouraging spinners as the days wear on.
+
+For the Pakistani batting unit, adjusting their footwork and shot selection is paramount. The heavy Caribbean air and distinctive humidity require high physical endurance. Spending two sessions out in the Tarouba sun during a warm-up match helps the players build the mental stamina required for the upcoming Test series.
+
+Furthermore, the Dukes ball—traditionally used in the Caribbean for Test cricket—behaves differently than the Kookaburra or SG balls. It boasts a more pronounced seam that stays harder for longer, giving both fast bowlers and conventional swing exponents plenty of encouragement. Masterfully navigating these four days will be crucial for Pakistan's top order.
+
+# Pakistan’s Tactical Focus: Spotlights and Selections
+
+With a balanced squad combining seasoned campaigners and fresh, ambitious talent, Pakistan’s management faces several pleasant selection dilemmas.
+
+## 1. The Leadership and Top-Order Stability
+Captain Shan Masood leads the side with a clear strategic vision. His own form at the top of the order will set the tone for the tour. Alongside him, the ever-reliable Babar Azam remains the linchpin of the batting department. For Babar, this warm-up match serves as an ideal opportunity to find his rhythm, get his eye in against the local bowling styles, and anchor long batting sessions without the intense pressure of World Test Championship points hanging over every delivery.
+
+## 2. The Middle-Order Engine
+The wicketkeeper-batsman role is anchored by Mohammad Rizwan, whose energetic presence behind the stumps and aggressive counter-attacking batting down the order give Pakistan great flexibility. Alongside him, Salman Ali Agha provides critical balance. As a genuine all-rounder capable of playing long defensive innings and providing crucial breakthrough overs with his off-spin, Salman’s adaptability will be thoroughly tested on the Trinidadian turf.
+
+## 3. Bowling Dynamics in the Absence of Express Pace
+Pakistan's bowling attack features a mix of disciplined seamers and crafty spinners. With the conditions expected to offer early swing followed by dry, abrasive wear, medium-fast bowlers like Khurram Shahzad and the robust Aamir Jamal will shoulder heavy responsibilities.
+
+This four-day match allows them to figure out the ideal length to bowl on this specific track. In the Caribbean, over-pitching can lead to easy boundaries, while bowling too short on a slow track allows batsmen ample time to pull or cut. Finding that elusive "good length" will be the primary objective for the bowling coach and the pace battery.
+
+# The West Indies Select XI: A Proving Ground for Local Talent
+
+On the other side of the field stands the West Indies Select XI—a group comprised of regional red-ball standouts, fringe national players, and emerging youth prospects. For these players, a four-day match against a powerhouse like Pakistan is an audition.
+
+The West Indies senior national selectors keep a close eye on these fixtures. A gritty century or a disciplined five-wicket haul against Pakistan’s premier lineup can instantly catapult an domestic player into the squad for the main Test series. Consequently, Pakistan will not be facing a passive opposition; they will be up against highly motivated athletes eager to prove their worth on a grand stage.
+
+# Looking Ahead to the Test Series
+
+The broader context of this tour is deeply tied to the ICC World Test Championship standings. Winning away from home remains the gold standard in modern cricket, and securing a series victory in the Caribbean requires flawless execution.
+
+Following the conclusion of this warm-up match on July 21, the teams will have a brief three-day window to process their data, fix their technical flaws, and rest. The real battle begins on July 25 with the 1st Test at Tarouba, before the tour shifts to the historic Queen’s Park Oval in Port of Spain for the 2nd Test starting August 2.
+
+### PAKISTAN TOUR OF WEST INDIES 2026
+
+| Date | Match Details | Venue |
+| :--- | :--- | :--- |
+| **July 18–21, 2026** | 4-Day Warm-Up Match | Brian Lara Academy |
+| **July 25–29, 2026** | 1st Test Match | Brian Lara Academy |
+| **August 02–06, 2026** | 2nd Test Match | Queen's Park Oval |
+
+# Final Thoughts
+
+While cricket fans often focus heavily on the glamorous boundaries and viral moments of white-ball cricket, the quiet, tactical chess match of a four-day warm-up fixture holds immense value for red-ball purists. It is a space where techniques are tested, patience is forged, and the foundation for a grueling Test series is laid.
+
+As the action unfolds at the Brian Lara Cricket Academy, Pakistan will look to establish a psychological advantage, iron out their final playing XI, and ensure they are firing on all cylinders when the first official coin tosses on July 25. Stay tuned, because red-ball cricket in the Caribbean rarely disappoints!
+`
   }
 };
 
