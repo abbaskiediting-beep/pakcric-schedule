@@ -1255,6 +1255,121 @@ The winners of these two Eliminators will join the two group toppers in the Semi
 • **The Global Qualifier (8 Teams)**: The remaining 8 slots will be determined through a 16-team Global Qualifier tournament. Eight teams from the 2026 World Cup that missed direct entry (including the USA, Nepal, Netherlands, and UAE) go straight to this Global Qualifier, while the remaining 8 spots are filled through regional finals.
 `
   },
+  'sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026': {
+    title: "Sizzling in Tarouba: How Pakistan’s Bowling Attack Dominated the West Indies Select XI",
+    metaTitle: "Pakistan's Bowling Masterclass Against West Indies Select XI — Tarouba",
+    metaDescription: "Pakistan’s bowling attack delivers a complete team effort on the Tarouba pitch, reducing the West Indies Select XI to 268 for 8. Mohammad Ali leads with 3/37.",
+    date: "July 21, 2026",
+    tag: "Match Report",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1200",
+    content: `
+After Pakistan’s batters put on a total of 455 for 4 declared at the Brian Lara Cricket Academy, the spotlight naturally shifted to the bowlers. Test matches in the Caribbean demand relentless discipline, late movement, and patience.
+
+Pakistan’s bowling attack delivered a complete team effort on the Tarouba pitch, reducing the West Indies Select XI to 268 for 8 and ensuring the tourists held total tactical command ahead of the official Test series.
+
+Here is an in-depth breakdown of how Pakistan’s pacers and spinners made the ball talk in Trinidad.
+
+# The Seam Strategy: Precision Over Brute Force
+
+On a surface that gradually offered lower bounce and variable seam movement, Pakistan’s fast bowlers focused on tight channels, testing the patience of the West Indies Select XI top order.
+
+| Bowler | Overs Bowled | Maidens | Runs Conceded | Wickets Taken |
+| :--- | :--- | :--- | :--- | :--- |
+| **Mohammad Ali** | 13.4 | 2 | 37 | **3** |
+| **Ali Usman** | 22.0 | 6 | 62 | **2** |
+| **Aamir Jamal** | 10.0 | 1 | 33 | **2** |
+| **Mohammad Abbas** | 10.0 | 2 | 24 | **1** |
+| **Khurram Shahzad** | 12.0 | 3 | 24 | **0** |
+| **Sajid Khan** | 13.0 | 2 | 41 | **0** |
+
+## 1. Mohammad Ali Takes Center Stage
+Mohammad Ali was the standout seamer for Pakistan, finishing with figures of 3 for 37 in 13.4 overs. Ali extracted sharp seam movement off the deck and tore through the middle order during a devastating spell:
+• He broke a growing partnership by removing Mbeki Joseph (5).
+• He clean-bowled Test-regular Joshua Da Silva for a golden duck.
+• He followed up by cleaning up Joshua James for another duck.
+
+Ali's ability to attack the stumps gave Pakistan total control during the middle overs.
+
+## 2. Abbas and Khurram Apply the Vise-Grip
+At the start of the innings, veteran seamer Mohammad Abbas set the tone with typical precision. Striking early, Abbas trapped Cephas Cooper lbw for just 1 run and finished with figures of 1 for 24.
+
+At the other end, Khurram Shahzad went wicketless but played an equally vital role. Khurram tied down one end with remarkable discipline (0/24 off 12 overs with 3 maidens), suffocating the scoring rate and forcing the batters into playing risky shots against the supporting bowlers.
+
+## 3. Aamir Jamal’s Explosive Strikes
+Known for his high energy and lower-order breakthroughs, Aamir Jamal provided the ideal impact option. Jamal bowled with high effort and bagged 2 for 33 in 10 overs, dismissing aggressive lower-order batter Terrance Hinds (24) and Anderson Phillip to stall any late lower-order resistance.
+
+# Spin Department: Ali Usman Unlocks the Middle Order
+
+While off-spinner Sajid Khan focused on controlling the rate (0/41 in 13 overs), slow left-arm spinner Ali Usman proved to be Pakistan's secret weapon in the slow Trinidad conditions.
+
+Bowling 22 tight overs, Usman extracted useful turn and subtle flight, picking up two critical wickets to break major stands:
+• **Tagenarine Chanderpaul (51)**: The West Indies Test opener had anchored the innings for 155 balls before Usman tempted him into a rare error, caught by Mohammad Abbas.
+• **Kavem Hodge (92)**: Hodge was playing a masterpiece counter-attacking knock, striking 14 fours and a six off 130 balls. Just as Hodge closed in on a century, Usman struck to trap him lbw, effectively halting the Select XI's surge.
+
+Usman’s spell (2/62 off 22 overs) showcased his ability to bowl long, patient spells on drying tracks—a trait Pakistan will rely heavily on during the upcoming Test series.
+
+# Key Takeaways Ahead of the First Test
+
+• **Relentless Stump-to-Stump Lines**: Five of Pakistan's eight wickets came via lbw or clean bowled. This highlights a tactical effort by the bowling coach to attack the pads and stumps on Trinidadian tracks, where variable bounce is a key factor.
+• **Depth in the Pace Battery**: With Mohammad Ali, Abbas, and Jamal all striking in tandem, Shan Masood has multiple fast-bowling combinations to choose from for the 1st Test on July 25.
+• **Spin Options Prepared**: Ali Usman’s performance proves that Pakistan has reliable spin options to back up Sajid Khan if the Brian Lara Cricket Academy pitch begins to turn significantly on Days 4 and 5.
+
+With the batters setting a 450+ benchmark and the bowlers delivering disciplined, wicket-taking spells across the park, Pakistan’s red-ball squad couldn't have asked for a better rehearsal under the Trinidad sun.
+`
+  },
+  'king-babar-rules-tarouba-masterclass-century-2026': {
+    title: "King Babar Rules Tarouba: A Masterclass Century in the Caribbean Warm-Up",
+    metaTitle: "Babar Azam Warms Up for West Indies Tests with Masterful Century — Tarouba",
+    metaDescription: "Babar Azam hits a magnificent retired-out century (100 off 151 balls) alongside Azan Awais' solid hundred as Pakistan piles up 455 for 4 in the Caribbean four-day warm-up match.",
+    date: "July 21, 2026",
+    tag: "Match Report",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200",
+    content: `
+When the Pakistan cricket team touched down in the Caribbean for their crucial two-match Test series against the West Indies, all eyes were on how the batting unit would adapt to the sticky heat and sluggish pitches. If the ongoing four-day warm-up match at the Brian Lara Cricket Academy in Tarouba is any indication, Pakistan’s premier batter is already in scintillating form.
+
+Babar Azam, returning to the crease with his trademark elegance, has fired a warning shot to the West Indies camp with a magnificent, fluent century against the West Indies Select XI. It wasn’t just the volume of runs that stood out, but the sheer command and rhythm he displayed on a surface where others often struggle to find their timing.
+
+Here is a deep dive into Babar Azam’s brilliant warm-up century and what it means for Pakistan's red-ball campaign.
+
+# The Innings Breakdown: 100 Off 151 Balls
+
+Entering the crease on Day 2 with a solid foundation already laid, Babar treated the local bowlers to a masterclass in timing, placement, and strike rotation. He looked completely unbothered by the conditions, picking gaps at will and punishing any loose deliveries.
+
+### Babar Azam’s Innings in Numbers:
+• **Runs**: 100 (Retired Out)
+• **Balls Faced**: 151
+• **Boundaries**: 12 fours and 1 six
+• **Strike Rate**: ~66.2
+
+Once Babar reached his milestone, the team management made the tactical decision to call him back to the pavilion (retired out). This allowed the middle and lower order—like Abdullah Fazal, Salman Ali Agha, and Mohammad Rizwan—to get valuable time in the middle.
+
+# The Key Partnerships
+
+A significant takeaway from this match is the collaborative effort of the Pakistani top order. Babar did not have to play a lone hand; he built upon a massive platform and forged important partnerships that demoralized the West Indies Select XI attack.
+
+## 1. The Century Stand with Azan Awais
+Before Babar took charge, it was young opener Azan Awais who anchored the innings. Awais was patience personified, grinding out 100 runs from 241 deliveries (hitting 9 fours and a six). Babar and Awais shared a brilliant 100-run partnership. While Awais played the anchor role, leaving balls outside the off-stump and absorbing pressure, Babar played with freedom, dictating the tempo of the session.
+
+## 2. The Fluent Flow with Abdullah Fazal
+After Awais retired out upon reaching his century, young Abdullah Fazal joined Babar at the crease. The two batters complimented each other perfectly, rotating the strike to frustrate the spinners. Babar guided the youngster through the innings, helping Fazal reach a composed half-century (50 off 97 balls) before both batters ultimately retired out to test the rest of the lineup.
+
+# Why This Century Matters
+
+While warm-up matches do not carry official Test status, a knock of this caliber holds immense psychological and tactical weight for several reasons:
+
+• **Acclimatization Complete**: Caribbean pitches, especially in Trinidad, can be low and slow. By spending 151 balls in the middle, Babar has successfully adjusted his bat speed and footwork to the bounce of the Dukes ball on this specific surface.
+• **Setting the Tone**: As Pakistan's most vital batter, Babar's form dictates the confidence of the entire dressing room. A commanding century right out of the gate sends a strong message of intent to the West Indies national squad awaiting them in the first Test.
+• **Tactical Retirement**: By opting to retire out immediately after reaching three figures, Babar showcased strong team awareness. It ensured the team’s total soared past 450 while simultaneously testing the readiness of players like Salman Ali Agha (who scored a quick 46) and Mohammad Rizwan (unbeaten on 44 at the close of play).
+
+# The Match Outlook
+
+Driven by the twin centuries from Azan Awais and Babar Azam, Pakistan declared their innings at a mammoth 455 for 4. The West Indies Select XI is currently fighting to stay in the game, but the scoreboard pressure applied by the Pakistani batters has given their bowling attack a massive psychological cushion.
+
+As the first Test match looms on July 25 at the exact same venue, the West Indies bowlers now have plenty of homework to do. If Babar Azam carries this exact touch into the World Test Championship fixtures, the hosts are in for a long, grueling series under the Caribbean sun.
+`
+  },
   'pakistan-tour-west-indies-warm-up-tarouba-2026': {
     title: "The Red-Ball Warm-Up: Pakistan Gear Up for the Windies Challenge in Tarouba",
     metaTitle: "Pakistan vs West Indies Warm-Up Match 2026 — Tarouba Preview",

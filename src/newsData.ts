@@ -2,6 +2,20 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026',
+    title: "Sizzling in Tarouba: How Pakistan’s Bowling Attack Dominated the West Indies Select XI",
+    date: 'July 21, 2026',
+    tag: 'Match Report',
+    summary: "Pakistan’s bowling attack delivers a complete team effort on the Tarouba pitch, reducing West Indies Select XI to 268 for 8. Mohammad Ali leads the seam charge with 3/37 while spinner Ali Usman claims key wickets."
+  },
+  {
+    id: 'king-babar-rules-tarouba-masterclass-century-2026',
+    title: "King Babar Rules Tarouba: A Masterclass Century in the Caribbean Warm-Up",
+    date: 'July 21, 2026',
+    tag: 'Match Report',
+    summary: "Babar Azam warms up for the West Indies Test series in spectacular fashion with a magnificent retired-out century (100 off 151 balls) alongside a patient hundred from Azan Awais against the West Indies Select XI in Tarouba, Trinidad."
+  },
+  {
     id: 'pakistan-tour-west-indies-warm-up-tarouba-2026',
     title: "The Red-Ball Warm-Up: Pakistan Gear Up for the Windies Challenge in Tarouba",
     date: 'July 17, 2026',

@@ -379,6 +379,24 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026",
+                title: "Tarouba Domination: Pak Bowling Shines in Warm-Up",
+                tag: "Match Report",
+                icon: <Target className="w-5 h-5 text-white animate-bounce" />,
+                color: "bg-red-700/90 hover:bg-red-700",
+                borderColor: "border-red-500/30",
+                date: "July 21, 2026"
+              },
+              {
+                id: "king-babar-rules-tarouba-masterclass-century-2026",
+                title: "King Babar Rules Tarouba: Century in Warm-Up",
+                tag: "Match Report",
+                icon: <Star className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-emerald-600/90 hover:bg-emerald-600",
+                borderColor: "border-emerald-500/30",
+                date: "July 21, 2026"
+              },
+              {
                 id: "pakistan-tour-west-indies-warm-up-tarouba-2026",
                 title: "Pakistan Tour of WI: 4-Day Warm-up Prep",
                 tag: "Tour Warm-up",
