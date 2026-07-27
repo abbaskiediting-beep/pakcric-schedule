@@ -2,6 +2,20 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'masood-imam-lead-sturdy-fightback-wi-311-2026',
+    title: "Masood and Imam Lead Sturdy Fightback After WI Fold for 311",
+    date: 'July 27, 2026',
+    tag: 'Test Series',
+    summary: "Shan Masood (88*) and Imam-ul-Haq (63) build a strong 130-run stand as Pakistan reach 199/3 on Day 2 of the 1st Test in Tarouba, following Mohammad Ali's 4/50 which wrapped up West Indies for 311."
+  },
+  {
+    id: 'resilient-hodge-rain-dominate-opening-day-trinidad-2026',
+    title: "Resilient Hodge and Rain Dominate Opening Day in Trinidad",
+    date: 'July 27, 2026',
+    tag: 'Test Series',
+    summary: "West Indies finish Day 1 of the 1st Test against Pakistan at 194/3 in Tarouba, Trinidad, led by Kavem Hodge's gritty 84* and double strikes from Mohammad Abbas before rain curtails play."
+  },
+  {
     id: 'sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026',
     title: "Sizzling in Tarouba: How Pakistan’s Bowling Attack Dominated the West Indies Select XI",
     date: 'July 21, 2026',

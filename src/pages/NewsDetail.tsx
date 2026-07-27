@@ -1255,6 +1255,125 @@ The winners of these two Eliminators will join the two group toppers in the Semi
 • **The Global Qualifier (8 Teams)**: The remaining 8 slots will be determined through a 16-team Global Qualifier tournament. Eight teams from the 2026 World Cup that missed direct entry (including the USA, Nepal, Netherlands, and UAE) go straight to this Global Qualifier, while the remaining 8 spots are filled through regional finals.
 `
   },
+  'masood-imam-lead-sturdy-fightback-wi-311-2026': {
+    title: "Masood and Imam Lead Sturdy Fightback After WI Fold for 311",
+    metaTitle: "WI vs PAK 1st Test Day 2: Shan Masood 88* & Imam 63 Lead Sturdy Fightback",
+    metaDescription: "Shan Masood's unbeaten 88 and Imam-ul-Haq's 63 push Pakistan to 199/3 after Mohammad Ali's 4/50 helped dismiss West Indies for 311 on Day 2 in Tarouba.",
+    date: "July 27, 2026",
+    tag: "Test Series",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200",
+    content: `
+Day 2 of the 1st Test between Pakistan and the West Indies at the Brian Lara Cricket Academy in Tarouba delivered high-octane Test cricket. After Pakistan’s pacers wrapped up the West Indies first innings for 311, skipper Shan Masood and opener Imam-ul-Haq spearheaded a strong response, driving Pakistan to 199 for 3 at stumps on Day 2.
+
+Trailing by just 112 runs with seven wickets intact, Pakistan ended the day in a commanding position.
+
+# Morning Session: Mohammad Ali Wraps Up West Indies for 311
+
+Resuming from their overnight total, the West Indies middle and lower order aimed to push their score past 350. However, Pakistan’s pace attack—led by a clinical Mohammad Ali—had other plans.
+
+## 1. Hope Misses Out on a Century
+Shai Hope, who began the day looking composed, anchored the lower order with a fighting 92 off 182 balls (6 fours, 1 six). Just as he seemed destined for a Test century, he fell short as Pakistan applied relentless pressure.
+
+## 2. Mohammad Ali's Wrecking Spell
+Mohammad Ali was the chief destroyer for Pakistan, finishing with exceptional figures of 4 for 50 in 21.5 overs. Veteran seamer Mohammad Abbas provided brilliant support at the other end with 3 for 63, while Khurram Shahzad chipped in with 2 for 66.
+
+A late cameo by Shamar Joseph (23 off 13 balls) helped propel the Windies total to 311 before the final wicket fell in 98.5 overs.
+
+### WEST INDIES 1ST INNINGS SUMMARY
+
+| Batter | Score | Top Bowlers |
+| :--- | :--- | :--- |
+| **Shai Hope** | 92 (182) | **Mohammad Ali**: 4/50 |
+| **Kavem Hodge** | 84 (183) | **Mohammad Abbas**: 3/63 |
+| **Shamar Joseph** | 23 (13) | **Khurram Shahzad**: 2/66 |
+| **TOTAL** | **311 All Out** (98.5 Overs) | |
+
+# Afternoon & Evening Sessions: Shan Masood and Imam Build the Foundation
+
+Pakistan's innings got off to a shaky start when young opener Azan Awais was dismissed for a 9-ball duck by Kemar Roach. However, that early blow only brought out a masterclass in partnerships.
+
+## 1. The 130-Run Stand (Imam & Masood)
+Opener Imam-ul-Haq and captain Shan Masood stabilized the innings with an impressive 130-run second-wicket partnership.
+
+Imam-ul-Haq played a classical, patient test knock, crafting 63 off 102 balls with 7 boundaries before falling to Jayden Seales.
+
+Shan Masood led from the front with flair and intent, stroking an unbeaten 88 off 137 balls (11 fours) to keep the scoring rate flowing smoothly at over 4 runs an over.
+
+## 2. Babar's Cameo and Late Wicket
+Following Imam's departure, Babar Azam looked fluent during a 38-ball 23 (hitting 3 boundaries) before Shamar Joseph struck late in the day to dismiss Babar. At stumps, Shan Masood remained at the crease alongside Salman Ali Agha (0*).
+
+### PAKISTAN 1ST INNINGS (AT STUMPS - DAY 2)
+
+| Batter | Status | Score |
+| :--- | :--- | :--- |
+| **Shan Masood** | Batting | **88*** (137) |
+| **Imam-ul-Haq** | c sub b Jayden Seales | **63** (102) |
+| **Babar Azam** | c sub b Shamar Joseph | **23** (38) |
+| **Salman Ali Agha** | Batting | **0*** (9) |
+| **TOTAL** | **199/3** (48 Overs) | **Trail by 112 runs** |
+
+# Strategic Outlook for Day 3
+
+• **Building a First-Innings Lead**: With Shan Masood closing in on a century and quality batters like Mohammad Rizwan still in the shed, Pakistan will target taking a 100+ run first-innings lead.
+• **West Indies' Bowling Threat**: Kemar Roach (1/33), Jayden Seales (1/48), and Shamar Joseph (1/33) showed flashes of brilliance. Early breakthroughs on Day 3 morning will be crucial for the hosts to keep Pakistan's lead manageable.
+• **Pitch Behavior**: The pitch at Tarouba is offering decent balance—good true bounce for batters who settle in, but enough assistance for seamers hitting the right length.
+`
+  },
+  'resilient-hodge-rain-dominate-opening-day-trinidad-2026': {
+    title: "Resilient Hodge and Rain Dominate Opening Day in Trinidad",
+    metaTitle: "WI vs PAK 1st Test Day 1: Kavem Hodge & Rain Rule Opening Day in Tarouba",
+    metaDescription: "Kavem Hodge hits an unbeaten 84 as West Indies reach 194/3 against Pakistan on a rain-curtailed Day 1 of the 1st Test in Tarouba, Trinidad.",
+    date: "July 27, 2026",
+    tag: "Test Series",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200",
+    content: `
+The long-awaited red-ball clash between West Indies and Pakistan officially got underway at the Brian Lara Cricket Academy in Tarouba, Trinidad. In a battle marked by disciplined bowling spells, steady resistance, and multiple rain interruptions, West Indies finished Day 1 on a solid 194 for 3 after winning the toss and electing to bat first.
+
+The hero of the day for the Caribbean side was undoubtedly Kavem Hodge, whose doggedly patient 84-run effort laid a sturdy foundation for the hosts under challenging conditions.
+
+# Morning Session: Early Swings and Abbas’s Double Strike
+
+West Indies skipper Roston Chase opted to put runs on the board first on a pitch offering decent early seam movement. Pakistan’s opening attack of Mohammad Abbas and Khurram Shahzad immediately found the right lengths, testing West Indies openers Brandon King and Tagenarine Chanderpaul.
+
+It didn't take long for the pressure to yield results:
+
+• **The Breakthrough**: Veteran seamer Mohammad Abbas drew first blood, getting a ball to nip back and disturb Brandon King's stumps for 12.
+• **Digging In**: Chanderpaul and Hodge attempted to steady the ship, but Chanderpaul was caught behind off Aamir Jamal for a painstaking 21 off 77 balls.
+• **Abbas Strikes Again**: Middle-order batter Amir Jangoo showed brief aggression, hitting a six and two fours, before Abbas trapped him lbw for 21.
+
+At 106 for 3, Pakistan appeared to be in firm control of the narrative during the post-lunch phase.
+
+# Afternoon & Evening Sessions: The Hodge & Hope Stand
+
+Just as Pakistan looked poised to slice through the middle order, Kavem Hodge and wicketkeeper-batter Shai Hope mounted a resolute counter-offensive.
+
+## 1. Kavem Hodge’s Anchor Role
+Hodge showed remarkable composure, leaving balls outside off-stump and capitalizing on anything fractionally short or wide. Constructing a gritty 84 off 183 deliveries—featuring 9 classical boundaries—he expertly neutralized Pakistan's pace trio and controlled the tempo of the afternoon.
+
+## 2. Shai Hope’s Subdued Elegance
+Partnering Hodge, Shai Hope provided perfect support at the other end. Playing with trademark soft hands, Hope paced his innings carefully to navigate tricky overcast periods as dark clouds hovered over Tarouba.
+
+Together, the pair stitched an unbroken 88-run partnership for the 4th wicket before heavy showers and persistent rain curtailments brought an early end to the day's play.
+
+### PAKISTAN vs WEST INDIES - 1st TEST (DAY 1)
+
+| Match Details | Highlights |
+| :--- | :--- |
+| **Toss** | West Indies (Elected to Bat) |
+| **Match Status at Stumps** | West Indies 194/3 (Rain Curtailed) |
+| **Kavem Hodge (WI)** | 84* runs off 183 balls (9 fours) |
+| **Shai Hope (WI)** | Unbeaten in middle order partnership |
+| **Mohammad Abbas (PAK)** | 2 wickets for ~40 runs in opening spells |
+
+# Key Takeaways Ahead of Day 2
+
+• **Pakistan’s Bowling Discipline**: Mohammad Abbas proved once again why his seam presentation is lethal in West Indian conditions, while Khurram Shahzad provided admirable economy at the other end.
+• **West Indies' Middle-Order Steel**: Despite losing three early wickets, the hosts demonstrated great application to reach 194 without further loss.
+• **The Morning Session Dynamic**: With standard overcast conditions expected to persist, Pakistan’s seamers will need early wickets on Day 2 to restrict West Indies under 300, while the hosts will aim to leverage their set batters to push beyond 350.
+`
+  },
   'sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026': {
     title: "Sizzling in Tarouba: How Pakistan’s Bowling Attack Dominated the West Indies Select XI",
     metaTitle: "Pakistan's Bowling Masterclass Against West Indies Select XI — Tarouba",

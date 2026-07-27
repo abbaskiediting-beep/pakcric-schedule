@@ -1,4 +1,4 @@
-import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle, Layout, Globe } from 'lucide-react';
+import { Trophy, ChevronRight, Ticket, ArrowRight, Newspaper, Activity, Timer, MapPin, Calendar, Zap, Star, Target, Users, History as HistoryIcon, ShieldAlert, Shield, AlertTriangle, Layout, Globe, CloudRain } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -379,6 +379,24 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
+                id: "masood-imam-lead-sturdy-fightback-wi-311-2026",
+                title: "1st Test Day 2: Masood 88* & Imam 63 Lead Fightback",
+                tag: "Test Series",
+                icon: <Trophy className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-emerald-700/90 hover:bg-emerald-700",
+                borderColor: "border-emerald-500/30",
+                date: "July 27, 2026"
+              },
+              {
+                id: "resilient-hodge-rain-dominate-opening-day-trinidad-2026",
+                title: "1st Test Day 1: Hodge 84* Resists Pak in Tarouba",
+                tag: "Test Series",
+                icon: <CloudRain className="w-5 h-5 text-white animate-pulse" />,
+                color: "bg-blue-700/90 hover:bg-blue-700",
+                borderColor: "border-blue-500/30",
+                date: "July 27, 2026"
+              },
+              {
                 id: "sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026",
                 title: "Tarouba Domination: Pak Bowling Shines in Warm-Up",
                 tag: "Match Report",
@@ -459,7 +477,7 @@ export default function Home() {
                 borderColor: "border-rose-500/30",
                 date: "June 2026"
               }
-            ].map((news) => (
+            ].slice(0, 5).map((news) => (
               <Link 
                 key={news.id}
                 to={`/news/${news.id}`}
