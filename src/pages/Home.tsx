@@ -10,6 +10,7 @@ import { BLOG_POSTS, AUTHORS } from '../data/blogData';
 import AdPlaceholder from '../components/AdPlaceholder';
 import MatchCard from '../components/MatchCard';
 import SpecialMatchCard from '../components/SpecialMatchCard';
+import NewsCard from '../components/NewsCard';
 import { LinkText } from '../components/LinkText';
 
 // Lazy load non-critical sections to speed up initial mobile paint
@@ -19,7 +20,7 @@ const ExternalResourcesSection = lazy(() => import('../components/ExternalResour
 const InternalLinkSection = lazy(() => import('../components/InternalLinkSection'));
 
 export default function Home() {
-  const nextMatch = PAKISTAN_SCHEDULE.find(m => m.id === '8') || PAKISTAN_SCHEDULE.find(m => m.status === 'Upcoming') || PAKISTAN_SCHEDULE[0];
+  const nextMatch = PAKISTAN_SCHEDULE.find(m => m.id === '10') || PAKISTAN_SCHEDULE.find(m => m.opponent === 'ENG' && m.title?.includes('2nd Test')) || PAKISTAN_SCHEDULE.find(m => m.status === 'Upcoming') || PAKISTAN_SCHEDULE[0];
   const navigate = useNavigate();
   const [showMoreTactical, setShowMoreTactical] = useState(false);
   
@@ -203,11 +204,11 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="px-4 py-1.5 md:px-5 md:py-2 bg-black border border-white/10 rounded-xl flex items-center gap-2 md:gap-3 shadow-2xl"
+              className="px-4 py-1.5 md:px-5 md:py-2 bg-black border border-pak-green/30 rounded-xl flex items-center gap-2 md:gap-3 shadow-2xl"
             >
-              <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+              <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-pak-green animate-pulse shadow-[0_0_8px_rgba(0,102,46,0.8)]" />
               <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[1.5px] md:tracking-[2px] text-white">
-                PAK vs BAN: BAN won by 78 runs • Historic 2-0 Series Sweep
+                Featured: PAK vs ENG 2nd Test (Lord's) • August 27–31, 2026
               </span>
             </motion.div>
             
@@ -376,142 +377,55 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="space-y-4">
-            {[
-              {
-                id: "masood-imam-lead-sturdy-fightback-wi-311-2026",
-                title: "1st Test Day 2: Masood 88* & Imam 63 Lead Fightback",
-                tag: "Test Series",
-                icon: <Trophy className="w-5 h-5 text-white animate-pulse" />,
-                color: "bg-emerald-700/90 hover:bg-emerald-700",
-                borderColor: "border-emerald-500/30",
-                date: "July 27, 2026"
-              },
-              {
-                id: "resilient-hodge-rain-dominate-opening-day-trinidad-2026",
-                title: "1st Test Day 1: Hodge 84* Resists Pak in Tarouba",
-                tag: "Test Series",
-                icon: <CloudRain className="w-5 h-5 text-white animate-pulse" />,
-                color: "bg-blue-700/90 hover:bg-blue-700",
-                borderColor: "border-blue-500/30",
-                date: "July 27, 2026"
-              },
-              {
-                id: "sizzling-tarouba-pakistan-bowling-dominates-wi-select-2026",
-                title: "Tarouba Domination: Pak Bowling Shines in Warm-Up",
-                tag: "Match Report",
-                icon: <Target className="w-5 h-5 text-white animate-bounce" />,
-                color: "bg-red-700/90 hover:bg-red-700",
-                borderColor: "border-red-500/30",
-                date: "July 21, 2026"
-              },
-              {
-                id: "king-babar-rules-tarouba-masterclass-century-2026",
-                title: "King Babar Rules Tarouba: Century in Warm-Up",
-                tag: "Match Report",
-                icon: <Star className="w-5 h-5 text-white animate-pulse" />,
-                color: "bg-emerald-600/90 hover:bg-emerald-600",
-                borderColor: "border-emerald-500/30",
-                date: "July 21, 2026"
-              },
-              {
-                id: "pakistan-tour-west-indies-warm-up-tarouba-2026",
-                title: "Pakistan Tour of WI: 4-Day Warm-up Prep",
-                tag: "Tour Warm-up",
-                icon: <MapPin className="w-5 h-5 text-white animate-bounce" />,
-                color: "bg-emerald-700/90 hover:bg-emerald-700",
-                borderColor: "border-emerald-500/30",
-                date: "July 17, 2026"
-              },
-              {
-                id: "icc-world-cup-formats-revamped-2027-2028",
-                title: "ICC Revamps ODI & T20 World Cup Formats",
-                tag: "ICC Announcement",
-                icon: <Globe className="w-5 h-5 text-white animate-pulse" />,
-                color: "bg-teal-600/90 hover:bg-teal-600",
-                borderColor: "border-teal-500/30",
-                date: "July 15, 2026"
-              },
-              {
-                id: "babar-azam-reappointed-test-captain-2026",
-                title: "Babar Azam Reappointed as Test Captain",
-                tag: "Captaincy Alert",
-                icon: <Trophy className="w-5 h-5 text-white animate-bounce" />,
-                color: "bg-yellow-600/90 hover:bg-yellow-600",
-                borderColor: "border-yellow-500/30",
-                date: "July 5, 2026"
-              },
-              {
-                id: "pakistan-announce-test-squad-west-indies-england-2026",
-                title: "Pakistan Test Squad for WI & ENG Tours Announced",
-                tag: "Squad Alert",
-                icon: <Shield className="w-5 h-5 text-white animate-pulse" />,
-                color: "bg-emerald-600/90 hover:bg-emerald-600",
-                borderColor: "border-emerald-500/30",
-                date: "July 5, 2026"
-              },
-              {
-                id: "vaibhav-sooryavanshi-youngest-debut-sachin-record-2026",
-                title: "Vaibhav Sooryavanshi Shatters Sachin's Record",
-                tag: "Historic Debut",
-                icon: <Zap className="w-5 h-5 text-white" />,
-                color: "bg-amber-600/90 hover:bg-amber-600",
-                borderColor: "border-amber-500/30",
-                date: "July 2026"
-              },
-              {
-                id: "babar-azam-returns-as-pakistan-test-captain-2026",
-                title: "Babar Azam Returns as Test Captain",
-                tag: "Breaking News",
-                icon: <Zap className="w-5 h-5 text-white" />,
-                color: "bg-yellow-600/90 hover:bg-yellow-600",
-                borderColor: "border-yellow-500/30",
-                date: "July 2026"
-              },
-              {
-                id: "ben-stokes-retires-from-international-cricket-2026",
-                title: "Ben Stokes Retires From Cricket",
-                tag: "Retirement Tribute",
-                icon: <Trophy className="w-5 h-5 text-white" />,
-                color: "bg-rose-600/90 hover:bg-rose-600",
-                borderColor: "border-rose-500/30",
-                date: "June 2026"
-              }
-            ].slice(0, 5).map((news) => (
-              <Link 
-                key={news.id}
-                to={`/news/${news.id}`}
-                className={`flex items-center justify-between p-4 ${news.color} border ${news.borderColor} rounded-2xl group hover:opacity-95 hover:scale-[1.01] transition-all font-bold shadow-lg`}
-              >
-                <div className="flex items-center gap-4">
-                   <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white shrink-0">
-                      {news.icon}
-                   </div>
-                   <div>
-                      <p className="text-[10px] font-black text-white/80 uppercase tracking-widest leading-none mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-                        <span>{news.tag}</span>
-                        <span className="text-white/30 font-bold">•</span>
-                        <span className="text-white/70 font-semibold flex items-center gap-1">
-                          <Calendar className="w-3 h-3 text-white/60 shrink-0" />
-                          Published: {news.date}
-                        </span>
-                      </p>
-                      <h5 className="text-sm font-bold text-white group-hover:text-white transition-colors mb-1.5">{news.title}</h5>
-                      <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
-                         Read Full Story <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                   </div>
+          <div className="space-y-6">
+            {/* Featured Top Story */}
+            {NEWS_DATA.length > 0 && (
+              <NewsCard
+                id={NEWS_DATA[0].id}
+                title={NEWS_DATA[0].title}
+                tag={NEWS_DATA[0].tag}
+                date={NEWS_DATA[0].date}
+                summary={NEWS_DATA[0].summary}
+                variant="featured"
+                badgeText="Top Story"
+                icon={<Trophy className="w-4 h-4 text-pak-green" />}
+              />
+            )}
+
+            {/* Condensed Standard Updates */}
+            {NEWS_DATA.length > 1 && (
+              <div className="space-y-3 pt-2">
+                <div className="flex items-center justify-between px-1 pb-1 border-b border-white/10">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50">
+                    Recent Match Reports & Updates
+                  </span>
+                  <span className="text-[10px] font-bold text-pak-green">
+                    Latest Stories
+                  </span>
                 </div>
-                <ChevronRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors shrink-0 ml-4" />
-              </Link>
-            ))}
+
+                <div className="space-y-2.5">
+                  {NEWS_DATA.slice(1, 5).map((news) => (
+                    <NewsCard
+                      key={news.id}
+                      id={news.id}
+                      title={news.title}
+                      tag={news.tag}
+                      date={news.date}
+                      summary={news.summary}
+                      variant="condensed"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
             <Link 
               to="/news"
-              className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/5 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold shadow-lg"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 bg-white/[0.03] hover:bg-pak-green/10 border border-white/10 hover:border-pak-green/30 rounded-2xl transition-all group mt-4 font-bold shadow-lg"
             >
-              <span className="text-xs font-black uppercase tracking-[2px] text-white/40 group-hover:text-pak-green">
-                See More
+              <span className="text-xs font-black uppercase tracking-[2px] text-white/50 group-hover:text-pak-green">
+                View All News & Match Reports
               </span>
               <ChevronRight className="w-4 h-4 text-pak-green transition-transform group-hover:translate-x-1" />
             </Link>

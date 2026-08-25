@@ -1255,6 +1255,60 @@ The winners of these two Eliminators will join the two group toppers in the Semi
 • **The Global Qualifier (8 Teams)**: The remaining 8 slots will be determined through a 16-team Global Qualifier tournament. Eight teams from the 2026 World Cup that missed direct entry (including the USA, Nepal, Netherlands, and UAE) go straight to this Global Qualifier, while the remaining 8 spots are filled through regional finals.
 `
   },
+  'spin-magic-shafique-marathon-equalizer-port-of-spain-2026': {
+    title: "Spin Magic and Shafique's Marathon Secures Equalizer in Port of Spain",
+    metaTitle: "WI vs PAK 2nd Test: Pakistan Win by 8 Wickets in Port of Spain to Draw Series 1-1",
+    metaDescription: "Pakistan end eight-match overseas Test losing streak with a dominant 8-wicket win over West Indies in Port of Spain behind Abdullah Shafique's 160 and Sajid & Usman's spin magic.",
+    date: "August 7, 2026",
+    tag: "Match Report",
+    author: "PakCric Editorial",
+    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200",
+    content: `
+Pakistan ended their eight-match overseas Test losing streak with a dominant 8-wicket victory over the West Indies in the 2nd Test at the Queen’s Park Oval. After dropping the series opener in Tarouba, Pakistan rebounded in style inside four days to draw the two-match series 1–1.
+
+Driven by a magnificent first-innings century from opener Abdullah Shafique and a tandem spin attack in the second innings, Pakistan comfortably chased down a 75-run target shortly after lunch on Day 4.
+
+### Match Summary & Key Numbers
+
+• **Toss**: West Indies (Elected to Bat)
+• **West Indies First Innings**: 344/10 in 105.4 overs (Justin Greaves 73, Roston Chase 70; Sajid Khan 4/85)
+• **Pakistan First Innings**: 387/10 in 115.0 overs (Abdullah Shafique 160, Babar Azam 88; Jomel Warrican 6/112)
+• **West Indies Second Innings**: 117/10 in 46.1 overs (Kavem Hodge 34; Sajid Khan 4/32, Ali Usman 4/39)
+• **Pakistan Second Innings (Target: 75)**: 77/2 in 23.3 overs (Abdullah Shafique 24*, Babar Azam 24*)
+• **Result**: Pakistan won by 8 wickets (Series Tied 1-1)
+• **Player of the Match**: Abdullah Shafique
+
+# Innings Breakdown
+
+## 1. West Indies Set the Early Pace (344/10)
+Opting to bat first, the hosts relied on steady middle-order contributions. Justin Greaves led the effort with a patient 73 off 150 balls, while captain Roston Chase added 70. Off-spinner Sajid Khan provided the key breakthroughs for Pakistan, picking up 4 for 85.
+
+## 2. Abdullah Shafique’s Marathon 160 (387/10)
+Pakistan's reply was built around Player of the Match Abdullah Shafique, who anchored the innings with a majestic 160 off 323 balls (15 fours, 3 sixes). Supported by a fluent 88 from Babar Azam, Pakistan carved out a critical 43-run first-innings lead despite a 6-wicket haul from Windies spinner Jomel Warrican.
+
+## 3. The Spin Web: WI Crumble for 117
+Taking advantage of a turning Queen’s Park Oval surface, Pakistan’s slow bowlers dismantled the West Indies lineup in their second effort. Sajid Khan (4/32) and left-arm spinner Ali Usman (4/39) shared eight wickets between them, bowl-outs that saw the hosts fall for just 117.
+
+### 2ND TEST: MATCH SCORECARD
+
+| Innings | Score | Key Performers |
+| :--- | :--- | :--- |
+| **West Indies 1st Innings** | 344/10 (105.4 overs) | Justin Greaves 73, Roston Chase 70 |
+| **Pakistan 1st Innings** | 387/10 (115.0 overs) | Abdullah Shafique 160, Babar Azam 88 |
+| **West Indies 2nd Innings** | 117/10 (46.1 overs) | Sajid Khan 4/32, Ali Usman 4/39 |
+| **Pakistan 2nd Innings** | 77/2 (23.3 overs) | Abdullah Shafique 24*, Babar Azam 24* |
+| **RESULT** | **Pakistan won by 8 wickets** | **Series Tied 1–1** |
+
+## 4. The Chase & Finishing Blow
+Requiring only 75 runs for victory, Pakistan lost early wickets before Abdullah Shafique (24*) and Babar Azam (24*) sealed the chase. Babar capped off the match in style, launching back-to-back sixes off Jomel Warrican to hit the winning runs.
+
+# Major Takeaways
+
+• **Streak Broken**: The victory marks Pakistan’s first Test win away from home after eight consecutive overseas losses.
+• **Spin Selection Validated**: Management's decision to play slow bowlers Sajid Khan and Ali Usman paid massive dividends on the wearing Port of Spain pitch.
+• **Shafique’s Return to Form**: Abdullah Shafique’s first-innings 160 provided the structural backbone Pakistan needed to gain the match lead.
+`
+  },
   'masood-imam-lead-sturdy-fightback-wi-311-2026': {
     title: "Masood and Imam Lead Sturdy Fightback After WI Fold for 311",
     metaTitle: "WI vs PAK 1st Test Day 2: Shan Masood 88* & Imam 63 Lead Sturdy Fightback",

@@ -2,6 +2,13 @@ import { NewsItem } from './types';
 
 export const NEWS_DATA: NewsItem[] = [
   {
+    id: 'spin-magic-shafique-marathon-equalizer-port-of-spain-2026',
+    title: "Spin Magic and Shafique's Marathon Secures Equalizer in Port of Spain",
+    date: 'August 7, 2026',
+    tag: 'Test Series',
+    summary: "Pakistan end an eight-match overseas Test losing streak with a dominant 8-wicket victory over West Indies in Port of Spain, drawing the series 1–1 behind Abdullah Shafique's 160 and Sajid Khan & Ali Usman's spin magic."
+  },
+  {
     id: 'masood-imam-lead-sturdy-fightback-wi-311-2026',
     title: "Masood and Imam Lead Sturdy Fightback After WI Fold for 311",
     date: 'July 27, 2026',

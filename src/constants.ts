@@ -293,13 +293,68 @@ Australia used their feet better in the 2nd ODI, targeting the boundaries more a
     id: '10',
     opponent: 'ENG',
     format: 'Test',
-    title: 'Pak vs Eng 2nd Test (Lords)',
-    date: '2026-08-27',
-    time: '15:00 PKT',
-    venue: "Lord's, London",
-    series: 'Pakistan Tour of England',
+    title: "Pakistan vs England, 2nd Test Match (Lord's)",
+    date: 'August 27–31, 2026',
+    time: '03:30 PM PKT',
+    venue: "Lord's Cricket Ground, London",
+    series: 'Pakistan Tour of England (Test Series)',
     status: 'Upcoming',
-    flagUrl: 'https://flagcdn.com/gb.svg'
+    granularStatus: "2nd Test • Lord's, London • WTC Cycle 2025–27",
+    flagUrl: 'https://flagcdn.com/gb.svg',
+    preMatchAnalysis: `
+### The Lord's Test: High Stakes at the Home of Cricket
+Pakistan clash with England at the iconic Lord's Cricket Ground in London for the high-voltage 2nd Test match of the 2026 Test series. Critical World Test Championship (WTC) points and pride are on the line.
+
+### Tactical Battles & Pitch Dynamics
+* **The Famous Lord's Slope:** Bowlers who can exploit the 8-foot slope across the ground will hold a massive advantage. Shaheen Shah Afridi from the Pavilion End and Naseem Shah with his sharp nip-backer will test England's aggressive top order.
+* **Babar Azam & Shan Masood Anchor Role:** Babar Azam holds a stellar record in English conditions. Alongside captain Shan Masood and Saud Shakeel, Pakistan's middle order will look to counter England's seam attack led by Gus Atkinson and Chris Woakes.
+* **Joe Root & Brook vs Pak Pacers:** Root's phenomenal scoring record at Lord's makes him the prized wicket. Pakistan's pace battery must strike with the new Duke ball in overcast conditions.
+    `,
+    playingXI: [
+      {
+        team: 'Pakistan',
+        players: [
+          { name: 'Abdullah Shafique', role: 'Opening Batter' },
+          { name: 'Shan Masood', role: 'Opening Batter', isCaptain: true },
+          { name: 'Babar Azam', role: 'Batter' },
+          { name: 'Saud Shakeel', role: 'Batter' },
+          { name: 'Mohammad Rizwan', role: 'Wicket-keeper', isWicketkeeper: true },
+          { name: 'Salman Ali Agha', role: 'All-rounder' },
+          { name: 'Aamer Jamal', role: 'All-rounder' },
+          { name: 'Shaheen Shah Afridi', role: 'Fast Bowler' },
+          { name: 'Naseem Shah', role: 'Fast Bowler' },
+          { name: 'Khurram Shahzad', role: 'Fast Bowler' },
+          { name: 'Abrar Ahmed', role: 'Spinner' }
+        ]
+      },
+      {
+        team: 'England',
+        players: [
+          { name: 'Zak Crawley', role: 'Opening Batter' },
+          { name: 'Ben Duckett', role: 'Opening Batter' },
+          { name: 'Ollie Pope', role: 'Batter' },
+          { name: 'Joe Root', role: 'Batter' },
+          { name: 'Harry Brook', role: 'Batter' },
+          { name: 'Ben Stokes', role: 'All-rounder', isCaptain: true },
+          { name: 'Jamie Smith', role: 'Wicket-keeper', isWicketkeeper: true },
+          { name: 'Chris Woakes', role: 'All-rounder' },
+          { name: 'Gus Atkinson', role: 'Fast Bowler' },
+          { name: 'Matthew Potts', role: 'Fast Bowler' },
+          { name: 'Shoaib Bashir', role: 'Spinner' }
+        ]
+      }
+    ],
+    venueInsights: {
+      avgFirstInningsScore: 312,
+      winPercentageBattingFirst: 48,
+      winPercentageBattingSecond: 52,
+      pitchCondition: "The Lord's pitch offers generous seam and swing with the Duke ball during Days 1 and 2, assisted by the notorious slope. Batting stabilizes on Days 2–3 before variable bounce and reverse swing emerge on Days 4 and 5."
+    },
+    playersToWatch: [
+      { name: 'Babar Azam', role: 'Batter', reason: 'Boasts an exceptional track record in England; pivotal anchor against the moving Duke ball.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Babar' },
+      { name: 'Shaheen Shah Afridi', role: 'Fast Bowler', reason: 'Deadly left-arm angle utilizing the slope from the Pavilion End with the new ball.', imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shaheen' },
+      { name: 'Joe Root', role: 'Batter', reason: "England's prolific run machine at Lord's with an outstanding century conversion rate.", imgUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Root' }
+    ]
   },
   {
     id: '11',

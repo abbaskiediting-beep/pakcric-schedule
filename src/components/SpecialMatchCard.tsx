@@ -57,7 +57,7 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
             </div>
             <div className="relative z-10 min-w-0">
               <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">Pakistan</h3>
-              <p className="text-[7px] sm:text-[11px] font-black text-pak-green uppercase tracking-[2px] md:tracking-[3px]">{match.opponent === 'AUS' ? "Babar's Men" : "Shaheen's Men"}</p>
+              <p className="text-[7px] sm:text-[11px] font-black text-pak-green uppercase tracking-[2px] md:tracking-[3px]">{match.format === 'Test' ? "Shan's Men" : match.opponent === 'AUS' ? "Babar's Men" : "Shaheen's Men"}</p>
             </div>
           </div>
 
@@ -154,8 +154,12 @@ export default function SpecialMatchCard({ match }: SpecialMatchCardProps) {
               </div>
             </div>
             <div className="relative z-10 min-w-0">
-              <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">{match.opponent}</h3>
-              <p className="text-[7px] sm:text-[11px] font-black text-red-500 uppercase tracking-[2px] md:tracking-[3px]">{match.opponent === 'AUS' ? 'The Aussies' : match.opponent === 'BAN' ? 'The Tigers' : 'The Opponent'}</p>
+              <h3 className="text-xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tighter mb-1 truncate">
+                {match.opponent === 'ENG' ? 'England' : match.opponent === 'AUS' ? 'Australia' : match.opponent === 'BAN' ? 'Bangladesh' : match.opponent === 'WI' ? 'West Indies' : match.opponent === 'SL' ? 'Sri Lanka' : match.opponent}
+              </h3>
+              <p className="text-[7px] sm:text-[11px] font-black text-red-500 uppercase tracking-[2px] md:tracking-[3px]">
+                {match.opponent === 'ENG' ? 'The Three Lions' : match.opponent === 'AUS' ? 'The Aussies' : match.opponent === 'BAN' ? 'The Tigers' : match.opponent === 'WI' ? 'The Windies' : 'The Opponent'}
+              </p>
             </div>
           </div>
         </div>
